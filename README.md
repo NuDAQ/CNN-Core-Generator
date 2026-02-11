@@ -29,7 +29,7 @@ array set opt {
 Then compile. Make sure you have Vitis HLS installed and properly set up in your environment.
 ```
 cd cnn_core_project
-vitis_hls -f cnn_core.tcl
+vitis_hls -f build_prj.tcl
 ```
 
 ## License
