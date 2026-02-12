@@ -1,0 +1,80 @@
+Backend: Vitis
+ClockPeriod: 5
+ClockUncertainty: 27%
+HLSConfig:
+  LayerName:
+    flatten:
+      Precision:
+        result: auto
+      Trace: false
+    input_layer:
+      Precision:
+        result: ap_fixed<12,6>
+      StreamDepth: 16
+      Trace: false
+    max_pooling2d:
+      Precision:
+        result: auto
+      Trace: false
+    permute:
+      Precision:
+        result: auto
+      Trace: false
+    q_conv2d:
+      Precision:
+        bias: ap_fixed<17,9>
+        result: ap_fixed<17,9>
+        weight: ap_fixed<17,9>
+      Trace: false
+    q_conv2d_relu:
+      Precision:
+        result: auto
+      Trace: false
+    q_dense:
+      Precision:
+        bias: ap_fixed<17,9>
+        result: ap_fixed<17,9>
+        weight: ap_fixed<17,9>
+      Trace: false
+    reshape:
+      Precision:
+        result: auto
+      Trace: false
+    reshape_1:
+      Precision:
+        result: auto
+      Trace: false
+    reshape_2:
+      Precision:
+        result: auto
+      Trace: false
+  Model:
+    BitExact: null
+    BramFactor: 1000000000
+    Precision:
+      default: ap_fixed<16,6>
+    ReuseFactor: 1
+    Strategy: Latency
+    TraceOutput: false
+IOType: io_stream
+InputData: null
+InputShapes:
+  input_layer:
+  - 256
+  - 4
+KerasModel: !keras_model 'cnn_core_project//keras_model.keras'
+OutputDir: cnn_core_project/
+OutputPredictions: null
+OutputShapes:
+  layer10_out:
+  - 1
+Part: xcku5p-ffvb676-2-e
+ProjectName: cnn_core
+Stamp: 10f147bd
+Version: 1.0.0
+WriterConfig:
+  Namespace: null
+  TBOutputStream: both
+  WriteEmulationConstants: false
+  WriteTar: false
+  WriteWeightsTxt: true

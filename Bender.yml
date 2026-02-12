@@ -1,0 +1,9 @@
+# Package metadata. Required.
+package:
+  # The name of the package. Required.
+  name: cnn-core
+
+  # The list of package authors and contributors. Optional.
+  # By convention, authors should be listed in the form shown below.
+  authors: ["Albert L. Cheung <albert.cheung@cern.ch>"]
+

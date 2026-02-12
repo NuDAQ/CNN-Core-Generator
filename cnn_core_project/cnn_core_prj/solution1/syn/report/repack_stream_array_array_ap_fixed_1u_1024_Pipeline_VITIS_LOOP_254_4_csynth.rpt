@@ -1,0 +1,145 @@
+
+
+================================================================
+== Vitis HLS Report for 'repack_stream_array_array_ap_fixed_1u_1024_Pipeline_VITIS_LOOP_254_4'
+================================================================
+* Date:           Wed Feb 11 15:57:45 2026
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        cnn_core_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: kintexuplus
+* Target device:  xcku5p-ffvb676-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  5.00 ns|  2.987 ns|     1.35 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      258|      258|  1.290 us|  1.290 us|  258|  258|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_254_4  |      256|      256|         2|          1|          1|   256|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|      37|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     -|       -|       -|    -|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       -|      45|    -|
+|Register         |        -|     -|      12|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     0|      12|      82|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |      960|  1824|  433920|  216960|   64|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|     0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------+----------+----+---+----+------------+------------+
+    |       Variable Name       | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------+----------+----+---+----+------------+------------+
+    |add_ln254_fu_75_p2         |         +|   0|  0|  16|           9|           1|
+    |ap_block_pp0_stage0_01001  |       and|   0|  0|   2|           1|           1|
+    |icmp_ln254_fu_69_p2        |      icmp|   0|  0|  17|           9|          10|
+    |ap_enable_pp0              |       xor|   0|  0|   2|           1|           2|
+    +---------------------------+----------+----+---+----+------------+------------+
+    |Total                      |          |   0|  0|  37|          20|          14|
+    +---------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_j_1     |   9|          2|    9|         18|
+    |j_fu_36                  |   9|          2|    9|         18|
+    |layer11_out_blk_n        |   9|          2|    1|          2|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  45|         10|   21|         42|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------+---+----+-----+-----------+
+    |           Name          | FF| LUT| Bits| Const Bits|
+    +-------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                |  1|   0|    1|          0|
+    |ap_done_reg              |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1  |  1|   0|    1|          0|
+    |j_fu_36                  |  9|   0|    9|          0|
+    +-------------------------+---+----+-----+-----------+
+    |Total                    | 12|   0|   12|          0|
+    +-------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------------+-----+-----+------------+------------------------------------------------------------------------+--------------+
+|          RTL Ports         | Dir | Bits|  Protocol  |                              Source Object                             |    C Type    |
++----------------------------+-----+-----+------------+------------------------------------------------------------------------+--------------+
+|ap_clk                      |   in|    1|  ap_ctrl_hs|  repack_stream<array,array<ap_fixed,1u>,1024>_Pipeline_VITIS_LOOP_254_4|  return value|
+|ap_rst                      |   in|    1|  ap_ctrl_hs|  repack_stream<array,array<ap_fixed,1u>,1024>_Pipeline_VITIS_LOOP_254_4|  return value|
+|ap_start                    |   in|    1|  ap_ctrl_hs|  repack_stream<array,array<ap_fixed,1u>,1024>_Pipeline_VITIS_LOOP_254_4|  return value|
+|ap_done                     |  out|    1|  ap_ctrl_hs|  repack_stream<array,array<ap_fixed,1u>,1024>_Pipeline_VITIS_LOOP_254_4|  return value|
+|ap_idle                     |  out|    1|  ap_ctrl_hs|  repack_stream<array,array<ap_fixed,1u>,1024>_Pipeline_VITIS_LOOP_254_4|  return value|
+|ap_ready                    |  out|    1|  ap_ctrl_hs|  repack_stream<array,array<ap_fixed,1u>,1024>_Pipeline_VITIS_LOOP_254_4|  return value|
+|layer11_out_din             |  out|   12|     ap_fifo|                                                             layer11_out|       pointer|
+|layer11_out_num_data_valid  |   in|   11|     ap_fifo|                                                             layer11_out|       pointer|
+|layer11_out_fifo_cap        |   in|   11|     ap_fifo|                                                             layer11_out|       pointer|
+|layer11_out_full_n          |   in|    1|     ap_fifo|                                                             layer11_out|       pointer|
+|layer11_out_write           |  out|    1|     ap_fifo|                                                             layer11_out|       pointer|
+|in_data16_address0          |  out|    8|   ap_memory|                                                               in_data16|         array|
+|in_data16_ce0               |  out|    1|   ap_memory|                                                               in_data16|         array|
+|in_data16_q0                |   in|   12|   ap_memory|                                                               in_data16|         array|
++----------------------------+-----+-----+------------+------------------------------------------------------------------------+--------------+
+

@@ -1,0 +1,5 @@
+7 warnings and 3 errors generated.
+Error while processing /home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp.
+clang-tidy applied 112 of 112 suggested fixes.
+Suppressed 255 warnings (248 in non-user code, 7 with check filters).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

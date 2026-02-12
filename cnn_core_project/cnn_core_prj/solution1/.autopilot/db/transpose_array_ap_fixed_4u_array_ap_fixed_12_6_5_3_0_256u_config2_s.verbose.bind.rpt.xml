@@ -1,0 +1,47 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'transpose_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_256u_config2_s'" level="0">
+<item name = "Date">Wed Feb 11 15:57:29 2026
+</item>
+<item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
+<item name = "Project">cnn_core_prj</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">kintexuplus</item>
+<item name = "Target device">xcku5p-ffvb676-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00 ns, 2.203 ns, 1.35 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">269, 269, 1.345 us, 1.345 us, 269, 269, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_16_1_fu_4124">transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_16_1, 258, 258, 1.290 us, 1.290 us, 258, 258, no</column>
+<column name="grp_transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_25_3_fu_5154">transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_25_3, 6, 6, 30.000 ns, 30.000 ns, 6, 6, no</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>
