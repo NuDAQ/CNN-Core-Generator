@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_s'
 ================================================================
-* Date:           Wed Feb 11 15:57:30 2026
+* Date:           Wed Feb 11 16:57:54 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_prj
@@ -127,7 +127,7 @@ Target clock period: 5.000ns, clock uncertainty: 1.350ns.
 The critical path consists of the following:
 	'store' operation 0 bit ('store_ln0') of constant 0 on local variable 'indvar_flatten' [13]  (0.427 ns)
 	'load' operation 11 bit ('indvar_flatten_load', firmware/nnet_utils/nnet_conv2d_stream.h:25->firmware/nnet_utils/nnet_conv2d_stream.h:76) on local variable 'indvar_flatten' [16]  (0.000 ns)
-	'add' operation 11 bit ('add_ln25', firmware/nnet_utils/nnet_conv2d_stream.h:25->firmware/nnet_utils/nnet_conv2d_stream.h:76) [18]  (0.798 ns)
+	'icmp' operation 1 bit ('icmp_ln25', firmware/nnet_utils/nnet_conv2d_stream.h:25->firmware/nnet_utils/nnet_conv2d_stream.h:76) [17]  (0.798 ns)
 	'store' operation 0 bit ('store_ln25', firmware/nnet_utils/nnet_conv2d_stream.h:25->firmware/nnet_utils/nnet_conv2d_stream.h:76) of variable 'add_ln25', firmware/nnet_utils/nnet_conv2d_stream.h:25->firmware/nnet_utils/nnet_conv2d_stream.h:76 on local variable 'indvar_flatten' [26]  (0.427 ns)
 
  <State 2>: 1.750ns

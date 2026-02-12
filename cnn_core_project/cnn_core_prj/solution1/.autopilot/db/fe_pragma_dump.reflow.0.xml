@@ -1,4 +1,5 @@
 <pragmas>
+<pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, 0>::stream(char const*)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<nnet::array<ap_fixed<12, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 256u>, 0>::stream(char const*)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed<17, 9, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed(double)" off="0" region="0" recursive="0"/>
 <pragma file="/tools/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/ap_common.h" line="718" pragmaType="inline" parentfunction="doubleToRawBits" off="0" region="0" recursive="0"/>
@@ -187,7 +188,6 @@
 <pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<32, 32, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 32, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<29, 15, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<29, 15, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, 0>::stream(char const*)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<12, true>& ap_int_base<12, true>::operator=<13, true>(ap_int_base<13, true> const&)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<33, 15, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<33, 15, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)" off="0" region="0" recursive="0"/>
 </pragmas>

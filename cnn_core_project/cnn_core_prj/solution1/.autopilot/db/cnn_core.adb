@@ -70,7 +70,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>2962373680</coreId>
+              <coreId>3029751216</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>32</bitwidth>
@@ -396,7 +396,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item class_id="11" tracking_level="0" version="0">
-                  <first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+                  <first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
                   <second class_id="12" tracking_level="0" version="0">
                     <count>1</count>
                     <item_version>0</item_version>
@@ -418,7 +418,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>2962325888</coreId>
+              <coreId>3029607856</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -454,7 +454,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+                  <first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -476,7 +476,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>2962370096</coreId>
+              <coreId>4294967040</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -514,7 +514,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+                  <first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -536,7 +536,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>2962501232</coreId>
+              <coreId>186266797</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -581,7 +581,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+                  <first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -603,7 +603,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>2962430864</coreId>
+              <coreId>448</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -641,7 +641,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+                  <first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -663,7 +663,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>0</coreId>
+              <coreId>3024081424</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -718,7 +718,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+                  <first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -740,7 +740,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1886680431</coreId>
+              <coreId>3029607856</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -778,7 +778,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+                  <first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -800,7 +800,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>2962437520</coreId>
+              <coreId>542329928</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -838,7 +838,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+                  <first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -860,7 +860,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>448</coreId>
+              <coreId>1717924464</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -898,7 +898,7 @@
                 <count>1</count>
                 <item_version>0</item_version>
                 <item>
-                  <first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+                  <first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
                   <second>
                     <count>1</count>
                     <item_version>0</item_version>
@@ -920,7 +920,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>2962151232</coreId>
+              <coreId>3029555552</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -965,7 +965,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>2962151816</coreId>
+              <coreId>160</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>64</bitwidth>
@@ -996,7 +996,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>0</coreId>
+              <coreId>4294967040</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -1027,7 +1027,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>3294889151</coreId>
+              <coreId>3029607856</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -1058,7 +1058,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>4294966961</coreId>
+              <coreId>4228300630</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -1089,7 +1089,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>176</coreId>
+              <coreId>0</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -1120,7 +1120,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>0</coreId>
+              <coreId>3029090992</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -1151,7 +1151,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>176</coreId>
+              <coreId>57</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -1182,7 +1182,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>0</coreId>
+              <coreId>3029607856</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -1213,7 +1213,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>0</coreId>
+              <coreId>1869833586</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>

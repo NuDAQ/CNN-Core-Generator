@@ -1,9 +1,9 @@
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.cpp"
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.cpp"
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "/usr/include/stdc-predef.h" 1 3 4
 # 1 "<command-line>" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.cpp"
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.cpp"
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/iostream" 1 3
 # 36 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/iostream" 3
        
@@ -27291,9 +27291,9 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 
 }
-# 2 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.cpp" 2
+# 2 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.cpp" 2
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.h" 1
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.h" 1
 
 
 
@@ -60355,9 +60355,9 @@ inline bool operator!=(
 
 }
 # 366 "/tools/Xilinx/Vitis_HLS/2023.2/include/ap_fixed.h" 2
-# 5 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.h" 2
+# 5 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.h" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/include/ap_int.h" 1
-# 6 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.h" 2
+# 6 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.h" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/include/hls_stream.h" 1
 # 22 "/tools/Xilinx/Vitis_HLS/2023.2/include/hls_stream.h"
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/queue" 1 3
@@ -82119,27 +82119,27 @@ public:
 };
 
 }
-# 7 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.h" 2
+# 7 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.h" 2
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/defines.h" 1
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/defines.h" 1
 
 
 
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/include/ap_int.h" 1
-# 6 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/defines.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h" 1
+# 6 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/defines.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h" 1
 
 
 
 # 1 "/usr/include/assert.h" 1 3 4
-# 5 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h" 2
+# 5 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h" 2
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdio" 1 3
 # 39 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdio" 3
        
 # 40 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdio" 3
-# 7 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h" 2
+# 7 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h" 2
 
 namespace nnet {
 
@@ -82159,17 +82159,17 @@ template <typename T, unsigned N> struct array {
             return *this;
 
         
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h" 3 4
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h" 3 4
        (static_cast <bool> (
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h"
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h"
        N == other.size && "Array sizes must match."
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h" 3 4
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h" 3 4
        ) ? void (0) : __assert_fail (
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h"
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h"
        "N == other.size && \"Array sizes must match.\""
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h" 3 4
-       , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h", 25, __extension__ __PRETTY_FUNCTION__))
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h"
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h" 3 4
+       , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h", 25, __extension__ __PRETTY_FUNCTION__))
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h"
                                                            ;
 
         for (unsigned i = 0; i < N; i++) {
@@ -82224,14 +82224,14 @@ template <typename T, unsigned N, T (*func)(T)> class lookup_table {
 };
 
 }
-# 7 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/defines.h" 2
+# 7 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/defines.h" 2
 
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdio" 1 3
 # 39 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdio" 3
        
 # 40 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdio" 3
-# 10 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/defines.h" 2
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/defines.h" 2
 
 
 
@@ -82255,7 +82255,7 @@ typedef nnet::array<ap_fixed<17,9>, 1*1> result_t;
 typedef ap_fixed<17,9> q_dense_weight_t;
 typedef ap_fixed<17,9> q_dense_bias_t;
 typedef ap_uint<1> layer10_index;
-# 9 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.h" 2
+# 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.h" 2
 
 
 
@@ -82263,29 +82263,29 @@ void cnn_core(
     hls::stream<input_t> &input_layer,
     hls::stream<result_t> &layer10_out
 );
-# 4 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.cpp" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 1
+# 4 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.cpp" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 1
 
 
 
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/include/ap_int.h" 1
-# 6 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
+# 6 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_code_gen.h" 1
-
-
-
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h" 1
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_code_gen.h" 1
 
 
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_common.h" 1
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h" 1
+
+
+
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_common.h" 1
 
 
 
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 1
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 1
 
 
 
@@ -87169,7 +87169,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 }
 # 63 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/algorithm" 2 3
-# 6 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 2
+# 6 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/fstream" 1 3
 # 36 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/fstream" 3
        
@@ -89010,7 +89010,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 }
 # 1170 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/fstream" 2 3
-# 7 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 2
+# 7 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 2
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/map" 1 3
 # 58 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/map" 3
@@ -92183,16 +92183,16 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 }
 # 63 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/map" 2 3
-# 9 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 2
+# 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/math.h" 1 3
-# 10 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 2
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 2
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/stdlib.h" 1 3
-# 12 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 2
+# 12 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 2
 
 
 
-# 14 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
+# 14 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
 namespace nnet {
 
 
@@ -92387,17 +92387,17 @@ template <class data_T> void save_layer_output(data_T *data, const char *layer_n
         std::fstream out;
         out.open(filename.str(), std::ios::app);
         
-# 207 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
+# 207 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
        (static_cast <bool> (
-# 207 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
+# 207 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
        out.is_open()
-# 207 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
+# 207 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
        ) ? void (0) : __assert_fail (
-# 207 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
+# 207 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
        "out.is_open()"
-# 207 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
-       , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h", 207, __extension__ __PRETTY_FUNCTION__))
-# 207 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
+# 207 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
+       , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h", 207, __extension__ __PRETTY_FUNCTION__))
+# 207 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
                             ;
         for (int i = 0; i < layer_size; i++) {
             out << float(data[i]) << " ";
@@ -92429,17 +92429,17 @@ template <class data_T> void save_layer_output(hls::stream<data_T> &data, const 
         std::fstream out;
         out.open(filename.str(), std::ios::app);
         
-# 237 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
+# 237 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
        (static_cast <bool> (
-# 237 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
+# 237 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
        out.is_open()
-# 237 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
+# 237 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
        ) ? void (0) : __assert_fail (
-# 237 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
+# 237 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
        "out.is_open()"
-# 237 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
-       , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h", 237, __extension__ __PRETTY_FUNCTION__))
-# 237 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
+# 237 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
+       , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h", 237, __extension__ __PRETTY_FUNCTION__))
+# 237 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
                             ;
         for (size_t i = 0; i < layer_size / data_T::size; i++) {
             data_T ctype = data.read();
@@ -92584,14 +92584,14 @@ constexpr int floorlog2(int x) { return (x < 2) ? 0 : 1 + floorlog2(x / 2); }
 constexpr int pow2(int x) { return x == 0 ? 1 : 2 * pow2(x - 1); }
 
 }
-# 6 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_common.h" 2
-# 23 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_common.h"
+# 6 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_common.h" 2
+# 23 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_common.h"
 namespace nnet {
 
 
 enum io_type { io_parallel = 0, io_stream };
 enum strategy { latency, resource, resource_unrolled, distributed_arithmetic };
-# 37 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_common.h"
+# 37 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_common.h"
 template <class T, int N, class Op> T reduce(const T *x, Op op) {
     static constexpr int leftN = pow2(floorlog2(N - 1)) > 0 ? pow2(floorlog2(N - 1)) : 0;
     static constexpr int rightN = N - leftN > 0 ? N - leftN : 0;
@@ -92630,8 +92630,8 @@ template <class T> class Op_min {
 };
 
 }
-# 5 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_mult.h" 1
+# 5 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_mult.h" 1
 
 
 
@@ -92640,7 +92640,7 @@ template <class T> class Op_min {
 
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/math.h" 1 3
-# 9 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_mult.h" 2
+# 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_mult.h" 2
 
 namespace nnet {
 
@@ -92747,12 +92747,12 @@ inline typename std::enable_if<(!std::is_same<data_T, ap_uint<1>>::value), res_T
 }
 
 }
-# 6 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h" 2
+# 6 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdlib" 1 3
 # 39 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdlib" 3
        
 # 40 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdlib" 3
-# 7 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h" 2
+# 7 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h" 2
 
 namespace nnet {
 
@@ -92840,17 +92840,17 @@ void pointwise_conv_1d_latency_cl(data_T data[CONFIG_T::in_width * CONFIG_T::n_c
                                   typename CONFIG_T::weight_t weights[CONFIG_T::n_chan * CONFIG_T::n_filt],
                                   typename CONFIG_T::bias_t biases[CONFIG_T::n_filt]) {
     
-# 93 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h" 3 4
+# 93 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h" 3 4
    (static_cast <bool> (
-# 93 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h"
+# 93 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h"
    CONFIG_T::filt_width == 1
-# 93 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h" 3 4
+# 93 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h" 3 4
    ) ? void (0) : __assert_fail (
-# 93 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h"
+# 93 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h"
    "CONFIG_T::filt_width == 1"
-# 93 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h", 93, __extension__ __PRETTY_FUNCTION__))
-# 93 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h"
+# 93 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h", 93, __extension__ __PRETTY_FUNCTION__))
+# 93 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv1d_latency.h"
                                     ;
 
     typename CONFIG_T::accum_t mult[CONFIG_T::out_width * CONFIG_T::n_filt * CONFIG_T::n_chan / CONFIG_T::n_partitions];
@@ -92925,13 +92925,13 @@ AccumOut:
 }
 
 }
-# 5 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_code_gen.h" 2
+# 5 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_code_gen.h" 2
 
 
 
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_function_stubs.h" 1
-# 10 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_function_stubs.h"
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_function_stubs.h" 1
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_function_stubs.h"
 namespace nnet {
 
 template <class data_T, typename CONFIG_T> class FillConv1DBuffer {
@@ -93010,7 +93010,7 @@ template <int s, int b> ap_ufixed<b, s> bit_shift(ap_uint<b> x) {
 
 
 }
-# 10 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_code_gen.h" 2
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_code_gen.h" 2
 
 
 namespace nnet {
@@ -93028,11 +93028,11 @@ template <class data_T, class res_T, typename CONFIG_T> class PointwiseConv1D {
 
 
 }
-# 8 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 1
-# 9 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
+# 8 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 1
+# 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_activation.h" 1
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_activation.h" 1
 
 
 
@@ -93042,7 +93042,7 @@ template <class data_T, class res_T, typename CONFIG_T> class PointwiseConv1D {
 # 39 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cmath" 3
        
 # 40 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cmath" 3
-# 7 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_activation.h" 2
+# 7 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_activation.h" 2
 
 namespace nnet {
 
@@ -93878,17 +93878,17 @@ void ternary_tanh(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in]) {
 }
 
 }
-# 11 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 1
+# 11 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 1
 
 
 
 
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_activation.h" 1
-# 7 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_activation.h" 1
+# 7 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 2
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 1
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 1
 
 
 
@@ -94179,17 +94179,17 @@ template <class data_T, class res_T, int N> void repack_stream(hls::stream<data_
 template <class data_T, class res_T, typename CONFIG_T>
 void broadcast_stream_1x1xC(hls::stream<data_T> &data, hls::stream<res_T> &res) {
     
-# 290 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
+# 290 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
    (static_cast <bool> (
-# 290 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h"
+# 290 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h"
    CONFIG_T::in_height == 1 && CONFIG_T::in_width == 1 && CONFIG_T::in_chan == CONFIG_T::out_chan
-# 290 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
+# 290 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
    ) ? void (0) : __assert_fail (
-# 290 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h"
+# 290 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h"
    "CONFIG_T::in_height == 1 && CONFIG_T::in_width == 1 && CONFIG_T::in_chan == CONFIG_T::out_chan"
-# 290 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h", 290, __extension__ __PRETTY_FUNCTION__))
-# 290 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h"
+# 290 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h", 290, __extension__ __PRETTY_FUNCTION__))
+# 290 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h"
                                                                                                          ;
     int n_dupl = (CONFIG_T::out_height * CONFIG_T::out_width * CONFIG_T::out_chan) /
                  (CONFIG_T::in_height * CONFIG_T::in_width * CONFIG_T::in_chan);
@@ -94213,24 +94213,24 @@ BroadcastLoop:
 template <class data_T, class res_T, typename CONFIG_T>
 void broadcast_stream_HxWx1(hls::stream<data_T> &data, hls::stream<res_T> &res) {
     
-# 312 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
+# 312 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
    (static_cast <bool> (
-# 312 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h"
+# 312 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h"
    CONFIG_T::in_chan == 1 && CONFIG_T::in_height == CONFIG_T::out_height && CONFIG_T::in_width == CONFIG_T::out_width
-# 312 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
+# 312 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
    ) ? void (0) : __assert_fail (
-# 312 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h"
+# 312 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h"
    "CONFIG_T::in_chan == 1 && CONFIG_T::in_height == CONFIG_T::out_height && CONFIG_T::in_width == CONFIG_T::out_width"
-# 312 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
+# 312 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
    ,
-                                                    "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h"
-# 312 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
+                                                    "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h"
+# 312 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
     ,
                                                     313
-# 312 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
+# 312 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 3 4
     , __extension__ __PRETTY_FUNCTION__))
                                                      
-# 313 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h"
+# 313 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h"
                                                     ;
 BroadcastLoop:
     for (int i = 0; i < CONFIG_T::in_height * CONFIG_T::in_width * CONFIG_T::in_chan / data_T::size; i++) {
@@ -94257,14 +94257,14 @@ void broadcast_stream(hls::stream<data_T> &data, hls::stream<res_T> &res) {
 }
 
 }
-# 9 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h" 1
-# 10 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 2
+# 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h" 1
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cmath" 1 3
 # 39 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cmath" 3
        
 # 40 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cmath" 3
-# 11 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 2
+# 11 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 2
 
 namespace nnet {
 
@@ -94607,17 +94607,17 @@ void softmax_argmax(hls::stream<data_T> &data, hls::stream<res_T> &res) {
 
 template <class data_T, class res_T, typename CONFIG_T> void softmax(hls::stream<data_T> &data, hls::stream<res_T> &res) {
     
-# 352 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 3 4
+# 352 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 3 4
    (static_cast <bool> (
-# 352 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h"
+# 352 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h"
    CONFIG_T::axis == -1
-# 352 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 3 4
+# 352 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 3 4
    ) ? void (0) : __assert_fail (
-# 352 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h"
+# 352 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h"
    "CONFIG_T::axis == -1"
-# 352 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h", 352, __extension__ __PRETTY_FUNCTION__))
-# 352 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h"
+# 352 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h", 352, __extension__ __PRETTY_FUNCTION__))
+# 352 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_activation_stream.h"
                                ;
 
     switch (CONFIG_T::implementation) {
@@ -95071,13 +95071,13 @@ PReLUActLoop:
 }
 
 }
-# 12 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h" 1
+# 12 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h" 1
 
 
 
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_latency.h" 1
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_latency.h" 1
 
 
 
@@ -95087,7 +95087,7 @@ PReLUActLoop:
 # 39 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdlib" 3
        
 # 40 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdlib" 3
-# 7 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_latency.h" 2
+# 7 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_latency.h" 2
 
 namespace nnet {
 
@@ -95171,19 +95171,19 @@ PartitionLoop:
 }
 
 }
-# 6 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 1
+# 6 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 1
 
 
 
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense.h" 1
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense.h" 1
 
 
 
 
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_latency.h" 1
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_latency.h" 1
 
 
 
@@ -95192,7 +95192,7 @@ PartitionLoop:
 
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/math.h" 1 3
-# 9 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_latency.h" 2
+# 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_latency.h" 2
 
 namespace nnet {
 
@@ -95255,8 +95255,8 @@ Result:
 }
 
 }
-# 7 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 1
+# 7 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 1
 
 
 
@@ -95264,9 +95264,9 @@ Result:
 
 
 # 1 "/usr/include/assert.h" 1 3 4
-# 8 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 2
+# 8 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/math.h" 1 3
-# 9 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 2
+# 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 2
 
 namespace nnet {
 
@@ -95284,30 +95284,30 @@ void dense_resource_rf_leq_nin(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::
     const int nout = CONFIG_T::n_out;
 
     
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
    (static_cast <bool> (
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
    (multiplier_limit % nout == 0 || rufactor >= nin) && "The current Reuse Factor is not allowed"
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
    ) ? void (0) : __assert_fail (
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
    "(multiplier_limit % nout == 0 || rufactor >= nin) && \"The current Reuse Factor is not allowed\""
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h", 25, __extension__ __PRETTY_FUNCTION__))
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h", 25, __extension__ __PRETTY_FUNCTION__))
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
                                                                                                          ;
     
-# 26 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+# 26 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
    (static_cast <bool> (
-# 26 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 26 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
    (multiplier_limit == block_factor) && "This function is correct only for RF <= N_IN"
-# 26 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+# 26 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
    ) ? void (0) : __assert_fail (
-# 26 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 26 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
    "(multiplier_limit == block_factor) && \"This function is correct only for RF <= N_IN\""
-# 26 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h", 26, __extension__ __PRETTY_FUNCTION__))
-# 26 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 26 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h", 26, __extension__ __PRETTY_FUNCTION__))
+# 26 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
                                                                                                ;
 
 #pragma HLS function_instantiate variable=weights,biases
@@ -95382,30 +95382,30 @@ void dense_resource_rf_gt_nin_rem0(data_T data[CONFIG_T::n_in], res_T res[CONFIG
     const int nout = CONFIG_T::n_out;
 
     
-# 99 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+# 99 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
    (static_cast <bool> (
-# 99 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 99 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
    (multiplier_limit % nout == 0 || rufactor >= nin) && "The current Reuse Factor is not allowed"
-# 99 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+# 99 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
    ) ? void (0) : __assert_fail (
-# 99 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 99 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
    "(multiplier_limit % nout == 0 || rufactor >= nin) && \"The current Reuse Factor is not allowed\""
-# 99 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h", 99, __extension__ __PRETTY_FUNCTION__))
-# 99 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 99 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h", 99, __extension__ __PRETTY_FUNCTION__))
+# 99 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
                                                                                                          ;
     
-# 100 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+# 100 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
    (static_cast <bool> (
-# 100 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 100 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
    (rufactor > nin && rufactor % nin == 0) && "This function is correct only for RF > N_IN && RF % N_IN == 0"
-# 100 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+# 100 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
    ) ? void (0) : __assert_fail (
-# 100 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 100 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
    "(rufactor > nin && rufactor % nin == 0) && \"This function is correct only for RF > N_IN && RF % N_IN == 0\""
-# 100 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h", 100, __extension__ __PRETTY_FUNCTION__))
-# 100 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 100 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h", 100, __extension__ __PRETTY_FUNCTION__))
+# 100 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
                                                                                                                      ;
 
 #pragma HLS function_instantiate variable=weights,biases
@@ -95488,30 +95488,30 @@ void dense_resource_rf_gt_nin(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n
     const int nout = CONFIG_T::n_out;
 
     
-# 181 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+# 181 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
    (static_cast <bool> (
-# 181 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 181 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
    (multiplier_limit % nout == 0 || rufactor >= nin) && "The current Reuse Factor is not allowed"
-# 181 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+# 181 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
    ) ? void (0) : __assert_fail (
-# 181 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 181 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
    "(multiplier_limit % nout == 0 || rufactor >= nin) && \"The current Reuse Factor is not allowed\""
-# 181 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h", 181, __extension__ __PRETTY_FUNCTION__))
-# 181 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 181 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h", 181, __extension__ __PRETTY_FUNCTION__))
+# 181 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
                                                                                                          ;
     
-# 182 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+# 182 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
    (static_cast <bool> (
-# 182 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 182 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
    (rufactor > nin) && "This function is correct only for RF > N_IN"
-# 182 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+# 182 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
    ) ? void (0) : __assert_fail (
-# 182 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 182 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
    "(rufactor > nin) && \"This function is correct only for RF > N_IN\""
-# 182 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h", 182, __extension__ __PRETTY_FUNCTION__))
-# 182 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
+# 182 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h", 182, __extension__ __PRETTY_FUNCTION__))
+# 182 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_resource.h"
                                                                             ;
 
 #pragma HLS function_instantiate variable=weights,biases
@@ -95601,12 +95601,12 @@ void dense_resource(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_out],
 }
 
 }
-# 8 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense.h" 2
+# 8 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense.h" 2
 
 
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/math.h" 1 3
-# 12 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense.h" 2
+# 12 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense.h" 2
 
 namespace nnet {
 
@@ -95676,7 +95676,7 @@ class DenseResource_rf_gt_nin_rem0 : public DenseKernel<data_T, res_T, CONFIG_T>
 };
 
 }
-# 6 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 2
+# 6 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 2
 
 namespace nnet {
 
@@ -95694,44 +95694,44 @@ void conv_2d_resource_cl(
     constexpr unsigned multscale = multiplier_limit / mult_n_out;
 
     
-# 22 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
+# 22 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
    (static_cast <bool> (
-# 22 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
+# 22 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
    (multiplier_limit % mult_n_out == 0 || CONFIG_T::reuse_factor >= mult_n_in) && "The current Reuse Factor is not allowed"
-# 22 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
+# 22 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
    ) ? void (0) : __assert_fail (
-# 22 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
+# 22 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
    "(multiplier_limit % mult_n_out == 0 || CONFIG_T::reuse_factor >= mult_n_in) && \"The current Reuse Factor is not allowed\""
-# 22 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
+# 22 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
    ,
-                                                    "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
-# 22 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
+                                                    "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
+# 22 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
     ,
                                                     23
-# 22 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
+# 22 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
     , __extension__ __PRETTY_FUNCTION__))
                                                      
-# 23 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
+# 23 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
                                                     ;
     
-# 24 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
+# 24 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
    (static_cast <bool> (
-# 24 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
+# 24 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
    (multiplier_limit == block_factor) && "This function is correct only for RF <= FILT_HEIGHT * FILT_WIDTH * N_CHAN"
-# 24 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
+# 24 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
    ) ? void (0) : __assert_fail (
-# 24 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
+# 24 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
    "(multiplier_limit == block_factor) && \"This function is correct only for RF <= FILT_HEIGHT * FILT_WIDTH * N_CHAN\""
-# 24 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
+# 24 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
    ,
-                                                                                      "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
-# 24 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
+                                                                                      "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
+# 24 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
     ,
                                                                                       25
-# 24 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
+# 24 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h" 3 4
     , __extension__ __PRETTY_FUNCTION__))
                                                                                        
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_resource.h"
                                                                                       ;
 
 
@@ -95815,12 +95815,12 @@ PartitionLoop:
 }
 
 }
-# 7 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h" 2
+# 7 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdlib" 1 3
 # 39 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdlib" 3
        
 # 40 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdlib" 3
-# 8 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h" 2
+# 8 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h" 2
 
 namespace nnet {
 
@@ -95882,17 +95882,17 @@ void pointwise_conv_2d_cl(data_T data[CONFIG_T::in_height * CONFIG_T::in_width *
                           typename CONFIG_T::weight_t weights[CONFIG_T::n_chan * CONFIG_T::n_filt],
                           typename CONFIG_T::bias_t biases[CONFIG_T::n_filt]) {
     
-# 68 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h" 3 4
+# 68 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h" 3 4
    (static_cast <bool> (
-# 68 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h"
+# 68 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h"
    CONFIG_T::filt_width == 1
-# 68 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h" 3 4
+# 68 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h" 3 4
    ) ? void (0) : __assert_fail (
-# 68 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h"
+# 68 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h"
    "CONFIG_T::filt_width == 1"
-# 68 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h", 68, __extension__ __PRETTY_FUNCTION__))
-# 68 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h"
+# 68 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h", 68, __extension__ __PRETTY_FUNCTION__))
+# 68 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d.h"
                                     ;
 
 
@@ -95912,8 +95912,8 @@ void pointwise_conv_2d_cl(data_T data[CONFIG_T::in_height * CONFIG_T::in_width *
 }
 
 }
-# 13 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 1
+# 13 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 1
 
 
 
@@ -96021,11 +96021,11 @@ class ap_shift_reg
   protected:
     __SHIFT_T__ Array[__SHIFT_DEPTH__];
 };
-# 5 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 2
+# 5 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 2
 
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv_stream.h" 1
-# 9 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv_stream.h"
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv_stream.h" 1
+# 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv_stream.h"
 namespace nnet {
 
 enum class conv_implementation { linebuffer = 0, encoded = 1 };
@@ -96398,7 +96398,7 @@ void compute_output_buffer_1d(
 }
 
 }
-# 8 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 2
+# 8 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cassert" 1 3
 # 41 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cassert" 3
        
@@ -96407,7 +96407,7 @@ void compute_output_buffer_1d(
 
 # 1 "/usr/include/assert.h" 1 3 4
 # 44 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cassert" 2 3
-# 9 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 2
+# 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 2
 
 namespace nnet {
 
@@ -96418,17 +96418,17 @@ void conv_2d_buffer_latency_cl(
     typename CONFIG_T::weight_t weights[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan * CONFIG_T::n_filt],
     typename CONFIG_T::bias_t biases[CONFIG_T::n_filt]) {
     
-# 18 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
+# 18 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
    (static_cast <bool> (
-# 18 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
+# 18 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
    CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0
-# 18 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
+# 18 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
    ) ? void (0) : __assert_fail (
-# 18 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
+# 18 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
    "CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0"
-# 18 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h", 18, __extension__ __PRETTY_FUNCTION__))
-# 18 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
+# 18 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h", 18, __extension__ __PRETTY_FUNCTION__))
+# 18 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
                                                                                                                      ;
 
     static ap_shift_reg<typename data_T::value_type, CONFIG_T::in_width> line_buffer[(CONFIG_T::filt_height - 1 > 1 ? CONFIG_T::filt_height - 1 : 1)]
@@ -96457,17 +96457,17 @@ void conv_2d_buffer_resource_cl(
     typename CONFIG_T::weight_t weights[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan * CONFIG_T::n_filt],
     typename CONFIG_T::bias_t biases[CONFIG_T::n_filt]) {
     
-# 45 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
+# 45 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
    (static_cast <bool> (
-# 45 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
+# 45 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
    CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0
-# 45 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
+# 45 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
    ) ? void (0) : __assert_fail (
-# 45 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
+# 45 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
    "CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0"
-# 45 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h", 45, __extension__ __PRETTY_FUNCTION__))
-# 45 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
+# 45 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h", 45, __extension__ __PRETTY_FUNCTION__))
+# 45 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
                                                                                                                      ;
 
     static ap_shift_reg<typename data_T::value_type, CONFIG_T::in_width> line_buffer[(CONFIG_T::filt_height - 1 > 1 ? CONFIG_T::filt_height - 1 : 1)]
@@ -96495,24 +96495,24 @@ void conv_2d_cl(
     typename CONFIG_T::weight_t weights[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan * CONFIG_T::n_filt],
     typename CONFIG_T::bias_t biases[CONFIG_T::n_filt]) {
     
-# 71 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
+# 71 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
    (static_cast <bool> (
-# 71 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
+# 71 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
    CONFIG_T::implementation == conv_implementation::linebuffer && "Only \"linebuffer\" implementation is supported in Vitis HLS."
-# 71 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
+# 71 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
    ) ? void (0) : __assert_fail (
-# 71 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
+# 71 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
    "CONFIG_T::implementation == conv_implementation::linebuffer && \"Only \\\"linebuffer\\\" implementation is supported in Vitis HLS.\""
-# 71 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
+# 71 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
    ,
-                                                                          "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
-# 71 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
+                                                                          "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
+# 71 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
     ,
                                                                           72
-# 71 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
+# 71 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
     , __extension__ __PRETTY_FUNCTION__))
                                                                            
-# 72 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
+# 72 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
                                                                           ;
 
 #pragma HLS INLINE recursive
@@ -96522,26 +96522,26 @@ void conv_2d_cl(
         conv_2d_buffer_resource_cl<data_T, res_T, CONFIG_T>(data, res, weights, biases);
     } else {
         
-# 80 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
+# 80 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
        (static_cast <bool> (
-# 80 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
+# 80 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
        false && "Unsupported strategy for conv_2d_cl"
-# 80 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
+# 80 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
        ) ? void (0) : __assert_fail (
-# 80 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
+# 80 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
        "false && \"Unsupported strategy for conv_2d_cl\""
-# 80 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
-       , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h", 80, __extension__ __PRETTY_FUNCTION__))
-# 80 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
+# 80 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h" 3 4
+       , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h", 80, __extension__ __PRETTY_FUNCTION__))
+# 80 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_conv2d_stream.h"
                                                              ;
     }
 }
 
 }
-# 14 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense.h" 1
-# 15 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_compressed.h" 1
+# 14 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense.h" 1
+# 15 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_compressed.h" 1
 
 
 
@@ -96549,7 +96549,7 @@ void conv_2d_cl(
 
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/math.h" 1 3
-# 8 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_compressed.h" 2
+# 8 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_compressed.h" 2
 
 namespace nnet {
 
@@ -96631,8 +96631,8 @@ ResultLoop:
 }
 
 }
-# 16 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_stream.h" 1
+# 16 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_stream.h" 1
 
 
 
@@ -96640,9 +96640,9 @@ ResultLoop:
 
 
 # 1 "/usr/include/assert.h" 1 3 4
-# 8 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_stream.h" 2
+# 8 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_stream.h" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/math.h" 1 3
-# 9 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_dense_stream.h" 2
+# 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_dense_stream.h" 2
 
 namespace nnet {
 
@@ -96738,8 +96738,8 @@ void dense(hls::stream<data_T> &data_stream, hls::stream<res_T> &res_stream,
 }
 
 }
-# 17 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 1
+# 17 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 1
 
 
 
@@ -96864,30 +96864,30 @@ void global_pooling1d_cl(data_T data[CONFIG_T::n_in * CONFIG_T::n_filt], res_T r
 #pragma HLS PIPELINE II=CONFIG_T::reuse_factor
 
     
-# 124 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+# 124 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
    (static_cast <bool> (
-# 124 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 124 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
    CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0
-# 124 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+# 124 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
    ) ? void (0) : __assert_fail (
-# 124 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 124 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
    "CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0"
-# 124 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h", 124, __extension__ __PRETTY_FUNCTION__))
-# 124 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 124 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h", 124, __extension__ __PRETTY_FUNCTION__))
+# 124 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
                                                               ;
     
-# 125 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+# 125 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
    (static_cast <bool> (
-# 125 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 125 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
    CONFIG_T::pool_width == CONFIG_T::stride_width
-# 125 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+# 125 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
    ) ? void (0) : __assert_fail (
-# 125 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 125 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
    "CONFIG_T::pool_width == CONFIG_T::stride_width"
-# 125 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h", 125, __extension__ __PRETTY_FUNCTION__))
-# 125 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 125 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h", 125, __extension__ __PRETTY_FUNCTION__))
+# 125 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
                                                          ;
 
 
@@ -97057,56 +97057,56 @@ template <class data_T, class res_T, typename CONFIG_T>
 void global_pooling2d_cl(data_T data[CONFIG_T::in_height * CONFIG_T::in_width * CONFIG_T::n_filt],
                          res_T res[CONFIG_T::n_filt]) {
     
-# 293 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+# 293 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
    (static_cast <bool> (
-# 293 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 293 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
    CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0
-# 293 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+# 293 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
    ) ? void (0) : __assert_fail (
-# 293 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 293 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
    "CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0"
-# 293 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h", 293, __extension__ __PRETTY_FUNCTION__))
-# 293 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 293 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h", 293, __extension__ __PRETTY_FUNCTION__))
+# 293 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
                                                               ;
     
-# 294 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+# 294 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
    (static_cast <bool> (
-# 294 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 294 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
    CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0
-# 294 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+# 294 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
    ) ? void (0) : __assert_fail (
-# 294 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 294 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
    "CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0"
-# 294 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h", 294, __extension__ __PRETTY_FUNCTION__))
-# 294 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 294 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h", 294, __extension__ __PRETTY_FUNCTION__))
+# 294 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
                                                               ;
     
-# 295 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+# 295 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
    (static_cast <bool> (
-# 295 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 295 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
    CONFIG_T::pool_width == CONFIG_T::stride_width
-# 295 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+# 295 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
    ) ? void (0) : __assert_fail (
-# 295 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 295 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
    "CONFIG_T::pool_width == CONFIG_T::stride_width"
-# 295 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h", 295, __extension__ __PRETTY_FUNCTION__))
-# 295 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 295 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h", 295, __extension__ __PRETTY_FUNCTION__))
+# 295 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
                                                          ;
     
-# 296 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+# 296 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
    (static_cast <bool> (
-# 296 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 296 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
    CONFIG_T::pool_height == CONFIG_T::stride_height
-# 296 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+# 296 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
    ) ? void (0) : __assert_fail (
-# 296 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 296 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
    "CONFIG_T::pool_height == CONFIG_T::stride_height"
-# 296 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h", 296, __extension__ __PRETTY_FUNCTION__))
-# 296 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
+# 296 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h", 296, __extension__ __PRETTY_FUNCTION__))
+# 296 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h"
                                                            ;
 
 #pragma HLS PIPELINE II=CONFIG_T::reuse_factor
@@ -97130,8 +97130,8 @@ FiltLoop:
 }
 
 }
-# 18 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 1
+# 18 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 1
 
 
 
@@ -97139,8 +97139,8 @@ FiltLoop:
 
 
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 1
-# 9 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling.h" 1
+# 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/include/utils/x_hls_utils.h" 1
 # 15 "/tools/Xilinx/Vitis_HLS/2023.2/include/utils/x_hls_utils.h"
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cmath" 1 3
@@ -97990,7 +97990,7 @@ struct __promote<float> { typedef float type; };
 
 template<>
 struct __promote<half> { typedef half type; };
-# 10 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 2
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 2
 
 namespace nnet {
 
@@ -98079,52 +98079,52 @@ void compute_pool_buffer_2d(const data_T &in_elem,
 template <class data_T, class res_T, typename CONFIG_T>
 void pooling2d_cl(hls::stream<data_T> &data, hls::stream<res_T> &res) {
     
-# 97 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 97 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    (static_cast <bool> (
-# 97 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 97 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    CONFIG_T::implementation == conv_implementation::linebuffer && "Only \"linebuffer\" implementation is supported in Vitis HLS."
-# 97 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 97 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    ) ? void (0) : __assert_fail (
-# 97 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 97 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    "CONFIG_T::implementation == conv_implementation::linebuffer && \"Only \\\"linebuffer\\\" implementation is supported in Vitis HLS.\""
-# 97 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 97 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    ,
-                                                                          "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
-# 97 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+                                                                          "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 97 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
     ,
                                                                           98
-# 97 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 97 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
     , __extension__ __PRETTY_FUNCTION__))
                                                                            
-# 98 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 98 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
                                                                           ;
 
 #pragma HLS INLINE recursive
     
-# 101 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 101 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    (static_cast <bool> (
-# 101 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 101 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0
-# 101 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 101 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    ) ? void (0) : __assert_fail (
-# 101 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 101 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    "CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0"
-# 101 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h", 101, __extension__ __PRETTY_FUNCTION__))
-# 101 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 101 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h", 101, __extension__ __PRETTY_FUNCTION__))
+# 101 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
                                                                                                                      ;
     
-# 102 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 102 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    (static_cast <bool> (
-# 102 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 102 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    CONFIG_T::pool_height == CONFIG_T::stride_height && CONFIG_T::pool_width == CONFIG_T::stride_width
-# 102 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 102 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    ) ? void (0) : __assert_fail (
-# 102 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 102 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    "CONFIG_T::pool_height == CONFIG_T::stride_height && CONFIG_T::pool_width == CONFIG_T::stride_width"
-# 102 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h", 102, __extension__ __PRETTY_FUNCTION__))
-# 102 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 102 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h", 102, __extension__ __PRETTY_FUNCTION__))
+# 102 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
                                                                                                              ;
 
     static ap_shift_reg<typename data_T::value_type, CONFIG_T::in_width> line_buffer[(CONFIG_T::pool_height - 1 > 1 ? CONFIG_T::pool_height - 1 : 1)]
@@ -98202,37 +98202,37 @@ void compute_pool_buffer_1d(const data_T &in_elem, hls::stream<res_T> &res) {
 template <class data_T, class res_T, typename CONFIG_T>
 void pooling1d_cl(hls::stream<data_T> &data, hls::stream<res_T> &res) {
     
-# 178 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 178 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    (static_cast <bool> (
-# 178 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 178 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    CONFIG_T::implementation == conv_implementation::linebuffer && "Only \"linebuffer\" implementation is supported in Vitis HLS."
-# 178 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 178 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    ) ? void (0) : __assert_fail (
-# 178 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 178 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    "CONFIG_T::implementation == conv_implementation::linebuffer && \"Only \\\"linebuffer\\\" implementation is supported in Vitis HLS.\""
-# 178 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 178 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    ,
-                                                                          "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
-# 178 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+                                                                          "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 178 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
     ,
                                                                           179
-# 178 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 178 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
     , __extension__ __PRETTY_FUNCTION__))
                                                                            
-# 179 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 179 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
                                                                           ;
     
-# 180 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 180 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    (static_cast <bool> (
-# 180 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 180 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0
-# 180 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 180 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    ) ? void (0) : __assert_fail (
-# 180 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 180 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    "CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0"
-# 180 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h", 180, __extension__ __PRETTY_FUNCTION__))
-# 180 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 180 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h", 180, __extension__ __PRETTY_FUNCTION__))
+# 180 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
                                                               ;
 
 #pragma HLS inline recursive
@@ -98283,30 +98283,30 @@ PoolFilt:
 template <class data_T, class res_T, typename CONFIG_T>
 void global_pooling2d_cl(hls::stream<data_T> &data, hls::stream<res_T> &res) {
     
-# 229 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 229 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    (static_cast <bool> (
-# 229 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 229 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0
-# 229 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 229 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    ) ? void (0) : __assert_fail (
-# 229 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 229 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    "CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 && CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0"
-# 229 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h", 229, __extension__ __PRETTY_FUNCTION__))
-# 229 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 229 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h", 229, __extension__ __PRETTY_FUNCTION__))
+# 229 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
                                                                                                                      ;
     
-# 230 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 230 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    (static_cast <bool> (
-# 230 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 230 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    CONFIG_T::pool_height == CONFIG_T::stride_height && CONFIG_T::pool_width == CONFIG_T::stride_width
-# 230 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 230 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    ) ? void (0) : __assert_fail (
-# 230 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 230 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    "CONFIG_T::pool_height == CONFIG_T::stride_height && CONFIG_T::pool_width == CONFIG_T::stride_width"
-# 230 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h", 230, __extension__ __PRETTY_FUNCTION__))
-# 230 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 230 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h", 230, __extension__ __PRETTY_FUNCTION__))
+# 230 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
                                                                                                              ;
 
     typename CONFIG_T::accum_t data_window[CONFIG_T::n_filt];
@@ -98366,30 +98366,30 @@ ReadInputHeight:
 template <class data_T, class res_T, typename CONFIG_T>
 void global_pooling1d_cl(hls::stream<data_T> &data, hls::stream<res_T> &res) {
     
-# 288 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 288 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    (static_cast <bool> (
-# 288 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 288 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0
-# 288 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 288 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    ) ? void (0) : __assert_fail (
-# 288 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 288 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    "CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0"
-# 288 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h", 288, __extension__ __PRETTY_FUNCTION__))
-# 288 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 288 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h", 288, __extension__ __PRETTY_FUNCTION__))
+# 288 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
                                                               ;
     
-# 289 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 289 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    (static_cast <bool> (
-# 289 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 289 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    CONFIG_T::pool_width == CONFIG_T::stride_width
-# 289 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+# 289 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
    ) ? void (0) : __assert_fail (
-# 289 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 289 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
    "CONFIG_T::pool_width == CONFIG_T::stride_width"
-# 289 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
-   , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h", 289, __extension__ __PRETTY_FUNCTION__))
-# 289 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
+# 289 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h" 3 4
+   , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h", 289, __extension__ __PRETTY_FUNCTION__))
+# 289 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_pooling_stream.h"
                                                          ;
 
     typename CONFIG_T::accum_t data_window[CONFIG_T::n_filt];
@@ -98444,10 +98444,10 @@ ReadInput:
 }
 
 }
-# 19 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 1
-# 20 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_transpose.h" 1
+# 19 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 1
+# 20 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_transpose.h" 1
 
 
 
@@ -98485,14 +98485,14 @@ void transpose(const data_T data[CONFIG_T::N], res_T res[CONFIG_T::N]) {
 }
 
 }
-# 21 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_transpose_stream.h" 1
+# 21 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_transpose_stream.h" 1
 
 
 
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_transpose.h" 1
-# 6 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_transpose_stream.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_transpose.h" 1
+# 6 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_transpose_stream.h" 2
 
 
 namespace nnet {
@@ -98554,25 +98554,25 @@ typename std::enable_if<CONFIG_T::dims != 2, void>::type transpose(hls::stream<d
 }
 
 }
-# 22 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
+# 22 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
 
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/weights/w4.h" 1
-# 10 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/weights/w4.h"
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/w4.h" 1
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/w4.h"
 q_conv2d_weight_t w4[35];
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/weights/b4.h" 1
-# 10 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/weights/b4.h"
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/b4.h" 1
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/b4.h"
 q_conv2d_bias_t b4[7];
-# 26 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/weights/w10.h" 1
-# 10 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/weights/w10.h"
+# 26 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/w10.h" 1
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/w10.h"
 q_dense_weight_t w10[1176];
-# 27 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/weights/b10.h" 1
-# 10 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/weights/b10.h"
+# 27 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/b10.h" 1
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/b10.h"
 q_dense_bias_t b10[1];
-# 28 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/parameters.h" 2
+# 28 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
 
 
 
@@ -98710,7 +98710,7 @@ struct config10 : nnet::dense_config {
     template<class x_T, class y_T>
     using product = nnet::product::mult<x_T, y_T>;
 };
-# 5 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.cpp" 2
+# 5 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.cpp" 2
 
 
 void cnn_core(

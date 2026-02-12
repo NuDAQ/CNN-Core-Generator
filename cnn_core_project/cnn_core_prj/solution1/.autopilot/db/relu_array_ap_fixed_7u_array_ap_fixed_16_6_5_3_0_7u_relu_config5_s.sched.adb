@@ -94,7 +94,7 @@
 						<id>3</id>
 						<name>i</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>41</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -102,7 +102,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item class_id="10" tracking_level="0" version="0">
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second class_id="11" tracking_level="0" version="0">
 									<count>1</count>
 									<item_version>0</item_version>
@@ -150,7 +150,7 @@
 						<id>6</id>
 						<name>i_write_ln41</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>41</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -158,7 +158,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -207,7 +207,7 @@
 						<id>7</id>
 						<name>br_ln41</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>41</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -215,7 +215,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -263,7 +263,7 @@
 						<id>9</id>
 						<name>i_9</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>41</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -271,7 +271,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -320,7 +320,7 @@
 						<id>10</id>
 						<name>icmp_ln41</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>41</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -328,7 +328,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -377,7 +377,7 @@
 						<id>11</id>
 						<name>i_10</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>41</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -385,7 +385,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -434,7 +434,7 @@
 						<id>12</id>
 						<name>br_ln41</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>41</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -442,7 +442,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -492,7 +492,7 @@
 						<id>17</id>
 						<name>layer4_out_read</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>44</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -500,7 +500,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -522,7 +522,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1769239137</coreId>
+						<coreId>687876400</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>119</bitwidth>
@@ -549,7 +549,7 @@
 						<id>18</id>
 						<name>trunc_ln44</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>44</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -557,7 +557,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -605,7 +605,7 @@
 						<id>19</id>
 						<name>trunc_ln44_1</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>44</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -613,7 +613,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -635,7 +635,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1919117677</coreId>
+						<coreId>1293956403</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>17</bitwidth>
@@ -664,7 +664,7 @@
 						<id>20</id>
 						<name>trunc_ln44_2</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>44</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -672,7 +672,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -694,7 +694,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1007225406</coreId>
+						<coreId>1701978146</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>17</bitwidth>
@@ -723,7 +723,7 @@
 						<id>21</id>
 						<name>trunc_ln44_3</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>44</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -731,7 +731,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -753,7 +753,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1634956133</coreId>
+						<coreId>807418469</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>17</bitwidth>
@@ -782,7 +782,7 @@
 						<id>22</id>
 						<name>trunc_ln44_4</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>44</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -790,7 +790,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -812,7 +812,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1869565044</coreId>
+						<coreId>1868767266</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>17</bitwidth>
@@ -841,7 +841,7 @@
 						<id>23</id>
 						<name>trunc_ln44_5</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>44</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -849,7 +849,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -871,7 +871,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1852795252</coreId>
+						<coreId>576532528</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>17</bitwidth>
@@ -900,7 +900,7 @@
 						<id>24</id>
 						<name>trunc_ln44_6</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>44</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -908,7 +908,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -930,7 +930,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1852795252</coreId>
+						<coreId>808990765</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>17</bitwidth>
@@ -959,7 +959,7 @@
 						<id>25</id>
 						<name>icmp_ln51</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>51</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -967,7 +967,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1016,7 +1016,7 @@
 						<id>26</id>
 						<name>trunc_ln52</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>52</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1024,7 +1024,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1046,7 +1046,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>673197110</coreId>
+						<coreId>1600402023</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>14</bitwidth>
@@ -1072,7 +1072,7 @@
 						<id>27</id>
 						<name>out_data</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>52</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1080,7 +1080,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1102,7 +1102,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>678326121</coreId>
+						<coreId>645489010</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -1130,7 +1130,7 @@
 						<id>28</id>
 						<name>out_data_92</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>51</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1138,7 +1138,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1160,7 +1160,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1834970975</coreId>
+						<coreId>3138230328</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -1188,7 +1188,7 @@
 						<id>29</id>
 						<name>icmp_ln51_1</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>51</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1196,7 +1196,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1218,7 +1218,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1702043749</coreId>
+						<coreId>3138231624</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -1245,7 +1245,7 @@
 						<id>30</id>
 						<name>tmp_1</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>52</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1253,7 +1253,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1275,7 +1275,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1701735983</coreId>
+						<coreId>3138232920</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>14</bitwidth>
@@ -1304,7 +1304,7 @@
 						<id>31</id>
 						<name>out_data_93</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>52</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1312,7 +1312,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1334,7 +1334,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>644113784</coreId>
+						<coreId>3138234216</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -1362,7 +1362,7 @@
 						<id>32</id>
 						<name>out_data_94</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>51</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1370,7 +1370,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1392,7 +1392,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>673197110</coreId>
+						<coreId>3138235512</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -1420,7 +1420,7 @@
 						<id>33</id>
 						<name>icmp_ln51_2</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>51</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1428,7 +1428,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1450,7 +1450,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1869438833</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -1477,7 +1477,7 @@
 						<id>34</id>
 						<name>tmp_2</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>52</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1485,7 +1485,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1507,7 +1507,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1919247974</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>14</bitwidth>
@@ -1536,7 +1536,7 @@
 						<id>35</id>
 						<name>out_data_95</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>52</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1544,7 +1544,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1566,7 +1566,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1819243365</coreId>
+						<coreId>3138239232</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -1594,7 +1594,7 @@
 						<id>36</id>
 						<name>out_data_96</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>51</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1602,7 +1602,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1624,7 +1624,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>976909413</coreId>
+						<coreId>3138240528</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -1652,7 +1652,7 @@
 						<id>37</id>
 						<name>icmp_ln51_3</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>51</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1660,7 +1660,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1682,7 +1682,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>539119430</coreId>
+						<coreId>3138241824</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -1709,7 +1709,7 @@
 						<id>38</id>
 						<name>tmp_3</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>52</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1717,7 +1717,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1739,7 +1739,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>790766141</coreId>
+						<coreId>3138242856</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>14</bitwidth>
@@ -1768,7 +1768,7 @@
 						<id>39</id>
 						<name>out_data_97</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>52</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1776,7 +1776,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1798,7 +1798,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1601397097</coreId>
+						<coreId>3138244152</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -1826,7 +1826,7 @@
 						<id>40</id>
 						<name>out_data_98</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>51</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1834,7 +1834,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1856,7 +1856,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>640688172</coreId>
+						<coreId>3138245448</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -1884,7 +1884,7 @@
 						<id>41</id>
 						<name>icmp_ln51_4</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>51</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1892,7 +1892,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1914,7 +1914,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1936942413</coreId>
+						<coreId>3138246744</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -1941,7 +1941,7 @@
 						<id>42</id>
 						<name>tmp_4</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>52</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -1949,7 +1949,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -1971,7 +1971,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1701605485</coreId>
+						<coreId>3138248040</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>14</bitwidth>
@@ -2000,7 +2000,7 @@
 						<id>43</id>
 						<name>shl_ln</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>52</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -2008,7 +2008,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -2030,7 +2030,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1279795773</coreId>
+						<coreId>3138249336</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -2058,7 +2058,7 @@
 						<id>44</id>
 						<name>select_ln51</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>51</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -2066,7 +2066,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -2088,7 +2088,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1953718126</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -2116,7 +2116,7 @@
 						<id>45</id>
 						<name>icmp_ln51_5</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>51</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -2124,7 +2124,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -2146,7 +2146,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1819307375</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -2173,7 +2173,7 @@
 						<id>46</id>
 						<name>tmp_5</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>52</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -2181,7 +2181,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -2203,7 +2203,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1713905723</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>14</bitwidth>
@@ -2232,7 +2232,7 @@
 						<id>47</id>
 						<name>shl_ln52_1</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>52</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -2240,7 +2240,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -2262,7 +2262,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>741550437</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -2290,7 +2290,7 @@
 						<id>48</id>
 						<name>select_ln51_1</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>51</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -2298,7 +2298,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -2320,7 +2320,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1836016416</coreId>
+						<coreId>3138502587</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -2348,7 +2348,7 @@
 						<id>49</id>
 						<name>icmp_ln51_6</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>51</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -2356,7 +2356,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -2378,7 +2378,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1629895540</coreId>
+						<coreId>10</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -2405,7 +2405,7 @@
 						<id>50</id>
 						<name>tmp_6</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>52</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -2413,7 +2413,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -2435,7 +2435,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1919241019</coreId>
+						<coreId>3138503630</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>14</bitwidth>
@@ -2464,7 +2464,7 @@
 						<id>51</id>
 						<name>shl_ln52_2</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>52</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -2472,7 +2472,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -2494,7 +2494,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1685024095</coreId>
+						<coreId>146</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -2522,7 +2522,7 @@
 						<id>52</id>
 						<name>select_ln51_2</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>51</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -2530,7 +2530,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -2552,7 +2552,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>976827194</coreId>
+						<coreId>1</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -2580,7 +2580,7 @@
 						<id>53</id>
 						<name>or_ln57_s</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>57</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -2588,7 +2588,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -2610,7 +2610,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>874538607</coreId>
+						<coreId>6</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>112</bitwidth>
@@ -2643,7 +2643,7 @@
 						<id>54</id>
 						<name>layer5_out_write_ln57</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>57</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -2651,7 +2651,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -2673,7 +2673,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>997484326</coreId>
+						<coreId>3138264024</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -2701,7 +2701,7 @@
 						<id>55</id>
 						<name>i_write_ln41</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>41</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -2709,7 +2709,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -2731,7 +2731,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1313415741</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -2760,7 +2760,7 @@
 						<id>56</id>
 						<name>br_ln41</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>41</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -2768,7 +2768,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -2790,7 +2790,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>807414835</coreId>
+						<coreId>4</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -2816,7 +2816,7 @@
 						<id>58</id>
 						<name>_ln59</name>
 						<fileName>firmware/nnet_utils/nnet_activation_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>59</lineNumber>
 						<contextFuncName>relu&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;17, 9, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, relu_config5&amp;gt;</contextFuncName>
 						<contextNormFuncName>relu_nnet_array_ap_fixed_17_9_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_relu_config5_s</contextNormFuncName>
@@ -2824,7 +2824,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -2846,7 +2846,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1768320623</coreId>
+						<coreId>3138268496</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -2922,7 +2922,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1869438831</coreId>
+						<coreId>3138373424</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>9</bitwidth>
@@ -2953,7 +2953,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>574451311</coreId>
+						<coreId>3138508135</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>9</bitwidth>
@@ -2984,7 +2984,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1835083323</coreId>
+						<coreId>1</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>9</bitwidth>
@@ -3015,7 +3015,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>640688172</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3046,7 +3046,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1717924464</coreId>
+						<coreId>12</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3077,7 +3077,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1885420404</coreId>
+						<coreId>3138509071</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3108,7 +3108,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>980706670</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3139,7 +3139,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1885415456</coreId>
+						<coreId>3138273528</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3170,7 +3170,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1701999731</coreId>
+						<coreId>3138273528</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3201,7 +3201,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>742093927</coreId>
+						<coreId>3</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3232,7 +3232,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>807414835</coreId>
+						<coreId>3138510039</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3263,7 +3263,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1885414944</coreId>
+						<coreId>1</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3294,7 +3294,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1936683105</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3325,7 +3325,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>908078134</coreId>
+						<coreId>26</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3356,7 +3356,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>694510703</coreId>
+						<coreId>3138510913</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3387,7 +3387,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>640688172</coreId>
+						<coreId>3138278280</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>17</bitwidth>
@@ -3418,7 +3418,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1869182057</coreId>
+						<coreId>3138278280</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>2</bitwidth>
@@ -3449,7 +3449,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1663050274</coreId>
+						<coreId>3</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -3480,7 +3480,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1397639524</coreId>
+						<coreId>3138514488</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3511,7 +3511,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1953852527</coreId>
+						<coreId>1</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3542,7 +3542,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1701519394</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3573,7 +3573,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3070280656</coreId>
+						<coreId>3137704480</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3604,7 +3604,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1635131433</coreId>
+						<coreId>11</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -3635,7 +3635,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>656434540</coreId>
+						<coreId>3138515220</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>

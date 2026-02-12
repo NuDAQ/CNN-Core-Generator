@@ -70,7 +70,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3073229120</coreId>
+						<coreId>256</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>672</bitwidth>
@@ -94,7 +94,7 @@
 						<id>3</id>
 						<name>i</name>
 						<fileName>firmware/nnet_utils/nnet_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>229</lineNumber>
 						<contextFuncName>repack_stream&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, 1176&amp;gt;</contextFuncName>
 						<contextNormFuncName>repack_stream_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_1176_s</contextNormFuncName>
@@ -102,7 +102,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item class_id="10" tracking_level="0" version="0">
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second class_id="11" tracking_level="0" version="0">
 									<count>1</count>
 									<item_version>0</item_version>
@@ -150,7 +150,7 @@
 						<id>6</id>
 						<name>i_write_ln229</name>
 						<fileName>firmware/nnet_utils/nnet_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>229</lineNumber>
 						<contextFuncName>repack_stream&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, 1176&amp;gt;</contextFuncName>
 						<contextNormFuncName>repack_stream_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_1176_s</contextNormFuncName>
@@ -158,7 +158,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -207,7 +207,7 @@
 						<id>7</id>
 						<name>br_ln229</name>
 						<fileName>firmware/nnet_utils/nnet_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>229</lineNumber>
 						<contextFuncName>repack_stream&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, 1176&amp;gt;</contextFuncName>
 						<contextNormFuncName>repack_stream_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_1176_s</contextNormFuncName>
@@ -215,7 +215,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -263,7 +263,7 @@
 						<id>9</id>
 						<name>i_5</name>
 						<fileName>firmware/nnet_utils/nnet_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>229</lineNumber>
 						<contextFuncName>repack_stream&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, 1176&amp;gt;</contextFuncName>
 						<contextNormFuncName>repack_stream_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_1176_s</contextNormFuncName>
@@ -271,7 +271,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -293,7 +293,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>537463335</coreId>
+						<coreId>3140433184</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>5</bitwidth>
@@ -320,7 +320,7 @@
 						<id>10</id>
 						<name>icmp_ln229</name>
 						<fileName>firmware/nnet_utils/nnet_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>229</lineNumber>
 						<contextFuncName>repack_stream&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, 1176&amp;gt;</contextFuncName>
 						<contextNormFuncName>repack_stream_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_1176_s</contextNormFuncName>
@@ -328,7 +328,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -350,7 +350,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>741681509</coreId>
+						<coreId>117</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -377,7 +377,7 @@
 						<id>11</id>
 						<name>i_6</name>
 						<fileName>firmware/nnet_utils/nnet_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>229</lineNumber>
 						<contextFuncName>repack_stream&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, 1176&amp;gt;</contextFuncName>
 						<contextNormFuncName>repack_stream_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_1176_s</contextNormFuncName>
@@ -385,7 +385,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -407,7 +407,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>796093298</coreId>
+						<coreId>3140113280</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>5</bitwidth>
@@ -434,7 +434,7 @@
 						<id>12</id>
 						<name>br_ln229</name>
 						<fileName>firmware/nnet_utils/nnet_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>229</lineNumber>
 						<contextFuncName>repack_stream&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, 1176&amp;gt;</contextFuncName>
 						<contextNormFuncName>repack_stream_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_1176_s</contextNormFuncName>
@@ -442,7 +442,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -464,7 +464,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1998616940</coreId>
+						<coreId>76845027</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -492,7 +492,7 @@
 						<id>17</id>
 						<name>layer12_out_read</name>
 						<fileName>firmware/nnet_utils/nnet_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>232</lineNumber>
 						<contextFuncName>repack_stream&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, 1176&amp;gt;</contextFuncName>
 						<contextNormFuncName>repack_stream_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_1176_s</contextNormFuncName>
@@ -500,7 +500,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -522,7 +522,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>543519845</coreId>
+						<coreId>1314013527</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>672</bitwidth>
@@ -549,7 +549,7 @@
 						<id>18</id>
 						<name>layer13_out_write_ln241</name>
 						<fileName>firmware/nnet_utils/nnet_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>241</lineNumber>
 						<contextFuncName>repack_stream&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, 1176&amp;gt;</contextFuncName>
 						<contextNormFuncName>repack_stream_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_1176_s</contextNormFuncName>
@@ -557,7 +557,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -579,7 +579,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1598312009</coreId>
+						<coreId>3139076160</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -607,7 +607,7 @@
 						<id>19</id>
 						<name>i_write_ln229</name>
 						<fileName>firmware/nnet_utils/nnet_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>229</lineNumber>
 						<contextFuncName>repack_stream&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, 1176&amp;gt;</contextFuncName>
 						<contextNormFuncName>repack_stream_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_1176_s</contextNormFuncName>
@@ -615,7 +615,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -637,7 +637,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>539119430</coreId>
+						<coreId>3140033120</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -666,7 +666,7 @@
 						<id>20</id>
 						<name>br_ln229</name>
 						<fileName>firmware/nnet_utils/nnet_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>229</lineNumber>
 						<contextFuncName>repack_stream&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, 1176&amp;gt;</contextFuncName>
 						<contextNormFuncName>repack_stream_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_1176_s</contextNormFuncName>
@@ -674,7 +674,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -696,7 +696,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1667313517</coreId>
+						<coreId>78544952</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -722,7 +722,7 @@
 						<id>22</id>
 						<name>_ln286</name>
 						<fileName>firmware/nnet_utils/nnet_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>286</lineNumber>
 						<contextFuncName>repack_stream&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 42&amp;gt;, 1176&amp;gt;</contextFuncName>
 						<contextNormFuncName>repack_stream_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_42_1176_s</contextNormFuncName>
@@ -730,7 +730,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -752,7 +752,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1953391988</coreId>
+						<coreId>3138394512</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -797,7 +797,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3072954336</coreId>
+						<coreId>3140262224</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -828,7 +828,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3071644128</coreId>
+						<coreId>3138575552</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>5</bitwidth>
@@ -859,7 +859,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1953394531</coreId>
+						<coreId>3140033120</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>5</bitwidth>
@@ -890,7 +890,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1310735648</coreId>
+						<coreId>79058417</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>5</bitwidth>

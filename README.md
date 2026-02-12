@@ -32,5 +32,16 @@ cd cnn_core_project
 vitis_hls -f build_prj.tcl
 ```
 
+## Always check the large files before pushing.
+```
+git rev-list --objects --all \
+| git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
+| sed -n 's/^blob //p' \
+| sort --numeric-sort --key=2 --reverse \
+| head -n 10 \
+| cut -c 1-12,41- \
+| numfmt --field=2 --to=iec-i --suffix=B --padding=7
+```
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

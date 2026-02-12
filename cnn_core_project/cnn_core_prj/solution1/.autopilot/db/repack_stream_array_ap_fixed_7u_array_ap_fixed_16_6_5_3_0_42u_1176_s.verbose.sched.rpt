@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_s'
 ================================================================
-* Date:           Wed Feb 11 15:57:30 2026
+* Date:           Wed Feb 11 16:57:54 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_prj
@@ -328,7 +328,7 @@ The critical path consists of the following:
 The critical path consists of the following:
 	'or' operation 1 bit ('or_ln275_1', firmware/nnet_utils/nnet_stream.h:275) [118]  (0.000 ns)
 	'or' operation 1 bit ('or_ln275_3', firmware/nnet_utils/nnet_stream.h:275) [121]  (0.282 ns)
-	'select' operation 16 bit ('out_data', firmware/nnet_utils/nnet_stream.h:275) [122]  (0.342 ns)
+	'select' operation 16 bit ('out_data', firmware/nnet_utils/nnet_stream.h:275) [126]  (0.342 ns)
 	fifo write operation ('write_ln279', firmware/nnet_utils/nnet_stream.h:279) on port 'layer12_out' (firmware/nnet_utils/nnet_stream.h:279) [172]  (1.825 ns)
 
 

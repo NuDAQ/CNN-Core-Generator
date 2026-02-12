@@ -61933,7 +61933,7 @@ __attribute__((sdx_kernel("cnn_core", 0))) void cnn_core(
     hls::stream<input_t> &input_layer,
     hls::stream<result_t> &layer10_out
 ) {
-#line 169 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/build_prj.tcl"
+#line 169 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/build_prj.tcl"
 #pragma HLSDIRECTIVE TOP name=cnn_core
 # 10 "firmware/cnn_core.cpp"
 

@@ -179,7 +179,7 @@
 						<id>24</id>
 						<name>br_ln109</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>109</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -187,7 +187,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item class_id="11" tracking_level="0" version="0">
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second class_id="12" tracking_level="0" version="0">
 									<count>1</count>
 									<item_version>0</item_version>
@@ -235,7 +235,7 @@
 						<id>26</id>
 						<name>indvar_flatten_load</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>109</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -243,7 +243,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -265,7 +265,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>537463335</coreId>
+						<coreId>691417658</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>9</bitwidth>
@@ -292,7 +292,7 @@
 						<id>27</id>
 						<name>icmp_ln109</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>109</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -300,7 +300,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -349,7 +349,7 @@
 						<id>28</id>
 						<name>add_ln109</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>109</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -357,7 +357,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -406,7 +406,7 @@
 						<id>29</id>
 						<name>br_ln109</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>109</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -414,7 +414,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -436,7 +436,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1998616940</coreId>
+						<coreId>1769239137</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -464,7 +464,7 @@
 						<id>34</id>
 						<name>layer5_out_read</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>115</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -472,7 +472,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -521,7 +521,7 @@
 						<id>35</id>
 						<name>trunc_ln115</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>115</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -529,7 +529,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -551,7 +551,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1852793695</coreId>
+						<coreId>1936942413</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -577,7 +577,7 @@
 						<id>36</id>
 						<name>trunc_ln115_1</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>115</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -585,7 +585,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -607,7 +607,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1916418676</coreId>
+						<coreId>1885414944</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -636,7 +636,7 @@
 						<id>37</id>
 						<name>trunc_ln115_2</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>115</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -644,7 +644,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -666,7 +666,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1394752884</coreId>
+						<coreId>1212634447</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -695,7 +695,7 @@
 						<id>38</id>
 						<name>trunc_ln115_3</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>115</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -703,7 +703,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -725,7 +725,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1598312009</coreId>
+						<coreId>2036689696</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -754,7 +754,7 @@
 						<id>39</id>
 						<name>trunc_ln115_4</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>115</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -762,7 +762,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -784,7 +784,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1935619687</coreId>
+						<coreId>1768843628</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -813,7 +813,7 @@
 						<id>40</id>
 						<name>trunc_ln115_5</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>115</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -821,7 +821,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -843,7 +843,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>574454132</coreId>
+						<coreId>828326990</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -872,7 +872,7 @@
 						<id>41</id>
 						<name>trunc_ln115_6</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>115</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -880,7 +880,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -902,7 +902,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1830839397</coreId>
+						<coreId>1852793632</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -931,7 +931,7 @@
 						<id>42</id>
 						<name>_ln52</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>52</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -939,7 +939,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -968,7 +968,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1598309704</coreId>
+						<coreId>1852793695</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1015,7 +1015,7 @@
 						<id>43</id>
 						<name>sX_load</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>55</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -1023,7 +1023,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -1052,7 +1052,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1734439968</coreId>
+						<coreId>1601200424</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -1078,7 +1078,7 @@
 						<id>44</id>
 						<name>icmp_ln55</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>55</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -1086,7 +1086,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -1142,7 +1142,7 @@
 						<id>45</id>
 						<name>pY_load</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>55</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -1150,7 +1150,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -1179,7 +1179,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1127042638</coreId>
+						<coreId>25</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -1205,7 +1205,7 @@
 						<id>46</id>
 						<name>tmp</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>55</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -1213,7 +1213,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -1242,7 +1242,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>7237481</coreId>
+						<coreId>27</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -1270,7 +1270,7 @@
 						<id>47</id>
 						<name>xor_ln55</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>55</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -1278,7 +1278,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -1334,7 +1334,7 @@
 						<id>48</id>
 						<name>pX_load</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>55</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -1342,7 +1342,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -1371,7 +1371,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1600402023</coreId>
+						<coreId>1768713801</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -1397,7 +1397,7 @@
 						<id>49</id>
 						<name>icmp_ln55_1</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>55</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -1405,7 +1405,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -1461,7 +1461,7 @@
 						<id>50</id>
 						<name>and_ln55</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>55</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -1469,7 +1469,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -1525,7 +1525,7 @@
 						<id>51</id>
 						<name>and_ln55_1</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>55</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -1533,7 +1533,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -1589,7 +1589,7 @@
 						<id>52</id>
 						<name>br_ln55</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>55</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -1597,7 +1597,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -1626,7 +1626,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1869438833</coreId>
+						<coreId>3140041535</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1654,7 +1654,7 @@
 						<id>54</id>
 						<name>void_compute_pool_buffer_2d_array_const_ap_shift_reg_n_filt_stream_kernel_13</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>63</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -1662,7 +1662,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -1691,7 +1691,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>976909413</coreId>
+						<coreId>4</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -1719,7 +1719,7 @@
 						<id>55</id>
 						<name>void_compute_pool_buffer_2d_array_const_ap_shift_reg_n_filt_stream_kernel_14</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>63</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -1727,7 +1727,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -1756,7 +1756,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1768316782</coreId>
+						<coreId>3139159304</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -1783,7 +1783,7 @@
 						<id>56</id>
 						<name>icmp_ln66</name>
 						<fileName>firmware/nnet_utils/nnet_common.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>66</lineNumber>
 						<contextFuncName>operator()</contextFuncName>
 						<contextNormFuncName>operator_s</contextNormFuncName>
@@ -1791,7 +1791,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>5</count>
 									<item_version>0</item_version>
@@ -1868,7 +1868,7 @@
 						<id>57</id>
 						<name>xor_ln66</name>
 						<fileName>firmware/nnet_utils/nnet_common.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>66</lineNumber>
 						<contextFuncName>operator()</contextFuncName>
 						<contextNormFuncName>operator_s</contextNormFuncName>
@@ -1876,7 +1876,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>5</count>
 									<item_version>0</item_version>
@@ -1953,7 +1953,7 @@
 						<id>58</id>
 						<name>res_pack</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>67</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -1961,7 +1961,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -2018,7 +2018,7 @@
 						<id>59</id>
 						<name>void_compute_pool_buffer_2d_array_const_ap_shift_reg_n_filt_stream_kernel_15</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>63</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -2026,7 +2026,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -2055,7 +2055,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1918990189</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -2082,7 +2082,7 @@
 						<id>60</id>
 						<name>void_compute_pool_buffer_2d_array_const_ap_shift_reg_n_filt_stream_kernel_16</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>63</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -2090,7 +2090,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -2119,7 +2119,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>976827450</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -2146,7 +2146,7 @@
 						<id>61</id>
 						<name>icmp_ln66_1</name>
 						<fileName>firmware/nnet_utils/nnet_common.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>66</lineNumber>
 						<contextFuncName>operator()</contextFuncName>
 						<contextNormFuncName>operator_s</contextNormFuncName>
@@ -2154,7 +2154,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>5</count>
 									<item_version>0</item_version>
@@ -2231,7 +2231,7 @@
 						<id>62</id>
 						<name>xor_ln66_1</name>
 						<fileName>firmware/nnet_utils/nnet_common.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>66</lineNumber>
 						<contextFuncName>operator()</contextFuncName>
 						<contextNormFuncName>operator_s</contextNormFuncName>
@@ -2239,7 +2239,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>5</count>
 									<item_version>0</item_version>
@@ -2316,7 +2316,7 @@
 						<id>63</id>
 						<name>res_pack_1</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>67</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -2324,7 +2324,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -2381,7 +2381,7 @@
 						<id>64</id>
 						<name>void_compute_pool_buffer_2d_array_const_ap_shift_reg_n_filt_stream_kernel_17</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>63</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -2389,7 +2389,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -2418,7 +2418,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1600613993</coreId>
+						<coreId>3140048891</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -2445,7 +2445,7 @@
 						<id>65</id>
 						<name>void_compute_pool_buffer_2d_array_const_ap_shift_reg_n_filt_stream_kernel_18</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>63</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -2453,7 +2453,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -2482,7 +2482,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1852795252</coreId>
+						<coreId>3140049418</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -2509,7 +2509,7 @@
 						<id>66</id>
 						<name>icmp_ln66_2</name>
 						<fileName>firmware/nnet_utils/nnet_common.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>66</lineNumber>
 						<contextFuncName>operator()</contextFuncName>
 						<contextNormFuncName>operator_s</contextNormFuncName>
@@ -2517,7 +2517,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>5</count>
 									<item_version>0</item_version>
@@ -2594,7 +2594,7 @@
 						<id>67</id>
 						<name>xor_ln66_2</name>
 						<fileName>firmware/nnet_utils/nnet_common.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>66</lineNumber>
 						<contextFuncName>operator()</contextFuncName>
 						<contextNormFuncName>operator_s</contextNormFuncName>
@@ -2602,7 +2602,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>5</count>
 									<item_version>0</item_version>
@@ -2679,7 +2679,7 @@
 						<id>68</id>
 						<name>res_pack_2</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>67</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -2687,7 +2687,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -2744,7 +2744,7 @@
 						<id>69</id>
 						<name>void_compute_pool_buffer_2d_array_const_ap_shift_reg_n_filt_stream_kernel_19</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>63</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -2752,7 +2752,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -2781,7 +2781,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1701735983</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -2808,7 +2808,7 @@
 						<id>70</id>
 						<name>p_ZZN4nnet22compute_pool_buffer_2dINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_8</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>63</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -2816,7 +2816,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -2845,7 +2845,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1852712736</coreId>
+						<coreId>3139186240</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -2872,7 +2872,7 @@
 						<id>71</id>
 						<name>icmp_ln66_3</name>
 						<fileName>firmware/nnet_utils/nnet_common.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>66</lineNumber>
 						<contextFuncName>operator()</contextFuncName>
 						<contextNormFuncName>operator_s</contextNormFuncName>
@@ -2880,7 +2880,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>5</count>
 									<item_version>0</item_version>
@@ -2957,7 +2957,7 @@
 						<id>72</id>
 						<name>xor_ln66_3</name>
 						<fileName>firmware/nnet_utils/nnet_common.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>66</lineNumber>
 						<contextFuncName>operator()</contextFuncName>
 						<contextNormFuncName>operator_s</contextNormFuncName>
@@ -2965,7 +2965,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>5</count>
 									<item_version>0</item_version>
@@ -3042,7 +3042,7 @@
 						<id>73</id>
 						<name>res_pack_3</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>67</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -3050,7 +3050,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -3107,7 +3107,7 @@
 						<id>74</id>
 						<name>void_compute_pool_buffer_2d_array_const_ap_shift_reg_n_filt_stream_kernel_20</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>63</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -3115,7 +3115,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -3144,7 +3144,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>909196388</coreId>
+						<coreId>3139194672</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -3171,7 +3171,7 @@
 						<id>75</id>
 						<name>p_ZZN4nnet22compute_pool_buffer_2dINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_9</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>63</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -3179,7 +3179,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -3208,7 +3208,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>543649385</coreId>
+						<coreId>3140059620</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -3235,7 +3235,7 @@
 						<id>76</id>
 						<name>icmp_ln66_4</name>
 						<fileName>firmware/nnet_utils/nnet_common.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>66</lineNumber>
 						<contextFuncName>operator()</contextFuncName>
 						<contextNormFuncName>operator_s</contextNormFuncName>
@@ -3243,7 +3243,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>5</count>
 									<item_version>0</item_version>
@@ -3320,7 +3320,7 @@
 						<id>77</id>
 						<name>xor_ln66_4</name>
 						<fileName>firmware/nnet_utils/nnet_common.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>66</lineNumber>
 						<contextFuncName>operator()</contextFuncName>
 						<contextNormFuncName>operator_s</contextNormFuncName>
@@ -3328,7 +3328,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>5</count>
 									<item_version>0</item_version>
@@ -3405,7 +3405,7 @@
 						<id>78</id>
 						<name>res_pack_4</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>67</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -3413,7 +3413,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -3470,7 +3470,7 @@
 						<id>79</id>
 						<name>void_compute_pool_buffer_2d_array_const_ap_shift_reg_n_filt_stream_kernel_21</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>63</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -3478,7 +3478,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -3507,7 +3507,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1902080097</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -3534,7 +3534,7 @@
 						<id>80</id>
 						<name>p_ZZN4nnet22compute_pool_buffer_2dINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_10</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>63</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -3542,7 +3542,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -3571,7 +3571,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>779381877</coreId>
+						<coreId>3140063446</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -3598,7 +3598,7 @@
 						<id>81</id>
 						<name>icmp_ln66_5</name>
 						<fileName>firmware/nnet_utils/nnet_common.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>66</lineNumber>
 						<contextFuncName>operator()</contextFuncName>
 						<contextNormFuncName>operator_s</contextNormFuncName>
@@ -3606,7 +3606,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>5</count>
 									<item_version>0</item_version>
@@ -3683,7 +3683,7 @@
 						<id>82</id>
 						<name>xor_ln66_5</name>
 						<fileName>firmware/nnet_utils/nnet_common.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>66</lineNumber>
 						<contextFuncName>operator()</contextFuncName>
 						<contextNormFuncName>operator_s</contextNormFuncName>
@@ -3691,7 +3691,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>5</count>
 									<item_version>0</item_version>
@@ -3768,7 +3768,7 @@
 						<id>83</id>
 						<name>res_pack_5</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>67</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -3776,7 +3776,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -3833,7 +3833,7 @@
 						<id>84</id>
 						<name>void_compute_pool_buffer_2d_array_const_ap_shift_reg_n_filt_stream_kernel_22</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>63</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -3841,7 +3841,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -3870,7 +3870,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1330470734</coreId>
+						<coreId>3139437240</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -3897,7 +3897,7 @@
 						<id>85</id>
 						<name>p_ZZN4nnet22compute_pool_buffer_2dINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_11</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>63</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -3905,7 +3905,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -3934,7 +3934,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1668440365</coreId>
+						<coreId>3</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>16</bitwidth>
@@ -3961,7 +3961,7 @@
 						<id>86</id>
 						<name>icmp_ln66_6</name>
 						<fileName>firmware/nnet_utils/nnet_common.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>66</lineNumber>
 						<contextFuncName>operator()</contextFuncName>
 						<contextNormFuncName>operator_s</contextNormFuncName>
@@ -3969,7 +3969,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>5</count>
 									<item_version>0</item_version>
@@ -4046,7 +4046,7 @@
 						<id>87</id>
 						<name>xor_ln66_6</name>
 						<fileName>firmware/nnet_utils/nnet_common.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>66</lineNumber>
 						<contextFuncName>operator()</contextFuncName>
 						<contextNormFuncName>operator_s</contextNormFuncName>
@@ -4054,7 +4054,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>5</count>
 									<item_version>0</item_version>
@@ -4131,7 +4131,7 @@
 						<id>88</id>
 						<name>res_pack_6</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>67</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -4139,7 +4139,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -4196,7 +4196,7 @@
 						<id>89</id>
 						<name>or_ln72_s</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>72</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -4204,7 +4204,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -4233,7 +4233,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>2036689696</coreId>
+						<coreId>1836214630</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>112</bitwidth>
@@ -4266,7 +4266,7 @@
 						<id>90</id>
 						<name>layer6_out_write_ln72</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>72</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -4274,7 +4274,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -4331,7 +4331,7 @@
 						<id>91</id>
 						<name>br_ln73</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>73</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -4339,7 +4339,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -4368,7 +4368,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1179535650</coreId>
+						<coreId>1852793632</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -4394,7 +4394,7 @@
 						<id>93</id>
 						<name>add_ln76</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>76</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -4402,7 +4402,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -4458,7 +4458,7 @@
 						<id>94</id>
 						<name>icmp_ln76</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>76</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -4466,7 +4466,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -4522,7 +4522,7 @@
 						<id>95</id>
 						<name>br_ln76</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>76</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -4530,7 +4530,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -4559,7 +4559,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3071287584</coreId>
+						<coreId>3139031168</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -4587,7 +4587,7 @@
 						<id>97</id>
 						<name>pX_write_ln89</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>89</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -4595,7 +4595,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -4624,7 +4624,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3071287584</coreId>
+						<coreId>3135097248</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -4652,7 +4652,7 @@
 						<id>98</id>
 						<name>select_ln91</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>91</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -4660,7 +4660,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -4717,7 +4717,7 @@
 						<id>99</id>
 						<name>add_ln91</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>91</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -4725,7 +4725,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -4781,7 +4781,7 @@
 						<id>100</id>
 						<name>sX_write_ln91</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>91</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -4789,7 +4789,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -4818,7 +4818,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3071287584</coreId>
+						<coreId>3139252960</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -4862,7 +4862,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3071914032</coreId>
+						<coreId>3139252960</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -4888,7 +4888,7 @@
 						<id>103</id>
 						<name>pX_write_ln78</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>78</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -4896,7 +4896,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -4925,7 +4925,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3071287584</coreId>
+						<coreId>3139252960</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -4953,7 +4953,7 @@
 						<id>104</id>
 						<name>sX_write_ln79</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>79</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -4961,7 +4961,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -4990,7 +4990,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3071287584</coreId>
+						<coreId>3139252960</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -5018,7 +5018,7 @@
 						<id>105</id>
 						<name>add_ln80</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>80</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -5026,7 +5026,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -5082,7 +5082,7 @@
 						<id>106</id>
 						<name>icmp_ln80</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>80</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -5090,7 +5090,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -5146,7 +5146,7 @@
 						<id>107</id>
 						<name>select_ln80</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>80</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -5154,7 +5154,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -5211,7 +5211,7 @@
 						<id>108</id>
 						<name>pY_write_ln81</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>81</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -5219,7 +5219,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -5248,7 +5248,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3070403632</coreId>
+						<coreId>3139252960</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -5276,7 +5276,7 @@
 						<id>109</id>
 						<name>br_ln88</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>88</lineNumber>
 						<contextFuncName>compute_pool_buffer_2d&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>compute_pool_buffer_2d_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -5284,7 +5284,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>2</count>
 									<item_version>0</item_version>
@@ -5313,7 +5313,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3072213776</coreId>
+						<coreId>91780352</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -5339,7 +5339,7 @@
 						<id>111</id>
 						<name>indvar_flatten_write_ln109</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>109</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -5347,7 +5347,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -5369,7 +5369,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3392117262</coreId>
+						<coreId>75555840</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -5398,7 +5398,7 @@
 						<id>112</id>
 						<name>br_ln111</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>111</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -5406,7 +5406,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -5428,7 +5428,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>77272633</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -5454,7 +5454,7 @@
 						<id>114</id>
 						<name>_ln118</name>
 						<fileName>firmware/nnet_utils/nnet_pooling_stream.h</fileName>
-						<fileDirectory>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</fileDirectory>
+						<fileDirectory>/home/work1/Works/CNN-Core-Generator/cnn_core_project</fileDirectory>
 						<lineNumber>118</lineNumber>
 						<contextFuncName>pooling2d_cl&amp;lt;nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, nnet::array&amp;lt;ap_fixed&amp;lt;16, 6, AP_TRN, AP_WRAP, 0&amp;gt;, 7&amp;gt;, config6&amp;gt;</contextFuncName>
 						<contextNormFuncName>pooling2d_cl_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_nnet_array_ap_fixed_16_6_AP_TRN_AP_WRAP_0_7_config6_s</contextNormFuncName>
@@ -5462,7 +5462,7 @@
 							<count>1</count>
 							<item_version>0</item_version>
 							<item>
-								<first>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project</first>
+								<first>/home/work1/Works/CNN-Core-Generator/cnn_core_project</first>
 								<second>
 									<count>1</count>
 									<item_version>0</item_version>
@@ -5484,7 +5484,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3071282512</coreId>
+						<coreId>3139893296</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -5529,7 +5529,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3072923056</coreId>
+						<coreId>3139432224</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -5591,7 +5591,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3070794992</coreId>
+						<coreId>3138808064</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>9</bitwidth>
@@ -5622,7 +5622,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1397508187</coreId>
+						<coreId>3137540336</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>9</bitwidth>
@@ -5653,7 +5653,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3070794992</coreId>
+						<coreId>3137833888</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -5684,7 +5684,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3070961584</coreId>
+						<coreId>3134908032</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -5715,7 +5715,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3392133642</coreId>
+						<coreId>3137183824</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -5746,7 +5746,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3072633856</coreId>
+						<coreId>3137140176</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -5777,7 +5777,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3071059152</coreId>
+						<coreId>3138430944</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -5808,7 +5808,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3068898752</coreId>
+						<coreId>3137290080</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -5839,7 +5839,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3390454075</coreId>
+						<coreId>3138387856</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -5870,7 +5870,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3421792238</coreId>
+						<coreId>92185024</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -5901,7 +5901,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3421907620</coreId>
+						<coreId>3135359808</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -5932,7 +5932,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3072221472</coreId>
+						<coreId>3135921872</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -5963,7 +5963,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3071287584</coreId>
+						<coreId>3135097552</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -5994,7 +5994,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3067894304</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -6025,7 +6025,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3071795488</coreId>
+						<coreId>3135359808</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -6056,7 +6056,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3069287008</coreId>
+						<coreId>3139030864</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -6087,7 +6087,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3071795488</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -6118,7 +6118,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3071572688</coreId>
+						<coreId>3135097248</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -6149,7 +6149,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>3137652096</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -6180,7 +6180,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3070248192</coreId>
+						<coreId>3138875040</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -6503,7 +6503,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>3071770704</coreId>
+					<coreId>3139750992</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
@@ -6535,7 +6535,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>3068837104</coreId>
+					<coreId>3135362976</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
