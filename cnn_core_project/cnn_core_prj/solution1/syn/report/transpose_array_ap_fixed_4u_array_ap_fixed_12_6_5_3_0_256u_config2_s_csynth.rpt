@@ -1,0 +1,155 @@
+
+
+================================================================
+== Vitis HLS Report for 'transpose_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_256u_config2_s'
+================================================================
+* Date:           Wed Feb 11 15:57:45 2026
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        cnn_core_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: kintexuplus
+* Target device:  xcku5p-ffvb676-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  5.00 ns|  2.203 ns|     1.35 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      269|      269|  1.345 us|  1.345 us|  269|  269|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +----------------------------------------------------------------------------------+----------------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |                                                                                  |                                                                      |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+        |                                     Instance                                     |                                Module                                |   min   |   max   |    min    |    max    | min | max |   Type  |
+        +----------------------------------------------------------------------------------+----------------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |grp_transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_16_1_fu_4124  |transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_16_1  |      258|      258|   1.290 us|   1.290 us|  258|  258|       no|
+        |grp_transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_25_3_fu_5154  |transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_25_3  |        6|        6|  30.000 ns|  30.000 ns|    6|    6|       no|
+        +----------------------------------------------------------------------------------+----------------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|       2|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     -|   15377|    5262|    -|
+|Memory           |        -|     -|       -|       -|    -|
+|Multiplexer      |        -|     -|       -|      73|    -|
+|Register         |        -|     -|      10|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     0|   15387|    5337|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |      960|  1824|  433920|  216960|   64|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|     0|       3|       2|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +----------------------------------------------------------------------------------+----------------------------------------------------------------------+---------+----+-------+------+-----+
+    |                                     Instance                                     |                                Module                                | BRAM_18K| DSP|   FF  |  LUT | URAM|
+    +----------------------------------------------------------------------------------+----------------------------------------------------------------------+---------+----+-------+------+-----+
+    |grp_transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_16_1_fu_4124  |transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_16_1  |        0|   0|  12299|    71|    0|
+    |grp_transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_25_3_fu_5154  |transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_25_3  |        0|   0|   3078|  5191|    0|
+    +----------------------------------------------------------------------------------+----------------------------------------------------------------------+---------+----+-------+------+-----+
+    |Total                                                                             |                                                                      |        0|   0|  15377|  5262|    0|
+    +----------------------------------------------------------------------------------+----------------------------------------------------------------------+---------+----+-------+------+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------+----------+----+---+----+------------+------------+
+    |  Variable Name  | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |ap_block_state1  |        or|   0|  0|   2|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+    |Total            |          |   0|  0|   2|           1|           1|
+    +-----------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +---------------------------------+----+-----------+-----+-----------+
+    |               Name              | LUT| Input Size| Bits| Total Bits|
+    +---------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                        |  37|          7|    1|          7|
+    |ap_done                          |   9|          2|    1|          2|
+    |input_layer_TREADY_int_regslice  |   9|          2|    1|          2|
+    |layer2_out_write                 |   9|          2|    1|          2|
+    |real_start                       |   9|          2|    1|          2|
+    +---------------------------------+----+-----------+-----+-----------+
+    |Total                            |  73|         15|    5|         15|
+    +---------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------------------------------------------------------------------------------+---+----+-----+-----------+
+    |                                              Name                                             | FF| LUT| Bits| Const Bits|
+    +-----------------------------------------------------------------------------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                                                                                      |  6|   0|    6|          0|
+    |ap_done_reg                                                                                    |  1|   0|    1|          0|
+    |grp_transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_16_1_fu_4124_ap_start_reg  |  1|   0|    1|          0|
+    |grp_transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_25_3_fu_5154_ap_start_reg  |  1|   0|    1|          0|
+    |start_once_reg                                                                                 |  1|   0|    1|          0|
+    +-----------------------------------------------------------------------------------------------+---+----+-----+-----------+
+    |Total                                                                                          | 10|   0|   10|          0|
+    +-----------------------------------------------------------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+------+------------+------------------------------------------------------------------------+--------------+
+|         RTL Ports         | Dir | Bits |  Protocol  |                              Source Object                             |    C Type    |
++---------------------------+-----+------+------------+------------------------------------------------------------------------+--------------+
+|ap_clk                     |   in|     1|  ap_ctrl_hs|  transpose<array<ap_fixed,4u>,array<ap_fixed<12,6,5,3,0>,256u>,config2>|  return value|
+|ap_rst                     |   in|     1|  ap_ctrl_hs|  transpose<array<ap_fixed,4u>,array<ap_fixed<12,6,5,3,0>,256u>,config2>|  return value|
+|ap_start                   |   in|     1|  ap_ctrl_hs|  transpose<array<ap_fixed,4u>,array<ap_fixed<12,6,5,3,0>,256u>,config2>|  return value|
+|start_full_n               |   in|     1|  ap_ctrl_hs|  transpose<array<ap_fixed,4u>,array<ap_fixed<12,6,5,3,0>,256u>,config2>|  return value|
+|ap_done                    |  out|     1|  ap_ctrl_hs|  transpose<array<ap_fixed,4u>,array<ap_fixed<12,6,5,3,0>,256u>,config2>|  return value|
+|ap_continue                |   in|     1|  ap_ctrl_hs|  transpose<array<ap_fixed,4u>,array<ap_fixed<12,6,5,3,0>,256u>,config2>|  return value|
+|ap_idle                    |  out|     1|  ap_ctrl_hs|  transpose<array<ap_fixed,4u>,array<ap_fixed<12,6,5,3,0>,256u>,config2>|  return value|
+|ap_ready                   |  out|     1|  ap_ctrl_hs|  transpose<array<ap_fixed,4u>,array<ap_fixed<12,6,5,3,0>,256u>,config2>|  return value|
+|start_out                  |  out|     1|  ap_ctrl_hs|  transpose<array<ap_fixed,4u>,array<ap_fixed<12,6,5,3,0>,256u>,config2>|  return value|
+|start_write                |  out|     1|  ap_ctrl_hs|  transpose<array<ap_fixed,4u>,array<ap_fixed<12,6,5,3,0>,256u>,config2>|  return value|
+|input_layer_TDATA          |   in|    64|        axis|                                                             input_layer|       pointer|
+|input_layer_TVALID         |   in|     1|        axis|                                                             input_layer|       pointer|
+|input_layer_TREADY         |  out|     1|        axis|                                                             input_layer|       pointer|
+|layer2_out_din             |  out|  3072|     ap_fifo|                                                              layer2_out|       pointer|
+|layer2_out_num_data_valid  |   in|     3|     ap_fifo|                                                              layer2_out|       pointer|
+|layer2_out_fifo_cap        |   in|     3|     ap_fifo|                                                              layer2_out|       pointer|
+|layer2_out_full_n          |   in|     1|     ap_fifo|                                                              layer2_out|       pointer|
+|layer2_out_write           |  out|     1|     ap_fifo|                                                              layer2_out|       pointer|
++---------------------------+-----+------+------------+------------------------------------------------------------------------+--------------+
+

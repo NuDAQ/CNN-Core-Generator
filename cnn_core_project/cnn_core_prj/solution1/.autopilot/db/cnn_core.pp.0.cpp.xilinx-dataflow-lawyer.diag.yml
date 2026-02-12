@@ -1,0 +1,20 @@
+---
+MainSourceFile:  /home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+Diagnostics:     
+  - DiagnosticName:  clang-diagnostic-warning
+    Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
+    FileOffset:      '58:76'
+    FilePath:        firmware/cnn_core.cpp
+  - DiagnosticName:  clang-diagnostic-warning
+    Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
+    FileOffset:      '58:80'
+    FilePath:        firmware/cnn_core.cpp
+  - DiagnosticName:  clang-diagnostic-warning
+    Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
+    FileOffset:      '68:72'
+    FilePath:        firmware/cnn_core.cpp
+  - DiagnosticName:  clang-diagnostic-warning
+    Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
+    FileOffset:      '68:77'
+    FilePath:        firmware/cnn_core.cpp
+...

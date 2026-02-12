@@ -1,0 +1,23 @@
+[
+  {
+    "functionLabel": "",
+    "functionName": "cnn_core",
+    "id": 0,
+    "ifcond": "",
+    "insert_position": "",
+    "label": "",
+    "pragma": {
+      "name": "TOP",
+      "option": [
+        {
+          "name": "name",
+          "value": "cnn_core"
+        }
+      ]
+    },
+    "slx": false,
+    "sourceFile": "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/build_prj.tcl",
+    "sourceLine": 169,
+    "success": true
+  }
+]
