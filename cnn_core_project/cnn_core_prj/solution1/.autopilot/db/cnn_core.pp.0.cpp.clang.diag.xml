@@ -1,6 +1,6 @@
 <dict>
   <key>main-file</key>
-  <string>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp</string>
+  <string>/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp</string>
   <key>diagnostics</key>
   <array>
     <dict>
@@ -5943,7 +5943,7 @@
       <key>level</key>
       <string>warning</string>
       <key>filename</key>
-      <string>/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/build_prj.tcl</string>
+      <string>/home/work1/Works/CNN-Core-Generator/cnn_core_project/build_prj.tcl</string>
       <key>line</key>
       <integer>169</integer>
       <key>column</key>

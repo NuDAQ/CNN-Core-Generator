@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'repack_stream_array_array_ap_fixed_1u_1024_Pipeline_VITIS_LOOP_254_4'" level="0">
-<item name = "Date">Wed Feb 11 15:57:45 2026
+<item name = "Date">Wed Feb 11 16:58:10 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_prj</item>

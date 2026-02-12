@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6_s'" level="0">
-<item name = "Date">Wed Feb 11 15:57:46 2026
+<item name = "Date">Wed Feb 11 16:58:11 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_prj</item>

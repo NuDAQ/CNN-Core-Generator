@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_16_1'
 ================================================================
-* Date:           Wed Feb 11 15:57:24 2026
+* Date:           Wed Feb 11 16:57:48 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_prj
@@ -4470,7 +4470,7 @@ The critical path consists of the following:
 	'load' operation 9 bit ('i', firmware/nnet_utils/nnet_transpose_stream.h:16) on local variable 'i', firmware/nnet_utils/nnet_transpose_stream.h:16 [2055]  (0.000 ns)
 	'icmp' operation 1 bit ('icmp_ln16', firmware/nnet_utils/nnet_transpose_stream.h:16) [2056]  (0.776 ns)
 	axis read operation ('input_layer_read', firmware/nnet_utils/nnet_transpose_stream.h:18) on port 'input_layer' (firmware/nnet_utils/nnet_transpose_stream.h:18) [2064]  (1.000 ns)
-	'store' operation 0 bit ('store_ln13', firmware/nnet_utils/nnet_transpose_stream.h:13) of variable 'data_array', firmware/nnet_utils/nnet_transpose_stream.h:18 on local variable 'data_array', firmware/nnet_utils/nnet_transpose_stream.h:13 [2653]  (0.000 ns)
+	'store' operation 0 bit ('store_ln13', firmware/nnet_utils/nnet_transpose_stream.h:13) of variable 'data_array', firmware/nnet_utils/nnet_transpose_stream.h:18 on local variable 'data_array', firmware/nnet_utils/nnet_transpose_stream.h:13 [3043]  (0.000 ns)
 
 
 ============================================================

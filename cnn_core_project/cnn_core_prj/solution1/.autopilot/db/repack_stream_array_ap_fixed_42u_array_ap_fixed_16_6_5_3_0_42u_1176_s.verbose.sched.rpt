@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176_s'
 ================================================================
-* Date:           Wed Feb 11 15:57:30 2026
+* Date:           Wed Feb 11 16:57:54 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_prj
@@ -115,7 +115,7 @@ Target clock period: 5.000ns, clock uncertainty: 1.350ns.
 The critical path consists of the following:
 	'store' operation 0 bit ('store_ln229', firmware/nnet_utils/nnet_stream.h:229) of constant 0 on local variable 'i', firmware/nnet_utils/nnet_stream.h:229 [6]  (0.427 ns)
 	'load' operation 5 bit ('i', firmware/nnet_utils/nnet_stream.h:229) on local variable 'i', firmware/nnet_utils/nnet_stream.h:229 [9]  (0.000 ns)
-	'add' operation 5 bit ('i', firmware/nnet_utils/nnet_stream.h:229) [11]  (0.789 ns)
+	'icmp' operation 1 bit ('icmp_ln229', firmware/nnet_utils/nnet_stream.h:229) [10]  (0.789 ns)
 	'store' operation 0 bit ('store_ln229', firmware/nnet_utils/nnet_stream.h:229) of variable 'i', firmware/nnet_utils/nnet_stream.h:229 on local variable 'i', firmware/nnet_utils/nnet_stream.h:229 [19]  (0.427 ns)
 
  <State 2>: 3.650ns

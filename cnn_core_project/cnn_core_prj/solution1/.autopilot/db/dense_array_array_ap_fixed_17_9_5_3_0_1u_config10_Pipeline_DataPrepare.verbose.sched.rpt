@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare'
 ================================================================
-* Date:           Wed Feb 11 15:57:31 2026
+* Date:           Wed Feb 11 16:57:55 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_prj
@@ -4832,7 +4832,7 @@ Target clock period: 5.000ns, clock uncertainty: 1.350ns.
 The critical path consists of the following:
 	'store' operation 0 bit ('store_ln33', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93) of constant 0 on local variable 'i_in', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93 [2328]  (0.427 ns)
 	'load' operation 5 bit ('i_in', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93) on local variable 'i_in', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93 [2331]  (0.000 ns)
-	'icmp' operation 1 bit ('icmp_ln33', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93) [2332]  (0.789 ns)
+	'add' operation 5 bit ('add_ln33', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93) [2333]  (0.789 ns)
 	'store' operation 0 bit ('store_ln33', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93) of variable 'add_ln33', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93 on local variable 'i_in', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93 [3602]  (0.427 ns)
 
  <State 2>: 1.825ns

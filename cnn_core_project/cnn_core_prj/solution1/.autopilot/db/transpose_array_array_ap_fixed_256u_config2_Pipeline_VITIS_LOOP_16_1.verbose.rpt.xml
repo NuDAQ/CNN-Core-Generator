@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_16_1'" level="0">
-<item name = "Date">Wed Feb 11 15:57:42 2026
+<item name = "Date">Wed Feb 11 16:58:07 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_prj</item>

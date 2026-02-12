@@ -5,12 +5,12 @@
 // Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 // 
 // ==============================================================
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp"
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "/usr/include/stdc-predef.h" 1 3 4
 # 1 "<command-line>" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp"
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/algorithm" 1 3
 # 58 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/algorithm" 3
        
@@ -16414,7 +16414,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 }
 # 63 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/algorithm" 2 3
-# 2 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp" 2
+# 2 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/fstream" 1 3
 # 36 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/fstream" 3
        
@@ -36879,7 +36879,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 }
 # 1170 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/fstream" 2 3
-# 3 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp" 2
+# 3 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/iostream" 1 3
 # 36 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/iostream" 3
        
@@ -36911,7 +36911,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 
 }
-# 4 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp" 2
+# 4 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/map" 1 3
 # 58 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/map" 3
        
@@ -42261,7 +42261,7 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 }
 # 63 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/map" 2 3
-# 5 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp" 2
+# 5 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/math.h" 1 3
 # 36 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/math.h" 3
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cmath" 1 3
@@ -47141,7 +47141,7 @@ using std::scalbln;
 using std::scalbn;
 using std::tgamma;
 using std::trunc;
-# 6 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp" 2
+# 6 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 2
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/stdlib.h" 1 3
 # 36 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/stdlib.h" 3
@@ -47195,7 +47195,7 @@ using std::system;
 
 using std::wcstombs;
 using std::wctomb;
-# 8 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp" 2
+# 8 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/vector" 1 3
 # 58 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/vector" 3
        
@@ -51049,9 +51049,9 @@ namespace std __attribute__ ((__visibility__ ("default")))
 
 }
 # 70 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/vector" 2 3
-# 9 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp" 2
+# 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 2
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.h" 1
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.h" 1
 
 
 
@@ -74926,9 +74926,9 @@ inline bool operator!=(
 
 }
 # 366 "/tools/Xilinx/Vitis_HLS/2023.2/include/ap_fixed.h" 2
-# 5 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.h" 2
+# 5 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.h" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/include/ap_int.h" 1
-# 6 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.h" 2
+# 6 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.h" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/include/hls_stream.h" 1
 # 22 "/tools/Xilinx/Vitis_HLS/2023.2/include/hls_stream.h"
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/queue" 1 3
@@ -92048,27 +92048,27 @@ public:
 };
 
 }
-# 7 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.h" 2
+# 7 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.h" 2
 
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/defines.h" 1
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/defines.h" 1
 
 
 
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/include/ap_int.h" 1
-# 6 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/defines.h" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h" 1
+# 6 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/defines.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h" 1
 
 
 
 # 1 "/usr/include/assert.h" 1 3 4
-# 5 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h" 2
+# 5 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h" 2
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdio" 1 3
 # 39 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdio" 3
        
 # 40 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdio" 3
-# 7 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h" 2
+# 7 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h" 2
 
 namespace nnet {
 
@@ -92088,17 +92088,17 @@ template <typename T, unsigned N> struct array {
             return *this;
 
         
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h" 3 4
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h" 3 4
        (static_cast <bool> (
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h"
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h"
        N == other.size && "Array sizes must match."
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h" 3 4
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h" 3 4
        ) ? void (0) : __assert_fail (
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h"
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h"
        "N == other.size && \"Array sizes must match.\""
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h" 3 4
-       , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h", 25, __extension__ __PRETTY_FUNCTION__))
-# 25 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_types.h"
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h" 3 4
+       , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h", 25, __extension__ __PRETTY_FUNCTION__))
+# 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_types.h"
                                                            ;
 
         for (unsigned i = 0; i < N; i++) {
@@ -92153,14 +92153,14 @@ template <typename T, unsigned N, T (*func)(T)> class lookup_table {
 };
 
 }
-# 7 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/defines.h" 2
+# 7 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/defines.h" 2
 
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdio" 1 3
 # 39 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdio" 3
        
 # 40 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/cstdio" 3
-# 10 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/defines.h" 2
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/defines.h" 2
 
 
 
@@ -92184,7 +92184,7 @@ typedef nnet::array<ap_fixed<17,9>, 1*1> result_t;
 typedef ap_fixed<17,9> q_dense_weight_t;
 typedef ap_fixed<17,9> q_dense_bias_t;
 typedef ap_uint<1> layer10_index;
-# 9 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.h" 2
+# 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.h" 2
 
 
 
@@ -92195,19 +92195,19 @@ extern "C"
 #endif
 void apatb_cnn_core_sw(hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0> &, hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0> &);
 #endif
-# 12 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/cnn_core.h"
+# 12 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.h"
 void cnn_core(
     hls::stream<input_t> &input_layer,
     hls::stream<result_t> &layer10_out
 );
-# 11 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp" 2
-# 1 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 1
-# 9 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
+# 11 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 1
+# 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/math.h" 1 3
-# 10 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 2
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 2
 
 # 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/include/c++/8.3.0/stdlib.h" 1 3
-# 12 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 2
+# 12 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 2
 
 
 namespace nnet {
@@ -92404,17 +92404,17 @@ template <class data_T> void save_layer_output(data_T *data, const char *layer_n
         std::fstream out;
         out.open(filename.str(), std::ios::app);
         
-# 207 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
+# 207 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
        (static_cast <bool> (
-# 207 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
+# 207 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
        out.is_open()
-# 207 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
+# 207 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
        ) ? void (0) : __assert_fail (
-# 207 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
+# 207 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
        "out.is_open()"
-# 207 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
-       , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h", 207, __extension__ __PRETTY_FUNCTION__))
-# 207 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
+# 207 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
+       , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h", 207, __extension__ __PRETTY_FUNCTION__))
+# 207 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
                             ;
         for (int i = 0; i < layer_size; i++) {
             out << float(data[i]) << " ";
@@ -92446,17 +92446,17 @@ template <class data_T> void save_layer_output(hls::stream<data_T> &data, const 
         std::fstream out;
         out.open(filename.str(), std::ios::app);
         
-# 237 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
+# 237 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
        (static_cast <bool> (
-# 237 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
+# 237 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
        out.is_open()
-# 237 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
+# 237 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
        ) ? void (0) : __assert_fail (
-# 237 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
+# 237 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
        "out.is_open()"
-# 237 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
-       , "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h", 237, __extension__ __PRETTY_FUNCTION__))
-# 237 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
+# 237 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 3 4
+       , "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h", 237, __extension__ __PRETTY_FUNCTION__))
+# 237 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h"
                             ;
         for (size_t i = 0; i < layer_size / data_T::size; i++) {
             data_T ctype = data.read();
@@ -92601,7 +92601,7 @@ constexpr int floorlog2(int x) { return (x < 2) ? 0 : 1 + floorlog2(x / 2); }
 constexpr int pow2(int x) { return x == 0 ? 1 : 2 * pow2(x - 1); }
 
 }
-# 12 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp" 2
+# 12 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 2
 
 
 
@@ -92610,16 +92610,16 @@ constexpr int pow2(int x) { return x == 0 ? 1 : 2 * pow2(x - 1); }
 namespace nnet {
 bool trace_enabled = true;
 std::map<std::string, void *> *trace_outputs = 
-# 19 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp" 3 4
+# 19 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 3 4
                                               __null
-# 19 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp"
+# 19 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
                                                   ;
 size_t trace_type_size = sizeof(double);
 }
 
 
 #ifndef HLS_FASTSIM
-# 23 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp"
+# 23 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
 int main(int argc, char **argv) {
 
 
@@ -92647,30 +92647,30 @@ int main(int argc, char **argv) {
             std::vector<float> in;
             current = strtok(cstr, " ");
             while (current != 
-# 49 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp" 3 4
+# 49 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 3 4
                              __null
-# 49 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp"
+# 49 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
                                  ) {
                 in.push_back(atof(current));
                 current = strtok(
-# 51 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp" 3 4
+# 51 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 3 4
                                 __null
-# 51 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp"
+# 51 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
                                     , " ");
             }
             cstr = const_cast<char *>(pline.c_str());
             std::vector<float> pr;
             current = strtok(cstr, " ");
             while (current != 
-# 56 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp" 3 4
+# 56 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 3 4
                              __null
-# 56 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp"
+# 56 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
                                  ) {
                 pr.push_back(atof(current));
                 current = strtok(
-# 58 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp" 3 4
+# 58 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 3 4
                                 __null
-# 58 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp"
+# 58 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
                                     , " ");
             }
 
@@ -92684,10 +92684,10 @@ int main(int argc, char **argv) {
 #ifndef HLS_FASTSIM
 #define cnn_core apatb_cnn_core_sw
 #endif
-# 67 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp"
+# 67 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
 cnn_core(input_layer,layer10_out);
 #undef cnn_core
-# 67 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp"
+# 67 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
 
 
             if (e % 5000 == 0) {
@@ -92722,10 +92722,10 @@ cnn_core(input_layer,layer10_out);
 #ifndef HLS_FASTSIM
 #define cnn_core apatb_cnn_core_sw
 #endif
-# 97 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp"
+# 97 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
 cnn_core(input_layer,layer10_out);
 #undef cnn_core
-# 97 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp"
+# 97 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
 
 
 
@@ -92742,5 +92742,5 @@ cnn_core(input_layer,layer10_out);
     return 0;
 }
 #endif
-# 111 "/home/work1/Works/CNN-Core-Wrapper/cnn_core_project/cnn_core_test.cpp"
+# 111 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
 
