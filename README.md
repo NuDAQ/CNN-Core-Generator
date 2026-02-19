@@ -43,5 +43,11 @@ git rev-list --objects --all \
 | numfmt --field=2 --to=iec-i --suffix=B --padding=7
 ```
 
+## Release
+Use it to update `Bender.yml` before release.
+```
+bash ./scripts/generate_bender_sources.sh
+```
+
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details

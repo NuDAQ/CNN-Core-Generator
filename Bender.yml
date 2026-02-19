@@ -7,3 +7,9 @@ package:
   # By convention, authors should be listed in the form shown below.
   authors: ["Albert L. Cheung <albert.cheung@cern.ch>"]
 
+sources:
+  - target: any(verilog, synthesis, simulation)
+    files:
+      # Use the glob pattern to grab all Verilog files in the directory
+      - cnn_core_project/cnn_core_prj/solution1/impl/verilog/**/*.v
+      - cnn_core_project/cnn_core_prj/solution1/impl/verilog/**/*.vh
