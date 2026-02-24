@@ -22,13 +22,14 @@ set SynModuleInfo {
   }
   {SRCNAME {dense_latency<ap_fixed<12, 6, 5, 3, 0>, ap_fixed<17, 9, 5, 3, 0>, config4_mult>} MODELNAME dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_17_9_5_3_0_config4_mult_s RTLNAME cnn_core_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_17_9_5_3_0_config4_mult_s
     SUBMODULES {
-      {MODELNAME cnn_core_mul_12s_8ns_20_1_0 RTLNAME cnn_core_mul_12s_8ns_20_1_0 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME cnn_core_mul_12s_7ns_19_1_0 RTLNAME cnn_core_mul_12s_7ns_19_1_0 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME cnn_core_mul_12s_7s_19_1_0 RTLNAME cnn_core_mul_12s_7s_19_1_0 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME cnn_core_mul_12s_9ns_20_1_0 RTLNAME cnn_core_mul_12s_9ns_20_1_0 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
       {MODELNAME cnn_core_mul_12s_8s_20_1_0 RTLNAME cnn_core_mul_12s_8s_20_1_0 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
       {MODELNAME cnn_core_mul_12s_9s_20_1_0 RTLNAME cnn_core_mul_12s_9s_20_1_0 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME cnn_core_mul_12s_8ns_20_1_0 RTLNAME cnn_core_mul_12s_8ns_20_1_0 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME cnn_core_mul_12s_9ns_20_1_0 RTLNAME cnn_core_mul_12s_9ns_20_1_0 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME cnn_core_mul_12s_7ns_19_1_0 RTLNAME cnn_core_mul_12s_7ns_19_1_0 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
       {MODELNAME cnn_core_mul_12s_6s_18_1_0 RTLNAME cnn_core_mul_12s_6s_18_1_0 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME cnn_core_mul_12s_7s_19_1_0 RTLNAME cnn_core_mul_12s_7s_19_1_0 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME cnn_core_mul_12s_5ns_17_1_0 RTLNAME cnn_core_mul_12s_5ns_17_1_0 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
     }
   }
   {SRCNAME compute_output_buffer_1d<array,array<ap_fixed<17,9,5,3,0>,7u>,config4> MODELNAME compute_output_buffer_1d_array_array_ap_fixed_17_9_5_3_0_7u_config4_s RTLNAME cnn_core_compute_output_buffer_1d_array_array_ap_fixed_17_9_5_3_0_7u_config4_s}
@@ -45,16 +46,15 @@ set SynModuleInfo {
   {SRCNAME dense<array,array<ap_fixed<17,9,5,3,0>,1u>,config10>_Pipeline_DataPrepare MODELNAME dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare RTLNAME cnn_core_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare}
   {SRCNAME dense_latency_wrapper<ap_fixed,ap_fixed<17,9,5,3,0>,config10> MODELNAME dense_latency_wrapper_ap_fixed_ap_fixed_17_9_5_3_0_config10_s RTLNAME cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_17_9_5_3_0_config10_s
     SUBMODULES {
-      {MODELNAME cnn_core_mul_16s_7ns_23_1_1 RTLNAME cnn_core_mul_16s_7ns_23_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME cnn_core_mul_16s_6ns_22_1_1 RTLNAME cnn_core_mul_16s_6ns_22_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME cnn_core_mul_16s_9ns_24_1_1 RTLNAME cnn_core_mul_16s_9ns_24_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME cnn_core_mul_16s_8ns_24_1_1 RTLNAME cnn_core_mul_16s_8ns_24_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME cnn_core_mul_16s_8s_24_1_1 RTLNAME cnn_core_mul_16s_8s_24_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
       {MODELNAME cnn_core_mul_16s_5s_21_1_1 RTLNAME cnn_core_mul_16s_5s_21_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME cnn_core_mul_16s_7s_23_1_1 RTLNAME cnn_core_mul_16s_7s_23_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME cnn_core_mul_16s_6s_22_1_1 RTLNAME cnn_core_mul_16s_6s_22_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
-      {MODELNAME cnn_core_mul_16s_10ns_24_1_1 RTLNAME cnn_core_mul_16s_10ns_24_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME cnn_core_mul_16s_6ns_22_1_1 RTLNAME cnn_core_mul_16s_6ns_22_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
       {MODELNAME cnn_core_mul_16s_5ns_21_1_1 RTLNAME cnn_core_mul_16s_5ns_21_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME cnn_core_mul_16s_6s_22_1_1 RTLNAME cnn_core_mul_16s_6s_22_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME cnn_core_mul_16s_7ns_23_1_1 RTLNAME cnn_core_mul_16s_7ns_23_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME cnn_core_mul_16s_8ns_24_1_1 RTLNAME cnn_core_mul_16s_8ns_24_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME cnn_core_mul_16s_9ns_24_1_1 RTLNAME cnn_core_mul_16s_9ns_24_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME cnn_core_mul_16s_10ns_24_1_1 RTLNAME cnn_core_mul_16s_10ns_24_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
+      {MODELNAME cnn_core_mul_16s_7s_23_1_1 RTLNAME cnn_core_mul_16s_7s_23_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}
     }
   }
   {SRCNAME dense<array<ap_fixed,42u>,array<ap_fixed<17,9,5,3,0>,1u>,config10> MODELNAME dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_s RTLNAME cnn_core_dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_s}

@@ -39,8 +39,8 @@ set ModuleHierarchy {[{
 		{"Name" : "VITIS_LOOP_229_1","ID" : "22","Type" : "pipeline"},]},
 	{"Name" : "dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0","ID" : "23","Type" : "sequential",
 		"SubInsts" : [
-		{"Name" : "grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685","ID" : "24","Type" : "sequential",
+		{"Name" : "grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653","ID" : "24","Type" : "sequential",
 			"SubLoops" : [
 			{"Name" : "DataPrepare","ID" : "25","Type" : "pipeline"},]},
-		{"Name" : "grp_dense_latency_wrapper_ap_fixed_ap_fixed_17_9_5_3_0_config10_s_fu_5853","ID" : "26","Type" : "pipeline"},]},]
+		{"Name" : "grp_dense_latency_wrapper_ap_fixed_ap_fixed_17_9_5_3_0_config10_s_fu_5813","ID" : "26","Type" : "pipeline"},]},]
 }]}

@@ -22,7 +22,7 @@ from sklearn.metrics import accuracy_score
 
 # ==============================================================================
 
-MODEL_PATH = 'models/hgq_config_beta7_gamma6_p1_cl_best.keras'
+MODEL_PATH = 'models/hgq_config_beta7_gamma6_p1_cl_best_v2.keras'
 
 OUTPUT_DIR = 'cnn_core_project/' # `chmod +w cnn_core_project` to ensure write permissions
 

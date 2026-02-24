@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_s'
 ================================================================
-* Date:           Wed Feb 11 16:57:54 2026
+* Date:           Mon Feb 23 21:25:00 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_prj
@@ -321,14 +321,14 @@ The critical path consists of the following:
 The critical path consists of the following:
 	'store' operation 0 bit ('store_ln268', firmware/nnet_utils/nnet_stream.h:268) of constant 0 on local variable 'pack_cnt', firmware/nnet_utils/nnet_stream.h:268 [50]  (0.427 ns)
 	'load' operation 32 bit ('pack_cnt', firmware/nnet_utils/nnet_stream.h:268) on local variable 'pack_cnt', firmware/nnet_utils/nnet_stream.h:268 [53]  (0.000 ns)
-	'icmp' operation 1 bit ('icmp_ln278', firmware/nnet_utils/nnet_stream.h:278) [164]  (1.016 ns)
+	'add' operation 32 bit ('pack_cnt', firmware/nnet_utils/nnet_stream.h:282) [167]  (1.016 ns)
 	'store' operation 0 bit ('store_ln268', firmware/nnet_utils/nnet_stream.h:268) of variable 'pack_cnt', firmware/nnet_utils/nnet_stream.h:282 on local variable 'pack_cnt', firmware/nnet_utils/nnet_stream.h:268 [168]  (0.427 ns)
 
  <State 3>: 2.449ns
 The critical path consists of the following:
 	'or' operation 1 bit ('or_ln275_1', firmware/nnet_utils/nnet_stream.h:275) [118]  (0.000 ns)
 	'or' operation 1 bit ('or_ln275_3', firmware/nnet_utils/nnet_stream.h:275) [121]  (0.282 ns)
-	'select' operation 16 bit ('out_data', firmware/nnet_utils/nnet_stream.h:275) [126]  (0.342 ns)
+	'select' operation 16 bit ('out_data', firmware/nnet_utils/nnet_stream.h:275) [122]  (0.342 ns)
 	fifo write operation ('write_ln279', firmware/nnet_utils/nnet_stream.h:279) on port 'layer12_out' (firmware/nnet_utils/nnet_stream.h:279) [172]  (1.825 ns)
 
 

@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_s'
 ================================================================
-* Date:           Wed Feb 11 16:57:54 2026
+* Date:           Mon Feb 23 21:25:00 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_prj
@@ -586,11 +586,11 @@ ret_ln82              (ret              ) [ 000000]
 	Port: pX_1 | {3 }
  - Input state : 
 	Port: conv_2d_cl<array<ap_fixed,1u>,array<ap_fixed<17,9,5,3,0>,7u>,config4> : layer11_out | {2 }
-	Port: conv_2d_cl<array<ap_fixed,1u>,array<ap_fixed<17,9,5,3,0>,7u>,config4> : void_compute_output_buffer_1d_array_const_stream_weight_t_bias_t_kernel_data_3 | {2 4 }
+	Port: conv_2d_cl<array<ap_fixed,1u>,array<ap_fixed<17,9,5,3,0>,7u>,config4> : void_compute_output_buffer_1d_array_const_stream_weight_t_bias_t_kernel_data_3 | {2 3 }
 	Port: conv_2d_cl<array<ap_fixed,1u>,array<ap_fixed<17,9,5,3,0>,7u>,config4> : void_compute_output_buffer_1d_array_const_stream_weight_t_bias_t_kernel_data_2 | {2 3 }
 	Port: conv_2d_cl<array<ap_fixed,1u>,array<ap_fixed<17,9,5,3,0>,7u>,config4> : void_compute_output_buffer_1d_array_const_stream_weight_t_bias_t_kernel_data_1 | {2 3 }
 	Port: conv_2d_cl<array<ap_fixed,1u>,array<ap_fixed<17,9,5,3,0>,7u>,config4> : void_compute_output_buffer_1d_array_const_stream_weight_t_bias_t_kernel_data | {2 3 }
-	Port: conv_2d_cl<array<ap_fixed,1u>,array<ap_fixed<17,9,5,3,0>,7u>,config4> : void_compute_output_buffer_1d_array_const_stream_weight_t_bias_t_kernel_data_4 | {3 }
+	Port: conv_2d_cl<array<ap_fixed,1u>,array<ap_fixed<17,9,5,3,0>,7u>,config4> : void_compute_output_buffer_1d_array_const_stream_weight_t_bias_t_kernel_data_4 | {4 }
 	Port: conv_2d_cl<array<ap_fixed,1u>,array<ap_fixed<17,9,5,3,0>,7u>,config4> : sX_1 | {3 }
 	Port: conv_2d_cl<array<ap_fixed,1u>,array<ap_fixed<17,9,5,3,0>,7u>,config4> : pX_1 | {3 }
   - Chain level:
@@ -615,7 +615,7 @@ ret_ln82              (ret              ) [ 000000]
 |----------|---------------------------------------------------------------------------------|---------|---------|---------|
 | Operation|                                 Functional Unit                                 |   DSP   |    FF   |   LUT   |
 |----------|---------------------------------------------------------------------------------|---------|---------|---------|
-|   call   | grp_compute_output_buffer_1d_array_array_ap_fixed_17_9_5_3_0_7u_config4_s_fu_60 |    25   |   462   |   1216  |
+|   call   | grp_compute_output_buffer_1d_array_array_ap_fixed_17_9_5_3_0_7u_config4_s_fu_60 |    23   |   416   |   1253  |
 |----------|---------------------------------------------------------------------------------|---------|---------|---------|
 |   icmp   |                                 icmp_ln25_fu_90                                 |    0    |    0    |    18   |
 |----------|---------------------------------------------------------------------------------|---------|---------|---------|
@@ -623,7 +623,7 @@ ret_ln82              (ret              ) [ 000000]
 |----------|---------------------------------------------------------------------------------|---------|---------|---------|
 |   read   |                           layer11_out_read_read_fu_54                           |    0    |    0    |    0    |
 |----------|---------------------------------------------------------------------------------|---------|---------|---------|
-|   Total  |                                                                                 |    25   |   462   |   1252  |
+|   Total  |                                                                                 |    23   |   416   |   1289  |
 |----------|---------------------------------------------------------------------------------|---------|---------|---------|
 
 Memories:
@@ -652,10 +652,10 @@ N/A
 +-----------+--------+--------+--------+
 |           |   DSP  |   FF   |   LUT  |
 +-----------+--------+--------+--------+
-|  Function |   25   |   462  |  1252  |
+|  Function |   23   |   416  |  1289  |
 |   Memory  |    -   |    -   |    -   |
 |Multiplexer|    -   |    -   |    -   |
 |  Register |    -   |   12   |    -   |
 +-----------+--------+--------+--------+
-|   Total   |   25   |   474  |  1252  |
+|   Total   |   23   |   428  |  1289  |
 +-----------+--------+--------+--------+
