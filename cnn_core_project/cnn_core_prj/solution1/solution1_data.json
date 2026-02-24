@@ -96,6 +96,7 @@
       "impl\/vhdl\/cnn_core_fifo_w3072_d4_A.vhd",
       "impl\/vhdl\/cnn_core_flow_control_loop_pipe.vhd",
       "impl\/vhdl\/cnn_core_flow_control_loop_pipe_sequential_init.vhd",
+      "impl\/vhdl\/cnn_core_mul_12s_5ns_17_1_0.vhd",
       "impl\/vhdl\/cnn_core_mul_12s_6s_18_1_0.vhd",
       "impl\/vhdl\/cnn_core_mul_12s_7ns_19_1_0.vhd",
       "impl\/vhdl\/cnn_core_mul_12s_7s_19_1_0.vhd",
@@ -110,7 +111,6 @@
       "impl\/vhdl\/cnn_core_mul_16s_7ns_23_1_1.vhd",
       "impl\/vhdl\/cnn_core_mul_16s_7s_23_1_1.vhd",
       "impl\/vhdl\/cnn_core_mul_16s_8ns_24_1_1.vhd",
-      "impl\/vhdl\/cnn_core_mul_16s_8s_24_1_1.vhd",
       "impl\/vhdl\/cnn_core_mul_16s_9ns_24_1_1.vhd",
       "impl\/vhdl\/cnn_core_mul_16s_10ns_24_1_1.vhd",
       "impl\/vhdl\/cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6_s.vhd",
@@ -155,6 +155,7 @@
       "impl\/verilog\/cnn_core_hls_deadlock_idx0_monitor.v",
       "impl\/verilog\/cnn_core_hls_deadlock_kernel_monitor_top.vh",
       "impl\/verilog\/cnn_core_hls_deadlock_report_unit.vh",
+      "impl\/verilog\/cnn_core_mul_12s_5ns_17_1_0.v",
       "impl\/verilog\/cnn_core_mul_12s_6s_18_1_0.v",
       "impl\/verilog\/cnn_core_mul_12s_7ns_19_1_0.v",
       "impl\/verilog\/cnn_core_mul_12s_7s_19_1_0.v",
@@ -169,7 +170,6 @@
       "impl\/verilog\/cnn_core_mul_16s_7ns_23_1_1.v",
       "impl\/verilog\/cnn_core_mul_16s_7s_23_1_1.v",
       "impl\/verilog\/cnn_core_mul_16s_8ns_24_1_1.v",
-      "impl\/verilog\/cnn_core_mul_16s_8s_24_1_1.v",
       "impl\/verilog\/cnn_core_mul_16s_9ns_24_1_1.v",
       "impl\/verilog\/cnn_core_mul_16s_10ns_24_1_1.v",
       "impl\/verilog\/cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6_s.v",
@@ -397,11 +397,11 @@
           "Instances": [
             {
               "ModuleName": "dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare",
-              "InstanceName": "grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685"
+              "InstanceName": "grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653"
             },
             {
               "ModuleName": "dense_latency_wrapper_ap_fixed_ap_fixed_17_9_5_3_0_config10_s",
-              "InstanceName": "grp_dense_latency_wrapper_ap_fixed_ap_fixed_17_9_5_3_0_config10_s_fu_5853"
+              "InstanceName": "grp_dense_latency_wrapper_ap_fixed_ap_fixed_17_9_5_3_0_config10_s_fu_5813"
             }
           ]
         }
@@ -732,13 +732,13 @@
           "Estimate": "3.562"
         },
         "Area": {
-          "DSP": "25",
+          "DSP": "23",
           "AVAIL_DSP": "1824",
           "UTIL_DSP": "1",
-          "FF": "398",
+          "FF": "352",
           "AVAIL_FF": "433920",
           "UTIL_FF": "~0",
-          "LUT": "1132",
+          "LUT": "1174",
           "AVAIL_LUT": "216960",
           "UTIL_LUT": "~0",
           "BRAM_18K": "0",
@@ -764,13 +764,13 @@
           "Estimate": "3.562"
         },
         "Area": {
-          "DSP": "25",
+          "DSP": "23",
           "AVAIL_DSP": "1824",
           "UTIL_DSP": "1",
-          "FF": "679",
+          "FF": "633",
           "AVAIL_FF": "433920",
           "UTIL_FF": "~0",
-          "LUT": "1405",
+          "LUT": "1447",
           "AVAIL_LUT": "216960",
           "UTIL_LUT": "~0",
           "BRAM_18K": "0",
@@ -803,13 +803,13 @@
             "PipelineDepth": "5"
           }],
         "Area": {
-          "DSP": "25",
+          "DSP": "23",
           "AVAIL_DSP": "1824",
           "UTIL_DSP": "1",
-          "FF": "699",
+          "FF": "653",
           "AVAIL_FF": "433920",
           "UTIL_FF": "~0",
-          "LUT": "1566",
+          "LUT": "1608",
           "AVAIL_LUT": "216960",
           "UTIL_LUT": "~0",
           "BRAM_18K": "0",
@@ -1030,7 +1030,7 @@
             "PipelineDepth": "2"
           }],
         "Area": {
-          "FF": "18605",
+          "FF": "18477",
           "AVAIL_FF": "433920",
           "UTIL_FF": "4",
           "LUT": "73",
@@ -1062,15 +1062,15 @@
           "Estimate": "3.590"
         },
         "Area": {
-          "DSP": "214",
+          "DSP": "306",
           "AVAIL_DSP": "1824",
-          "UTIL_DSP": "11",
-          "FF": "24340",
+          "UTIL_DSP": "16",
+          "FF": "25025",
           "AVAIL_FF": "433920",
           "UTIL_FF": "5",
-          "LUT": "46132",
+          "LUT": "44266",
           "AVAIL_LUT": "216960",
-          "UTIL_LUT": "21",
+          "UTIL_LUT": "20",
           "BRAM_18K": "0",
           "AVAIL_BRAM": "960",
           "UTIL_BRAM": "0",
@@ -1094,15 +1094,15 @@
           "Estimate": "3.590"
         },
         "Area": {
-          "DSP": "214",
+          "DSP": "306",
           "AVAIL_DSP": "1824",
-          "UTIL_DSP": "11",
-          "FF": "42969",
+          "UTIL_DSP": "16",
+          "FF": "43526",
           "AVAIL_FF": "433920",
-          "UTIL_FF": "9",
-          "LUT": "46285",
+          "UTIL_FF": "10",
+          "LUT": "44419",
           "AVAIL_LUT": "216960",
-          "UTIL_LUT": "21",
+          "UTIL_LUT": "20",
           "BRAM_18K": "0",
           "AVAIL_BRAM": "960",
           "UTIL_BRAM": "0",
@@ -1129,15 +1129,15 @@
           "BRAM_18K": "270",
           "AVAIL_BRAM": "960",
           "UTIL_BRAM": "28",
-          "DSP": "239",
+          "DSP": "329",
           "AVAIL_DSP": "1824",
-          "UTIL_DSP": "13",
-          "FF": "64663",
+          "UTIL_DSP": "18",
+          "FF": "65174",
           "AVAIL_FF": "433920",
-          "UTIL_FF": "14",
-          "LUT": "59402",
+          "UTIL_FF": "15",
+          "LUT": "57578",
           "AVAIL_LUT": "216960",
-          "UTIL_LUT": "27",
+          "UTIL_LUT": "26",
           "URAM": "0",
           "AVAIL_URAM": "64",
           "UTIL_URAM": "0"
@@ -1148,7 +1148,7 @@
   "GenerateBdFiles": "0",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2026-02-11 16:59:05 PST",
+    "Time": "2026-02-23 21:26:12 PST",
     "ToolName": "vitis_hls",
     "ToolVersion": "2023.2"
   }

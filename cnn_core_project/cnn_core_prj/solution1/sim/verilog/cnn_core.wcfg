@@ -230,21 +230,21 @@
             <obj_property name="Render_Data">/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0_activity.dataflowTxWaveData.Cycles</obj_property>
             <obj_property name="Value_Data">/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
             <obj_property name="Detail_Data">/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0_activity.dataflowTxTooltipData</obj_property>
-            <wvobject type="group" fp_name="/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685_activity">
-               <obj_property name="label">grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685_activity</obj_property>
+            <wvobject type="group" fp_name="/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653_activity">
+               <obj_property name="label">grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653_activity</obj_property>
                <obj_property name="DisplayName">label</obj_property>
                <obj_property name="UseFullPath">true</obj_property>
-               <obj_property name="ElementShortName">grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685_activity</obj_property>
-               <obj_property name="ObjectShortName">grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685_activity</obj_property>
+               <obj_property name="ElementShortName">grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653_activity</obj_property>
                <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
                <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
                <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
                <obj_property name="UseCustomSignalColor">true</obj_property>
                <obj_property name="CustomSignalColor">turquoise</obj_property>
                <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-               <obj_property name="Render_Data">/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685_activity.dataflowTxWaveData.Cycles</obj_property>
-               <obj_property name="Value_Data">/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685_activity.dataflowTxWaveData.OutStanding</obj_property>
-               <obj_property name="Detail_Data">/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685_activity.dataflowTxTooltipData</obj_property>
+               <obj_property name="Render_Data">/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653_activity.dataflowTxTooltipData</obj_property>
             </wvobject>
          </wvobject>
       </wvobject>
@@ -907,9 +907,9 @@
       <wvobject type="group" fp_name="dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0_group">
          <obj_property name="label">dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <wvobject type="protoinst" fp_name="/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685_activity">
-            <obj_property name="ElementShortName">grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685_activity</obj_property>
-            <obj_property name="ObjectShortName">grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685_activity</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653_activity">
+            <obj_property name="ElementShortName">grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653_activity</obj_property>
          </wvobject>
          <wvobject type="group" fp_name="dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0_Input_group">
             <obj_property name="label">Input Channels</obj_property>
@@ -955,21 +955,21 @@
             <obj_property name="label">Output Channels</obj_property>
             <obj_property name="DisplayName">label</obj_property>
          </wvobject>
-         <wvobject type="group" fp_name="grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685_group">
-            <obj_property name="label">grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685</obj_property>
+         <wvobject type="group" fp_name="grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653_group">
+            <obj_property name="label">grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="group" fp_name="grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685_Handshake_group">
+            <wvobject type="group" fp_name="grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653_Handshake_group">
                <obj_property name="label">Block-level handshake</obj_property>
                <obj_property name="DisplayName">label</obj_property>
-               <wvobject type="logic" fp_name="/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685/ap_start">
+               <wvobject type="logic" fp_name="/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653/ap_start">
                   <obj_property name="ElementShortName">ap_start</obj_property>
                   <obj_property name="ObjectShortName">ap_start</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685/ap_ready">
+               <wvobject type="logic" fp_name="/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653/ap_ready">
                   <obj_property name="ElementShortName">ap_ready</obj_property>
                   <obj_property name="ObjectShortName">ap_ready</obj_property>
                </wvobject>
-               <wvobject type="logic" fp_name="/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685/ap_done">
+               <wvobject type="logic" fp_name="/apatb_cnn_core_top/AESL_inst_cnn_core/dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0/grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653/ap_done">
                   <obj_property name="ElementShortName">ap_done</obj_property>
                   <obj_property name="ObjectShortName">ap_done</obj_property>
                </wvobject>

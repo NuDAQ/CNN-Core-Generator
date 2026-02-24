@@ -714,7 +714,7 @@ end
         .token_out_vec(token_out_vec_7),
         .dl_detect_out(dl_in_vec[7]));
 
-    assign proc_7_data_FIFO_blk[0] = 1'b0 | (~AESL_inst_cnn_core.dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0.grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685.layer13_out_blk_n);
+    assign proc_7_data_FIFO_blk[0] = 1'b0 | (~AESL_inst_cnn_core.dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0.grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653.layer13_out_blk_n);
     assign proc_7_data_PIPO_blk[0] = 1'b0;
     assign proc_7_start_FIFO_blk[0] = 1'b0 | (~AESL_inst_cnn_core.start_for_dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0_U.if_empty_n & AESL_inst_cnn_core.dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0.ap_idle & ~AESL_inst_cnn_core.start_for_dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0_U.if_write);
     assign proc_7_TLF_FIFO_blk[0] = 1'b0;

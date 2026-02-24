@@ -2,7 +2,7 @@
 
 `timescale 1 ns / 1 ps
 
-  module cnn_core_mul_16s_8s_24_1_1(din0, din1, dout);
+  module cnn_core_mul_12s_5ns_17_1_0(din0, din1, dout);
 parameter ID = 1;
 parameter NUM_STAGE = 0;
 parameter din0_WIDTH = 14;
@@ -26,8 +26,8 @@ wire signed [dout_WIDTH - 1 : 0] tmp_product;
 
 
 
+assign tmp_product = $signed(din0) * $signed({1'b0, din1});
 
-assign tmp_product = $signed(din0) * $signed(din1);
 
 
 

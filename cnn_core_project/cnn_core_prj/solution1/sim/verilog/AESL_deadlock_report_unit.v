@@ -544,7 +544,7 @@ module AESL_deadlock_report_unit #( parameter PROC_NUM = 4 ) (
                 7 : begin
                     case(index2)
                     6: begin
-                        if (~AESL_inst_cnn_core.dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0.grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4685.layer13_out_blk_n) begin
+                        if (~AESL_inst_cnn_core.dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0.grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653.layer13_out_blk_n) begin
                             if (~AESL_inst_cnn_core.layer13_out_U.if_empty_n) begin
                                 $display("//      Blocked by empty input FIFO 'cnn_core.layer13_out_U' written by process 'cnn_core.repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path cnn_core.layer13_out_U");

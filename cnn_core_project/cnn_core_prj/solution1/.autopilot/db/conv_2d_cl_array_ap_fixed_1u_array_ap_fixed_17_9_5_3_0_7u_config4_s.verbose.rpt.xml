@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_s'" level="0">
-<item name = "Date">Wed Feb 11 16:58:10 2026
+<item name = "Date">Mon Feb 23 21:25:17 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_prj</item>
@@ -51,7 +51,7 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 51, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">-, 25, 679, 1405, -</column>
+<column name="Instance">-, 23, 633, 1447, -</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 110, -</column>
 <column name="Register">-, -, 20, -, -</column>
@@ -63,7 +63,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="grp_compute_output_buffer_1d_array_array_ap_fixed_17_9_5_3_0_7u_config4_s_fu_60">compute_output_buffer_1d_array_array_ap_fixed_17_9_5_3_0_7u_config4_s, 0, 25, 679, 1405, 0</column>
+<column name="grp_compute_output_buffer_1d_array_array_ap_fixed_17_9_5_3_0_7u_config4_s_fu_60">compute_output_buffer_1d_array_array_ap_fixed_17_9_5_3_0_7u_config4_s, 0, 23, 633, 1447, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">

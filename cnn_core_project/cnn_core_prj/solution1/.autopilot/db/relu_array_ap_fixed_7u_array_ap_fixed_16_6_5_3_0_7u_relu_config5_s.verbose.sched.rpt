@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config5_s'
 ================================================================
-* Date:           Wed Feb 11 16:57:54 2026
+* Date:           Mon Feb 23 21:25:00 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_prj
@@ -154,7 +154,7 @@ Target clock period: 5.000ns, clock uncertainty: 1.350ns.
 The critical path consists of the following:
 	'store' operation 0 bit ('store_ln41', firmware/nnet_utils/nnet_activation_stream.h:41) of constant 0 on local variable 'i', firmware/nnet_utils/nnet_activation_stream.h:41 [6]  (0.427 ns)
 	'load' operation 9 bit ('i', firmware/nnet_utils/nnet_activation_stream.h:41) on local variable 'i', firmware/nnet_utils/nnet_activation_stream.h:41 [9]  (0.000 ns)
-	'icmp' operation 1 bit ('icmp_ln41', firmware/nnet_utils/nnet_activation_stream.h:41) [10]  (0.776 ns)
+	'add' operation 9 bit ('i', firmware/nnet_utils/nnet_activation_stream.h:41) [11]  (0.776 ns)
 	'store' operation 0 bit ('store_ln41', firmware/nnet_utils/nnet_activation_stream.h:41) of variable 'i', firmware/nnet_utils/nnet_activation_stream.h:41 on local variable 'i', firmware/nnet_utils/nnet_activation_stream.h:41 [55]  (0.427 ns)
 
  <State 2>: 2.587ns

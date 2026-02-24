@@ -4,7 +4,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 
-entity cnn_core_mul_16s_8s_24_1_1 is
+entity cnn_core_mul_12s_5ns_17_1_0 is
 generic (
     ID : INTEGER := 1;
     NUM_STAGE : INTEGER := 0;
@@ -21,7 +21,7 @@ port (
 
 end entity;
 
-architecture behav of cnn_core_mul_16s_8s_24_1_1 is
+architecture behav of cnn_core_mul_12s_5ns_17_1_0 is
     signal tmp_product : std_logic_vector(dout_WIDTH - 1 downto 0);
     signal a_i : std_logic_vector(din0_WIDTH - 1 downto 0);
     signal b_i : std_logic_vector(din1_WIDTH - 1 downto 0);
@@ -39,8 +39,8 @@ begin
 
 
 
+    tmp_product <= std_logic_vector(resize(unsigned(std_logic_vector(signed(a_i) * signed('0' & b_i))), dout_WIDTH));
 
-    tmp_product <= std_logic_vector(resize(unsigned(std_logic_vector(signed(a_i) * signed(b_i))), dout_WIDTH));
 
 
 
