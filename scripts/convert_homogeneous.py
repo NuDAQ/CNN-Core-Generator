@@ -4,7 +4,7 @@ import tensorflow as tf
 
 from tensorflow import keras
 
-from tensorflow.keras.layers import Conv2D, Dense, Flatten, Reshape, MaxPooling2D, InputLayer, Permute
+from tensorflow.keras.layers import Conv2D, Dense, Flatten, Reshape, MaxPooling2D, InputLayer
 
 import numpy as np
 
@@ -22,7 +22,7 @@ from sklearn.metrics import accuracy_score
 
 # ==============================================================================
 
-MODEL_PATH = 'models/hgq_config_beta7_gamma6_p1_cl_best_v2.keras'
+MODEL_PATH = 'models/hgq_config_beta7_gamma6_p1_cl_best_v3.keras'
 
 OUTPUT_DIR = 'cnn_core_project/' # `chmod +w cnn_core_project` to ensure write permissions
 
@@ -72,6 +72,28 @@ print(f"[INFO] Loading HGQ model from {MODEL_PATH}...")
 custom_objects = {'QConv2D': QConv2D, 'QDense': QDense}
 
 hgq_model = keras.models.load_model(MODEL_PATH, custom_objects=custom_objects)
+
+
+def get_model_input_shape(model):
+
+    """Return the non-batch input shape for the loaded Keras model."""
+
+    input_shape = model.input_shape
+
+    if isinstance(input_shape, list):
+
+        input_shape = input_shape[0]
+
+    if input_shape is None:
+
+        raise ValueError("Unable to determine HGQ model input shape")
+
+    return tuple(input_shape[1:])
+
+
+MODEL_INPUT_SHAPE = get_model_input_shape(hgq_model)
+
+print(f"[INFO] Model input shape: {MODEL_INPUT_SHAPE}")
 
 
 
@@ -151,23 +173,17 @@ print("-" * 40)
 
 # ==============================================================================
 
-print("[INFO] Building Transposed Vanilla model...")
+print("[INFO] Building Vanilla model...")
 
 
 
 vanilla_model = keras.Sequential()
 
-# Optimize Input: (256, 4) -> Narrow Interface
-
-vanilla_model.add(InputLayer(shape=(256, 4)))
-
-# Swap back to (4, 256)
-
-vanilla_model.add(Permute((2, 1))) 
+vanilla_model.add(InputLayer(shape=MODEL_INPUT_SHAPE, name='input_layer'))
 
 
 
-current_shape = (None, 4, 256)
+current_shape = (None,) + MODEL_INPUT_SHAPE
 
 
 
@@ -194,6 +210,10 @@ for layer in hgq_model.layers:
             padding=conf['padding'],
 
             data_format=conf['data_format'],
+
+            dilation_rate=conf.get('dilation_rate', (1, 1)),
+
+            groups=conf.get('groups', 1),
 
             activation=conf['activation'],
 
@@ -403,7 +423,7 @@ if os.path.exists(X_path) and os.path.exists(y_path):
 
     
 
-    # 1. Squeeze extra dim (1000, 4, 256, 1) -> (1000, 4, 256)
+    # 1. Squeeze extra dim, e.g. (1000, 4, 256, 1) -> (1000, 4, 256)
 
     if X_test.ndim == 4:
 
@@ -411,25 +431,42 @@ if os.path.exists(X_path) and os.path.exists(y_path):
 
         
 
-    # 2. Transpose & Contiguous Fix for C++
+    # 2. Match the v3 model input. Training data is commonly saved as
+    #    (N, 4, 256), while the model now expects (N, 256, 4).
 
-    X_test_transposed = np.ascontiguousarray(np.transpose(X_test, (0, 2, 1)))
+    if tuple(X_test.shape[1:]) == MODEL_INPUT_SHAPE:
+
+        X_test_prepared = X_test
+
+    elif X_test.ndim == 3 and tuple(X_test.shape[1:][::-1]) == MODEL_INPUT_SHAPE:
+
+        X_test_prepared = np.transpose(X_test, (0, 2, 1))
+
+    else:
+
+        raise ValueError(
+
+            f"Unsupported X_test shape {X_test.shape}; expected (N, {MODEL_INPUT_SHAPE[0]}, {MODEL_INPUT_SHAPE[1]}) or its transpose."
+
+        )
+
+    X_test_prepared = np.ascontiguousarray(X_test_prepared)
 
     
 
-    print(f"   Data Shape: {X_test_transposed.shape}")
+    print(f"   Data Shape: {X_test_prepared.shape}")
 
     
 
     print("   Running HLS Prediction...")
 
-    y_hls = hls_model.predict(X_test_transposed)
+    y_hls = hls_model.predict(X_test_prepared)
 
     
 
     print("   Running Keras Prediction...")
 
-    y_keras = vanilla_model.predict(X_test_transposed)
+    y_keras = vanilla_model.predict(X_test_prepared)
 
     
 
