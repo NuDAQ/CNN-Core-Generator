@@ -1,0 +1,1019 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Wed May 13 16:57:47 2026
+# Process ID: 71672
+# Current directory: /home/work1/Works/CNN-Core-Generator/cnn_core_project
+# Command line: vivado -mode batch -source vivado_synth.tcl
+# Log file: /home/work1/Works/CNN-Core-Generator/cnn_core_project/vivado.log
+# Journal file: /home/work1/Works/CNN-Core-Generator/cnn_core_project/vivado.jou
+# Running On: AlbertsUbuntu, OS: Linux, CPU Frequency: 800.000 MHz, CPU Physical cores: 24, Host memory: 16441 MB
+#-----------------------------------------------------------
+source vivado_synth.tcl
+# set tcldir [file dirname [info script]]
+# source [file join $tcldir project.tcl]
+## variable project_name
+## set project_name "cnn_core"
+## variable backend
+## set backend "vitis"
+## variable part
+## set part "xcku5p-ffvb676-2-e"
+## variable clock_period
+## set clock_period 5
+## variable clock_uncertainty
+## set clock_uncertainty 27%
+## variable version
+## set version "1.0.0"
+## variable maximum_size
+## set maximum_size 4096
+# add_files ${project_name}_prj/solution1/syn/verilog
+add_files: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1365.652 ; gain = 63.836 ; free physical = 298 ; free virtual = 39890
+# synth_design -top ${project_name} -part $part
+Command: synth_design -top cnn_core -part xcku5p-ffvb676-2-e
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcku5p'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcku5p'
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 71681
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1790.211 ; gain = 418.590 ; free physical = 293 ; free virtual = 39206
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'cnn_core' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_s' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_s_in_data_Rbkb' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_s_in_data_Rbkb.v:7]
+	Parameter DataWidth bound to: 12 - type: integer 
+	Parameter AddressWidth bound to: 2 - type: integer 
+	Parameter AddressRange bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_s_in_data_Rbkb' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_s_in_data_Rbkb.v:7]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_flow_control_loop_pipe' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_flow_control_loop_pipe.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_flow_control_loop_pipe' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_flow_control_loop_pipe.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_regslice_both' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_regslice_both.v:11]
+	Parameter DataWidth bound to: 64 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_regslice_both' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_s' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_s' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud.v:50]
+	Parameter DataWidth bound to: 12 - type: integer 
+	Parameter AddressRange bound to: 4 - type: integer 
+	Parameter AddressWidth bound to: 2 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_core' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud.v:9]
+	Parameter DATA_WIDTH bound to: 12 - type: integer 
+	Parameter ADDR_WIDTH bound to: 2 - type: integer 
+	Parameter DEPTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_core' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud.v:50]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_mul_12s_5ns_15_1_1' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_mul_12s_5ns_15_1_1.v:5]
+	Parameter ID bound to: 1 - type: integer 
+	Parameter NUM_STAGE bound to: 1 - type: integer 
+	Parameter din0_WIDTH bound to: 12 - type: integer 
+	Parameter din1_WIDTH bound to: 5 - type: integer 
+	Parameter dout_WIDTH bound to: 15 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_mul_12s_5ns_15_1_1' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_mul_12s_5ns_15_1_1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_s' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j.v:50]
+	Parameter DataWidth bound to: 16 - type: integer 
+	Parameter AddressRange bound to: 4 - type: integer 
+	Parameter AddressWidth bound to: 2 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j.v:9]
+	Parameter DATA_WIDTH bound to: 16 - type: integer 
+	Parameter ADDR_WIDTH bound to: 2 - type: integer 
+	Parameter DEPTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j.v:50]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_flow_control_loop_pipe_sequential_init' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_flow_control_loop_pipe_sequential_init.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_flow_control_loop_pipe_sequential_init' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_flow_control_loop_pipe_sequential_init.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_mul_16s_6ns_19_1_1' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_mul_16s_6ns_19_1_1.v:5]
+	Parameter ID bound to: 1 - type: integer 
+	Parameter NUM_STAGE bound to: 1 - type: integer 
+	Parameter din0_WIDTH bound to: 16 - type: integer 
+	Parameter din1_WIDTH bound to: 6 - type: integer 
+	Parameter dout_WIDTH bound to: 19 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_mul_16s_6ns_19_1_1' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_mul_16s_6ns_19_1_1.v:5]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_mul_16s_5ns_19_1_1' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_mul_16s_5ns_19_1_1.v:5]
+	Parameter ID bound to: 1 - type: integer 
+	Parameter NUM_STAGE bound to: 1 - type: integer 
+	Parameter din0_WIDTH bound to: 16 - type: integer 
+	Parameter din1_WIDTH bound to: 5 - type: integer 
+	Parameter dout_WIDTH bound to: 19 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_mul_16s_5ns_19_1_1' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_mul_16s_5ns_19_1_1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_regslice_both__parameterized0' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_regslice_both.v:11]
+	Parameter DataWidth bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_regslice_both__parameterized0' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_regslice_both.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s.v:9]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_fifo_w12_d1024_A' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w12_d1024_A.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_fifo_w12_d1024_A_ram' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w12_d1024_A.v:188]
+	Parameter MEM_STYLE bound to: auto - type: string 
+	Parameter DATA_WIDTH bound to: 12 - type: integer 
+	Parameter ADDR_WIDTH bound to: 10 - type: integer 
+	Parameter DEPTH bound to: 1023 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_fifo_w12_d1024_A_ram' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w12_d1024_A.v:188]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_fifo_w12_d1024_A' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w12_d1024_A.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_fifo_w63_d336_A' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w63_d336_A.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_fifo_w63_d336_A_ram' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w63_d336_A.v:188]
+	Parameter MEM_STYLE bound to: auto - type: string 
+	Parameter DATA_WIDTH bound to: 63 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+	Parameter DEPTH bound to: 335 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_fifo_w63_d336_A_ram' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w63_d336_A.v:188]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_fifo_w63_d336_A' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w63_d336_A.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_fifo_w112_d336_A' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w112_d336_A.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_fifo_w112_d336_A_ram' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w112_d336_A.v:188]
+	Parameter MEM_STYLE bound to: auto - type: string 
+	Parameter DATA_WIDTH bound to: 112 - type: integer 
+	Parameter ADDR_WIDTH bound to: 9 - type: integer 
+	Parameter DEPTH bound to: 335 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_fifo_w112_d336_A_ram' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w112_d336_A.v:188]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_fifo_w112_d336_A' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w112_d336_A.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_fifo_w112_d168_A' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w112_d168_A.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_fifo_w112_d168_A_ram' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w112_d168_A.v:188]
+	Parameter MEM_STYLE bound to: auto - type: string 
+	Parameter DATA_WIDTH bound to: 112 - type: integer 
+	Parameter ADDR_WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 167 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_fifo_w112_d168_A_ram' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w112_d168_A.v:188]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_fifo_w112_d168_A' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_fifo_w112_d168_A.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ShiftReg' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0.v:117]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ShiftReg' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0.v:117]
+WARNING: [Synth 8-7071] port 'reset' of module 'cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ShiftReg' is unconnected for instance 'U_cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ShiftReg' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0.v:50]
+WARNING: [Synth 8-7023] instance 'U_cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ShiftReg' of module 'cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ShiftReg' has 6 connections declared, but only 5 given [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0.v:50]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ShiftReg' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0.v:117]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ShiftReg' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0.v:117]
+WARNING: [Synth 8-7071] port 'reset' of module 'cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ShiftReg' is unconnected for instance 'U_cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ShiftReg' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0.v:50]
+WARNING: [Synth 8-7023] instance 'U_cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ShiftReg' of module 'cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ShiftReg' has 6 connections declared, but only 5 given [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0.v:50]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg_ShiftReg' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg.v:117]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg_ShiftReg' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg.v:117]
+WARNING: [Synth 8-7071] port 'reset' of module 'cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg_ShiftReg' is unconnected for instance 'U_cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg_ShiftReg' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg.v:50]
+WARNING: [Synth 8-7023] instance 'U_cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg_ShiftReg' of module 'cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg_ShiftReg' has 6 connections declared, but only 5 given [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg.v:50]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0.v:11]
+INFO: [Synth 8-6157] synthesizing module 'cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0.v:117]
+	Parameter DATA_WIDTH bound to: 1 - type: integer 
+	Parameter ADDR_WIDTH bound to: 1 - type: integer 
+	Parameter DEPTH bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0.v:117]
+WARNING: [Synth 8-7071] port 'reset' of module 'cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg' is unconnected for instance 'U_cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg' [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0.v:50]
+WARNING: [Synth 8-7023] instance 'U_cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg' of module 'cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg' has 6 connections declared, but only 5 given [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0.v:50]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'cnn_core' (0#1) [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core.v:9]
+WARNING: [Synth 8-7129] Port reset in module cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg_ShiftReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ShiftReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ShiftReg is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ap_rst in module cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[8] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[7] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[6] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[5] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[4] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[3] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[2] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[1] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[0] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[8] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[7] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[6] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[5] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[4] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[3] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[2] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[1] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[0] in module cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[8] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[7] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[6] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[5] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[4] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[3] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[2] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[1] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[0] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[8] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[7] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[6] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[5] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[4] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[3] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[2] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[1] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[0] in module cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ap_done_int in module cnn_core_flow_control_loop_pipe is either unconnected or has no load
+WARNING: [Synth 8-7129] Port reset in module cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j is either unconnected or has no load
+WARNING: [Synth 8-7129] Port ce0 in module cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[8] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[7] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[6] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[5] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[4] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[3] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[2] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[1] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_num_data_valid[0] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[8] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[7] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[6] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[5] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[4] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[3] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[2] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[1] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer5_out_fifo_cap[0] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_num_data_valid[9] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_num_data_valid[8] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_num_data_valid[7] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_num_data_valid[6] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_num_data_valid[5] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_num_data_valid[4] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_num_data_valid[3] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_num_data_valid[2] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_num_data_valid[1] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_num_data_valid[0] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_fifo_cap[9] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_fifo_cap[8] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_fifo_cap[7] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_fifo_cap[6] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_fifo_cap[5] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_fifo_cap[4] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_fifo_cap[3] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_fifo_cap[2] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_fifo_cap[1] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer4_out_fifo_cap[0] in module cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_num_data_valid[9] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_num_data_valid[8] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_num_data_valid[7] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_num_data_valid[6] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_num_data_valid[5] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_num_data_valid[4] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_num_data_valid[3] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_num_data_valid[2] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_num_data_valid[1] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_num_data_valid[0] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_fifo_cap[9] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_fifo_cap[8] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_fifo_cap[7] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_fifo_cap[6] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_fifo_cap[5] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_fifo_cap[4] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_fifo_cap[3] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+WARNING: [Synth 8-7129] Port layer3_out_fifo_cap[2] in module cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1976.336 ; gain = 604.715 ; free physical = 253 ; free virtual = 38974
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1976.336 ; gain = 604.715 ; free physical = 254 ; free virtual = 38974
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcku5p-ffvb676-2-e
+INFO: [Synth 8-6742] Reading net delay rules and data
+INFO: [Device 21-403] Loading part xcku5p-ffvb676-2-e
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1984.340 ; gain = 612.719 ; free physical = 255 ; free virtual = 38975
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 12 for RAM "cnn_core_repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_s_in_data_Rbkb:/ram_reg"
+INFO: [Synth 8-3971] The signal "cnn_core_repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_s_in_data_Rbkb:/ram_reg" was recognized as a true dual port RAM template.
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 12 for RAM "cnn_core_fifo_w12_d1024_A_ram:/mem_reg"
+INFO: [Synth 8-6794] RAM ("cnn_core_fifo_w112_d336_A_ram:/mem_reg") will be automatically implemented using URAM. 
+INFO: [Synth 8-6794] RAM ("cnn_core_fifo_w112_d336_A_ram:/mem_reg") will be automatically implemented using URAM. 
+INFO: [Synth 8-5780] Default cascade height of 1 will be used for URAM '"cnn_core_fifo_w112_d336_A_ram:/mem_reg"'.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 2783.762 ; gain = 1412.141 ; free physical = 279 ; free virtual = 38249
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 6     
+	   3 Input   19 Bit       Adders := 60    
+	   2 Input   19 Bit       Adders := 31    
+	   2 Input   15 Bit       Adders := 56    
+	   4 Input   15 Bit       Adders := 56    
+	  21 Input   15 Bit       Adders := 3     
+	   3 Input   15 Bit       Adders := 22    
+	   5 Input   15 Bit       Adders := 3     
+	   9 Input   15 Bit       Adders := 2     
+	  12 Input   15 Bit       Adders := 7     
+	   6 Input   15 Bit       Adders := 13    
+	   7 Input   15 Bit       Adders := 7     
+	  37 Input   15 Bit       Adders := 1     
+	  19 Input   15 Bit       Adders := 1     
+	  17 Input   15 Bit       Adders := 1     
+	  11 Input   15 Bit       Adders := 1     
+	   8 Input   15 Bit       Adders := 1     
+	   2 Input   14 Bit       Adders := 185   
+	   2 Input   13 Bit       Adders := 23    
+	   3 Input   13 Bit       Adders := 1     
+	   2 Input   11 Bit       Adders := 4     
+	   3 Input   11 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 6     
+	   3 Input   10 Bit       Adders := 2     
+	   2 Input    9 Bit       Adders := 8     
+	   3 Input    9 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 3     
+	   2 Input    3 Bit       Adders := 1     
+	   2 Input    2 Bit       Adders := 4     
++---XORs : 
+	   2 Input      1 Bit         XORs := 9     
++---Registers : 
+	              112 Bit    Registers := 2     
+	               64 Bit    Registers := 2     
+	               63 Bit    Registers := 1     
+	               32 Bit    Registers := 4     
+	               16 Bit    Registers := 1596  
+	               15 Bit    Registers := 172   
+	               12 Bit    Registers := 9     
+	               11 Bit    Registers := 6     
+	               10 Bit    Registers := 8     
+	                9 Bit    Registers := 16    
+	                8 Bit    Registers := 11    
+	                7 Bit    Registers := 1     
+	                3 Bit    Registers := 3     
+	                2 Bit    Registers := 9     
+	                1 Bit    Registers := 83    
++---RAMs : 
+	              36K Bit	(335 X 112 bit)          RAMs := 1     
+	              20K Bit	(335 X 63 bit)          RAMs := 1     
+	              18K Bit	(167 X 112 bit)          RAMs := 1     
+	              11K Bit	(1023 X 12 bit)          RAMs := 1     
+	               48 Bit	(4 X 12 bit)          RAMs := 1     
++---Muxes : 
+	   2 Input   64 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 8     
+	   2 Input   14 Bit        Muxes := 7     
+	   2 Input   12 Bit        Muxes := 2     
+	   2 Input   11 Bit        Muxes := 2     
+	   3 Input   11 Bit        Muxes := 1     
+	   3 Input   10 Bit        Muxes := 2     
+	   2 Input   10 Bit        Muxes := 2     
+	   2 Input    9 Bit        Muxes := 7     
+	   3 Input    9 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 2     
+	   2 Input    7 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 2     
+	   6 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 17    
+	   4 Input    2 Bit        Muxes := 3     
+	   3 Input    2 Bit        Muxes := 1     
+	   5 Input    2 Bit        Muxes := 1     
+	   6 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 87    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1824 (col length:96)
+BRAMs: 960 (col length: RAMB18 96 RAMB36 48)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3936] Found unconnected internal register 'regslice_both_input_layer_U/B_V_data_1_payload_A_reg' and it is trimmed from '64' to '60' bits. [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_regslice_both.v:87]
+WARNING: [Synth 8-3936] Found unconnected internal register 'regslice_both_input_layer_U/B_V_data_1_payload_B_reg' and it is trimmed from '64' to '60' bits. [/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/syn/verilog/cnn_core_regslice_both.v:93]
+DSP Report: Generating DSP grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/mul_12s_5ns_15_1_1_U12/tmp_product, operation Mode is: A2*(B:0xb).
+DSP Report: register grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/void_compute_output_buffer_2d_array_const_ap_shift_reg_n_chan_stream_weig_2_reg is absorbed into DSP grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/mul_12s_5ns_15_1_1_U12/tmp_product.
+DSP Report: operator grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/mul_12s_5ns_15_1_1_U12/tmp_product is absorbed into DSP grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/mul_12s_5ns_15_1_1_U12/tmp_product.
+DSP Report: Generating DSP grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2, operation Mode is: PCIN+(A:0x0):B2+C.
+DSP Report: register grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2 is absorbed into DSP grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2.
+DSP Report: operator grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2 is absorbed into DSP grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2.
+DSP Report: Generating DSP grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2, operation Mode is: PCIN+A2:B2+C.
+DSP Report: register grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2 is absorbed into DSP grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2.
+DSP Report: register grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2 is absorbed into DSP grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2.
+DSP Report: operator grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2 is absorbed into DSP grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2.
+DSP Report: Generating DSP grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2, operation Mode is: PCIN+(A:0x0):B2.
+DSP Report: register grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2 is absorbed into DSP grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2.
+DSP Report: operator grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2 is absorbed into DSP grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/x_fu_592_p2.
+RAM ("cnn_core/repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_U0/in_data_U/ram_reg") is too shallow (depth = 4) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 12 for RAM "cnn_core/repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_U0/in_data_U/ram_reg"
+INFO: [Synth 8-3971] The signal "cnn_core/repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_U0/in_data_U/ram_reg" was recognized as a true dual port RAM template.
+RAM ("cnn_core/layer8_out_U/U_cnn_core_fifo_w12_d1024_A_ram/mem_reg") is too shallow (depth = 1023) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-7030] Implemented Non-Cascaded Block Ram (cascade_height = 1) of width 12 for RAM "cnn_core/layer8_out_U/U_cnn_core_fifo_w12_d1024_A_ram/mem_reg"
+RAM ("cnn_core/layer3_out_U/U_cnn_core_fifo_w63_d336_A_ram/mem_reg") is too shallow (depth = 335) to use URAM. Choosing BRAM instead of URAM 
+INFO: [Synth 8-5784] Optimized 56 bits of RAM "layer4_out_U/U_cnn_core_fifo_w112_d336_A_ram/mem_reg" due to constant propagation. Old ram width 112 bits, new ram width 56 bits.
+RAM ("cnn_core/layer4_out_U/U_cnn_core_fifo_w112_d336_A_ram/mem_reg") is too shallow (depth = 335) to use URAM. Choosing BRAM instead of URAM 
+RAM ("cnn_core/layer5_out_U/U_cnn_core_fifo_w112_d168_A_ram/mem_reg") is too shallow (depth = 167) to use URAM. Choosing BRAM instead of URAM 
+DSP Report: Generating DSP mul_16s_6ns_19_1_1_U841/tmp_product, operation Mode is: A2*(B:0x13).
+DSP Report: register data_388_val289_int_reg_reg is absorbed into DSP mul_16s_6ns_19_1_1_U841/tmp_product.
+DSP Report: operator mul_16s_6ns_19_1_1_U841/tmp_product is absorbed into DSP mul_16s_6ns_19_1_1_U841/tmp_product.
+DSP Report: Generating DSP mul_16s_5ns_19_1_1_U849/tmp_product, operation Mode is: A2*(B:0xb).
+DSP Report: register data_316_val218_int_reg_reg is absorbed into DSP mul_16s_5ns_19_1_1_U849/tmp_product.
+DSP Report: operator mul_16s_5ns_19_1_1_U849/tmp_product is absorbed into DSP mul_16s_5ns_19_1_1_U849/tmp_product.
+DSP Report: Generating DSP mul_16s_5ns_19_1_1_U843/tmp_product, operation Mode is: A2*(B:0xb).
+DSP Report: register data_330_val232_int_reg_reg is absorbed into DSP mul_16s_5ns_19_1_1_U843/tmp_product.
+DSP Report: operator mul_16s_5ns_19_1_1_U843/tmp_product is absorbed into DSP mul_16s_5ns_19_1_1_U843/tmp_product.
+DSP Report: Generating DSP mul_16s_5ns_19_1_1_U850/tmp_product, operation Mode is: A2*(B:0xb).
+DSP Report: register data_323_val225_int_reg_reg is absorbed into DSP mul_16s_5ns_19_1_1_U850/tmp_product.
+DSP Report: operator mul_16s_5ns_19_1_1_U850/tmp_product is absorbed into DSP mul_16s_5ns_19_1_1_U850/tmp_product.
+DSP Report: Generating DSP mul_16s_5ns_19_1_1_U845/tmp_product, operation Mode is: A2*(B:0xb).
+DSP Report: register data_347_val249_int_reg_reg is absorbed into DSP mul_16s_5ns_19_1_1_U845/tmp_product.
+DSP Report: operator mul_16s_5ns_19_1_1_U845/tmp_product is absorbed into DSP mul_16s_5ns_19_1_1_U845/tmp_product.
+DSP Report: Generating DSP mul_16s_6ns_19_1_1_U840/tmp_product, operation Mode is: A2*(B:0x13).
+DSP Report: register data_367_val269_int_reg_reg is absorbed into DSP mul_16s_6ns_19_1_1_U840/tmp_product.
+DSP Report: operator mul_16s_6ns_19_1_1_U840/tmp_product is absorbed into DSP mul_16s_6ns_19_1_1_U840/tmp_product.
+DSP Report: Generating DSP mul_16s_5ns_19_1_1_U846/tmp_product, operation Mode is: A2*(B:0xb).
+DSP Report: register data_361_val263_int_reg_reg is absorbed into DSP mul_16s_5ns_19_1_1_U846/tmp_product.
+DSP Report: operator mul_16s_5ns_19_1_1_U846/tmp_product is absorbed into DSP mul_16s_5ns_19_1_1_U846/tmp_product.
+DSP Report: Generating DSP mul_16s_5ns_19_1_1_U844/tmp_product, operation Mode is: A2*(B:0xb).
+DSP Report: register data_332_val234_int_reg_reg is absorbed into DSP mul_16s_5ns_19_1_1_U844/tmp_product.
+DSP Report: operator mul_16s_5ns_19_1_1_U844/tmp_product is absorbed into DSP mul_16s_5ns_19_1_1_U844/tmp_product.
+DSP Report: Generating DSP mul_16s_6ns_19_1_1_U842/tmp_product, operation Mode is: A2*(B:0x13).
+DSP Report: register data_374_val276_int_reg_reg is absorbed into DSP mul_16s_6ns_19_1_1_U842/tmp_product.
+DSP Report: operator mul_16s_6ns_19_1_1_U842/tmp_product is absorbed into DSP mul_16s_6ns_19_1_1_U842/tmp_product.
+DSP Report: Generating DSP mul_16s_5ns_19_1_1_U851/tmp_product, operation Mode is: A2*(B:0xb).
+DSP Report: register data_283_val185_int_reg_reg is absorbed into DSP mul_16s_5ns_19_1_1_U851/tmp_product.
+DSP Report: operator mul_16s_5ns_19_1_1_U851/tmp_product is absorbed into DSP mul_16s_5ns_19_1_1_U851/tmp_product.
+DSP Report: Generating DSP mul_16s_5ns_19_1_1_U848/tmp_product, operation Mode is: A2*(B:0xb).
+DSP Report: register data_309_val211_int_reg_reg is absorbed into DSP mul_16s_5ns_19_1_1_U848/tmp_product.
+DSP Report: operator mul_16s_5ns_19_1_1_U848/tmp_product is absorbed into DSP mul_16s_5ns_19_1_1_U848/tmp_product.
+DSP Report: Generating DSP mul_16s_5ns_19_1_1_U847/tmp_product, operation Mode is: A2*(B:0xb).
+DSP Report: register data_304_val206_int_reg_reg is absorbed into DSP mul_16s_5ns_19_1_1_U847/tmp_product.
+DSP Report: operator mul_16s_5ns_19_1_1_U847/tmp_product is absorbed into DSP mul_16s_5ns_19_1_1_U847/tmp_product.
+DSP Report: Generating DSP mul_16s_5ns_19_1_1_U852/tmp_product, operation Mode is: A2*(B:0xb).
+DSP Report: register data_290_val192_int_reg_reg is absorbed into DSP mul_16s_5ns_19_1_1_U852/tmp_product.
+DSP Report: operator mul_16s_5ns_19_1_1_U852/tmp_product is absorbed into DSP mul_16s_5ns_19_1_1_U852/tmp_product.
+WARNING: [Synth 8-3917] design cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s__GC0 has port layer7_out_TDATA[15] driven by constant 0
+WARNING: [Synth 8-3917] design cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s__GC0 has port layer7_out_TDATA[14] driven by constant 0
+WARNING: [Synth 8-3917] design cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s__GC0 has port layer7_out_TDATA[13] driven by constant 0
+WARNING: [Synth 8-3917] design cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s__GC0 has port layer7_out_TDATA[12] driven by constant 0
+WARNING: [Synth 8-3917] design cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s__GC0 has port layer7_out_TDATA[11] driven by constant 0
+WARNING: [Synth 8-3917] design cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s__GC0 has port layer7_out_TDATA[10] driven by constant 0
+WARNING: [Synth 8-3917] design cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s__GC0 has port layer7_out_TDATA[9] driven by constant 0
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197/ap_done_reg_reg )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197/ap_CS_fsm_reg[0] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:38 . Memory (MB): peak = 2811.695 ; gain = 1440.074 ; free physical = 207 ; free virtual = 30741
+---------------------------------------------------------------------------------
+ Sort Area is cnn_core__GC0 grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/mul_12s_5ns_15_1_1_U12/tmp_product_0 : 0 0 : 135 489 : Used 1 time 0
+ Sort Area is cnn_core__GC0 grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/mul_12s_5ns_15_1_1_U12/tmp_product_0 : 0 1 : 131 489 : Used 1 time 0
+ Sort Area is cnn_core__GC0 grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/mul_12s_5ns_15_1_1_U12/tmp_product_0 : 0 2 : 164 489 : Used 1 time 0
+ Sort Area is cnn_core__GC0 grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/mul_12s_5ns_15_1_1_U12/tmp_product_0 : 0 3 : 59 489 : Used 1 time 0
+ Sort Area is cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4 mul_16s_6ns_19_1_1_U840/tmp_product_5 : 0 0 : 240 240 : Used 1 time 0
+ Sort Area is cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB3 mul_16s_6ns_19_1_1_U841/tmp_product_0 : 0 0 : 240 240 : Used 1 time 0
+ Sort Area is cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4 mul_16s_6ns_19_1_1_U842/tmp_product_0 : 0 0 : 240 240 : Used 1 time 0
+ Sort Area is cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4 mul_16s_5ns_19_1_1_U843/tmp_product_8 : 0 0 : 167 167 : Used 1 time 0
+ Sort Area is cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4 mul_16s_5ns_19_1_1_U844/tmp_product_2 : 0 0 : 167 167 : Used 1 time 0
+ Sort Area is cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4 mul_16s_5ns_19_1_1_U845/tmp_product_6 : 0 0 : 167 167 : Used 1 time 0
+ Sort Area is cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4 mul_16s_5ns_19_1_1_U846/tmp_product_4 : 0 0 : 167 167 : Used 1 time 0
+ Sort Area is cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4 mul_16s_5ns_19_1_1_U847/tmp_product_b : 0 0 : 167 167 : Used 1 time 0
+ Sort Area is cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4 mul_16s_5ns_19_1_1_U848/tmp_product_c : 0 0 : 167 167 : Used 1 time 0
+ Sort Area is cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4 mul_16s_5ns_19_1_1_U849/tmp_product_9 : 0 0 : 167 167 : Used 1 time 0
+ Sort Area is cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4 mul_16s_5ns_19_1_1_U850/tmp_product_7 : 0 0 : 167 167 : Used 1 time 0
+ Sort Area is cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4 mul_16s_5ns_19_1_1_U851/tmp_product_d : 0 0 : 167 167 : Used 1 time 0
+ Sort Area is cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4 mul_16s_5ns_19_1_1_U852/tmp_product_a : 0 0 : 167 167 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++------------+----------------------------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|Module Name | RTL Object                                                                             | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | Cascade Heights | 
++------------+----------------------------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|cnn_core    | repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_U0/in_data_U/ram_reg | 4 x 12(NO_CHANGE)      | W |   | 4 x 12(READ_FIRST)     | W | R | Port A and B     | 1      | 0      | 1               | 
+|cnn_core    | layer8_out_U/U_cnn_core_fifo_w12_d1024_A_ram/mem_reg                                   | 1023 x 12(READ_FIRST)  | W |   | 1023 x 12(WRITE_FIRST) |   | R | Port A and B     | 1      | 0      | 1               | 
+|cnn_core    | layer3_out_U/U_cnn_core_fifo_w63_d336_A_ram/mem_reg                                    | 335 x 63(READ_FIRST)   | W |   | 335 x 63(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      |                 | 
+|cnn_core    | layer4_out_U/U_cnn_core_fifo_w112_d336_A_ram/mem_reg                                   | 335 x 112(READ_FIRST)  | W |   | 335 x 112(WRITE_FIRST) |   | R | Port A and B     | 0      | 1      |                 | 
+|cnn_core    | layer5_out_U/U_cnn_core_fifo_w112_d168_A_ram/mem_reg                                   | 167 x 112(READ_FIRST)  | W |   | 167 x 112(WRITE_FIRST) |   | R | Port A and B     | 0      | 2      |                 | 
++------------+----------------------------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++----------------------------------------------------------------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name                                                                 | DSP Mapping       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------------------------------------------------------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|cnn_core_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_s | A2*(B:0xb)        | 12     | 5      | -      | -      | 17     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_s | PCIN+(A:0x0):B2+C | 30     | 15     | 48     | -      | -1     | 0    | 1    | 0    | -    | -     | 0    | 0    | 
+|cnn_core_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_s | PCIN+A2:B2+C      | 30     | 18     | 48     | -      | -1     | 1    | 1    | 0    | -    | -     | 0    | 0    | 
+|cnn_core_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_s | PCIN+(A:0x0):B2   | 30     | 15     | -      | -      | -1     | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB3   | A2*(B:0x13)       | 16     | 6      | -      | -      | 22     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A2*(B:0xb)        | 16     | 5      | -      | -      | 21     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A2*(B:0xb)        | 16     | 5      | -      | -      | 21     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A2*(B:0xb)        | 16     | 5      | -      | -      | 21     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A2*(B:0xb)        | 16     | 5      | -      | -      | 21     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A2*(B:0x13)       | 16     | 6      | -      | -      | 22     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A2*(B:0xb)        | 16     | 5      | -      | -      | 21     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A2*(B:0xb)        | 16     | 5      | -      | -      | 21     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A2*(B:0x13)       | 16     | 6      | -      | -      | 22     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A2*(B:0xb)        | 16     | 5      | -      | -      | 21     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A2*(B:0xb)        | 16     | 5      | -      | -      | 21     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A2*(B:0xb)        | 16     | 5      | -      | -      | 21     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A2*(B:0xb)        | 16     | 5      | -      | -      | 21     | 1    | 0    | -    | -    | -     | 0    | 0    | 
++----------------------------------------------------------------------------+-------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:39 . Memory (MB): peak = 2811.695 ; gain = 1440.074 ; free physical = 205 ; free virtual = 30745
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++------------+----------------------------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|Module Name | RTL Object                                                                             | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | Cascade Heights | 
++------------+----------------------------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+|cnn_core    | repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_U0/in_data_U/ram_reg | 4 x 12(NO_CHANGE)      | W |   | 4 x 12(READ_FIRST)     | W | R | Port A and B     | 1      | 0      | 1               | 
+|cnn_core    | layer8_out_U/U_cnn_core_fifo_w12_d1024_A_ram/mem_reg                                   | 1023 x 12(READ_FIRST)  | W |   | 1023 x 12(WRITE_FIRST) |   | R | Port A and B     | 1      | 0      | 1               | 
+|cnn_core    | layer3_out_U/U_cnn_core_fifo_w63_d336_A_ram/mem_reg                                    | 335 x 63(READ_FIRST)   | W |   | 335 x 63(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      |                 | 
+|cnn_core    | layer4_out_U/U_cnn_core_fifo_w112_d336_A_ram/mem_reg                                   | 335 x 112(READ_FIRST)  | W |   | 335 x 112(WRITE_FIRST) |   | R | Port A and B     | 0      | 1      |                 | 
+|cnn_core    | layer5_out_U/U_cnn_core_fifo_w112_d168_A_ram/mem_reg                                   | 167 x 112(READ_FIRST)  | W |   | 167 x 112(WRITE_FIRST) |   | R | Port A and B     | 0      | 2      |                 | 
++------------+----------------------------------------------------------------------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+-----------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance i_3_0/repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_U0/in_data_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_3_0/layer8_out_U/U_cnn_core_fifo_w12_d1024_A_ram/mem_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_3_0/layer3_out_U/U_cnn_core_fifo_w63_d336_A_ram/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_3_0/layer4_out_U/U_cnn_core_fifo_w112_d336_A_ram/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_3_0/layer5_out_U/U_cnn_core_fifo_w112_d168_A_ram/mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance i_3_0/layer5_out_U/U_cnn_core_fifo_w112_d168_A_ram/mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:21 ; elapsed = 00:00:41 . Memory (MB): peak = 2819.699 ; gain = 1448.078 ; free physical = 206 ; free virtual = 30732
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_U0/in_data_U/ram_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance layer8_out_U/U_cnn_core_fifo_w12_d1024_A_ram/mem_reg_bram_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance layer3_out_U/U_cnn_core_fifo_w63_d336_A_ram/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance layer4_out_U/U_cnn_core_fifo_w112_d336_A_ram/mem_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance layer5_out_U/U_cnn_core_fifo_w112_d168_A_ram/mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance layer5_out_U/U_cnn_core_fifo_w112_d168_A_ram/mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:45 . Memory (MB): peak = 2819.699 ; gain = 1448.078 ; free physical = 206 ; free virtual = 30721
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:45 . Memory (MB): peak = 2819.699 ; gain = 1448.078 ; free physical = 206 ; free virtual = 30721
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:26 ; elapsed = 00:00:47 . Memory (MB): peak = 2819.699 ; gain = 1448.078 ; free physical = 206 ; free virtual = 30721
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:26 ; elapsed = 00:00:47 . Memory (MB): peak = 2819.699 ; gain = 1448.078 ; free physical = 206 ; free virtual = 30721
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:47 . Memory (MB): peak = 2819.699 ; gain = 1448.078 ; free physical = 207 ; free virtual = 30723
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:47 . Memory (MB): peak = 2819.699 ; gain = 1448.078 ; free physical = 207 ; free virtual = 30722
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register Report:
++------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name                                                                                                                                                                                                                                                                                                                                                                                                                          | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|cnn_core    | conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0/grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/call_ln281_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_fu_92/void_conv_2d_buffer_latency_cl_stream_stream_weight_t_bias_t_line_buffer_3_U/cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_core_U/ShiftRegMem_reg[3][11] | 4      | 12    | NO           | NO                 | YES               | 12     | 0       | 
+|cnn_core    | conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0/grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/call_ln281_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_fu_92/void_conv_2d_buffer_latency_cl_stream_stream_weight_t_bias_t_line_buffer_2_U/cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_core_U/ShiftRegMem_reg[2][11] | 3      | 12    | NO           | NO                 | YES               | 12     | 0       | 
+|cnn_core    | conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0/grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/call_ln281_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_fu_92/void_conv_2d_buffer_latency_cl_stream_stream_weight_t_bias_t_line_buffer_1_U/cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_core_U/ShiftRegMem_reg[3][11] | 4      | 12    | NO           | NO                 | YES               | 12     | 0       | 
+|cnn_core    | conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0/grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/call_ln281_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_fu_92/void_conv_2d_buffer_latency_cl_stream_stream_weight_t_bias_t_line_buffer_U/cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_core_U/ShiftRegMem_reg[3][11]   | 4      | 12    | NO           | NO                 | NO                | 12     | 0       | 
+|cnn_core    | pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0/call_ln52_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_fu_150/void_pooling2d_cl_stream_stream_array_ap_fixed_7u_0_line_buffer_6_U/cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_U/ShiftRegMem_reg[3][13]                                                                                      | 4      | 8     | NO           | NO                 | NO                | 8      | 0       | 
+|cnn_core    | pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0/call_ln52_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_fu_150/void_pooling2d_cl_stream_stream_array_ap_fixed_7u_0_line_buffer_5_U/cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_U/ShiftRegMem_reg[3][13]                                                                                      | 4      | 8     | NO           | NO                 | NO                | 8      | 0       | 
+|cnn_core    | pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0/call_ln52_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_fu_150/void_pooling2d_cl_stream_stream_array_ap_fixed_7u_0_line_buffer_4_U/cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_U/ShiftRegMem_reg[3][13]                                                                                      | 4      | 8     | NO           | NO                 | NO                | 8      | 0       | 
+|cnn_core    | pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0/call_ln52_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_fu_150/void_pooling2d_cl_stream_stream_array_ap_fixed_7u_0_line_buffer_3_U/cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_U/ShiftRegMem_reg[3][13]                                                                                      | 4      | 8     | NO           | NO                 | NO                | 8      | 0       | 
+|cnn_core    | pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0/call_ln52_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_fu_150/void_pooling2d_cl_stream_stream_array_ap_fixed_7u_0_line_buffer_2_U/cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_U/ShiftRegMem_reg[3][13]                                                                                      | 4      | 8     | NO           | NO                 | NO                | 8      | 0       | 
+|cnn_core    | pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0/call_ln52_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_fu_150/void_pooling2d_cl_stream_stream_array_ap_fixed_7u_0_line_buffer_1_U/cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_U/ShiftRegMem_reg[3][13]                                                                                      | 4      | 8     | NO           | NO                 | NO                | 8      | 0       | 
+|cnn_core    | pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0/call_ln52_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_fu_150/void_pooling2d_cl_stream_stream_array_ap_fixed_7u_0_line_buffer_U/cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_U/ShiftRegMem_reg[3][13]                                                                                        | 4      | 8     | NO           | NO                 | NO                | 8      | 0       | 
++------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+
+Dynamic Shift Register Report:
++------------+--------------------+--------+------------+--------+---------+--------+--------+--------+
+|Module Name | RTL Name           | Length | Data Width | SRL16E | SRLC32E | Mux F7 | Mux F8 | Mux F9 | 
++------------+--------------------+--------+------------+--------+---------+--------+--------+--------+
+|dsrl        | ShiftRegMem_reg[3] | 12     | 12         | 12     | 0       | 0      | 0      | 0      | 
+|dsrl__1     | ShiftRegMem_reg[3] | 16     | 16         | 16     | 0       | 0      | 0      | 0      | 
++------------+--------------------+--------+------------+--------+---------+--------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++----------------------------------------------------------------------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name                                                                 | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++----------------------------------------------------------------------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|cnn_core_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_s | PCIN+A:B'+C  | 0      | 15     | -      | -      | 0      | 0    | 1    | -    | -    | -     | 0    | 0    | 
+|cnn_core_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_s | PCIN+A':B'+C | 30     | 18     | -      | -      | 0      | 1    | 1    | -    | -    | -     | 0    | 0    | 
+|cnn_core_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_s | (PCIN+A:B')' | 0      | 15     | -      | -      | 15     | 0    | 1    | -    | -    | -     | 0    | 1    | 
+|cnn_core_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_s | A''*B        | 30     | 4      | -      | -      | 0      | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB3   | A''*B        | 30     | 5      | -      | -      | 22     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A''*B        | 30     | 4      | -      | -      | 21     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A''*B        | 30     | 4      | -      | -      | 21     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A''*B        | 30     | 4      | -      | -      | 21     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A''*B        | 30     | 4      | -      | -      | 21     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A''*B        | 30     | 4      | -      | -      | 21     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A''*B        | 30     | 4      | -      | -      | 21     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A''*B        | 30     | 4      | -      | -      | 21     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A''*B        | 30     | 4      | -      | -      | 21     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A''*B        | 30     | 4      | -      | -      | 21     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A''*B        | 30     | 4      | -      | -      | 21     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A''*B        | 30     | 5      | -      | -      | 22     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s__GB4   | A''*B        | 30     | 5      | -      | -      | 22     | 2    | 0    | -    | -    | -     | 0    | 0    | 
++----------------------------------------------------------------------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------------+------+
+|      |Cell            |Count |
++------+----------------+------+
+|1     |BUFG            |     1|
+|2     |CARRY8          |  1340|
+|3     |DSP48E2         |     3|
+|4     |DSP_ALU         |    14|
+|5     |DSP_A_B_DATA    |    14|
+|6     |DSP_C_DATA      |    14|
+|7     |DSP_MULTIPLIER  |    14|
+|8     |DSP_M_DATA      |    14|
+|9     |DSP_OUTPUT      |    14|
+|10    |DSP_PREADD      |    14|
+|11    |DSP_PREADD_DATA |    14|
+|12    |LUT1            |   232|
+|13    |LUT2            |  3002|
+|14    |LUT3            |  4239|
+|15    |LUT4            |  4409|
+|16    |LUT5            |  4078|
+|17    |LUT6            |  5784|
+|18    |RAMB18E2        |     2|
+|19    |RAMB36E2        |     4|
+|20    |SRL16E          |   104|
+|21    |FDRE            | 27954|
+|22    |FDSE            |    21|
+|23    |IBUF            |    53|
+|24    |OBUF            |    21|
++------+----------------+------+
+
+Report Instance Areas: 
++------+-----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+
+|      |Instance                                                                                                   |Module                                                                                                                                                                                                                                                                        |Cells |
++------+-----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+
+|1     |top                                                                                                        |                                                                                                                                                                                                                                                                              | 51359|
+|2     |  conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0                                      |cnn_core_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_s                                                                                                                                                                                                   |  1033|
+|3     |    flow_control_loop_pipe_U                                                                               |cnn_core_flow_control_loop_pipe_25                                                                                                                                                                                                                                            |    26|
+|4     |    grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70                         |cnn_core_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s                                                                                                                                                                                                 |   989|
+|5     |      call_ln281_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_fu_92                            |cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s                                                                                                                                                                                                             |    99|
+|6     |        void_conv_2d_buffer_latency_cl_stream_stream_weight_t_bias_t_line_buffer_1_U                       |cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud                                                                                                                                                                                     |    24|
+|7     |          cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_core_U |cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_core_31                                                                                                                                                                             |    24|
+|8     |        void_conv_2d_buffer_latency_cl_stream_stream_weight_t_bias_t_line_buffer_2_U                       |cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_26                                                                                                                                                                                  |    39|
+|9     |          cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_core_U |cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_core_30                                                                                                                                                                             |    39|
+|10    |        void_conv_2d_buffer_latency_cl_stream_stream_weight_t_bias_t_line_buffer_3_U                       |cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_27                                                                                                                                                                                  |    24|
+|11    |          cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_core_U |cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_core_29                                                                                                                                                                             |    24|
+|12    |        void_conv_2d_buffer_latency_cl_stream_stream_weight_t_bias_t_line_buffer_U                         |cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_28                                                                                                                                                                                  |    12|
+|13    |          cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_core_U |cnn_core_shift_line_buffer_array_ap_fixed_12_6_5_3_0_1u_config3_s_void_conv_2d_buffer_cud_core                                                                                                                                                                                |    12|
+|14    |      tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116                       |cnn_core_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s                                                                                                                                                                                                  |   436|
+|15    |        mul_12s_5ns_15_1_1_U12                                                                             |cnn_core_mul_12s_5ns_15_1_1                                                                                                                                                                                                                                                   |     9|
+|16    |          tmp_product                                                                                      |\conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0/grp_compute_output_buffer_2d_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_70/tmp_dense_latency_ap_fixed_12_6_5_3_0_ap_fixed_9_5_5_3_0_config3_mult_s_fu_116/mul_12s_5ns_15_1_1_U12/tmp_product_funnel  |     8|
+|17    |  dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0                                           |cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s                                                                                                                                                                                                        | 48753|
+|18    |    grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197                       |cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare                                                                                                                                                                                                 | 12411|
+|19    |      flow_control_loop_pipe_sequential_init_U                                                             |cnn_core_flow_control_loop_pipe_sequential_init                                                                                                                                                                                                                               |    31|
+|20    |    grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993                                |cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s                                                                                                                                                                                                          | 36291|
+|21    |      mul_16s_6ns_19_1_1_U841                                                                              |cnn_core_mul_16s_6ns_19_1_1_23                                                                                                                                                                                                                                                |    38|
+|22    |        tmp_product                                                                                        |\dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0/grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993/mul_16s_5ns_19_1_1_U850/tmp_product_funnel__11                                                                                        |     8|
+|23    |      mul_16s_5ns_19_1_1_U843                                                                              |cnn_core_mul_16s_5ns_19_1_1                                                                                                                                                                                                                                                   |    38|
+|24    |        tmp_product                                                                                        |\dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0/grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993/mul_16s_5ns_19_1_1_U850/tmp_product_funnel__10                                                                                        |     8|
+|25    |      mul_16s_5ns_19_1_1_U844                                                                              |cnn_core_mul_16s_5ns_19_1_1_14                                                                                                                                                                                                                                                |    56|
+|26    |        tmp_product                                                                                        |\dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0/grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993/mul_16s_5ns_19_1_1_U850/tmp_product_funnel__9                                                                                         |     8|
+|27    |      mul_16s_5ns_19_1_1_U845                                                                              |cnn_core_mul_16s_5ns_19_1_1_15                                                                                                                                                                                                                                                |    38|
+|28    |        tmp_product                                                                                        |\dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0/grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993/mul_16s_5ns_19_1_1_U850/tmp_product_funnel__12                                                                                        |     8|
+|29    |      mul_16s_5ns_19_1_1_U846                                                                              |cnn_core_mul_16s_5ns_19_1_1_16                                                                                                                                                                                                                                                |    38|
+|30    |        tmp_product                                                                                        |\dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0/grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993/mul_16s_5ns_19_1_1_U850/tmp_product_funnel__1                                                                                         |     8|
+|31    |      mul_16s_5ns_19_1_1_U847                                                                              |cnn_core_mul_16s_5ns_19_1_1_17                                                                                                                                                                                                                                                |    38|
+|32    |        tmp_product                                                                                        |\dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0/grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993/mul_16s_5ns_19_1_1_U850/tmp_product_funnel__6                                                                                         |     8|
+|33    |      mul_16s_5ns_19_1_1_U848                                                                              |cnn_core_mul_16s_5ns_19_1_1_18                                                                                                                                                                                                                                                |    25|
+|34    |        tmp_product                                                                                        |\dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0/grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993/mul_16s_5ns_19_1_1_U850/tmp_product_funnel__3                                                                                         |     8|
+|35    |      mul_16s_5ns_19_1_1_U849                                                                              |cnn_core_mul_16s_5ns_19_1_1_19                                                                                                                                                                                                                                                |    38|
+|36    |        tmp_product                                                                                        |\dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0/grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993/mul_16s_5ns_19_1_1_U850/tmp_product_funnel__7                                                                                         |     8|
+|37    |      mul_16s_5ns_19_1_1_U850                                                                              |cnn_core_mul_16s_5ns_19_1_1_20                                                                                                                                                                                                                                                |    38|
+|38    |        tmp_product                                                                                        |\dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0/grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993/mul_16s_5ns_19_1_1_U850/tmp_product_funnel                                                                                            |     8|
+|39    |      mul_16s_5ns_19_1_1_U851                                                                              |cnn_core_mul_16s_5ns_19_1_1_21                                                                                                                                                                                                                                                |    25|
+|40    |        tmp_product                                                                                        |\dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0/grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993/mul_16s_5ns_19_1_1_U850/tmp_product_funnel__2                                                                                         |     8|
+|41    |      mul_16s_5ns_19_1_1_U852                                                                              |cnn_core_mul_16s_5ns_19_1_1_22                                                                                                                                                                                                                                                |    52|
+|42    |        tmp_product                                                                                        |\dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0/grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993/mul_16s_5ns_19_1_1_U850/tmp_product_funnel__5                                                                                         |     8|
+|43    |      mul_16s_6ns_19_1_1_U840                                                                              |cnn_core_mul_16s_6ns_19_1_1                                                                                                                                                                                                                                                   |    25|
+|44    |        tmp_product                                                                                        |\dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0/grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993/mul_16s_5ns_19_1_1_U850/tmp_product_funnel__8                                                                                         |     8|
+|45    |      mul_16s_6ns_19_1_1_U842                                                                              |cnn_core_mul_16s_6ns_19_1_1_24                                                                                                                                                                                                                                                |    52|
+|46    |        tmp_product                                                                                        |\dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0/grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993/mul_16s_5ns_19_1_1_U850/tmp_product_funnel__4                                                                                         |     8|
+|47    |    regslice_both_layer7_out_U                                                                             |cnn_core_regslice_both__parameterized0                                                                                                                                                                                                                                        |    41|
+|48    |  layer3_out_U                                                                                             |cnn_core_fifo_w63_d336_A                                                                                                                                                                                                                                                      |   108|
+|49    |    U_cnn_core_fifo_w63_d336_A_ram                                                                         |cnn_core_fifo_w63_d336_A_ram                                                                                                                                                                                                                                                  |     9|
+|50    |  layer4_out_U                                                                                             |cnn_core_fifo_w112_d336_A                                                                                                                                                                                                                                                     |    96|
+|51    |    U_cnn_core_fifo_w112_d336_A_ram                                                                        |cnn_core_fifo_w112_d336_A_ram                                                                                                                                                                                                                                                 |     1|
+|52    |  layer5_out_U                                                                                             |cnn_core_fifo_w112_d168_A                                                                                                                                                                                                                                                     |    93|
+|53    |    U_cnn_core_fifo_w112_d168_A_ram                                                                        |cnn_core_fifo_w112_d168_A_ram                                                                                                                                                                                                                                                 |     3|
+|54    |  layer8_out_U                                                                                             |cnn_core_fifo_w12_d1024_A                                                                                                                                                                                                                                                     |   107|
+|55    |    U_cnn_core_fifo_w12_d1024_A_ram                                                                        |cnn_core_fifo_w12_d1024_A_ram                                                                                                                                                                                                                                                 |     2|
+|56    |  pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0                                   |cnn_core_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_s                                                                                                                                                                                                |   604|
+|57    |    call_ln52_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_fu_150                              |cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s                                                                                                                                                                                                             |    57|
+|58    |      void_pooling2d_cl_stream_stream_array_ap_fixed_7u_0_line_buffer_1_U                                  |cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j                                                                                                                                                                                     |     8|
+|59    |        cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_U   |cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_13                                                                                                                                                                             |     8|
+|60    |      void_pooling2d_cl_stream_stream_array_ap_fixed_7u_0_line_buffer_2_U                                  |cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_2                                                                                                                                                                                   |     8|
+|61    |        cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_U   |cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_12                                                                                                                                                                             |     8|
+|62    |      void_pooling2d_cl_stream_stream_array_ap_fixed_7u_0_line_buffer_3_U                                  |cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_3                                                                                                                                                                                   |     8|
+|63    |        cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_U   |cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_11                                                                                                                                                                             |     8|
+|64    |      void_pooling2d_cl_stream_stream_array_ap_fixed_7u_0_line_buffer_4_U                                  |cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_4                                                                                                                                                                                   |     8|
+|65    |        cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_U   |cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_10                                                                                                                                                                             |     8|
+|66    |      void_pooling2d_cl_stream_stream_array_ap_fixed_7u_0_line_buffer_5_U                                  |cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_5                                                                                                                                                                                   |     8|
+|67    |        cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_U   |cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_9                                                                                                                                                                              |     8|
+|68    |      void_pooling2d_cl_stream_stream_array_ap_fixed_7u_0_line_buffer_6_U                                  |cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_6                                                                                                                                                                                   |     8|
+|69    |        cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_U   |cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_8                                                                                                                                                                              |     8|
+|70    |      void_pooling2d_cl_stream_stream_array_ap_fixed_7u_0_line_buffer_U                                    |cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_7                                                                                                                                                                                   |     9|
+|71    |        cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core_U   |cnn_core_shift_line_buffer_array_ap_fixed_16_6_5_3_0_7u_config5_s_void_pooling2d_cl_stg8j_core                                                                                                                                                                                |     9|
+|72    |    flow_control_loop_pipe_U                                                                               |cnn_core_flow_control_loop_pipe_1                                                                                                                                                                                                                                             |    31|
+|73    |  relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0                                      |cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s                                                                                                                                                                                                   |   171|
+|74    |    flow_control_loop_pipe_U                                                                               |cnn_core_flow_control_loop_pipe_0                                                                                                                                                                                                                                             |    23|
+|75    |  repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_U0                                     |cnn_core_repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_s                                                                                                                                                                                                  |   274|
+|76    |    flow_control_loop_pipe_U                                                                               |cnn_core_flow_control_loop_pipe                                                                                                                                                                                                                                               |    26|
+|77    |    in_data_U                                                                                              |cnn_core_repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_s_in_data_Rbkb                                                                                                                                                                                     |     5|
+|78    |    regslice_both_input_layer_U                                                                            |cnn_core_regslice_both                                                                                                                                                                                                                                                        |   175|
+|79    |  start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0_U                          |cnn_core_start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0                                                                                                                                                                                        |    11|
+|80    |  start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_U                               |cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0                                                                                                                                                                                             |    13|
+|81    |  start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg_U                       |cnn_core_start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg                                                                                                                                                                                     |    10|
+|82    |  start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_U                          |cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0                                                                                                                                                                                        |    11|
++------+-----------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:47 . Memory (MB): peak = 2819.699 ; gain = 1448.078 ; free physical = 205 ; free virtual = 30720
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 226 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:51 . Memory (MB): peak = 2819.699 ; gain = 1448.078 ; free physical = 8079 ; free virtual = 38610
+Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:51 . Memory (MB): peak = 2819.699 ; gain = 1448.078 ; free physical = 8094 ; free virtual = 38613
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.26 ; elapsed = 00:00:00.26 . Memory (MB): peak = 2819.699 ; gain = 0.000 ; free physical = 8033 ; free virtual = 38585
+INFO: [Netlist 29-17] Analyzing 1411 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2968.332 ; gain = 0.000 ; free physical = 7907 ; free virtual = 38482
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 71 instances were transformed.
+  BUFG => BUFGCE: 1 instance 
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 17 instances
+  IBUF => IBUF (IBUFCTRL, INBUF): 53 instances
+
+Synth Design complete | Checksum: a9c4cfc4
+INFO: [Common 17-83] Releasing license: Synthesis
+123 Infos, 117 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:57 . Memory (MB): peak = 2968.367 ; gain = 1602.715 ; free physical = 7906 ; free virtual = 38481
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 10184.184; main = 2422.528; forked = 8244.074
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 15057.059; main = 2968.336; forked = 12241.273
+# opt_design -retarget -propconst -sweep -bram_power_opt -shift_register_opt
+Command: opt_design -retarget -propconst -sweep -bram_power_opt -shift_register_opt
+Attempting to get a license for feature 'Implementation' and/or device 'xcku5p'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcku5p'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.67 . Memory (MB): peak = 3032.363 ; gain = 63.996 ; free physical = 7906 ; free virtual = 38482
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 10ead2569
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 3152.938 ; gain = 120.574 ; free physical = 7825 ; free virtual = 38442
+
+Starting Logic Optimization Task
+
+Phase 1 Initialization
+
+Phase 1.1 Core Generation And Design Setup
+Phase 1.1 Core Generation And Design Setup | Checksum: 10ead2569
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7610 ; free virtual = 38228
+
+Phase 1.2 Setup Constraints And Sort Netlist
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 10ead2569
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7610 ; free virtual = 38228
+Phase 1 Initialization | Checksum: 10ead2569
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7610 ; free virtual = 38228
+
+Phase 2 Timer Update And Timing Data Collection
+
+Phase 2.1 Timer Update
+Phase 2.1 Timer Update | Checksum: 10ead2569
+
+Time (s): cpu = 00:00:00.89 ; elapsed = 00:00:00.26 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7610 ; free virtual = 38228
+
+Phase 2.2 Timing Data Collection
+Phase 2.2 Timing Data Collection | Checksum: 10ead2569
+
+Time (s): cpu = 00:00:00.95 ; elapsed = 00:00:00.32 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7606 ; free virtual = 38224
+Phase 2 Timer Update And Timing Data Collection | Checksum: 10ead2569
+
+Time (s): cpu = 00:00:00.95 ; elapsed = 00:00:00.33 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7606 ; free virtual = 38224
+
+Phase 3 Retarget
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 218 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 3 Retarget | Checksum: 11ae1f891
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.67 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7609 ; free virtual = 38227
+Retarget | Checksum: 11ae1f891
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 1 cells
+
+Phase 4 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 4 Constant propagation | Checksum: 12c34677c
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.86 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7609 ; free virtual = 38227
+Constant propagation | Checksum: 12c34677c
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 5 Sweep
+Phase 5 Sweep | Checksum: 171c56740
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7609 ; free virtual = 38227
+Sweep | Checksum: 171c56740
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 6 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 6 Shift Register Optimization | Checksum: 171c56740
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7609 ; free virtual = 38227
+Shift Register Optimization | Checksum: 171c56740
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 7 Post Processing Netlist
+Phase 7 Post Processing Netlist | Checksum: 171c56740
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7609 ; free virtual = 38227
+Post Processing Netlist | Checksum: 171c56740
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+
+Phase 8 Finalization
+
+Phase 8.1 Finalizing Design Cores and Updating Shapes
+Phase 8.1 Finalizing Design Cores and Updating Shapes | Checksum: 71f605bc
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7610 ; free virtual = 38228
+
+Phase 8.2 Verifying Netlist Connectivity
+Phase 8.2 Verifying Netlist Connectivity | Checksum: 71f605bc
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7610 ; free virtual = 38228
+Phase 8 Finalization | Checksum: 71f605bc
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7610 ; free virtual = 38228
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               0  |               1  |                                              0  |
+|  Constant propagation         |               0  |               0  |                                              0  |
+|  Sweep                        |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              0  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: 71f605bc
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7610 ; free virtual = 38228
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3359.875 ; gain = 0.000 ; free physical = 7610 ; free virtual = 38228
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+WARNING: [Power 33-232] No user defined clocks were found in the design! Power estimation will be inaccurate until this is corrected.
+Resolution: Please specify clocks using create_clock/create_generated_clock for sequential elements. For pure combinatorial circuits, please specify a virtual clock, otherwise the vectorless estimation might be inaccurate
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 6 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 1 WE to EN ports
+Number of BRAM Ports augmented: 1 newly gated: 4 Total Ports: 12
+Ending PowerOpt Patch Enables Task | Checksum: 19866d52b
+
+Time (s): cpu = 00:00:00.1 ; elapsed = 00:00:00.09 . Memory (MB): peak = 3760.016 ; gain = 0.000 ; free physical = 7271 ; free virtual = 37926
+Ending Power Optimization Task | Checksum: 19866d52b
+
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:08 . Memory (MB): peak = 3760.016 ; gain = 400.141 ; free physical = 7271 ; free virtual = 37926
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: 19866d52b
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3760.016 ; gain = 0.000 ; free physical = 7271 ; free virtual = 37926
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3760.016 ; gain = 0.000 ; free physical = 7271 ; free virtual = 37926
+Ending Netlist Obfuscation Task | Checksum: 18cad1880
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3760.016 ; gain = 0.000 ; free physical = 7271 ; free virtual = 37926
+INFO: [Common 17-83] Releasing license: Implementation
+22 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:13 . Memory (MB): peak = 3760.016 ; gain = 791.648 ; free physical = 7271 ; free virtual = 37926
+# report_utilization -file vivado_synth.rpt
+INFO: [Common 17-206] Exiting Vivado at Wed May 13 16:59:05 2026...

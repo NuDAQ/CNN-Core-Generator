@@ -5,6 +5,6 @@ array set opt {
     cosim      1
     validation 1
     export     0
-    vsynth     0
-    fifo_opt   0
+    vsynth     1
+    fifo_opt   1
 }
