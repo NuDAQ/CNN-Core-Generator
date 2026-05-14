@@ -103,7 +103,7 @@ proc check_tvout_file {} {
 		puts stdout "[debug_prompt arg check_sim.tcl] start...";
 	}
     set rtlfilelist {
-         "rtl.cnn_core.autotvout_layer10_out.dat"
+         "rtl.cnn_core.autotvout_layer7_out.dat"
     }
     foreach rtlfile $rtlfilelist {
         if {[file isfile $rtlfile]} {

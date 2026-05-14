@@ -3,9 +3,9 @@
 set designtopgroup [add_wave_group "Design Top Signals"]
 set coutputgroup [add_wave_group "C Outputs" -into $designtopgroup]
 set return_group [add_wave_group return(axis) -into $coutputgroup]
-add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/layer10_out_TREADY -into $return_group -color #ffff00 -radix hex
-add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/layer10_out_TVALID -into $return_group -color #ffff00 -radix hex
-add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/layer10_out_TDATA -into $return_group -radix hex
+add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/layer7_out_TREADY -into $return_group -color #ffff00 -radix hex
+add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/layer7_out_TVALID -into $return_group -color #ffff00 -radix hex
+add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/layer7_out_TDATA -into $return_group -radix hex
 set cinputgroup [add_wave_group "C Inputs" -into $designtopgroup]
 set return_group [add_wave_group return(axis) -into $cinputgroup]
 add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/input_layer_TREADY -into $return_group -color #ffff00 -radix hex
@@ -28,12 +28,12 @@ add_wave /apatb_cnn_core_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -r
 add_wave /apatb_cnn_core_top/ready_cnt -into $tb_simstatus_group -radix hex
 add_wave /apatb_cnn_core_top/done_cnt -into $tb_simstatus_group -radix hex
 add_wave /apatb_cnn_core_top/LENGTH_input_layer -into $tb_portdepth_group -radix hex
-add_wave /apatb_cnn_core_top/LENGTH_layer10_out -into $tb_portdepth_group -radix hex
+add_wave /apatb_cnn_core_top/LENGTH_layer7_out -into $tb_portdepth_group -radix hex
 set tbcoutputgroup [add_wave_group "C Outputs" -into $testbenchgroup]
 set tb_return_group [add_wave_group return(axis) -into $tbcoutputgroup]
-add_wave /apatb_cnn_core_top/layer10_out_TREADY -into $tb_return_group -color #ffff00 -radix hex
-add_wave /apatb_cnn_core_top/layer10_out_TVALID -into $tb_return_group -color #ffff00 -radix hex
-add_wave /apatb_cnn_core_top/layer10_out_TDATA -into $tb_return_group -radix hex
+add_wave /apatb_cnn_core_top/layer7_out_TREADY -into $tb_return_group -color #ffff00 -radix hex
+add_wave /apatb_cnn_core_top/layer7_out_TVALID -into $tb_return_group -color #ffff00 -radix hex
+add_wave /apatb_cnn_core_top/layer7_out_TDATA -into $tb_return_group -radix hex
 set tbcinputgroup [add_wave_group "C Inputs" -into $testbenchgroup]
 set tb_return_group [add_wave_group return(axis) -into $tbcinputgroup]
 add_wave /apatb_cnn_core_top/input_layer_TREADY -into $tb_return_group -color #ffff00 -radix hex

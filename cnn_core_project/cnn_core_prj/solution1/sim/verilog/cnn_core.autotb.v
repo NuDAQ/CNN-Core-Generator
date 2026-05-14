@@ -18,18 +18,18 @@
 `define AUTOTB_CLOCK_PERIOD_DIV2 2.50
 
 `define AESL_DEPTH_input_layer 1
-`define AESL_DEPTH_layer10_out 1
+`define AESL_DEPTH_layer7_out 1
 `define AUTOTB_TVIN_input_layer  "../tv/cdatafile/c.cnn_core.autotvin_input_layer.dat"
 `define AUTOTB_TVIN_input_layer_out_wrapc  "../tv/rtldatafile/rtl.cnn_core.autotvin_input_layer.dat"
-`define AUTOTB_TVOUT_layer10_out  "../tv/cdatafile/c.cnn_core.autotvout_layer10_out.dat"
-`define AUTOTB_TVOUT_layer10_out_out_wrapc  "../tv/rtldatafile/rtl.cnn_core.autotvout_layer10_out.dat"
+`define AUTOTB_TVOUT_layer7_out  "../tv/cdatafile/c.cnn_core.autotvout_layer7_out.dat"
+`define AUTOTB_TVOUT_layer7_out_out_wrapc  "../tv/rtldatafile/rtl.cnn_core.autotvout_layer7_out.dat"
 module `AUTOTB_TOP;
 
 parameter AUTOTB_TRANSACTION_NUM = 5;
 parameter PROGRESS_TIMEOUT = 10000000;
-parameter LATENCY_ESTIMATION = 3218;
+parameter LATENCY_ESTIMATION = 3082;
 parameter LENGTH_input_layer = 256;
-parameter LENGTH_layer10_out = 1;
+parameter LENGTH_layer7_out = 1;
 
 task read_token;
     input integer fp;
@@ -61,12 +61,12 @@ reg AESL_ready_delay = 0;
 wire ready;
 wire ready_wire;
 wire [63 : 0] input_layer_TDATA;
-wire [31 : 0] layer10_out_TDATA;
+wire [15 : 0] layer7_out_TDATA;
 wire  input_layer_TVALID;
 wire  input_layer_TREADY;
 wire ap_start;
-wire  layer10_out_TVALID;
-wire  layer10_out_TREADY;
+wire  layer7_out_TVALID;
+wire  layer7_out_TREADY;
 wire ap_done;
 wire ap_ready;
 wire ap_idle;
@@ -87,14 +87,14 @@ wire ap_rst_n_n;
 
 `AUTOTB_DUT `AUTOTB_DUT_INST(
     .input_layer_TDATA(input_layer_TDATA),
-    .layer10_out_TDATA(layer10_out_TDATA),
+    .layer7_out_TDATA(layer7_out_TDATA),
     .ap_clk(ap_clk),
     .ap_rst_n(ap_rst_n),
     .input_layer_TVALID(input_layer_TVALID),
     .input_layer_TREADY(input_layer_TREADY),
     .ap_start(ap_start),
-    .layer10_out_TVALID(layer10_out_TVALID),
-    .layer10_out_TREADY(layer10_out_TREADY),
+    .layer7_out_TVALID(layer7_out_TVALID),
+    .layer7_out_TREADY(layer7_out_TREADY),
     .ap_done(ap_done),
     .ap_ready(ap_ready),
     .ap_idle(ap_idle));
@@ -157,44 +157,44 @@ assign input_layer_done = 0;
 assign input_layer_TVALID = axi_s_input_layer_TVALID;
 
 assign axi_s_input_layer_TREADY = input_layer_TREADY;
-reg [31:0] ap_c_n_tvin_trans_num_layer10_out;
+reg [31:0] ap_c_n_tvin_trans_num_layer7_out;
 
-reg layer10_out_ready_reg; // for self-sync
+reg layer7_out_ready_reg; // for self-sync
 
-wire layer10_out_ready;
-wire layer10_out_done;
-wire [31:0] layer10_out_transaction;
-wire axi_s_layer10_out_TVALID;
-wire axi_s_layer10_out_TREADY;
+wire layer7_out_ready;
+wire layer7_out_done;
+wire [31:0] layer7_out_transaction;
+wire axi_s_layer7_out_TVALID;
+wire axi_s_layer7_out_TREADY;
 
-AESL_axi_s_layer10_out AESL_AXI_S_layer10_out(
+AESL_axi_s_layer7_out AESL_AXI_S_layer7_out(
     .clk(AESL_clock),
     .reset(AESL_reset),
-    .TRAN_layer10_out_TDATA(layer10_out_TDATA),
-    .TRAN_layer10_out_TVALID(axi_s_layer10_out_TVALID),
-    .TRAN_layer10_out_TREADY(axi_s_layer10_out_TREADY),
-    .ready(layer10_out_ready),
-    .done(layer10_out_done),
-    .transaction(layer10_out_transaction));
+    .TRAN_layer7_out_TDATA(layer7_out_TDATA),
+    .TRAN_layer7_out_TVALID(axi_s_layer7_out_TVALID),
+    .TRAN_layer7_out_TREADY(axi_s_layer7_out_TREADY),
+    .ready(layer7_out_ready),
+    .done(layer7_out_done),
+    .transaction(layer7_out_transaction));
 
-assign layer10_out_ready = 0;
-assign layer10_out_done = AESL_done;
+assign layer7_out_ready = 0;
+assign layer7_out_done = AESL_done;
 
-assign axi_s_layer10_out_TVALID = layer10_out_TVALID;
+assign axi_s_layer7_out_TVALID = layer7_out_TVALID;
 
-reg reg_layer10_out_TREADY;
-initial begin : gen_reg_layer10_out_TREADY_process
+reg reg_layer7_out_TREADY;
+initial begin : gen_reg_layer7_out_TREADY_process
     integer proc_rand;
-    reg_layer10_out_TREADY = axi_s_layer10_out_TREADY;
+    reg_layer7_out_TREADY = axi_s_layer7_out_TREADY;
     while(1)
     begin
-        @(axi_s_layer10_out_TREADY);
-        reg_layer10_out_TREADY = axi_s_layer10_out_TREADY;
+        @(axi_s_layer7_out_TREADY);
+        reg_layer7_out_TREADY = axi_s_layer7_out_TREADY;
     end
 end
 
 
-assign layer10_out_TREADY = reg_layer10_out_TREADY;
+assign layer7_out_TREADY = reg_layer7_out_TREADY;
 
 initial begin : generate_AESL_ready_cnt_proc
     AESL_ready_cnt = 0;
@@ -258,9 +258,9 @@ end
 reg end_input_layer;
 reg [31:0] size_input_layer;
 reg [31:0] size_input_layer_backup;
-reg end_layer10_out;
-reg [31:0] size_layer10_out;
-reg [31:0] size_layer10_out_backup;
+reg end_layer7_out;
+reg [31:0] size_layer7_out;
+reg [31:0] size_layer7_out_backup;
 
 initial begin : initial_process
     integer proc_rand;
@@ -506,14 +506,14 @@ task write_binary;
     end
 endtask;
 
-reg dump_tvout_finish_layer10_out;
+reg dump_tvout_finish_layer7_out;
 
-initial begin : dump_tvout_runtime_sign_layer10_out
+initial begin : dump_tvout_runtime_sign_layer7_out
     integer fp;
-    dump_tvout_finish_layer10_out = 0;
-    fp = $fopen(`AUTOTB_TVOUT_layer10_out_out_wrapc, "w");
+    dump_tvout_finish_layer7_out = 0;
+    fp = $fopen(`AUTOTB_TVOUT_layer7_out_out_wrapc, "w");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_layer10_out_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_layer7_out_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
@@ -522,15 +522,15 @@ initial begin : dump_tvout_runtime_sign_layer10_out
     wait (done_cnt == AUTOTB_TRANSACTION_NUM);
     // last transaction is saved at negedge right after last done
     repeat(5) @ (posedge AESL_clock);
-    fp = $fopen(`AUTOTB_TVOUT_layer10_out_out_wrapc, "a");
+    fp = $fopen(`AUTOTB_TVOUT_layer7_out_out_wrapc, "a");
     if (fp == 0) begin
-        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_layer10_out_out_wrapc);
+        $display("Failed to open file \"%s\"!", `AUTOTB_TVOUT_layer7_out_out_wrapc);
         $display("ERROR: Simulation using HLS TB failed.");
         $finish;
     end
     $fdisplay(fp,"[[[/runtime]]]");
     $fclose(fp);
-    dump_tvout_finish_layer10_out = 1;
+    dump_tvout_finish_layer7_out = 1;
 end
 
 

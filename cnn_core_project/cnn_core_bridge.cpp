@@ -52,32 +52,32 @@ void collect_trace_output(struct trace_data *c_trace_outputs) {
 // Wrapper of top level function for Python bridge
 void cnn_core_float(
     float *input_layer,
-    float *layer10_out
+    float *layer7_out
 ) {
 
     hls::stream<input_t> input_layer_ap("input_layer");
     nnet::convert_data<float, input_t, 256*4>(input_layer, input_layer_ap);
 
-    hls::stream<result_t> layer10_out_ap("layer10_out");
+    hls::stream<result_t> layer7_out_ap("layer7_out");
 
-    cnn_core(input_layer_ap,layer10_out_ap);
+    cnn_core(input_layer_ap,layer7_out_ap);
 
-    nnet::convert_data<result_t, float, 1>(layer10_out_ap, layer10_out);
+    nnet::convert_data<result_t, float, 1>(layer7_out_ap, layer7_out);
 }
 
 void cnn_core_double(
     double *input_layer,
-    double *layer10_out
+    double *layer7_out
 ) {
 
     hls::stream<input_t> input_layer_ap("input_layer");
     nnet::convert_data<double, input_t, 256*4>(input_layer, input_layer_ap);
 
-    hls::stream<result_t> layer10_out_ap("layer10_out");
+    hls::stream<result_t> layer7_out_ap("layer7_out");
 
-    cnn_core(input_layer_ap,layer10_out_ap);
+    cnn_core(input_layer_ap,layer7_out_ap);
 
-    nnet::convert_data<result_t, double, 1>(layer10_out_ap, layer10_out);
+    nnet::convert_data<result_t, double, 1>(layer7_out_ap, layer7_out);
 }
 }
 

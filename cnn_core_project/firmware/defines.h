@@ -15,21 +15,18 @@
 
 // hls-fpga-machine-learning insert layer-precision
 typedef nnet::array<ap_fixed<12,6>, 4*1> input_t;
-typedef nnet::array<ap_fixed<12,6>, 256*1> layer2_t;
-typedef nnet::array<ap_fixed<12,6>, 1*1> layer3_t;
+typedef nnet::array<ap_fixed<12,6>, 1*1> layer2_t;
 typedef ap_fixed<16,6> model_default_t;
-typedef nnet::array<ap_fixed<17,9>, 7*1> layer4_t;
-typedef ap_fixed<17,9> q_conv2d_weight_t;
-typedef ap_fixed<17,9> q_conv2d_bias_t;
-typedef nnet::array<ap_fixed<16,6>, 7*1> layer5_t;
+typedef nnet::array<ap_fixed<9,5>, 7*1> layer3_t;
+typedef ap_fixed<9,5> q_conv2d_weight_t;
+typedef ap_fixed<9,5> q_conv2d_bias_t;
+typedef nnet::array<ap_fixed<16,6>, 7*1> layer4_t;
 typedef ap_fixed<18,8> q_conv2d_relu_table_t;
-typedef nnet::array<ap_fixed<16,6>, 7*1> layer6_t;
-typedef nnet::array<ap_fixed<16,6>, 42*1> layer7_t;
-typedef nnet::array<ap_fixed<16,6>, 42*1> layer8_t;
-typedef nnet::array<ap_fixed<17,9>, 1*1> result_t;
-typedef ap_fixed<17,9> q_dense_weight_t;
-typedef ap_fixed<17,9> q_dense_bias_t;
-typedef ap_uint<1> layer10_index;
+typedef nnet::array<ap_fixed<16,6>, 7*1> layer5_t;
+typedef nnet::array<ap_fixed<9,5>, 1*1> result_t;
+typedef ap_fixed<9,5> q_dense_weight_t;
+typedef ap_fixed<9,5> q_dense_bias_t;
+typedef ap_uint<1> layer7_index;
 
 // hls-fpga-machine-learning insert emulator-defines
 

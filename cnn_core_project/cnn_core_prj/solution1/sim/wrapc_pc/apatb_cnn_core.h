@@ -8,4 +8,4 @@
 
 extern "C" void AESL_WRAP_cnn_core (
 hls::stream<int > input_layer,
-hls::stream<int > layer10_out);
+hls::stream<int > layer7_out);

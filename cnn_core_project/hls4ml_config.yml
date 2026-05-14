@@ -16,15 +16,11 @@ HLSConfig:
       Precision:
         result: auto
       Trace: false
-    permute:
-      Precision:
-        result: auto
-      Trace: false
     q_conv2d:
       Precision:
-        bias: ap_fixed<17,9>
-        result: ap_fixed<17,9>
-        weight: ap_fixed<17,9>
+        bias: ap_fixed<9,5>
+        result: ap_fixed<9,5>
+        weight: ap_fixed<9,5>
       Trace: false
     q_conv2d_relu:
       Precision:
@@ -32,19 +28,11 @@ HLSConfig:
       Trace: false
     q_dense:
       Precision:
-        bias: ap_fixed<17,9>
-        result: ap_fixed<17,9>
-        weight: ap_fixed<17,9>
+        bias: ap_fixed<9,5>
+        result: ap_fixed<9,5>
+        weight: ap_fixed<9,5>
       Trace: false
     reshape:
-      Precision:
-        result: auto
-      Trace: false
-    reshape_1:
-      Precision:
-        result: auto
-      Trace: false
-    reshape_2:
       Precision:
         result: auto
       Trace: false
@@ -66,11 +54,11 @@ KerasModel: !keras_model 'cnn_core_project//keras_model.keras'
 OutputDir: cnn_core_project/
 OutputPredictions: null
 OutputShapes:
-  layer10_out:
+  layer7_out:
   - 1
 Part: xcku5p-ffvb676-2-e
 ProjectName: cnn_core
-Stamp: bc83da35
+Stamp: e9386e39
 Version: 1.0.0
 WriterConfig:
   Namespace: null

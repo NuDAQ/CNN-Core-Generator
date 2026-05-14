@@ -82247,28 +82247,25 @@ template <typename T, unsigned N, T (*func)(T)> class lookup_table {
 
 
 typedef nnet::array<ap_fixed<12,6>, 4*1> input_t;
-typedef nnet::array<ap_fixed<12,6>, 256*1> layer2_t;
-typedef nnet::array<ap_fixed<12,6>, 1*1> layer3_t;
+typedef nnet::array<ap_fixed<12,6>, 1*1> layer2_t;
 typedef ap_fixed<16,6> model_default_t;
-typedef nnet::array<ap_fixed<17,9>, 7*1> layer4_t;
-typedef ap_fixed<17,9> q_conv2d_weight_t;
-typedef ap_fixed<17,9> q_conv2d_bias_t;
-typedef nnet::array<ap_fixed<16,6>, 7*1> layer5_t;
+typedef nnet::array<ap_fixed<9,5>, 7*1> layer3_t;
+typedef ap_fixed<9,5> q_conv2d_weight_t;
+typedef ap_fixed<9,5> q_conv2d_bias_t;
+typedef nnet::array<ap_fixed<16,6>, 7*1> layer4_t;
 typedef ap_fixed<18,8> q_conv2d_relu_table_t;
-typedef nnet::array<ap_fixed<16,6>, 7*1> layer6_t;
-typedef nnet::array<ap_fixed<16,6>, 42*1> layer7_t;
-typedef nnet::array<ap_fixed<16,6>, 42*1> layer8_t;
-typedef nnet::array<ap_fixed<17,9>, 1*1> result_t;
-typedef ap_fixed<17,9> q_dense_weight_t;
-typedef ap_fixed<17,9> q_dense_bias_t;
-typedef ap_uint<1> layer10_index;
+typedef nnet::array<ap_fixed<16,6>, 7*1> layer5_t;
+typedef nnet::array<ap_fixed<9,5>, 1*1> result_t;
+typedef ap_fixed<9,5> q_dense_weight_t;
+typedef ap_fixed<9,5> q_dense_bias_t;
+typedef ap_uint<1> layer7_index;
 # 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.h" 2
 
 
 
 void cnn_core(
     hls::stream<input_t> &input_layer,
-    hls::stream<result_t> &layer10_out
+    hls::stream<result_t> &layer7_out
 );
 # 4 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.cpp" 2
 # 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 1
@@ -98454,157 +98451,29 @@ ReadInput:
 # 19 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
 # 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_stream.h" 1
 # 20 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_transpose.h" 1
 
 
-
-namespace nnet {
-
-struct transpose_config {
-    static const unsigned dims;
-    static const unsigned N;
-
-
-
-    static const unsigned *const from_shape;
-    static const unsigned *const to_shape;
-    static const unsigned *const perm;
-    static const unsigned *const perm_strides;
-};
-
-template <typename CONFIG_T> unsigned transfer_idx(int index) {
-
-    int idx = 0;
-    for (int i = CONFIG_T::dims - 1; i >= 0; i--) {
-        idx += (index % CONFIG_T::to_shape[i]) * CONFIG_T::perm_strides[i];
-        index /= CONFIG_T::to_shape[i];
-    }
-    return idx;
-}
-
-template <typename data_T, typename res_T, typename CONFIG_T>
-void transpose(const data_T data[CONFIG_T::N], res_T res[CONFIG_T::N]) {
-    for (int i = 0; i < CONFIG_T::N; i++) {
-#pragma HLS UNROLL
-        int idx = transfer_idx<CONFIG_T>(i);
-        res[i] = data[idx];
-    }
-}
-
-}
-# 21 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_transpose_stream.h" 1
-
-
-
-
-# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_transpose.h" 1
-# 6 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_transpose_stream.h" 2
-
-
-namespace nnet {
-
-template <typename data_T, typename res_T, typename CONFIG_T>
-typename std::enable_if<CONFIG_T::dims == 2, void>::type transpose(hls::stream<data_T> &data, hls::stream<res_T> &res) {
-
-    typename data_T::value_type data_array[CONFIG_T::N];
-#pragma HLS ARRAY_PARTITION variable=data_array complete
-
-    for (int i = 0; i < CONFIG_T::N / data_T::size; i++) {
-#pragma HLS PIPELINE
-        data_T in_data = data.read();
-        for (int j = 0; j < data_T::size; j++) {
-#pragma HLS UNROLL
-            data_array[i * data_T::size + j] = typename data_T::value_type(in_data[j]);
-        }
-    }
-
-    for (int i = 0; i < CONFIG_T::N / res_T::size; i++) {
-#pragma HLS PIPELINE
-        res_T out_data;
-       
-        for (int j = 0; j < res_T::size; j++) {
-#pragma HLS UNROLL
-            out_data[j] = typename res_T::value_type(data_array[j * CONFIG_T::from_shape[1] + i]);
-        }
-        res.write(out_data);
-    }
-}
-
-
-
-template <typename data_T, typename res_T, typename CONFIG_T>
-typename std::enable_if<CONFIG_T::dims != 2, void>::type transpose(hls::stream<data_T> &data, hls::stream<res_T> &res) {
-
-    typename data_T::value_type data_array[CONFIG_T::N];
-#pragma HLS ARRAY_PARTITION variable=data_array complete
-
-    for (int i = 0; i < CONFIG_T::N / data_T::size; i++) {
-#pragma HLS PIPELINE
-        data_T in_data = data.read();
-        for (int j = 0; j < data_T::size; j++) {
-#pragma HLS UNROLL
-            data_array[i * data_T::size + j] = typename data_T::value_type(in_data[j]);
-        }
-    }
-
-    for (int i = 0; i < CONFIG_T::N / res_T::size; i++) {
-#pragma HLS PIPELINE
-        res_T out_data;
-       
-        for (int j = 0; j < res_T::size; j++) {
-#pragma HLS UNROLL
-            out_data[j] = typename res_T::value_type(data_array[transfer_idx<CONFIG_T>(i * res_T::size + j)]);
-        }
-        res.write(out_data);
-    }
-}
-
-}
-# 22 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
-
-
-# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/w4.h" 1
-# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/w4.h"
-q_conv2d_weight_t w4[35];
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/w3.h" 1
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/w3.h"
+q_conv2d_weight_t w3[35];
+# 23 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/b3.h" 1
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/b3.h"
+q_conv2d_bias_t b3[7];
+# 24 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/w7.h" 1
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/w7.h"
+q_dense_weight_t w7[1176];
 # 25 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/b4.h" 1
-# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/b4.h"
-q_conv2d_bias_t b4[7];
+# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/b7.h" 1
+# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/b7.h"
+q_dense_bias_t b7[1];
 # 26 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/w10.h" 1
-# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/w10.h"
-q_dense_weight_t w10[1176];
-# 27 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
-# 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/b10.h" 1
-# 10 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/weights/b10.h"
-q_dense_bias_t b10[1];
-# 28 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/parameters.h" 2
 
 
 
 
-struct config2 {
-    static const unsigned dims = 2;
-    static const unsigned N = 1024;
-    static const unsigned* const from_shape;
-    static const unsigned* const to_shape;
-    static const unsigned* const perm;
-    static const unsigned* const perm_strides;
-};
-
-unsigned config2_from_shape[2] = {256, 4};
-unsigned config2_to_shape[2] = {4, 256};
-unsigned config2_perm[2] = {1, 0};
-unsigned config2_perm_strides[2] = {1, 4};
-
-const unsigned* const config2::from_shape = config2_from_shape;
-const unsigned* const config2::to_shape = config2_to_shape;
-const unsigned* const config2::perm = config2_perm;
-const unsigned* const config2::perm_strides = config2_perm_strides;
-
-
-struct config4_mult : nnet::dense_config {
+struct config3_mult : nnet::dense_config {
     static const unsigned n_in = 5;
     static const unsigned n_out = 7;
     static const unsigned reuse_factor = 1;
@@ -98620,22 +98489,22 @@ struct config4_mult : nnet::dense_config {
     using product = nnet::product::mult<x_T, y_T>;
 };
 
-struct config4 : nnet::conv2d_config {
+struct config3 : nnet::conv2d_config {
     static const unsigned pad_top = 0;
     static const unsigned pad_bottom = 0;
     static const unsigned pad_left = 0;
     static const unsigned pad_right = 0;
-    static const unsigned in_height = 4;
-    static const unsigned in_width = 256;
+    static const unsigned in_height = 256;
+    static const unsigned in_width = 4;
     static const unsigned n_chan = 1;
-    static const unsigned filt_height = 1;
-    static const unsigned filt_width = 5;
+    static const unsigned filt_height = 5;
+    static const unsigned filt_width = 1;
     static const unsigned kernel_size = filt_height * filt_width;
     static const unsigned n_filt = 7;
-    static const unsigned stride_height = 1;
-    static const unsigned stride_width = 3;
-    static const unsigned out_height = 4;
-    static const unsigned out_width = 84;
+    static const unsigned stride_height = 3;
+    static const unsigned stride_width = 1;
+    static const unsigned out_height = 84;
+    static const unsigned out_width = 4;
     static const unsigned reuse_factor = 1;
     static const unsigned n_zeros = 0;
     static const unsigned multiplier_limit =
@@ -98643,8 +98512,8 @@ struct config4 : nnet::conv2d_config {
     static const bool store_weights_in_bram = false;
     static const unsigned strategy = nnet::latency;
     static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
-    static const unsigned min_height = 4;
-    static const unsigned min_width = 256;
+    static const unsigned min_height = 256;
+    static const unsigned min_width = 4;
     static const ap_uint<filt_height * filt_width> pixels[min_height * min_width];
     static const unsigned n_partitions = 336;
     static const unsigned n_pixels = out_height * out_width / n_partitions;
@@ -98653,16 +98522,16 @@ struct config4 : nnet::conv2d_config {
     typedef model_default_t accum_t;
     typedef q_conv2d_bias_t bias_t;
     typedef q_conv2d_weight_t weight_t;
-    typedef config4_mult mult_config;
+    typedef config3_mult mult_config;
     template<unsigned K, unsigned S, unsigned W>
     using scale_index_height = nnet::scale_index_regular<K, S, W>;
     template<unsigned K, unsigned S, unsigned W>
     using scale_index_width = nnet::scale_index_regular<K, S, W>;
 };
-const ap_uint<config4::filt_height * config4::filt_width> config4::pixels[] = {0};
+const ap_uint<config3::filt_height * config3::filt_width> config3::pixels[] = {0};
 
 
-struct relu_config5 : nnet::activ_config {
+struct relu_config4 : nnet::activ_config {
     static const unsigned n_in = 2352;
     static const unsigned table_size = 1024;
     static const unsigned io_type = nnet::io_stream;
@@ -98671,21 +98540,21 @@ struct relu_config5 : nnet::activ_config {
 };
 
 
-struct config6 : nnet::pooling2d_config {
-    static const unsigned in_height = 4;
-    static const unsigned in_width = 84;
+struct config5 : nnet::pooling2d_config {
+    static const unsigned in_height = 84;
+    static const unsigned in_width = 4;
     static const unsigned n_filt = 7;
-    static const unsigned stride_height = 1;
-    static const unsigned stride_width = 2;
-    static const unsigned pool_height = 1;
-    static const unsigned pool_width = 2;
+    static const unsigned stride_height = 2;
+    static const unsigned stride_width = 1;
+    static const unsigned pool_height = 2;
+    static const unsigned pool_width = 1;
 
     static const unsigned filt_height = pool_height;
     static const unsigned filt_width = pool_width;
     static const unsigned n_chan = n_filt;
 
-    static const unsigned out_height = 4;
-    static const unsigned out_width = 42;
+    static const unsigned out_height = 42;
+    static const unsigned out_width = 4;
     static const unsigned pad_top = 0;
     static const unsigned pad_bottom = 0;
     static const unsigned pad_left = 0;
@@ -98698,7 +98567,7 @@ struct config6 : nnet::pooling2d_config {
 };
 
 
-struct config10 : nnet::dense_config {
+struct config7 : nnet::dense_config {
     static const unsigned n_in = 1176;
     static const unsigned n_out = 1;
     static const unsigned io_type = nnet::io_stream;
@@ -98711,7 +98580,7 @@ struct config10 : nnet::dense_config {
     typedef model_default_t accum_t;
     typedef q_dense_bias_t bias_t;
     typedef q_dense_weight_t weight_t;
-    typedef layer10_index index_t;
+    typedef layer7_index index_t;
     template<class data_T, class res_T, class CONFIG_T>
     using kernel = nnet::DenseLatency<data_T, res_T, CONFIG_T>;
     template<class x_T, class y_T>
@@ -98722,21 +98591,21 @@ struct config10 : nnet::dense_config {
 
 void cnn_core(
     hls::stream<input_t> &input_layer,
-    hls::stream<result_t> &layer10_out
+    hls::stream<result_t> &layer7_out
 ) {
 
 
-#pragma HLS INTERFACE axis port=input_layer,layer10_out
+#pragma HLS INTERFACE axis port=input_layer,layer7_out
 #pragma HLS DATAFLOW
 
 
 
     static bool loaded_weights = false;
     if (!loaded_weights) {
-        nnet::load_weights_from_txt<q_conv2d_weight_t, 35>(w4, "w4.txt");
-        nnet::load_weights_from_txt<q_conv2d_bias_t, 7>(b4, "b4.txt");
-        nnet::load_weights_from_txt<q_dense_weight_t, 1176>(w10, "w10.txt");
-        nnet::load_weights_from_txt<q_dense_bias_t, 1>(b10, "b10.txt");
+        nnet::load_weights_from_txt<q_conv2d_weight_t, 35>(w3, "w3.txt");
+        nnet::load_weights_from_txt<q_conv2d_bias_t, 7>(b3, "b3.txt");
+        nnet::load_weights_from_txt<q_dense_weight_t, 1176>(w7, "w7.txt");
+        nnet::load_weights_from_txt<q_dense_bias_t, 1>(b7, "b7.txt");
         loaded_weights = true; }
 
 
@@ -98745,55 +98614,40 @@ void cnn_core(
 
 
 
-    hls::stream<layer2_t> layer2_out("layer2_out");
-#pragma HLS STREAM variable=layer2_out depth=4
+    hls::stream<layer2_t> layer8_out("layer8_out");
+#pragma HLS STREAM variable=layer8_out depth=1024
 
-    hls::stream<layer3_t> layer11_out("layer11_out");
-#pragma HLS STREAM variable=layer11_out depth=1024
+    hls::stream<layer3_t> layer3_out("layer3_out");
+#pragma HLS STREAM variable=layer3_out depth=336
 
     hls::stream<layer4_t> layer4_out("layer4_out");
 #pragma HLS STREAM variable=layer4_out depth=336
 
     hls::stream<layer5_t> layer5_out("layer5_out");
-#pragma HLS STREAM variable=layer5_out depth=336
+#pragma HLS STREAM variable=layer5_out depth=168
 
-    hls::stream<layer6_t> layer6_out("layer6_out");
-#pragma HLS STREAM variable=layer6_out depth=168
+    auto& layer6_out = layer5_out;
+    nnet::repack_stream<input_t, layer2_t, 1024>(input_layer, layer8_out);
 
-    hls::stream<layer7_t> layer12_out("layer12_out");
-#pragma HLS STREAM variable=layer12_out depth=28
+    nnet::conv_2d_cl<layer2_t, layer3_t, config3>(layer8_out, layer3_out, w3, b3);
 
-    hls::stream<layer8_t> layer13_out("layer13_out");
-#pragma HLS STREAM variable=layer13_out depth=28
+    nnet::relu<layer3_t, layer4_t, relu_config4>(layer3_out, layer4_out);
 
-    auto& layer9_out = layer13_out;
-    nnet::transpose<input_t, layer2_t, config2>(input_layer, layer2_out);
+    nnet::pooling2d_cl<layer4_t, layer5_t, config5>(layer4_out, layer5_out);
 
-    nnet::repack_stream<layer2_t, layer3_t, 1024>(layer2_out, layer11_out);
-
-    nnet::conv_2d_cl<layer3_t, layer4_t, config4>(layer11_out, layer4_out, w4, b4);
-
-    nnet::relu<layer4_t, layer5_t, relu_config5>(layer4_out, layer5_out);
-
-    nnet::pooling2d_cl<layer5_t, layer6_t, config6>(layer5_out, layer6_out);
-
-    nnet::repack_stream<layer6_t, layer7_t, 1176>(layer6_out, layer12_out);
-
-    nnet::repack_stream<layer7_t, layer8_t, 1176>(layer12_out, layer13_out);
-
-    nnet::dense<layer8_t, result_t, config10>(layer9_out, layer10_out, w10, b10);
+    nnet::dense<layer5_t, result_t, config7>(layer6_out, layer7_out, w7, b7);
 
 }
 #ifndef HLS_FASTSIM
 #ifdef __cplusplus
 extern "C"
 #endif
-void apatb_cnn_core_ir(hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0> &, hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0> &);
+void apatb_cnn_core_ir(hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0> &, hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0> &);
 #ifdef __cplusplus
 extern "C"
 #endif
-void cnn_core_hw_stub(hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0> &input_layer, hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0> &layer10_out){
-cnn_core(input_layer, layer10_out);
+void cnn_core_hw_stub(hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0> &input_layer, hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0> &layer7_out){
+cnn_core(input_layer, layer7_out);
 return ;
 }
 #ifdef __cplusplus
@@ -98803,11 +98657,11 @@ void refine_signal_handler();
 #ifdef __cplusplus
 extern "C"
 #endif
-void apatb_cnn_core_sw(hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0> &input_layer, hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0> &layer10_out){
+void apatb_cnn_core_sw(hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0> &input_layer, hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0> &layer7_out){
 refine_signal_handler();
-apatb_cnn_core_ir(input_layer, layer10_out);
+apatb_cnn_core_ir(input_layer, layer7_out);
 return ;
 }
 #endif
-# 70 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.cpp"
+# 55 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.cpp"
 

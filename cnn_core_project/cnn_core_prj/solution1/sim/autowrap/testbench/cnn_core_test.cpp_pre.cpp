@@ -92162,28 +92162,25 @@ template <typename T, unsigned N, T (*func)(T)> class lookup_table {
 
 
 typedef nnet::array<ap_fixed<12,6>, 4*1> input_t;
-typedef nnet::array<ap_fixed<12,6>, 256*1> layer2_t;
-typedef nnet::array<ap_fixed<12,6>, 1*1> layer3_t;
+typedef nnet::array<ap_fixed<12,6>, 1*1> layer2_t;
 typedef ap_fixed<16,6> model_default_t;
-typedef nnet::array<ap_fixed<17,9>, 7*1> layer4_t;
-typedef ap_fixed<17,9> q_conv2d_weight_t;
-typedef ap_fixed<17,9> q_conv2d_bias_t;
-typedef nnet::array<ap_fixed<16,6>, 7*1> layer5_t;
+typedef nnet::array<ap_fixed<9,5>, 7*1> layer3_t;
+typedef ap_fixed<9,5> q_conv2d_weight_t;
+typedef ap_fixed<9,5> q_conv2d_bias_t;
+typedef nnet::array<ap_fixed<16,6>, 7*1> layer4_t;
 typedef ap_fixed<18,8> q_conv2d_relu_table_t;
-typedef nnet::array<ap_fixed<16,6>, 7*1> layer6_t;
-typedef nnet::array<ap_fixed<16,6>, 42*1> layer7_t;
-typedef nnet::array<ap_fixed<16,6>, 42*1> layer8_t;
-typedef nnet::array<ap_fixed<17,9>, 1*1> result_t;
-typedef ap_fixed<17,9> q_dense_weight_t;
-typedef ap_fixed<17,9> q_dense_bias_t;
-typedef ap_uint<1> layer10_index;
+typedef nnet::array<ap_fixed<16,6>, 7*1> layer5_t;
+typedef nnet::array<ap_fixed<9,5>, 1*1> result_t;
+typedef ap_fixed<9,5> q_dense_weight_t;
+typedef ap_fixed<9,5> q_dense_bias_t;
+typedef ap_uint<1> layer7_index;
 # 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.h" 2
 
 
 
 void cnn_core(
     hls::stream<input_t> &input_layer,
-    hls::stream<result_t> &layer10_out
+    hls::stream<result_t> &layer7_out
 );
 # 11 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 2
 # 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 1
@@ -92659,10 +92656,10 @@ int main(int argc, char **argv) {
 
       hls::stream<input_t> input_layer("input_layer");
       nnet::copy_data<float, input_t, 0, 256*4>(in, input_layer);
-      hls::stream<result_t> layer10_out("layer10_out");
+      hls::stream<result_t> layer7_out("layer7_out");
 
 
-            cnn_core(input_layer,layer10_out);
+            cnn_core(input_layer,layer7_out);
 
             if (e % 5000 == 0) {
                 std::cout << "Predictions" << std::endl;
@@ -92673,12 +92670,12 @@ int main(int argc, char **argv) {
                 std::cout << std::endl;
                 std::cout << "Quantized predictions" << std::endl;
 
-                nnet::print_result<result_t, 1>(layer10_out, std::cout, true);
+                nnet::print_result<result_t, 1>(layer7_out, std::cout, true);
             }
             e++;
 
 
-            nnet::print_result<result_t, 1>(layer10_out, fout);
+            nnet::print_result<result_t, 1>(layer7_out, fout);
         }
         fin.close();
         fpr.close();
@@ -92689,16 +92686,16 @@ int main(int argc, char **argv) {
 
             hls::stream<input_t> input_layer("input_layer");
             nnet::fill_zero<input_t, 256*4>(input_layer);
-            hls::stream<result_t> layer10_out("layer10_out");
+            hls::stream<result_t> layer7_out("layer7_out");
 
 
-            cnn_core(input_layer,layer10_out);
+            cnn_core(input_layer,layer7_out);
 
 
-            nnet::print_result<result_t, 1>(layer10_out, std::cout, true);
+            nnet::print_result<result_t, 1>(layer7_out, std::cout, true);
 
 
-            nnet::print_result<result_t, 1>(layer10_out, fout);
+            nnet::print_result<result_t, 1>(layer7_out, fout);
         }
     }
 

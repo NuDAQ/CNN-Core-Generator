@@ -92169,21 +92169,18 @@ template <typename T, unsigned N, T (*func)(T)> class lookup_table {
 
 
 typedef nnet::array<ap_fixed<12,6>, 4*1> input_t;
-typedef nnet::array<ap_fixed<12,6>, 256*1> layer2_t;
-typedef nnet::array<ap_fixed<12,6>, 1*1> layer3_t;
+typedef nnet::array<ap_fixed<12,6>, 1*1> layer2_t;
 typedef ap_fixed<16,6> model_default_t;
-typedef nnet::array<ap_fixed<17,9>, 7*1> layer4_t;
-typedef ap_fixed<17,9> q_conv2d_weight_t;
-typedef ap_fixed<17,9> q_conv2d_bias_t;
-typedef nnet::array<ap_fixed<16,6>, 7*1> layer5_t;
+typedef nnet::array<ap_fixed<9,5>, 7*1> layer3_t;
+typedef ap_fixed<9,5> q_conv2d_weight_t;
+typedef ap_fixed<9,5> q_conv2d_bias_t;
+typedef nnet::array<ap_fixed<16,6>, 7*1> layer4_t;
 typedef ap_fixed<18,8> q_conv2d_relu_table_t;
-typedef nnet::array<ap_fixed<16,6>, 7*1> layer6_t;
-typedef nnet::array<ap_fixed<16,6>, 42*1> layer7_t;
-typedef nnet::array<ap_fixed<16,6>, 42*1> layer8_t;
-typedef nnet::array<ap_fixed<17,9>, 1*1> result_t;
-typedef ap_fixed<17,9> q_dense_weight_t;
-typedef ap_fixed<17,9> q_dense_bias_t;
-typedef ap_uint<1> layer10_index;
+typedef nnet::array<ap_fixed<16,6>, 7*1> layer5_t;
+typedef nnet::array<ap_fixed<9,5>, 1*1> result_t;
+typedef ap_fixed<9,5> q_dense_weight_t;
+typedef ap_fixed<9,5> q_dense_bias_t;
+typedef ap_uint<1> layer7_index;
 # 9 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.h" 2
 
 
@@ -92193,12 +92190,12 @@ typedef ap_uint<1> layer10_index;
 #ifdef __cplusplus
 extern "C"
 #endif
-void apatb_cnn_core_sw(hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0> &, hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0> &);
+void apatb_cnn_core_sw(hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0> &, hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0> &);
 #endif
 # 12 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/cnn_core.h"
 void cnn_core(
     hls::stream<input_t> &input_layer,
-    hls::stream<result_t> &layer10_out
+    hls::stream<result_t> &layer7_out
 );
 # 11 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp" 2
 # 1 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/firmware/nnet_utils/nnet_helpers.h" 1
@@ -92677,7 +92674,7 @@ int main(int argc, char **argv) {
 
       hls::stream<input_t> input_layer("input_layer");
       nnet::copy_data<float, input_t, 0, 256*4>(in, input_layer);
-      hls::stream<result_t> layer10_out("layer10_out");
+      hls::stream<result_t> layer7_out("layer7_out");
 
 
             
@@ -92685,7 +92682,7 @@ int main(int argc, char **argv) {
 #define cnn_core apatb_cnn_core_sw
 #endif
 # 67 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
-cnn_core(input_layer,layer10_out);
+cnn_core(input_layer,layer7_out);
 #undef cnn_core
 # 67 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
 
@@ -92699,12 +92696,12 @@ cnn_core(input_layer,layer10_out);
                 std::cout << std::endl;
                 std::cout << "Quantized predictions" << std::endl;
 
-                nnet::print_result<result_t, 1>(layer10_out, std::cout, true);
+                nnet::print_result<result_t, 1>(layer7_out, std::cout, true);
             }
             e++;
 
 
-            nnet::print_result<result_t, 1>(layer10_out, fout);
+            nnet::print_result<result_t, 1>(layer7_out, fout);
         }
         fin.close();
         fpr.close();
@@ -92715,7 +92712,7 @@ cnn_core(input_layer,layer10_out);
 
             hls::stream<input_t> input_layer("input_layer");
             nnet::fill_zero<input_t, 256*4>(input_layer);
-            hls::stream<result_t> layer10_out("layer10_out");
+            hls::stream<result_t> layer7_out("layer7_out");
 
 
             
@@ -92723,16 +92720,16 @@ cnn_core(input_layer,layer10_out);
 #define cnn_core apatb_cnn_core_sw
 #endif
 # 97 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
-cnn_core(input_layer,layer10_out);
+cnn_core(input_layer,layer7_out);
 #undef cnn_core
 # 97 "/home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_test.cpp"
 
 
 
-            nnet::print_result<result_t, 1>(layer10_out, std::cout, true);
+            nnet::print_result<result_t, 1>(layer7_out, std::cout, true);
 
 
-            nnet::print_result<result_t, 1>(layer10_out, fout);
+            nnet::print_result<result_t, 1>(layer7_out, fout);
         }
     }
 

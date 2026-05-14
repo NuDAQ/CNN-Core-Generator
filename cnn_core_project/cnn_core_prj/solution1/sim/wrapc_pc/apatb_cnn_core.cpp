@@ -21,13 +21,13 @@ using namespace std;
 #define AUTOTB_TVIN_input_layer "../tv/cdatafile/c.cnn_core.autotvin_input_layer.dat"
 #define WRAPC_STREAM_SIZE_IN_input_layer "../tv/stream_size/stream_size_in_input_layer.dat"
 #define WRAPC_STREAM_INGRESS_STATUS_input_layer "../tv/stream_size/stream_ingress_status_input_layer.dat"
-#define AUTOTB_TVOUT_layer10_out "../tv/cdatafile/c.cnn_core.autotvout_layer10_out.dat"
-#define WRAPC_STREAM_SIZE_OUT_layer10_out "../tv/stream_size/stream_size_out_layer10_out.dat"
-#define WRAPC_STREAM_EGRESS_STATUS_layer10_out "../tv/stream_size/stream_egress_status_layer10_out.dat"
+#define AUTOTB_TVOUT_layer7_out "../tv/cdatafile/c.cnn_core.autotvout_layer7_out.dat"
+#define WRAPC_STREAM_SIZE_OUT_layer7_out "../tv/stream_size/stream_size_out_layer7_out.dat"
+#define WRAPC_STREAM_EGRESS_STATUS_layer7_out "../tv/stream_size/stream_egress_status_layer7_out.dat"
 
 
 // tvout file define:
-#define AUTOTB_TVOUT_PC_layer10_out "../tv/rtldatafile/rtl.cnn_core.autotvout_layer10_out.dat"
+#define AUTOTB_TVOUT_PC_layer7_out "../tv/rtldatafile/rtl.cnn_core.autotvout_layer7_out.dat"
 
 
 namespace hls::sim
@@ -1031,7 +1031,7 @@ extern "C"
 void cnn_core_hw_stub_wrapper(void*, void*);
 
 extern "C"
-void apatb_cnn_core_hw(void* __xlx_apatb_param_input_layer, void* __xlx_apatb_param_layer10_out)
+void apatb_cnn_core_hw(void* __xlx_apatb_param_input_layer, void* __xlx_apatb_param_layer7_out)
 {
   static hls::sim::Stream<hls::sim::Byte<8>> port0 {
     .width = 64,
@@ -1047,18 +1047,18 @@ void apatb_cnn_core_hw(void* __xlx_apatb_param_input_layer, void* __xlx_apatb_pa
   port0.param = (hls::stream<hls::sim::Byte<8>>*)__xlx_apatb_param_input_layer;
   port0.hasWrite = false;
 
-  static hls::sim::Stream<hls::sim::Byte<4>> port1 {
-    .width = 32,
-    .name = "layer10_out",
+  static hls::sim::Stream<hls::sim::Byte<2>> port1 {
+    .width = 16,
+    .name = "layer7_out",
 #ifdef POST_CHECK
-    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_layer10_out),
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_layer7_out),
 #else
-    .writer = new hls::sim::Writer(AUTOTB_TVOUT_layer10_out),
-    .swriter = new hls::sim::Writer(WRAPC_STREAM_SIZE_OUT_layer10_out),
-    .gwriter = new hls::sim::Writer(WRAPC_STREAM_EGRESS_STATUS_layer10_out),
+    .writer = new hls::sim::Writer(AUTOTB_TVOUT_layer7_out),
+    .swriter = new hls::sim::Writer(WRAPC_STREAM_SIZE_OUT_layer7_out),
+    .gwriter = new hls::sim::Writer(WRAPC_STREAM_EGRESS_STATUS_layer7_out),
 #endif
   };
-  port1.param = (hls::stream<hls::sim::Byte<4>>*)__xlx_apatb_param_layer10_out;
+  port1.param = (hls::stream<hls::sim::Byte<2>>*)__xlx_apatb_param_layer7_out;
   port1.hasWrite = true;
 
   try {
@@ -1073,7 +1073,7 @@ void apatb_cnn_core_hw(void* __xlx_apatb_param_input_layer, void* __xlx_apatb_pa
     port0.buffer();
     port1.markSize();
     CodeState = CALL_C_DUT;
-    cnn_core_hw_stub_wrapper(__xlx_apatb_param_input_layer, __xlx_apatb_param_layer10_out);
+    cnn_core_hw_stub_wrapper(__xlx_apatb_param_input_layer, __xlx_apatb_param_layer7_out);
     port1.buffer();
     dump(port0, tcl.AESL_transaction);
     port0.doTCL(tcl);

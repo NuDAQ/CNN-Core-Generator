@@ -8,33 +8,33 @@ target triple = "fpga64-xilinx-none"
 %"struct.ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>" = type { %"struct.ap_int_base<12, true>" }
 %"struct.ap_int_base<12, true>" = type { %"struct.ssdm_int<12, true>" }
 %"struct.ssdm_int<12, true>" = type { i12 }
-%"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>" = type { %"struct.nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>" }
-%"struct.nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>" = type { [1 x %"struct.ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>"] }
-%"struct.ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>" = type { %"struct.ap_fixed_base<17, 9, true, AP_TRN, AP_WRAP, 0>" }
-%"struct.ap_fixed_base<17, 9, true, AP_TRN, AP_WRAP, 0>" = type { %"struct.ssdm_int<17, true>" }
-%"struct.ssdm_int<17, true>" = type { i17 }
+%"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>" = type { %"struct.nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>" }
+%"struct.nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>" = type { [1 x %"struct.ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>"] }
+%"struct.ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>" = type { %"struct.ap_fixed_base<9, 5, true, AP_TRN, AP_WRAP, 0>" }
+%"struct.ap_fixed_base<9, 5, true, AP_TRN, AP_WRAP, 0>" = type { %"struct.ssdm_int<9, true>" }
+%"struct.ssdm_int<9, true>" = type { i9 }
 
 ; Function Attrs: inaccessiblememonly nounwind willreturn
 declare void @llvm.sideeffect() #0
 
 ; Function Attrs: noinline
-define void @apatb_cnn_core_ir(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* noalias nocapture nonnull dereferenceable(8) %input_layer, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias nocapture nonnull %layer10_out) local_unnamed_addr #1 {
+define void @apatb_cnn_core_ir(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* noalias nocapture nonnull %input_layer, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias nocapture nonnull %layer7_out) local_unnamed_addr #1 {
 entry:
   %input_layer_copy = alloca %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>", align 512
   call void @llvm.sideeffect() #7 [ "stream_interface"(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %input_layer_copy, i32 0) ]
-  %layer10_out_copy = alloca %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>", align 512
-  call void @llvm.sideeffect() #8 [ "stream_interface"(%"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %layer10_out_copy, i32 0) ]
-  call fastcc void @copy_in(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* nonnull %input_layer, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* nonnull align 512 %input_layer_copy, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* nonnull %layer10_out, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* nonnull align 512 %layer10_out_copy)
-  call void @apatb_cnn_core_hw(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %input_layer_copy, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %layer10_out_copy)
-  call void @copy_back(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %input_layer, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %input_layer_copy, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %layer10_out, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %layer10_out_copy)
+  %layer7_out_copy = alloca %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>", align 512
+  call void @llvm.sideeffect() #8 [ "stream_interface"(%"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %layer7_out_copy, i32 0) ]
+  call fastcc void @copy_in(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* nonnull %input_layer, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* nonnull align 512 %input_layer_copy, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* nonnull %layer7_out, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* nonnull align 512 %layer7_out_copy)
+  call void @apatb_cnn_core_hw(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %input_layer_copy, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %layer7_out_copy)
+  call void @copy_back(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %input_layer, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %input_layer_copy, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %layer7_out, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %layer7_out_copy)
   ret void
 }
 
 ; Function Attrs: argmemonly noinline willreturn
-define internal fastcc void @copy_in(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* noalias align 512, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias align 512) unnamed_addr #2 {
+define internal fastcc void @copy_in(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* noalias align 512, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias align 512) unnamed_addr #2 {
 entry:
   call fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* align 512 %1, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %0)
-  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* align 512 %3, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %2)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* align 512 %3, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %2)
   ret void
 }
 
@@ -80,15 +80,15 @@ ret:                                              ; preds = %empty
 }
 
 ; Function Attrs: argmemonly noinline willreturn
-define internal fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias align 512 %dst, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias %src) unnamed_addr #3 {
+define internal fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias align 512 %dst, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias %src) unnamed_addr #3 {
 entry:
-  %0 = icmp eq %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %dst, null
-  %1 = icmp eq %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %src, null
+  %0 = icmp eq %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %dst, null
+  %1 = icmp eq %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %src, null
   %2 = or i1 %0, %1
   br i1 %2, label %ret, label %copy
 
 copy:                                             ; preds = %entry
-  call fastcc void @"streamcpy_hls.p0class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* nonnull align 512 %dst, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* nonnull %src)
+  call fastcc void @"streamcpy_hls.p0class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* nonnull align 512 %dst, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* nonnull %src)
   br label %ret
 
 ret:                                              ; preds = %copy, %entry
@@ -96,24 +96,24 @@ ret:                                              ; preds = %copy, %entry
 }
 
 ; Function Attrs: argmemonly noinline willreturn
-define internal fastcc void @"streamcpy_hls.p0class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias nocapture align 512, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias nocapture) unnamed_addr #4 {
+define internal fastcc void @"streamcpy_hls.p0class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias nocapture align 512, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias nocapture) unnamed_addr #4 {
 entry:
-  %2 = alloca %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"
+  %2 = alloca %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"
   br label %empty
 
 empty:                                            ; preds = %push, %entry
-  %3 = bitcast %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %1 to i8*
-  %4 = call i1 @fpga_fifo_not_empty_4(i8* %3)
+  %3 = bitcast %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %1 to i8*
+  %4 = call i1 @fpga_fifo_not_empty_2(i8* %3)
   br i1 %4, label %push, label %ret
 
 push:                                             ; preds = %empty
-  %5 = bitcast %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %2 to i8*
-  %6 = bitcast %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %1 to i8*
-  call void @fpga_fifo_pop_4(i8* %5, i8* %6)
-  %7 = load volatile %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>", %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %2
-  %8 = bitcast %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %2 to i8*
-  %9 = bitcast %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %0 to i8*
-  call void @fpga_fifo_push_4(i8* %8, i8* %9)
+  %5 = bitcast %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %2 to i8*
+  %6 = bitcast %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %1 to i8*
+  call void @fpga_fifo_pop_2(i8* %5, i8* %6)
+  %7 = load volatile %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>", %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %2
+  %8 = bitcast %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %2 to i8*
+  %9 = bitcast %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %0 to i8*
+  call void @fpga_fifo_push_2(i8* %8, i8* %9)
   br label %empty, !llvm.loop !7
 
 ret:                                              ; preds = %empty
@@ -121,44 +121,44 @@ ret:                                              ; preds = %empty
 }
 
 ; Function Attrs: argmemonly noinline willreturn
-define internal fastcc void @copy_out(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* noalias align 512, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias align 512) unnamed_addr #5 {
+define internal fastcc void @copy_out(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* noalias align 512, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias align 512) unnamed_addr #5 {
 entry:
   call fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %0, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* align 512 %1)
-  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %2, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* align 512 %3)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %2, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* align 512 %3)
   ret void
 }
 
-declare void @apatb_cnn_core_hw(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"*, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"*)
+declare void @apatb_cnn_core_hw(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"*, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"*)
 
 ; Function Attrs: argmemonly noinline willreturn
-define internal fastcc void @copy_back(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* noalias align 512, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias align 512) unnamed_addr #5 {
+define internal fastcc void @copy_back(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* noalias align 512, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* noalias align 512) unnamed_addr #5 {
 entry:
   call fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %0, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* align 512 %1)
-  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %2, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* align 512 %3)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"(%"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %2, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* align 512 %3)
   ret void
 }
 
-define void @cnn_core_hw_stub_wrapper(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"*, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"*) #6 {
+define void @cnn_core_hw_stub_wrapper(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"*, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"*) #6 {
 entry:
-  call void @copy_out(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* null, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %0, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* null, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %1)
-  call void @cnn_core_hw_stub(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %0, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %1)
-  call void @copy_in(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* null, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %0, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* null, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %1)
+  call void @copy_out(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* null, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %0, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* null, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %1)
+  call void @cnn_core_hw_stub(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %0, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %1)
+  call void @copy_in(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* null, %"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"* %0, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* null, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"* %1)
   ret void
 }
 
-declare void @cnn_core_hw_stub(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"*, %"class.hls::stream<nnet::array<ap_fixed<17, 9, AP_TRN, AP_WRAP, 0>, 1>, 0>"*)
+declare void @cnn_core_hw_stub(%"class.hls::stream<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, 0>"*, %"class.hls::stream<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, 0>"*)
 
 declare i1 @fpga_fifo_not_empty_8(i8*)
 
-declare i1 @fpga_fifo_not_empty_4(i8*)
+declare i1 @fpga_fifo_not_empty_2(i8*)
 
 declare void @fpga_fifo_pop_8(i8*, i8*)
 
-declare void @fpga_fifo_pop_4(i8*, i8*)
+declare void @fpga_fifo_pop_2(i8*, i8*)
 
 declare void @fpga_fifo_push_8(i8*, i8*)
 
-declare void @fpga_fifo_push_4(i8*, i8*)
+declare void @fpga_fifo_push_2(i8*, i8*)
 
 attributes #0 = { inaccessiblememonly nounwind willreturn }
 attributes #1 = { noinline "fpga.wrapper.func"="wrapper" }
@@ -168,7 +168,7 @@ attributes #4 = { argmemonly noinline willreturn "fpga.wrapper.func"="streamcpy_
 attributes #5 = { argmemonly noinline willreturn "fpga.wrapper.func"="copyout" }
 attributes #6 = { "fpga.wrapper.func"="stub" }
 attributes #7 = { inaccessiblememonly nounwind willreturn "xlx.port.bitwidth"="64" "xlx.source"="user" }
-attributes #8 = { inaccessiblememonly nounwind willreturn "xlx.port.bitwidth"="32" "xlx.source"="user" }
+attributes #8 = { inaccessiblememonly nounwind willreturn "xlx.port.bitwidth"="16" "xlx.source"="user" }
 
 !llvm.dbg.cu = !{}
 !llvm.ident = !{!0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0, !0}

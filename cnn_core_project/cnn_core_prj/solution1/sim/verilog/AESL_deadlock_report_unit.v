@@ -12,12 +12,6 @@ module AESL_deadlock_report_unit #( parameter PROC_NUM = 4 ) (
     input [15:0] trans_out_cnt_2,
     input [15:0] trans_in_cnt_3,
     input [15:0] trans_out_cnt_3,
-    input [15:0] trans_in_cnt_4,
-    input [15:0] trans_out_cnt_4,
-    input [15:0] trans_in_cnt_5,
-    input [15:0] trans_out_cnt_5,
-    input [15:0] trans_in_cnt_6,
-    input [15:0] trans_out_cnt_6,
     output dl_detect_out,
     output reg [PROC_NUM - 1:0] origin,
     output token_clear);
@@ -214,28 +208,19 @@ module AESL_deadlock_report_unit #( parameter PROC_NUM = 4 ) (
             index = proc_index(dl_vec);
             case (index)
                 0 : begin
-                    proc_path = "cnn_core.transpose_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_256u_config2_U0";
+                    proc_path = "cnn_core.repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_U0";
                 end
                 1 : begin
-                    proc_path = "cnn_core.repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024_U0";
+                    proc_path = "cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0";
                 end
                 2 : begin
-                    proc_path = "cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0";
+                    proc_path = "cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0";
                 end
                 3 : begin
-                    proc_path = "cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config5_U0";
+                    proc_path = "cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0";
                 end
                 4 : begin
-                    proc_path = "cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6_U0";
-                end
-                5 : begin
-                    proc_path = "cnn_core.repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0";
-                end
-                6 : begin
-                    proc_path = "cnn_core.repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176_U0";
-                end
-                7 : begin
-                    proc_path = "cnn_core.dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0";
+                    proc_path = "cnn_core.dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0";
                 end
                 default : begin
                     proc_path = "unknown";
@@ -298,20 +283,20 @@ module AESL_deadlock_report_unit #( parameter PROC_NUM = 4 ) (
                 0 : begin
                     case(index2)
                     1: begin
-                        if (~AESL_inst_cnn_core.transpose_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_256u_config2_U0.grp_transpose_array_array_ap_fixed_256u_config2_Pipeline_VITIS_LOOP_25_3_fu_5154.layer2_out_blk_n) begin
-                            if (~AESL_inst_cnn_core.layer2_out_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core.layer2_out_U' written by process 'cnn_core.repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer2_out_U");
+                        if (~AESL_inst_cnn_core.repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_U0.layer8_out_blk_n) begin
+                            if (~AESL_inst_cnn_core.layer8_out_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'cnn_core.layer8_out_U' written by process 'cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer8_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
-                            else if (~AESL_inst_cnn_core.layer2_out_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core.layer2_out_U' read by process 'cnn_core.repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer2_out_U");
+                            else if (~AESL_inst_cnn_core.layer8_out_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'cnn_core.layer8_out_U' read by process 'cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer8_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~AESL_inst_cnn_core.start_for_repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024cud_U.if_full_n & AESL_inst_cnn_core.transpose_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_256u_config2_U0.ap_start & ~AESL_inst_cnn_core.transpose_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_256u_config2_U0.real_start & (trans_in_cnt_0 == trans_out_cnt_0) & ~AESL_inst_cnn_core.start_for_repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024cud_U.if_read) begin
-                            $display("//      Blocked by full output start propagation FIFO 'cnn_core.start_for_repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024cud_U' read by process 'cnn_core.repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024_U0',");
+                        if (~AESL_inst_cnn_core.start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0_U.if_full_n & AESL_inst_cnn_core.repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_U0.ap_start & ~AESL_inst_cnn_core.repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_U0.real_start & (trans_in_cnt_0 == trans_out_cnt_0) & ~AESL_inst_cnn_core.start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0_U.if_read) begin
+                            $display("//      Blocked by full output start propagation FIFO 'cnn_core.start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0_U' read by process 'cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0',");
                         end
                     end
                     endcase
@@ -319,37 +304,34 @@ module AESL_deadlock_report_unit #( parameter PROC_NUM = 4 ) (
                 1 : begin
                     case(index2)
                     0: begin
-                        if (~AESL_inst_cnn_core.repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024_U0.layer2_out_blk_n) begin
-                            if (~AESL_inst_cnn_core.layer2_out_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core.layer2_out_U' written by process 'cnn_core.transpose_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_256u_config2_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer2_out_U");
+                        if (~AESL_inst_cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0.layer8_out_blk_n) begin
+                            if (~AESL_inst_cnn_core.layer8_out_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'cnn_core.layer8_out_U' written by process 'cnn_core.repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer8_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
-                            else if (~AESL_inst_cnn_core.layer2_out_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core.layer2_out_U' read by process 'cnn_core.transpose_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_256u_config2_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer2_out_U");
+                            else if (~AESL_inst_cnn_core.layer8_out_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'cnn_core.layer8_out_U' read by process 'cnn_core.repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer8_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~AESL_inst_cnn_core.start_for_repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024cud_U.if_empty_n & AESL_inst_cnn_core.repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024_U0.ap_idle & ~AESL_inst_cnn_core.start_for_repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024cud_U.if_write) begin
-                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core.start_for_repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024cud_U' written by process 'cnn_core.transpose_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_256u_config2_U0',");
+                        if (~AESL_inst_cnn_core.start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0_U.if_empty_n & AESL_inst_cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0.ap_idle & ~AESL_inst_cnn_core.start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0_U.if_write) begin
+                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core.start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0_U' written by process 'cnn_core.repack_stream_array_ap_fixed_4u_array_ap_fixed_12_6_5_3_0_1u_1024_U0',");
                         end
                     end
                     2: begin
-                        if (~AESL_inst_cnn_core.repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024_U0.grp_repack_stream_array_array_ap_fixed_1u_1024_Pipeline_VITIS_LOOP_254_4_fu_3639.layer11_out_blk_n) begin
-                            if (~AESL_inst_cnn_core.layer11_out_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core.layer11_out_U' written by process 'cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer11_out_U");
+                        if (~AESL_inst_cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0.layer3_out_blk_n) begin
+                            if (~AESL_inst_cnn_core.layer3_out_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'cnn_core.layer3_out_U' written by process 'cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer3_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
-                            else if (~AESL_inst_cnn_core.layer11_out_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core.layer11_out_U' read by process 'cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer11_out_U");
+                            else if (~AESL_inst_cnn_core.layer3_out_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'cnn_core.layer3_out_U' read by process 'cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer3_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
-                        end
-                        if (~AESL_inst_cnn_core.start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0_U.if_full_n & AESL_inst_cnn_core.repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024_U0.ap_start & ~AESL_inst_cnn_core.repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024_U0.real_start & (trans_in_cnt_1 == trans_out_cnt_1) & ~AESL_inst_cnn_core.start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0_U.if_read) begin
-                            $display("//      Blocked by full output start propagation FIFO 'cnn_core.start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0_U' read by process 'cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0',");
                         end
                     end
                     endcase
@@ -357,34 +339,37 @@ module AESL_deadlock_report_unit #( parameter PROC_NUM = 4 ) (
                 2 : begin
                     case(index2)
                     1: begin
-                        if (~AESL_inst_cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0.layer11_out_blk_n) begin
-                            if (~AESL_inst_cnn_core.layer11_out_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core.layer11_out_U' written by process 'cnn_core.repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer11_out_U");
+                        if (~AESL_inst_cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0.layer3_out_blk_n) begin
+                            if (~AESL_inst_cnn_core.layer3_out_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'cnn_core.layer3_out_U' written by process 'cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer3_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
-                            else if (~AESL_inst_cnn_core.layer11_out_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core.layer11_out_U' read by process 'cnn_core.repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer11_out_U");
+                            else if (~AESL_inst_cnn_core.layer3_out_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'cnn_core.layer3_out_U' read by process 'cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer3_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~AESL_inst_cnn_core.start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0_U.if_empty_n & AESL_inst_cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0.ap_idle & ~AESL_inst_cnn_core.start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0_U.if_write) begin
-                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core.start_for_conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0_U' written by process 'cnn_core.repack_stream_array_ap_fixed_256u_array_ap_fixed_12_6_5_3_0_1u_1024_U0',");
+                        if (~AESL_inst_cnn_core.start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_U.if_empty_n & AESL_inst_cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0.ap_idle & ~AESL_inst_cnn_core.start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_U.if_write) begin
+                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core.start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_U' written by process 'cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_9_5_5_3_0_7u_config3_U0',");
                         end
                     end
                     3: begin
-                        if (~AESL_inst_cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0.layer4_out_blk_n) begin
+                        if (~AESL_inst_cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0.layer4_out_blk_n) begin
                             if (~AESL_inst_cnn_core.layer4_out_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core.layer4_out_U' written by process 'cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config5_U0'");
+                                $display("//      Blocked by empty input FIFO 'cnn_core.layer4_out_U' written by process 'cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path cnn_core.layer4_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
                             else if (~AESL_inst_cnn_core.layer4_out_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core.layer4_out_U' read by process 'cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config5_U0'");
+                                $display("//      Blocked by full output FIFO 'cnn_core.layer4_out_U' read by process 'cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path cnn_core.layer4_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
+                        end
+                        if (~AESL_inst_cnn_core.start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg_U.if_full_n & AESL_inst_cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0.ap_start & ~AESL_inst_cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0.real_start & (trans_in_cnt_2 == trans_out_cnt_2) & ~AESL_inst_cnn_core.start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg_U.if_read) begin
+                            $display("//      Blocked by full output start propagation FIFO 'cnn_core.start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg_U' read by process 'cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0',");
                         end
                     end
                     endcase
@@ -392,37 +377,37 @@ module AESL_deadlock_report_unit #( parameter PROC_NUM = 4 ) (
                 3 : begin
                     case(index2)
                     2: begin
-                        if (~AESL_inst_cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config5_U0.layer4_out_blk_n) begin
+                        if (~AESL_inst_cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0.layer4_out_blk_n) begin
                             if (~AESL_inst_cnn_core.layer4_out_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core.layer4_out_U' written by process 'cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0'");
+                                $display("//      Blocked by empty input FIFO 'cnn_core.layer4_out_U' written by process 'cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path cnn_core.layer4_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
                             else if (~AESL_inst_cnn_core.layer4_out_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core.layer4_out_U' read by process 'cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0'");
+                                $display("//      Blocked by full output FIFO 'cnn_core.layer4_out_U' read by process 'cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path cnn_core.layer4_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~AESL_inst_cnn_core.start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config5_U0_U.if_empty_n & AESL_inst_cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config5_U0.ap_idle & ~AESL_inst_cnn_core.start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config5_U0_U.if_write) begin
-                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core.start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config5_U0_U' written by process 'cnn_core.conv_2d_cl_array_ap_fixed_1u_array_ap_fixed_17_9_5_3_0_7u_config4_U0',");
+                        if (~AESL_inst_cnn_core.start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg_U.if_empty_n & AESL_inst_cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0.ap_idle & ~AESL_inst_cnn_core.start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg_U.if_write) begin
+                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core.start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5ncg_U' written by process 'cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0',");
                         end
                     end
                     4: begin
-                        if (~AESL_inst_cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config5_U0.layer5_out_blk_n) begin
+                        if (~AESL_inst_cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0.layer5_out_blk_n) begin
                             if (~AESL_inst_cnn_core.layer5_out_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core.layer5_out_U' written by process 'cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6_U0'");
+                                $display("//      Blocked by empty input FIFO 'cnn_core.layer5_out_U' written by process 'cnn_core.dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path cnn_core.layer5_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
                             else if (~AESL_inst_cnn_core.layer5_out_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core.layer5_out_U' read by process 'cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6_U0'");
+                                $display("//      Blocked by full output FIFO 'cnn_core.layer5_out_U' read by process 'cnn_core.dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path cnn_core.layer5_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~AESL_inst_cnn_core.start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6dEe_U.if_full_n & AESL_inst_cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config5_U0.ap_start & ~AESL_inst_cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config5_U0.real_start & (trans_in_cnt_3 == trans_out_cnt_3) & ~AESL_inst_cnn_core.start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6dEe_U.if_read) begin
-                            $display("//      Blocked by full output start propagation FIFO 'cnn_core.start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6dEe_U' read by process 'cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6_U0',");
+                        if (~AESL_inst_cnn_core.start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_U.if_full_n & AESL_inst_cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0.ap_start & ~AESL_inst_cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0.real_start & (trans_in_cnt_3 == trans_out_cnt_3) & ~AESL_inst_cnn_core.start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_U.if_read) begin
+                            $display("//      Blocked by full output start propagation FIFO 'cnn_core.start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_U' read by process 'cnn_core.dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0',");
                         end
                     end
                     endcase
@@ -430,134 +415,20 @@ module AESL_deadlock_report_unit #( parameter PROC_NUM = 4 ) (
                 4 : begin
                     case(index2)
                     3: begin
-                        if (~AESL_inst_cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6_U0.layer5_out_blk_n) begin
+                        if (~AESL_inst_cnn_core.dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0.grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197.layer5_out_blk_n) begin
                             if (~AESL_inst_cnn_core.layer5_out_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core.layer5_out_U' written by process 'cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config5_U0'");
+                                $display("//      Blocked by empty input FIFO 'cnn_core.layer5_out_U' written by process 'cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path cnn_core.layer5_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
                             else if (~AESL_inst_cnn_core.layer5_out_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core.layer5_out_U' read by process 'cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config5_U0'");
+                                $display("//      Blocked by full output FIFO 'cnn_core.layer5_out_U' read by process 'cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0'");
                                 $fdisplay(fp, "Dependence_Channel_path cnn_core.layer5_out_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~AESL_inst_cnn_core.start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6dEe_U.if_empty_n & AESL_inst_cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6_U0.ap_idle & ~AESL_inst_cnn_core.start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6dEe_U.if_write) begin
-                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core.start_for_pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6dEe_U' written by process 'cnn_core.relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config5_U0',");
-                        end
-                    end
-                    5: begin
-                        if (~AESL_inst_cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6_U0.layer6_out_blk_n) begin
-                            if (~AESL_inst_cnn_core.layer6_out_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core.layer6_out_U' written by process 'cnn_core.repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer6_out_U");
-                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
-                            end
-                            else if (~AESL_inst_cnn_core.layer6_out_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core.layer6_out_U' read by process 'cnn_core.repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer6_out_U");
-                                $fdisplay(fp, "Dependence_Channel_status FULL");
-                            end
-                        end
-                        if (~AESL_inst_cnn_core.start_for_repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0_U.if_full_n & AESL_inst_cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6_U0.ap_start & ~AESL_inst_cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6_U0.real_start & (trans_in_cnt_4 == trans_out_cnt_4) & ~AESL_inst_cnn_core.start_for_repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0_U.if_read) begin
-                            $display("//      Blocked by full output start propagation FIFO 'cnn_core.start_for_repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0_U' read by process 'cnn_core.repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0',");
-                        end
-                    end
-                    endcase
-                end
-                5 : begin
-                    case(index2)
-                    4: begin
-                        if (~AESL_inst_cnn_core.repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0.layer6_out_blk_n) begin
-                            if (~AESL_inst_cnn_core.layer6_out_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core.layer6_out_U' written by process 'cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer6_out_U");
-                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
-                            end
-                            else if (~AESL_inst_cnn_core.layer6_out_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core.layer6_out_U' read by process 'cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer6_out_U");
-                                $fdisplay(fp, "Dependence_Channel_status FULL");
-                            end
-                        end
-                        if (~AESL_inst_cnn_core.start_for_repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0_U.if_empty_n & AESL_inst_cnn_core.repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0.ap_idle & ~AESL_inst_cnn_core.start_for_repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0_U.if_write) begin
-                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core.start_for_repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0_U' written by process 'cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config6_U0',");
-                        end
-                    end
-                    6: begin
-                        if (~AESL_inst_cnn_core.repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0.layer12_out_blk_n) begin
-                            if (~AESL_inst_cnn_core.layer12_out_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core.layer12_out_U' written by process 'cnn_core.repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer12_out_U");
-                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
-                            end
-                            else if (~AESL_inst_cnn_core.layer12_out_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core.layer12_out_U' read by process 'cnn_core.repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer12_out_U");
-                                $fdisplay(fp, "Dependence_Channel_status FULL");
-                            end
-                        end
-                        if (~AESL_inst_cnn_core.start_for_repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176eOg_U.if_full_n & AESL_inst_cnn_core.repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0.ap_start & ~AESL_inst_cnn_core.repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0.real_start & (trans_in_cnt_5 == trans_out_cnt_5) & ~AESL_inst_cnn_core.start_for_repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176eOg_U.if_read) begin
-                            $display("//      Blocked by full output start propagation FIFO 'cnn_core.start_for_repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176eOg_U' read by process 'cnn_core.repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176_U0',");
-                        end
-                    end
-                    endcase
-                end
-                6 : begin
-                    case(index2)
-                    5: begin
-                        if (~AESL_inst_cnn_core.repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176_U0.layer12_out_blk_n) begin
-                            if (~AESL_inst_cnn_core.layer12_out_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core.layer12_out_U' written by process 'cnn_core.repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer12_out_U");
-                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
-                            end
-                            else if (~AESL_inst_cnn_core.layer12_out_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core.layer12_out_U' read by process 'cnn_core.repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer12_out_U");
-                                $fdisplay(fp, "Dependence_Channel_status FULL");
-                            end
-                        end
-                        if (~AESL_inst_cnn_core.start_for_repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176eOg_U.if_empty_n & AESL_inst_cnn_core.repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176_U0.ap_idle & ~AESL_inst_cnn_core.start_for_repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176eOg_U.if_write) begin
-                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core.start_for_repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176eOg_U' written by process 'cnn_core.repack_stream_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_42u_1176_U0',");
-                        end
-                    end
-                    7: begin
-                        if (~AESL_inst_cnn_core.repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176_U0.layer13_out_blk_n) begin
-                            if (~AESL_inst_cnn_core.layer13_out_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core.layer13_out_U' written by process 'cnn_core.dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer13_out_U");
-                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
-                            end
-                            else if (~AESL_inst_cnn_core.layer13_out_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core.layer13_out_U' read by process 'cnn_core.dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer13_out_U");
-                                $fdisplay(fp, "Dependence_Channel_status FULL");
-                            end
-                        end
-                        if (~AESL_inst_cnn_core.start_for_dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0_U.if_full_n & AESL_inst_cnn_core.repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176_U0.ap_start & ~AESL_inst_cnn_core.repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176_U0.real_start & (trans_in_cnt_6 == trans_out_cnt_6) & ~AESL_inst_cnn_core.start_for_dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0_U.if_read) begin
-                            $display("//      Blocked by full output start propagation FIFO 'cnn_core.start_for_dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0_U' read by process 'cnn_core.dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0',");
-                        end
-                    end
-                    endcase
-                end
-                7 : begin
-                    case(index2)
-                    6: begin
-                        if (~AESL_inst_cnn_core.dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0.grp_dense_array_array_ap_fixed_17_9_5_3_0_1u_config10_Pipeline_DataPrepare_fu_4653.layer13_out_blk_n) begin
-                            if (~AESL_inst_cnn_core.layer13_out_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core.layer13_out_U' written by process 'cnn_core.repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer13_out_U");
-                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
-                            end
-                            else if (~AESL_inst_cnn_core.layer13_out_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core.layer13_out_U' read by process 'cnn_core.repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core.layer13_out_U");
-                                $fdisplay(fp, "Dependence_Channel_status FULL");
-                            end
-                        end
-                        if (~AESL_inst_cnn_core.start_for_dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0_U.if_empty_n & AESL_inst_cnn_core.dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0.ap_idle & ~AESL_inst_cnn_core.start_for_dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0_U.if_write) begin
-                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core.start_for_dense_array_ap_fixed_42u_array_ap_fixed_17_9_5_3_0_1u_config10_U0_U' written by process 'cnn_core.repack_stream_array_ap_fixed_42u_array_ap_fixed_16_6_5_3_0_42u_1176_U0',");
+                        if (~AESL_inst_cnn_core.start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_U.if_empty_n & AESL_inst_cnn_core.dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0.ap_idle & ~AESL_inst_cnn_core.start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_U.if_write) begin
+                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core.start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_U' written by process 'cnn_core.pooling2d_cl_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_config5_U0',");
                         end
                     end
                     endcase

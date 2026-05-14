@@ -243,21 +243,21 @@ class AESL_RUNTIME_BC {
 };
 unsigned int ap_apatb_input_layer_cap_bc;
 static AESL_RUNTIME_BC __xlx_input_layer_V_size_Reader("../tv/stream_size/stream_size_in_input_layer.dat");
-unsigned int ap_apatb_layer10_out_cap_bc;
-static AESL_RUNTIME_BC __xlx_layer10_out_V_size_Reader("../tv/stream_size/stream_size_out_layer10_out.dat");
+unsigned int ap_apatb_layer7_out_cap_bc;
+static AESL_RUNTIME_BC __xlx_layer7_out_V_size_Reader("../tv/stream_size/stream_size_out_layer7_out.dat");
 using hls::sim::Byte;
 struct __cosim_s8__ { char data[8]; };
-struct __cosim_s4__ { char data[4]; };
-extern "C" void cnn_core(__cosim_s8__*, __cosim_s4__*);
-extern "C" void apatb_cnn_core_hw(volatile void * __xlx_apatb_param_input_layer, volatile void * __xlx_apatb_param_layer10_out) {
+struct __cosim_s2__ { char data[2]; };
+extern "C" void cnn_core(__cosim_s8__*, __cosim_s2__*);
+extern "C" void apatb_cnn_core_hw(volatile void * __xlx_apatb_param_input_layer, volatile void * __xlx_apatb_param_layer7_out) {
 using hls::sim::createStream;
 auto* sinput_layer = createStream((hls::stream<__cosim_s8__>*)__xlx_apatb_param_input_layer);
-  //Create input buffer for layer10_out
-  ap_apatb_layer10_out_cap_bc = __xlx_layer10_out_V_size_Reader.read_size();
-  __cosim_s4__* __xlx_layer10_out_input_buffer= new __cosim_s4__[ap_apatb_layer10_out_cap_bc];
-auto* slayer10_out = createStream((hls::stream<__cosim_s4__>*)__xlx_apatb_param_layer10_out);
+  //Create input buffer for layer7_out
+  ap_apatb_layer7_out_cap_bc = __xlx_layer7_out_V_size_Reader.read_size();
+  __cosim_s2__* __xlx_layer7_out_input_buffer= new __cosim_s2__[ap_apatb_layer7_out_cap_bc];
+auto* slayer7_out = createStream((hls::stream<__cosim_s2__>*)__xlx_apatb_param_layer7_out);
   // DUT call
-  cnn_core(sinput_layer->data<__cosim_s8__>(), slayer10_out->data<__cosim_s4__>());
+  cnn_core(sinput_layer->data<__cosim_s8__>(), slayer7_out->data<__cosim_s2__>());
 sinput_layer->transfer((hls::stream<__cosim_s8__>*)__xlx_apatb_param_input_layer);
-slayer10_out->transfer((hls::stream<__cosim_s4__>*)__xlx_apatb_param_layer10_out);
+slayer7_out->transfer((hls::stream<__cosim_s2__>*)__xlx_apatb_param_layer7_out);
 }

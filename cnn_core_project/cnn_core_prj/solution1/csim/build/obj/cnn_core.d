@@ -53,8 +53,5 @@ obj/cnn_core.o: ../../../../firmware/cnn_core.cpp \
  ../../../../firmware/nnet_utils/nnet_pooling.h \
  /tools/Xilinx/Vitis_HLS/2023.2/include/utils/x_hls_utils.h \
  ../../../../firmware/nnet_utils/nnet_stream.h \
- ../../../../firmware/nnet_utils/nnet_transpose.h \
- ../../../../firmware/nnet_utils/nnet_transpose_stream.h \
- ../../../../firmware/nnet_utils/nnet_transpose.h \
- ../../../../firmware/weights/w4.h ../../../../firmware/weights/b4.h \
- ../../../../firmware/weights/w10.h ../../../../firmware/weights/b10.h
+ ../../../../firmware/weights/w3.h ../../../../firmware/weights/b3.h \
+ ../../../../firmware/weights/w7.h ../../../../firmware/weights/b7.h

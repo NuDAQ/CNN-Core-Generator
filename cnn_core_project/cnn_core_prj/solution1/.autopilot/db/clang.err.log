@@ -23,10 +23,4 @@ In file included from firmware/nnet_utils/nnet_activation_stream.h:8:
 firmware/nnet_utils/nnet_stream.h:247:9: warning: Only for/while/do loop or function body support the pipeline pragma [-Wignored-hls-attributes]
 #pragma HLS PIPELINE
         ^~~~
-firmware/nnet_utils/nnet_stream.h:247:9: warning: Only for/while/do loop or function body support the pipeline pragma [-Wignored-hls-attributes]
-#pragma HLS PIPELINE
-        ^~~~
-firmware/nnet_utils/nnet_stream.h:247:9: warning: Only for/while/do loop or function body support the pipeline pragma [-Wignored-hls-attributes]
-#pragma HLS PIPELINE
-        ^~~~
-7 warnings generated.
+5 warnings generated.
