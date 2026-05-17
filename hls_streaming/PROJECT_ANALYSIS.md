@@ -136,9 +136,10 @@ layer5_out   depth 168    maxpool outputs, 7 values per word
 
 `make compare` passes after this replacement, and an extra 128-chunk manual
 runner comparison also passes, so the working copy remains behavior-equivalent
-to the baseline for the deterministic C++ comparisons. The old HLS report still
-gives a baseline back-to-back top-level interval of about 3076 cycles;
-regenerate Vitis HLS/RTL reports before claiming the new hardware interval.
+to the baseline for the deterministic C++ comparisons. The regenerated HLS
+csynth report for the working copy gives a top-level interval of 1041 cycles.
+That is a large hardware-schedule improvement over the old 3076-cycle baseline,
+but the new custom first-conv block is now the bottleneck.
 
 ## Data Types and Tensor Meaning
 
@@ -356,9 +357,63 @@ parallelism into the dense dot product.
 
 ## Current Report Summary
 
-The following reports describe the original generated baseline before
-`first_conv_4lane_temporal_cl`. They remain bottleneck evidence for the old RTL,
-not proof of the new working-copy hardware interval.
+The current working copy has a regenerated Vitis HLS csynth report under
+`hls_streaming/cnn_core_streaming_prj/solution1`. There is not yet a checked-in
+RTL cosim transaction report or OOC implementation report, so these are
+pre-place-and-route HLS estimates.
+
+Optimized working-copy top-level report:
+
+```text
+HLS latency estimate:    1041 cycles
+HLS interval estimate:   1041 cycles
+Latency time:            5.205 us at 5.00 ns
+Estimated clock:         3.236 ns at 5.00 ns target
+Resources:               18 BRAM_18K, 17 DSP, 30477 FF, 36936 LUT
+```
+
+Optimized per-stage HLS estimates:
+
+```text
+Stage                      Latency   Interval   Main reason to care
+first_conv_4lane_temporal     1040       1040   current limiter, input loop II=4
+pooling2d                      674        674   next limiter after first conv
+relu                           339        339   simple streaming stage
+dense                          176        176   resource-heavy, not interval limiter
+```
+
+Result versus the original generated baseline:
+
+```text
+Latency:  3082 -> 1041 cycles, about 2.96x faster
+Interval: 3076 -> 1041 cycles, about 2.95x faster
+BRAM:       19 ->   18
+DSP:        14 ->   17
+FF:      30061 -> 30477
+LUT:     34994 -> 36936
+```
+
+The useful FPGA-level interpretation is that the optimization bought nearly a
+3x interval reduction while keeping the estimated top clock unchanged and adding
+only modest logic/DSP cost. The cost is therefore acceptable for this stage.
+
+The remaining issue is not C++ algorithmic work; it is the generated RTL
+schedule for `first_conv_4lane_temporal_cl`. Its `ReadInputHeight` loop has
+trip count 256, target II=1, achieved II=4, and latency 1038 cycles. This
+explains the 1040-cycle module interval: 256 input rows at II=4 produce roughly
+1024 cycles plus pipeline overhead.
+
+The report flags a memory-dependency II violation at
+`firmware/nnet_utils/nnet_first_conv_stream.h:28`, the outer input loop. In RTL
+terms, the row-window shift creates loop-carried state updates that HLS cannot
+schedule at one new input row per cycle. The stride test also synthesizes a
+`% 3` operation as a remainder/divider-like block, so replacing it with a small
+stride counter is a low-risk cleanup before deeper restructuring.
+
+The next optimization target is to make the first-conv input loop closer to
+II=1 by using a circular 5-row window or another structure that avoids shifting
+all rows every iteration. If first conv falls below 674 cycles, `pooling2d`
+becomes the next interval limiter.
 
 Baseline top-level reports:
 
@@ -381,10 +436,12 @@ pooling2d          674        674   II=2 over 336 input words
 dense              176        176   resource-heavy, not interval limiter
 ```
 
-The current design overlaps dataflow stages, so the top-level interval is near
-the slowest stage, not the sum. Unfortunately, the slowest stage is still about
-3075 cycles. For a target of one 256-sample chunk every 256 ns, this is far too
-large unless the clock is dramatically faster or multiple cores are interleaved.
+Both baseline and optimized designs overlap dataflow stages, so the top-level
+interval is near the slowest stage, not the sum. The limiting interval moved
+from about 3075 cycles in `repack_stream` to about 1040 cycles in the custom
+first-conv stage. For a target of one 256-sample chunk every 256 ns, this is a
+major improvement but still too large unless the architecture changes further,
+the chunk cadence requirement is relaxed, or multiple cores are interleaved.
 
 ## Important Architectural Interpretation
 
@@ -397,7 +454,8 @@ call cnn_core once -> consume one 256 x 4 chunk -> produce one score
 It is not yet a persistent streaming engine that continuously accepts chunk
 fragments and keeps many chunks in flight through independent pipeline stages.
 `DATAFLOW` helps within a chunk, but the reported transaction interval shows
-that a new top-level transaction is still blocked for thousands of cycles.
+that a new top-level transaction is still blocked for about one thousand cycles
+after the first optimization.
 
 For the desired optimization direction, the important question is:
 

@@ -191,8 +191,10 @@ repack_stream<input_t, layer2_t, 1024>
 ```
 
 The working replacement is behavior-equivalent in C++ comparison for the
-current deterministic test vectors, but it still needs Vitis HLS synthesis and
-RTL report comparison before claiming an actual hardware interval improvement.
+current deterministic test vectors. The regenerated Vitis HLS csynth report
+shows the actual estimated hardware interval improvement: 3076 cycles in the
+baseline to 1041 cycles in the working copy. It still needs RTL cosim or OOC
+synthesis before making post-RTL/post-implementation timing claims.
 
 `cnn_core()` has:
 
@@ -275,7 +277,7 @@ Maintains a 5 x 4 row window.
 Emits the same 336 layer3_t words expected by ReLU/pooling/dense.
 make compare: PASS against ../cnn_core_project/firmware baseline.
 128-chunk manual runner comparison: PASS.
-Vitis HLS/RTL interval report: not yet regenerated.
+Vitis HLS csynth after replacement: PASS, top interval 1041 cycles.
 ```
 
 RTL optimization intent: remove the generated scalar adapter boundary
@@ -283,6 +285,30 @@ RTL optimization intent: remove the generated scalar adapter boundary
 minimum output-side work for this layer is still at least 336 `layer3_t` writes,
 so the expected hardware improvement is a reduction from the old 1024-scalar
 adapter schedule, not a zero-cost conversion.
+
+Current csynth result:
+
+```text
+top latency / interval:     1041 / 1041 cycles
+first_conv latency/interval: 1040 / 1040 cycles
+first_conv ReadInputHeight:  trip count 256, achieved II=4, target II=1
+estimated clock:            3.236 ns at a 5.00 ns top target
+first_conv resources:        4 DSP, 1198 FF, 3700 LUT, 0 BRAM
+```
+
+RTL interpretation: the optimization removed the old `repack_stream` interval
+limiter, but the new first-conv block is now the slowest dataflow process. The
+1040-cycle interval is explained by the 256-iteration input loop at II=4
+(256 * 4 = 1024 plus pipeline overhead). The generated report flags an II
+violation caused by a memory dependency at `nnet_first_conv_stream.h:28`, i.e.
+the outer row loop that updates and reuses `row_window`.
+
+The stride check currently contains `% CONFIG_T::stride_height`; the first-conv
+report shows this became an `urem` divider-like operator with 189 FF and 106
+LUT. Replace it with a small stride counter before deeper restructuring. The
+larger remaining target is to avoid the shift-register memory dependency by
+using a circular 5-row window or another RTL shape that lets the input loop
+approach II=1.
 
 ### repack_stream
 
@@ -325,7 +351,7 @@ output interface:   12-bit ap_fifo layer8_out, depth 1024
 Meaning: this is currently the largest interval limiter, and it performs only
 format conversion in the original hls4ml baseline. In the current working copy,
 it has been bypassed by `first_conv_4lane_temporal_cl`; keep this section as
-the baseline bottleneck evidence until new HLS reports are generated.
+the baseline bottleneck evidence for the old generated RTL.
 
 RTL-level interpretation:
 
@@ -491,11 +517,33 @@ intervals are improved.
 
 ## Current Bottleneck Facts
 
-Top-level reports below are from the original generated baseline before the
-`first_conv_4lane_temporal_cl` working-copy replacement. Regenerate Vitis HLS
-reports before using these numbers to evaluate the new hardware schedule.
+The current working copy has regenerated Vitis HLS csynth reports under
+`hls_streaming/cnn_core_streaming_prj/solution1`. There is no OOC synthesis or
+RTL cosim transaction report in the checked local reports yet, so treat the
+numbers below as HLS estimates, not post-place-and-route timing.
 
-Baseline reports:
+Optimized working-copy HLS report:
+
+```text
+HLS latency estimate:    1041 cycles
+HLS interval estimate:   1041 cycles
+Latency time:            5.205 us at the 5.00 ns target
+Estimated clock:         3.236 ns at a 5.00 ns target
+Dataflow throughput:     1041 cycles
+Resources:               18 BRAM_18K, 17 DSP, 30477 FF, 36936 LUT
+```
+
+Slowest current dataflow stages:
+
+```text
+Stage                      Latency   Interval   Why it matters
+first_conv_4lane_temporal     1040       1040   current limiter, input loop II=4
+pooling2d                      674        674   next limiter after first conv
+relu                           339        339   simple stream stage
+dense                          176        176   resource-heavy, not interval limiter
+```
+
+Baseline reports before first-conv replacement:
 
 ```text
 RTL cosim latency:       3068 cycles
@@ -505,7 +553,7 @@ HLS interval estimate:   3076 cycles
 Estimated clock:         3.236 ns at a 5.00 ns target
 ```
 
-Per-stage estimates:
+Baseline per-stage estimates:
 
 ```text
 Stage          Latency   Interval   Why it matters
@@ -521,8 +569,10 @@ Interpretation:
 ```text
 DATAFLOW overlaps stages within a transaction.
 The top-level interval is near the slowest stage, not the sum.
-The slowest stage is still about 3075 cycles.
-The current design is therefore not a high-throughput persistent chunk engine.
+The slowest stage moved from repack_stream at about 3075 cycles to first_conv at
+about 1040 cycles.
+The current design is about 3x faster than the generated baseline but still not
+a 1-sample-per-cycle or 1-chunk-per-256-cycle persistent engine.
 ```
 
 ## Transaction Model vs Desired Engine
