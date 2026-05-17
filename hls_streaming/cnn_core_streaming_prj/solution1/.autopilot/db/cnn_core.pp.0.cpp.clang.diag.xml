@@ -4777,7 +4777,7 @@
       <key>filename</key>
       <string>firmware/nnet_utils/nnet_dense_stream.h</string>
       <key>line</key>
-      <integer>16</integer>
+      <integer>17</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -4793,7 +4793,7 @@
       <key>filename</key>
       <string>firmware/nnet_utils/nnet_dense_stream.h</string>
       <key>line</key>
-      <integer>29</integer>
+      <integer>30</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -4809,7 +4809,7 @@
       <key>filename</key>
       <string>firmware/nnet_utils/nnet_dense_stream.h</string>
       <key>line</key>
-      <integer>34</integer>
+      <integer>35</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -4825,7 +4825,7 @@
       <key>filename</key>
       <string>firmware/nnet_utils/nnet_dense_stream.h</string>
       <key>line</key>
-      <integer>38</integer>
+      <integer>39</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -4841,7 +4841,7 @@
       <key>filename</key>
       <string>firmware/nnet_utils/nnet_dense_stream.h</string>
       <key>line</key>
-      <integer>46</integer>
+      <integer>47</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -4857,7 +4857,7 @@
       <key>filename</key>
       <string>firmware/nnet_utils/nnet_dense_stream.h</string>
       <key>line</key>
-      <integer>54</integer>
+      <integer>55</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -4873,7 +4873,7 @@
       <key>filename</key>
       <string>firmware/nnet_utils/nnet_dense_stream.h</string>
       <key>line</key>
-      <integer>59</integer>
+      <integer>60</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -4889,7 +4889,7 @@
       <key>filename</key>
       <string>firmware/nnet_utils/nnet_dense_stream.h</string>
       <key>line</key>
-      <integer>64</integer>
+      <integer>65</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -4905,7 +4905,7 @@
       <key>filename</key>
       <string>firmware/nnet_utils/nnet_dense_stream.h</string>
       <key>line</key>
-      <integer>74</integer>
+      <integer>75</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -4921,7 +4921,87 @@
       <key>filename</key>
       <string>firmware/nnet_utils/nnet_dense_stream.h</string>
       <key>line</key>
-      <integer>85</integer>
+      <integer>86</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=dense_wide_stream_XLX_SEP_ PragmaOptions=recursive_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>firmware/nnet_utils/nnet_dense_stream.h</string>
+      <key>line</key>
+      <integer>96</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=dense_wide_stream_XLX_SEP_ PragmaOptions=variable=weights complete_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>firmware/nnet_utils/nnet_dense_stream.h</string>
+      <key>line</key>
+      <integer>97</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=dense_wide_stream_XLX_SEP_ PragmaOptions=variable=biases complete_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>firmware/nnet_utils/nnet_dense_stream.h</string>
+      <key>line</key>
+      <integer>108</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=dense_wide_stream_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>firmware/nnet_utils/nnet_dense_stream.h</string>
+      <key>line</key>
+      <integer>116</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=dense_wide_stream_XLX_SEP_ PragmaOptions=_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>firmware/nnet_utils/nnet_dense_stream.h</string>
+      <key>line</key>
+      <integer>142</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -4937,7 +5017,7 @@
       <key>filename</key>
       <string>firmware/nnet_utils/nnet_dense_stream.h</string>
       <key>line</key>
-      <integer>88</integer>
+      <integer>145</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -4953,7 +5033,7 @@
       <key>filename</key>
       <string>firmware/nnet_utils/nnet_dense_stream.h</string>
       <key>line</key>
-      <integer>91</integer>
+      <integer>148</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -6334,22 +6414,6 @@
       <integer>9</integer>
       <key>message</key>
       <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=cnn_core_XLX_SEP_ PragmaOptions=variable=layer5x4_out type=fifo impl=srl_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>firmware/cnn_core.cpp</string>
-      <key>line</key>
-      <integer>44</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=cnn_core_XLX_SEP_ PragmaOptions=variable=layer5_out depth=168_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>

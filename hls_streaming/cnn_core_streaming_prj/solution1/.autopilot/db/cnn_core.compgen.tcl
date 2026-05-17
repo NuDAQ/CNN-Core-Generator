@@ -16,11 +16,6 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler cnn_core_fifo_w112_d168_A BINDTYPE {storage} TYPE {fifo} IMPL {memory} ALLOW_PRAGMA 1 INSTNAME {layer5_out_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler cnn_core_start_for_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0 BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {start_for_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0_U}
 }
 
@@ -31,12 +26,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler cnn_core_start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5bkb BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5bkb_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0 BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_U}
+	::AP::rtl_comp_handler cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0 BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_U}
 }
 
 
@@ -52,7 +42,7 @@ set axilite_register_dict [dict create]
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 2441 \
+    id 75 \
     name input_layer \
     reset_level 0 \
     sync_rst true \
@@ -71,7 +61,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::native_axis_add] == "::AESL_LIB_XILADAPTER::native_axis_add"} {
 eval "::AESL_LIB_XILADAPTER::native_axis_add { \
-    id 2442 \
+    id 76 \
     name layer7_out \
     reset_level 0 \
     sync_rst true \

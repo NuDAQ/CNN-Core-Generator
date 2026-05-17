@@ -10,15 +10,9 @@ set ModuleHierarchy {[{
 	{"Name" : "maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0","ID" : "5","Type" : "sequential",
 		"SubLoops" : [
 		{"Name" : "PoolWideMain","ID" : "6","Type" : "pipeline"},]},
-	{"Name" : "unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0","ID" : "7","Type" : "sequential",
-		"SubLoops" : [
-		{"Name" : "UnpackOutputFlat","ID" : "8","Type" : "pipeline"},]},
-	{"Name" : "dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0","ID" : "9","Type" : "sequential",
+	{"Name" : "dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0","ID" : "7","Type" : "sequential",
 		"SubInsts" : [
-		{"Name" : "grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197","ID" : "10","Type" : "sequential",
+		{"Name" : "grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53","ID" : "8","Type" : "sequential",
 			"SubLoops" : [
-			{"Name" : "DataPrepare","ID" : "11","Type" : "pipeline"},]},
-		{"Name" : "grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993","ID" : "12","Type" : "pipeline",
-			"SubInsts" : [
-			{"Name" : "grp_dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_9_5_5_3_0_config7_s_fu_6332","ID" : "13","Type" : "pipeline"},]},]},]
+			{"Name" : "DenseWideMain","ID" : "9","Type" : "pipeline"},]},]},]
 }]}

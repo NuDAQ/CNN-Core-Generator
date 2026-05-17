@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s'
 ================================================================
-* Date:           Sun May 17 03:22:37 2026
+* Date:           Sun May 17 03:31:37 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_streaming_prj
@@ -117,8 +117,8 @@ ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%p_0_26_0_0_052 = alloca i32 1"   -
 ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%p_0_27_0_0_054 = alloca i32 1"   --->   Operation 34 'alloca' 'p_0_27_0_0_054' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i448 %layer5x4_out, i64 666, i64 10, i64 18446744073709551615"   --->   Operation 35 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i448 %layer4x4_out, i64 666, i64 10, i64 18446744073709551615"   --->   Operation 36 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i448 %layer5x4_out, void @empty_9, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 37 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i448 %layer4x4_out, void @empty_9, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 38 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i448 %layer5x4_out, void @empty_2, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0"   --->   Operation 37 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i448 %layer4x4_out, void @empty_2, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0"   --->   Operation 38 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 39 [1/1] (0.42ns)   --->   "%store_ln430 = store i7 0, i7 %i_ih" [firmware/nnet_utils/nnet_pooling_stream.h:430]   --->   Operation 39 'store' 'store_ln430' <Predicate = true> <Delay = 0.42>
 ST_1 : Operation 40 [1/1] (0.42ns)   --->   "%br_ln430 = br void %for.body" [firmware/nnet_utils/nnet_pooling_stream.h:430]   --->   Operation 40 'br' 'br_ln430' <Predicate = true> <Delay = 0.42>
 ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%on_second_row = phi i1 0, void %entry, i1 %on_second_row_1, void %for.inc24"   --->   Operation 41 'phi' 'on_second_row' <Predicate = true> <Delay = 0.00>
@@ -132,9 +132,9 @@ ST_1 : Operation 48 [1/1] (0.42ns)   --->   "%store_ln430 = store i7 %i_ih_2, i7
 ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%br_ln430 = br void %for.body" [firmware/nnet_utils/nnet_pooling_stream.h:430]   --->   Operation 49 'br' 'br_ln430' <Predicate = (!icmp_ln430)> <Delay = 0.00>
 
 State 2 <SV = 1> <Delay = 1.82>
-ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%specpipeline_ln431 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_0" [firmware/nnet_utils/nnet_pooling_stream.h:431]   --->   Operation 50 'specpipeline' 'specpipeline_ln431' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%specpipeline_ln431 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_1" [firmware/nnet_utils/nnet_pooling_stream.h:431]   --->   Operation 50 'specpipeline' 'specpipeline_ln431' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 51 [1/1] (0.00ns)   --->   "%speclooptripcount_ln430 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 84, i64 84, i64 84" [firmware/nnet_utils/nnet_pooling_stream.h:430]   --->   Operation 51 'speclooptripcount' 'speclooptripcount_ln430' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%specloopname_ln430 = specloopname void @_ssdm_op_SpecLoopName, void @empty_4" [firmware/nnet_utils/nnet_pooling_stream.h:430]   --->   Operation 52 'specloopname' 'specloopname_ln430' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 52 [1/1] (0.00ns)   --->   "%specloopname_ln430 = specloopname void @_ssdm_op_SpecLoopName, void @empty_6" [firmware/nnet_utils/nnet_pooling_stream.h:430]   --->   Operation 52 'specloopname' 'specloopname_ln430' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 53 [1/1] (1.82ns)   --->   "%layer4x4_out_read = read i448 @_ssdm_op_Read.ap_fifo.volatile.i448P0A, i448 %layer4x4_out" [firmware/nnet_utils/nnet_pooling_stream.h:433]   --->   Operation 53 'read' 'layer4x4_out_read' <Predicate = true> <Delay = 1.82> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.83> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 448> <Depth = 4> <FIFO>
 ST_2 : Operation 54 [1/1] (0.00ns)   --->   "%cur = trunc i448 %layer4x4_out_read" [firmware/nnet_utils/nnet_pooling_stream.h:433]   --->   Operation 54 'trunc' 'cur' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 55 [1/1] (0.00ns)   --->   "%cur_1 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer4x4_out_read, i32 16, i32 31" [firmware/nnet_utils/nnet_pooling_stream.h:433]   --->   Operation 55 'partselect' 'cur_1' <Predicate = true> <Delay = 0.00>

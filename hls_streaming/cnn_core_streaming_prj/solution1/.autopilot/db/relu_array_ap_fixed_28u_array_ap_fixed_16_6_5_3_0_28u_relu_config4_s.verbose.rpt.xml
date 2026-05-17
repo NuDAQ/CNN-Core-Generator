@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s'" level="0">
-<item name = "Date">Sun May 17 03:22:44 2026
+<item name = "Date">Sun May 17 03:31:37 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_streaming_prj</item>
@@ -78,7 +78,7 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="i_4_fu_251_p2">+, 0, 0, 14, 7, 1</column>
+<column name="i_2_fu_251_p2">+, 0, 0, 14, 7, 1</column>
 <column name="ap_condition_225">and, 0, 0, 2, 1, 1</column>
 <column name="icmp_ln41_fu_245_p2">icmp, 0, 0, 14, 7, 7</column>
 <column name="icmp_ln51_10_fu_690_p2">icmp, 0, 0, 16, 9, 1</column>
@@ -145,7 +145,7 @@
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_done_int">9, 2, 1, 2</column>
 <column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
-<column name="ap_sig_allocacmp_i_3">9, 2, 7, 14</column>
+<column name="ap_sig_allocacmp_i_1">9, 2, 7, 14</column>
 <column name="i_fu_220">9, 2, 7, 14</column>
 <column name="layer3x4_out_blk_n">9, 2, 1, 2</column>
 <column name="layer4x4_out_blk_n">9, 2, 1, 2</column>

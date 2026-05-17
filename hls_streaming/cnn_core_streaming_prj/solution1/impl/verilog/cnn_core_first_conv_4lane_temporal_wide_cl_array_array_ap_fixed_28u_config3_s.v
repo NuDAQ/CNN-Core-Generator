@@ -367,7 +367,7 @@ wire   [13:0] add_ln58_39_fu_2715_p2;
 wire  signed [14:0] sext_ln58_19_fu_2721_p1;
 wire   [14:0] add_ln58_36_fu_2709_p2;
 wire  signed [12:0] tmp221_fu_2731_p2;
-wire   [11:0] empty_36_fu_2741_p1;
+wire   [11:0] empty_26_fu_2741_p1;
 wire   [14:0] p_shl9_fu_2745_p3;
 wire  signed [14:0] tmp221_cast_fu_2737_p1;
 wire   [14:0] tmp222_fu_2753_p2;
@@ -444,7 +444,7 @@ wire   [13:0] add_ln58_62_fu_3182_p2;
 wire  signed [14:0] sext_ln58_21_fu_3188_p1;
 wire   [14:0] add_ln58_61_fu_3176_p2;
 wire  signed [12:0] tmp231_fu_3198_p2;
-wire   [11:0] empty_37_fu_3208_p1;
+wire   [11:0] empty_27_fu_3208_p1;
 wire   [14:0] p_shl11_fu_3212_p3;
 wire  signed [14:0] tmp231_cast_fu_3204_p1;
 wire   [14:0] tmp232_fu_3220_p2;
@@ -521,7 +521,7 @@ wire   [13:0] add_ln58_85_fu_3649_p2;
 wire  signed [14:0] sext_ln58_23_fu_3655_p1;
 wire   [14:0] add_ln58_84_fu_3643_p2;
 wire  signed [12:0] tmp241_fu_3665_p2;
-wire   [11:0] empty_38_fu_3675_p1;
+wire   [11:0] empty_28_fu_3675_p1;
 wire   [14:0] p_shl1_fu_3679_p3;
 wire  signed [14:0] tmp241_cast_fu_3671_p1;
 wire   [14:0] tmp242_fu_3687_p2;
@@ -1853,11 +1853,11 @@ assign ap_loop_exit_ready = ap_condition_exit_pp0_iter0_stage0;
 
 assign ap_ready = internal_ap_ready;
 
-assign empty_36_fu_2741_p1 = tmp221_fu_2731_p2[11:0];
+assign empty_26_fu_2741_p1 = tmp221_fu_2731_p2[11:0];
 
-assign empty_37_fu_3208_p1 = tmp231_fu_3198_p2[11:0];
+assign empty_27_fu_3208_p1 = tmp231_fu_3198_p2[11:0];
 
-assign empty_38_fu_3675_p1 = tmp241_fu_3665_p2[11:0];
+assign empty_28_fu_3675_p1 = tmp241_fu_3665_p2[11:0];
 
 assign empty_fu_2234_p1 = tmp211_fu_2224_p2[11:0];
 
@@ -1949,9 +1949,9 @@ assign on_stride_fu_1083_p2 = (icmp_ln135_fu_1077_p2 & have_full_window_fu_1071_
 
 assign p_shl10_fu_3092_p3 = {{tmp225114_fu_3086_p2}, {2'd0}};
 
-assign p_shl11_fu_3212_p3 = {{empty_37_fu_3208_p1}, {3'd0}};
+assign p_shl11_fu_3212_p3 = {{empty_27_fu_3208_p1}, {3'd0}};
 
-assign p_shl1_fu_3679_p3 = {{empty_38_fu_3675_p1}, {3'd0}};
+assign p_shl1_fu_3679_p3 = {{empty_28_fu_3675_p1}, {3'd0}};
 
 assign p_shl2_fu_3260_p3 = {{tmp233_fu_3250_p2}, {2'd0}};
 
@@ -1967,7 +1967,7 @@ assign p_shl7_fu_2286_p3 = {{tmp213_fu_2276_p2}, {2'd0}};
 
 assign p_shl8_fu_2625_p3 = {{tmp215116_fu_2619_p2}, {2'd0}};
 
-assign p_shl9_fu_2745_p3 = {{empty_36_fu_2741_p1}, {3'd0}};
+assign p_shl9_fu_2745_p3 = {{empty_26_fu_2741_p1}, {3'd0}};
 
 assign p_shl_fu_3727_p3 = {{tmp243_fu_3717_p2}, {2'd0}};
 

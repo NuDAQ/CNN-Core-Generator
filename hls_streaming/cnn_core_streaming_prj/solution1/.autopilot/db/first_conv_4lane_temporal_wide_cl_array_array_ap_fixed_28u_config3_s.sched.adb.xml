@@ -76,7 +76,7 @@ entry:2 %wptr = alloca i32 1
 
 <Node id="6" bw="0" op_0_bw="0" op_1_bw="252" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i252 %layer3x4_out, void @empty_9, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0
+entry:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i252 %layer3x4_out, void @empty_2, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -91,7 +91,7 @@ entry:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i252 %l
 
 <Node id="7" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:4 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %input_layer, void @empty, i32 1, i32 1, void @empty_8, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0
+entry:4 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %input_layer, void @empty, i32 1, i32 1, void @empty_0, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -557,7 +557,7 @@ InsertRowWide:5 %br_ln120 = br i1 %icmp_ln120, void %InsertRowWide.split, void %
 
 <Node id="40" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="32" op_5_bw="0">
 <![CDATA[
-InsertRowWide.split:0 %specpipeline_ln121 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_0
+InsertRowWide.split:0 %specpipeline_ln121 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_1
 
 ]]></Node>
 <StgValue><ssdm name="specpipeline_ln121"/></StgValue>
@@ -589,7 +589,7 @@ InsertRowWide.split:1 %speclooptripcount_ln120 = speclooptripcount void @_ssdm_o
 
 <Node id="42" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-InsertRowWide.split:2 %specloopname_ln120 = specloopname void @_ssdm_op_SpecLoopName, void @empty_6
+InsertRowWide.split:2 %specloopname_ln120 = specloopname void @_ssdm_op_SpecLoopName, void @empty_7
 
 ]]></Node>
 <StgValue><ssdm name="specloopname_ln120"/></StgValue>
@@ -4841,10 +4841,10 @@ WriteOutputWidthWide:219 %tmp221_cast = sext i13 %tmp221
 
 <Node id="310" bw="12" op_0_bw="13">
 <![CDATA[
-WriteOutputWidthWide:220 %empty_36 = trunc i13 %tmp221
+WriteOutputWidthWide:220 %empty_26 = trunc i13 %tmp221
 
 ]]></Node>
-<StgValue><ssdm name="empty_36"/></StgValue>
+<StgValue><ssdm name="empty_26"/></StgValue>
 </operation>
 
 <operation id="306" st_id="2" stage="1" lat="1">
@@ -4857,7 +4857,7 @@ WriteOutputWidthWide:220 %empty_36 = trunc i13 %tmp221
 
 <Node id="311" bw="15" op_0_bw="15" op_1_bw="12" op_2_bw="3">
 <![CDATA[
-WriteOutputWidthWide:221 %p_shl9 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_36, i3 0
+WriteOutputWidthWide:221 %p_shl9 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_26, i3 0
 
 ]]></Node>
 <StgValue><ssdm name="p_shl9"/></StgValue>
@@ -6153,10 +6153,10 @@ WriteOutputWidthWide:304 %tmp231_cast = sext i13 %tmp231
 
 <Node id="395" bw="12" op_0_bw="13">
 <![CDATA[
-WriteOutputWidthWide:305 %empty_37 = trunc i13 %tmp231
+WriteOutputWidthWide:305 %empty_27 = trunc i13 %tmp231
 
 ]]></Node>
-<StgValue><ssdm name="empty_37"/></StgValue>
+<StgValue><ssdm name="empty_27"/></StgValue>
 </operation>
 
 <operation id="388" st_id="2" stage="1" lat="1">
@@ -6169,7 +6169,7 @@ WriteOutputWidthWide:305 %empty_37 = trunc i13 %tmp231
 
 <Node id="396" bw="15" op_0_bw="15" op_1_bw="12" op_2_bw="3">
 <![CDATA[
-WriteOutputWidthWide:306 %p_shl11 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_37, i3 0
+WriteOutputWidthWide:306 %p_shl11 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_27, i3 0
 
 ]]></Node>
 <StgValue><ssdm name="p_shl11"/></StgValue>
@@ -7465,10 +7465,10 @@ WriteOutputWidthWide:389 %tmp241_cast = sext i13 %tmp241
 
 <Node id="480" bw="12" op_0_bw="13">
 <![CDATA[
-WriteOutputWidthWide:390 %empty_38 = trunc i13 %tmp241
+WriteOutputWidthWide:390 %empty_28 = trunc i13 %tmp241
 
 ]]></Node>
-<StgValue><ssdm name="empty_38"/></StgValue>
+<StgValue><ssdm name="empty_28"/></StgValue>
 </operation>
 
 <operation id="470" st_id="2" stage="1" lat="1">
@@ -7481,7 +7481,7 @@ WriteOutputWidthWide:390 %empty_38 = trunc i13 %tmp241
 
 <Node id="481" bw="15" op_0_bw="15" op_1_bw="12" op_2_bw="3">
 <![CDATA[
-WriteOutputWidthWide:391 %p_shl1 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_38, i3 0
+WriteOutputWidthWide:391 %p_shl1 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_28, i3 0
 
 ]]></Node>
 <StgValue><ssdm name="p_shl1"/></StgValue>
@@ -8076,7 +8076,7 @@ for.end62:0 %ret_ln178 = ret
 
 <Node id="152" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="0">
 <![CDATA[
-WriteOutputWidthWide:62 %specresourcelimit_ln33 = specresourcelimit void @_ssdm_op_SpecResourceLimit, i64 35, void @empty_1, void @empty_0, void @empty_0, void @empty_0
+WriteOutputWidthWide:62 %specresourcelimit_ln33 = specresourcelimit void @_ssdm_op_SpecResourceLimit, i64 35, void @empty_3, void @empty_1, void @empty_1, void @empty_1
 
 ]]></Node>
 <StgValue><ssdm name="specresourcelimit_ln33"/></StgValue>
@@ -8140,7 +8140,7 @@ WriteOutputWidthWide:147 %res_out = partselect i9 @_ssdm_op_PartSelect.i9.i15.i3
 
 <Node id="242" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="0">
 <![CDATA[
-WriteOutputWidthWide:152 %specresourcelimit_ln33 = specresourcelimit void @_ssdm_op_SpecResourceLimit, i64 35, void @empty_1, void @empty_0, void @empty_0, void @empty_0
+WriteOutputWidthWide:152 %specresourcelimit_ln33 = specresourcelimit void @_ssdm_op_SpecResourceLimit, i64 35, void @empty_3, void @empty_1, void @empty_1, void @empty_1
 
 ]]></Node>
 <StgValue><ssdm name="specresourcelimit_ln33"/></StgValue>
@@ -8188,7 +8188,7 @@ WriteOutputWidthWide:211 %x_7 = add i15 %add_ln58_34, i15 %add_ln58_31
 
 <Node id="327" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="0">
 <![CDATA[
-WriteOutputWidthWide:237 %specresourcelimit_ln33 = specresourcelimit void @_ssdm_op_SpecResourceLimit, i64 35, void @empty_1, void @empty_0, void @empty_0, void @empty_0
+WriteOutputWidthWide:237 %specresourcelimit_ln33 = specresourcelimit void @_ssdm_op_SpecResourceLimit, i64 35, void @empty_3, void @empty_1, void @empty_1, void @empty_1
 
 ]]></Node>
 <StgValue><ssdm name="specresourcelimit_ln33"/></StgValue>
@@ -8236,7 +8236,7 @@ WriteOutputWidthWide:296 %x_14 = add i15 %add_ln58_57, i15 %add_ln58_54
 
 <Node id="412" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="0" op_3_bw="0" op_4_bw="0" op_5_bw="0">
 <![CDATA[
-WriteOutputWidthWide:322 %specresourcelimit_ln33 = specresourcelimit void @_ssdm_op_SpecResourceLimit, i64 35, void @empty_1, void @empty_0, void @empty_0, void @empty_0
+WriteOutputWidthWide:322 %specresourcelimit_ln33 = specresourcelimit void @_ssdm_op_SpecResourceLimit, i64 35, void @empty_3, void @empty_1, void @empty_1, void @empty_1
 
 ]]></Node>
 <StgValue><ssdm name="specresourcelimit_ln33"/></StgValue>

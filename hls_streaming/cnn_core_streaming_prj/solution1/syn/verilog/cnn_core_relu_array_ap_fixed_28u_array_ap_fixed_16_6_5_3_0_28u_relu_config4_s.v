@@ -165,9 +165,9 @@ wire   [0:0] icmp_ln51_27_fu_962_p2;
 reg   [0:0] icmp_ln51_27_reg_1824;
 reg   [7:0] tmp_26_reg_1829;
 reg   [6:0] i_fu_220;
-wire   [6:0] i_4_fu_251_p2;
+wire   [6:0] i_2_fu_251_p2;
 wire    ap_loop_init;
-reg   [6:0] ap_sig_allocacmp_i_3;
+reg   [6:0] ap_sig_allocacmp_i_1;
 reg    ap_block_pp0_stage0_01001;
 wire   [8:0] trunc_ln44_fu_262_p1;
 wire   [8:0] trunc_ln44_1_fu_266_p4;
@@ -373,7 +373,7 @@ end
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_condition_225)) begin
         if ((icmp_ln41_fu_245_p2 == 1'd0)) begin
-            i_fu_220 <= i_4_fu_251_p2;
+            i_fu_220 <= i_2_fu_251_p2;
         end else if ((ap_loop_init == 1'b1)) begin
             i_fu_220 <= 7'd0;
         end
@@ -484,9 +484,9 @@ end
 
 always @ (*) begin
     if (((1'b0 == ap_block_pp0_stage0) & (ap_start_int == 1'b1) & (ap_loop_init == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
-        ap_sig_allocacmp_i_3 = 7'd0;
+        ap_sig_allocacmp_i_1 = 7'd0;
     end else begin
-        ap_sig_allocacmp_i_3 = i_fu_220;
+        ap_sig_allocacmp_i_1 = i_fu_220;
     end
 end
 
@@ -589,9 +589,9 @@ assign ap_loop_exit_ready = ap_condition_exit_pp0_iter0_stage0;
 
 assign ap_ready = internal_ap_ready;
 
-assign i_4_fu_251_p2 = (ap_sig_allocacmp_i_3 + 7'd1);
+assign i_2_fu_251_p2 = (ap_sig_allocacmp_i_1 + 7'd1);
 
-assign icmp_ln41_fu_245_p2 = ((ap_sig_allocacmp_i_3 == 7'd84) ? 1'b1 : 1'b0);
+assign icmp_ln41_fu_245_p2 = ((ap_sig_allocacmp_i_1 == 7'd84) ? 1'b1 : 1'b0);
 
 assign icmp_ln51_10_fu_690_p2 = (($signed(trunc_ln44_s_fu_356_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 

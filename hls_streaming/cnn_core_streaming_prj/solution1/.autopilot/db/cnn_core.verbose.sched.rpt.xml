@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'cnn_core'" level="0">
-<item name = "Date">Sun May 17 03:22:43 2026
+<item name = "Date">Sun May 17 03:31:37 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_streaming_prj</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">265, 265, 1.325 us, 1.325 us, 260, 260, dataflow</column>
+<column name="">263, 263, 1.315 us, 1.315 us, 260, 260, dataflow</column>
 </table>
 </item>
 <item name = "Detail">

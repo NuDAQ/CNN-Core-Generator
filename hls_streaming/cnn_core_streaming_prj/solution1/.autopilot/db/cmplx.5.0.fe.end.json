@@ -1,17 +1,17 @@
 {
     "1": {
-        "name": "maxpool2d_wide_nonoverlap_cl<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, config5>",
-        "file": "nnet_pooling_stream.h",
-        "fileloc": "405",
-        "instructions": "193",
-        "total_instructions": "193",
+        "name": "dense_wide_stream<array,array<ap_fixed,1u>,config7>_Pipeline_DenseWideMain",
+        "file": "firmware\/nnet_utils\/nnet_dense_stream.h",
+        "fileloc": "99",
+        "instructions": "210",
+        "total_instructions": "210",
         "calls": "",
-        "basicblocks": "7",
+        "basicblocks": "6",
         "loads": {
-            "L": "29"
+            "L": "32"
         },
         "stores": {
-            "L": "30"
+            "L": "36"
         },
         "loops": {
             "L": "1"
@@ -39,37 +39,40 @@
         "name": "cnn_core",
         "file": "cnn_core.cpp",
         "fileloc": "7",
-        "instructions": "26",
-        "total_instructions": "11790",
-        "calls": "2 5 1 3 6",
+        "instructions": "22",
+        "total_instructions": "1144",
+        "calls": "2 5 4 3",
         "basicblocks": "1"
     },
     "3": {
-        "name": "unpack_4lane_temporal_cl<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, config5>",
-        "file": "nnet_first_conv_stream.h",
-        "fileloc": "181",
-        "instructions": "149",
-        "total_instructions": "149",
-        "calls": "",
-        "basicblocks": "6",
+        "name": "dense_wide_stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, config7>",
+        "file": "nnet_dense_stream.h",
+        "fileloc": "83",
+        "instructions": "12",
+        "total_instructions": "222",
+        "calls": "1",
+        "basicblocks": "1",
         "loads": {
-            "L": "30"
-        },
-        "stores": {
-            "L": "32"
-        },
-        "loops": {
             "L": "1"
         }
     },
     "4": {
-        "name": "dense_latency_wrapper<ap_fixed,ap_fixed<9,5,5,3,0>,config7>",
-        "file": "firmware\/nnet_utils\/nnet_dense_stream.h",
-        "fileloc": "17",
-        "instructions": "793",
-        "total_instructions": "5775",
-        "calls": "7",
-        "basicblocks": "1"
+        "name": "maxpool2d_wide_nonoverlap_cl<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, config5>",
+        "file": "nnet_pooling_stream.h",
+        "fileloc": "405",
+        "instructions": "193",
+        "total_instructions": "193",
+        "calls": "",
+        "basicblocks": "7",
+        "loads": {
+            "L": "29"
+        },
+        "stores": {
+            "L": "30"
+        },
+        "loops": {
+            "L": "1"
+        }
     },
     "5": {
         "name": "relu<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, relu_config4>",
@@ -84,45 +87,6 @@
         },
         "stores": {
             "L": "2"
-        },
-        "loops": {
-            "L": "1"
-        }
-    },
-    "6": {
-        "name": "dense<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, config7>",
-        "file": "nnet_dense_stream.h",
-        "fileloc": "82",
-        "instructions": "1589",
-        "total_instructions": "10715",
-        "calls": "8 4",
-        "basicblocks": "1",
-        "loads": {
-            "L": "790"
-        }
-    },
-    "7": {
-        "name": "dense_latency<ap_fixed<16, 6, 5, 3, 0>, ap_fixed<9, 5, 5, 3, 0>, config7>",
-        "file": "firmware\/nnet_utils\/nnet_dense_latency.h",
-        "fileloc": "17",
-        "instructions": "4982",
-        "total_instructions": "4982",
-        "calls": "",
-        "basicblocks": "1"
-    },
-    "8": {
-        "name": "dense<array,array<ap_fixed<9,5,5,3,0>,1u>,config7>_Pipeline_DataPrepare",
-        "file": "firmware\/nnet_utils\/nnet_dense_stream.h",
-        "fileloc": "87",
-        "instructions": "3351",
-        "total_instructions": "3351",
-        "calls": "",
-        "basicblocks": "173",
-        "loads": {
-            "L": "791"
-        },
-        "stores": {
-            "L": "792"
         },
         "loops": {
             "L": "1"

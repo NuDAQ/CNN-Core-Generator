@@ -496,7 +496,7 @@ entry:30 %specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i448 %layer4
 
 <Node id="34" bw="0" op_0_bw="0" op_1_bw="448" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:31 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i448 %layer5x4_out, void @empty_9, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0
+entry:31 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i448 %layer5x4_out, void @empty_2, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -511,7 +511,7 @@ entry:31 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i448 %
 
 <Node id="35" bw="0" op_0_bw="0" op_1_bw="448" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:32 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i448 %layer4x4_out, void @empty_9, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0
+entry:32 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i448 %layer4x4_out, void @empty_2, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -698,7 +698,7 @@ for.inc24:2 %br_ln430 = br void %for.body
 
 <Node id="45" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="32" op_5_bw="0">
 <![CDATA[
-for.body.split:0 %specpipeline_ln431 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_0
+for.body.split:0 %specpipeline_ln431 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_1
 
 ]]></Node>
 <StgValue><ssdm name="specpipeline_ln431"/></StgValue>
@@ -728,7 +728,7 @@ for.body.split:1 %speclooptripcount_ln430 = speclooptripcount void @_ssdm_op_Spe
 
 <Node id="47" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-for.body.split:2 %specloopname_ln430 = specloopname void @_ssdm_op_SpecLoopName, void @empty_4
+for.body.split:2 %specloopname_ln430 = specloopname void @_ssdm_op_SpecLoopName, void @empty_6
 
 ]]></Node>
 <StgValue><ssdm name="specloopname_ln430"/></StgValue>
@@ -3140,23 +3140,23 @@ PoolWideMax:86 %br_ln0 = br void %for.inc24
 </dataflow>
 <dataflow id="258" from="layer5x4_out" to="specinterface_ln0" fromId="211" toId="37">
 </dataflow>
-<dataflow id="260" from="empty_9" to="specinterface_ln0" fromId="259" toId="37">
+<dataflow id="260" from="empty_2" to="specinterface_ln0" fromId="259" toId="37">
 </dataflow>
 <dataflow id="262" from="StgValue_261" to="specinterface_ln0" fromId="261" toId="37">
 </dataflow>
 <dataflow id="263" from="StgValue_261" to="specinterface_ln0" fromId="261" toId="37">
 </dataflow>
-<dataflow id="265" from="empty_0" to="specinterface_ln0" fromId="264" toId="37">
+<dataflow id="265" from="empty_1" to="specinterface_ln0" fromId="264" toId="37">
 </dataflow>
 <dataflow id="266" from="StgValue_261" to="specinterface_ln0" fromId="261" toId="37">
 </dataflow>
 <dataflow id="267" from="StgValue_261" to="specinterface_ln0" fromId="261" toId="37">
 </dataflow>
-<dataflow id="268" from="empty_0" to="specinterface_ln0" fromId="264" toId="37">
+<dataflow id="268" from="empty_1" to="specinterface_ln0" fromId="264" toId="37">
 </dataflow>
-<dataflow id="269" from="empty_0" to="specinterface_ln0" fromId="264" toId="37">
+<dataflow id="269" from="empty_1" to="specinterface_ln0" fromId="264" toId="37">
 </dataflow>
-<dataflow id="270" from="empty_0" to="specinterface_ln0" fromId="264" toId="37">
+<dataflow id="270" from="empty_1" to="specinterface_ln0" fromId="264" toId="37">
 </dataflow>
 <dataflow id="271" from="StgValue_261" to="specinterface_ln0" fromId="261" toId="37">
 </dataflow>
@@ -3166,9 +3166,9 @@ PoolWideMax:86 %br_ln0 = br void %for.inc24
 </dataflow>
 <dataflow id="274" from="StgValue_261" to="specinterface_ln0" fromId="261" toId="37">
 </dataflow>
-<dataflow id="275" from="empty_0" to="specinterface_ln0" fromId="264" toId="37">
+<dataflow id="275" from="empty_1" to="specinterface_ln0" fromId="264" toId="37">
 </dataflow>
-<dataflow id="276" from="empty_0" to="specinterface_ln0" fromId="264" toId="37">
+<dataflow id="276" from="empty_1" to="specinterface_ln0" fromId="264" toId="37">
 </dataflow>
 <dataflow id="278" from="StgValue_277" to="specinterface_ln0" fromId="277" toId="37">
 </dataflow>
@@ -3178,23 +3178,23 @@ PoolWideMax:86 %br_ln0 = br void %for.inc24
 </dataflow>
 <dataflow id="281" from="layer4x4_out" to="specinterface_ln0" fromId="210" toId="38">
 </dataflow>
-<dataflow id="282" from="empty_9" to="specinterface_ln0" fromId="259" toId="38">
+<dataflow id="282" from="empty_2" to="specinterface_ln0" fromId="259" toId="38">
 </dataflow>
 <dataflow id="283" from="StgValue_261" to="specinterface_ln0" fromId="261" toId="38">
 </dataflow>
 <dataflow id="284" from="StgValue_261" to="specinterface_ln0" fromId="261" toId="38">
 </dataflow>
-<dataflow id="285" from="empty_0" to="specinterface_ln0" fromId="264" toId="38">
+<dataflow id="285" from="empty_1" to="specinterface_ln0" fromId="264" toId="38">
 </dataflow>
 <dataflow id="286" from="StgValue_261" to="specinterface_ln0" fromId="261" toId="38">
 </dataflow>
 <dataflow id="287" from="StgValue_261" to="specinterface_ln0" fromId="261" toId="38">
 </dataflow>
-<dataflow id="288" from="empty_0" to="specinterface_ln0" fromId="264" toId="38">
+<dataflow id="288" from="empty_1" to="specinterface_ln0" fromId="264" toId="38">
 </dataflow>
-<dataflow id="289" from="empty_0" to="specinterface_ln0" fromId="264" toId="38">
+<dataflow id="289" from="empty_1" to="specinterface_ln0" fromId="264" toId="38">
 </dataflow>
-<dataflow id="290" from="empty_0" to="specinterface_ln0" fromId="264" toId="38">
+<dataflow id="290" from="empty_1" to="specinterface_ln0" fromId="264" toId="38">
 </dataflow>
 <dataflow id="291" from="StgValue_261" to="specinterface_ln0" fromId="261" toId="38">
 </dataflow>
@@ -3204,9 +3204,9 @@ PoolWideMax:86 %br_ln0 = br void %for.inc24
 </dataflow>
 <dataflow id="294" from="StgValue_261" to="specinterface_ln0" fromId="261" toId="38">
 </dataflow>
-<dataflow id="295" from="empty_0" to="specinterface_ln0" fromId="264" toId="38">
+<dataflow id="295" from="empty_1" to="specinterface_ln0" fromId="264" toId="38">
 </dataflow>
-<dataflow id="296" from="empty_0" to="specinterface_ln0" fromId="264" toId="38">
+<dataflow id="296" from="empty_1" to="specinterface_ln0" fromId="264" toId="38">
 </dataflow>
 <dataflow id="297" from="StgValue_277" to="specinterface_ln0" fromId="277" toId="38">
 </dataflow>
@@ -3265,7 +3265,7 @@ PoolWideMax:86 %br_ln0 = br void %for.inc24
 </dataflow>
 <dataflow id="326" from="StgValue_261" to="specpipeline_ln431" fromId="261" toId="50">
 </dataflow>
-<dataflow id="327" from="empty_0" to="specpipeline_ln431" fromId="264" toId="50">
+<dataflow id="327" from="empty_1" to="specpipeline_ln431" fromId="264" toId="50">
 </dataflow>
 <dataflow id="329" from="_ssdm_op_SpecLoopTripCount" to="speclooptripcount_ln430" fromId="328" toId="51">
 </dataflow>
@@ -3277,7 +3277,7 @@ PoolWideMax:86 %br_ln0 = br void %for.inc24
 </dataflow>
 <dataflow id="335" from="_ssdm_op_SpecLoopName" to="specloopname_ln430" fromId="334" toId="52">
 </dataflow>
-<dataflow id="337" from="empty_4" to="specloopname_ln430" fromId="336" toId="52">
+<dataflow id="337" from="empty_6" to="specloopname_ln430" fromId="336" toId="52">
 </dataflow>
 <dataflow id="339" from="_ssdm_op_Read.ap_fifo.volatile.i448P0A" to="layer4x4_out_read" fromId="338" toId="53">
 </dataflow>

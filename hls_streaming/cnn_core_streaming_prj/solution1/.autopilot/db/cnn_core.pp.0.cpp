@@ -61630,10 +61630,11 @@ ResultLoop:
 
 
 
+
 # 1 "/usr/include/assert.h" 1 3 4
-# 8 "firmware/nnet_utils/nnet_dense_stream.h" 2
-# 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/math.h" 1 3
 # 9 "firmware/nnet_utils/nnet_dense_stream.h" 2
+# 1 "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/lib/gcc/x86_64-pc-linux-gnu/8.3.0/../../../../include/c++/8.3.0/math.h" 1 3
+# 10 "firmware/nnet_utils/nnet_dense_stream.h" 2
 
 namespace nnet {
 
@@ -61704,6 +61705,62 @@ void res_write(typename res_T::value_type res[CONFIG_T::n_out], hls::stream<res_
         }
         res_stream.write(res_pack);
     }
+}
+
+template <class data_T, class res_T, typename CONFIG_T>
+void dense_wide_stream(hls::stream<data_T> &data_stream, hls::stream<res_T> &res_stream,
+                       typename CONFIG_T::weight_t weights[CONFIG_T::n_in * CONFIG_T::n_out],
+                       typename CONFIG_T::bias_t biases[CONFIG_T::n_out]) {
+#pragma HLS INLINE recursive
+
+ static_assert(CONFIG_T::n_out == 1, "dense_wide_stream currently supports n_out == 1");
+    static_assert(res_T::size == CONFIG_T::n_out, "result pack size must match n_out");
+    static_assert(CONFIG_T::n_in % data_T::size == 0, "dense input size must be a whole number of wide words");
+    static_assert(data_T::size % 7 == 0, "dense_wide_stream expects 7 filters per width lane");
+
+    const unsigned n_words = CONFIG_T::n_in / data_T::size;
+    const unsigned n_width_lanes = data_T::size / 7;
+
+#pragma HLS ARRAY_PARTITION variable=weights complete
+#pragma HLS ARRAY_PARTITION variable=biases complete
+
+ typename CONFIG_T::accum_t acc = (typename CONFIG_T::accum_t)biases[0];
+
+    data_T in_pack;
+
+    unsigned i_word = 0;
+    unsigned i_width = 0;
+
+DenseWideMain:
+    for (unsigned i = 0; i < n_words * n_width_lanes; i++) {
+#pragma HLS PIPELINE II=1
+
+ if (i_width == 0) {
+            in_pack = data_stream.read();
+        }
+
+    DenseWideFilter:
+        for (unsigned i_f = 0; i_f < 7; i_f++) {
+#pragma HLS UNROLL
+ const unsigned data_idx = i_width * 7 + i_f;
+            const unsigned weight_idx = i_word * data_T::size + data_idx;
+            acc += (typename CONFIG_T::accum_t)CONFIG_T::template product<typename data_T::value_type,
+                                                                          typename CONFIG_T::weight_t>::product(
+                in_pack[data_idx], weights[weight_idx]);
+        }
+
+        if (i_width == n_width_lanes - 1) {
+            i_width = 0;
+            i_word++;
+        } else {
+            i_width++;
+        }
+    }
+
+    res_T res_pack;
+
+    res_pack[0] = cast<typename data_T::value_type, typename res_T::value_type, CONFIG_T>(acc);
+    res_stream.write(res_pack);
 }
 
 template <class data_T, class res_T, typename CONFIG_T>
@@ -63699,19 +63756,12 @@ __attribute__((sdx_kernel("cnn_core", 0))) void cnn_core(
 #pragma HLS STREAM variable=layer5x4_out depth=4
 #pragma HLS BIND_STORAGE variable=layer5x4_out type=fifo impl=srl
 
- hls::stream<layer5_t> layer5_out("layer5_out");
-#pragma HLS STREAM variable=layer5_out depth=168
-
- auto& layer6_out = layer5_out;
-
-    nnet::first_conv_4lane_temporal_wide_cl<input_t, layer3x4_t, config3>(input_layer, layer3x4_out, w3, b3);
+ nnet::first_conv_4lane_temporal_wide_cl<input_t, layer3x4_t, config3>(input_layer, layer3x4_out, w3, b3);
 
     nnet::relu<layer3x4_t, layer4x4_t, relu_config4>(layer3x4_out, layer4x4_out);
 
     nnet::maxpool2d_wide_nonoverlap_cl<layer4x4_t, layer5x4_t, config5>(layer4x4_out, layer5x4_out);
 
-    nnet::unpack_4lane_temporal_cl<layer5x4_t, layer5_t, config5>(layer5x4_out, layer5_out);
-
-    nnet::dense<layer5_t, result_t, config7>(layer6_out, layer7_out, w7, b7);
+    nnet::dense_wide_stream<layer5x4_t, result_t, config7>(layer5x4_out, layer7_out, w7, b7);
 
 }

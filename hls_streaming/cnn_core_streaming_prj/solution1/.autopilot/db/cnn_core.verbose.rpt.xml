@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'cnn_core'" level="0">
-<item name = "Date">Sun May 17 03:22:47 2026
+<item name = "Date">Sun May 17 03:31:39 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_streaming_prj</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">265, 265, 1.325 us, 1.325 us, 260, 260, dataflow</column>
+<column name="">263, 263, 1.315 us, 1.315 us, 260, 260, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
@@ -34,8 +34,7 @@
 <column name="first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0">first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s, 259, 259, 1.295 us, 1.295 us, 259, 259, no</column>
 <column name="relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0">relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s, 87, 87, 0.435 us, 0.435 us, 87, 87, no</column>
 <column name="maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0">maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s, 87, 87, 0.435 us, 0.435 us, 87, 87, no</column>
-<column name="unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0">unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s, 171, 171, 0.855 us, 0.855 us, 171, 171, no</column>
-<column name="dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0">dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s, 176, 176, 0.880 us, 0.880 us, 176, 176, no</column>
+<column name="dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0">dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s, 176, 176, 0.880 us, 0.880 us, 176, 176, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
@@ -53,24 +52,23 @@
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 2, -</column>
-<column name="FIFO">7, -, 460, 261, -</column>
-<column name="Instance">-, 17, 25273, 38896, -</column>
+<column name="FIFO">-, -, 297, 201, -</column>
+<column name="Instance">-, 11, 2678, 26297, -</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, -, -</column>
 <column name="Register">-, -, -, -, -</column>
 <specialColumn name="Available">960, 1824, 433920, 216960, 64</specialColumn>
-<specialColumn name="Utilization (%)">~0, ~0, 5, 18, 0</specialColumn>
+<specialColumn name="Utilization (%)">0, ~0, ~0, 12, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0">dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s, 0, 13, 22865, 31807, 0</column>
+<column name="dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0">dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s, 0, 7, 769, 19616, 0</column>
 <column name="first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0">first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s, 0, 4, 731, 4529, 0</column>
 <column name="maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0">maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s, 0, 0, 913, 1215, 0</column>
 <column name="relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0">relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s, 0, 0, 265, 937, 0</column>
-<column name="unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0">unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s, 0, 0, 499, 408, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -85,7 +83,6 @@
 <keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
 <column name="layer3x4_out_U">0, 99, 0, -, 4, 252, 1008</column>
 <column name="layer4x4_out_U">0, 99, 0, -, 4, 448, 1792</column>
-<column name="layer5_out_U">7, 163, 0, -, 168, 112, 18816</column>
 <column name="layer5x4_out_U">0, 99, 0, -, 4, 448, 1792</column>
 </table>
 </item>

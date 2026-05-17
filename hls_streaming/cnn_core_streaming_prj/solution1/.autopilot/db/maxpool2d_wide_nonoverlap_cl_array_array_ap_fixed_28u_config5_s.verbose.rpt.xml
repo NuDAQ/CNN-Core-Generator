@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s'" level="0">
-<item name = "Date">Sun May 17 03:22:44 2026
+<item name = "Date">Sun May 17 03:31:37 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_streaming_prj</item>

@@ -61,7 +61,7 @@ entry:1 %specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i448 %layer4x
 
 <Node id="5" bw="0" op_0_bw="0" op_1_bw="448" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:2 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i448 %layer4x4_out, void @empty_9, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0
+entry:2 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i448 %layer4x4_out, void @empty_2, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -76,7 +76,7 @@ entry:2 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i448 %l
 
 <Node id="6" bw="0" op_0_bw="0" op_1_bw="252" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i252 %layer3x4_out, void @empty_9, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0
+entry:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i252 %layer3x4_out, void @empty_2, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -121,10 +121,10 @@ entry:5 %br_ln41 = br void %ReLUPackLoop
 
 <Node id="10" bw="7" op_0_bw="7" op_1_bw="0">
 <![CDATA[
-ReLUPackLoop:0 %i_3 = load i7 %i
+ReLUPackLoop:0 %i_1 = load i7 %i
 
 ]]></Node>
-<StgValue><ssdm name="i_3"/></StgValue>
+<StgValue><ssdm name="i_1"/></StgValue>
 </operation>
 
 <operation id="13" st_id="1" stage="1" lat="1">
@@ -136,7 +136,7 @@ ReLUPackLoop:0 %i_3 = load i7 %i
 
 <Node id="11" bw="1" op_0_bw="7" op_1_bw="7">
 <![CDATA[
-ReLUPackLoop:1 %icmp_ln41 = icmp_eq  i7 %i_3, i7 84
+ReLUPackLoop:1 %icmp_ln41 = icmp_eq  i7 %i_1, i7 84
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln41"/></StgValue>
@@ -151,10 +151,10 @@ ReLUPackLoop:1 %icmp_ln41 = icmp_eq  i7 %i_3, i7 84
 
 <Node id="12" bw="7" op_0_bw="7" op_1_bw="7">
 <![CDATA[
-ReLUPackLoop:2 %i_4 = add i7 %i_3, i7 1
+ReLUPackLoop:2 %i_2 = add i7 %i_1, i7 1
 
 ]]></Node>
-<StgValue><ssdm name="i_4"/></StgValue>
+<StgValue><ssdm name="i_2"/></StgValue>
 </operation>
 
 <operation id="15" st_id="1" stage="1" lat="1">
@@ -182,7 +182,7 @@ ReLUPackLoop:3 %br_ln41 = br i1 %icmp_ln41, void %ReLUPackLoop.split, void %for.
 
 <Node id="189" bw="0" op_0_bw="7" op_1_bw="7" op_2_bw="0" op_3_bw="0">
 <![CDATA[
-ReLUPackLoop.split:174 %store_ln41 = store i7 %i_4, i7 %i
+ReLUPackLoop.split:174 %store_ln41 = store i7 %i_2, i7 %i
 
 ]]></Node>
 <StgValue><ssdm name="store_ln41"/></StgValue>
@@ -1494,7 +1494,7 @@ for.end15:0 %ret_ln59 = ret
 
 <Node id="15" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="32" op_5_bw="0">
 <![CDATA[
-ReLUPackLoop.split:0 %specpipeline_ln42 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_0
+ReLUPackLoop.split:0 %specpipeline_ln42 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_1
 
 ]]></Node>
 <StgValue><ssdm name="specpipeline_ln42"/></StgValue>
@@ -1524,7 +1524,7 @@ ReLUPackLoop.split:1 %speclooptripcount_ln41 = speclooptripcount void @_ssdm_op_
 
 <Node id="17" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-ReLUPackLoop.split:2 %specloopname_ln41 = specloopname void @_ssdm_op_SpecLoopName, void @empty_3
+ReLUPackLoop.split:2 %specloopname_ln41 = specloopname void @_ssdm_op_SpecLoopName, void @empty_5
 
 ]]></Node>
 <StgValue><ssdm name="specloopname_ln41"/></StgValue>
@@ -2893,23 +2893,23 @@ ReLUPackLoop.split:175 %br_ln41 = br void %ReLUPackLoop
 </dataflow>
 <dataflow id="219" from="layer4x4_out" to="specinterface_ln0" fromId="205" toId="8">
 </dataflow>
-<dataflow id="221" from="empty_9" to="specinterface_ln0" fromId="220" toId="8">
+<dataflow id="221" from="empty_2" to="specinterface_ln0" fromId="220" toId="8">
 </dataflow>
 <dataflow id="223" from="StgValue_222" to="specinterface_ln0" fromId="222" toId="8">
 </dataflow>
 <dataflow id="224" from="StgValue_222" to="specinterface_ln0" fromId="222" toId="8">
 </dataflow>
-<dataflow id="226" from="empty_0" to="specinterface_ln0" fromId="225" toId="8">
+<dataflow id="226" from="empty_1" to="specinterface_ln0" fromId="225" toId="8">
 </dataflow>
 <dataflow id="227" from="StgValue_222" to="specinterface_ln0" fromId="222" toId="8">
 </dataflow>
 <dataflow id="228" from="StgValue_222" to="specinterface_ln0" fromId="222" toId="8">
 </dataflow>
-<dataflow id="229" from="empty_0" to="specinterface_ln0" fromId="225" toId="8">
+<dataflow id="229" from="empty_1" to="specinterface_ln0" fromId="225" toId="8">
 </dataflow>
-<dataflow id="230" from="empty_0" to="specinterface_ln0" fromId="225" toId="8">
+<dataflow id="230" from="empty_1" to="specinterface_ln0" fromId="225" toId="8">
 </dataflow>
-<dataflow id="231" from="empty_0" to="specinterface_ln0" fromId="225" toId="8">
+<dataflow id="231" from="empty_1" to="specinterface_ln0" fromId="225" toId="8">
 </dataflow>
 <dataflow id="232" from="StgValue_222" to="specinterface_ln0" fromId="222" toId="8">
 </dataflow>
@@ -2919,9 +2919,9 @@ ReLUPackLoop.split:175 %br_ln41 = br void %ReLUPackLoop
 </dataflow>
 <dataflow id="235" from="StgValue_222" to="specinterface_ln0" fromId="222" toId="8">
 </dataflow>
-<dataflow id="236" from="empty_0" to="specinterface_ln0" fromId="225" toId="8">
+<dataflow id="236" from="empty_1" to="specinterface_ln0" fromId="225" toId="8">
 </dataflow>
-<dataflow id="237" from="empty_0" to="specinterface_ln0" fromId="225" toId="8">
+<dataflow id="237" from="empty_1" to="specinterface_ln0" fromId="225" toId="8">
 </dataflow>
 <dataflow id="239" from="StgValue_238" to="specinterface_ln0" fromId="238" toId="8">
 </dataflow>
@@ -2931,23 +2931,23 @@ ReLUPackLoop.split:175 %br_ln41 = br void %ReLUPackLoop
 </dataflow>
 <dataflow id="242" from="layer3x4_out" to="specinterface_ln0" fromId="204" toId="9">
 </dataflow>
-<dataflow id="243" from="empty_9" to="specinterface_ln0" fromId="220" toId="9">
+<dataflow id="243" from="empty_2" to="specinterface_ln0" fromId="220" toId="9">
 </dataflow>
 <dataflow id="244" from="StgValue_222" to="specinterface_ln0" fromId="222" toId="9">
 </dataflow>
 <dataflow id="245" from="StgValue_222" to="specinterface_ln0" fromId="222" toId="9">
 </dataflow>
-<dataflow id="246" from="empty_0" to="specinterface_ln0" fromId="225" toId="9">
+<dataflow id="246" from="empty_1" to="specinterface_ln0" fromId="225" toId="9">
 </dataflow>
 <dataflow id="247" from="StgValue_222" to="specinterface_ln0" fromId="222" toId="9">
 </dataflow>
 <dataflow id="248" from="StgValue_222" to="specinterface_ln0" fromId="222" toId="9">
 </dataflow>
-<dataflow id="249" from="empty_0" to="specinterface_ln0" fromId="225" toId="9">
+<dataflow id="249" from="empty_1" to="specinterface_ln0" fromId="225" toId="9">
 </dataflow>
-<dataflow id="250" from="empty_0" to="specinterface_ln0" fromId="225" toId="9">
+<dataflow id="250" from="empty_1" to="specinterface_ln0" fromId="225" toId="9">
 </dataflow>
-<dataflow id="251" from="empty_0" to="specinterface_ln0" fromId="225" toId="9">
+<dataflow id="251" from="empty_1" to="specinterface_ln0" fromId="225" toId="9">
 </dataflow>
 <dataflow id="252" from="StgValue_222" to="specinterface_ln0" fromId="222" toId="9">
 </dataflow>
@@ -2957,9 +2957,9 @@ ReLUPackLoop.split:175 %br_ln41 = br void %ReLUPackLoop
 </dataflow>
 <dataflow id="255" from="StgValue_222" to="specinterface_ln0" fromId="222" toId="9">
 </dataflow>
-<dataflow id="256" from="empty_0" to="specinterface_ln0" fromId="225" toId="9">
+<dataflow id="256" from="empty_1" to="specinterface_ln0" fromId="225" toId="9">
 </dataflow>
-<dataflow id="257" from="empty_0" to="specinterface_ln0" fromId="225" toId="9">
+<dataflow id="257" from="empty_1" to="specinterface_ln0" fromId="225" toId="9">
 </dataflow>
 <dataflow id="258" from="StgValue_238" to="specinterface_ln0" fromId="238" toId="9">
 </dataflow>
@@ -2969,19 +2969,19 @@ ReLUPackLoop.split:175 %br_ln41 = br void %ReLUPackLoop
 </dataflow>
 <dataflow id="262" from="i" to="store_ln41" fromId="6" toId="10">
 </dataflow>
-<dataflow id="263" from="i" to="i_3" fromId="6" toId="12">
+<dataflow id="263" from="i" to="i_1" fromId="6" toId="12">
 </dataflow>
-<dataflow id="264" from="i_3" to="icmp_ln41" fromId="12" toId="13">
+<dataflow id="264" from="i_1" to="icmp_ln41" fromId="12" toId="13">
 </dataflow>
 <dataflow id="266" from="StgValue_265" to="icmp_ln41" fromId="265" toId="13">
 </dataflow>
-<dataflow id="267" from="i_3" to="i_4" fromId="12" toId="14">
+<dataflow id="267" from="i_1" to="i_2" fromId="12" toId="14">
 </dataflow>
-<dataflow id="269" from="StgValue_268" to="i_4" fromId="268" toId="14">
+<dataflow id="269" from="StgValue_268" to="i_2" fromId="268" toId="14">
 </dataflow>
 <dataflow id="270" from="icmp_ln41" to="br_ln41" fromId="13" toId="15">
 </dataflow>
-<dataflow id="271" from="i_4" to="store_ln41" fromId="14" toId="16">
+<dataflow id="271" from="i_2" to="store_ln41" fromId="14" toId="16">
 </dataflow>
 <dataflow id="272" from="i" to="store_ln41" fromId="6" toId="16">
 </dataflow>
@@ -3547,7 +3547,7 @@ ReLUPackLoop.split:175 %br_ln41 = br void %ReLUPackLoop
 </dataflow>
 <dataflow id="639" from="StgValue_222" to="specpipeline_ln42" fromId="222" toId="102">
 </dataflow>
-<dataflow id="640" from="empty_0" to="specpipeline_ln42" fromId="225" toId="102">
+<dataflow id="640" from="empty_1" to="specpipeline_ln42" fromId="225" toId="102">
 </dataflow>
 <dataflow id="642" from="_ssdm_op_SpecLoopTripCount" to="speclooptripcount_ln41" fromId="641" toId="103">
 </dataflow>
@@ -3559,7 +3559,7 @@ ReLUPackLoop.split:175 %br_ln41 = br void %ReLUPackLoop
 </dataflow>
 <dataflow id="648" from="_ssdm_op_SpecLoopName" to="specloopname_ln41" fromId="647" toId="104">
 </dataflow>
-<dataflow id="650" from="empty_3" to="specloopname_ln41" fromId="649" toId="104">
+<dataflow id="650" from="empty_5" to="specloopname_ln41" fromId="649" toId="104">
 </dataflow>
 <dataflow id="652" from="_ssdm_op_BitConcatenate.i14.i8.i6" to="out_data" fromId="651" toId="105">
 </dataflow>
