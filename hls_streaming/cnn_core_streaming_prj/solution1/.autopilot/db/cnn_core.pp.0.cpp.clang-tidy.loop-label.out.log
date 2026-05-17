@@ -1,0 +1,525 @@
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:29316:7: warning: Added loop label VITIS_LOOP_1207_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1207_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:29316:7: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:30290:5: warning: Added loop label VITIS_LOOP_676_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_676_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:30290:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:30304:5: warning: Added loop label VITIS_LOOP_690_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_690_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:30304:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:30318:5: warning: Added loop label VITIS_LOOP_704_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_704_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:30318:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:31935:7: warning: Added loop label VITIS_LOOP_1247_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1247_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:31935:7: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:33918:9: warning: Added loop label VITIS_LOOP_27_1:   [xilinx-label-all-loops]
+        for (unsigned i = 0; i < N; i++) {
+        ^~~
+        VITIS_LOOP_27_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:33918:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:33930:9: warning: Added loop label VITIS_LOOP_39_1:   [xilinx-label-all-loops]
+        for (unsigned i = 0; i < N; i++) {
+        ^~~
+        VITIS_LOOP_39_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:33930:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:33947:9: warning: Added loop label VITIS_LOOP_56_1:   [xilinx-label-all-loops]
+        for (size_t i = 0; i < N; i++) {
+        ^~~
+        VITIS_LOOP_56_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:33947:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57741:5: warning: Added loop label VITIS_LOOP_265_1:   [xilinx-label-all-loops]
+    for (typename std::vector<src_T>::const_iterator i = in_begin; i != in_end; ++i) {
+    ^~~
+    VITIS_LOOP_265_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57741:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57751:5: warning: Added loop label VITIS_LOOP_275_1:   [xilinx-label-all-loops]
+    for (auto i = 0; i < SIZE; i++)
+    ^~~
+    VITIS_LOOP_275_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57751:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57762:5: warning: Added loop label VITIS_LOOP_286_1:   [xilinx-label-all-loops]
+    for (int i = 0; i < SIZE; i++) {
+    ^~~
+    VITIS_LOOP_286_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57762:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57769:5: warning: Added loop label VITIS_LOOP_293_1:   [xilinx-label-all-loops]
+    for (int i = 0; i < SIZE / res_T::size; i++) {
+    ^~~
+    VITIS_LOOP_293_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57769:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57771:9: warning: Added loop label VITIS_LOOP_295_2:   [xilinx-label-all-loops]
+        for (int j = 0; j < res_T::size; j++) {
+        ^~~
+        VITIS_LOOP_295_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57771:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57783:5: warning: Added loop label VITIS_LOOP_307_1:   [xilinx-label-all-loops]
+    for (int i = 0; i < SIZE / data_T::size; i++) {
+    ^~~
+    VITIS_LOOP_307_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57783:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57785:9: warning: Added loop label VITIS_LOOP_309_2:   [xilinx-label-all-loops]
+        for (int j = 0; j < data_T::size; j++) {
+        ^~~
+        VITIS_LOOP_309_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57785:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57800:5: warning: Added loop label VITIS_LOOP_324_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < nrows; ii++) {
+    ^~~
+    VITIS_LOOP_324_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57800:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57820:5: warning: Added loop label VITIS_LOOP_344_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < nrows; ii++) {
+    ^~~
+    VITIS_LOOP_344_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57820:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57821:9: warning: Added loop label VITIS_LOOP_345_2:   [xilinx-label-all-loops]
+        for (int jj = 0; jj < ncols; jj++) {
+        ^~~
+        VITIS_LOOP_345_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57821:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57836:5: warning: Added loop label VITIS_LOOP_360_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < N_IN; ii++) {
+    ^~~
+    VITIS_LOOP_360_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57836:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57843:5: warning: Added loop label VITIS_LOOP_367_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < N_IN; ii++) {
+    ^~~
+    VITIS_LOOP_367_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:57843:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58153:5: warning: Added loop label VITIS_LOOP_136_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::out_width / CONFIG_T::n_partitions; ii++) {
+    ^~~
+    VITIS_LOOP_136_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58153:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58154:9: warning: Added loop label VITIS_LOOP_137_2:   [xilinx-label-all-loops]
+        for (int ff = 0; ff < CONFIG_T::n_filt; ff++) {
+        ^~~
+        VITIS_LOOP_137_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58154:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58175:5: warning: Added loop label VITIS_LOOP_158_3:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::out_width / CONFIG_T::n_partitions; ii++) {
+    ^~~
+    VITIS_LOOP_158_3: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58175:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58176:9: warning: Added loop label VITIS_LOOP_159_4:   [xilinx-label-all-loops]
+        for (int ff = 0; ff < CONFIG_T::n_filt; ff++) {
+        ^~~
+        VITIS_LOOP_159_4: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58176:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58323:2: warning: Added loop label VITIS_LOOP_31_1:   [xilinx-label-all-loops]
+ for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+ ^~~
+ VITIS_LOOP_31_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58323:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58335:5: warning: Added loop label VITIS_LOOP_43_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+    ^~~
+    VITIS_LOOP_43_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58335:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58349:5: warning: Added loop label VITIS_LOOP_57_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+    ^~~
+    VITIS_LOOP_57_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58349:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58376:5: warning: Added loop label VITIS_LOOP_84_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < N_TABLE; ii++) {
+    ^~~
+    VITIS_LOOP_84_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58376:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58406:5: warning: Added loop label VITIS_LOOP_114_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+    ^~~
+    VITIS_LOOP_114_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58406:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58443:5: warning: Added loop label VITIS_LOOP_151_1:   [xilinx-label-all-loops]
+    for (unsigned i = 0; i < CONFIG_T::exp_table_size; i++) {
+    ^~~
+    VITIS_LOOP_151_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58443:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58459:5: warning: Added loop label VITIS_LOOP_167_1:   [xilinx-label-all-loops]
+    for (unsigned i = 0; i < CONFIG_T::inv_table_size; i++) {
+    ^~~
+    VITIS_LOOP_167_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58459:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58492:5: warning: Added loop label VITIS_LOOP_200_1:   [xilinx-label-all-loops]
+    for (unsigned i = 0; i < CONFIG_T::n_slice; i++) {
+    ^~~
+    VITIS_LOOP_200_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58492:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58505:5: warning: Added loop label VITIS_LOOP_213_2:   [xilinx-label-all-loops]
+    for (unsigned i = 0; i < CONFIG_T::n_slice; i++) {
+    ^~~
+    VITIS_LOOP_213_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58505:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58538:5: warning: Added loop label VITIS_LOOP_246_1:   [xilinx-label-all-loops]
+    for (unsigned i = 0; i < CONFIG_T::n_slice; i++) {
+    ^~~
+    VITIS_LOOP_246_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58538:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58547:5: warning: Added loop label VITIS_LOOP_255_2:   [xilinx-label-all-loops]
+    for (unsigned i = 0; i < CONFIG_T::n_slice; i++) {
+    ^~~
+    VITIS_LOOP_255_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58547:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58560:5: warning: Added loop label VITIS_LOOP_268_3:   [xilinx-label-all-loops]
+    for (unsigned i = 0; i < CONFIG_T::n_slice; i++) {
+    ^~~
+    VITIS_LOOP_268_3: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58560:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58567:5: warning: Added loop label VITIS_LOOP_275_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < N_TABLE; ii++) {
+    ^~~
+    VITIS_LOOP_275_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58567:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58580:5: warning: Added loop label VITIS_LOOP_288_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < N_TABLE; ii++) {
+    ^~~
+    VITIS_LOOP_288_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58580:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58617:5: warning: Added loop label VITIS_LOOP_325_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_slice; ii++) {
+    ^~~
+    VITIS_LOOP_325_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58617:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58622:5: warning: Added loop label VITIS_LOOP_330_2:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_slice; ii++) {
+    ^~~
+    VITIS_LOOP_330_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58622:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58623:9: warning: Added loop label VITIS_LOOP_331_3:   [xilinx-label-all-loops]
+        for (int jj = 0; jj < CONFIG_T::n_slice; jj++) {
+        ^~~
+        VITIS_LOOP_331_3: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58623:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58640:5: warning: Added loop label VITIS_LOOP_348_4:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_slice; ii++) {
+    ^~~
+    VITIS_LOOP_348_4: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58640:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58653:5: warning: Added loop label VITIS_LOOP_361_1:   [xilinx-label-all-loops]
+    for (int i = 0; i < CONFIG_T::n_slice; i++) {
+    ^~~
+    VITIS_LOOP_361_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58653:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58661:5: warning: Added loop label VITIS_LOOP_369_2:   [xilinx-label-all-loops]
+    for (int i = 1; i < CONFIG_T::n_slice; i++) {
+    ^~~
+    VITIS_LOOP_369_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58661:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58697:5: warning: Added loop label VITIS_LOOP_405_1:   [xilinx-label-all-loops]
+    for (signed i = 0; i < CONFIG_T::n_outer; i++) {
+    ^~~
+    VITIS_LOOP_405_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58697:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58699:2: warning: Added loop label VITIS_LOOP_407_2:   [xilinx-label-all-loops]
+ for (signed k = 0; k < CONFIG_T::n_inner; k++) {
+ ^~~
+ VITIS_LOOP_407_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58699:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58701:2: warning: Added loop label VITIS_LOOP_409_3:   [xilinx-label-all-loops]
+ for (signed j = 0; j < CONFIG_T::n_slice; j++) {
+ ^~~
+ VITIS_LOOP_409_3: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58701:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58706:13: warning: Added loop label VITIS_LOOP_414_4:   [xilinx-label-all-loops]
+            for (signed j = 0; j < CONFIG_T::n_slice; j++) {
+            ^~~
+            VITIS_LOOP_414_4: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58706:13: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58719:5: warning: Added loop label VITIS_LOOP_427_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < N_TABLE; ii++) {
+    ^~~
+    VITIS_LOOP_427_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58719:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58749:5: warning: Added loop label VITIS_LOOP_457_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+    ^~~
+    VITIS_LOOP_457_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58749:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58776:2: warning: Added loop label VITIS_LOOP_484_1:   [xilinx-label-all-loops]
+ for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+ ^~~
+ VITIS_LOOP_484_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58776:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58790:2: warning: Added loop label VITIS_LOOP_498_1:   [xilinx-label-all-loops]
+ for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+ ^~~
+ VITIS_LOOP_498_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58790:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58806:5: warning: Added loop label VITIS_LOOP_514_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+    ^~~
+    VITIS_LOOP_514_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58806:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58824:5: warning: Added loop label VITIS_LOOP_532_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+    ^~~
+    VITIS_LOOP_532_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58824:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58841:5: warning: Added loop label VITIS_LOOP_549_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+    ^~~
+    VITIS_LOOP_549_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58841:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58858:5: warning: Added loop label VITIS_LOOP_566_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < N_TABLE; ii++) {
+    ^~~
+    VITIS_LOOP_566_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58858:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58888:5: warning: Added loop label VITIS_LOOP_596_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+    ^~~
+    VITIS_LOOP_596_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58888:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58907:5: warning: Added loop label VITIS_LOOP_615_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < N_TABLE; ii++) {
+    ^~~
+    VITIS_LOOP_615_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58907:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58937:5: warning: Added loop label VITIS_LOOP_645_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+    ^~~
+    VITIS_LOOP_645_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58937:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58956:5: warning: Added loop label VITIS_LOOP_664_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < N_TABLE; ii++) {
+    ^~~
+    VITIS_LOOP_664_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58956:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58986:5: warning: Added loop label VITIS_LOOP_694_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+    ^~~
+    VITIS_LOOP_694_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:58986:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59013:5: warning: Added loop label VITIS_LOOP_721_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < N_TABLE; ii++) {
+    ^~~
+    VITIS_LOOP_721_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59013:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59041:2: warning: Added loop label VITIS_LOOP_749_1:   [xilinx-label-all-loops]
+ for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+ ^~~
+ VITIS_LOOP_749_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59041:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59071:5: warning: Added loop label VITIS_LOOP_779_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+    ^~~
+    VITIS_LOOP_779_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59071:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59100:5: warning: Added loop label VITIS_LOOP_808_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+    ^~~
+    VITIS_LOOP_808_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59100:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59120:5: warning: Added loop label VITIS_LOOP_828_1:   [xilinx-label-all-loops]
+    for (int ii = 0; ii < CONFIG_T::n_in; ii++) {
+    ^~~
+    VITIS_LOOP_828_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59120:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59365:9: warning: Added loop label VITIS_LOOP_229_1:   [xilinx-label-all-loops]
+        for (int i = 0; i < N / data_T::size; i++) {
+        ^~~
+        VITIS_LOOP_229_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59365:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59372:13: warning: Added loop label VITIS_LOOP_236_2:   [xilinx-label-all-loops]
+            for (int j = 0; j < data_T::size; j++) {
+            ^~~
+            VITIS_LOOP_236_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59372:13: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59381:9: warning: Added loop label VITIS_LOOP_245_3:   [xilinx-label-all-loops]
+        for (int i = 0; i < N / data_T::size; i++) {
+        ^~~
+        VITIS_LOOP_245_3: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59381:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59390:13: warning: Added loop label VITIS_LOOP_254_4:   [xilinx-label-all-loops]
+            for (int j = 0; j < pack_diff; j++) {
+            ^~~
+            VITIS_LOOP_254_4: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59390:13: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59394:17: warning: Added loop label VITIS_LOOP_258_5:   [xilinx-label-all-loops]
+                for (int k = 0; k < res_T::size; k++) {
+                ^~~
+                VITIS_LOOP_258_5: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59394:17: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59405:9: warning: Added loop label VITIS_LOOP_269_6:   [xilinx-label-all-loops]
+        for (int i = 0; i < N / data_T::size; i++) {
+        ^~~
+        VITIS_LOOP_269_6: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59405:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59409:13: warning: Added loop label VITIS_LOOP_273_7:   [xilinx-label-all-loops]
+            for (int j = 0; j < data_T::size; j++) {
+            ^~~
+            VITIS_LOOP_273_7: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59409:13: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59433:9: warning: Added loop label VITIS_LOOP_297_1:   [xilinx-label-all-loops]
+        for (int j = 0; j < n_dupl; j++) {
+        ^~~
+        VITIS_LOOP_297_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59433:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59437:13: warning: Added loop label VITIS_LOOP_301_2:   [xilinx-label-all-loops]
+            for (int k = 0; k < res_T::size; k++) {
+            ^~~
+            VITIS_LOOP_301_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59437:13: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59456:9: warning: Added loop label VITIS_LOOP_320_1:   [xilinx-label-all-loops]
+        for (int k = 0; k < res_T::size; k++) {
+        ^~~
+        VITIS_LOOP_320_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59456:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59680:9: warning: Added loop label VITIS_LOOP_211_1:   [xilinx-label-all-loops]
+        for (unsigned j = 0; j < data_T::size; j++) {
+        ^~~
+        VITIS_LOOP_211_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59680:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59689:9: warning: Added loop label VITIS_LOOP_220_2:   [xilinx-label-all-loops]
+        for (unsigned j = 0; j < data_T::size; j++) {
+        ^~~
+        VITIS_LOOP_220_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59689:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59794:5: warning: Added loop label VITIS_LOOP_325_1:   [xilinx-label-all-loops]
+    for (int i = 0; i < CONFIG_T::n_in / res_T::size; i++) {
+    ^~~
+    VITIS_LOOP_325_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59794:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59799:9: warning: Added loop label VITIS_LOOP_330_2:   [xilinx-label-all-loops]
+        for (int i = 0; i < res_T::size; i++) {
+        ^~~
+        VITIS_LOOP_330_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59799:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59807:9: warning: Added loop label VITIS_LOOP_338_3:   [xilinx-label-all-loops]
+        for (int i = 1; i < res_T::size; i++) {
+        ^~~
+        VITIS_LOOP_338_3: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:59807:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:60492:9: error: Resource with core_name: ROM_nP_BRAM pragma is ignored, because this core doesn't exist at all  [clang-diagnostic-error]
+#pragma HLS RESOURCE variable=weights core=ROM_nP_BRAM
+        ^
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:60566:9: error: Resource with core_name: ROM_nP_BRAM pragma is ignored, because this core doesn't exist at all  [clang-diagnostic-error]
+#pragma HLS RESOURCE variable=weights core=ROM_nP_BRAM
+        ^
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:60648:9: error: Resource with core_name: ROM_nP_BRAM pragma is ignored, because this core doesn't exist at all  [clang-diagnostic-error]
+#pragma HLS RESOURCE variable=weights core=ROM_nP_BRAM
+        ^
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61021:9: warning: Added loop label VITIS_LOOP_64_1:   [xilinx-label-all-loops]
+        for (unsigned i = 0; i < __SHIFT_DEPTH__; ++i)
+        ^~~
+        VITIS_LOOP_64_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61021:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61028:9: warning: Added loop label VITIS_LOOP_71_1:   [xilinx-label-all-loops]
+        for (unsigned i = 0; i < __SHIFT_DEPTH__; ++i)
+        ^~~
+        VITIS_LOOP_71_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61028:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61550:5: warning: Added loop label VITIS_LOOP_14_1:   [xilinx-label-all-loops]
+    for (unsigned k = 0; k < CONFIG_T::n_out; k++) {
+    ^~~
+    VITIS_LOOP_14_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61550:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61610:9: warning: Added loop label VITIS_LOOP_74_1:   [xilinx-label-all-loops]
+        for (int im = 0; im < CONFIG_T::n_out; im++) {
+        ^~~
+        VITIS_LOOP_74_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61610:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62018:5: warning: Added loop label VITIS_LOOP_13_1:   [xilinx-label-all-loops]
+    for (int i = 1; i < N; i++) {
+    ^~~
+    VITIS_LOOP_13_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62018:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62027:5: warning: Added loop label VITIS_LOOP_22_1:   [xilinx-label-all-loops]
+    for (int i = 0; i < N; i++) {
+    ^~~
+    VITIS_LOOP_22_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62027:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62102:5: warning: Added loop label VITIS_LOOP_97_1:   [xilinx-label-all-loops]
+    for (int ff = 0; ff < CONFIG_T::n_filt; ff++) {
+    ^~~
+    VITIS_LOOP_97_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62102:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62104:9: warning: Added loop label VITIS_LOOP_99_2:   [xilinx-label-all-loops]
+        for (int ii = 0; ii < restricted_padded_width; ii += CONFIG_T::stride_width) {
+        ^~~
+        VITIS_LOOP_99_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62104:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62109:2: warning: Added loop label VITIS_LOOP_104_3:   [xilinx-label-all-loops]
+ for (int jj = 0; jj < CONFIG_T::pool_width; jj++) {
+ ^~~
+ VITIS_LOOP_104_3: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62109:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62137:2: warning: Added loop label VITIS_LOOP_132_1:   [xilinx-label-all-loops]
+ for (int ff = 0; ff < CONFIG_T::n_filt; ff++) {
+ ^~~
+ VITIS_LOOP_132_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62137:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62140:2: warning: Added loop label VITIS_LOOP_135_2:   [xilinx-label-all-loops]
+ for (int jj = 0; jj < CONFIG_T::n_in; jj++) {
+ ^~~
+ VITIS_LOOP_135_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62140:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62195:5: warning: Added loop label VITIS_LOOP_190_1:   [xilinx-label-all-loops]
+    for (int ff = 0; ff < CONFIG_T::n_filt; ff++) {
+    ^~~
+    VITIS_LOOP_190_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62195:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62197:9: warning: Added loop label VITIS_LOOP_192_2:   [xilinx-label-all-loops]
+        for (int ii = 0; ii < restricted_padded_height; ii += CONFIG_T::stride_height) {
+        ^~~
+        VITIS_LOOP_192_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62197:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62199:13: warning: Added loop label VITIS_LOOP_194_3:   [xilinx-label-all-loops]
+            for (int jj = 0; jj < restricted_padded_width; jj += CONFIG_T::stride_width) {
+            ^~~
+            VITIS_LOOP_194_3: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62199:13: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62206:17: warning: Added loop label VITIS_LOOP_201_4:   [xilinx-label-all-loops]
+                for (int kk = 0; kk < CONFIG_T::pool_height; kk++) {
+                ^~~
+                VITIS_LOOP_201_4: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62206:17: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62208:21: warning: Added loop label VITIS_LOOP_203_5:   [xilinx-label-all-loops]
+                    for (int ll = 0; ll < CONFIG_T::pool_width; ll++) {
+                    ^~~
+                    VITIS_LOOP_203_5: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62208:21: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62249:5: warning: Added loop label VITIS_LOOP_244_1:   [xilinx-label-all-loops]
+    for (int ff = 0; ff < CONFIG_T::n_filt; ff++) {
+    ^~~
+    VITIS_LOOP_244_1: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62249:5: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62251:9: warning: Added loop label VITIS_LOOP_246_2:   [xilinx-label-all-loops]
+        for (int ii = 0; ii < restricted_padded_height; ii += CONFIG_T::stride_height) {
+        ^~~
+        VITIS_LOOP_246_2: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62251:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62253:13: warning: Added loop label VITIS_LOOP_248_3:   [xilinx-label-all-loops]
+            for (int jj = 0; jj < restricted_padded_width; jj += CONFIG_T::stride_width) {
+            ^~~
+            VITIS_LOOP_248_3: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62253:13: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62259:17: warning: Added loop label VITIS_LOOP_254_4:   [xilinx-label-all-loops]
+                for (int kk = 0; kk < CONFIG_T::stride_height; kk++) {
+                ^~~
+                VITIS_LOOP_254_4: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62259:17: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62261:21: warning: Added loop label VITIS_LOOP_256_5:   [xilinx-label-all-loops]
+                    for (int ll = 0; ll < CONFIG_T::stride_width; ll++) {
+                    ^~~
+                    VITIS_LOOP_256_5: 
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62261:21: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:63753:53: error: Invalid Directive: for current device, fifo + srl is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=layer4x4_out type=fifo impl=srl
+                                                    ^
+/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:63757:53: error: Invalid Directive: for current device, fifo + srl is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=layer5x4_out type=fifo impl=srl
+                                                    ^

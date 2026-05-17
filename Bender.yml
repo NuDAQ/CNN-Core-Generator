@@ -8,4 +8,4 @@ package:
   authors: ["Albert L. Cheung <albert.cheung@cern.ch>"]
 
 sources:
-  - cnn_core_project/cnn_core_prj/solution1/impl/verilog/*
+  - hls_streaming/cnn_core_streaming_prj/solution1/impl/verilog/*

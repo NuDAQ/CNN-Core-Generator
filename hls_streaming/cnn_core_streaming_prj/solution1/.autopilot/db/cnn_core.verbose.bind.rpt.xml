@@ -1,0 +1,49 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'cnn_core'" level="0">
+<item name = "Date">Sun May 17 03:31:37 2026
+</item>
+<item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
+<item name = "Project">cnn_core_streaming_prj</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">kintexuplus</item>
+<item name = "Target device">xcku5p-ffvb676-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00 ns, 3.886 ns, 1.35 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">263, 263, 1.315 us, 1.315 us, 260, 260, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s_fu_70">first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s, 259, 259, 1.295 us, 1.295 us, 259, 259, no</column>
+<column name="grp_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s_fu_77">relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s, 87, 87, 0.435 us, 0.435 us, 87, 87, no</column>
+<column name="grp_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s_fu_83">maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s, 87, 87, 0.435 us, 0.435 us, 87, 87, no</column>
+<column name="grp_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s_fu_89">dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s, 176, 176, 0.880 us, 0.880 us, 176, 176, no</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

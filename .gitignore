@@ -25,6 +25,9 @@
 !cnn_core_project/
 !cnn_core_project/**
 
+!hls_streaming/
+!hls_streaming/**
+
 !rtl
 !rtl/**
 ###########################################################################

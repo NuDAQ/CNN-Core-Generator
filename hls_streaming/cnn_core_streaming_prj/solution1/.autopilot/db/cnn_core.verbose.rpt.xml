@@ -1,0 +1,124 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'cnn_core'" level="0">
+<item name = "Date">Sun May 17 03:31:39 2026
+</item>
+<item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
+<item name = "Project">cnn_core_streaming_prj</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">kintexuplus</item>
+<item name = "Target device">xcku5p-ffvb676-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00 ns, 3.886 ns, 1.35 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">263, 263, 1.315 us, 1.315 us, 260, 260, dataflow</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0">first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s, 259, 259, 1.295 us, 1.295 us, 259, 259, no</column>
+<column name="relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0">relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s, 87, 87, 0.435 us, 0.435 us, 87, 87, no</column>
+<column name="maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0">maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s, 87, 87, 0.435 us, 0.435 us, 87, 87, no</column>
+<column name="dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0">dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s, 176, 176, 0.880 us, 0.880 us, 176, 176, no</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 2, -</column>
+<column name="FIFO">-, -, 297, 201, -</column>
+<column name="Instance">-, 11, 2678, 26297, -</column>
+<column name="Memory">-, -, -, -, -</column>
+<column name="Multiplexer">-, -, -, -, -</column>
+<column name="Register">-, -, -, -, -</column>
+<specialColumn name="Available">960, 1824, 433920, 216960, 64</specialColumn>
+<specialColumn name="Utilization (%)">0, ~0, ~0, 12, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0">dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s, 0, 7, 769, 19616, 0</column>
+<column name="first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0">first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s, 0, 4, 731, 4529, 0</column>
+<column name="maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0">maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s, 0, 0, 913, 1215, 0</column>
+<column name="relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0">relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s, 0, 0, 265, 937, 0</column>
+</table>
+</item>
+<item name = "DSP"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+<column name="layer3x4_out_U">0, 99, 0, -, 4, 252, 1008</column>
+<column name="layer4x4_out_U">0, 99, 0, -, 4, 448, 1792</column>
+<column name="layer5x4_out_U">0, 99, 0, -, 4, 448, 1792</column>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="ap_idle">and, 0, 0, 2, 1, 1</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="input_layer_TDATA">in, 64, axis, input_layer, pointer</column>
+<column name="input_layer_TVALID">in, 1, axis, input_layer, pointer</column>
+<column name="input_layer_TREADY">out, 1, axis, input_layer, pointer</column>
+<column name="layer7_out_TDATA">out, 16, axis, layer7_out, pointer</column>
+<column name="layer7_out_TVALID">out, 1, axis, layer7_out, pointer</column>
+<column name="layer7_out_TREADY">in, 1, axis, layer7_out, pointer</column>
+<column name="ap_clk">in, 1, ap_ctrl_hs, cnn_core, return value</column>
+<column name="ap_rst_n">in, 1, ap_ctrl_hs, cnn_core, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, cnn_core, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, cnn_core, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, cnn_core, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, cnn_core, return value</column>
+</table>
+</item>
+</section>
+</profile>
