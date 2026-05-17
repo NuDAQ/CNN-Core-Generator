@@ -21,36 +21,35 @@ void first_conv_4lane_temporal_cl(
     typedef typename data_T::value_type data_value_t;
     typedef typename res_T::value_type res_value_t;
 
-    data_value_t row_window[CONFIG_T::filt_height][CONFIG_T::in_width];
-    #pragma HLS ARRAY_PARTITION variable=row_window complete dim=0
+    // Ring buffer: each iteration writes one slot; no shift, no loop-carried RAW dependency.
+    data_value_t row_buf[CONFIG_T::filt_height][CONFIG_T::in_width];
+    #pragma HLS ARRAY_PARTITION variable=row_buf complete dim=0
+
+    // wptr: next slot to write (oldest slot after full window).
+    // stride_cnt: replaces % stride_height, eliminates synthesized urem divider.
+    ap_uint<3> wptr = 0;
+    ap_uint<2> stride_cnt = 0;
 
 ReadInputHeight:
     for (unsigned i_ih = 0; i_ih < CONFIG_T::in_height; i_ih++) {
         #pragma HLS PIPELINE II=1
+        #pragma HLS DEPENDENCE variable=row_buf inter false
 
         data_T in_pack = data.read();
-
-    ShiftRows:
-        for (unsigned k = 0; k < CONFIG_T::filt_height - 1; k++) {
-            #pragma HLS UNROLL
-        ShiftWidth:
-            for (unsigned i_iw = 0; i_iw < CONFIG_T::in_width; i_iw++) {
-                #pragma HLS UNROLL
-                row_window[k][i_iw] = row_window[k + 1][i_iw];
-            }
-        }
 
     InsertRow:
         for (unsigned i_iw = 0; i_iw < CONFIG_T::in_width; i_iw++) {
             #pragma HLS UNROLL
-            row_window[CONFIG_T::filt_height - 1][i_iw] = in_pack[i_iw];
+            row_buf[wptr][i_iw] = in_pack[i_iw];
         }
 
-        const bool have_full_window = i_ih >= CONFIG_T::filt_height - 1;
-        const bool on_stride =
-            have_full_window && ((i_ih - (CONFIG_T::filt_height - 1)) % CONFIG_T::stride_height) == 0;
+        // oldest points to the slot just after wptr (the oldest row in the window).
+        ap_uint<3> oldest = (wptr == CONFIG_T::filt_height - 1) ? ap_uint<3>(0) : ap_uint<3>(wptr + 1);
 
-        if (have_full_window && on_stride) {
+        const bool have_full_window = i_ih >= CONFIG_T::filt_height - 1;
+        const bool on_stride = have_full_window && (stride_cnt == 0);
+
+        if (on_stride) {
         WriteOutputWidth:
             for (unsigned i_iw = 0; i_iw < CONFIG_T::in_width; i_iw++) {
                 #pragma HLS PIPELINE II=1
@@ -67,7 +66,11 @@ ReadInputHeight:
             CopyKernel:
                 for (unsigned k = 0; k < CONFIG_T::filt_height; k++) {
                     #pragma HLS UNROLL
-                    kernel_data[k] = row_window[k][i_iw];
+                    // Circular read: oldest row is kernel row 0, newest is filt_height-1.
+                    ap_uint<3> ridx = (oldest + k < CONFIG_T::filt_height)
+                                      ? ap_uint<3>(oldest + k)
+                                      : ap_uint<3>(oldest + k - CONFIG_T::filt_height);
+                    kernel_data[k] = row_buf[ridx][i_iw];
                 }
 
                 CONFIG_T::mult_config::template kernel<data_value_t, res_value_t, typename CONFIG_T::mult_config>::dense(
@@ -81,6 +84,13 @@ ReadInputHeight:
 
                 res.write(res_pack);
             }
+        }
+
+        // Advance ring pointer to the oldest slot (next write overwrites oldest data).
+        wptr = oldest;
+        if (have_full_window) {
+            stride_cnt = (stride_cnt == CONFIG_T::stride_height - 1)
+                         ? ap_uint<2>(0) : ap_uint<2>(stride_cnt + 1);
         }
     }
 }

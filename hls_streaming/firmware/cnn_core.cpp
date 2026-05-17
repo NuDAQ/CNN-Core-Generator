@@ -44,7 +44,7 @@ void cnn_core(
 
     nnet::relu<layer3_t, layer4_t, relu_config4>(layer3_out, layer4_out); // q_conv2d_relu
 
-    nnet::pooling2d_cl<layer4_t, layer5_t, config5>(layer4_out, layer5_out); // max_pooling2d
+    nnet::maxpool2d_nonoverlap_cl<layer4_t, layer5_t, config5>(layer4_out, layer5_out); // max_pooling2d
 
     nnet::dense<layer5_t, result_t, config7>(layer6_out, layer7_out, w7, b7); // q_dense
 

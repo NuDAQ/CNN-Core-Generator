@@ -169,6 +169,8 @@ Current verification status:
 make compare: PASS
 latest checked after first_conv_4lane_temporal_cl replacement: PASS
 extra 128-chunk runner comparison after replacement: PASS
+make compare PASS after ring-buffer + stride-counter + nonoverlap-pool: PASS (8 chunks)
+make compare SAMPLES=128 PASS after same changes: PASS (128 chunks)
 ```
 
 ## Current Model Path
@@ -177,9 +179,9 @@ The current `hls_streaming/firmware` active model is:
 
 ```text
 cnn_core(input_layer, layer7_out)
-  -> first_conv_4lane_temporal_cl<input_t, layer3_t, config3>
+  -> first_conv_4lane_temporal_cl<input_t, layer3_t, config3>   [ring buffer, stride counter]
   -> relu<layer3_t, layer4_t, relu_config4>
-  -> pooling2d_cl<layer4_t, layer5_t, config5>
+  -> maxpool2d_nonoverlap_cl<layer4_t, layer5_t, config5>        [non-overlapping specialization]
   -> dense<layer5_t, result_t, config7>
 ```
 
@@ -188,13 +190,13 @@ The immutable baseline under `../cnn_core_project/firmware` still uses:
 ```text
 repack_stream<input_t, layer2_t, 1024>
   -> conv_2d_cl<layer2_t, layer3_t, config3>
+  -> pooling2d_cl (ap_shift_reg based)
 ```
 
-The working replacement is behavior-equivalent in C++ comparison for the
-current deterministic test vectors. The regenerated Vitis HLS csynth report
-shows the actual estimated hardware interval improvement: 3076 cycles in the
-baseline to 1041 cycles in the working copy. It still needs RTL cosim or OOC
-synthesis before making post-RTL/post-implementation timing claims.
+The working copy is behavior-equivalent in C++ comparison for all tested vectors.
+The last confirmed HLS csynth result (before the ring-buffer and pooling changes)
+was top interval 1041 cycles. A new HLS csynth run is required to confirm the
+effect of the two optimizations described below.
 
 `cnn_core()` has:
 
@@ -273,42 +275,41 @@ Working-copy status:
 ```text
 Replaces repack_stream + conv_2d_cl in hls_streaming/firmware/cnn_core.cpp.
 Consumes 256 input_t words directly, each with 4 lanes.
-Maintains a 5 x 4 row window.
+Maintains a 5 x 4 row window (ring buffer, not shift register).
 Emits the same 336 layer3_t words expected by ReLU/pooling/dense.
-make compare: PASS against ../cnn_core_project/firmware baseline.
-128-chunk manual runner comparison: PASS.
-Vitis HLS csynth after replacement: PASS, top interval 1041 cycles.
+make compare 8-chunk: PASS. make compare 128-chunk: PASS.
+HLS csynth pending after ring-buffer + stride-counter changes.
 ```
 
-RTL optimization intent: remove the generated scalar adapter boundary
-`layer8_out` and avoid the 1024 scalar FIFO writes from `repack_stream`. The
-minimum output-side work for this layer is still at least 336 `layer3_t` writes,
-so the expected hardware improvement is a reduction from the old 1024-scalar
-adapter schedule, not a zero-cost conversion.
-
-Current csynth result:
+Previous csynth result (shift-register version, before ring-buffer fix):
 
 ```text
-top latency / interval:     1041 / 1041 cycles
+top latency / interval:      1041 / 1041 cycles
 first_conv latency/interval: 1040 / 1040 cycles
-first_conv ReadInputHeight:  trip count 256, achieved II=4, target II=1
-estimated clock:            3.236 ns at a 5.00 ns top target
+first_conv ReadInputHeight:  trip count 256, achieved II=4
+estimated clock:             3.236 ns at a 5.00 ns top target
 first_conv resources:        4 DSP, 1198 FF, 3700 LUT, 0 BRAM
+II violation cause:          loop-carried RAW on row_window shift register
+urem overhead:               % stride_height → ~189 FF + 106 LUT divider
 ```
 
-RTL interpretation: the optimization removed the old `repack_stream` interval
-limiter, but the new first-conv block is now the slowest dataflow process. The
-1040-cycle interval is explained by the 256-iteration input loop at II=4
-(256 * 4 = 1024 plus pipeline overhead). The generated report flags an II
-violation caused by a memory dependency at `nnet_first_conv_stream.h:28`, i.e.
-the outer row loop that updates and reuses `row_window`.
+Changes applied (nnet_first_conv_stream.h):
 
-The stride check currently contains `% CONFIG_T::stride_height`; the first-conv
-report shows this became an `urem` divider-like operator with 189 FF and 106
-LUT. Replace it with a small stride counter before deeper restructuring. The
-larger remaining target is to avoid the shift-register memory dependency by
-using a circular 5-row window or another RTL shape that lets the input loop
-approach II=1.
+```text
+1. row_window[5][4] (shift register) → row_buf[5][4] (ring buffer, wptr pointer).
+   Each iteration writes one slot; #pragma HLS DEPENDENCE variable=row_buf inter false
+   tells HLS no inter-iteration RAW exists, removing the II violation source.
+2. % CONFIG_T::stride_height → ap_uint<2> stride_cnt counter.
+   Eliminates the urem synthesized divider (~295 FF+LUT saved).
+3. CopyKernel reads via circular index ridx = (oldest + k) % filt_height
+   implemented as a branch (no division; HLS generates a 5:1 register mux).
+```
+
+Remaining II concern: WriteOutputWidth inner loop (4 stream writes, 4 iterations)
+sits inside the pipelined ReadInputHeight loop. HLS may still set outer II to 4
+for stride iterations. Actual II after these changes requires a new HLS csynth run.
+If II stays at 4, the next step is to decouple the output path into a separate
+dataflow process or a local output buffer.
 
 ### repack_stream
 
@@ -452,32 +453,45 @@ achieved II:        1
 
 Meaning: simple streaming stage, not a main optimization target.
 
-### pooling2d_cl
+### maxpool2d_nonoverlap_cl  (replaces pooling2d_cl)
 
 Location:
 
 ```text
-firmware/nnet_utils/nnet_pooling_stream.h
+firmware/nnet_utils/nnet_pooling_stream.h  (added at end of file)
+firmware/cnn_core.cpp: call changed from pooling2d_cl to maxpool2d_nonoverlap_cl
 ```
 
 Behavior:
 
 ```text
-reads 336 words of 7
-linebuffer-style maxpool over 84 x 4 x 7
-pool 2 x 1, stride 2 x 1
+reads 336 words of 7  (84 rows x 4 width, each word = 7 filters)
+non-overlapping 2x1 max pool (pool_height=2, stride_height=2, pool_width=1)
 writes 168 words of 7
 ```
 
-Observed HLS report:
+Previous pooling2d_cl HLS report (ap_shift_reg based, II=2):
 
 ```text
 latency / interval: 674 cycles
 input loop trip:    336
 achieved II:        2
+root cause:         ap_shift_reg read-modify-write + conditional FiltLoop
 ```
 
-Meaning: smaller than repack and conv, but still above a 256-cycle chunk target.
+New implementation (flat single loop, target II=1):
+
+```text
+Single PoolMain loop: 84 * 4 = 336 iterations, #pragma HLS PIPELINE II=1
+State: prev_row[in_width=4] (array of data_T, complete partition) + on_second_row bool
+First row pass:  store data.read() into prev_row[i_w]
+Second row pass: elementwise max(prev_row[i_w], cur), write to res
+No ap_shift_reg, no static counters, no conditional nested loops.
+Expected interval: ~336 cycles (2x improvement over 674).
+HLS csynth pending.
+```
+
+Static asserts guard correct use: pool_height==2, pool==stride, pool_width==1, no padding, Max op.
 
 ### dense
 
@@ -517,31 +531,47 @@ intervals are improved.
 
 ## Current Bottleneck Facts
 
-The current working copy has regenerated Vitis HLS csynth reports under
-`hls_streaming/cnn_core_streaming_prj/solution1`. There is no OOC synthesis or
-RTL cosim transaction report in the checked local reports yet, so treat the
-numbers below as HLS estimates, not post-place-and-route timing.
+All numbers are HLS csynth estimates unless noted. No OOC or RTL cosim yet.
 
-Optimized working-copy HLS report:
+Last confirmed HLS csynth (shift-register first_conv + pooling2d_cl, before ring-buffer + pool changes):
 
 ```text
 HLS latency estimate:    1041 cycles
 HLS interval estimate:   1041 cycles
-Latency time:            5.205 us at the 5.00 ns target
-Estimated clock:         3.236 ns at a 5.00 ns target
-Dataflow throughput:     1041 cycles
+Estimated clock:         3.236 ns at 5.00 ns target
 Resources:               18 BRAM_18K, 17 DSP, 30477 FF, 36936 LUT
 ```
 
-Slowest current dataflow stages:
-
 ```text
-Stage                      Latency   Interval   Why it matters
-first_conv_4lane_temporal     1040       1040   current limiter, input loop II=4
-pooling2d                      674        674   next limiter after first conv
-relu                           339        339   simple stream stage
+Stage                      Latency   Interval   Why it mattered
+first_conv_4lane_temporal     1040       1040   II=4 from shift-register RAW + urem
+pooling2d_cl                   674        674   II=2 from ap_shift_reg
+relu                           339        339   simple stream stage, II=1
 dense                          176        176   resource-heavy, not interval limiter
 ```
+
+Changes applied (HLS csynth not yet re-run, run on server to confirm):
+
+```text
+first_conv: ring buffer + stride counter → removes RAW dep + urem divider.
+            If WriteOutputWidth (4 stream writes) limits outer II: expect II=4 still.
+            If HLS resolves: expect II closer to 1-2, interval ~256-512 cycles.
+pooling:    maxpool2d_nonoverlap_cl flat loop → target II=1, expected ~336 cycles.
+```
+
+After changes, estimated bottleneck chain (pending HLS confirmation):
+
+```text
+Stage                      Est. Interval   Basis
+first_conv (ring buf)      256–1040        depends on whether WriteOutputWidth limits II
+maxpool2d_nonoverlap       ~336            flat loop II=1 target
+relu                        339            unchanged, II=1
+dense                       176            unchanged, resource hotspot
+```
+
+If first_conv interval drops below 339, the next bottleneck becomes relu (~339 cycles).
+If first_conv stays near 1040, the pool improvement (~674 → 336) does not change top interval.
+Run HLS csynth to determine which scenario applies.
 
 Baseline reports before first-conv replacement:
 

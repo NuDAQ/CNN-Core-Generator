@@ -339,6 +339,60 @@ ReadInput:
     }
 }
 
+// *************************************************
+//   Non-overlapping 2x1 max pool specialization
+//   Conditions: pool_height==2, stride_height==2, pool_width==1, no padding, Max pool.
+//   Avoids ap_shift_reg and achieves II=1 on a single flat loop over all input words.
+// *************************************************
+template <class data_T, class res_T, typename CONFIG_T>
+void maxpool2d_nonoverlap_cl(hls::stream<data_T> &data, hls::stream<res_T> &res) {
+    static_assert(CONFIG_T::pool_height == 2,
+                  "maxpool2d_nonoverlap_cl: pool_height must be 2");
+    static_assert(CONFIG_T::pool_height == CONFIG_T::stride_height,
+                  "maxpool2d_nonoverlap_cl: pool must equal stride (non-overlapping)");
+    static_assert(CONFIG_T::pool_width == 1 && CONFIG_T::stride_width == 1,
+                  "maxpool2d_nonoverlap_cl: pool_width must be 1");
+    static_assert(CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 &&
+                  CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0,
+                  "maxpool2d_nonoverlap_cl: padding must be zero");
+    static_assert(CONFIG_T::pool_op == nnet::Max,
+                  "maxpool2d_nonoverlap_cl: only Max pooling supported");
+
+    // Buffer one full row (in_width words, each holding n_filt values).
+    data_T prev_row[CONFIG_T::in_width];
+    #pragma HLS ARRAY_PARTITION variable=prev_row complete
+
+    unsigned i_w = 0;           // width counter 0..in_width-1
+    bool on_second_row = false; // false: buffer first row; true: max+emit second row
+
+PoolMain:
+    for (unsigned i = 0; i < CONFIG_T::in_height * CONFIG_T::in_width; i++) {
+        #pragma HLS PIPELINE II=1
+
+        data_T cur = data.read();
+
+        if (!on_second_row) {
+            prev_row[i_w] = cur;
+        } else {
+            res_T out_pack;
+            PRAGMA_DATA_PACK(out_pack)
+        PoolMax:
+            for (unsigned f = 0; f < CONFIG_T::n_filt; f++) {
+                #pragma HLS UNROLL
+                out_pack[f] = (prev_row[i_w][f] > cur[f]) ? prev_row[i_w][f] : cur[f];
+            }
+            res.write(out_pack);
+        }
+
+        if (i_w == CONFIG_T::in_width - 1) {
+            i_w = 0;
+            on_second_row = !on_second_row;
+        } else {
+            i_w = i_w + 1;
+        }
+    }
+}
+
 } // namespace nnet
 
 #endif
