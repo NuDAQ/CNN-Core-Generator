@@ -31,6 +31,13 @@ Use code reads for exact local implementation details before edits.
 Use reports/tool indexes for evidence and cross-checks.
 ```
 
+Important analysis rule: optimization reasoning should be from the FPGA/RTL
+implementation view. Treat the C++ as an HLS specification that becomes RTL
+modules, FSMs, FIFOs, handshake logic, local memories, and scheduled
+operations. Prefer evidence from generated Verilog/VHDL, HLS schedule reports,
+RTL cosim transaction reports, and implementation/synthesis resource reports
+over surface-level C loop intuition.
+
 When this file becomes stale, update it in the same change that changes the
 code or analysis assumption. Treat it as part of the working project state, not
 as a one-time note.
@@ -259,11 +266,42 @@ Observed HLS report:
 latency / interval: 3075 cycles
 trip count:         1024
 achieved II:        3
+generated RTL:      5-state pipelined FSM, pipeline depth 5
+local storage:      4 x 12-bit in_data RAM/register file
+input interface:    64-bit AXIS input_layer
+output interface:   12-bit ap_fifo layer8_out, depth 1024
 ```
 
 Meaning: this is currently the largest interval limiter, and it performs only
 format conversion. It is the first candidate to remove, bypass, or fuse with
 the first convolution.
+
+RTL-level interpretation:
+
+```text
+input_layer_TDATA carries four useful 12-bit lanes in a 64-bit AXIS word.
+The generated RTL stores those four lanes into a tiny 4-entry local memory.
+It then reads one 12-bit lane and writes one scalar word to layer8_out.
+The flattened output loop has 1024 iterations and II=3, so one scalar leaves
+about every three cycles even when input/output handshakes are not stalling.
+```
+
+The limiting issue is not LUT/DSP/BRAM area. `repack_stream` uses only about
+86 FF and 264 LUT in the HLS estimate. The issue is the scheduled RTL shape:
+AXIS read, lane extraction, local memory writes, local memory read, and
+ap_fifo write are serialized through the HLS-generated FSM. Because the
+downstream Conv2D expects a scalar `layer2_t` stream, the design pays four
+scalar output transactions for every one 4-lane input word.
+
+Optimization stance:
+
+```text
+Do not treat repack_stream as a C helper to micro-optimize.
+Treat it as an RTL protocol/data-width adapter that should disappear or be
+fused into the first convolution.
+Best target: consume input_t directly in a model-specific first-conv RTL/HLS
+block and emit the same 336 layer3_t words as baseline Conv2D.
+```
 
 ### conv_2d_cl
 
@@ -493,7 +531,9 @@ baseline for equivalent chunk inputs.
    ```
 
    Reason: this attacks both the largest non-compute bottleneck and the second
-   bottleneck together.
+   bottleneck together. From the RTL view, the goal is to remove the scalar
+   adapter and its 1024-iteration II=3 output schedule, not merely to rewrite
+   the C++ helper.
 
 2. Test input granularity variants.
 

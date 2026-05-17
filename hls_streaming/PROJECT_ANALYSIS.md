@@ -29,6 +29,13 @@ rg         fast source search
 For day-to-day navigation, `clangd` plus an editor is the most useful setup.
 For quick terminal work, `rg` and `ctags -x` are enough.
 
+Analysis rule for optimization work: reason from the FPGA implementation view.
+The C++ source is only the HLS input. The object being optimized is the RTL
+that Vitis emits: modules, FSM states, ready/valid handshakes, ap_fifo reads
+and writes, inferred local memories, achieved II, clock timing, and utilization.
+When a claim matters, prefer generated Verilog/VHDL and HLS schedule/resource
+reports over surface-level C loop intuition.
+
 ## Size and Reading Strategy
 
 Excluding `hls_streaming/build/`, the project has about 27k lines of relevant
@@ -209,12 +216,40 @@ into four output writes. The report shows:
 latency / interval: 3075 cycles
 loop trip count:    1024
 achieved II:        3
+RTL FSM:            5 scheduled states, pipeline depth 5
+local storage:      4 x 12-bit in_data RAM/register file
+input port:         input_layer_TDATA 64-bit AXIS
+output port:        layer8_out_din 12-bit ap_fifo
 ```
 
 This is the largest current interval limiter. It is not doing neural-network
 math; it is converting from 4-lane input words to scalar words for the generated
 Conv2D stream implementation. This is the first place to question whether the
 chosen internal data granularity is paying for itself.
+
+RTL-level view:
+
+```text
+input_layer_TDATA[11:0], [27:16], [43:32], [59:48]
+  -> tiny 4-entry local in_data storage
+  -> one 12-bit lane read
+  -> one layer8_out ap_fifo write
+```
+
+The generated module is not area-heavy: the HLS estimate is roughly 86 FF and
+264 LUT, with no DSP and no BRAM. The problem is schedule shape. Vitis creates
+a pipelined loop with II=3 over 1024 scalar outputs. Even with perfect AXIS
+input availability and a non-full `layer8_out` FIFO, the adapter can only emit
+one scalar word about every three cycles. The input side only needs 256 AXIS
+reads, but the output side creates 1024 scalar FIFO writes and drives the
+transaction interval.
+
+This means `repack_stream` should be treated as an RTL data-width/protocol
+adapter, not as a compute kernel. Micro-optimizing the C helper is unlikely to
+be the right first move. The better target is to remove the scalar stream
+boundary: either make the first convolution consume `input_t` directly, or fuse
+the repack and first-conv schedules so the 4 lanes are used where they arrive
+instead of being serialized into `layer8_out`.
 
 ### conv_2d_cl
 
