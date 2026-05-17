@@ -61751,36 +61751,35 @@ void first_conv_4lane_temporal_cl(
     typedef typename data_T::value_type data_value_t;
     typedef typename res_T::value_type res_value_t;
 
-    data_value_t row_window[CONFIG_T::filt_height][CONFIG_T::in_width];
-#pragma HLS ARRAY_PARTITION variable=row_window complete dim=0
+
+    data_value_t row_buf[CONFIG_T::filt_height][CONFIG_T::in_width];
+#pragma HLS ARRAY_PARTITION variable=row_buf complete dim=0
+
+
+
+ ap_uint<3> wptr = 0;
+    ap_uint<2> stride_cnt = 0;
 
 ReadInputHeight:
     for (unsigned i_ih = 0; i_ih < CONFIG_T::in_height; i_ih++) {
 #pragma HLS PIPELINE II=1
+#pragma HLS DEPENDENCE variable=row_buf inter false
 
  data_T in_pack = data.read();
-
-    ShiftRows:
-        for (unsigned k = 0; k < CONFIG_T::filt_height - 1; k++) {
-#pragma HLS UNROLL
- ShiftWidth:
-            for (unsigned i_iw = 0; i_iw < CONFIG_T::in_width; i_iw++) {
-#pragma HLS UNROLL
- row_window[k][i_iw] = row_window[k + 1][i_iw];
-            }
-        }
 
     InsertRow:
         for (unsigned i_iw = 0; i_iw < CONFIG_T::in_width; i_iw++) {
 #pragma HLS UNROLL
- row_window[CONFIG_T::filt_height - 1][i_iw] = in_pack[i_iw];
+ row_buf[wptr][i_iw] = in_pack[i_iw];
         }
 
-        const bool have_full_window = i_ih >= CONFIG_T::filt_height - 1;
-        const bool on_stride =
-            have_full_window && ((i_ih - (CONFIG_T::filt_height - 1)) % CONFIG_T::stride_height) == 0;
 
-        if (have_full_window && on_stride) {
+        ap_uint<3> oldest = (wptr == CONFIG_T::filt_height - 1) ? ap_uint<3>(0) : ap_uint<3>(wptr + 1);
+
+        const bool have_full_window = i_ih >= CONFIG_T::filt_height - 1;
+        const bool on_stride = have_full_window && (stride_cnt == 0);
+
+        if (on_stride) {
         WriteOutputWidth:
             for (unsigned i_iw = 0; i_iw < CONFIG_T::in_width; i_iw++) {
 #pragma HLS PIPELINE II=1
@@ -61797,7 +61796,11 @@ ReadInputHeight:
             CopyKernel:
                 for (unsigned k = 0; k < CONFIG_T::filt_height; k++) {
 #pragma HLS UNROLL
- kernel_data[k] = row_window[k][i_iw];
+
+ ap_uint<3> ridx = (oldest + k < CONFIG_T::filt_height)
+                                      ? ap_uint<3>(oldest + k)
+                                      : ap_uint<3>(oldest + k - CONFIG_T::filt_height);
+                    kernel_data[k] = row_buf[ridx][i_iw];
                 }
 
                 CONFIG_T::mult_config::template kernel<data_value_t, res_value_t, typename CONFIG_T::mult_config>::dense(
@@ -61811,6 +61814,13 @@ ReadInputHeight:
 
                 res.write(res_pack);
             }
+        }
+
+
+        wptr = oldest;
+        if (have_full_window) {
+            stride_cnt = (stride_cnt == CONFIG_T::stride_height - 1)
+                         ? ap_uint<2>(0) : ap_uint<2>(stride_cnt + 1);
         }
     }
 }
@@ -63290,6 +63300,60 @@ ReadInput:
     }
 }
 
+
+
+
+
+
+template <class data_T, class res_T, typename CONFIG_T>
+void maxpool2d_nonoverlap_cl(hls::stream<data_T> &data, hls::stream<res_T> &res) {
+    static_assert(CONFIG_T::pool_height == 2,
+                  "maxpool2d_nonoverlap_cl: pool_height must be 2");
+    static_assert(CONFIG_T::pool_height == CONFIG_T::stride_height,
+                  "maxpool2d_nonoverlap_cl: pool must equal stride (non-overlapping)");
+    static_assert(CONFIG_T::pool_width == 1 && CONFIG_T::stride_width == 1,
+                  "maxpool2d_nonoverlap_cl: pool_width must be 1");
+    static_assert(CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 &&
+                  CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0,
+                  "maxpool2d_nonoverlap_cl: padding must be zero");
+    static_assert(CONFIG_T::pool_op == nnet::Max,
+                  "maxpool2d_nonoverlap_cl: only Max pooling supported");
+
+
+    data_T prev_row[CONFIG_T::in_width];
+#pragma HLS ARRAY_PARTITION variable=prev_row complete
+
+ unsigned i_w = 0;
+    bool on_second_row = false;
+
+PoolMain:
+    for (unsigned i = 0; i < CONFIG_T::in_height * CONFIG_T::in_width; i++) {
+#pragma HLS PIPELINE II=1
+
+ data_T cur = data.read();
+
+        if (!on_second_row) {
+            prev_row[i_w] = cur;
+        } else {
+            res_T out_pack;
+
+        PoolMax:
+            for (unsigned f = 0; f < CONFIG_T::n_filt; f++) {
+#pragma HLS UNROLL
+ out_pack[f] = (prev_row[i_w][f] > cur[f]) ? prev_row[i_w][f] : cur[f];
+            }
+            res.write(out_pack);
+        }
+
+        if (i_w == CONFIG_T::in_width - 1) {
+            i_w = 0;
+            on_second_row = !on_second_row;
+        } else {
+            i_w = i_w + 1;
+        }
+    }
+}
+
 }
 # 20 "firmware/parameters.h" 2
 
@@ -63459,7 +63523,7 @@ __attribute__((sdx_kernel("cnn_core", 0))) void cnn_core(
 
     nnet::relu<layer3_t, layer4_t, relu_config4>(layer3_out, layer4_out);
 
-    nnet::pooling2d_cl<layer4_t, layer5_t, config5>(layer4_out, layer5_out);
+    nnet::maxpool2d_nonoverlap_cl<layer4_t, layer5_t, config5>(layer4_out, layer5_out);
 
     nnet::dense<layer5_t, result_t, config7>(layer6_out, layer7_out, w7, b7);
 

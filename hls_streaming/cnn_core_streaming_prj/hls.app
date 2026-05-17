@@ -1,4 +1,4 @@
-<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" top="cnn_core" name="cnn_core_streaming_prj">
+<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" top="cnn_core" name="cnn_core_streaming_prj">
     <files>
         <file name="../../firmware/weights" sc="0" tb="1" cflags="-Wno-unknown-pragmas" csimflags="" blackbox="false"/>
         <file name="../../tb/compare_runner.cpp" sc="0" tb="1" cflags="-std=c++14 -I../../. -I../../firmware -Wno-unknown-pragmas" csimflags="" blackbox="false"/>
