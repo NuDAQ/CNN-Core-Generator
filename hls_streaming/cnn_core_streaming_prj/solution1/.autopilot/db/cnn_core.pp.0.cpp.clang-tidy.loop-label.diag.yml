@@ -1,0 +1,937 @@
+---
+MainSourceFile:  /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+Diagnostics:     
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1207_1:  '
+    FileOffset:      1207
+    FilePath:        /tools/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/ap_int_base.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          812333
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1207_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_676_1:  '
+    FileOffset:      676
+    FilePath:        /tools/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          1040161
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_676_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_690_1:  '
+    FileOffset:      690
+    FilePath:        /tools/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          1040629
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_690_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_704_1:  '
+    FileOffset:      704
+    FilePath:        /tools/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/ap_int_ref.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          1041098
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_704_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_1247_1:  '
+    FileOffset:      1247
+    FilePath:        /tools/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/ap_fixed_base.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          1324642
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_1247_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_27_1:  '
+    FileOffset:      27
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_types.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          1698808
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_27_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_39_1:  '
+    FileOffset:      39
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_types.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          1699046
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_39_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_56_1:  '
+    FileOffset:      56
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_types.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          1699541
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_56_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_265_1:  '
+    FileOffset:      265
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2393243
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_265_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_275_1:  '
+    FileOffset:      275
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2393630
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_275_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_286_1:  '
+    FileOffset:      286
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2393965
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_286_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_293_1:  '
+    FileOffset:      293
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2394188
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_293_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_295_2:  '
+    FileOffset:      295
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2394283
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_295_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_307_1:  '
+    FileOffset:      307
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2394647
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_307_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_309_2:  '
+    FileOffset:      309
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2394729
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_309_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_324_1:  '
+    FileOffset:      324
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2395072
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_324_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_344_1:  '
+    FileOffset:      344
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2395525
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_344_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_345_2:  '
+    FileOffset:      345
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2395570
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_345_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_360_1:  '
+    FileOffset:      360
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2395979
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_360_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_367_1:  '
+    FileOffset:      367
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2396192
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_367_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_136_1:  '
+    FileOffset:      136
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_conv1d_latency.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2405744
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_136_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_137_2:  '
+    FileOffset:      137
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_conv1d_latency.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2405828
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_137_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_158_3:  '
+    FileOffset:      158
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_conv1d_latency.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2406370
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_158_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_159_4:  '
+    FileOffset:      159
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_conv1d_latency.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2406454
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_159_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_31_1:  '
+    FileOffset:      31
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2410633
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_31_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_43_1:  '
+    FileOffset:      43
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2410886
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_43_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_57_1:  '
+    FileOffset:      57
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2411247
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_57_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_84_1:  '
+    FileOffset:      84
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2412063
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_84_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_114_1:  '
+    FileOffset:      114
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2412724
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_114_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_151_1:  '
+    FileOffset:      151
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2413869
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_151_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_167_1:  '
+    FileOffset:      167
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2414333
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_167_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_200_1:  '
+    FileOffset:      200
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2415265
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_200_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_213_2:  '
+    FileOffset:      213
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2415800
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_213_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_246_1:  '
+    FileOffset:      246
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2416663
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_246_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_255_2:  '
+    FileOffset:      255
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2416933
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_255_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_268_3:  '
+    FileOffset:      268
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2417496
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_268_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_275_1:  '
+    FileOffset:      275
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2417733
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_275_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_288_1:  '
+    FileOffset:      288
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2418093
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_288_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_325_1:  '
+    FileOffset:      325
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2419050
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_325_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_330_2:  '
+    FileOffset:      330
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2419170
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_330_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_331_3:  '
+    FileOffset:      331
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2419227
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_331_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_348_4:  '
+    FileOffset:      348
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2419827
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_348_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_361_1:  '
+    FileOffset:      361
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2420335
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_361_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_369_2:  '
+    FileOffset:      369
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2420479
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_369_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_405_1:  '
+    FileOffset:      405
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2421674
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_405_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_407_2:  '
+    FileOffset:      407
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2421743
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_407_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_409_3:  '
+    FileOffset:      409
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2421812
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_409_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_414_4:  '
+    FileOffset:      414
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2422068
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_414_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_427_1:  '
+    FileOffset:      427
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2422382
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_427_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_457_1:  '
+    FileOffset:      457
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2423019
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_457_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_484_1:  '
+    FileOffset:      484
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2423855
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_484_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_498_1:  '
+    FileOffset:      498
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2424197
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_498_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_514_1:  '
+    FileOffset:      514
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2424655
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_514_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_532_1:  '
+    FileOffset:      532
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2425125
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_532_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_549_1:  '
+    FileOffset:      549
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2425528
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_549_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_566_1:  '
+    FileOffset:      566
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2425923
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_566_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_596_1:  '
+    FileOffset:      596
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2426589
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_596_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_615_1:  '
+    FileOffset:      615
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2427163
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_615_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_645_1:  '
+    FileOffset:      645
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2427829
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_645_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_664_1:  '
+    FileOffset:      664
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2428383
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_664_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_694_1:  '
+    FileOffset:      694
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2429032
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_694_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_721_1:  '
+    FileOffset:      721
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2429870
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_721_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_749_1:  '
+    FileOffset:      749
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2430554
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_749_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_779_1:  '
+    FileOffset:      779
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2431239
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_779_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_808_1:  '
+    FileOffset:      808
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2432079
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_808_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_828_1:  '
+    FileOffset:      828
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2432498
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_828_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_229_1:  '
+    FileOffset:      229
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2438552
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_229_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_236_2:  '
+    FileOffset:      236
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2438692
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_236_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_245_3:  '
+    FileOffset:      245
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2438957
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_245_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_254_4:  '
+    FileOffset:      254
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2439151
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_254_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_258_5:  '
+    FileOffset:      258
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2439244
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_258_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_269_6:  '
+    FileOffset:      269
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2439570
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_269_6: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_273_7:  '
+    FileOffset:      273
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2439680
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_273_7: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_297_1:  '
+    FileOffset:      297
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2440646
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_297_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_301_2:  '
+    FileOffset:      301
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2440732
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_301_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_320_1:  '
+    FileOffset:      320
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2441408
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_320_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_211_1:  '
+    FileOffset:      211
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation_stream.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2447710
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_211_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_220_2:  '
+    FileOffset:      220
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation_stream.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2447988
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_220_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_325_1:  '
+    FileOffset:      325
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation_stream.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2451209
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_325_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_330_2:  '
+    FileOffset:      330
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation_stream.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2451351
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_330_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_338_3:  '
+    FileOffset:      338
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation_stream.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2451555
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_338_3: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Resource with core_name: ROM_nP_BRAM pragma is ignored, because this core doesn''t exist at all '
+    FileOffset:      33
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_dense_resource.h
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Resource with core_name: ROM_nP_BRAM pragma is ignored, because this core doesn''t exist at all '
+    FileOffset:      107
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_dense_resource.h
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Resource with core_name: ROM_nP_BRAM pragma is ignored, because this core doesn''t exist at all '
+    FileOffset:      189
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_dense_resource.h
+    Replacements:    
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_64_1:  '
+    FileOffset:      64
+    FilePath:        /tools/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/ap_shift_reg.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2488187
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_64_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_71_1:  '
+    FileOffset:      71
+    FilePath:        /tools/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/ap_shift_reg.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2488391
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_71_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_14_1:  '
+    FileOffset:      14
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_dense_compressed.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2505507
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_14_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_74_1:  '
+    FileOffset:      74
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_dense_compressed.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2507378
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_74_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_13_1:  '
+    FileOffset:      13
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2514692
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_13_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_22_1:  '
+    FileOffset:      22
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2514891
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_22_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_97_1:  '
+    FileOffset:      97
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2516819
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_97_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_99_2:  '
+    FileOffset:      99
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2516876
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_99_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_104_3:  '
+    FileOffset:      104
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2517101
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_104_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_132_1:  '
+    FileOffset:      132
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2518418
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_132_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_135_2:  '
+    FileOffset:      135
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2518561
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_135_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_190_1:  '
+    FileOffset:      190
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2520838
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_190_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_192_2:  '
+    FileOffset:      192
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2520895
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_192_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_194_3:  '
+    FileOffset:      194
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2520989
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_194_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_201_4:  '
+    FileOffset:      201
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2521248
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_201_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_203_5:  '
+    FileOffset:      203
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2521322
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_203_5: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_244_1:  '
+    FileOffset:      244
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2523687
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_244_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_246_2:  '
+    FileOffset:      246
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2523744
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_246_2: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_248_3:  '
+    FileOffset:      248
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2523838
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_248_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_254_4:  '
+    FileOffset:      254
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2524094
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_254_4: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_256_5:  '
+    FileOffset:      256
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
+    Replacements:    
+      - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
+        Offset:          2524170
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_256_5: '
+...
