@@ -11,6 +11,7 @@ The current intent is:
    run the same deterministic inputs, and compare their outputs exactly.
 4. Modify this directory later for the streaming ADC trigger pipeline.
 
-On macOS, plain Clang/libc++ may fail to compile the Xilinx `ap_fixed` headers
-because of a `std::complex` declaration conflict. Run this comparison under
-Vitis HLS or a Linux/GNU toolchain when possible.
+For macOS, `make compare` creates temporary patched copies of the Xilinx
+`ap_types` headers under `build/` to avoid a Clang/libc++ `std::complex`
+declaration conflict. The source trees under `../cnn_core_project/firmware`
+and `firmware/` are not modified by that compatibility step.
