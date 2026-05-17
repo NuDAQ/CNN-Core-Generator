@@ -61,26 +61,30 @@ PASS: baseline and hls_streaming C++ outputs match exactly.
 
 ## Current Development Plan
 
-The trigger problem is primarily a throughput problem, not a single-window
-end-to-end latency problem. The ADC stream is expected to provide one sample per
-channel per nanosecond. For the current four-channel inference path, this means
-the hardware must keep up with a continuous stream of four-channel samples. A
+The trigger problem is primarily a throughput problem, not a single-chunk
+end-to-end latency problem. The ADC front end is expected to provide one sample
+per channel per nanosecond, and the DAQ/front-end logic packages these samples
+into non-overlapping 256-sample chunks. For the current four-channel inference
+path, each chunk contains a 256 x 4 input and produces one trigger score. A
 fixed latency of multiple microseconds can still be acceptable if the steady
-state pipeline interval is high enough to keep up with the input stream.
+state pipeline interval is high enough to keep up with the incoming chunk rate.
 
-The current hls4ml implementation processes one complete 256 x 4 input window
-per inference. This is a useful baseline, but it is not the natural hardware
-shape for a continuous ADC trigger. Adjacent trigger windows overlap heavily, so
-reloading and repacking a full tensor for every score wastes throughput. The
-streaming design should instead move toward:
+The current hls4ml implementation already treats one complete 256 x 4 input
+window as one inference transaction. This is the correct functional baseline for
+the present DAQ contract: adjacent chunks are independent and should not be
+assumed to overlap. The hardware work should therefore focus on making the
+chunked stream path efficient, avoiding unnecessary format-conversion or
+full-tensor repacking overhead inside the HLS design.
+
+The streaming design should move toward:
 
 ```text
-ADC stream
-  -> sliding sample buffer / shift register
+ADC/front-end packet stream
+  -> 256-sample chunk buffer or direct chunk stream
   -> convolution kernel
   -> activation
-  -> pooling or time-domain reduction
-  -> dense / accumulator / score logic
+  -> pooling
+  -> dense / score logic
   -> trigger output
 ```
 
@@ -91,10 +95,10 @@ path:
 2. Keep the hls4ml baseline untouched under `../cnn_core_project/firmware`.
 3. First replace or wrap the `repack_stream`/full-window input path in
    `./firmware`.
-4. Introduce a sliding-window generator that can reuse samples across adjacent
-   windows.
-5. Keep output alignment against the baseline for equivalent non-overlapping
-   test windows before adding continuous-window tests.
+4. Preserve the non-overlapping 256-sample chunk semantics: one chunk in, one
+   score out.
+5. Keep output alignment against the baseline for equivalent chunk inputs before
+   adding higher-throughput streaming tests.
 
 Once the input path is stable, the next optimization target is the first
 convolution path. For waveform-trigger workloads, a 1D-CNN-like implementation
@@ -107,11 +111,11 @@ refactor.
 Open design questions:
 
 ```text
-Throughput target       Can the steady-state pipeline accept 4 channel samples every ns?
-Window semantics        Should the trigger score be produced for every sample or for a coarser stride?
+Throughput target       Can the steady-state pipeline keep up with one 256-sample chunk every 256 ns?
+Chunk contract          What exact packet framing and valid/ready behavior will the front end provide?
 Channel mixing          Should early kernels mix the 4 channels, or preserve per-channel feature extraction first?
 Quantization            Can heterogeneous or channel-wise quantization reduce kernel cost without accuracy loss?
-Reference comparison    How should continuous overlapping windows be aligned against the chunk baseline?
+Reference comparison    How should high-throughput chunk streams be checked against the chunk baseline?
 ```
 
 ## CNN and C++ Structure
@@ -179,12 +183,14 @@ layer5_out   depth 168    maxpool output, packed 7 values per stream word
 ```
 
 This mapping is important for streaming work. The current C++ project still
-processes one complete hls4ml input window at a time. A future ADC-streaming
+processes one complete hls4ml input window at a time. This matches the current
+non-overlapping chunk contract from the front end. A future ADC-streaming
 version should replace or wrap the `repack_stream`/window input path so that
-overlapping ADC windows can reuse samples instead of repacking a full tensor for
-every score. The first milestone is not to change the network math, but to make
-the data path look more like a continuous stream while preserving baseline
-outputs for equivalent windows.
+the data path accepts chunked ADC packets efficiently instead of spending cycles
+on avoidable internal format conversion. The first milestone is not to change
+the network math, but to make the data path look more like a continuous stream
+of independent chunks while preserving baseline outputs for equivalent chunk
+inputs.
 
 ## Current hls4ml Baseline Bottlenecks
 
@@ -269,10 +275,11 @@ Interpretation for streaming work:
    achieved II=2, not II=1.
 4. The dense layer dominates the HLS per-block LUT/FF/DSP estimate, but it is
    not the main interval limiter for the current single-window hls4ml pipeline.
-5. For a continuous ADC trigger pipeline, the first targets should be the input
-   formatting/repack path, the sliding-window generator, and the first
-   convolution path. Avoid reloading or repacking highly overlapping windows if
-   the ADC stream can feed the compute pipeline directly.
+5. For a continuous ADC trigger pipeline with non-overlapping chunks, the first
+   targets should be the input formatting/repack path, chunk buffering or direct
+   chunk streaming, and the first convolution path. Avoid internal data
+   reshaping that does not contribute to the one-chunk-in, one-score-out
+   contract.
 
 ## macOS and Ubuntu
 
