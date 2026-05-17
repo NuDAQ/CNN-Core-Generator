@@ -449,6 +449,33 @@ explicit `BIND_STORAGE type=fifo impl=srl` pragmas. `make compare SAMPLES=1024`
 still passes. The next HLS run should check whether interval remains near 260
 cycles and whether BRAM drops from the 57 BRAM_18K estimate.
 
+Confirmed HLS result after SRL FIFO binding:
+
+```text
+HLS latency estimate:    265 cycles
+HLS interval estimate:   260 cycles
+Estimated clock:         3.886 ns at 5.00 ns target
+Resources:               7 BRAM_18K, 17 DSP, 30756 FF, 39119 LUT
+```
+
+The BRAM regression is fixed. `layer3x4_out`, `layer4x4_out`, and `layer5x4_out`
+are implemented as SRL FIFOs with 0 BRAM; only `layer5_out` remains a RAM FIFO
+at 7 BRAM_18K. The next resource target is dense, which still dominates FF/LUT
+while sitting below the 260-cycle top interval.
+
+Current dense resource experiment:
+
+```text
+config7::reuse_factor: 1 -> 42
+make compare SAMPLES=1024: PASS
+```
+
+This should not change model math. The remote HLS run should check whether
+dense remains below the 259-cycle first-conv interval and how much FF/LUT are
+actually recovered. Because the current dense latency implementation still
+fully partitions local input and intermediate arrays, the resource reduction may
+be less linear than the raw multiplier-count estimate suggests.
+
 Baseline top-level reports:
 
 ```text

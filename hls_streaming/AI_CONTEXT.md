@@ -438,6 +438,39 @@ HLS csynth is pending for this resource-cleanup change. Expected result: top
 interval stays near 260 cycles, while BRAM drops substantially if Vitis accepts
 the SRL binding for these shallow 448-bit FIFOs.
 
+Confirmed HLS result after SRL FIFO binding:
+
+```text
+top latency / interval:        265 / 260 cycles
+estimated clock:               3.886 ns at 5.00 ns target
+Resources:                   7 BRAM_18K, 17 DSP, 30756 FF, 39119 LUT
+```
+
+FIFO implementation:
+
+```text
+layer3x4_out depth 4, 252 bits -> SRL, 0 BRAM
+layer4x4_out depth 4, 448 bits -> SRL, 0 BRAM
+layer5x4_out depth 4, 448 bits -> SRL, 0 BRAM
+layer5_out   depth 168,112 bits -> RAM, 7 BRAM_18K
+```
+
+This fixes the BRAM regression without changing interval. Remaining resource
+hotspot is dense: about 27.9k FF and 31.8k LUT, while dense interval is only
+176 cycles and the top interval is 260 cycles.
+
+Current dense resource experiment:
+
+```text
+config7::reuse_factor: 1 -> 42
+make compare SAMPLES=1024: PASS
+```
+
+This is a functional-equivalence-preserving probe. HLS csynth is still needed
+to measure the actual dense interval and resource reduction. The expected
+success condition is that the dense interval remains below the 259-cycle
+first-conv limiter while FF/LUT drop meaningfully.
+
 ### repack_stream
 
 Location:
