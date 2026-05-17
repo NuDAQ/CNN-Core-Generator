@@ -59,6 +59,61 @@ PASS: baseline and hls_streaming C++ outputs match exactly.
    intentional architecture changes, update or extend the testbench/reference
    flow rather than changing the original baseline.
 
+## Current Development Plan
+
+The trigger problem is primarily a throughput problem, not a single-window
+end-to-end latency problem. The ADC stream is expected to provide one sample per
+channel per nanosecond. For the current four-channel inference path, this means
+the hardware must keep up with a continuous stream of four-channel samples. A
+fixed latency of multiple microseconds can still be acceptable if the steady
+state pipeline interval is high enough to keep up with the input stream.
+
+The current hls4ml implementation processes one complete 256 x 4 input window
+per inference. This is a useful baseline, but it is not the natural hardware
+shape for a continuous ADC trigger. Adjacent trigger windows overlap heavily, so
+reloading and repacking a full tensor for every score wastes throughput. The
+streaming design should instead move toward:
+
+```text
+ADC stream
+  -> sliding sample buffer / shift register
+  -> convolution kernel
+  -> activation
+  -> pooling or time-domain reduction
+  -> dense / accumulator / score logic
+  -> trigger output
+```
+
+Near-term work should preserve baseline equivalence while isolating the input
+path:
+
+1. Use `make compare` as the guardrail while refactoring.
+2. Keep the hls4ml baseline untouched under `../cnn_core_project/firmware`.
+3. First replace or wrap the `repack_stream`/full-window input path in
+   `./firmware`.
+4. Introduce a sliding-window generator that can reuse samples across adjacent
+   windows.
+5. Keep output alignment against the baseline for equivalent non-overlapping
+   test windows before adding continuous-window tests.
+
+Once the input path is stable, the next optimization target is the first
+convolution path. For waveform-trigger workloads, a 1D-CNN-like implementation
+may map more directly to shift-register and FSM hardware than a general 2D CNN.
+The current model is represented as Conv2D with a 5 x 1 kernel over a 256 x 4 x
+1 input, so changes to channel mixing or true Conv1D structure should be
+coordinated with the model-training side rather than treated as a pure HLS
+refactor.
+
+Open design questions:
+
+```text
+Throughput target       Can the steady-state pipeline accept 4 channel samples every ns?
+Window semantics        Should the trigger score be produced for every sample or for a coarser stride?
+Channel mixing          Should early kernels mix the 4 channels, or preserve per-channel feature extraction first?
+Quantization            Can heterogeneous or channel-wise quantization reduce kernel cost without accuracy loss?
+Reference comparison    How should continuous overlapping windows be aligned against the chunk baseline?
+```
+
 ## CNN and C++ Structure
 
 The current hls4ml model is a small stream-oriented CNN. The logical input
@@ -127,7 +182,9 @@ This mapping is important for streaming work. The current C++ project still
 processes one complete hls4ml input window at a time. A future ADC-streaming
 version should replace or wrap the `repack_stream`/window input path so that
 overlapping ADC windows can reuse samples instead of repacking a full tensor for
-every score.
+every score. The first milestone is not to change the network math, but to make
+the data path look more like a continuous stream while preserving baseline
+outputs for equivalent windows.
 
 ## Current hls4ml Baseline Bottlenecks
 
