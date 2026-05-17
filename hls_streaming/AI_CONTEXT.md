@@ -299,10 +299,21 @@ Changes applied (nnet_first_conv_stream.h):
 1. row_window[5][4] (shift register) → row_buf[5][4] (ring buffer, wptr pointer).
    Each iteration writes one slot; #pragma HLS DEPENDENCE variable=row_buf inter false
    tells HLS no inter-iteration RAW exists, removing the II violation source.
-2. % CONFIG_T::stride_height → ap_uint<2> stride_cnt counter.
+2. % CONFIG_T::stride_height → unsigned stride_cnt counter.
    Eliminates the urem synthesized divider (~295 FF+LUT saved).
 3. CopyKernel reads via circular index ridx = (oldest + k) % filt_height
    implemented as a branch (no division; HLS generates a 5:1 register mux).
+4. ap_uint<3>/ap_uint<2> indices → plain unsigned.
+   Avoids HLS 214-358 bit-extension warning on array index paths.
+```
+
+New implementation (nnet_pooling_stream.h, maxpool2d_nonoverlap_cl):
+
+```text
+prev_row changed from data_T[in_width] (struct array, causes HLS 214-338 partition error)
+to data_value_t[in_width][data_T::size] (primitive 2D array, complete partition works).
+Element-wise StorePrev loop (unrolled) replaces struct assignment.
+Verified: make compare SAMPLES=128 PASS after fix.
 ```
 
 Remaining II concern: WriteOutputWidth inner loop (4 stream writes, 4 iterations)

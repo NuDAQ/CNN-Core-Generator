@@ -25,10 +25,11 @@ void first_conv_4lane_temporal_cl(
     data_value_t row_buf[CONFIG_T::filt_height][CONFIG_T::in_width];
     #pragma HLS ARRAY_PARTITION variable=row_buf complete dim=0
 
+    // Use plain unsigned for array indices to avoid HLS ap_uint bit-extension warnings.
     // wptr: next slot to write (oldest slot after full window).
     // stride_cnt: replaces % stride_height, eliminates synthesized urem divider.
-    ap_uint<3> wptr = 0;
-    ap_uint<2> stride_cnt = 0;
+    unsigned wptr = 0;
+    unsigned stride_cnt = 0;
 
 ReadInputHeight:
     for (unsigned i_ih = 0; i_ih < CONFIG_T::in_height; i_ih++) {
@@ -44,7 +45,7 @@ ReadInputHeight:
         }
 
         // oldest points to the slot just after wptr (the oldest row in the window).
-        ap_uint<3> oldest = (wptr == CONFIG_T::filt_height - 1) ? ap_uint<3>(0) : ap_uint<3>(wptr + 1);
+        unsigned oldest = (wptr == CONFIG_T::filt_height - 1) ? 0u : wptr + 1;
 
         const bool have_full_window = i_ih >= CONFIG_T::filt_height - 1;
         const bool on_stride = have_full_window && (stride_cnt == 0);
@@ -67,9 +68,9 @@ ReadInputHeight:
                 for (unsigned k = 0; k < CONFIG_T::filt_height; k++) {
                     #pragma HLS UNROLL
                     // Circular read: oldest row is kernel row 0, newest is filt_height-1.
-                    ap_uint<3> ridx = (oldest + k < CONFIG_T::filt_height)
-                                      ? ap_uint<3>(oldest + k)
-                                      : ap_uint<3>(oldest + k - CONFIG_T::filt_height);
+                    unsigned ridx = (oldest + k < CONFIG_T::filt_height)
+                                    ? oldest + k
+                                    : oldest + k - CONFIG_T::filt_height;
                     kernel_data[k] = row_buf[ridx][i_iw];
                 }
 
@@ -89,8 +90,7 @@ ReadInputHeight:
         // Advance ring pointer to the oldest slot (next write overwrites oldest data).
         wptr = oldest;
         if (have_full_window) {
-            stride_cnt = (stride_cnt == CONFIG_T::stride_height - 1)
-                         ? ap_uint<2>(0) : ap_uint<2>(stride_cnt + 1);
+            stride_cnt = (stride_cnt == CONFIG_T::stride_height - 1) ? 0u : stride_cnt + 1;
         }
     }
 }

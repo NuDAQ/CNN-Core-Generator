@@ -358,9 +358,13 @@ void maxpool2d_nonoverlap_cl(hls::stream<data_T> &data, hls::stream<res_T> &res)
     static_assert(CONFIG_T::pool_op == nnet::Max,
                   "maxpool2d_nonoverlap_cl: only Max pooling supported");
 
-    // Buffer one full row (in_width words, each holding n_filt values).
-    data_T prev_row[CONFIG_T::in_width];
-    #pragma HLS ARRAY_PARTITION variable=prev_row complete
+    typedef typename data_T::value_type data_value_t;
+    typedef typename res_T::value_type res_value_t;
+
+    // Use a primitive 2D array so HLS can apply complete array partition.
+    // Storing data_T (a struct with custom operator=) directly prevents partition.
+    data_value_t prev_row[CONFIG_T::in_width][data_T::size];
+    #pragma HLS ARRAY_PARTITION variable=prev_row complete dim=0
 
     unsigned i_w = 0;           // width counter 0..in_width-1
     bool on_second_row = false; // false: buffer first row; true: max+emit second row
@@ -372,7 +376,11 @@ PoolMain:
         data_T cur = data.read();
 
         if (!on_second_row) {
-            prev_row[i_w] = cur;
+        StorePrev:
+            for (unsigned f = 0; f < data_T::size; f++) {
+                #pragma HLS UNROLL
+                prev_row[i_w][f] = cur[f];
+            }
         } else {
             res_T out_pack;
             PRAGMA_DATA_PACK(out_pack)
