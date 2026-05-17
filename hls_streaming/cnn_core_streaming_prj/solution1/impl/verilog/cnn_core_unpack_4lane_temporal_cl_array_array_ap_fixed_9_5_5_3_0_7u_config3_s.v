@@ -15,8 +15,6 @@ module cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_confi
         ap_continue,
         ap_idle,
         ap_ready,
-        start_out,
-        start_write,
         layer3x4_out_dout,
         layer3x4_out_num_data_valid,
         layer3x4_out_fifo_cap,
@@ -26,14 +24,12 @@ module cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_confi
         layer3_out_num_data_valid,
         layer3_out_fifo_cap,
         layer3_out_full_n,
-        layer3_out_write
+        layer3_out_write,
+        start_out,
+        start_write
 );
 
-parameter    ap_ST_fsm_state1 = 5'd1;
-parameter    ap_ST_fsm_state2 = 5'd2;
-parameter    ap_ST_fsm_state3 = 5'd4;
-parameter    ap_ST_fsm_state4 = 5'd8;
-parameter    ap_ST_fsm_state5 = 5'd16;
+parameter    ap_ST_fsm_pp0_stage0 = 1'd1;
 
 input   ap_clk;
 input   ap_rst;
@@ -43,8 +39,6 @@ output   ap_done;
 input   ap_continue;
 output   ap_idle;
 output   ap_ready;
-output   start_out;
-output   start_write;
 input  [251:0] layer3x4_out_dout;
 input  [7:0] layer3x4_out_num_data_valid;
 input  [7:0] layer3x4_out_fifo_cap;
@@ -55,309 +49,357 @@ input  [9:0] layer3_out_num_data_valid;
 input  [9:0] layer3_out_fifo_cap;
 input   layer3_out_full_n;
 output   layer3_out_write;
+output   start_out;
+output   start_write;
 
-reg ap_done;
 reg ap_idle;
-reg start_write;
 reg layer3x4_out_read;
 reg layer3_out_write;
+reg start_write;
 
 reg    real_start;
 reg    start_once_reg;
+(* fsm_encoding = "none" *) reg   [0:0] ap_CS_fsm;
+wire    ap_CS_fsm_pp0_stage0;
+wire    ap_enable_reg_pp0_iter0;
+reg    ap_enable_reg_pp0_iter1;
+reg    ap_enable_reg_pp0_iter2;
+reg    ap_idle_pp0;
+wire    internal_ap_ready;
 reg    ap_done_reg;
-(* fsm_encoding = "none" *) reg   [4:0] ap_CS_fsm;
-wire    ap_CS_fsm_state1;
-reg    internal_ap_ready;
+reg    ap_block_state1_pp0_stage0_iter0;
+reg   [0:0] icmp_ln194_reg_1238;
+reg    ap_block_state2_pp0_stage0_iter1;
+reg    ap_block_state3_pp0_stage0_iter2;
+reg    ap_block_pp0_stage0_subdone;
+wire   [0:0] icmp_ln191_fu_311_p2;
+reg    ap_condition_exit_pp0_iter0_stage0;
+wire    ap_loop_exit_ready;
+reg    ap_ready_int;
 reg    layer3x4_out_blk_n;
-wire    ap_CS_fsm_state2;
-wire   [0:0] icmp_ln187_fu_500_p2;
-reg    ap_block_state1;
-reg   [8:0] trunc_ln188_13_reg_955;
-reg    ap_block_state2;
-reg   [8:0] trunc_ln188_14_reg_960;
-reg   [8:0] trunc_ln188_15_reg_965;
-reg   [8:0] trunc_ln188_16_reg_970;
-reg   [8:0] trunc_ln188_17_reg_975;
-reg   [8:0] trunc_ln188_18_reg_980;
-reg   [8:0] trunc_ln188_19_reg_985;
-reg   [8:0] trunc_ln188_20_reg_990;
-reg   [8:0] trunc_ln188_21_reg_995;
-reg   [8:0] trunc_ln188_22_reg_1000;
-reg   [8:0] trunc_ln188_23_reg_1005;
-reg   [8:0] trunc_ln188_24_reg_1010;
-reg   [8:0] trunc_ln188_25_reg_1015;
-reg   [8:0] trunc_ln188_26_reg_1020;
-reg   [1:0] in_pack_address0;
-reg    in_pack_ce0;
-reg    in_pack_we0;
-reg   [8:0] in_pack_d0;
-wire   [8:0] in_pack_q0;
-reg   [1:0] in_pack_address1;
-reg    in_pack_ce1;
-reg    in_pack_we1;
-reg   [8:0] in_pack_d1;
-reg   [1:0] in_pack_1_address0;
-reg    in_pack_1_ce0;
-reg    in_pack_1_we0;
-reg   [8:0] in_pack_1_d0;
-wire   [8:0] in_pack_1_q0;
-reg   [1:0] in_pack_1_address1;
-reg    in_pack_1_ce1;
-reg    in_pack_1_we1;
-reg   [8:0] in_pack_1_d1;
-reg   [1:0] in_pack_2_address0;
-reg    in_pack_2_ce0;
-reg    in_pack_2_we0;
-reg   [8:0] in_pack_2_d0;
-wire   [8:0] in_pack_2_q0;
-reg   [1:0] in_pack_2_address1;
-reg    in_pack_2_ce1;
-reg    in_pack_2_we1;
-reg   [8:0] in_pack_2_d1;
-reg   [1:0] in_pack_3_address0;
-reg    in_pack_3_ce0;
-reg    in_pack_3_we0;
-reg   [8:0] in_pack_3_d0;
-wire   [8:0] in_pack_3_q0;
-reg   [1:0] in_pack_3_address1;
-reg    in_pack_3_ce1;
-reg    in_pack_3_we1;
-reg   [8:0] in_pack_3_d1;
-reg   [1:0] in_pack_4_address0;
-reg    in_pack_4_ce0;
-reg    in_pack_4_we0;
-reg   [8:0] in_pack_4_d0;
-wire   [8:0] in_pack_4_q0;
-reg   [1:0] in_pack_4_address1;
-reg    in_pack_4_ce1;
-reg    in_pack_4_we1;
-reg   [8:0] in_pack_4_d1;
-reg   [1:0] in_pack_5_address0;
-reg    in_pack_5_ce0;
-reg    in_pack_5_we0;
-reg   [8:0] in_pack_5_d0;
-wire   [8:0] in_pack_5_q0;
-reg   [1:0] in_pack_5_address1;
-reg    in_pack_5_ce1;
-reg    in_pack_5_we1;
-reg   [8:0] in_pack_5_d1;
-reg   [1:0] in_pack_6_address0;
-reg    in_pack_6_ce0;
-reg    in_pack_6_we0;
-reg   [8:0] in_pack_6_d0;
-wire   [8:0] in_pack_6_q0;
-reg   [1:0] in_pack_6_address1;
-reg    in_pack_6_ce1;
-reg    in_pack_6_we1;
-reg   [8:0] in_pack_6_d1;
-wire    grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_start;
-wire    grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_done;
-wire    grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_idle;
-wire    grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_ready;
-wire   [62:0] grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_layer3_out_din;
-wire    grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_layer3_out_write;
-wire   [1:0] grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_address0;
-wire    grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_ce0;
-wire   [1:0] grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_1_address0;
-wire    grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_1_ce0;
-wire   [1:0] grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_2_address0;
-wire    grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_2_ce0;
-wire   [1:0] grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_3_address0;
-wire    grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_3_ce0;
-wire   [1:0] grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_4_address0;
-wire    grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_4_ce0;
-wire   [1:0] grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_5_address0;
-wire    grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_5_ce0;
-wire   [1:0] grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_6_address0;
-wire    grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_6_ce0;
-reg    grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_start_reg;
-wire    ap_CS_fsm_state4;
-wire    ap_CS_fsm_state5;
-reg   [6:0] i_oh_fu_154;
-wire   [6:0] i_oh_2_fu_506_p2;
-wire   [8:0] trunc_ln188_fu_512_p1;
-wire    ap_CS_fsm_state3;
-reg   [4:0] ap_NS_fsm;
-reg    ap_ST_fsm_state1_blk;
-reg    ap_ST_fsm_state2_blk;
-wire    ap_ST_fsm_state3_blk;
-wire    ap_ST_fsm_state4_blk;
-reg    ap_ST_fsm_state5_blk;
+wire    ap_block_pp0_stage0;
+reg    layer3_out_blk_n;
+reg    ap_block_pp0_stage0_11001;
+wire   [1:0] trunc_ln191_fu_323_p1;
+reg   [1:0] trunc_ln191_reg_1227;
+reg   [1:0] trunc_ln191_reg_1227_pp0_iter1_reg;
+wire   [0:0] icmp_ln194_fu_327_p2;
+reg   [8:0] i_fu_162;
+wire   [8:0] i_2_fu_317_p2;
+wire    ap_loop_init;
+reg   [8:0] ap_sig_allocacmp_i_1;
+reg   [31:0] i_iw_fu_166;
+wire   [31:0] i_iw_3_fu_345_p3;
+reg   [31:0] ap_sig_allocacmp_i_iw_2;
+reg   [8:0] in_pack_fu_170;
+wire   [8:0] in_pack_54_fu_363_p1;
+reg   [8:0] in_pack_1_fu_174;
+reg   [8:0] in_pack_2_fu_178;
+reg   [8:0] in_pack_3_fu_182;
+reg   [8:0] in_pack_4_fu_186;
+reg   [8:0] in_pack_5_fu_190;
+reg   [8:0] in_pack_6_fu_194;
+reg   [8:0] in_pack_7_fu_198;
+reg   [8:0] in_pack_8_fu_202;
+reg   [8:0] in_pack_9_fu_206;
+reg   [8:0] in_pack_10_fu_210;
+reg   [8:0] in_pack_11_fu_214;
+reg   [8:0] in_pack_12_fu_218;
+reg   [8:0] in_pack_13_fu_222;
+reg   [8:0] in_pack_14_fu_226;
+reg   [8:0] in_pack_15_fu_230;
+reg   [8:0] in_pack_16_fu_234;
+reg   [8:0] in_pack_17_fu_238;
+reg   [8:0] in_pack_18_fu_242;
+reg   [8:0] in_pack_19_fu_246;
+reg   [8:0] in_pack_20_fu_250;
+reg   [8:0] in_pack_21_fu_254;
+reg   [8:0] in_pack_22_fu_258;
+reg   [8:0] in_pack_23_fu_262;
+reg   [8:0] in_pack_24_fu_266;
+reg   [8:0] in_pack_25_fu_270;
+reg   [8:0] in_pack_26_fu_274;
+reg   [8:0] in_pack_27_fu_278;
+reg    ap_block_pp0_stage0_01001;
+wire   [0:0] icmp_ln209_fu_333_p2;
+wire   [31:0] add_ln209_fu_339_p2;
+wire   [8:0] tmp_fu_861_p9;
+wire   [8:0] tmp_s_fu_884_p9;
+wire   [8:0] tmp_1_fu_907_p9;
+wire   [8:0] tmp_2_fu_930_p9;
+wire   [8:0] tmp_3_fu_953_p9;
+wire   [8:0] tmp_4_fu_976_p9;
+wire   [8:0] tmp_5_fu_999_p9;
+wire   [8:0] tmp_5_fu_999_p11;
+wire   [8:0] tmp_4_fu_976_p11;
+wire   [8:0] tmp_3_fu_953_p11;
+wire   [8:0] tmp_2_fu_930_p11;
+wire   [8:0] tmp_1_fu_907_p11;
+wire   [8:0] tmp_s_fu_884_p11;
+wire   [8:0] tmp_fu_861_p11;
+wire    ap_continue_int;
+reg    ap_done_int;
+reg    ap_loop_exit_ready_pp0_iter1_reg;
+reg   [0:0] ap_NS_fsm;
+wire    ap_enable_pp0;
+wire    ap_start_int;
+reg    ap_condition_209;
+wire   [1:0] tmp_fu_861_p1;
+wire   [1:0] tmp_fu_861_p3;
+wire  signed [1:0] tmp_fu_861_p5;
+wire  signed [1:0] tmp_fu_861_p7;
+wire   [1:0] tmp_s_fu_884_p1;
+wire   [1:0] tmp_s_fu_884_p3;
+wire  signed [1:0] tmp_s_fu_884_p5;
+wire  signed [1:0] tmp_s_fu_884_p7;
+wire   [1:0] tmp_1_fu_907_p1;
+wire   [1:0] tmp_1_fu_907_p3;
+wire  signed [1:0] tmp_1_fu_907_p5;
+wire  signed [1:0] tmp_1_fu_907_p7;
+wire   [1:0] tmp_2_fu_930_p1;
+wire   [1:0] tmp_2_fu_930_p3;
+wire  signed [1:0] tmp_2_fu_930_p5;
+wire  signed [1:0] tmp_2_fu_930_p7;
+wire   [1:0] tmp_3_fu_953_p1;
+wire   [1:0] tmp_3_fu_953_p3;
+wire  signed [1:0] tmp_3_fu_953_p5;
+wire  signed [1:0] tmp_3_fu_953_p7;
+wire   [1:0] tmp_4_fu_976_p1;
+wire   [1:0] tmp_4_fu_976_p3;
+wire  signed [1:0] tmp_4_fu_976_p5;
+wire  signed [1:0] tmp_4_fu_976_p7;
+wire   [1:0] tmp_5_fu_999_p1;
+wire   [1:0] tmp_5_fu_999_p3;
+wire  signed [1:0] tmp_5_fu_999_p5;
+wire  signed [1:0] tmp_5_fu_999_p7;
 wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
 #0 start_once_reg = 1'b0;
+#0 ap_CS_fsm = 1'd1;
+#0 ap_enable_reg_pp0_iter1 = 1'b0;
+#0 ap_enable_reg_pp0_iter2 = 1'b0;
 #0 ap_done_reg = 1'b0;
-#0 ap_CS_fsm = 5'd1;
-#0 grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_start_reg = 1'b0;
-#0 i_oh_fu_154 = 7'd0;
+#0 i_fu_162 = 9'd0;
+#0 i_iw_fu_166 = 32'd0;
+#0 in_pack_fu_170 = 9'd0;
+#0 in_pack_1_fu_174 = 9'd0;
+#0 in_pack_2_fu_178 = 9'd0;
+#0 in_pack_3_fu_182 = 9'd0;
+#0 in_pack_4_fu_186 = 9'd0;
+#0 in_pack_5_fu_190 = 9'd0;
+#0 in_pack_6_fu_194 = 9'd0;
+#0 in_pack_7_fu_198 = 9'd0;
+#0 in_pack_8_fu_202 = 9'd0;
+#0 in_pack_9_fu_206 = 9'd0;
+#0 in_pack_10_fu_210 = 9'd0;
+#0 in_pack_11_fu_214 = 9'd0;
+#0 in_pack_12_fu_218 = 9'd0;
+#0 in_pack_13_fu_222 = 9'd0;
+#0 in_pack_14_fu_226 = 9'd0;
+#0 in_pack_15_fu_230 = 9'd0;
+#0 in_pack_16_fu_234 = 9'd0;
+#0 in_pack_17_fu_238 = 9'd0;
+#0 in_pack_18_fu_242 = 9'd0;
+#0 in_pack_19_fu_246 = 9'd0;
+#0 in_pack_20_fu_250 = 9'd0;
+#0 in_pack_21_fu_254 = 9'd0;
+#0 in_pack_22_fu_258 = 9'd0;
+#0 in_pack_23_fu_262 = 9'd0;
+#0 in_pack_24_fu_266 = 9'd0;
+#0 in_pack_25_fu_270 = 9'd0;
+#0 in_pack_26_fu_274 = 9'd0;
+#0 in_pack_27_fu_278 = 9'd0;
 end
 
-cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb #(
-    .DataWidth( 9 ),
-    .AddressRange( 4 ),
-    .AddressWidth( 2 ))
-in_pack_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .address0(in_pack_address0),
-    .ce0(in_pack_ce0),
-    .we0(in_pack_we0),
-    .d0(in_pack_d0),
-    .q0(in_pack_q0),
-    .address1(in_pack_address1),
-    .ce1(in_pack_ce1),
-    .we1(in_pack_we1),
-    .d1(in_pack_d1)
+cnn_core_sparsemux_9_2_9_1_1 #(
+    .ID( 1 ),
+    .NUM_STAGE( 1 ),
+    .CASE0( 2'h0 ),
+    .din0_WIDTH( 9 ),
+    .CASE1( 2'h1 ),
+    .din1_WIDTH( 9 ),
+    .CASE2( 2'h2 ),
+    .din2_WIDTH( 9 ),
+    .CASE3( 2'h3 ),
+    .din3_WIDTH( 9 ),
+    .def_WIDTH( 9 ),
+    .sel_WIDTH( 2 ),
+    .dout_WIDTH( 9 ))
+sparsemux_9_2_9_1_1_U30(
+    .din0(in_pack_fu_170),
+    .din1(in_pack_7_fu_198),
+    .din2(in_pack_14_fu_226),
+    .din3(in_pack_21_fu_254),
+    .def(tmp_fu_861_p9),
+    .sel(trunc_ln191_reg_1227_pp0_iter1_reg),
+    .dout(tmp_fu_861_p11)
 );
 
-cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb #(
-    .DataWidth( 9 ),
-    .AddressRange( 4 ),
-    .AddressWidth( 2 ))
-in_pack_1_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .address0(in_pack_1_address0),
-    .ce0(in_pack_1_ce0),
-    .we0(in_pack_1_we0),
-    .d0(in_pack_1_d0),
-    .q0(in_pack_1_q0),
-    .address1(in_pack_1_address1),
-    .ce1(in_pack_1_ce1),
-    .we1(in_pack_1_we1),
-    .d1(in_pack_1_d1)
+cnn_core_sparsemux_9_2_9_1_1 #(
+    .ID( 1 ),
+    .NUM_STAGE( 1 ),
+    .CASE0( 2'h0 ),
+    .din0_WIDTH( 9 ),
+    .CASE1( 2'h1 ),
+    .din1_WIDTH( 9 ),
+    .CASE2( 2'h2 ),
+    .din2_WIDTH( 9 ),
+    .CASE3( 2'h3 ),
+    .din3_WIDTH( 9 ),
+    .def_WIDTH( 9 ),
+    .sel_WIDTH( 2 ),
+    .dout_WIDTH( 9 ))
+sparsemux_9_2_9_1_1_U31(
+    .din0(in_pack_1_fu_174),
+    .din1(in_pack_8_fu_202),
+    .din2(in_pack_15_fu_230),
+    .din3(in_pack_22_fu_258),
+    .def(tmp_s_fu_884_p9),
+    .sel(trunc_ln191_reg_1227_pp0_iter1_reg),
+    .dout(tmp_s_fu_884_p11)
 );
 
-cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb #(
-    .DataWidth( 9 ),
-    .AddressRange( 4 ),
-    .AddressWidth( 2 ))
-in_pack_2_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .address0(in_pack_2_address0),
-    .ce0(in_pack_2_ce0),
-    .we0(in_pack_2_we0),
-    .d0(in_pack_2_d0),
-    .q0(in_pack_2_q0),
-    .address1(in_pack_2_address1),
-    .ce1(in_pack_2_ce1),
-    .we1(in_pack_2_we1),
-    .d1(in_pack_2_d1)
+cnn_core_sparsemux_9_2_9_1_1 #(
+    .ID( 1 ),
+    .NUM_STAGE( 1 ),
+    .CASE0( 2'h0 ),
+    .din0_WIDTH( 9 ),
+    .CASE1( 2'h1 ),
+    .din1_WIDTH( 9 ),
+    .CASE2( 2'h2 ),
+    .din2_WIDTH( 9 ),
+    .CASE3( 2'h3 ),
+    .din3_WIDTH( 9 ),
+    .def_WIDTH( 9 ),
+    .sel_WIDTH( 2 ),
+    .dout_WIDTH( 9 ))
+sparsemux_9_2_9_1_1_U32(
+    .din0(in_pack_2_fu_178),
+    .din1(in_pack_9_fu_206),
+    .din2(in_pack_16_fu_234),
+    .din3(in_pack_23_fu_262),
+    .def(tmp_1_fu_907_p9),
+    .sel(trunc_ln191_reg_1227_pp0_iter1_reg),
+    .dout(tmp_1_fu_907_p11)
 );
 
-cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb #(
-    .DataWidth( 9 ),
-    .AddressRange( 4 ),
-    .AddressWidth( 2 ))
-in_pack_3_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .address0(in_pack_3_address0),
-    .ce0(in_pack_3_ce0),
-    .we0(in_pack_3_we0),
-    .d0(in_pack_3_d0),
-    .q0(in_pack_3_q0),
-    .address1(in_pack_3_address1),
-    .ce1(in_pack_3_ce1),
-    .we1(in_pack_3_we1),
-    .d1(in_pack_3_d1)
+cnn_core_sparsemux_9_2_9_1_1 #(
+    .ID( 1 ),
+    .NUM_STAGE( 1 ),
+    .CASE0( 2'h0 ),
+    .din0_WIDTH( 9 ),
+    .CASE1( 2'h1 ),
+    .din1_WIDTH( 9 ),
+    .CASE2( 2'h2 ),
+    .din2_WIDTH( 9 ),
+    .CASE3( 2'h3 ),
+    .din3_WIDTH( 9 ),
+    .def_WIDTH( 9 ),
+    .sel_WIDTH( 2 ),
+    .dout_WIDTH( 9 ))
+sparsemux_9_2_9_1_1_U33(
+    .din0(in_pack_3_fu_182),
+    .din1(in_pack_10_fu_210),
+    .din2(in_pack_17_fu_238),
+    .din3(in_pack_24_fu_266),
+    .def(tmp_2_fu_930_p9),
+    .sel(trunc_ln191_reg_1227_pp0_iter1_reg),
+    .dout(tmp_2_fu_930_p11)
 );
 
-cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb #(
-    .DataWidth( 9 ),
-    .AddressRange( 4 ),
-    .AddressWidth( 2 ))
-in_pack_4_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .address0(in_pack_4_address0),
-    .ce0(in_pack_4_ce0),
-    .we0(in_pack_4_we0),
-    .d0(in_pack_4_d0),
-    .q0(in_pack_4_q0),
-    .address1(in_pack_4_address1),
-    .ce1(in_pack_4_ce1),
-    .we1(in_pack_4_we1),
-    .d1(in_pack_4_d1)
+cnn_core_sparsemux_9_2_9_1_1 #(
+    .ID( 1 ),
+    .NUM_STAGE( 1 ),
+    .CASE0( 2'h0 ),
+    .din0_WIDTH( 9 ),
+    .CASE1( 2'h1 ),
+    .din1_WIDTH( 9 ),
+    .CASE2( 2'h2 ),
+    .din2_WIDTH( 9 ),
+    .CASE3( 2'h3 ),
+    .din3_WIDTH( 9 ),
+    .def_WIDTH( 9 ),
+    .sel_WIDTH( 2 ),
+    .dout_WIDTH( 9 ))
+sparsemux_9_2_9_1_1_U34(
+    .din0(in_pack_4_fu_186),
+    .din1(in_pack_11_fu_214),
+    .din2(in_pack_18_fu_242),
+    .din3(in_pack_25_fu_270),
+    .def(tmp_3_fu_953_p9),
+    .sel(trunc_ln191_reg_1227_pp0_iter1_reg),
+    .dout(tmp_3_fu_953_p11)
 );
 
-cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb #(
-    .DataWidth( 9 ),
-    .AddressRange( 4 ),
-    .AddressWidth( 2 ))
-in_pack_5_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .address0(in_pack_5_address0),
-    .ce0(in_pack_5_ce0),
-    .we0(in_pack_5_we0),
-    .d0(in_pack_5_d0),
-    .q0(in_pack_5_q0),
-    .address1(in_pack_5_address1),
-    .ce1(in_pack_5_ce1),
-    .we1(in_pack_5_we1),
-    .d1(in_pack_5_d1)
+cnn_core_sparsemux_9_2_9_1_1 #(
+    .ID( 1 ),
+    .NUM_STAGE( 1 ),
+    .CASE0( 2'h0 ),
+    .din0_WIDTH( 9 ),
+    .CASE1( 2'h1 ),
+    .din1_WIDTH( 9 ),
+    .CASE2( 2'h2 ),
+    .din2_WIDTH( 9 ),
+    .CASE3( 2'h3 ),
+    .din3_WIDTH( 9 ),
+    .def_WIDTH( 9 ),
+    .sel_WIDTH( 2 ),
+    .dout_WIDTH( 9 ))
+sparsemux_9_2_9_1_1_U35(
+    .din0(in_pack_5_fu_190),
+    .din1(in_pack_12_fu_218),
+    .din2(in_pack_19_fu_246),
+    .din3(in_pack_26_fu_274),
+    .def(tmp_4_fu_976_p9),
+    .sel(trunc_ln191_reg_1227_pp0_iter1_reg),
+    .dout(tmp_4_fu_976_p11)
 );
 
-cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb #(
-    .DataWidth( 9 ),
-    .AddressRange( 4 ),
-    .AddressWidth( 2 ))
-in_pack_6_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .address0(in_pack_6_address0),
-    .ce0(in_pack_6_ce0),
-    .we0(in_pack_6_we0),
-    .d0(in_pack_6_d0),
-    .q0(in_pack_6_q0),
-    .address1(in_pack_6_address1),
-    .ce1(in_pack_6_ce1),
-    .we1(in_pack_6_we1),
-    .d1(in_pack_6_d1)
+cnn_core_sparsemux_9_2_9_1_1 #(
+    .ID( 1 ),
+    .NUM_STAGE( 1 ),
+    .CASE0( 2'h0 ),
+    .din0_WIDTH( 9 ),
+    .CASE1( 2'h1 ),
+    .din1_WIDTH( 9 ),
+    .CASE2( 2'h2 ),
+    .din2_WIDTH( 9 ),
+    .CASE3( 2'h3 ),
+    .din3_WIDTH( 9 ),
+    .def_WIDTH( 9 ),
+    .sel_WIDTH( 2 ),
+    .dout_WIDTH( 9 ))
+sparsemux_9_2_9_1_1_U36(
+    .din0(in_pack_6_fu_194),
+    .din1(in_pack_13_fu_222),
+    .din2(in_pack_20_fu_250),
+    .din3(in_pack_27_fu_278),
+    .def(tmp_5_fu_999_p9),
+    .sel(trunc_ln191_reg_1227_pp0_iter1_reg),
+    .dout(tmp_5_fu_999_p11)
 );
 
-cnn_core_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479(
+cnn_core_flow_control_loop_pipe flow_control_loop_pipe_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_start),
-    .ap_done(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_done),
-    .ap_idle(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_idle),
-    .ap_ready(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_ready),
-    .layer3_out_din(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_layer3_out_din),
-    .layer3_out_num_data_valid(10'd0),
-    .layer3_out_fifo_cap(10'd0),
-    .layer3_out_full_n(layer3_out_full_n),
-    .layer3_out_write(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_layer3_out_write),
-    .in_pack_address0(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_address0),
-    .in_pack_ce0(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_ce0),
-    .in_pack_q0(in_pack_q0),
-    .in_pack_1_address0(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_1_address0),
-    .in_pack_1_ce0(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_1_ce0),
-    .in_pack_1_q0(in_pack_1_q0),
-    .in_pack_2_address0(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_2_address0),
-    .in_pack_2_ce0(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_2_ce0),
-    .in_pack_2_q0(in_pack_2_q0),
-    .in_pack_3_address0(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_3_address0),
-    .in_pack_3_ce0(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_3_ce0),
-    .in_pack_3_q0(in_pack_3_q0),
-    .in_pack_4_address0(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_4_address0),
-    .in_pack_4_ce0(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_4_ce0),
-    .in_pack_4_q0(in_pack_4_q0),
-    .in_pack_5_address0(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_5_address0),
-    .in_pack_5_ce0(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_5_ce0),
-    .in_pack_5_q0(in_pack_5_q0),
-    .in_pack_6_address0(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_6_address0),
-    .in_pack_6_ce0(grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_6_ce0),
-    .in_pack_6_q0(in_pack_6_q0)
+    .ap_start(real_start),
+    .ap_ready(internal_ap_ready),
+    .ap_done(ap_done),
+    .ap_start_int(ap_start_int),
+    .ap_loop_init(ap_loop_init),
+    .ap_ready_int(ap_ready_int),
+    .ap_loop_exit_ready(ap_condition_exit_pp0_iter0_stage0),
+    .ap_loop_exit_done(ap_done_int),
+    .ap_continue_int(ap_continue_int),
+    .ap_done_int(ap_done_int),
+    .ap_continue(ap_continue)
 );
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        ap_CS_fsm <= ap_ST_fsm_state1;
+        ap_CS_fsm <= ap_ST_fsm_pp0_stage0;
     end else begin
         ap_CS_fsm <= ap_NS_fsm;
     end
@@ -367,9 +409,9 @@ always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
         ap_done_reg <= 1'b0;
     end else begin
-        if ((ap_continue == 1'b1)) begin
+        if ((ap_continue_int == 1'b1)) begin
             ap_done_reg <= 1'b0;
-        end else if (((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
+        end else if (((1'b0 == ap_block_pp0_stage0_subdone) & (ap_loop_exit_ready_pp0_iter1_reg == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
             ap_done_reg <= 1'b1;
         end
     end
@@ -377,12 +419,22 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_start_reg <= 1'b0;
+        ap_enable_reg_pp0_iter1 <= 1'b0;
     end else begin
-        if ((1'b1 == ap_CS_fsm_state4)) begin
-            grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_start_reg <= 1'b1;
-        end else if ((grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_ready == 1'b1)) begin
-            grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_start_reg <= 1'b0;
+        if ((1'b1 == ap_condition_exit_pp0_iter0_stage0)) begin
+            ap_enable_reg_pp0_iter1 <= 1'b0;
+        end else if (((1'b0 == ap_block_pp0_stage0_subdone) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+            ap_enable_reg_pp0_iter1 <= ap_start_int;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (ap_rst == 1'b1) begin
+        ap_enable_reg_pp0_iter2 <= 1'b0;
+    end else begin
+        if ((1'b0 == ap_block_pp0_stage0_subdone)) begin
+            ap_enable_reg_pp0_iter2 <= ap_enable_reg_pp0_iter1;
         end
     end
 end
@@ -391,7 +443,7 @@ always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
         start_once_reg <= 1'b0;
     end else begin
-        if (((internal_ap_ready == 1'b0) & (real_start == 1'b1))) begin
+        if (((real_start == 1'b1) & (internal_ap_ready == 1'b0))) begin
             start_once_reg <= 1'b1;
         end else if ((internal_ap_ready == 1'b1)) begin
             start_once_reg <= 1'b0;
@@ -400,70 +452,85 @@ always @ (posedge ap_clk) begin
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b0 == ap_block_state1) & (1'b1 == ap_CS_fsm_state1))) begin
-        i_oh_fu_154 <= 7'd0;
-    end else if (((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-        i_oh_fu_154 <= i_oh_2_fu_506_p2;
+    if ((1'b1 == ap_condition_209)) begin
+        if ((icmp_ln191_fu_311_p2 == 1'd0)) begin
+            i_fu_162 <= i_2_fu_317_p2;
+        end else if ((ap_loop_init == 1'b1)) begin
+            i_fu_162 <= 9'd0;
+        end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((1'b0 == ap_block_state2) & (1'b1 == ap_CS_fsm_state2))) begin
-        trunc_ln188_13_reg_955 <= {{layer3x4_out_dout[134:126]}};
-        trunc_ln188_14_reg_960 <= {{layer3x4_out_dout[143:135]}};
-        trunc_ln188_15_reg_965 <= {{layer3x4_out_dout[152:144]}};
-        trunc_ln188_16_reg_970 <= {{layer3x4_out_dout[161:153]}};
-        trunc_ln188_17_reg_975 <= {{layer3x4_out_dout[170:162]}};
-        trunc_ln188_18_reg_980 <= {{layer3x4_out_dout[179:171]}};
-        trunc_ln188_19_reg_985 <= {{layer3x4_out_dout[188:180]}};
-        trunc_ln188_20_reg_990 <= {{layer3x4_out_dout[197:189]}};
-        trunc_ln188_21_reg_995 <= {{layer3x4_out_dout[206:198]}};
-        trunc_ln188_22_reg_1000 <= {{layer3x4_out_dout[215:207]}};
-        trunc_ln188_23_reg_1005 <= {{layer3x4_out_dout[224:216]}};
-        trunc_ln188_24_reg_1010 <= {{layer3x4_out_dout[233:225]}};
-        trunc_ln188_25_reg_1015 <= {{layer3x4_out_dout[242:234]}};
-        trunc_ln188_26_reg_1020 <= {{layer3x4_out_dout[251:243]}};
+    if ((1'b1 == ap_condition_209)) begin
+        if ((icmp_ln191_fu_311_p2 == 1'd0)) begin
+            i_iw_fu_166 <= i_iw_3_fu_345_p3;
+        end else if ((ap_loop_init == 1'b1)) begin
+            i_iw_fu_166 <= 32'd0;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        ap_loop_exit_ready_pp0_iter1_reg <= ap_loop_exit_ready;
+        icmp_ln194_reg_1238 <= icmp_ln194_fu_327_p2;
+        trunc_ln191_reg_1227 <= trunc_ln191_fu_323_p1;
+        trunc_ln191_reg_1227_pp0_iter1_reg <= trunc_ln191_reg_1227;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (icmp_ln194_reg_1238 == 1'd1) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        in_pack_10_fu_210 <= {{layer3x4_out_dout[98:90]}};
+        in_pack_11_fu_214 <= {{layer3x4_out_dout[107:99]}};
+        in_pack_12_fu_218 <= {{layer3x4_out_dout[116:108]}};
+        in_pack_13_fu_222 <= {{layer3x4_out_dout[125:117]}};
+        in_pack_14_fu_226 <= {{layer3x4_out_dout[134:126]}};
+        in_pack_15_fu_230 <= {{layer3x4_out_dout[143:135]}};
+        in_pack_16_fu_234 <= {{layer3x4_out_dout[152:144]}};
+        in_pack_17_fu_238 <= {{layer3x4_out_dout[161:153]}};
+        in_pack_18_fu_242 <= {{layer3x4_out_dout[170:162]}};
+        in_pack_19_fu_246 <= {{layer3x4_out_dout[179:171]}};
+        in_pack_1_fu_174 <= {{layer3x4_out_dout[17:9]}};
+        in_pack_20_fu_250 <= {{layer3x4_out_dout[188:180]}};
+        in_pack_21_fu_254 <= {{layer3x4_out_dout[197:189]}};
+        in_pack_22_fu_258 <= {{layer3x4_out_dout[206:198]}};
+        in_pack_23_fu_262 <= {{layer3x4_out_dout[215:207]}};
+        in_pack_24_fu_266 <= {{layer3x4_out_dout[224:216]}};
+        in_pack_25_fu_270 <= {{layer3x4_out_dout[233:225]}};
+        in_pack_26_fu_274 <= {{layer3x4_out_dout[242:234]}};
+        in_pack_27_fu_278 <= {{layer3x4_out_dout[251:243]}};
+        in_pack_2_fu_178 <= {{layer3x4_out_dout[26:18]}};
+        in_pack_3_fu_182 <= {{layer3x4_out_dout[35:27]}};
+        in_pack_4_fu_186 <= {{layer3x4_out_dout[44:36]}};
+        in_pack_5_fu_190 <= {{layer3x4_out_dout[53:45]}};
+        in_pack_6_fu_194 <= {{layer3x4_out_dout[62:54]}};
+        in_pack_7_fu_198 <= {{layer3x4_out_dout[71:63]}};
+        in_pack_8_fu_202 <= {{layer3x4_out_dout[80:72]}};
+        in_pack_9_fu_206 <= {{layer3x4_out_dout[89:81]}};
+        in_pack_fu_170 <= in_pack_54_fu_363_p1;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_block_state1)) begin
-        ap_ST_fsm_state1_blk = 1'b1;
+    if (((icmp_ln191_fu_311_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_start_int == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        ap_condition_exit_pp0_iter0_stage0 = 1'b1;
     end else begin
-        ap_ST_fsm_state1_blk = 1'b0;
+        ap_condition_exit_pp0_iter0_stage0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_block_state2)) begin
-        ap_ST_fsm_state2_blk = 1'b1;
+    if (((1'b0 == ap_block_pp0_stage0_subdone) & (ap_loop_exit_ready_pp0_iter1_reg == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        ap_done_int = 1'b1;
     end else begin
-        ap_ST_fsm_state2_blk = 1'b0;
-    end
-end
-
-assign ap_ST_fsm_state3_blk = 1'b0;
-
-assign ap_ST_fsm_state4_blk = 1'b0;
-
-always @ (*) begin
-    if ((grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_done == 1'b0)) begin
-        ap_ST_fsm_state5_blk = 1'b1;
-    end else begin
-        ap_ST_fsm_state5_blk = 1'b0;
+        ap_done_int = ap_done_reg;
     end
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-        ap_done = 1'b1;
-    end else begin
-        ap_done = ap_done_reg;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state1) & (real_start == 1'b0))) begin
+    if (((ap_start_int == 1'b0) & (ap_idle_pp0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_idle = 1'b1;
     end else begin
         ap_idle = 1'b0;
@@ -471,555 +538,55 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_1_address0 = 64'd3;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_1_address0 = 64'd1;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        in_pack_1_address0 = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_1_address0;
+    if (((ap_enable_reg_pp0_iter2 == 1'b0) & (ap_enable_reg_pp0_iter1 == 1'b0) & (ap_enable_reg_pp0_iter0 == 1'b0))) begin
+        ap_idle_pp0 = 1'b1;
     end else begin
-        in_pack_1_address0 = 'bx;
+        ap_idle_pp0 = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_1_address1 = 64'd2;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_1_address1 = 64'd0;
+    if (((1'b0 == ap_block_pp0_stage0_subdone) & (ap_start_int == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        ap_ready_int = 1'b1;
     end else begin
-        in_pack_1_address1 = 'bx;
+        ap_ready_int = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_1_ce0 = 1'b1;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        in_pack_1_ce0 = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_1_ce0;
+    if (((1'b0 == ap_block_pp0_stage0) & (ap_start_int == 1'b1) & (ap_loop_init == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        ap_sig_allocacmp_i_1 = 9'd0;
     end else begin
-        in_pack_1_ce0 = 1'b0;
+        ap_sig_allocacmp_i_1 = i_fu_162;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_1_ce1 = 1'b1;
+    if (((1'b0 == ap_block_pp0_stage0) & (ap_start_int == 1'b1) & (ap_loop_init == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        ap_sig_allocacmp_i_iw_2 = 32'd0;
     end else begin
-        in_pack_1_ce1 = 1'b0;
+        ap_sig_allocacmp_i_iw_2 = i_iw_fu_166;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_1_d0 = trunc_ln188_21_reg_995;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_1_d0 = {{layer3x4_out_dout[80:72]}};
+    if (((1'b0 == ap_block_pp0_stage0) & (ap_enable_reg_pp0_iter2 == 1'b1))) begin
+        layer3_out_blk_n = layer3_out_full_n;
     end else begin
-        in_pack_1_d0 = 'bx;
+        layer3_out_blk_n = 1'b1;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_1_d1 = trunc_ln188_14_reg_960;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_1_d1 = {{layer3x4_out_dout[17:9]}};
-    end else begin
-        in_pack_1_d1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_1_we0 = 1'b1;
-    end else begin
-        in_pack_1_we0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_1_we1 = 1'b1;
-    end else begin
-        in_pack_1_we1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_2_address0 = 64'd3;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_2_address0 = 64'd1;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        in_pack_2_address0 = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_2_address0;
-    end else begin
-        in_pack_2_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_2_address1 = 64'd2;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_2_address1 = 64'd0;
-    end else begin
-        in_pack_2_address1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_2_ce0 = 1'b1;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        in_pack_2_ce0 = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_2_ce0;
-    end else begin
-        in_pack_2_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_2_ce1 = 1'b1;
-    end else begin
-        in_pack_2_ce1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_2_d0 = trunc_ln188_22_reg_1000;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_2_d0 = {{layer3x4_out_dout[89:81]}};
-    end else begin
-        in_pack_2_d0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_2_d1 = trunc_ln188_15_reg_965;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_2_d1 = {{layer3x4_out_dout[26:18]}};
-    end else begin
-        in_pack_2_d1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_2_we0 = 1'b1;
-    end else begin
-        in_pack_2_we0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_2_we1 = 1'b1;
-    end else begin
-        in_pack_2_we1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_3_address0 = 64'd3;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_3_address0 = 64'd1;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        in_pack_3_address0 = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_3_address0;
-    end else begin
-        in_pack_3_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_3_address1 = 64'd2;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_3_address1 = 64'd0;
-    end else begin
-        in_pack_3_address1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_3_ce0 = 1'b1;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        in_pack_3_ce0 = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_3_ce0;
-    end else begin
-        in_pack_3_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_3_ce1 = 1'b1;
-    end else begin
-        in_pack_3_ce1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_3_d0 = trunc_ln188_23_reg_1005;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_3_d0 = {{layer3x4_out_dout[98:90]}};
-    end else begin
-        in_pack_3_d0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_3_d1 = trunc_ln188_16_reg_970;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_3_d1 = {{layer3x4_out_dout[35:27]}};
-    end else begin
-        in_pack_3_d1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_3_we0 = 1'b1;
-    end else begin
-        in_pack_3_we0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_3_we1 = 1'b1;
-    end else begin
-        in_pack_3_we1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_4_address0 = 64'd3;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_4_address0 = 64'd1;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        in_pack_4_address0 = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_4_address0;
-    end else begin
-        in_pack_4_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_4_address1 = 64'd2;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_4_address1 = 64'd0;
-    end else begin
-        in_pack_4_address1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_4_ce0 = 1'b1;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        in_pack_4_ce0 = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_4_ce0;
-    end else begin
-        in_pack_4_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_4_ce1 = 1'b1;
-    end else begin
-        in_pack_4_ce1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_4_d0 = trunc_ln188_24_reg_1010;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_4_d0 = {{layer3x4_out_dout[107:99]}};
-    end else begin
-        in_pack_4_d0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_4_d1 = trunc_ln188_17_reg_975;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_4_d1 = {{layer3x4_out_dout[44:36]}};
-    end else begin
-        in_pack_4_d1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_4_we0 = 1'b1;
-    end else begin
-        in_pack_4_we0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_4_we1 = 1'b1;
-    end else begin
-        in_pack_4_we1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_5_address0 = 64'd3;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_5_address0 = 64'd1;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        in_pack_5_address0 = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_5_address0;
-    end else begin
-        in_pack_5_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_5_address1 = 64'd2;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_5_address1 = 64'd0;
-    end else begin
-        in_pack_5_address1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_5_ce0 = 1'b1;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        in_pack_5_ce0 = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_5_ce0;
-    end else begin
-        in_pack_5_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_5_ce1 = 1'b1;
-    end else begin
-        in_pack_5_ce1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_5_d0 = trunc_ln188_25_reg_1015;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_5_d0 = {{layer3x4_out_dout[116:108]}};
-    end else begin
-        in_pack_5_d0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_5_d1 = trunc_ln188_18_reg_980;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_5_d1 = {{layer3x4_out_dout[53:45]}};
-    end else begin
-        in_pack_5_d1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_5_we0 = 1'b1;
-    end else begin
-        in_pack_5_we0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_5_we1 = 1'b1;
-    end else begin
-        in_pack_5_we1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_6_address0 = 64'd3;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_6_address0 = 64'd1;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        in_pack_6_address0 = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_6_address0;
-    end else begin
-        in_pack_6_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_6_address1 = 64'd2;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_6_address1 = 64'd0;
-    end else begin
-        in_pack_6_address1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_6_ce0 = 1'b1;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        in_pack_6_ce0 = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_6_ce0;
-    end else begin
-        in_pack_6_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_6_ce1 = 1'b1;
-    end else begin
-        in_pack_6_ce1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_6_d0 = trunc_ln188_26_reg_1020;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_6_d0 = {{layer3x4_out_dout[125:117]}};
-    end else begin
-        in_pack_6_d0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_6_d1 = trunc_ln188_19_reg_985;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_6_d1 = {{layer3x4_out_dout[62:54]}};
-    end else begin
-        in_pack_6_d1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_6_we0 = 1'b1;
-    end else begin
-        in_pack_6_we0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_6_we1 = 1'b1;
-    end else begin
-        in_pack_6_we1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_address0 = 64'd3;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_address0 = 64'd1;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        in_pack_address0 = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_address0;
-    end else begin
-        in_pack_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_address1 = 64'd2;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_address1 = 64'd0;
-    end else begin
-        in_pack_address1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_ce0 = 1'b1;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        in_pack_ce0 = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_in_pack_ce0;
-    end else begin
-        in_pack_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_ce1 = 1'b1;
-    end else begin
-        in_pack_ce1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_d0 = trunc_ln188_20_reg_990;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_d0 = {{layer3x4_out_dout[71:63]}};
-    end else begin
-        in_pack_d0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state3)) begin
-        in_pack_d1 = trunc_ln188_13_reg_955;
-    end else if ((1'b1 == ap_CS_fsm_state2)) begin
-        in_pack_d1 = trunc_ln188_fu_512_p1;
-    end else begin
-        in_pack_d1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_we0 = 1'b1;
-    end else begin
-        in_pack_we0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state3) | ((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2)))) begin
-        in_pack_we1 = 1'b1;
-    end else begin
-        in_pack_we1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-        internal_ap_ready = 1'b1;
-    end else begin
-        internal_ap_ready = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state5)) begin
-        layer3_out_write = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_layer3_out_write;
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter2 == 1'b1))) begin
+        layer3_out_write = 1'b1;
     end else begin
         layer3_out_write = 1'b0;
     end
 end
 
 always @ (*) begin
-    if (((icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
+    if (((1'b0 == ap_block_pp0_stage0) & (icmp_ln194_reg_1238 == 1'd1) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         layer3x4_out_blk_n = layer3x4_out_empty_n;
     end else begin
         layer3x4_out_blk_n = 1'b1;
@@ -1027,7 +594,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (icmp_ln194_reg_1238 == 1'd1) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         layer3x4_out_read = 1'b1;
     end else begin
         layer3x4_out_read = 1'b0;
@@ -1035,7 +602,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((start_once_reg == 1'b0) & (start_full_n == 1'b0))) begin
+    if (((start_full_n == 1'b0) & (start_once_reg == 1'b0))) begin
         real_start = 1'b0;
     end else begin
         real_start = ap_start;
@@ -1043,7 +610,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((start_once_reg == 1'b0) & (real_start == 1'b1))) begin
+    if (((real_start == 1'b1) & (start_once_reg == 1'b0))) begin
         start_write = 1'b1;
     end else begin
         start_write = 1'b0;
@@ -1052,34 +619,8 @@ end
 
 always @ (*) begin
     case (ap_CS_fsm)
-        ap_ST_fsm_state1 : begin
-            if (((1'b0 == ap_block_state1) & (1'b1 == ap_CS_fsm_state1))) begin
-                ap_NS_fsm = ap_ST_fsm_state2;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state1;
-            end
-        end
-        ap_ST_fsm_state2 : begin
-            if (((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state2))) begin
-                ap_NS_fsm = ap_ST_fsm_state1;
-            end else if (((1'b0 == ap_block_state2) & (icmp_ln187_fu_500_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state2))) begin
-                ap_NS_fsm = ap_ST_fsm_state3;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state2;
-            end
-        end
-        ap_ST_fsm_state3 : begin
-            ap_NS_fsm = ap_ST_fsm_state4;
-        end
-        ap_ST_fsm_state4 : begin
-            ap_NS_fsm = ap_ST_fsm_state5;
-        end
-        ap_ST_fsm_state5 : begin
-            if (((grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
-                ap_NS_fsm = ap_ST_fsm_state2;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state5;
-            end
+        ap_ST_fsm_pp0_stage0 : begin
+            ap_NS_fsm = ap_ST_fsm_pp0_stage0;
         end
         default : begin
             ap_NS_fsm = 'bx;
@@ -1087,36 +628,78 @@ always @ (*) begin
     endcase
 end
 
-assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
+assign add_ln209_fu_339_p2 = (ap_sig_allocacmp_i_iw_2 + 32'd1);
 
-assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
+assign ap_CS_fsm_pp0_stage0 = ap_CS_fsm[32'd0];
 
-assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
-
-assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
-
-assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
+assign ap_block_pp0_stage0 = ~(1'b1 == 1'b1);
 
 always @ (*) begin
-    ap_block_state1 = ((ap_done_reg == 1'b1) | (real_start == 1'b0));
+    ap_block_pp0_stage0_01001 = ((ap_done_reg == 1'b1) | ((ap_enable_reg_pp0_iter2 == 1'b1) & (1'b1 == ap_block_state3_pp0_stage0_iter2)) | ((ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_block_state2_pp0_stage0_iter1)) | ((ap_start_int == 1'b1) & (1'b1 == ap_block_state1_pp0_stage0_iter0)));
 end
 
 always @ (*) begin
-    ap_block_state2 = ((icmp_ln187_fu_500_p2 == 1'd0) & (layer3x4_out_empty_n == 1'b0));
+    ap_block_pp0_stage0_11001 = ((ap_done_reg == 1'b1) | ((ap_enable_reg_pp0_iter2 == 1'b1) & (1'b1 == ap_block_state3_pp0_stage0_iter2)) | ((ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_block_state2_pp0_stage0_iter1)) | ((ap_start_int == 1'b1) & (1'b1 == ap_block_state1_pp0_stage0_iter0)));
 end
+
+always @ (*) begin
+    ap_block_pp0_stage0_subdone = ((ap_done_reg == 1'b1) | ((ap_enable_reg_pp0_iter2 == 1'b1) & (1'b1 == ap_block_state3_pp0_stage0_iter2)) | ((ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_block_state2_pp0_stage0_iter1)) | ((ap_start_int == 1'b1) & (1'b1 == ap_block_state1_pp0_stage0_iter0)));
+end
+
+always @ (*) begin
+    ap_block_state1_pp0_stage0_iter0 = (ap_done_reg == 1'b1);
+end
+
+always @ (*) begin
+    ap_block_state2_pp0_stage0_iter1 = ((icmp_ln194_reg_1238 == 1'd1) & (layer3x4_out_empty_n == 1'b0));
+end
+
+always @ (*) begin
+    ap_block_state3_pp0_stage0_iter2 = (layer3_out_full_n == 1'b0);
+end
+
+always @ (*) begin
+    ap_condition_209 = ((1'b0 == ap_block_pp0_stage0_11001) & (ap_start_int == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0));
+end
+
+assign ap_enable_pp0 = (ap_idle_pp0 ^ 1'b1);
+
+assign ap_enable_reg_pp0_iter0 = ap_start_int;
+
+assign ap_loop_exit_ready = ap_condition_exit_pp0_iter0_stage0;
 
 assign ap_ready = internal_ap_ready;
 
-assign grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_start = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_start_reg;
+assign i_2_fu_317_p2 = (ap_sig_allocacmp_i_1 + 9'd1);
 
-assign i_oh_2_fu_506_p2 = (i_oh_fu_154 + 7'd1);
+assign i_iw_3_fu_345_p3 = ((icmp_ln209_fu_333_p2[0:0] == 1'b1) ? 32'd0 : add_ln209_fu_339_p2);
 
-assign icmp_ln187_fu_500_p2 = ((i_oh_fu_154 == 7'd84) ? 1'b1 : 1'b0);
+assign icmp_ln191_fu_311_p2 = ((ap_sig_allocacmp_i_1 == 9'd336) ? 1'b1 : 1'b0);
 
-assign layer3_out_din = grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_layer3_out_din;
+assign icmp_ln194_fu_327_p2 = ((ap_sig_allocacmp_i_iw_2 == 32'd0) ? 1'b1 : 1'b0);
+
+assign icmp_ln209_fu_333_p2 = ((ap_sig_allocacmp_i_iw_2 == 32'd3) ? 1'b1 : 1'b0);
+
+assign in_pack_54_fu_363_p1 = layer3x4_out_dout[8:0];
+
+assign layer3_out_din = {{{{{{{tmp_5_fu_999_p11}, {tmp_4_fu_976_p11}}, {tmp_3_fu_953_p11}}, {tmp_2_fu_930_p11}}, {tmp_1_fu_907_p11}}, {tmp_s_fu_884_p11}}, {tmp_fu_861_p11}};
 
 assign start_out = real_start;
 
-assign trunc_ln188_fu_512_p1 = layer3x4_out_dout[8:0];
+assign tmp_1_fu_907_p9 = 'bx;
+
+assign tmp_2_fu_930_p9 = 'bx;
+
+assign tmp_3_fu_953_p9 = 'bx;
+
+assign tmp_4_fu_976_p9 = 'bx;
+
+assign tmp_5_fu_999_p9 = 'bx;
+
+assign tmp_fu_861_p9 = 'bx;
+
+assign tmp_s_fu_884_p9 = 'bx;
+
+assign trunc_ln191_fu_323_p1 = ap_sig_allocacmp_i_iw_2[1:0];
 
 endmodule //cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s

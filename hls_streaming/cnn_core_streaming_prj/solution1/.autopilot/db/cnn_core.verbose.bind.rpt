@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'cnn_core'
 ================================================================
-* Date:           Sun May 17 02:40:08 2026
+* Date:           Sun May 17 02:50:18 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_streaming_prj
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
     |   min   |   max   |    min   |    max   | min | max |   Type   |
     +---------+---------+----------+----------+-----+-----+----------+
-    |      844|      844|  4.220 us|  4.220 us|  842|  842|  dataflow|
+    |      345|      345|  1.725 us|  1.725 us|  340|  340|  dataflow|
     +---------+---------+----------+----------+-----+-----+----------+
 
     + Detail: 
@@ -39,7 +39,7 @@
         |                                    Instance                                    |                                Module                                |   min   |   max   |    min   |    max   | min | max |   Type  |
         +--------------------------------------------------------------------------------+----------------------------------------------------------------------+---------+---------+----------+----------+-----+-----+---------+
         |grp_first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s_fu_74  |first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s  |      259|      259|  1.295 us|  1.295 us|  259|  259|       no|
-        |grp_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_81  |unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s  |      841|      841|  4.205 us|  4.205 us|  841|  841|       no|
+        |grp_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_81  |unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s  |      339|      339|  1.695 us|  1.695 us|  339|  339|       no|
         |grp_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s_fu_87    |relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s    |      339|      339|  1.695 us|  1.695 us|  339|  339|       no|
         |grp_maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s_fu_93  |maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s  |      339|      339|  1.695 us|  1.695 us|  339|  339|       no|
         |grp_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s_fu_99         |dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s         |      176|      176|  0.880 us|  0.880 us|  176|  176|       no|
@@ -133,19 +133,19 @@ ST_11 : Operation 26 [1/2] (0.00ns)   --->   "%call_ln54 = call void @dense<arra
 
 State 12 <SV = 11> <Delay = 0.00>
 ST_12 : Operation 27 [1/1] (0.00ns)   --->   "%specdataflowpipeline_ln14 = specdataflowpipeline void @_ssdm_op_SpecDataflowPipeline, i32 4294967295, i32 0, void @empty_0" [firmware/cnn_core.cpp:14]   --->   Operation 27 'specdataflowpipeline' 'specdataflowpipeline_ln14' <Predicate = true> <Delay = 0.00>
-ST_12 : Operation 28 [1/1] (0.00ns)   --->   "%spectopmodule_ln7 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_5" [firmware/cnn_core.cpp:7]   --->   Operation 28 'spectopmodule' 'spectopmodule_ln7' <Predicate = true> <Delay = 0.00>
-ST_12 : Operation 29 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %input_layer, void @empty, i32 1, i32 1, void @empty_3, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 29 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 28 [1/1] (0.00ns)   --->   "%spectopmodule_ln7 = spectopmodule void @_ssdm_op_SpecTopModule, void @empty_2" [firmware/cnn_core.cpp:7]   --->   Operation 28 'spectopmodule' 'spectopmodule_ln7' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 29 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %input_layer, void @empty, i32 1, i32 1, void @empty_8, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 29 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_12 : Operation 30 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i64 %input_layer"   --->   Operation 30 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
-ST_12 : Operation 31 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %layer7_out, void @empty, i32 1, i32 1, void @empty_3, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 31 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 31 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i16 %layer7_out, void @empty, i32 1, i32 1, void @empty_8, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 31 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_12 : Operation 32 [1/1] (0.00ns)   --->   "%specbitsmap_ln0 = specbitsmap void @_ssdm_op_SpecBitsMap, i16 %layer7_out"   --->   Operation 32 'specbitsmap' 'specbitsmap_ln0' <Predicate = true> <Delay = 0.00>
 ST_12 : Operation 33 [1/1] (0.00ns)   --->   "%empty = specchannel i32 @_ssdm_op_SpecChannel, void @layer3x4_out_str, i32 1, void @p_str, void @p_str, i32 84, i32 84, i252 %layer3x4_out, i252 %layer3x4_out"   --->   Operation 33 'specchannel' 'empty' <Predicate = true> <Delay = 0.00>
-ST_12 : Operation 34 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i252 %layer3x4_out, void @empty_4, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 34 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_12 : Operation 35 [1/1] (0.00ns)   --->   "%empty_41 = specchannel i32 @_ssdm_op_SpecChannel, void @layer3_out_str, i32 1, void @p_str, void @p_str, i32 336, i32 336, i63 %layer3_out, i63 %layer3_out"   --->   Operation 35 'specchannel' 'empty_41' <Predicate = true> <Delay = 0.00>
-ST_12 : Operation 36 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i63 %layer3_out, void @empty_4, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 36 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_12 : Operation 37 [1/1] (0.00ns)   --->   "%empty_42 = specchannel i32 @_ssdm_op_SpecChannel, void @layer4_out_str, i32 1, void @p_str, void @p_str, i32 336, i32 336, i112 %layer4_out, i112 %layer4_out"   --->   Operation 37 'specchannel' 'empty_42' <Predicate = true> <Delay = 0.00>
-ST_12 : Operation 38 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i112 %layer4_out, void @empty_4, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 38 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_12 : Operation 39 [1/1] (0.00ns)   --->   "%empty_43 = specchannel i32 @_ssdm_op_SpecChannel, void @layer5_out_str, i32 1, void @p_str, void @p_str, i32 168, i32 168, i112 %layer5_out, i112 %layer5_out"   --->   Operation 39 'specchannel' 'empty_43' <Predicate = true> <Delay = 0.00>
-ST_12 : Operation 40 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i112 %layer5_out, void @empty_4, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 40 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 34 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i252 %layer3x4_out, void @empty_9, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 34 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 35 [1/1] (0.00ns)   --->   "%empty_40 = specchannel i32 @_ssdm_op_SpecChannel, void @layer3_out_str, i32 1, void @p_str, void @p_str, i32 336, i32 336, i63 %layer3_out, i63 %layer3_out"   --->   Operation 35 'specchannel' 'empty_40' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 36 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i63 %layer3_out, void @empty_9, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 36 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 37 [1/1] (0.00ns)   --->   "%empty_41 = specchannel i32 @_ssdm_op_SpecChannel, void @layer4_out_str, i32 1, void @p_str, void @p_str, i32 336, i32 336, i112 %layer4_out, i112 %layer4_out"   --->   Operation 37 'specchannel' 'empty_41' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 38 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i112 %layer4_out, void @empty_9, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 38 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 39 [1/1] (0.00ns)   --->   "%empty_42 = specchannel i32 @_ssdm_op_SpecChannel, void @layer5_out_str, i32 1, void @p_str, void @p_str, i32 168, i32 168, i112 %layer5_out, i112 %layer5_out"   --->   Operation 39 'specchannel' 'empty_42' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 40 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i112 %layer5_out, void @empty_9, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 40 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_12 : Operation 41 [1/1] (0.00ns)   --->   "%ret_ln56 = ret" [firmware/cnn_core.cpp:56]   --->   Operation 41 'ret' 'ret_ln56' <Predicate = true> <Delay = 0.00>
 
 
@@ -185,11 +185,11 @@ specinterface_ln0         (specinterface       ) [ 0000000000000]
 specbitsmap_ln0           (specbitsmap         ) [ 0000000000000]
 empty                     (specchannel         ) [ 0000000000000]
 specinterface_ln0         (specinterface       ) [ 0000000000000]
+empty_40                  (specchannel         ) [ 0000000000000]
+specinterface_ln0         (specinterface       ) [ 0000000000000]
 empty_41                  (specchannel         ) [ 0000000000000]
 specinterface_ln0         (specinterface       ) [ 0000000000000]
 empty_42                  (specchannel         ) [ 0000000000000]
-specinterface_ln0         (specinterface       ) [ 0000000000000]
-empty_43                  (specchannel         ) [ 0000000000000]
 specinterface_ln0         (specinterface       ) [ 0000000000000]
 ret_ln56                  (ret                 ) [ 0000000000000]
 </LifeTime>
@@ -319,7 +319,7 @@ ret_ln56                  (ret                 ) [ 0000000000000]
 <pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_5"/></StgValue>
+<StgValue><ssdm name="empty_2"/></StgValue>
 </bind>
 </comp>
 
@@ -355,7 +355,7 @@ ret_ln56                  (ret                 ) [ 0000000000000]
 <pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_3"/></StgValue>
+<StgValue><ssdm name="empty_8"/></StgValue>
 </bind>
 </comp>
 
@@ -409,7 +409,7 @@ ret_ln56                  (ret                 ) [ 0000000000000]
 <pin id="47" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_4"/></StgValue>
+<StgValue><ssdm name="empty_9"/></StgValue>
 </bind>
 </comp>
 
@@ -686,17 +686,17 @@ ret_ln56                  (ret                 ) [ 0000000000000]
 ============================================================
 
 * Functional unit list:
-|----------|--------------------------------------------------------------------------------|---------|---------|---------|---------|---------|---------|
-| Operation|                                 Functional Unit                                |   BRAM  |   DSP   |  Delay  |    FF   |   LUT   |   URAM  |
-|----------|--------------------------------------------------------------------------------|---------|---------|---------|---------|---------|---------|
-|          | grp_first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s_fu_74 |    0    |    4    |    0    |   737   |   4363  |    0    |
-|          | grp_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_81 |    0    |    0    |  14.945 |   332   |   370   |    0    |
-|   call   |  grp_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s_fu_87  |    0    |    0    |    0    |    73   |   242   |    0    |
-|          | grp_maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s_fu_93 |    0    |    0    |  0.427  |   606   |   568   |    0    |
-|          |     grp_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s_fu_99    |    0    |    13   |  0.427  |  27892  |  30685  |    0    |
-|----------|--------------------------------------------------------------------------------|---------|---------|---------|---------|---------|---------|
-|   Total  |                                                                                |    0    |    17   |  15.799 |  29640  |  36228  |    0    |
-|----------|--------------------------------------------------------------------------------|---------|---------|---------|---------|---------|---------|
+|----------|--------------------------------------------------------------------------------|---------|---------|---------|---------|
+| Operation|                                 Functional Unit                                |   DSP   |  Delay  |    FF   |   LUT   |
+|----------|--------------------------------------------------------------------------------|---------|---------|---------|---------|
+|          | grp_first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s_fu_74 |    4    |    0    |   737   |   4363  |
+|          | grp_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_81 |    0    |    0    |   297   |   321   |
+|   call   |  grp_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s_fu_87  |    0    |    0    |    73   |   242   |
+|          | grp_maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s_fu_93 |    0    |  0.427  |   606   |   568   |
+|          |     grp_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s_fu_99    |    13   |  0.427  |  27892  |  30685  |
+|----------|--------------------------------------------------------------------------------|---------|---------|---------|---------|
+|   Total  |                                                                                |    17   |  0.854  |  29605  |  36179  |
+|----------|--------------------------------------------------------------------------------|---------|---------|---------|---------|
 
 Memories:
 N/A
@@ -723,13 +723,13 @@ N/A
 
 
 * Summary:
-+-----------+--------+--------+--------+--------+--------+--------+
-|           |  BRAM  |   DSP  |  Delay |   FF   |   LUT  |  URAM  |
-+-----------+--------+--------+--------+--------+--------+--------+
-|  Function |    0   |   17   |   15   |  29640 |  36228 |    0   |
-|   Memory  |    -   |    -   |    -   |    -   |    -   |    -   |
-|Multiplexer|    -   |    -   |    -   |    -   |    -   |    -   |
-|  Register |    -   |    -   |    -   |   539  |    -   |    -   |
-+-----------+--------+--------+--------+--------+--------+--------+
-|   Total   |    0   |   17   |   15   |  30179 |  36228 |    0   |
-+-----------+--------+--------+--------+--------+--------+--------+
++-----------+--------+--------+--------+--------+
+|           |   DSP  |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+--------+
+|  Function |   17   |    0   |  29605 |  36179 |
+|   Memory  |    -   |    -   |    -   |    -   |
+|Multiplexer|    -   |    -   |    -   |    -   |
+|  Register |    -   |    -   |   539  |    -   |
++-----------+--------+--------+--------+--------+
+|   Total   |   17   |    0   |  30144 |  36179 |
++-----------+--------+--------+--------+--------+

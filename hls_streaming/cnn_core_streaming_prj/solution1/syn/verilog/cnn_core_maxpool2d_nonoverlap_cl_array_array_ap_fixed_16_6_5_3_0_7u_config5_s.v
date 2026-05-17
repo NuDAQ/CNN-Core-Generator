@@ -99,8 +99,8 @@ reg   [0:0] ap_phi_mux_on_second_row_phi_fu_219_p4;
 wire    ap_loop_init;
 reg    ap_loop_init_pp0_iter1_reg;
 reg   [8:0] i_fu_82;
-wire   [8:0] i_4_fu_246_p2;
-reg   [8:0] ap_sig_allocacmp_i_3;
+wire   [8:0] i_6_fu_246_p2;
+reg   [8:0] ap_sig_allocacmp_i_5;
 reg   [31:0] i_w_fu_86;
 wire   [31:0] i_w_5_fu_494_p3;
 reg   [31:0] ap_sig_allocacmp_i_w_3;
@@ -255,7 +255,7 @@ cnn_core_sparsemux_9_2_16_1_1 #(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U43(
+sparsemux_9_2_16_1_1_U42(
     .din0(p_0_0_0_0_045_fu_146),
     .din1(p_0_0_0_0_024_fu_118),
     .din2(p_0_0_0_0_03_fu_90),
@@ -279,7 +279,7 @@ cnn_core_sparsemux_9_2_16_1_1 #(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U44(
+sparsemux_9_2_16_1_1_U43(
     .din0(mux_case_09548_fu_150),
     .din1(mux_case_19627_fu_122),
     .din2(mux_case_2976_fu_94),
@@ -303,7 +303,7 @@ cnn_core_sparsemux_9_2_16_1_1 #(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U45(
+sparsemux_9_2_16_1_1_U44(
     .din0(mux_case_09951_fu_154),
     .din1(mux_case_110030_fu_126),
     .din2(mux_case_21019_fu_98),
@@ -327,7 +327,7 @@ cnn_core_sparsemux_9_2_16_1_1 #(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U46(
+sparsemux_9_2_16_1_1_U45(
     .din0(mux_case_010354_fu_158),
     .din1(mux_case_110433_fu_130),
     .din2(mux_case_210512_fu_102),
@@ -351,7 +351,7 @@ cnn_core_sparsemux_9_2_16_1_1 #(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U47(
+sparsemux_9_2_16_1_1_U46(
     .din0(mux_case_010757_fu_162),
     .din1(mux_case_110836_fu_134),
     .din2(mux_case_210915_fu_106),
@@ -375,7 +375,7 @@ cnn_core_sparsemux_9_2_16_1_1 #(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U48(
+sparsemux_9_2_16_1_1_U47(
     .din0(mux_case_011160_fu_166),
     .din1(mux_case_111239_fu_138),
     .din2(mux_case_211318_fu_110),
@@ -399,7 +399,7 @@ cnn_core_sparsemux_9_2_16_1_1 #(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U49(
+sparsemux_9_2_16_1_1_U48(
     .din0(mux_case_011563_fu_170),
     .din1(mux_case_111642_fu_142),
     .din2(mux_case_211721_fu_114),
@@ -482,7 +482,7 @@ end
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_condition_243)) begin
         if ((icmp_ln373_fu_240_p2 == 1'd0)) begin
-            i_fu_82 <= i_4_fu_246_p2;
+            i_fu_82 <= i_6_fu_246_p2;
         end else if ((ap_loop_init == 1'b1)) begin
             i_fu_82 <= 9'd0;
         end
@@ -638,9 +638,9 @@ end
 
 always @ (*) begin
     if (((1'b0 == ap_block_pp0_stage0) & (ap_start_int == 1'b1) & (ap_loop_init == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
-        ap_sig_allocacmp_i_3 = 9'd0;
+        ap_sig_allocacmp_i_5 = 9'd0;
     end else begin
-        ap_sig_allocacmp_i_3 = i_fu_82;
+        ap_sig_allocacmp_i_5 = i_fu_82;
     end
 end
 
@@ -757,13 +757,13 @@ assign ap_ready = internal_ap_ready;
 
 assign cur_fu_264_p1 = layer4_out_dout[15:0];
 
-assign i_4_fu_246_p2 = (ap_sig_allocacmp_i_3 + 9'd1);
+assign i_6_fu_246_p2 = (ap_sig_allocacmp_i_5 + 9'd1);
 
 assign i_w_4_fu_480_p2 = (ap_sig_allocacmp_i_w_3 + 32'd1);
 
 assign i_w_5_fu_494_p3 = ((icmp_ln395_fu_468_p2[0:0] == 1'b1) ? 32'd0 : i_w_4_fu_480_p2);
 
-assign icmp_ln373_fu_240_p2 = ((ap_sig_allocacmp_i_3 == 9'd336) ? 1'b1 : 1'b0);
+assign icmp_ln373_fu_240_p2 = ((ap_sig_allocacmp_i_5 == 9'd336) ? 1'b1 : 1'b0);
 
 assign icmp_ln390_1_fu_649_p2 = (($signed(tmp_1_fu_626_p11) > $signed(cur_1_reg_1058)) ? 1'b1 : 1'b0);
 

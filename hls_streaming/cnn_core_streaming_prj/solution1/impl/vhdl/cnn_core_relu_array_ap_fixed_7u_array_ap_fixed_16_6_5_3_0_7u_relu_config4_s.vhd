@@ -115,9 +115,9 @@ attribute shreg_extract : string;
     signal icmp_ln51_6_reg_512 : STD_LOGIC_VECTOR (0 downto 0);
     signal tmp_6_reg_517 : STD_LOGIC_VECTOR (7 downto 0);
     signal i_fu_84 : STD_LOGIC_VECTOR (8 downto 0) := "000000000";
-    signal i_2_fu_115_p2 : STD_LOGIC_VECTOR (8 downto 0);
+    signal i_4_fu_115_p2 : STD_LOGIC_VECTOR (8 downto 0);
     signal ap_loop_init : STD_LOGIC;
-    signal ap_sig_allocacmp_i_1 : STD_LOGIC_VECTOR (8 downto 0);
+    signal ap_sig_allocacmp_i_3 : STD_LOGIC_VECTOR (8 downto 0);
     signal ap_block_pp0_stage0_01001 : BOOLEAN;
     signal trunc_ln44_fu_126_p1 : STD_LOGIC_VECTOR (8 downto 0);
     signal trunc_ln44_1_fu_130_p4 : STD_LOGIC_VECTOR (8 downto 0);
@@ -275,7 +275,7 @@ begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_boolean_1 = ap_condition_141)) then
                 if ((icmp_ln41_fu_109_p2 = ap_const_lv1_0)) then 
-                    i_fu_84 <= i_2_fu_115_p2;
+                    i_fu_84 <= i_4_fu_115_p2;
                 elsif ((ap_loop_init = ap_const_logic_1)) then 
                     i_fu_84 <= ap_const_lv9_0;
                 end if;
@@ -413,17 +413,17 @@ begin
     end process;
 
 
-    ap_sig_allocacmp_i_1_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_block_pp0_stage0, i_fu_84, ap_loop_init, ap_start_int)
+    ap_sig_allocacmp_i_3_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_block_pp0_stage0, i_fu_84, ap_loop_init, ap_start_int)
     begin
         if (((ap_const_boolean_0 = ap_block_pp0_stage0) and (ap_start_int = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0) and (ap_loop_init = ap_const_logic_1))) then 
-            ap_sig_allocacmp_i_1 <= ap_const_lv9_0;
+            ap_sig_allocacmp_i_3 <= ap_const_lv9_0;
         else 
-            ap_sig_allocacmp_i_1 <= i_fu_84;
+            ap_sig_allocacmp_i_3 <= i_fu_84;
         end if; 
     end process;
 
-    i_2_fu_115_p2 <= std_logic_vector(unsigned(ap_sig_allocacmp_i_1) + unsigned(ap_const_lv9_1));
-    icmp_ln41_fu_109_p2 <= "1" when (ap_sig_allocacmp_i_1 = ap_const_lv9_150) else "0";
+    i_4_fu_115_p2 <= std_logic_vector(unsigned(ap_sig_allocacmp_i_3) + unsigned(ap_const_lv9_1));
+    icmp_ln41_fu_109_p2 <= "1" when (ap_sig_allocacmp_i_3 = ap_const_lv9_150) else "0";
     icmp_ln51_1_fu_200_p2 <= "1" when (signed(trunc_ln44_1_fu_130_p4) > signed(ap_const_lv9_0)) else "0";
     icmp_ln51_2_fu_216_p2 <= "1" when (signed(trunc_ln44_2_fu_140_p4) > signed(ap_const_lv9_0)) else "0";
     icmp_ln51_3_fu_232_p2 <= "1" when (signed(trunc_ln44_3_fu_150_p4) > signed(ap_const_lv9_0)) else "0";

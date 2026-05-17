@@ -28,7 +28,7 @@ end;
 architecture behav of cnn_core is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "cnn_core_cnn_core,hls_ip_2023_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcku5p-ffvb676-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=3.886000,HLS_SYN_LAT=844,HLS_SYN_TPT=842,HLS_SYN_MEM=32,HLS_SYN_DSP=0,HLS_SYN_FF=30238,HLS_SYN_LUT=38246,HLS_VERSION=2023_2}";
+    "cnn_core_cnn_core,hls_ip_2023_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcku5p-ffvb676-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=3.886000,HLS_SYN_LAT=345,HLS_SYN_TPT=340,HLS_SYN_MEM=32,HLS_SYN_DSP=0,HLS_SYN_FF=30269,HLS_SYN_LUT=37938,HLS_VERSION=2023_2}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
 
@@ -48,11 +48,11 @@ architecture behav of cnn_core is
     signal unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_continue : STD_LOGIC;
     signal unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_idle : STD_LOGIC;
     signal unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_ready : STD_LOGIC;
-    signal unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_out : STD_LOGIC;
-    signal unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_write : STD_LOGIC;
     signal unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3x4_out_read : STD_LOGIC;
     signal unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_din : STD_LOGIC_VECTOR (62 downto 0);
     signal unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_write : STD_LOGIC;
+    signal unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_out : STD_LOGIC;
+    signal unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_write : STD_LOGIC;
     signal relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ap_start : STD_LOGIC;
     signal relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ap_done : STD_LOGIC;
     signal relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ap_continue : STD_LOGIC;
@@ -151,8 +151,6 @@ architecture behav of cnn_core is
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        start_out : OUT STD_LOGIC;
-        start_write : OUT STD_LOGIC;
         layer3x4_out_dout : IN STD_LOGIC_VECTOR (251 downto 0);
         layer3x4_out_num_data_valid : IN STD_LOGIC_VECTOR (7 downto 0);
         layer3x4_out_fifo_cap : IN STD_LOGIC_VECTOR (7 downto 0);
@@ -162,7 +160,9 @@ architecture behav of cnn_core is
         layer3_out_num_data_valid : IN STD_LOGIC_VECTOR (9 downto 0);
         layer3_out_fifo_cap : IN STD_LOGIC_VECTOR (9 downto 0);
         layer3_out_full_n : IN STD_LOGIC;
-        layer3_out_write : OUT STD_LOGIC );
+        layer3_out_write : OUT STD_LOGIC;
+        start_out : OUT STD_LOGIC;
+        start_write : OUT STD_LOGIC );
     end component;
 
 
@@ -397,8 +397,6 @@ begin
         ap_continue => unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_continue,
         ap_idle => unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_idle,
         ap_ready => unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_ready,
-        start_out => unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_out,
-        start_write => unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_write,
         layer3x4_out_dout => layer3x4_out_dout,
         layer3x4_out_num_data_valid => layer3x4_out_num_data_valid,
         layer3x4_out_fifo_cap => layer3x4_out_fifo_cap,
@@ -408,7 +406,9 @@ begin
         layer3_out_num_data_valid => layer3_out_num_data_valid,
         layer3_out_fifo_cap => layer3_out_fifo_cap,
         layer3_out_full_n => layer3_out_full_n,
-        layer3_out_write => unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_write);
+        layer3_out_write => unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_write,
+        start_out => unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_out,
+        start_write => unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_write);
 
     relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0 : component cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s
     port map (

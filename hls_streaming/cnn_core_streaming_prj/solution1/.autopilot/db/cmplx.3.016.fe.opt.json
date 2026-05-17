@@ -1,12 +1,12 @@
 {
   "0": {
     "basicblocks": 1,
-    "calls": "5 3 1 4 6",
+    "calls": "5 2 1 6 3",
     "file": "cnn_core.cpp",
     "fileloc": 7,
     "instructions": 29,
     "name": "cnn_core",
-    "total_instructions": 15091
+    "total_instructions": 15055
   },
   "1": {
     "basicblocks": 4,
@@ -24,6 +24,36 @@
     "total_instructions": 147
   },
   "2": {
+    "basicblocks": 6,
+    "calls": "",
+    "file": "nnet_first_conv_stream.h",
+    "fileloc": 181,
+    "instructions": 337,
+    "loads": {
+      "L": 1
+    },
+    "name": "unpack_4lane_temporal_cl<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 7>, config3>",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 337
+  },
+  "3": {
+    "basicblocks": 172,
+    "calls": "4",
+    "file": "nnet_dense_stream.h",
+    "fileloc": 82,
+    "instructions": 1810,
+    "loads": {
+      "L": 2
+    },
+    "name": "dense<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, config7>",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 12731
+  },
+  "4": {
     "basicblocks": 1,
     "calls": "",
     "file": "nnet_dense_stream.h",
@@ -34,36 +64,6 @@
       "L": 1
     },
     "total_instructions": 10921
-  },
-  "3": {
-    "basicblocks": 7,
-    "calls": "",
-    "file": "nnet_first_conv_stream.h",
-    "fileloc": 181,
-    "instructions": 373,
-    "loads": {
-      "L": 8
-    },
-    "name": "unpack_4lane_temporal_cl<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 7>, config3>",
-    "stores": {
-      "L": 29
-    },
-    "total_instructions": 373
-  },
-  "4": {
-    "basicblocks": 13,
-    "calls": "",
-    "file": "nnet_pooling_stream.h",
-    "fileloc": 348,
-    "instructions": 192,
-    "loads": {
-      "L": 1
-    },
-    "name": "maxpool2d_nonoverlap_cl<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, config5>",
-    "stores": {
-      "L": 1
-    },
-    "total_instructions": 192
   },
   "5": {
     "basicblocks": 14,
@@ -81,18 +81,18 @@
     "total_instructions": 1619
   },
   "6": {
-    "basicblocks": 172,
-    "calls": "2",
-    "file": "nnet_dense_stream.h",
-    "fileloc": 82,
-    "instructions": 1810,
+    "basicblocks": 13,
+    "calls": "",
+    "file": "nnet_pooling_stream.h",
+    "fileloc": 348,
+    "instructions": 192,
     "loads": {
-      "L": 2
+      "L": 1
     },
-    "name": "dense<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, config7>",
+    "name": "maxpool2d_nonoverlap_cl<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, config5>",
     "stores": {
       "L": 1
     },
-    "total_instructions": 12731
+    "total_instructions": 192
   }
 }

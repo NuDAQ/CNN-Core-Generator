@@ -7,14 +7,9 @@ set SynModuleInfo {
       {MODELNAME cnn_core_flow_control_loop_pipe RTLNAME cnn_core_flow_control_loop_pipe BINDTYPE interface TYPE internal_upc_flow_control INSTNAME cnn_core_flow_control_loop_pipe_U}
     }
   }
-  {SRCNAME unpack_4lane_temporal_cl<array,array,config3>_Pipeline_UnpackOutputWidth MODELNAME unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth RTLNAME cnn_core_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth
-    SUBMODULES {
-      {MODELNAME cnn_core_flow_control_loop_pipe_sequential_init RTLNAME cnn_core_flow_control_loop_pipe_sequential_init BINDTYPE interface TYPE internal_upc_flow_control INSTNAME cnn_core_flow_control_loop_pipe_sequential_init_U}
-    }
-  }
   {SRCNAME unpack_4lane_temporal_cl<array,array<ap_fixed<9,5,5,3,0>,7u>,config3> MODELNAME unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s RTLNAME cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s
     SUBMODULES {
-      {MODELNAME cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb RTLNAME cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME cnn_core_sparsemux_9_2_9_1_1 RTLNAME cnn_core_sparsemux_9_2_9_1_1 BINDTYPE op TYPE sparsemux IMPL auto}
     }
   }
   {SRCNAME relu<array<ap_fixed,7u>,array<ap_fixed<16,6,5,3,0>,7u>,relu_config4> MODELNAME relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s RTLNAME cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s}
@@ -23,7 +18,11 @@ set SynModuleInfo {
       {MODELNAME cnn_core_sparsemux_9_2_16_1_1 RTLNAME cnn_core_sparsemux_9_2_16_1_1 BINDTYPE op TYPE sparsemux IMPL auto}
     }
   }
-  {SRCNAME dense<array,array<ap_fixed<9,5,5,3,0>,1u>,config7>_Pipeline_DataPrepare MODELNAME dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare RTLNAME cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare}
+  {SRCNAME dense<array,array<ap_fixed<9,5,5,3,0>,1u>,config7>_Pipeline_DataPrepare MODELNAME dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare RTLNAME cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare
+    SUBMODULES {
+      {MODELNAME cnn_core_flow_control_loop_pipe_sequential_init RTLNAME cnn_core_flow_control_loop_pipe_sequential_init BINDTYPE interface TYPE internal_upc_flow_control INSTNAME cnn_core_flow_control_loop_pipe_sequential_init_U}
+    }
+  }
   {SRCNAME dense_latency_wrapper<ap_fixed,ap_fixed<9,5,5,3,0>,config7> MODELNAME dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s RTLNAME cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s
     SUBMODULES {
       {MODELNAME cnn_core_mul_16s_6ns_19_1_1 RTLNAME cnn_core_mul_16s_6ns_19_1_1 BINDTYPE op TYPE mul IMPL auto LATENCY 0 ALLOW_PRAGMA 1}

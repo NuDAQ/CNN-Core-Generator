@@ -61914,25 +61914,30 @@ void unpack_4lane_temporal_cl(hls::stream<data_T> &data, hls::stream<res_T> &res
     static_assert(CONFIG_T::out_width * CONFIG_T::n_filt == data_T::size,
                   "wide input must pack all width positions and filters");
 
-UnpackOutputHeight:
-    for (unsigned i_oh = 0; i_oh < CONFIG_T::out_height; i_oh++) {
-        data_T in_pack = data.read();
+    data_T in_pack;
 
-    UnpackOutputWidth:
-        for (unsigned i_iw = 0; i_iw < CONFIG_T::out_width; i_iw++) {
+    unsigned i_iw = 0;
+
+UnpackOutputFlat:
+    for (unsigned i = 0; i < CONFIG_T::out_height * CONFIG_T::out_width; i++) {
 #pragma HLS PIPELINE II=1
 
- res_T out_pack;
+ if (i_iw == 0) {
+            in_pack = data.read();
+        }
+
+        res_T out_pack;
 
 
-        UnpackFilters:
-            for (unsigned i_f = 0; i_f < CONFIG_T::n_filt; i_f++) {
+    UnpackFilters:
+        for (unsigned i_f = 0; i_f < CONFIG_T::n_filt; i_f++) {
 #pragma HLS UNROLL
  out_pack[i_f] = in_pack[i_iw * CONFIG_T::n_filt + i_f];
-            }
-
-            res.write(out_pack);
         }
+
+        res.write(out_pack);
+
+        i_iw = (i_iw == CONFIG_T::out_width - 1) ? 0u : i_iw + 1;
     }
 }
 

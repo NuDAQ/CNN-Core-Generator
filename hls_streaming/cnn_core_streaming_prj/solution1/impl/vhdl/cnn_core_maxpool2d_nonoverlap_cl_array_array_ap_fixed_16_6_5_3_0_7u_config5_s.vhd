@@ -110,8 +110,8 @@ attribute shreg_extract : string;
     signal ap_loop_init : STD_LOGIC;
     signal ap_loop_init_pp0_iter1_reg : STD_LOGIC;
     signal i_fu_82 : STD_LOGIC_VECTOR (8 downto 0) := "000000000";
-    signal i_4_fu_246_p2 : STD_LOGIC_VECTOR (8 downto 0);
-    signal ap_sig_allocacmp_i_3 : STD_LOGIC_VECTOR (8 downto 0);
+    signal i_6_fu_246_p2 : STD_LOGIC_VECTOR (8 downto 0);
+    signal ap_sig_allocacmp_i_5 : STD_LOGIC_VECTOR (8 downto 0);
     signal i_w_fu_86 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000000";
     signal i_w_5_fu_494_p3 : STD_LOGIC_VECTOR (31 downto 0);
     signal ap_sig_allocacmp_i_w_3 : STD_LOGIC_VECTOR (31 downto 0);
@@ -259,7 +259,7 @@ attribute shreg_extract : string;
 
 
 begin
-    sparsemux_9_2_16_1_1_U43 : component cnn_core_sparsemux_9_2_16_1_1
+    sparsemux_9_2_16_1_1_U42 : component cnn_core_sparsemux_9_2_16_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -283,7 +283,7 @@ begin
         sel => trunc_ln373_reg_1041,
         dout => tmp_s_fu_591_p11);
 
-    sparsemux_9_2_16_1_1_U44 : component cnn_core_sparsemux_9_2_16_1_1
+    sparsemux_9_2_16_1_1_U43 : component cnn_core_sparsemux_9_2_16_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -307,7 +307,7 @@ begin
         sel => trunc_ln373_reg_1041,
         dout => tmp_1_fu_626_p11);
 
-    sparsemux_9_2_16_1_1_U45 : component cnn_core_sparsemux_9_2_16_1_1
+    sparsemux_9_2_16_1_1_U44 : component cnn_core_sparsemux_9_2_16_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -331,7 +331,7 @@ begin
         sel => trunc_ln373_reg_1041,
         dout => tmp_2_fu_661_p11);
 
-    sparsemux_9_2_16_1_1_U46 : component cnn_core_sparsemux_9_2_16_1_1
+    sparsemux_9_2_16_1_1_U45 : component cnn_core_sparsemux_9_2_16_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -355,7 +355,7 @@ begin
         sel => trunc_ln373_reg_1041,
         dout => tmp_3_fu_696_p11);
 
-    sparsemux_9_2_16_1_1_U47 : component cnn_core_sparsemux_9_2_16_1_1
+    sparsemux_9_2_16_1_1_U46 : component cnn_core_sparsemux_9_2_16_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -379,7 +379,7 @@ begin
         sel => trunc_ln373_reg_1041,
         dout => tmp_4_fu_731_p11);
 
-    sparsemux_9_2_16_1_1_U48 : component cnn_core_sparsemux_9_2_16_1_1
+    sparsemux_9_2_16_1_1_U47 : component cnn_core_sparsemux_9_2_16_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -403,7 +403,7 @@ begin
         sel => trunc_ln373_reg_1041,
         dout => tmp_5_fu_766_p11);
 
-    sparsemux_9_2_16_1_1_U49 : component cnn_core_sparsemux_9_2_16_1_1
+    sparsemux_9_2_16_1_1_U48 : component cnn_core_sparsemux_9_2_16_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -526,7 +526,7 @@ begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_boolean_1 = ap_condition_243)) then
                 if ((icmp_ln373_fu_240_p2 = ap_const_lv1_0)) then 
-                    i_fu_82 <= i_4_fu_246_p2;
+                    i_fu_82 <= i_6_fu_246_p2;
                 elsif ((ap_loop_init = ap_const_logic_1)) then 
                     i_fu_82 <= ap_const_lv9_0;
                 end if;
@@ -777,12 +777,12 @@ begin
     end process;
 
 
-    ap_sig_allocacmp_i_3_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_block_pp0_stage0, ap_loop_init, i_fu_82, ap_start_int)
+    ap_sig_allocacmp_i_5_assign_proc : process(ap_CS_fsm_pp0_stage0, ap_block_pp0_stage0, ap_loop_init, i_fu_82, ap_start_int)
     begin
         if (((ap_const_boolean_0 = ap_block_pp0_stage0) and (ap_start_int = ap_const_logic_1) and (ap_loop_init = ap_const_logic_1) and (ap_const_logic_1 = ap_CS_fsm_pp0_stage0))) then 
-            ap_sig_allocacmp_i_3 <= ap_const_lv9_0;
+            ap_sig_allocacmp_i_5 <= ap_const_lv9_0;
         else 
-            ap_sig_allocacmp_i_3 <= i_fu_82;
+            ap_sig_allocacmp_i_5 <= i_fu_82;
         end if; 
     end process;
 
@@ -797,12 +797,12 @@ begin
     end process;
 
     cur_fu_264_p1 <= layer4_out_dout(16 - 1 downto 0);
-    i_4_fu_246_p2 <= std_logic_vector(unsigned(ap_sig_allocacmp_i_3) + unsigned(ap_const_lv9_1));
+    i_6_fu_246_p2 <= std_logic_vector(unsigned(ap_sig_allocacmp_i_5) + unsigned(ap_const_lv9_1));
     i_w_4_fu_480_p2 <= std_logic_vector(unsigned(ap_sig_allocacmp_i_w_3) + unsigned(ap_const_lv32_1));
     i_w_5_fu_494_p3 <= 
         ap_const_lv32_0 when (icmp_ln395_fu_468_p2(0) = '1') else 
         i_w_4_fu_480_p2;
-    icmp_ln373_fu_240_p2 <= "1" when (ap_sig_allocacmp_i_3 = ap_const_lv9_150) else "0";
+    icmp_ln373_fu_240_p2 <= "1" when (ap_sig_allocacmp_i_5 = ap_const_lv9_150) else "0";
     icmp_ln390_1_fu_649_p2 <= "1" when (signed(tmp_1_fu_626_p11) > signed(cur_1_reg_1058)) else "0";
     icmp_ln390_2_fu_684_p2 <= "1" when (signed(tmp_2_fu_661_p11) > signed(cur_2_reg_1064)) else "0";
     icmp_ln390_3_fu_719_p2 <= "1" when (signed(tmp_3_fu_696_p11) > signed(cur_3_reg_1070)) else "0";

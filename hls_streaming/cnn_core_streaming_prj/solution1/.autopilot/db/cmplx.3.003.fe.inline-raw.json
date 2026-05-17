@@ -1,83 +1,23 @@
 {
   "0": {
     "basicblocks": 1,
-    "calls": "5 3 1 7 8",
+    "calls": "7 5 4 3 6",
     "file": "cnn_core.cpp",
     "fileloc": 7,
     "instructions": 42,
     "name": "cnn_core",
-    "total_instructions": 28376
+    "total_instructions": 28526
   },
   "1": {
-    "basicblocks": 24,
-    "calls": "",
-    "file": "nnet_activation_stream.h",
-    "fileloc": 39,
-    "instructions": 179,
-    "loads": {
-      "L": 14
-    },
-    "name": "relu<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 7>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, relu_config4>",
-    "stores": {
-      "L": 21
-    },
-    "total_instructions": 179
-  },
-  "2": {
     "basicblocks": 1,
-    "calls": "4",
+    "calls": "8",
     "file": "nnet_dense_stream.h",
     "fileloc": 13,
     "instructions": 2,
     "name": "dense_latency_wrapper<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, config7>",
     "total_instructions": 24628
   },
-  "3": {
-    "basicblocks": 5,
-    "calls": "",
-    "file": "nnet_first_conv_stream.h",
-    "fileloc": 181,
-    "instructions": 177,
-    "loads": {
-      "L": 14
-    },
-    "name": "unpack_4lane_temporal_cl<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 7>, config3>",
-    "stores": {
-      "L": 35
-    },
-    "total_instructions": 177
-  },
-  "4": {
-    "basicblocks": 2351,
-    "calls": "",
-    "file": "nnet_dense_latency.h",
-    "fileloc": 13,
-    "instructions": 24626,
-    "loads": {
-      "L": 1969
-    },
-    "name": "dense_latency<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, config7>",
-    "stores": {
-      "L": 3530
-    },
-    "total_instructions": 24626
-  },
-  "5": {
-    "basicblocks": 7,
-    "calls": "6 6 6 6",
-    "file": "nnet_first_conv_stream.h",
-    "fileloc": 99,
-    "instructions": 388,
-    "loads": {
-      "L": 80
-    },
-    "name": "first_conv_4lane_temporal_wide_cl<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 28>, config3>",
-    "stores": {
-      "L": 56
-    },
-    "total_instructions": 3096
-  },
-  "6": {
+  "2": {
     "basicblocks": 69,
     "calls": "",
     "file": "nnet_dense_latency.h",
@@ -92,7 +32,7 @@
     },
     "total_instructions": 677
   },
-  "7": {
+  "3": {
     "basicblocks": 9,
     "calls": "",
     "file": "nnet_pooling_stream.h",
@@ -107,9 +47,39 @@
     },
     "total_instructions": 203
   },
-  "8": {
+  "4": {
+    "basicblocks": 24,
+    "calls": "",
+    "file": "nnet_activation_stream.h",
+    "fileloc": 39,
+    "instructions": 179,
+    "loads": {
+      "L": 14
+    },
+    "name": "relu<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 7>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, relu_config4>",
+    "stores": {
+      "L": 21
+    },
+    "total_instructions": 179
+  },
+  "5": {
+    "basicblocks": 5,
+    "calls": "",
+    "file": "nnet_first_conv_stream.h",
+    "fileloc": 181,
+    "instructions": 327,
+    "loads": {
+      "L": 42
+    },
+    "name": "unpack_4lane_temporal_cl<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 7>, config3>",
+    "stores": {
+      "L": 63
+    },
+    "total_instructions": 327
+  },
+  "6": {
     "basicblocks": 3,
-    "calls": "2",
+    "calls": "1",
     "file": "nnet_dense_stream.h",
     "fileloc": 82,
     "instructions": 51,
@@ -121,5 +91,35 @@
       "L": 7
     },
     "total_instructions": 24679
+  },
+  "7": {
+    "basicblocks": 7,
+    "calls": "2 2 2 2",
+    "file": "nnet_first_conv_stream.h",
+    "fileloc": 99,
+    "instructions": 388,
+    "loads": {
+      "L": 80
+    },
+    "name": "first_conv_4lane_temporal_wide_cl<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 28>, config3>",
+    "stores": {
+      "L": 56
+    },
+    "total_instructions": 3096
+  },
+  "8": {
+    "basicblocks": 2351,
+    "calls": "",
+    "file": "nnet_dense_latency.h",
+    "fileloc": 13,
+    "instructions": 24626,
+    "loads": {
+      "L": 1969
+    },
+    "name": "dense_latency<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, config7>",
+    "stores": {
+      "L": 3530
+    },
+    "total_instructions": 24626
   }
 }

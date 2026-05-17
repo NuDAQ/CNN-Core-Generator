@@ -18,52 +18,53 @@
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>3.103</EstimatedClockPeriod>
+<EstimatedClockPeriod>2.281</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>841</Best-caseLatency>
-<Average-caseLatency>841</Average-caseLatency>
-<Worst-caseLatency>841</Worst-caseLatency>
-<Best-caseRealTimeLatency>4.205 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>4.205 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>4.205 us</Worst-caseRealTimeLatency>
-<Interval-min>841</Interval-min>
-<Interval-max>841</Interval-max>
+<Best-caseLatency>339</Best-caseLatency>
+<Average-caseLatency>339</Average-caseLatency>
+<Worst-caseLatency>339</Worst-caseLatency>
+<Best-caseRealTimeLatency>1.695 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>1.695 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>1.695 us</Worst-caseRealTimeLatency>
+<Interval-min>339</Interval-min>
+<Interval-max>339</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<UnpackOutputHeight>
+<UnpackOutputFlat>
 <Slack>3.65</Slack>
-<TripCount>84</TripCount>
-<Latency>840</Latency>
-<AbsoluteTimeLatency>4200</AbsoluteTimeLatency>
-<IterationLatency>10</IterationLatency>
+<TripCount>336</TripCount>
+<Latency>337</Latency>
+<AbsoluteTimeLatency>1685</AbsoluteTimeLatency>
+<PipelineII>1</PipelineII>
+<PipelineDepth>3</PipelineDepth>
 <InstanceList>
 </InstanceList>
-</UnpackOutputHeight>
+</UnpackOutputFlat>
 </SummaryOfLoopLatency>
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/nnet_utils/nnet_first_conv_stream.h:187</SourceLocation>
+<SourceLocation>firmware/nnet_utils/nnet_first_conv_stream.h:191</SourceLocation>
 <SummaryOfLoopViolations>
-<UnpackOutputHeight>
-<Name>UnpackOutputHeight</Name>
+<UnpackOutputFlat>
+<Name>UnpackOutputFlat</Name>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/nnet_utils/nnet_first_conv_stream.h:187</SourceLocation>
-</UnpackOutputHeight>
+<SourceLocation>firmware/nnet_utils/nnet_first_conv_stream.h:191</SourceLocation>
+</UnpackOutputFlat>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
+<FF>304</FF>
+<LUT>410</LUT>
 <BRAM_18K>0</BRAM_18K>
-<FF>273</FF>
-<LUT>718</LUT>
-<URAM>0</URAM>
 <DSP>0</DSP>
+<URAM>0</URAM>
 </Resources>
 <AvailableResources>
 <BRAM_18K>960</BRAM_18K>

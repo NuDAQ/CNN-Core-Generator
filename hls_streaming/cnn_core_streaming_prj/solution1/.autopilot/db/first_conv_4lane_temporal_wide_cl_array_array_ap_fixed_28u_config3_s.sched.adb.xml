@@ -76,7 +76,7 @@ entry:2 %wptr = alloca i32 1
 
 <Node id="6" bw="0" op_0_bw="0" op_1_bw="252" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i252 %layer3x4_out, void @empty_4, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0
+entry:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i252 %layer3x4_out, void @empty_9, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -91,7 +91,7 @@ entry:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i252 %l
 
 <Node id="7" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:4 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %input_layer, void @empty, i32 1, i32 1, void @empty_3, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0
+entry:4 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %input_layer, void @empty, i32 1, i32 1, void @empty_8, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -589,7 +589,7 @@ InsertRowWide.split:1 %speclooptripcount_ln120 = speclooptripcount void @_ssdm_o
 
 <Node id="42" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-InsertRowWide.split:2 %specloopname_ln120 = specloopname void @_ssdm_op_SpecLoopName, void @empty_10
+InsertRowWide.split:2 %specloopname_ln120 = specloopname void @_ssdm_op_SpecLoopName, void @empty_6
 
 ]]></Node>
 <StgValue><ssdm name="specloopname_ln120"/></StgValue>
@@ -4841,10 +4841,10 @@ WriteOutputWidthWide:219 %tmp221_cast = sext i13 %tmp221
 
 <Node id="310" bw="12" op_0_bw="13">
 <![CDATA[
-WriteOutputWidthWide:220 %empty_37 = trunc i13 %tmp221
+WriteOutputWidthWide:220 %empty_36 = trunc i13 %tmp221
 
 ]]></Node>
-<StgValue><ssdm name="empty_37"/></StgValue>
+<StgValue><ssdm name="empty_36"/></StgValue>
 </operation>
 
 <operation id="306" st_id="2" stage="1" lat="1">
@@ -4857,7 +4857,7 @@ WriteOutputWidthWide:220 %empty_37 = trunc i13 %tmp221
 
 <Node id="311" bw="15" op_0_bw="15" op_1_bw="12" op_2_bw="3">
 <![CDATA[
-WriteOutputWidthWide:221 %p_shl9 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_37, i3 0
+WriteOutputWidthWide:221 %p_shl9 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_36, i3 0
 
 ]]></Node>
 <StgValue><ssdm name="p_shl9"/></StgValue>
@@ -6153,10 +6153,10 @@ WriteOutputWidthWide:304 %tmp231_cast = sext i13 %tmp231
 
 <Node id="395" bw="12" op_0_bw="13">
 <![CDATA[
-WriteOutputWidthWide:305 %empty_38 = trunc i13 %tmp231
+WriteOutputWidthWide:305 %empty_37 = trunc i13 %tmp231
 
 ]]></Node>
-<StgValue><ssdm name="empty_38"/></StgValue>
+<StgValue><ssdm name="empty_37"/></StgValue>
 </operation>
 
 <operation id="388" st_id="2" stage="1" lat="1">
@@ -6169,7 +6169,7 @@ WriteOutputWidthWide:305 %empty_38 = trunc i13 %tmp231
 
 <Node id="396" bw="15" op_0_bw="15" op_1_bw="12" op_2_bw="3">
 <![CDATA[
-WriteOutputWidthWide:306 %p_shl11 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_38, i3 0
+WriteOutputWidthWide:306 %p_shl11 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_37, i3 0
 
 ]]></Node>
 <StgValue><ssdm name="p_shl11"/></StgValue>
@@ -7465,10 +7465,10 @@ WriteOutputWidthWide:389 %tmp241_cast = sext i13 %tmp241
 
 <Node id="480" bw="12" op_0_bw="13">
 <![CDATA[
-WriteOutputWidthWide:390 %empty_39 = trunc i13 %tmp241
+WriteOutputWidthWide:390 %empty_38 = trunc i13 %tmp241
 
 ]]></Node>
-<StgValue><ssdm name="empty_39"/></StgValue>
+<StgValue><ssdm name="empty_38"/></StgValue>
 </operation>
 
 <operation id="470" st_id="2" stage="1" lat="1">
@@ -7481,7 +7481,7 @@ WriteOutputWidthWide:390 %empty_39 = trunc i13 %tmp241
 
 <Node id="481" bw="15" op_0_bw="15" op_1_bw="12" op_2_bw="3">
 <![CDATA[
-WriteOutputWidthWide:391 %p_shl1 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_39, i3 0
+WriteOutputWidthWide:391 %p_shl1 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_38, i3 0
 
 ]]></Node>
 <StgValue><ssdm name="p_shl1"/></StgValue>

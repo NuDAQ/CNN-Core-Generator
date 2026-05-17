@@ -6,7 +6,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="cnn_core_cnn_core,hls_ip_2023_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcku5p-ffvb676-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=3.886000,HLS_SYN_LAT=844,HLS_SYN_TPT=842,HLS_SYN_MEM=32,HLS_SYN_DSP=0,HLS_SYN_FF=30238,HLS_SYN_LUT=38246,HLS_VERSION=2023_2}" *)
+(* CORE_GENERATION_INFO="cnn_core_cnn_core,hls_ip_2023_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcku5p-ffvb676-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=3.886000,HLS_SYN_LAT=345,HLS_SYN_TPT=340,HLS_SYN_MEM=32,HLS_SYN_DSP=0,HLS_SYN_FF=30269,HLS_SYN_LUT=37938,HLS_VERSION=2023_2}" *)
 
 module cnn_core (
         input_layer_TDATA,
@@ -53,11 +53,11 @@ wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap
 wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_continue;
 wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_idle;
 wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_ready;
-wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_out;
-wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_write;
 wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3x4_out_read;
 wire   [62:0] unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_din;
 wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_write;
+wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_out;
+wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_write;
 wire    relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ap_start;
 wire    relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ap_done;
 wire    relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ap_continue;
@@ -153,8 +153,6 @@ cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s un
     .ap_continue(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_continue),
     .ap_idle(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_idle),
     .ap_ready(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_ready),
-    .start_out(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_out),
-    .start_write(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_write),
     .layer3x4_out_dout(layer3x4_out_dout),
     .layer3x4_out_num_data_valid(layer3x4_out_num_data_valid),
     .layer3x4_out_fifo_cap(layer3x4_out_fifo_cap),
@@ -164,7 +162,9 @@ cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s un
     .layer3_out_num_data_valid(layer3_out_num_data_valid),
     .layer3_out_fifo_cap(layer3_out_fifo_cap),
     .layer3_out_full_n(layer3_out_full_n),
-    .layer3_out_write(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_write)
+    .layer3_out_write(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_write),
+    .start_out(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_out),
+    .start_write(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_write)
 );
 
 cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0(

@@ -76,7 +76,7 @@ entry:2 %wptr = alloca i32 1
 
 <Node id="6" bw="0" op_0_bw="0" op_1_bw="252" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i252 %layer3x4_out, void @empty_4, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0
+entry:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i252 %layer3x4_out, void @empty_9, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -91,7 +91,7 @@ entry:3 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i252 %l
 
 <Node id="7" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:4 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %input_layer, void @empty, i32 1, i32 1, void @empty_3, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0
+entry:4 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %input_layer, void @empty, i32 1, i32 1, void @empty_8, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -589,7 +589,7 @@ InsertRowWide.split:1 %speclooptripcount_ln120 = speclooptripcount void @_ssdm_o
 
 <Node id="42" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-InsertRowWide.split:2 %specloopname_ln120 = specloopname void @_ssdm_op_SpecLoopName, void @empty_10
+InsertRowWide.split:2 %specloopname_ln120 = specloopname void @_ssdm_op_SpecLoopName, void @empty_6
 
 ]]></Node>
 <StgValue><ssdm name="specloopname_ln120"/></StgValue>
@@ -4841,10 +4841,10 @@ WriteOutputWidthWide:219 %tmp221_cast = sext i13 %tmp221
 
 <Node id="310" bw="12" op_0_bw="13">
 <![CDATA[
-WriteOutputWidthWide:220 %empty_37 = trunc i13 %tmp221
+WriteOutputWidthWide:220 %empty_36 = trunc i13 %tmp221
 
 ]]></Node>
-<StgValue><ssdm name="empty_37"/></StgValue>
+<StgValue><ssdm name="empty_36"/></StgValue>
 </operation>
 
 <operation id="306" st_id="2" stage="1" lat="1">
@@ -4857,7 +4857,7 @@ WriteOutputWidthWide:220 %empty_37 = trunc i13 %tmp221
 
 <Node id="311" bw="15" op_0_bw="15" op_1_bw="12" op_2_bw="3">
 <![CDATA[
-WriteOutputWidthWide:221 %p_shl9 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_37, i3 0
+WriteOutputWidthWide:221 %p_shl9 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_36, i3 0
 
 ]]></Node>
 <StgValue><ssdm name="p_shl9"/></StgValue>
@@ -6153,10 +6153,10 @@ WriteOutputWidthWide:304 %tmp231_cast = sext i13 %tmp231
 
 <Node id="395" bw="12" op_0_bw="13">
 <![CDATA[
-WriteOutputWidthWide:305 %empty_38 = trunc i13 %tmp231
+WriteOutputWidthWide:305 %empty_37 = trunc i13 %tmp231
 
 ]]></Node>
-<StgValue><ssdm name="empty_38"/></StgValue>
+<StgValue><ssdm name="empty_37"/></StgValue>
 </operation>
 
 <operation id="388" st_id="2" stage="1" lat="1">
@@ -6169,7 +6169,7 @@ WriteOutputWidthWide:305 %empty_38 = trunc i13 %tmp231
 
 <Node id="396" bw="15" op_0_bw="15" op_1_bw="12" op_2_bw="3">
 <![CDATA[
-WriteOutputWidthWide:306 %p_shl11 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_38, i3 0
+WriteOutputWidthWide:306 %p_shl11 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_37, i3 0
 
 ]]></Node>
 <StgValue><ssdm name="p_shl11"/></StgValue>
@@ -7465,10 +7465,10 @@ WriteOutputWidthWide:389 %tmp241_cast = sext i13 %tmp241
 
 <Node id="480" bw="12" op_0_bw="13">
 <![CDATA[
-WriteOutputWidthWide:390 %empty_39 = trunc i13 %tmp241
+WriteOutputWidthWide:390 %empty_38 = trunc i13 %tmp241
 
 ]]></Node>
-<StgValue><ssdm name="empty_39"/></StgValue>
+<StgValue><ssdm name="empty_38"/></StgValue>
 </operation>
 
 <operation id="470" st_id="2" stage="1" lat="1">
@@ -7481,7 +7481,7 @@ WriteOutputWidthWide:390 %empty_39 = trunc i13 %tmp241
 
 <Node id="481" bw="15" op_0_bw="15" op_1_bw="12" op_2_bw="3">
 <![CDATA[
-WriteOutputWidthWide:391 %p_shl1 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_39, i3 0
+WriteOutputWidthWide:391 %p_shl1 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i12.i3, i12 %empty_38, i3 0
 
 ]]></Node>
 <StgValue><ssdm name="p_shl1"/></StgValue>
@@ -8394,7 +8394,7 @@ WriteOutputWidthWide:432 %br_ln171 = br void %if.end_ifconv
 </dataflow>
 <dataflow id="545" from="layer3x4_out" to="specinterface_ln0" fromId="538" toId="9">
 </dataflow>
-<dataflow id="547" from="empty_4" to="specinterface_ln0" fromId="546" toId="9">
+<dataflow id="547" from="empty_9" to="specinterface_ln0" fromId="546" toId="9">
 </dataflow>
 <dataflow id="549" from="StgValue_548" to="specinterface_ln0" fromId="548" toId="9">
 </dataflow>
@@ -8438,7 +8438,7 @@ WriteOutputWidthWide:432 %br_ln171 = br void %if.end_ifconv
 </dataflow>
 <dataflow id="572" from="StgValue_539" to="specinterface_ln0" fromId="539" toId="10">
 </dataflow>
-<dataflow id="574" from="empty_3" to="specinterface_ln0" fromId="573" toId="10">
+<dataflow id="574" from="empty_8" to="specinterface_ln0" fromId="573" toId="10">
 </dataflow>
 <dataflow id="575" from="StgValue_548" to="specinterface_ln0" fromId="548" toId="10">
 </dataflow>
@@ -8556,7 +8556,7 @@ WriteOutputWidthWide:432 %br_ln171 = br void %if.end_ifconv
 </dataflow>
 <dataflow id="640" from="_ssdm_op_SpecLoopName" to="specloopname_ln120" fromId="639" toId="43">
 </dataflow>
-<dataflow id="642" from="empty_10" to="specloopname_ln120" fromId="641" toId="43">
+<dataflow id="642" from="empty_6" to="specloopname_ln120" fromId="641" toId="43">
 </dataflow>
 <dataflow id="643" from="wptr_1" to="trunc_ln120" fromId="37" toId="44">
 </dataflow>
@@ -9976,11 +9976,11 @@ WriteOutputWidthWide:432 %br_ln171 = br void %if.end_ifconv
 </dataflow>
 <dataflow id="1394" from="tmp221" to="tmp221_cast" fromId="303" toId="304">
 </dataflow>
-<dataflow id="1395" from="tmp221" to="empty_37" fromId="303" toId="305">
+<dataflow id="1395" from="tmp221" to="empty_36" fromId="303" toId="305">
 </dataflow>
 <dataflow id="1396" from="_ssdm_op_BitConcatenate.i15.i12.i3" to="p_shl9" fromId="1095" toId="306">
 </dataflow>
-<dataflow id="1397" from="empty_37" to="p_shl9" fromId="305" toId="306">
+<dataflow id="1397" from="empty_36" to="p_shl9" fromId="305" toId="306">
 </dataflow>
 <dataflow id="1398" from="StgValue_668" to="p_shl9" fromId="668" toId="306">
 </dataflow>
@@ -10284,11 +10284,11 @@ WriteOutputWidthWide:432 %br_ln171 = br void %if.end_ifconv
 </dataflow>
 <dataflow id="1548" from="tmp231" to="tmp231_cast" fromId="385" toId="386">
 </dataflow>
-<dataflow id="1549" from="tmp231" to="empty_38" fromId="385" toId="387">
+<dataflow id="1549" from="tmp231" to="empty_37" fromId="385" toId="387">
 </dataflow>
 <dataflow id="1550" from="_ssdm_op_BitConcatenate.i15.i12.i3" to="p_shl11" fromId="1095" toId="388">
 </dataflow>
-<dataflow id="1551" from="empty_38" to="p_shl11" fromId="387" toId="388">
+<dataflow id="1551" from="empty_37" to="p_shl11" fromId="387" toId="388">
 </dataflow>
 <dataflow id="1552" from="StgValue_668" to="p_shl11" fromId="668" toId="388">
 </dataflow>
@@ -10592,11 +10592,11 @@ WriteOutputWidthWide:432 %br_ln171 = br void %if.end_ifconv
 </dataflow>
 <dataflow id="1702" from="tmp241" to="tmp241_cast" fromId="467" toId="468">
 </dataflow>
-<dataflow id="1703" from="tmp241" to="empty_39" fromId="467" toId="469">
+<dataflow id="1703" from="tmp241" to="empty_38" fromId="467" toId="469">
 </dataflow>
 <dataflow id="1704" from="_ssdm_op_BitConcatenate.i15.i12.i3" to="p_shl1" fromId="1095" toId="470">
 </dataflow>
-<dataflow id="1705" from="empty_39" to="p_shl1" fromId="469" toId="470">
+<dataflow id="1705" from="empty_38" to="p_shl1" fromId="469" toId="470">
 </dataflow>
 <dataflow id="1706" from="StgValue_668" to="p_shl1" fromId="668" toId="470">
 </dataflow>

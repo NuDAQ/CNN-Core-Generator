@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s'" level="0">
-<item name = "Date">Sun May 17 02:40:05 2026
+<item name = "Date">Sun May 17 02:50:15 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_streaming_prj</item>

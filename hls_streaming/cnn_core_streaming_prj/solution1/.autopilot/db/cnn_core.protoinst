@@ -67,16 +67,6 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0/grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479/grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_activity": {
-					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
-					"ports": {
-						"AP_CLK": { "actual": "ap_clk"},
-						"AP_DONE": { "actual": "ap_done"},
-						"AP_READY": { "actual": "ap_ready"},
-						"AP_RESET": { "actual": "ap_rst"},
-						"AP_START": { "actual": "ap_start"}
-					}
-				},
 				"unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0/unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {

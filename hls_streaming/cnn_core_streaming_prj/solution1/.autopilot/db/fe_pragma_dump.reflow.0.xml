@@ -1,7 +1,6 @@
 <pragmas>
 <pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>::stream(char const*)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<21, 11, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<21, 11, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<12, true>& ap_int_base<12, true>::operator=<13, true>(ap_int_base<13, true> const&)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed(double)" off="0" region="0" recursive="0"/>
 <pragma file="/tools/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/ap_common.h" line="718" pragmaType="inline" parentfunction="doubleToRawBits" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<12, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
@@ -9,9 +8,9 @@
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<11, false>::RType<12, true>::minus operator-<11, false, 12, true>(ap_int_base<11, false> const&, ap_int_base<12, true> const&)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<54, true>& ap_int_base<54, true>::operator=<55, true>(ap_int_base<55, true> const&)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<54, true>::operator-() const" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="report" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<1, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<1, false>::RType<54, true>::minus operator-<1, false, 54, true>(ap_int_base<1, false> const&, ap_int_base<54, true> const&)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="report" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<55, true>::ap_int_base<1, false>(ap_int_base<1, false> const&)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<55, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_int<55>::ap_int<55, true>(ap_int_base<55, true> const&)" off="0" region="0" recursive="0"/>
@@ -43,7 +42,7 @@
 <pragma file="firmware/nnet_utils/nnet_first_conv_stream.h" line="146" pragmaType="array_partition" parentfunction="first_conv_4lane_temporal_wide_cl" dim="1" factor="0" mode="complete" dynamic="0" variable="kernel_data"/>
 <pragma file="firmware/nnet_utils/nnet_first_conv_stream.h" line="149" pragmaType="array_partition" parentfunction="first_conv_4lane_temporal_wide_cl" dim="1" factor="0" mode="complete" dynamic="0" variable="res_out"/>
 <pragma file="firmware/nnet_utils/nnet_first_conv_stream.h" line="192" pragmaType="pipeline" parentfunction="unpack_4lane_temporal_cl" off="0" ii="1" rewind="0" style=""/>
-<pragma file="firmware/nnet_utils/nnet_first_conv_stream.h" line="199" pragmaType="unroll" parentfunction="unpack_4lane_temporal_cl" factor="-1" skip_exit_check="0"/>
+<pragma file="firmware/nnet_utils/nnet_first_conv_stream.h" line="203" pragmaType="unroll" parentfunction="unpack_4lane_temporal_cl" factor="-1" skip_exit_check="0"/>
 <pragma file="firmware/nnet_utils/nnet_activation_stream.h" line="42" pragmaType="pipeline" parentfunction="relu" off="0" ii="-1" rewind="0" style=""/>
 <pragma file="firmware/nnet_utils/nnet_activation_stream.h" line="50" pragmaType="unroll" parentfunction="relu" factor="-1" skip_exit_check="0"/>
 <pragma file="firmware/nnet_utils/nnet_pooling_stream.h" line="374" pragmaType="pipeline" parentfunction="maxpool2d_nonoverlap_cl" off="0" ii="1" rewind="0" style=""/>
@@ -77,7 +76,6 @@
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed_base<9, 5, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)" off="0" region="0" recursive="0"/>
 <pragma file="/tools/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/ap_common.h" line="515" pragmaType="inline" parentfunction="_ZN8ssdm_intILi9ELb1EEC2EDq9_i" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<17, 7, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<17, 7, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator!() const" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>::RType<16, 6, true>::plus ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator+<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&) const" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed_base<17, 7, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<17, 7, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)" off="0" region="0" recursive="0"/>
@@ -115,6 +113,7 @@
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed_base<36, 32, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base<32, 32, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<32, 32, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)" off="0" region="0" recursive="0"/>
 <pragma file="/tools/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/etc/ap_common.h" line="515" pragmaType="inline" parentfunction="_ZN8ssdm_intILi36ELb1EEC2EDq36_i" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="report" off="0" region="0" recursive="0"/>
+<pragma file="firmware/nnet_utils/nnet_types.h" line="28" pragmaType="unroll" parentfunction="nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator=(nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u> const&)" factor="-1" skip_exit_check="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="write" off="0" region="0" recursive="0"/>
@@ -138,5 +137,7 @@
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed_base<21, 11, true, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed_base(int)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed<21, 11, (ap_q_mode)5, (ap_o_mode)3, 0>::ap_fixed<21, 11, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<21, 11, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<17, 7, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<17, 7, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_int_base<12, true>& ap_int_base<12, true>::operator=<13, true>(ap_int_base<13, true> const&)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator=<25, 11, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<25, 11, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)" off="0" region="0" recursive="0"/>
 </pragmas>
