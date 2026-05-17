@@ -144,7 +144,7 @@ first-conv wide output and flat unpack optimizations both worked; unpack, ReLU,
 and maxpool formed a three-way interval bottleneck around 339 cycles. The source
 now pushes 4-width packing through ReLU and pool, then unpacks only after pool
 to preserve dense input format. `make compare SAMPLES=1024` passes for this
-wide-ReLU/wide-pool source; HLS csynth is pending.
+wide-ReLU/wide-pool source, and HLS confirms a 260-cycle top interval.
 
 ## Data Types and Tensor Meaning
 
@@ -417,7 +417,37 @@ Source update after this report: the current code has applied that high-value
 target. ReLU now processes 84 `layer3x4_t` words, pool processes 84
 `layer4x4_t` words and emits 42 `layer5x4_t` words, then a flat unpack restores
 the 168-word `layer5_t` stream for dense. The wide intermediate FIFO depths are
-set to 4. Expected HLS interval is near the first-conv limit of about 259 cycles.
+set to 4. HLS confirms the expected interval:
+
+```text
+HLS latency estimate:    265 cycles
+HLS interval estimate:   260 cycles
+Latency time:            1.325 us at 5.00 ns
+Estimated clock:         3.886 ns at 5.00 ns target
+Resources:               57 BRAM_18K, 17 DSP, 30852 FF, 39067 LUT
+```
+
+The new per-stage intervals are:
+
+```text
+Stage                           Latency   Interval   Main reason to care
+first_conv_4lane_temporal_wide      259        259   current limiter, input-read lower bound
+dense                               176        176   resource-heavy, not interval limiter
+post-pool unpack                    171        171   preserves dense input format
+wide relu                            87         87   84 wide words, II=1
+wide maxpool2d_nonoverlap            87         87   84 wide words, II=1
+```
+
+The remaining interval optimization space inside one core is very small because
+first conv must read 256 input words. The main cleanup target is resource/timing:
+the shallow 448-bit `layer4x4_out` and `layer5x4_out` FIFOs are each inferred as
+25 BRAM_18K despite depth 4, so they should be bound to LUTRAM/SRL or otherwise
+implemented as shallow fabric FIFOs.
+
+Source update after this report: `layer4x4_out` and `layer5x4_out` now have
+explicit `BIND_STORAGE type=fifo impl=srl` pragmas. `make compare SAMPLES=1024`
+still passes. The next HLS run should check whether interval remains near 260
+cycles and whether BRAM drops from the 57 BRAM_18K estimate.
 
 Baseline top-level reports:
 

@@ -34,9 +34,11 @@ void cnn_core(
 
     hls::stream<layer4x4_t> layer4x4_out("layer4x4_out");
     #pragma HLS STREAM variable=layer4x4_out depth=4
+    #pragma HLS BIND_STORAGE variable=layer4x4_out type=fifo impl=srl
 
     hls::stream<layer5x4_t> layer5x4_out("layer5x4_out");
     #pragma HLS STREAM variable=layer5x4_out depth=4
+    #pragma HLS BIND_STORAGE variable=layer5x4_out type=fifo impl=srl
 
     hls::stream<layer5_t> layer5_out("layer5_out");
     #pragma HLS STREAM variable=layer5_out depth=168

@@ -198,10 +198,9 @@ repack_stream<input_t, layer2_t, 1024>
 ```
 
 The working copy is behavior-equivalent in C++ comparison for all tested vectors.
-The latest confirmed HLS csynth result after the flat-unpack experiment is top
-latency / interval 345 / 340 cycles. The wide first-conv and flat unpack both
-worked; unpack, ReLU, and pool were tied near 339 cycles. The source now pushes
-4-width packing through ReLU and pool; HLS csynth is pending for this version.
+The latest confirmed HLS csynth result after the wide-ReLU/wide-pool experiment
+is top latency / interval 265 / 260 cycles. This is close to the current
+single-core, one-input-word-per-cycle lower bound of 256 cycles.
 
 `cnn_core()` has:
 
@@ -405,9 +404,39 @@ implemented by running `relu<layer3x4_t, layer4x4_t>` and
 `maxpool2d_wide_nonoverlap_cl<layer4x4_t, layer5x4_t>`, then unpacking only
 after pool to preserve dense input format. `layer3x4_out`, `layer4x4_out`, and
 `layer5x4_out` FIFO depths are set to 4 to avoid full-frame BRAM buffering.
-`make compare SAMPLES=1024` passes. Expected HLS result: top interval near the
-first-conv limit, about 259 cycles, with dense at 176 and post-pool unpack at
-about 168-170 cycles.
+`make compare SAMPLES=1024` passes.
+
+Wide-ReLU/wide-pool HLS result:
+
+```text
+top latency / interval:        265 / 260 cycles
+first_conv wide:               259 / 259 cycles
+wide ReLU:                       87 /  87 cycles
+wide maxpool2d_nonoverlap:       87 /  87 cycles
+post-pool unpack:              171 / 171 cycles
+dense:                         176 / 176 cycles
+estimated clock:               3.886 ns at 5.00 ns target
+Resources:                  57 BRAM_18K, 17 DSP, 30852 FF, 39067 LUT
+```
+
+The optimization reaches the expected first-conv limit. Remaining single-core
+cycle-level improvement is only a few cycles unless input width, core count, or
+model/chunk semantics change. Resource cleanup is still useful: HLS maps the
+shallow 448-bit `layer4x4_out` and `layer5x4_out` FIFOs to 25 BRAM_18K each
+despite depth 4; bind these shallow wide FIFOs to LUTRAM/SRL or otherwise avoid
+BRAM inference.
+
+Source update after this report:
+
+```text
+#pragma HLS BIND_STORAGE variable=layer4x4_out type=fifo impl=srl
+#pragma HLS BIND_STORAGE variable=layer5x4_out type=fifo impl=srl
+make compare SAMPLES=1024: PASS
+```
+
+HLS csynth is pending for this resource-cleanup change. Expected result: top
+interval stays near 260 cycles, while BRAM drops substantially if Vitis accepts
+the SRL binding for these shallow 448-bit FIFOs.
 
 ### repack_stream
 
@@ -665,6 +694,10 @@ Current source breaks first_conv's 4-write bottleneck and flattens unpack. HLS
 confirms first_conv drops to 259 cycles, unpack drops to 339 cycles, and the top
 interval reaches 340 cycles. The current bottleneck is a three-way tie:
 unpack/ReLU/maxpool at about 339 cycles.
+
+After pushing 4-width packing through ReLU and pool, the top interval is 260
+cycles. The bottleneck is now first_conv at 259 cycles, which is essentially the
+256 input-read lower bound plus pipeline overhead.
 
 Baseline reports before first-conv replacement:
 
