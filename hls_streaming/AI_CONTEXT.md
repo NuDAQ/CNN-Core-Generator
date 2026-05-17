@@ -173,6 +173,7 @@ make compare PASS after ring-buffer + stride-counter + nonoverlap-pool: PASS (8 
 make compare SAMPLES=128 PASS after same changes: PASS (128 chunks)
 make compare SAMPLES=1024 PASS after wide first_conv + unpack adapter: PASS (1024 chunks)
 make compare SAMPLES=1024 PASS after flat unpack adapter: PASS (1024 chunks)
+make compare SAMPLES=1024 PASS after wide ReLU + wide pool: PASS (1024 chunks)
 ```
 
 ## Current Model Path
@@ -182,9 +183,9 @@ The current `hls_streaming/firmware` active model is:
 ```text
 cnn_core(input_layer, layer7_out)
   -> first_conv_4lane_temporal_wide_cl<input_t, layer3x4_t, config3> [packs 4 width outputs]
-  -> unpack_4lane_temporal_cl<layer3x4_t, layer3_t, config3>         [restores narrow stream]
-  -> relu<layer3_t, layer4_t, relu_config4>
-  -> maxpool2d_nonoverlap_cl<layer4_t, layer5_t, config5>        [non-overlapping specialization]
+  -> relu<layer3x4_t, layer4x4_t, relu_config4>                    [wide ReLU]
+  -> maxpool2d_wide_nonoverlap_cl<layer4x4_t, layer5x4_t, config5>  [wide non-overlap pool]
+  -> unpack_4lane_temporal_cl<layer5x4_t, layer5_t, config5>        [restores dense input stream]
   -> dense<layer5_t, result_t, config7>
 ```
 
@@ -199,7 +200,8 @@ repack_stream<input_t, layer2_t, 1024>
 The working copy is behavior-equivalent in C++ comparison for all tested vectors.
 The latest confirmed HLS csynth result after the flat-unpack experiment is top
 latency / interval 345 / 340 cycles. The wide first-conv and flat unpack both
-worked; unpack, ReLU, and pool are now tied near 339 cycles.
+worked; unpack, ReLU, and pool were tied near 339 cycles. The source now pushes
+4-width packing through ReLU and pool; HLS csynth is pending for this version.
 
 `cnn_core()` has:
 
@@ -211,9 +213,9 @@ worked; unpack, ReLU, and pool are now tied near 339 cycles.
 Internal streams:
 
 ```text
-layer3_out   depth 336    Conv2D output, packed 7 filter values per word
-layer3x4_out depth 84     wide first-conv output, packed 4 widths x 7 filters
-layer4_out   depth 336    ReLU output
+layer3x4_out depth 4      wide first-conv output, packed 4 widths x 7 filters
+layer4x4_out depth 4      wide ReLU output, packed 4 widths x 7 filters
+layer5x4_out depth 4      wide MaxPool output, packed 4 widths x 7 filters
 layer5_out   depth 168    MaxPool output, packed 7 filter values per word
 ```
 
@@ -227,7 +229,9 @@ layer2_t  = nnet::array<ap_fixed<12,6>, 1>
 layer3_t  = nnet::array<ap_fixed<9,5>, 7>
 layer3x4_t = nnet::array<ap_fixed<9,5>, 28>
 layer4_t  = nnet::array<ap_fixed<16,6>, 7>
+layer4x4_t = nnet::array<ap_fixed<16,6>, 28>
 layer5_t  = nnet::array<ap_fixed<16,6>, 7>
+layer5x4_t = nnet::array<ap_fixed<16,6>, 28>
 result_t  = nnet::array<ap_fixed<9,5>, 1>
 ```
 
@@ -396,7 +400,14 @@ Resources:                  32 BRAM_18K, 17 DSP, 30269 FF, 37938 LUT
 ```
 
 The larger follow-on experiment is to push 4-width packing through ReLU and pool
-rather than unpacking immediately.
+rather than unpacking immediately. Source update: this experiment is now
+implemented by running `relu<layer3x4_t, layer4x4_t>` and
+`maxpool2d_wide_nonoverlap_cl<layer4x4_t, layer5x4_t>`, then unpacking only
+after pool to preserve dense input format. `layer3x4_out`, `layer4x4_out`, and
+`layer5x4_out` FIFO depths are set to 4 to avoid full-frame BRAM buffering.
+`make compare SAMPLES=1024` passes. Expected HLS result: top interval near the
+first-conv limit, about 259 cycles, with dense at 176 and post-pool unpack at
+about 168-170 cycles.
 
 ### repack_stream
 

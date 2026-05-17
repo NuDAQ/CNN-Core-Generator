@@ -111,9 +111,9 @@ generated repack + Conv2D front end with a model-specific first-conv block:
 ```text
 input_layer
   -> first_conv_4lane_temporal_wide_cl<input_t, layer3x4_t, config3>
-  -> unpack_4lane_temporal_cl<layer3x4_t, layer3_t, config3>
-  -> relu<layer3_t, layer4_t, relu_config4>
-  -> maxpool2d_nonoverlap_cl<layer4_t, layer5_t, config5>
+  -> relu<layer3x4_t, layer4x4_t, relu_config4>
+  -> maxpool2d_wide_nonoverlap_cl<layer4x4_t, layer5x4_t, config5>
+  -> unpack_4lane_temporal_cl<layer5x4_t, layer5_t, config5>
   -> dense<layer5_t, result_t, config7>
   -> layer7_out
 ```
@@ -130,9 +130,9 @@ input_layer
 Internal streams:
 
 ```text
-layer3_out   depth 336    conv outputs, 7 filters per word
-layer3x4_out depth 84     wide first-conv outputs, 4 widths x 7 filters per word
-layer4_out   depth 336    ReLU outputs, 7 values per word
+layer3x4_out depth 4      wide first-conv outputs, 4 widths x 7 filters per word
+layer4x4_out depth 4      wide ReLU outputs, 4 widths x 7 filters per word
+layer5x4_out depth 4      wide maxpool outputs, 4 widths x 7 filters per word
 layer5_out   depth 168    maxpool outputs, 7 values per word
 ```
 
@@ -141,7 +141,10 @@ adapter change, so the working copy remains behavior-equivalent to the baseline
 for the deterministic C++ comparisons. The regenerated HLS csynth report after
 the flat-unpack experiment gives a top-level interval of 340 cycles. The
 first-conv wide output and flat unpack optimizations both worked; unpack, ReLU,
-and maxpool now form a three-way interval bottleneck around 339 cycles.
+and maxpool formed a three-way interval bottleneck around 339 cycles. The source
+now pushes 4-width packing through ReLU and pool, then unpacks only after pool
+to preserve dense input format. `make compare SAMPLES=1024` passes for this
+wide-ReLU/wide-pool source; HLS csynth is pending.
 
 ## Data Types and Tensor Meaning
 
@@ -409,6 +412,12 @@ choice of unpacking immediately after first conv.
 The next high-value target is to remove the unpack entirely by pushing the
 4-width packing through ReLU and pool. A secondary target is to reduce FIFO
 depths, especially `layer3x4_out`, to recover BRAM.
+
+Source update after this report: the current code has applied that high-value
+target. ReLU now processes 84 `layer3x4_t` words, pool processes 84
+`layer4x4_t` words and emits 42 `layer5x4_t` words, then a flat unpack restores
+the 168-word `layer5_t` stream for dense. The wide intermediate FIFO depths are
+set to 4. Expected HLS interval is near the first-conv limit of about 259 cycles.
 
 Baseline top-level reports:
 

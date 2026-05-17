@@ -401,6 +401,60 @@ PoolMain:
     }
 }
 
+template <class data_T, class res_T, typename CONFIG_T>
+void maxpool2d_wide_nonoverlap_cl(hls::stream<data_T> &data, hls::stream<res_T> &res) {
+    static_assert(CONFIG_T::pool_height == 2,
+                  "maxpool2d_wide_nonoverlap_cl: pool_height must be 2");
+    static_assert(CONFIG_T::pool_height == CONFIG_T::stride_height,
+                  "maxpool2d_wide_nonoverlap_cl: pool must equal stride (non-overlapping)");
+    static_assert(CONFIG_T::pool_width == 1 && CONFIG_T::stride_width == 1,
+                  "maxpool2d_wide_nonoverlap_cl: pool_width must be 1");
+    static_assert(CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 &&
+                  CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0,
+                  "maxpool2d_wide_nonoverlap_cl: padding must be zero");
+    static_assert(CONFIG_T::pool_op == nnet::Max,
+                  "maxpool2d_wide_nonoverlap_cl: only Max pooling supported");
+    static_assert(data_T::size == CONFIG_T::in_width * CONFIG_T::n_filt,
+                  "wide pool input must pack all width positions and filters");
+    static_assert(res_T::size == CONFIG_T::out_width * CONFIG_T::n_filt,
+                  "wide pool output must pack all width positions and filters");
+
+    typedef typename data_T::value_type data_value_t;
+
+    data_value_t prev_row[CONFIG_T::in_width * CONFIG_T::n_filt];
+    #pragma HLS ARRAY_PARTITION variable=prev_row complete
+
+    bool on_second_row = false;
+
+PoolWideMain:
+    for (unsigned i_ih = 0; i_ih < CONFIG_T::in_height; i_ih++) {
+        #pragma HLS PIPELINE II=1
+
+        data_T cur = data.read();
+
+        if (!on_second_row) {
+        StoreWidePrev:
+            for (unsigned i = 0; i < data_T::size; i++) {
+                #pragma HLS UNROLL
+                prev_row[i] = cur[i];
+            }
+        } else {
+            res_T out_pack;
+            PRAGMA_DATA_PACK(out_pack)
+
+        PoolWideMax:
+            for (unsigned i = 0; i < res_T::size; i++) {
+                #pragma HLS UNROLL
+                out_pack[i] = (prev_row[i] > cur[i]) ? prev_row[i] : cur[i];
+            }
+
+            res.write(out_pack);
+        }
+
+        on_second_row = !on_second_row;
+    }
+}
+
 } // namespace nnet
 
 #endif

@@ -30,13 +30,13 @@ void cnn_core(
     // hls-fpga-machine-learning insert layers
 
     hls::stream<layer3x4_t> layer3x4_out("layer3x4_out");
-    #pragma HLS STREAM variable=layer3x4_out depth=84
+    #pragma HLS STREAM variable=layer3x4_out depth=4
 
-    hls::stream<layer3_t> layer3_out("layer3_out");
-    #pragma HLS STREAM variable=layer3_out depth=336
+    hls::stream<layer4x4_t> layer4x4_out("layer4x4_out");
+    #pragma HLS STREAM variable=layer4x4_out depth=4
 
-    hls::stream<layer4_t> layer4_out("layer4_out");
-    #pragma HLS STREAM variable=layer4_out depth=336
+    hls::stream<layer5x4_t> layer5x4_out("layer5x4_out");
+    #pragma HLS STREAM variable=layer5x4_out depth=4
 
     hls::stream<layer5_t> layer5_out("layer5_out");
     #pragma HLS STREAM variable=layer5_out depth=168
@@ -45,11 +45,11 @@ void cnn_core(
 
     nnet::first_conv_4lane_temporal_wide_cl<input_t, layer3x4_t, config3>(input_layer, layer3x4_out, w3, b3); // repack_reshape + q_conv2d
 
-    nnet::unpack_4lane_temporal_cl<layer3x4_t, layer3_t, config3>(layer3x4_out, layer3_out);
+    nnet::relu<layer3x4_t, layer4x4_t, relu_config4>(layer3x4_out, layer4x4_out); // q_conv2d_relu
 
-    nnet::relu<layer3_t, layer4_t, relu_config4>(layer3_out, layer4_out); // q_conv2d_relu
+    nnet::maxpool2d_wide_nonoverlap_cl<layer4x4_t, layer5x4_t, config5>(layer4x4_out, layer5x4_out); // max_pooling2d
 
-    nnet::maxpool2d_nonoverlap_cl<layer4_t, layer5_t, config5>(layer4_out, layer5_out); // max_pooling2d
+    nnet::unpack_4lane_temporal_cl<layer5x4_t, layer5_t, config5>(layer5x4_out, layer5_out);
 
     nnet::dense<layer5_t, result_t, config7>(layer6_out, layer7_out, w7, b7); // q_dense
 
