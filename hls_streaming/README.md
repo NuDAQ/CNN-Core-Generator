@@ -59,6 +59,76 @@ PASS: baseline and hls_streaming C++ outputs match exactly.
    intentional architecture changes, update or extend the testbench/reference
    flow rather than changing the original baseline.
 
+## CNN and C++ Structure
+
+The current hls4ml model is a small stream-oriented CNN. The logical input
+window is:
+
+```text
+height = 256
+width  = 4
+channels = 1
+```
+
+At the top-level C++ interface, this appears as an AXI-stream of `input_t`,
+where each stream word contains 4 fixed-point values:
+
+```text
+input_t = nnet::array<ap_fixed<12,6>, 4>
+```
+
+The network implemented in `firmware/cnn_core.cpp` is:
+
+```text
+input_layer
+  -> repack_stream
+  -> q_conv2d
+  -> q_conv2d_relu
+  -> max_pooling2d
+  -> q_dense
+  -> layer7_out
+```
+
+Layer shapes from `firmware/parameters.h`:
+
+```text
+Input window:        256 x 4 x 1
+Repack output:       1024 scalar stream words
+Conv2D:              5 x 1 kernel, 7 filters, stride 3 x 1
+Conv2D output:       84 x 4 x 7 = 2352 values
+ReLU output:         84 x 4 x 7
+MaxPool2D:           2 x 1 pool, stride 2 x 1
+MaxPool output:      42 x 4 x 7 = 1176 values
+Dense output:        1 trigger score
+```
+
+The hls4ml C++ code mirrors the CNN layer structure. The main pieces are:
+
+```text
+firmware/cnn_core.cpp       Top-level function and layer wiring
+firmware/cnn_core.h         Top-level function declaration
+firmware/defines.h          Fixed-point types for inputs, outputs, and layers
+firmware/parameters.h       Layer configs, dimensions, reuse factors, weights
+firmware/weights/           Quantized weights and biases
+firmware/nnet_utils/        hls4ml layer implementations
+```
+
+`cnn_core()` uses `#pragma HLS DATAFLOW`, so each layer is a dataflow process
+connected by `hls::stream` FIFOs:
+
+```text
+layer8_out   depth 1024   repacked scalar input stream
+layer3_out   depth 336    conv output, packed 7 values per stream word
+layer4_out   depth 336    ReLU output
+layer5_out   depth 168    maxpool output, packed 7 values per stream word
+```
+
+This mapping is important for streaming work. The current C++ project still
+processes one complete hls4ml input window at a time. A future ADC-streaming
+version should replace or wrap the `repack_stream`/window input path so that
+overlapping ADC windows can reuse samples instead of repacking a full tensor for
+every score.
+
 ## Current hls4ml Baseline Bottlenecks
 
 Use the latest available report for each metric:
