@@ -18,5 +18,7 @@ set ModuleHierarchy {[{
 		{"Name" : "grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197","ID" : "10","Type" : "sequential",
 			"SubLoops" : [
 			{"Name" : "DataPrepare","ID" : "11","Type" : "pipeline"},]},
-		{"Name" : "grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993","ID" : "12","Type" : "pipeline"},]},]
+		{"Name" : "grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993","ID" : "12","Type" : "pipeline",
+			"SubInsts" : [
+			{"Name" : "grp_dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_9_5_5_3_0_config7_s_fu_6332","ID" : "13","Type" : "pipeline"},]},]},]
 }]}

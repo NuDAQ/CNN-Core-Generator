@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s'" level="0">
-<item name = "Date">Sun May 17 03:12:00 2026
+<item name = "Date">Sun May 17 03:22:42 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_streaming_prj</item>
@@ -24,13 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">2, 2, 10.000 ns, 10.000 ns, 1, 1, yes</column>
+<column name="">2, 2, 10.000 ns, 10.000 ns, 3, 3, yes</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_9_5_5_3_0_config7_s_fu_6332">dense_latency_ap_fixed_16_6_5_3_0_ap_fixed_9_5_5_3_0_config7_s, 2, 2, 10.000 ns, 10.000 ns, 3, 3, yes</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

@@ -23,20 +23,20 @@
 |               |                             |              |                                                                                        |
 | Performance   |                             |              | After transformations are applied to meet performance pragma targets                   |
 |               | (1) loop simplification     | 15,981       | loop and instruction simplification                                                    |
-|               | (2) parallelization         | 15,845       | loops are unrolled or pipelined to meet performance targets                            |
-|               | (3) array partition         | 15,878       | arrays are partitioned to meet performance targets                                     |
-|               | (4) simplification          | 15,824       | simplification of design after performance transformations                             |
+|               | (2) parallelization         | 15,847       | loops are unrolled or pipelined to meet performance targets                            |
+|               | (3) array partition         | 15,880       | arrays are partitioned to meet performance targets                                     |
+|               | (4) simplification          | 15,826       | simplification of design after performance transformations                             |
 |               |                             |              |                                                                                        |
 | HW Transforms |                             |              | After hardware transfomations                                                          |
-|               | (1) lowering                | 15,588       | initial conversion to HW specific instructions                                         |
-|               | (2) optimizations           | 15,730       | high level synthesis optimizations                                                     |
+|               | (1) lowering                | 15,590       | initial conversion to HW specific instructions                                         |
+|               | (2) optimizations           | 15,733       | high level synthesis optimizations                                                     |
 +---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
 
 * Instructions per Function for each Compilation Phase
 +---------------------------------------+------------------------------+----------------+-----------------+-----------------+-------------+---------------+
 | Function                              | Location                     | Compile/Link   | Unroll/Inline   | Array/Struct    | Performance | HW Transforms |
 +---------------------------------------+------------------------------+----------------+-----------------+-----------------+-------------+---------------+
-| + cnn_core                            | cnn_core.cpp:7               | 2,170          | 28,423          | 20,051          | 15,824      | 15,730        |
+| + cnn_core                            | cnn_core.cpp:7               | 2,170          | 28,423          | 20,051          | 15,826      | 15,733        |
 |  + first_conv_4lane_temporal_wi...    | nnet_first_conv_stream.h:99  |  797           | 2,576           | 1,815           | 1,591       | 1,619         |
 |     operator[]                        | nnet_types.h:17              |    6 (2 calls) |                 |                 |             |               |
 |   + dense                             | nnet_dense.h:50              |  644           |                 |                 |             |               |
@@ -52,11 +52,11 @@
 |   + operator=                         | nnet_types.h:21              |   28           |                 |                 |             |               |
 |      operator[]                       | nnet_types.h:19              |    3           |                 |                 |             |               |
 |     operator[]                        | nnet_types.h:17              |    6 (2 calls) |                 |                 |             |               |
-|  + dense<nnet::array<ap_fixed<1...    | nnet_dense_stream.h:82       |  822           | 24,659          | 16,687          | 12,734      | 12,731        |
+|  + dense<nnet::array<ap_fixed<1...    | nnet_dense_stream.h:82       |  822           | 24,659          | 16,687          | 12,736      | 12,734        |
 |   + data_prepare<nnet::array<ap_...   | nnet_dense_stream.h:28       |   75           |                 |                 |             |               |
 |      operator[]                       | nnet_types.h:17              |    6 (2 calls) |                 |                 |             |               |
-|   + dense_latency_wrapper<ap_fix...   | nnet_dense_stream.h:13       |  656           | 24,612          | 11,712          | 10,920      | 10,921        |
-|    + dense_latency<ap_fixed<16, 6...  | nnet_dense_latency.h:13      |  654           | 24,610          | 11,710          |             |               |
+|   + dense_latency_wrapper<ap_fix...   | nnet_dense_stream.h:13       |  656           | 24,612          | 11,712          | 10,922      | 10,924        |
+|    + dense_latency<ap_fixed<16, 6...  | nnet_dense_latency.h:13      |  654           | 24,610          | 11,710          | 10,920      | 10,921        |
 |       product                         | nnet_mult.h:70               |  141           |                 |                 |             |               |
 |       cast<ap_fixed<16, 6, AP_TRN,... | nnet_mult.h:110              |   59           |                 |                 |             |               |
 |   + res_write<nnet::array<ap_fix...   | nnet_dense_stream.h:53       |   71           |                 |                 |             |               |

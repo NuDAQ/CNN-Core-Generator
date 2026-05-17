@@ -63658,7 +63658,7 @@ struct config7 : nnet::dense_config {
     static const unsigned n_out = 1;
     static const unsigned io_type = nnet::io_stream;
     static const unsigned strategy = nnet::latency;
-    static const unsigned reuse_factor = 1;
+    static const unsigned reuse_factor = 42;
     static const unsigned n_zeros = 0;
     static const unsigned n_nonzeros = 1176;
     static const unsigned multiplier_limit = ((n_in * n_out + reuse_factor - 1) / reuse_factor) - n_zeros / reuse_factor;

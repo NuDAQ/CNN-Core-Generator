@@ -41482,23 +41482,6 @@ Args:
   - String:          ''''
 ...
 --- !Passed
-Pass:            reflow-auto-inline-performance-driven
-Name:            AutoInlinePerf
-DebugLoc:        { File: firmware/nnet_utils/nnet_dense_stream.h, Line: 17, 
-                   Column: 2 }
-Function:        _ZN4nnet21dense_latency_wrapperI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EES1_ILi9ELi5ELS2_5ELS3_3ELi0EE7config7EEvPT_PT0_PNT1_8weight_tEPNSB_6bias_tE
-Args:            
-  - String:          'Automatically inlining function '''
-  - Callee:          'void nnet::dense_latency<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>(ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>*, config7::weight_t*, config7::bias_t*)'
-    DebugLoc:        { File: firmware/nnet_utils/nnet_dense_latency.h, 
-                       Line: 15, Column: 0 }
-  - String:          ''' to improve effectiveness of pipeline pragma in function '''
-  - Caller:          'void nnet::dense_latency_wrapper<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>(ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>*, config7::weight_t*, config7::bias_t*)'
-    DebugLoc:        { File: firmware/nnet_utils/nnet_dense_stream.h, Line: 15, 
-                       Column: 0 }
-  - String:          ''''
-...
---- !Passed
 Pass:            reflow-auto-array-partition
 Name:            AutoParallelPerformanceDrivenVerbosePassed
 DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 

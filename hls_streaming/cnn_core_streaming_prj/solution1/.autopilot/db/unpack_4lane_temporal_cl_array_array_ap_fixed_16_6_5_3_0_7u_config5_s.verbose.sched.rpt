@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s'
 ================================================================
-* Date:           Sun May 17 03:11:55 2026
+* Date:           Sun May 17 03:22:37 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_streaming_prj
@@ -250,7 +250,7 @@ Target clock period: 5.000ns, clock uncertainty: 1.350ns.
 The critical path consists of the following:
 	'store' operation 0 bit ('store_ln188', firmware/nnet_utils/nnet_first_conv_stream.h:188) of constant 0 on local variable 'i_iw', firmware/nnet_utils/nnet_first_conv_stream.h:188 [36]  (0.427 ns)
 	'load' operation 32 bit ('i_iw', firmware/nnet_utils/nnet_first_conv_stream.h:191) on local variable 'i_iw', firmware/nnet_utils/nnet_first_conv_stream.h:188 [41]  (0.000 ns)
-	'add' operation 32 bit ('add_ln209', firmware/nnet_utils/nnet_first_conv_stream.h:209) [150]  (1.016 ns)
+	'icmp' operation 1 bit ('icmp_ln209', firmware/nnet_utils/nnet_first_conv_stream.h:209) [149]  (1.016 ns)
 	'select' operation 32 bit ('i_iw', firmware/nnet_utils/nnet_first_conv_stream.h:209) [151]  (0.411 ns)
 	'store' operation 0 bit ('store_ln188', firmware/nnet_utils/nnet_first_conv_stream.h:188) of variable 'i_iw', firmware/nnet_utils/nnet_first_conv_stream.h:209 on local variable 'i_iw', firmware/nnet_utils/nnet_first_conv_stream.h:188 [152]  (0.427 ns)
 

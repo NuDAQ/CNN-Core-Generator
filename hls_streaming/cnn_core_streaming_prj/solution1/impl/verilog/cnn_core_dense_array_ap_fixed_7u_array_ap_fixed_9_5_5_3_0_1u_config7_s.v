@@ -59,6 +59,9 @@ wire    ap_CS_fsm_state1;
 reg    layer7_out_TDATA_blk_n;
 wire    ap_CS_fsm_state6;
 wire    ap_CS_fsm_state7;
+wire   [8:0] grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_return;
+reg   [8:0] res_reg_12691;
+wire    ap_CS_fsm_state5;
 wire    grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_ap_start;
 wire    grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_ap_done;
 wire    grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_ap_idle;
@@ -1644,14 +1647,19 @@ wire   [15:0] grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataP
 wire    grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_p_0_2_0_0_03_out_ap_vld;
 wire   [15:0] grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_p_0_1_0_0_01_out;
 wire    grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_p_0_1_0_0_01_out_ap_vld;
-wire   [8:0] grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_return;
+wire    grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start;
+wire    grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_done;
+wire    grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_idle;
+wire    grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_ready;
 reg    grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_ap_start_reg;
 reg    ap_block_state1_ignore_call793;
 wire    ap_CS_fsm_state2;
+reg    grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start_reg;
+reg   [6:0] ap_NS_fsm;
+wire    ap_NS_fsm_state3;
 wire    ap_CS_fsm_state3;
 wire    regslice_both_layer7_out_U_apdone_blk;
 reg    ap_block_state7;
-reg   [6:0] ap_NS_fsm;
 reg    ap_block_state1;
 reg    ap_ST_fsm_state1_blk;
 reg    ap_ST_fsm_state2_blk;
@@ -1671,6 +1679,7 @@ initial begin
 #0 ap_done_reg = 1'b0;
 #0 ap_CS_fsm = 7'd1;
 #0 grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_ap_start_reg = 1'b0;
+#0 grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start_reg = 1'b0;
 end
 
 cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197(
@@ -3270,6 +3279,10 @@ cnn_core_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare gr
 cnn_core_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
+    .ap_start(grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start),
+    .ap_done(grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_done),
+    .ap_idle(grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_idle),
+    .ap_ready(grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_ready),
     .data_1_val1(grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_p_0_1_0_0_01563_out),
     .data_2_val2(grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_p_0_2_0_0_01565_out),
     .data_5_val3(grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_p_0_5_0_0_01567_out),
@@ -4109,6 +4122,24 @@ always @ (posedge ap_clk) begin
     end
 end
 
+always @ (posedge ap_clk) begin
+    if (ap_rst == 1'b1) begin
+        grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start_reg <= 1'b0;
+    end else begin
+        if (((1'b1 == ap_NS_fsm_state3) & (1'b1 == ap_CS_fsm_state2))) begin
+            grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start_reg <= 1'b1;
+        end else if ((grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_ready == 1'b1)) begin
+            grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start_reg <= 1'b0;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
+        res_reg_12691 <= grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_return;
+    end
+end
+
 always @ (*) begin
     if ((1'b1 == ap_block_state1)) begin
         ap_ST_fsm_state1_blk = 1'b1;
@@ -4246,9 +4277,13 @@ assign ap_CS_fsm_state2 = ap_CS_fsm[32'd1];
 
 assign ap_CS_fsm_state3 = ap_CS_fsm[32'd2];
 
+assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
+
 assign ap_CS_fsm_state6 = ap_CS_fsm[32'd5];
 
 assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
+
+assign ap_NS_fsm_state3 = ap_NS_fsm[32'd2];
 
 always @ (*) begin
     ap_block_state1 = ((ap_done_reg == 1'b1) | (ap_start == 1'b0));
@@ -4264,7 +4299,9 @@ end
 
 assign grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_ap_start = grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_ap_start_reg;
 
-assign layer7_out_TDATA_int_regslice = grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_return;
+assign grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start = grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start_reg;
+
+assign layer7_out_TDATA_int_regslice = res_reg_12691;
 
 assign layer7_out_TVALID = regslice_both_layer7_out_U_vld_out;
 

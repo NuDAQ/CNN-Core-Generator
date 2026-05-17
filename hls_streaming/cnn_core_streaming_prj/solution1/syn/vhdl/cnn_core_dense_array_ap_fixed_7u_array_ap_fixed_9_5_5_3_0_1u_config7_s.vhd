@@ -42,6 +42,7 @@ architecture behav of cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_
     constant ap_const_boolean_1 : BOOLEAN := true;
     constant ap_const_lv32_5 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000101";
     constant ap_const_lv32_6 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000110";
+    constant ap_const_lv32_4 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000100";
     constant ap_const_boolean_0 : BOOLEAN := false;
     constant ap_const_lv32_1 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000001";
     constant ap_const_lv32_2 : STD_LOGIC_VECTOR (31 downto 0) := "00000000000000000000000000000010";
@@ -59,6 +60,10 @@ attribute shreg_extract : string;
     attribute fsm_encoding of ap_CS_fsm_state6 : signal is "none";
     signal ap_CS_fsm_state7 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state7 : signal is "none";
+    signal grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_return : STD_LOGIC_VECTOR (8 downto 0);
+    signal res_reg_12691 : STD_LOGIC_VECTOR (8 downto 0);
+    signal ap_CS_fsm_state5 : STD_LOGIC;
+    attribute fsm_encoding of ap_CS_fsm_state5 : signal is "none";
     signal grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_ap_start : STD_LOGIC;
     signal grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_ap_done : STD_LOGIC;
     signal grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_ap_idle : STD_LOGIC;
@@ -1644,16 +1649,21 @@ attribute shreg_extract : string;
     signal grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_p_0_2_0_0_03_out_ap_vld : STD_LOGIC;
     signal grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_p_0_1_0_0_01_out : STD_LOGIC_VECTOR (15 downto 0);
     signal grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_p_0_1_0_0_01_out_ap_vld : STD_LOGIC;
-    signal grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_return : STD_LOGIC_VECTOR (8 downto 0);
+    signal grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start : STD_LOGIC;
+    signal grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_done : STD_LOGIC;
+    signal grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_idle : STD_LOGIC;
+    signal grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_ready : STD_LOGIC;
     signal grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_ap_start_reg : STD_LOGIC := '0';
     signal ap_block_state1_ignore_call793 : BOOLEAN;
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
+    signal grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start_reg : STD_LOGIC := '0';
+    signal ap_NS_fsm : STD_LOGIC_VECTOR (6 downto 0);
+    signal ap_NS_fsm_state3 : STD_LOGIC;
     signal ap_CS_fsm_state3 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state3 : signal is "none";
     signal regslice_both_layer7_out_U_apdone_blk : STD_LOGIC;
     signal ap_block_state7 : BOOLEAN;
-    signal ap_NS_fsm : STD_LOGIC_VECTOR (6 downto 0);
     signal ap_block_state1 : BOOLEAN;
     signal ap_ST_fsm_state1_blk : STD_LOGIC;
     signal ap_ST_fsm_state2_blk : STD_LOGIC;
@@ -3268,6 +3278,10 @@ attribute shreg_extract : string;
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
+        ap_start : IN STD_LOGIC;
+        ap_done : OUT STD_LOGIC;
+        ap_idle : OUT STD_LOGIC;
+        ap_ready : OUT STD_LOGIC;
         data_1_val1 : IN STD_LOGIC_VECTOR (15 downto 0);
         data_2_val2 : IN STD_LOGIC_VECTOR (15 downto 0);
         data_5_val3 : IN STD_LOGIC_VECTOR (15 downto 0);
@@ -5678,6 +5692,10 @@ begin
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst,
+        ap_start => grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start,
+        ap_done => grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_done,
+        ap_idle => grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_idle,
+        ap_ready => grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_ready,
         data_1_val1 => grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_p_0_1_0_0_01563_out,
         data_2_val2 => grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_p_0_2_0_0_01565_out,
         data_5_val3 => grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_p_0_5_0_0_01567_out,
@@ -6532,6 +6550,30 @@ begin
     end process;
 
 
+    grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start_reg_assign_proc : process(ap_clk)
+    begin
+        if (ap_clk'event and ap_clk =  '1') then
+            if (ap_rst = '1') then
+                grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start_reg <= ap_const_logic_0;
+            else
+                if (((ap_const_logic_1 = ap_NS_fsm_state3) and (ap_const_logic_1 = ap_CS_fsm_state2))) then 
+                    grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start_reg <= ap_const_logic_1;
+                elsif ((grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_ready = ap_const_logic_1)) then 
+                    grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start_reg <= ap_const_logic_0;
+                end if; 
+            end if;
+        end if;
+    end process;
+
+    process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if ((ap_const_logic_1 = ap_CS_fsm_state5)) then
+                res_reg_12691 <= grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_return;
+            end if;
+        end if;
+    end process;
+
     ap_NS_fsm_assign_proc : process (ap_CS_fsm, ap_CS_fsm_state1, ap_CS_fsm_state6, ap_CS_fsm_state7, grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_ap_done, ap_CS_fsm_state2, ap_block_state7, ap_block_state1, layer7_out_TREADY_int_regslice)
     begin
         case ap_CS_fsm is
@@ -6572,8 +6614,10 @@ begin
     ap_CS_fsm_state1 <= ap_CS_fsm(0);
     ap_CS_fsm_state2 <= ap_CS_fsm(1);
     ap_CS_fsm_state3 <= ap_CS_fsm(2);
+    ap_CS_fsm_state5 <= ap_CS_fsm(4);
     ap_CS_fsm_state6 <= ap_CS_fsm(5);
     ap_CS_fsm_state7 <= ap_CS_fsm(6);
+    ap_NS_fsm_state3 <= ap_NS_fsm(2);
 
     ap_ST_fsm_state1_blk_assign_proc : process(ap_block_state1)
     begin
@@ -6666,6 +6710,7 @@ begin
     end process;
 
     grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_ap_start <= grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_ap_start_reg;
+    grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start <= grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_start_reg;
 
     layer5_out_read_assign_proc : process(grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197_layer5_out_read, ap_CS_fsm_state2)
     begin
@@ -6686,7 +6731,7 @@ begin
         end if; 
     end process;
 
-    layer7_out_TDATA_int_regslice <= std_logic_vector(IEEE.numeric_std.resize(unsigned(grp_dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s_fu_3993_ap_return),16));
+    layer7_out_TDATA_int_regslice <= std_logic_vector(IEEE.numeric_std.resize(unsigned(res_reg_12691),16));
     layer7_out_TVALID <= regslice_both_layer7_out_U_vld_out;
 
     layer7_out_TVALID_int_regslice_assign_proc : process(ap_CS_fsm_state6, layer7_out_TREADY_int_regslice)
