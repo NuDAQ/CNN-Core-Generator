@@ -34,7 +34,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1701080941</coreId>
+              <coreId>1601134448</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>64</bitwidth>
@@ -70,7 +70,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>694510703</coreId>
+              <coreId>1868525665</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>16</bitwidth>
@@ -106,12 +106,12 @@
               <rtlName>layer3x4_out_U</rtlName>
               <control>auto</control>
               <opType>fifo</opType>
-              <implIndex>memory</implIndex>
-              <coreName>FIFO</coreName>
+              <implIndex>srl</implIndex>
+              <coreName>FIFO_SRL</coreName>
               <isStorage>1</isStorage>
-              <storageDepth>84</storageDepth>
-              <coreId>78</coreId>
-              <rtlModuleName>cnn_core_fifo_w252_d84_A</rtlModuleName>
+              <storageDepth>4</storageDepth>
+              <coreId>81</coreId>
+              <rtlModuleName>cnn_core_fifo_w252_d4_S</rtlModuleName>
             </Obj>
             <bitwidth>252</bitwidth>
           </Value>
@@ -134,7 +134,7 @@
             <Obj>
               <type>0</type>
               <id>12</id>
-              <name>layer3_out</name>
+              <name>layer4x4_out</name>
               <fileName/>
               <fileDirectory/>
               <lineNumber>0</lineNumber>
@@ -145,17 +145,17 @@
                 <item_version>0</item_version>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>layer3_out_U</rtlName>
+              <rtlName>layer4x4_out_U</rtlName>
               <control>auto</control>
               <opType>fifo</opType>
               <implIndex>memory</implIndex>
               <coreName>FIFO</coreName>
               <isStorage>1</isStorage>
-              <storageDepth>336</storageDepth>
+              <storageDepth>4</storageDepth>
               <coreId>78</coreId>
-              <rtlModuleName>cnn_core_fifo_w63_d336_A</rtlModuleName>
+              <rtlModuleName>cnn_core_fifo_w448_d4_A</rtlModuleName>
             </Obj>
-            <bitwidth>63</bitwidth>
+            <bitwidth>448</bitwidth>
           </Value>
           <oprand_edges>
             <count>1</count>
@@ -176,7 +176,7 @@
             <Obj>
               <type>0</type>
               <id>15</id>
-              <name>layer4_out</name>
+              <name>layer5x4_out</name>
               <fileName/>
               <fileDirectory/>
               <lineNumber>0</lineNumber>
@@ -187,17 +187,17 @@
                 <item_version>0</item_version>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>layer4_out_U</rtlName>
+              <rtlName>layer5x4_out_U</rtlName>
               <control>auto</control>
               <opType>fifo</opType>
               <implIndex>memory</implIndex>
               <coreName>FIFO</coreName>
               <isStorage>1</isStorage>
-              <storageDepth>336</storageDepth>
+              <storageDepth>4</storageDepth>
               <coreId>78</coreId>
-              <rtlModuleName>cnn_core_fifo_w112_d336_A</rtlModuleName>
+              <rtlModuleName>cnn_core_fifo_w448_d4_A</rtlModuleName>
             </Obj>
-            <bitwidth>112</bitwidth>
+            <bitwidth>448</bitwidth>
           </Value>
           <oprand_edges>
             <count>1</count>
@@ -292,7 +292,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1005945744</coreId>
+              <coreId>694510703</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -343,14 +343,14 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0</rtlName>
+              <rtlName>relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0</rtlName>
               <control/>
               <opType/>
               <implIndex/>
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1009968128</coreId>
+              <coreId>2421035680</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -361,8 +361,8 @@
             <item>38</item>
             <item>39</item>
             <item>40</item>
+            <item>236</item>
             <item>237</item>
-            <item>238</item>
           </oprand_edges>
           <opcode>call</opcode>
           <m_Display>0</m_Display>
@@ -403,14 +403,14 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0</rtlName>
+              <rtlName>maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0</rtlName>
               <control/>
               <opType/>
               <implIndex/>
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1009626320</coreId>
+              <coreId>448</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -421,8 +421,8 @@
             <item>42</item>
             <item>43</item>
             <item>44</item>
-            <item>236</item>
-            <item>239</item>
+            <item>235</item>
+            <item>238</item>
           </oprand_edges>
           <opcode>call</opcode>
           <m_Display>0</m_Display>
@@ -463,14 +463,14 @@
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0</rtlName>
+              <rtlName>unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0</rtlName>
               <control/>
               <opType/>
               <implIndex/>
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>543517696</coreId>
+              <coreId>2522168832</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -481,8 +481,8 @@
             <item>46</item>
             <item>47</item>
             <item>48</item>
-            <item>235</item>
-            <item>240</item>
+            <item>234</item>
+            <item>239</item>
           </oprand_edges>
           <opcode>call</opcode>
           <m_Display>0</m_Display>
@@ -530,7 +530,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>696104663</coreId>
+              <coreId>97</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -541,8 +541,8 @@
             <item>50</item>
             <item>51</item>
             <item>52</item>
-            <item>234</item>
-            <item>241</item>
+            <item>233</item>
+            <item>240</item>
           </oprand_edges>
           <opcode>call</opcode>
           <m_Display>0</m_Display>
@@ -590,7 +590,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1009599552</coreId>
+              <coreId>2420453104</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -635,7 +635,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1009596064</coreId>
+              <coreId>2420530912</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>64</bitwidth>
@@ -666,7 +666,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1009577648</coreId>
+              <coreId>2416775296</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -679,7 +679,7 @@
             <Obj>
               <type>2</type>
               <id>37</id>
-              <name>unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s</name>
+              <name>relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s</name>
               <fileName/>
               <fileDirectory/>
               <lineNumber>0</lineNumber>
@@ -697,20 +697,20 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>22</coreId>
+              <coreId>1869438833</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
           </Value>
           <const_type>6</const_type>
-          <content>&lt;constant:unpack_4lane_temporal_cl&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,7u&gt;,config3&gt;&gt;</content>
+          <content>&lt;constant:relu&lt;array&lt;ap_fixed,28u&gt;,array&lt;ap_fixed&lt;16,6,5,3,0&gt;,28u&gt;,relu_config4&gt;&gt;</content>
         </item>
         <item class_id_reference="16" object_id="_16">
           <Value>
             <Obj>
               <type>2</type>
               <id>41</id>
-              <name>relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s</name>
+              <name>maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s</name>
               <fileName/>
               <fileDirectory/>
               <lineNumber>0</lineNumber>
@@ -728,20 +728,20 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1009675440</coreId>
+              <coreId>2421035680</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
           </Value>
           <const_type>6</const_type>
-          <content>&lt;constant:relu&lt;array&lt;ap_fixed,7u&gt;,array&lt;ap_fixed&lt;16,6,5,3,0&gt;,7u&gt;,relu_config4&gt;&gt;</content>
+          <content>&lt;constant:maxpool2d_wide_nonoverlap_cl&lt;array,array&lt;ap_fixed,28u&gt;,config5&gt;&gt;</content>
         </item>
         <item class_id_reference="16" object_id="_17">
           <Value>
             <Obj>
               <type>2</type>
               <id>45</id>
-              <name>maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s</name>
+              <name>unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s</name>
               <fileName/>
               <fileDirectory/>
               <lineNumber>0</lineNumber>
@@ -759,13 +759,13 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1009625632</coreId>
+              <coreId>1330007625</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
           </Value>
           <const_type>6</const_type>
-          <content>&lt;constant:maxpool2d_nonoverlap_cl&lt;array,array&lt;ap_fixed&lt;16,6,5,3,0&gt;,7u&gt;,config5&gt;&gt;</content>
+          <content>&lt;constant:unpack_4lane_temporal_cl&lt;array,array&lt;ap_fixed&lt;16,6,5,3,0&gt;,7u&gt;,config5&gt;&gt;</content>
         </item>
         <item class_id_reference="16" object_id="_18">
           <Value>
@@ -790,7 +790,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1005846352</coreId>
+              <coreId>2420550448</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -824,7 +824,7 @@
             <coreName/>
             <isStorage>0</isStorage>
             <storageDepth>0</storageDepth>
-            <coreId>1043341356</coreId>
+            <coreId>807414835</coreId>
             <rtlModuleName/>
           </Obj>
           <node_objs>
@@ -980,56 +980,56 @@
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_39">
-          <id>234</id>
+          <id>233</id>
           <edge_type>4</edge_type>
           <source_obj>24</source_obj>
           <sink_obj>25</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_40">
-          <id>235</id>
+          <id>234</id>
           <edge_type>4</edge_type>
           <source_obj>23</source_obj>
           <sink_obj>24</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_41">
-          <id>236</id>
+          <id>235</id>
           <edge_type>4</edge_type>
           <source_obj>22</source_obj>
           <sink_obj>23</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_42">
-          <id>237</id>
+          <id>236</id>
           <edge_type>4</edge_type>
           <source_obj>21</source_obj>
           <sink_obj>22</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_43">
-          <id>238</id>
+          <id>237</id>
           <edge_type>4</edge_type>
           <source_obj>21</source_obj>
           <sink_obj>22</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_44">
-          <id>239</id>
+          <id>238</id>
           <edge_type>4</edge_type>
           <source_obj>22</source_obj>
           <sink_obj>23</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_45">
-          <id>240</id>
+          <id>239</id>
           <edge_type>4</edge_type>
           <source_obj>23</source_obj>
           <sink_obj>24</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_46">
-          <id>241</id>
+          <id>240</id>
           <edge_type>4</edge_type>
           <source_obj>24</source_obj>
           <sink_obj>25</sink_obj>
@@ -1058,8 +1058,8 @@
         <mDepth>-1</mDepth>
         <mMinTripCount>-1</mMinTripCount>
         <mMaxTripCount>-1</mMaxTripCount>
-        <mMinLatency>345</mMinLatency>
-        <mMaxLatency>345</mMaxLatency>
+        <mMinLatency>265</mMinLatency>
+        <mMaxLatency>265</mMaxLatency>
         <mIsDfPipe>1</mIsDfPipe>
         <mDfPipe class_id="23" tracking_level="1" version="0" object_id="_48">
           <port_list class_id="24" tracking_level="0" version="0">
@@ -1114,7 +1114,7 @@
             </item>
             <item class_id_reference="28" object_id="_55">
               <type>0</type>
-              <name>unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0</name>
+              <name>relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0</name>
               <ssdmobj_id>22</ssdmobj_id>
               <pins>
                 <count>0</count>
@@ -1126,7 +1126,7 @@
             </item>
             <item class_id_reference="28" object_id="_56">
               <type>0</type>
-              <name>relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0</name>
+              <name>maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0</name>
               <ssdmobj_id>23</ssdmobj_id>
               <pins>
                 <count>0</count>
@@ -1138,7 +1138,7 @@
             </item>
             <item class_id_reference="28" object_id="_57">
               <type>0</type>
-              <name>maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0</name>
+              <name>unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0</name>
               <ssdmobj_id>24</ssdmobj_id>
               <pins>
                 <count>0</count>
@@ -1184,10 +1184,10 @@
               <name>layer3x4_out</name>
               <ssdmobj_id>9</ssdmobj_id>
               <ctype>0</ctype>
-              <depth>84</depth>
+              <depth>4</depth>
               <bitwidth>252</bitwidth>
               <suggested_type>0</suggested_type>
-              <suggested_depth>84</suggested_depth>
+              <suggested_depth>4</suggested_depth>
               <source_list>
                 <count>1</count>
                 <item_version>0</item_version>
@@ -1217,24 +1217,24 @@
                   </port>
                   <inst class_id_reference="31" object_id="_67">
                     <type>0</type>
-                    <name>unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0</name>
+                    <name>relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0</name>
                     <ssdmobj_id>22</ssdmobj_id>
                   </inst>
                 </item>
               </sink_list>
-              <bram_cost>14</bram_cost>
+              <bram_cost>0</bram_cost>
               <uram_cost>0</uram_cost>
-              <storage_size>252 84 1</storage_size>
+              <storage_size>252 4 1</storage_size>
             </item>
             <item class_id_reference="26" object_id="_68">
               <type>1</type>
-              <name>layer3_out</name>
+              <name>layer4x4_out</name>
               <ssdmobj_id>12</ssdmobj_id>
               <ctype>0</ctype>
-              <depth>336</depth>
-              <bitwidth>63</bitwidth>
+              <depth>4</depth>
+              <bitwidth>448</bitwidth>
               <suggested_type>0</suggested_type>
-              <suggested_depth>336</suggested_depth>
+              <suggested_depth>4</suggested_depth>
               <source_list>
                 <count>1</count>
                 <item_version>0</item_version>
@@ -1264,24 +1264,24 @@
                   </port>
                   <inst class_id_reference="31" object_id="_73">
                     <type>0</type>
-                    <name>relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0</name>
+                    <name>maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0</name>
                     <ssdmobj_id>23</ssdmobj_id>
                   </inst>
                 </item>
               </sink_list>
-              <bram_cost>4</bram_cost>
+              <bram_cost>25</bram_cost>
               <uram_cost>0</uram_cost>
-              <storage_size>63 336 1</storage_size>
+              <storage_size>448 4 1</storage_size>
             </item>
             <item class_id_reference="26" object_id="_74">
               <type>1</type>
-              <name>layer4_out</name>
+              <name>layer5x4_out</name>
               <ssdmobj_id>15</ssdmobj_id>
               <ctype>0</ctype>
-              <depth>336</depth>
-              <bitwidth>112</bitwidth>
+              <depth>4</depth>
+              <bitwidth>448</bitwidth>
               <suggested_type>0</suggested_type>
-              <suggested_depth>336</suggested_depth>
+              <suggested_depth>4</suggested_depth>
               <source_list>
                 <count>1</count>
                 <item_version>0</item_version>
@@ -1311,14 +1311,14 @@
                   </port>
                   <inst class_id_reference="31" object_id="_79">
                     <type>0</type>
-                    <name>maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0</name>
+                    <name>unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0</name>
                     <ssdmobj_id>24</ssdmobj_id>
                   </inst>
                 </item>
               </sink_list>
-              <bram_cost>7</bram_cost>
+              <bram_cost>25</bram_cost>
               <uram_cost>0</uram_cost>
-              <storage_size>112 336 1</storage_size>
+              <storage_size>448 4 1</storage_size>
             </item>
             <item class_id_reference="26" object_id="_80">
               <type>1</type>
@@ -1818,32 +1818,32 @@
           </second>
         </item>
         <item>
-          <first>maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0 (maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s)</first>
+          <first>maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0 (maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s)</first>
           <second>
             <count>2</count>
             <item_version>0</item_version>
             <item>
               <first>FF</first>
-              <second>614</second>
+              <second>913</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>670</second>
+              <second>1215</second>
             </item>
           </second>
         </item>
         <item>
-          <first>relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0 (relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s)</first>
+          <first>relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0 (relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s)</first>
           <second>
             <count>2</count>
             <item_version>0</item_version>
             <item>
               <first>FF</first>
-              <second>78</second>
+              <second>265</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>311</second>
+              <second>937</second>
             </item>
           </second>
         </item>
@@ -1855,38 +1855,38 @@
           </second>
         </item>
         <item>
-          <first>start_for_maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0_U (start_for_maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0)</first>
+          <first>start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_U (start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0)</first>
           <second>
             <count>0</count>
             <item_version>0</item_version>
           </second>
         </item>
         <item>
-          <first>start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_U (start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0)</first>
+          <first>start_for_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0_U (start_for_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0)</first>
           <second>
             <count>0</count>
             <item_version>0</item_version>
           </second>
         </item>
         <item>
-          <first>start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_U (start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0)</first>
+          <first>start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5bkb_U (start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5bkb)</first>
           <second>
             <count>0</count>
             <item_version>0</item_version>
           </second>
         </item>
         <item>
-          <first>unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0 (unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s)</first>
+          <first>unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0 (unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s)</first>
           <second>
             <count>2</count>
             <item_version>0</item_version>
             <item>
               <first>FF</first>
-              <second>304</second>
+              <second>499</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>410</second>
+              <second>408</second>
             </item>
           </second>
         </item>
@@ -1922,44 +1922,13 @@
         <count>4</count>
         <item_version>0</item_version>
         <item>
-          <first>layer3_out_U</first>
-          <second>
-            <count>6</count>
-            <item_version>0</item_version>
-            <item>
-              <first>(0Depth)</first>
-              <second>336</second>
-            </item>
-            <item>
-              <first>(1Bits)</first>
-              <second>63</second>
-            </item>
-            <item>
-              <first>(2Size:D*B)</first>
-              <second>21168</second>
-            </item>
-            <item>
-              <first>BRAM</first>
-              <second>4</second>
-            </item>
-            <item>
-              <first>FF</first>
-              <second>165</second>
-            </item>
-            <item>
-              <first>LUT</first>
-              <second>66</second>
-            </item>
-          </second>
-        </item>
-        <item>
           <first>layer3x4_out_U</first>
           <second>
-            <count>6</count>
+            <count>5</count>
             <item_version>0</item_version>
             <item>
               <first>(0Depth)</first>
-              <second>84</second>
+              <second>4</second>
             </item>
             <item>
               <first>(1Bits)</first>
@@ -1967,50 +1936,46 @@
             </item>
             <item>
               <first>(2Size:D*B)</first>
-              <second>21168</second>
-            </item>
-            <item>
-              <first>BRAM</first>
-              <second>14</second>
+              <second>1008</second>
             </item>
             <item>
               <first>FF</first>
-              <second>161</second>
+              <second>99</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>57</second>
+              <second>67</second>
             </item>
           </second>
         </item>
         <item>
-          <first>layer4_out_U</first>
+          <first>layer4x4_out_U</first>
           <second>
             <count>6</count>
             <item_version>0</item_version>
             <item>
               <first>(0Depth)</first>
-              <second>336</second>
+              <second>4</second>
             </item>
             <item>
               <first>(1Bits)</first>
-              <second>112</second>
+              <second>448</second>
             </item>
             <item>
               <first>(2Size:D*B)</first>
-              <second>37632</second>
+              <second>1792</second>
             </item>
             <item>
               <first>BRAM</first>
-              <second>7</second>
+              <second>25</second>
             </item>
             <item>
               <first>FF</first>
-              <second>165</second>
+              <second>147</second>
             </item>
             <item>
               <first>LUT</first>
-              <second>66</second>
+              <second>41</second>
             </item>
           </second>
         </item>
@@ -2045,6 +2010,37 @@
             </item>
           </second>
         </item>
+        <item>
+          <first>layer5x4_out_U</first>
+          <second>
+            <count>6</count>
+            <item_version>0</item_version>
+            <item>
+              <first>(0Depth)</first>
+              <second>4</second>
+            </item>
+            <item>
+              <first>(1Bits)</first>
+              <second>448</second>
+            </item>
+            <item>
+              <first>(2Size:D*B)</first>
+              <second>1792</second>
+            </item>
+            <item>
+              <first>BRAM</first>
+              <second>25</second>
+            </item>
+            <item>
+              <first>FF</first>
+              <second>147</second>
+            </item>
+            <item>
+              <first>LUT</first>
+              <second>41</second>
+            </item>
+          </second>
+        </item>
       </dp_fifo_resource>
       <dp_memory_resource>
         <count>0</count>
@@ -2076,14 +2072,14 @@
           </second>
         </item>
         <item>
-          <first>maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0</first>
+          <first>maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0</first>
           <second>
             <count>0</count>
             <item_version>0</item_version>
           </second>
         </item>
         <item>
-          <first>relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0</first>
+          <first>relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0</first>
           <second>
             <count>0</count>
             <item_version>0</item_version>
@@ -2097,28 +2093,28 @@
           </second>
         </item>
         <item>
-          <first>start_for_maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0_U</first>
+          <first>start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_U</first>
           <second>
             <count>0</count>
             <item_version>0</item_version>
           </second>
         </item>
         <item>
-          <first>start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_U</first>
+          <first>start_for_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0_U</first>
           <second>
             <count>0</count>
             <item_version>0</item_version>
           </second>
         </item>
         <item>
-          <first>start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_U</first>
+          <first>start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5bkb_U</first>
           <second>
             <count>0</count>
             <item_version>0</item_version>
           </second>
         </item>
         <item>
-          <first>unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0</first>
+          <first>unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0</first>
           <second>
             <count>0</count>
             <item_version>0</item_version>
@@ -2145,15 +2141,7 @@
           </second>
         </item>
         <item>
-          <first>maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0 (maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s)</first>
-          <second>
-            <count>1</count>
-            <item_version>0</item_version>
-            <item>24</item>
-          </second>
-        </item>
-        <item>
-          <first>relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0 (relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s)</first>
+          <first>maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0 (maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s)</first>
           <second>
             <count>1</count>
             <item_version>0</item_version>
@@ -2161,11 +2149,19 @@
           </second>
         </item>
         <item>
-          <first>unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0 (unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s)</first>
+          <first>relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0 (relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s)</first>
           <second>
             <count>1</count>
             <item_version>0</item_version>
             <item>22</item>
+          </second>
+        </item>
+        <item>
+          <first>unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0 (unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s)</first>
+          <second>
+            <count>1</count>
+            <item_version>0</item_version>
+            <item>24</item>
           </second>
         </item>
       </dp_component_map>
@@ -2177,14 +2173,6 @@
         <count>4</count>
         <item_version>0</item_version>
         <item>
-          <first>layer3_out_U</first>
-          <second>
-            <count>1</count>
-            <item_version>0</item_version>
-            <item>126</item>
-          </second>
-        </item>
-        <item>
           <first>layer3x4_out_U</first>
           <second>
             <count>1</count>
@@ -2193,11 +2181,11 @@
           </second>
         </item>
         <item>
-          <first>layer4_out_U</first>
+          <first>layer4x4_out_U</first>
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>143</item>
+            <item>126</item>
           </second>
         </item>
         <item>
@@ -2205,7 +2193,15 @@
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>160</item>
+            <item>159</item>
+          </second>
+        </item>
+        <item>
+          <first>layer5x4_out_U</first>
+          <second>
+            <count>1</count>
+            <item_version>0</item_version>
+            <item>142</item>
           </second>
         </item>
       </dp_fifo_map>
@@ -2351,7 +2347,7 @@
       <count>9</count>
       <item_version>0</item_version>
       <item class_id="61" tracking_level="0" version="0">
-        <first>58</first>
+        <first>56</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -2359,7 +2355,7 @@
         </second>
       </item>
       <item>
-        <first>62</first>
+        <first>60</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -2367,7 +2363,7 @@
         </second>
       </item>
       <item>
-        <first>66</first>
+        <first>64</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -2375,7 +2371,7 @@
         </second>
       </item>
       <item>
-        <first>70</first>
+        <first>68</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -2383,7 +2379,7 @@
         </second>
       </item>
       <item>
-        <first>74</first>
+        <first>72</first>
         <second>
           <count>2</count>
           <item_version>0</item_version>
@@ -2392,7 +2388,7 @@
         </second>
       </item>
       <item>
-        <first>81</first>
+        <first>79</first>
         <second>
           <count>2</count>
           <item_version>0</item_version>
@@ -2401,7 +2397,7 @@
         </second>
       </item>
       <item>
-        <first>87</first>
+        <first>85</first>
         <second>
           <count>2</count>
           <item_version>0</item_version>
@@ -2410,7 +2406,7 @@
         </second>
       </item>
       <item>
-        <first>93</first>
+        <first>91</first>
         <second>
           <count>2</count>
           <item_version>0</item_version>
@@ -2419,7 +2415,7 @@
         </second>
       </item>
       <item>
-        <first>99</first>
+        <first>97</first>
         <second>
           <count>2</count>
           <item_version>0</item_version>
@@ -2432,15 +2428,7 @@
       <count>4</count>
       <item_version>0</item_version>
       <item class_id="64" tracking_level="0" version="0">
-        <first>layer3_out_fu_62</first>
-        <second>
-          <count>1</count>
-          <item_version>0</item_version>
-          <item>12</item>
-        </second>
-      </item>
-      <item>
-        <first>layer3x4_out_fu_58</first>
+        <first>layer3x4_out_fu_56</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -2448,19 +2436,27 @@
         </second>
       </item>
       <item>
-        <first>layer4_out_fu_66</first>
+        <first>layer4x4_out_fu_60</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
-          <item>15</item>
+          <item>12</item>
         </second>
       </item>
       <item>
-        <first>layer5_out_fu_70</first>
+        <first>layer5_out_fu_68</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
           <item>18</item>
+        </second>
+      </item>
+      <item>
+        <first>layer5x4_out_fu_64</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>15</item>
         </second>
       </item>
     </dp_fu_nodes_expression>
@@ -2468,7 +2464,7 @@
       <count>5</count>
       <item_version>0</item_version>
       <item>
-        <first>grp_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s_fu_99</first>
+        <first>grp_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s_fu_97</first>
         <second>
           <count>2</count>
           <item_version>0</item_version>
@@ -2477,7 +2473,7 @@
         </second>
       </item>
       <item>
-        <first>grp_first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s_fu_74</first>
+        <first>grp_first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s_fu_72</first>
         <second>
           <count>2</count>
           <item_version>0</item_version>
@@ -2486,16 +2482,7 @@
         </second>
       </item>
       <item>
-        <first>grp_maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s_fu_93</first>
-        <second>
-          <count>2</count>
-          <item_version>0</item_version>
-          <item>24</item>
-          <item>24</item>
-        </second>
-      </item>
-      <item>
-        <first>grp_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s_fu_87</first>
+        <first>grp_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s_fu_85</first>
         <second>
           <count>2</count>
           <item_version>0</item_version>
@@ -2504,12 +2491,21 @@
         </second>
       </item>
       <item>
-        <first>grp_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_fu_81</first>
+        <first>grp_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s_fu_79</first>
         <second>
           <count>2</count>
           <item_version>0</item_version>
           <item>22</item>
           <item>22</item>
+        </second>
+      </item>
+      <item>
+        <first>grp_unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s_fu_91</first>
+        <second>
+          <count>2</count>
+          <item_version>0</item_version>
+          <item>24</item>
+          <item>24</item>
         </second>
       </item>
     </dp_fu_nodes_module>
@@ -2529,7 +2525,7 @@
       <count>4</count>
       <item_version>0</item_version>
       <item>
-        <first>106</first>
+        <first>104</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -2537,7 +2533,7 @@
         </second>
       </item>
       <item>
-        <first>112</first>
+        <first>110</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -2545,7 +2541,7 @@
         </second>
       </item>
       <item>
-        <first>118</first>
+        <first>116</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -2553,7 +2549,7 @@
         </second>
       </item>
       <item>
-        <first>124</first>
+        <first>122</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -2565,15 +2561,7 @@
       <count>4</count>
       <item_version>0</item_version>
       <item>
-        <first>layer3_out_reg_112</first>
-        <second>
-          <count>1</count>
-          <item_version>0</item_version>
-          <item>12</item>
-        </second>
-      </item>
-      <item>
-        <first>layer3x4_out_reg_106</first>
+        <first>layer3x4_out_reg_104</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -2581,19 +2569,27 @@
         </second>
       </item>
       <item>
-        <first>layer4_out_reg_118</first>
+        <first>layer4x4_out_reg_110</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
-          <item>15</item>
+          <item>12</item>
         </second>
       </item>
       <item>
-        <first>layer5_out_reg_124</first>
+        <first>layer5_out_reg_122</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
           <item>18</item>
+        </second>
+      </item>
+      <item>
+        <first>layer5x4_out_reg_116</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>15</item>
         </second>
       </item>
     </dp_regname_nodes>
@@ -2650,7 +2646,7 @@
         <first>9</first>
         <second>
           <first>666</first>
-          <second>7</second>
+          <second>10</second>
         </second>
       </item>
       <item>

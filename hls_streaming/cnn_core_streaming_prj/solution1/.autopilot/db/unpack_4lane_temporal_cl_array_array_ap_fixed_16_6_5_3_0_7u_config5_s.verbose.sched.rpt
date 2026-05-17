@@ -1,0 +1,283 @@
+
+
+================================================================
+== Vitis HLS Report for 'unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s'
+================================================================
+* Date:           Sun May 17 03:02:29 2026
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        cnn_core_streaming_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: kintexuplus
+* Target device:  xcku5p-ffvb676-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  5.00 ns|  2.281 ns|     1.35 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      171|      171|  0.855 us|  0.855 us|  171|  171|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- UnpackOutputFlat  |      169|      169|         3|          1|          1|   168|       yes|
+        +--------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 3
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.28>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%i = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:191]   --->   Operation 6 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%i_iw = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:188]   --->   Operation 7 'alloca' 'i_iw' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%in_pack = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 8 'alloca' 'in_pack' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%in_pack_1 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 9 'alloca' 'in_pack_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%in_pack_2 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 10 'alloca' 'in_pack_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%in_pack_3 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 11 'alloca' 'in_pack_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%in_pack_4 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 12 'alloca' 'in_pack_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%in_pack_5 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 13 'alloca' 'in_pack_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%in_pack_6 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 14 'alloca' 'in_pack_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%in_pack_7 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 15 'alloca' 'in_pack_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%in_pack_8 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 16 'alloca' 'in_pack_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%in_pack_9 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 17 'alloca' 'in_pack_9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%in_pack_10 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 18 'alloca' 'in_pack_10' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%in_pack_11 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 19 'alloca' 'in_pack_11' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%in_pack_12 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 20 'alloca' 'in_pack_12' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%in_pack_13 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 21 'alloca' 'in_pack_13' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%in_pack_14 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 22 'alloca' 'in_pack_14' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%in_pack_15 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 23 'alloca' 'in_pack_15' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%in_pack_16 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 24 'alloca' 'in_pack_16' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%in_pack_17 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 25 'alloca' 'in_pack_17' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%in_pack_18 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 26 'alloca' 'in_pack_18' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%in_pack_19 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 27 'alloca' 'in_pack_19' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%in_pack_20 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 28 'alloca' 'in_pack_20' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%in_pack_21 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 29 'alloca' 'in_pack_21' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%in_pack_22 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 30 'alloca' 'in_pack_22' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%in_pack_23 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 31 'alloca' 'in_pack_23' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%in_pack_24 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 32 'alloca' 'in_pack_24' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%in_pack_25 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 33 'alloca' 'in_pack_25' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%in_pack_26 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 34 'alloca' 'in_pack_26' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%in_pack_27 = alloca i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 35 'alloca' 'in_pack_27' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i112 %layer5_out, void @empty_9, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 36 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i448 %layer5x4_out, void @empty_9, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 37 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.42ns)   --->   "%store_ln188 = store i32 0, i32 %i_iw" [firmware/nnet_utils/nnet_first_conv_stream.h:188]   --->   Operation 38 'store' 'store_ln188' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 39 [1/1] (0.42ns)   --->   "%store_ln191 = store i8 0, i8 %i" [firmware/nnet_utils/nnet_first_conv_stream.h:191]   --->   Operation 39 'store' 'store_ln191' <Predicate = true> <Delay = 0.42>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%br_ln191 = br void %for.body" [firmware/nnet_utils/nnet_first_conv_stream.h:191]   --->   Operation 40 'br' 'br_ln191' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%i_1 = load i8 %i" [firmware/nnet_utils/nnet_first_conv_stream.h:191]   --->   Operation 41 'load' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%i_iw_2 = load i32 %i_iw" [firmware/nnet_utils/nnet_first_conv_stream.h:191]   --->   Operation 42 'load' 'i_iw_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.76ns)   --->   "%icmp_ln191 = icmp_eq  i8 %i_1, i8 168" [firmware/nnet_utils/nnet_first_conv_stream.h:191]   --->   Operation 43 'icmp' 'icmp_ln191' <Predicate = true> <Delay = 0.76> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 44 [1/1] (0.76ns)   --->   "%i_2 = add i8 %i_1, i8 1" [firmware/nnet_utils/nnet_first_conv_stream.h:191]   --->   Operation 44 'add' 'i_2' <Predicate = true> <Delay = 0.76> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.76> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%br_ln191 = br i1 %icmp_ln191, void %for.body.split, void %for.end13" [firmware/nnet_utils/nnet_first_conv_stream.h:191]   --->   Operation 45 'br' 'br_ln191' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%specpipeline_ln192 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_0" [firmware/nnet_utils/nnet_first_conv_stream.h:192]   --->   Operation 46 'specpipeline' 'specpipeline_ln192' <Predicate = (!icmp_ln191)> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%speclooptripcount_ln186 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 168, i64 168, i64 168" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 47 'speclooptripcount' 'speclooptripcount_ln186' <Predicate = (!icmp_ln191)> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%specloopname_ln191 = specloopname void @_ssdm_op_SpecLoopName, void @empty_5" [firmware/nnet_utils/nnet_first_conv_stream.h:191]   --->   Operation 48 'specloopname' 'specloopname_ln191' <Predicate = (!icmp_ln191)> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%trunc_ln191 = trunc i32 %i_iw_2" [firmware/nnet_utils/nnet_first_conv_stream.h:191]   --->   Operation 49 'trunc' 'trunc_ln191' <Predicate = (!icmp_ln191)> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (1.01ns)   --->   "%icmp_ln194 = icmp_eq  i32 %i_iw_2, i32 0" [firmware/nnet_utils/nnet_first_conv_stream.h:194]   --->   Operation 50 'icmp' 'icmp_ln194' <Predicate = (!icmp_ln191)> <Delay = 1.01> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%br_ln194 = br i1 %icmp_ln194, void %UnpackFilters, void %if.then" [firmware/nnet_utils/nnet_first_conv_stream.h:194]   --->   Operation 51 'br' 'br_ln194' <Predicate = (!icmp_ln191)> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (1.01ns)   --->   "%icmp_ln209 = icmp_eq  i32 %i_iw_2, i32 3" [firmware/nnet_utils/nnet_first_conv_stream.h:209]   --->   Operation 52 'icmp' 'icmp_ln209' <Predicate = (!icmp_ln191)> <Delay = 1.01> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 53 [1/1] (1.01ns)   --->   "%add_ln209 = add i32 %i_iw_2, i32 1" [firmware/nnet_utils/nnet_first_conv_stream.h:209]   --->   Operation 53 'add' 'add_ln209' <Predicate = (!icmp_ln191)> <Delay = 1.01> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.01> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 54 [1/1] (0.41ns)   --->   "%i_iw_3 = select i1 %icmp_ln209, i32 0, i32 %add_ln209" [firmware/nnet_utils/nnet_first_conv_stream.h:209]   --->   Operation 54 'select' 'i_iw_3' <Predicate = (!icmp_ln191)> <Delay = 0.41> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.41> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_1 : Operation 55 [1/1] (0.42ns)   --->   "%store_ln188 = store i32 %i_iw_3, i32 %i_iw" [firmware/nnet_utils/nnet_first_conv_stream.h:188]   --->   Operation 55 'store' 'store_ln188' <Predicate = (!icmp_ln191)> <Delay = 0.42>
+ST_1 : Operation 56 [1/1] (0.42ns)   --->   "%store_ln191 = store i8 %i_2, i8 %i" [firmware/nnet_utils/nnet_first_conv_stream.h:191]   --->   Operation 56 'store' 'store_ln191' <Predicate = (!icmp_ln191)> <Delay = 0.42>
+
+State 2 <SV = 1> <Delay = 1.63>
+ST_2 : Operation 57 [1/1] (1.63ns)   --->   "%layer5x4_out_read = read i448 @_ssdm_op_Read.ap_fifo.volatile.i448P0A, i448 %layer5x4_out" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 57 'read' 'layer5x4_out_read' <Predicate = (icmp_ln194)> <Delay = 1.63> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.63> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 448> <Depth = 4> <FIFO>
+ST_2 : Operation 58 [1/1] (0.00ns)   --->   "%in_pack_54 = trunc i448 %layer5x4_out_read" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 58 'trunc' 'in_pack_54' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 59 [1/1] (0.00ns)   --->   "%in_pack_55 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 16, i32 31" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 59 'partselect' 'in_pack_55' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 60 [1/1] (0.00ns)   --->   "%in_pack_28 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 32, i32 47" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 60 'partselect' 'in_pack_28' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 61 [1/1] (0.00ns)   --->   "%in_pack_29 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 48, i32 63" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 61 'partselect' 'in_pack_29' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 62 [1/1] (0.00ns)   --->   "%in_pack_30 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 64, i32 79" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 62 'partselect' 'in_pack_30' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 63 [1/1] (0.00ns)   --->   "%in_pack_31 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 80, i32 95" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 63 'partselect' 'in_pack_31' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%in_pack_32 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 96, i32 111" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 64 'partselect' 'in_pack_32' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 65 [1/1] (0.00ns)   --->   "%in_pack_33 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 112, i32 127" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 65 'partselect' 'in_pack_33' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 66 [1/1] (0.00ns)   --->   "%in_pack_34 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 128, i32 143" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 66 'partselect' 'in_pack_34' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "%in_pack_35 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 144, i32 159" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 67 'partselect' 'in_pack_35' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 68 [1/1] (0.00ns)   --->   "%in_pack_36 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 160, i32 175" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 68 'partselect' 'in_pack_36' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 69 [1/1] (0.00ns)   --->   "%in_pack_37 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 176, i32 191" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 69 'partselect' 'in_pack_37' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 70 [1/1] (0.00ns)   --->   "%in_pack_38 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 192, i32 207" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 70 'partselect' 'in_pack_38' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "%in_pack_39 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 208, i32 223" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 71 'partselect' 'in_pack_39' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 72 [1/1] (0.00ns)   --->   "%in_pack_40 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 224, i32 239" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 72 'partselect' 'in_pack_40' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 73 [1/1] (0.00ns)   --->   "%in_pack_41 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 240, i32 255" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 73 'partselect' 'in_pack_41' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 74 [1/1] (0.00ns)   --->   "%in_pack_42 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 256, i32 271" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 74 'partselect' 'in_pack_42' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 75 [1/1] (0.00ns)   --->   "%in_pack_43 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 272, i32 287" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 75 'partselect' 'in_pack_43' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 76 [1/1] (0.00ns)   --->   "%in_pack_44 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 288, i32 303" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 76 'partselect' 'in_pack_44' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 77 [1/1] (0.00ns)   --->   "%in_pack_45 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 304, i32 319" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 77 'partselect' 'in_pack_45' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 78 [1/1] (0.00ns)   --->   "%in_pack_46 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 320, i32 335" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 78 'partselect' 'in_pack_46' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 79 [1/1] (0.00ns)   --->   "%in_pack_47 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 336, i32 351" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 79 'partselect' 'in_pack_47' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 80 [1/1] (0.00ns)   --->   "%in_pack_48 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 352, i32 367" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 80 'partselect' 'in_pack_48' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 81 [1/1] (0.00ns)   --->   "%in_pack_49 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 368, i32 383" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 81 'partselect' 'in_pack_49' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 82 [1/1] (0.00ns)   --->   "%in_pack_50 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 384, i32 399" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 82 'partselect' 'in_pack_50' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 83 [1/1] (0.00ns)   --->   "%in_pack_51 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 400, i32 415" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 83 'partselect' 'in_pack_51' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 84 [1/1] (0.00ns)   --->   "%in_pack_52 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 416, i32 431" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 84 'partselect' 'in_pack_52' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 85 [1/1] (0.00ns)   --->   "%in_pack_53 = partselect i16 @_ssdm_op_PartSelect.i16.i448.i32.i32, i448 %layer5x4_out_read, i32 432, i32 447" [firmware/nnet_utils/nnet_first_conv_stream.h:195]   --->   Operation 85 'partselect' 'in_pack_53' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 86 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_53, i16 %in_pack_27" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 86 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 87 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_52, i16 %in_pack_26" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 87 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 88 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_51, i16 %in_pack_25" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 88 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 89 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_50, i16 %in_pack_24" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 89 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 90 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_49, i16 %in_pack_23" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 90 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 91 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_48, i16 %in_pack_22" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 91 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 92 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_47, i16 %in_pack_21" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 92 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 93 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_46, i16 %in_pack_20" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 93 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 94 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_45, i16 %in_pack_19" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 94 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 95 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_44, i16 %in_pack_18" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 95 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 96 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_43, i16 %in_pack_17" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 96 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 97 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_42, i16 %in_pack_16" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 97 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 98 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_41, i16 %in_pack_15" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 98 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 99 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_40, i16 %in_pack_14" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 99 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 100 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_39, i16 %in_pack_13" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 100 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 101 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_38, i16 %in_pack_12" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 101 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 102 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_37, i16 %in_pack_11" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 102 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 103 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_36, i16 %in_pack_10" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 103 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 104 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_35, i16 %in_pack_9" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 104 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 105 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_34, i16 %in_pack_8" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 105 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 106 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_33, i16 %in_pack_7" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 106 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 107 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_32, i16 %in_pack_6" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 107 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 108 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_31, i16 %in_pack_5" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 108 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 109 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_30, i16 %in_pack_4" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 109 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 110 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_29, i16 %in_pack_3" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 110 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 111 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_28, i16 %in_pack_2" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 111 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 112 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_55, i16 %in_pack_1" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 112 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 113 [1/1] (0.00ns)   --->   "%store_ln186 = store i16 %in_pack_54, i16 %in_pack" [firmware/nnet_utils/nnet_first_conv_stream.h:186]   --->   Operation 113 'store' 'store_ln186' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 114 [1/1] (0.00ns)   --->   "%br_ln196 = br void %UnpackFilters" [firmware/nnet_utils/nnet_first_conv_stream.h:196]   --->   Operation 114 'br' 'br_ln196' <Predicate = (icmp_ln194)> <Delay = 0.00>
+ST_2 : Operation 153 [1/1] (0.00ns)   --->   "%ret_ln211 = ret" [firmware/nnet_utils/nnet_first_conv_stream.h:211]   --->   Operation 153 'ret' 'ret_ln211' <Predicate = (icmp_ln191)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 2.26>
+ST_3 : Operation 115 [1/1] (0.00ns)   --->   "%in_pack_56 = load i16 %in_pack" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 115 'load' 'in_pack_56' <Predicate = (trunc_ln191 == 0)> <Delay = 0.00>
+ST_3 : Operation 116 [1/1] (0.00ns)   --->   "%in_pack_57 = load i16 %in_pack_1" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 116 'load' 'in_pack_57' <Predicate = (trunc_ln191 == 0)> <Delay = 0.00>
+ST_3 : Operation 117 [1/1] (0.00ns)   --->   "%in_pack_58 = load i16 %in_pack_2" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 117 'load' 'in_pack_58' <Predicate = (trunc_ln191 == 0)> <Delay = 0.00>
+ST_3 : Operation 118 [1/1] (0.00ns)   --->   "%in_pack_59 = load i16 %in_pack_3" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 118 'load' 'in_pack_59' <Predicate = (trunc_ln191 == 0)> <Delay = 0.00>
+ST_3 : Operation 119 [1/1] (0.00ns)   --->   "%in_pack_60 = load i16 %in_pack_4" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 119 'load' 'in_pack_60' <Predicate = (trunc_ln191 == 0)> <Delay = 0.00>
+ST_3 : Operation 120 [1/1] (0.00ns)   --->   "%in_pack_61 = load i16 %in_pack_5" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 120 'load' 'in_pack_61' <Predicate = (trunc_ln191 == 0)> <Delay = 0.00>
+ST_3 : Operation 121 [1/1] (0.00ns)   --->   "%in_pack_62 = load i16 %in_pack_6" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 121 'load' 'in_pack_62' <Predicate = (trunc_ln191 == 0)> <Delay = 0.00>
+ST_3 : Operation 122 [1/1] (0.00ns)   --->   "%in_pack_63 = load i16 %in_pack_7" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 122 'load' 'in_pack_63' <Predicate = (trunc_ln191 == 1)> <Delay = 0.00>
+ST_3 : Operation 123 [1/1] (0.00ns)   --->   "%in_pack_64 = load i16 %in_pack_8" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 123 'load' 'in_pack_64' <Predicate = (trunc_ln191 == 1)> <Delay = 0.00>
+ST_3 : Operation 124 [1/1] (0.00ns)   --->   "%in_pack_65 = load i16 %in_pack_9" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 124 'load' 'in_pack_65' <Predicate = (trunc_ln191 == 1)> <Delay = 0.00>
+ST_3 : Operation 125 [1/1] (0.00ns)   --->   "%in_pack_66 = load i16 %in_pack_10" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 125 'load' 'in_pack_66' <Predicate = (trunc_ln191 == 1)> <Delay = 0.00>
+ST_3 : Operation 126 [1/1] (0.00ns)   --->   "%in_pack_67 = load i16 %in_pack_11" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 126 'load' 'in_pack_67' <Predicate = (trunc_ln191 == 1)> <Delay = 0.00>
+ST_3 : Operation 127 [1/1] (0.00ns)   --->   "%in_pack_68 = load i16 %in_pack_12" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 127 'load' 'in_pack_68' <Predicate = (trunc_ln191 == 1)> <Delay = 0.00>
+ST_3 : Operation 128 [1/1] (0.00ns)   --->   "%in_pack_69 = load i16 %in_pack_13" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 128 'load' 'in_pack_69' <Predicate = (trunc_ln191 == 1)> <Delay = 0.00>
+ST_3 : Operation 129 [1/1] (0.00ns)   --->   "%in_pack_70 = load i16 %in_pack_14" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 129 'load' 'in_pack_70' <Predicate = (trunc_ln191 == 2)> <Delay = 0.00>
+ST_3 : Operation 130 [1/1] (0.00ns)   --->   "%in_pack_71 = load i16 %in_pack_15" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 130 'load' 'in_pack_71' <Predicate = (trunc_ln191 == 2)> <Delay = 0.00>
+ST_3 : Operation 131 [1/1] (0.00ns)   --->   "%in_pack_72 = load i16 %in_pack_16" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 131 'load' 'in_pack_72' <Predicate = (trunc_ln191 == 2)> <Delay = 0.00>
+ST_3 : Operation 132 [1/1] (0.00ns)   --->   "%in_pack_73 = load i16 %in_pack_17" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 132 'load' 'in_pack_73' <Predicate = (trunc_ln191 == 2)> <Delay = 0.00>
+ST_3 : Operation 133 [1/1] (0.00ns)   --->   "%in_pack_74 = load i16 %in_pack_18" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 133 'load' 'in_pack_74' <Predicate = (trunc_ln191 == 2)> <Delay = 0.00>
+ST_3 : Operation 134 [1/1] (0.00ns)   --->   "%in_pack_75 = load i16 %in_pack_19" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 134 'load' 'in_pack_75' <Predicate = (trunc_ln191 == 2)> <Delay = 0.00>
+ST_3 : Operation 135 [1/1] (0.00ns)   --->   "%in_pack_76 = load i16 %in_pack_20" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 135 'load' 'in_pack_76' <Predicate = (trunc_ln191 == 2)> <Delay = 0.00>
+ST_3 : Operation 136 [1/1] (0.00ns)   --->   "%in_pack_77 = load i16 %in_pack_21" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 136 'load' 'in_pack_77' <Predicate = (trunc_ln191 == 3)> <Delay = 0.00>
+ST_3 : Operation 137 [1/1] (0.00ns)   --->   "%in_pack_78 = load i16 %in_pack_22" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 137 'load' 'in_pack_78' <Predicate = (trunc_ln191 == 3)> <Delay = 0.00>
+ST_3 : Operation 138 [1/1] (0.00ns)   --->   "%in_pack_79 = load i16 %in_pack_23" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 138 'load' 'in_pack_79' <Predicate = (trunc_ln191 == 3)> <Delay = 0.00>
+ST_3 : Operation 139 [1/1] (0.00ns)   --->   "%in_pack_80 = load i16 %in_pack_24" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 139 'load' 'in_pack_80' <Predicate = (trunc_ln191 == 3)> <Delay = 0.00>
+ST_3 : Operation 140 [1/1] (0.00ns)   --->   "%in_pack_81 = load i16 %in_pack_25" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 140 'load' 'in_pack_81' <Predicate = (trunc_ln191 == 3)> <Delay = 0.00>
+ST_3 : Operation 141 [1/1] (0.00ns)   --->   "%in_pack_82 = load i16 %in_pack_26" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 141 'load' 'in_pack_82' <Predicate = (trunc_ln191 == 3)> <Delay = 0.00>
+ST_3 : Operation 142 [1/1] (0.00ns)   --->   "%in_pack_83 = load i16 %in_pack_27" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 142 'load' 'in_pack_83' <Predicate = (trunc_ln191 == 3)> <Delay = 0.00>
+ST_3 : Operation 143 [1/1] (0.52ns)   --->   "%tmp = sparsemux i16 @_ssdm_op_SparseMux.ap_auto.4i16.i16.i2, i2 0, i16 %in_pack_56, i2 1, i16 %in_pack_63, i2 2, i16 %in_pack_70, i2 3, i16 %in_pack_77, i16 0, i2 %trunc_ln191" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 143 'sparsemux' 'tmp' <Predicate = true> <Delay = 0.52> <CoreInst = "SparseMux">   --->   Core 147 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 144 [1/1] (0.52ns)   --->   "%tmp_s = sparsemux i16 @_ssdm_op_SparseMux.ap_auto.4i16.i16.i2, i2 0, i16 %in_pack_57, i2 1, i16 %in_pack_64, i2 2, i16 %in_pack_71, i2 3, i16 %in_pack_78, i16 0, i2 %trunc_ln191" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 144 'sparsemux' 'tmp_s' <Predicate = true> <Delay = 0.52> <CoreInst = "SparseMux">   --->   Core 147 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 145 [1/1] (0.52ns)   --->   "%tmp_1 = sparsemux i16 @_ssdm_op_SparseMux.ap_auto.4i16.i16.i2, i2 0, i16 %in_pack_58, i2 1, i16 %in_pack_65, i2 2, i16 %in_pack_72, i2 3, i16 %in_pack_79, i16 0, i2 %trunc_ln191" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 145 'sparsemux' 'tmp_1' <Predicate = true> <Delay = 0.52> <CoreInst = "SparseMux">   --->   Core 147 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 146 [1/1] (0.52ns)   --->   "%tmp_2 = sparsemux i16 @_ssdm_op_SparseMux.ap_auto.4i16.i16.i2, i2 0, i16 %in_pack_59, i2 1, i16 %in_pack_66, i2 2, i16 %in_pack_73, i2 3, i16 %in_pack_80, i16 0, i2 %trunc_ln191" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 146 'sparsemux' 'tmp_2' <Predicate = true> <Delay = 0.52> <CoreInst = "SparseMux">   --->   Core 147 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 147 [1/1] (0.52ns)   --->   "%tmp_3 = sparsemux i16 @_ssdm_op_SparseMux.ap_auto.4i16.i16.i2, i2 0, i16 %in_pack_60, i2 1, i16 %in_pack_67, i2 2, i16 %in_pack_74, i2 3, i16 %in_pack_81, i16 0, i2 %trunc_ln191" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 147 'sparsemux' 'tmp_3' <Predicate = true> <Delay = 0.52> <CoreInst = "SparseMux">   --->   Core 147 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 148 [1/1] (0.52ns)   --->   "%tmp_4 = sparsemux i16 @_ssdm_op_SparseMux.ap_auto.4i16.i16.i2, i2 0, i16 %in_pack_61, i2 1, i16 %in_pack_68, i2 2, i16 %in_pack_75, i2 3, i16 %in_pack_82, i16 0, i2 %trunc_ln191" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 148 'sparsemux' 'tmp_4' <Predicate = true> <Delay = 0.52> <CoreInst = "SparseMux">   --->   Core 147 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 149 [1/1] (0.52ns)   --->   "%tmp_5 = sparsemux i16 @_ssdm_op_SparseMux.ap_auto.4i16.i16.i2, i2 0, i16 %in_pack_62, i2 1, i16 %in_pack_69, i2 2, i16 %in_pack_76, i2 3, i16 %in_pack_83, i16 0, i2 %trunc_ln191" [firmware/nnet_utils/nnet_first_conv_stream.h:204]   --->   Operation 149 'sparsemux' 'tmp_5' <Predicate = true> <Delay = 0.52> <CoreInst = "SparseMux">   --->   Core 147 'SparseMux' <Latency = 0> <II = 1> <Delay = 0.52> <FuncUnit> <Opcode : 'sparsemux'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 150 [1/1] (0.00ns)   --->   "%or_ln207_s = bitconcatenate i112 @_ssdm_op_BitConcatenate.i112.i16.i16.i16.i16.i16.i16.i16, i16 %tmp_5, i16 %tmp_4, i16 %tmp_3, i16 %tmp_2, i16 %tmp_1, i16 %tmp_s, i16 %tmp" [firmware/nnet_utils/nnet_first_conv_stream.h:207]   --->   Operation 150 'bitconcatenate' 'or_ln207_s' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 151 [1/1] (1.73ns)   --->   "%write_ln207 = write void @_ssdm_op_Write.ap_fifo.volatile.i112P0A, i112 %layer5_out, i112 %or_ln207_s" [firmware/nnet_utils/nnet_first_conv_stream.h:207]   --->   Operation 151 'write' 'write_ln207' <Predicate = true> <Delay = 1.73> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.73> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 112> <Depth = 168> <FIFO>
+ST_3 : Operation 152 [1/1] (0.00ns)   --->   "%br_ln191 = br void %for.body" [firmware/nnet_utils/nnet_first_conv_stream.h:191]   --->   Operation 152 'br' 'br_ln191' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5.000ns, clock uncertainty: 1.350ns.
+
+ <State 1>: 2.281ns
+The critical path consists of the following:
+	'store' operation 0 bit ('store_ln188', firmware/nnet_utils/nnet_first_conv_stream.h:188) of constant 0 on local variable 'i_iw', firmware/nnet_utils/nnet_first_conv_stream.h:188 [35]  (0.427 ns)
+	'load' operation 32 bit ('i_iw', firmware/nnet_utils/nnet_first_conv_stream.h:191) on local variable 'i_iw', firmware/nnet_utils/nnet_first_conv_stream.h:188 [40]  (0.000 ns)
+	'icmp' operation 1 bit ('icmp_ln209', firmware/nnet_utils/nnet_first_conv_stream.h:209) [148]  (1.016 ns)
+	'select' operation 32 bit ('i_iw', firmware/nnet_utils/nnet_first_conv_stream.h:209) [150]  (0.411 ns)
+	'store' operation 0 bit ('store_ln188', firmware/nnet_utils/nnet_first_conv_stream.h:188) of variable 'i_iw', firmware/nnet_utils/nnet_first_conv_stream.h:209 on local variable 'i_iw', firmware/nnet_utils/nnet_first_conv_stream.h:188 [151]  (0.427 ns)
+
+ <State 2>: 1.636ns
+The critical path consists of the following:
+	fifo read operation ('layer5x4_out_read', firmware/nnet_utils/nnet_first_conv_stream.h:195) on port 'layer5x4_out' (firmware/nnet_utils/nnet_first_conv_stream.h:195) [52]  (1.636 ns)
+
+ <State 3>: 2.261ns
+The critical path consists of the following:
+	'load' operation 16 bit ('in_pack', firmware/nnet_utils/nnet_first_conv_stream.h:204) on local variable 'in_pack', firmware/nnet_utils/nnet_first_conv_stream.h:186 [111]  (0.000 ns)
+	'sparsemux' operation 16 bit ('tmp', firmware/nnet_utils/nnet_first_conv_stream.h:204) [139]  (0.525 ns)
+	fifo write operation ('write_ln207', firmware/nnet_utils/nnet_first_conv_stream.h:207) on port 'layer5_out' (firmware/nnet_utils/nnet_first_conv_stream.h:207) [147]  (1.736 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,31 +1,40 @@
 {
   "0": {
     "basicblocks": 1,
-    "calls": "4 7 5 1 2",
+    "calls": "4 5 7 8 3",
     "file": "cnn_core.cpp",
     "fileloc": 7,
     "instructions": 20,
     "name": "cnn_core",
-    "total_instructions": 16276
+    "total_instructions": 16506
   },
   "1": {
-    "basicblocks": 14,
+    "basicblocks": 1,
     "calls": "",
-    "file": "nnet_pooling_stream.h",
-    "fileloc": 348,
-    "instructions": 177,
+    "file": "nnet_dense_latency.h",
+    "fileloc": 13,
+    "instructions": 314,
     "loads": {
-      "L": 28
+      "L": 5
     },
-    "name": "maxpool2d_nonoverlap_cl<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, config5>",
+    "name": "dense_latency<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, config3_mult>",
     "stores": {
-      "L": 28
+      "L": 7
     },
-    "total_instructions": 177
+    "total_instructions": 314
   },
   "2": {
+    "basicblocks": 1,
+    "calls": "6",
+    "file": "nnet_dense_stream.h",
+    "fileloc": 13,
+    "instructions": 2,
+    "name": "dense_latency_wrapper<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, config7>",
+    "total_instructions": 11712
+  },
+  "3": {
     "basicblocks": 172,
-    "calls": "3",
+    "calls": "2",
     "file": "nnet_dense_stream.h",
     "fileloc": 82,
     "instructions": 2545,
@@ -38,18 +47,9 @@
     },
     "total_instructions": 14257
   },
-  "3": {
-    "basicblocks": 1,
-    "calls": "8",
-    "file": "nnet_dense_stream.h",
-    "fileloc": 13,
-    "instructions": 2,
-    "name": "dense_latency_wrapper<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, config7>",
-    "total_instructions": 11712
-  },
   "4": {
     "basicblocks": 13,
-    "calls": "6 6 6 6",
+    "calls": "1 1 1 1",
     "file": "nnet_first_conv_stream.h",
     "fileloc": 99,
     "instructions": 363,
@@ -67,41 +67,11 @@
     "calls": "",
     "file": "nnet_activation_stream.h",
     "fileloc": 39,
-    "instructions": 66,
-    "name": "relu<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 7>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, relu_config4>",
-    "total_instructions": 66
+    "instructions": 234,
+    "name": "relu<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, relu_config4>",
+    "total_instructions": 234
   },
   "6": {
-    "basicblocks": 1,
-    "calls": "",
-    "file": "nnet_dense_latency.h",
-    "fileloc": 13,
-    "instructions": 314,
-    "loads": {
-      "L": 5
-    },
-    "name": "dense_latency<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, config3_mult>",
-    "stores": {
-      "L": 7
-    },
-    "total_instructions": 314
-  },
-  "7": {
-    "basicblocks": 5,
-    "calls": "",
-    "file": "nnet_first_conv_stream.h",
-    "fileloc": 181,
-    "instructions": 137,
-    "loads": {
-      "L": 7
-    },
-    "name": "unpack_4lane_temporal_cl<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 7>, config3>",
-    "stores": {
-      "L": 28
-    },
-    "total_instructions": 137
-  },
-  "8": {
     "basicblocks": 1,
     "calls": "",
     "file": "nnet_dense_latency.h",
@@ -115,5 +85,35 @@
       "L": 1
     },
     "total_instructions": 11710
+  },
+  "7": {
+    "basicblocks": 6,
+    "calls": "",
+    "file": "nnet_pooling_stream.h",
+    "fileloc": 405,
+    "instructions": 239,
+    "loads": {
+      "L": 28
+    },
+    "name": "maxpool2d_wide_nonoverlap_cl<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, config5>",
+    "stores": {
+      "L": 28
+    },
+    "total_instructions": 239
+  },
+  "8": {
+    "basicblocks": 5,
+    "calls": "",
+    "file": "nnet_first_conv_stream.h",
+    "fileloc": 181,
+    "instructions": 137,
+    "loads": {
+      "L": 7
+    },
+    "name": "unpack_4lane_temporal_cl<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, config5>",
+    "stores": {
+      "L": 28
+    },
+    "total_instructions": 137
   }
 }

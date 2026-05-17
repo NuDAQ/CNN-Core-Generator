@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare'
 ================================================================
-* Date:           Sun May 17 02:50:13 2026
+* Date:           Sun May 17 03:02:31 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_streaming_prj
@@ -3449,13 +3449,13 @@ Target clock period: 5.000ns, clock uncertainty: 1.350ns.
 The critical path consists of the following:
 	'store' operation 0 bit ('store_ln33', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93) of constant 0 on local variable 'i_in', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93 [1584]  (0.427 ns)
 	'load' operation 8 bit ('i_in', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93) on local variable 'i_in', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93 [1587]  (0.000 ns)
-	'icmp' operation 1 bit ('icmp_ln33', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93) [1588]  (0.765 ns)
+	'add' operation 8 bit ('add_ln33', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93) [1589]  (0.765 ns)
 	'store' operation 0 bit ('store_ln33', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93) of variable 'add_ln33', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93 on local variable 'i_in', firmware/nnet_utils/nnet_dense_stream.h:33->firmware/nnet_utils/nnet_dense_stream.h:93 [2731]  (0.427 ns)
 
  <State 2>: 1.736ns
 The critical path consists of the following:
 	fifo read operation ('layer5_out_read', firmware/nnet_utils/nnet_dense_stream.h:35->firmware/nnet_utils/nnet_dense_stream.h:93) on port 'layer5_out' (firmware/nnet_utils/nnet_dense_stream.h:35->firmware/nnet_utils/nnet_dense_stream.h:93) [1595]  (1.736 ns)
-	'store' operation 0 bit ('store_ln35', firmware/nnet_utils/nnet_dense_stream.h:35->firmware/nnet_utils/nnet_dense_stream.h:93) of variable 'data_pack', firmware/nnet_utils/nnet_dense_stream.h:35->firmware/nnet_utils/nnet_dense_stream.h:93 on local variable 'p_0_6_0_0_0257' [1788]  (0.000 ns)
+	'store' operation 0 bit ('store_ln35', firmware/nnet_utils/nnet_dense_stream.h:35->firmware/nnet_utils/nnet_dense_stream.h:93) of variable 'data_pack', firmware/nnet_utils/nnet_dense_stream.h:35->firmware/nnet_utils/nnet_dense_stream.h:93 on local variable 'p_0_6_0_0_0201' [1746]  (0.000 ns)
 
 
 ============================================================

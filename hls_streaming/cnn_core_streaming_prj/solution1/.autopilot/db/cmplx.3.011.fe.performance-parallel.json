@@ -1,24 +1,24 @@
 {
   "0": {
     "basicblocks": 1,
-    "calls": "4 2 5 8 7",
+    "calls": "4 3 8 2 1",
     "file": "cnn_core.cpp",
     "fileloc": 7,
     "instructions": 20,
     "name": "cnn_core",
-    "total_instructions": 15065
+    "total_instructions": 15843
   },
   "1": {
-    "basicblocks": 1,
-    "calls": "",
-    "file": "nnet_dense_latency.h",
-    "fileloc": 13,
-    "instructions": 10920,
-    "name": "dense_latency<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, config7>",
-    "stores": {
+    "basicblocks": 171,
+    "calls": "7",
+    "file": "nnet_dense_stream.h",
+    "fileloc": 82,
+    "instructions": 1772,
+    "loads": {
       "L": 1
     },
-    "total_instructions": 10920
+    "name": "dense<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, config7>",
+    "total_instructions": 12734
   },
   "2": {
     "basicblocks": 5,
@@ -29,23 +29,20 @@
     "loads": {
       "L": 7
     },
-    "name": "unpack_4lane_temporal_cl<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 7>, config3>",
+    "name": "unpack_4lane_temporal_cl<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, config5>",
     "stores": {
       "L": 28
     },
     "total_instructions": 354
   },
   "3": {
-    "basicblocks": 1,
+    "basicblocks": 3,
     "calls": "",
-    "file": "nnet_dense_stream.h",
-    "fileloc": 13,
-    "instructions": 10920,
-    "name": "dense_latency_wrapper<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, config7>",
-    "stores": {
-      "L": 1
-    },
-    "total_instructions": 10920
+    "file": "nnet_activation_stream.h",
+    "fileloc": 39,
+    "instructions": 234,
+    "name": "relu<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, relu_config4>",
+    "total_instructions": 598
   },
   "4": {
     "basicblocks": 13,
@@ -63,15 +60,6 @@
     "total_instructions": 1591
   },
   "5": {
-    "basicblocks": 3,
-    "calls": "",
-    "file": "nnet_activation_stream.h",
-    "fileloc": 39,
-    "instructions": 66,
-    "name": "relu<nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 7>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, relu_config4>",
-    "total_instructions": 157
-  },
-  "6": {
     "basicblocks": 1,
     "calls": "",
     "file": "nnet_dense_latency.h",
@@ -83,25 +71,37 @@
     },
     "total_instructions": 309
   },
-  "7": {
-    "basicblocks": 171,
-    "calls": "3",
-    "file": "nnet_dense_stream.h",
-    "fileloc": 82,
-    "instructions": 1772,
-    "loads": {
+  "6": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "nnet_dense_latency.h",
+    "fileloc": 13,
+    "instructions": 10920,
+    "name": "dense_latency<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, config7>",
+    "stores": {
       "L": 1
     },
-    "name": "dense<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, config7>",
-    "total_instructions": 12734
+    "total_instructions": 10920
+  },
+  "7": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "nnet_dense_stream.h",
+    "fileloc": 13,
+    "instructions": 10920,
+    "name": "dense_latency_wrapper<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, config7>",
+    "stores": {
+      "L": 1
+    },
+    "total_instructions": 10920
   },
   "8": {
-    "basicblocks": 12,
+    "basicblocks": 5,
     "calls": "",
     "file": "nnet_pooling_stream.h",
-    "fileloc": 348,
-    "instructions": 118,
-    "name": "maxpool2d_nonoverlap_cl<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 7>, config5>",
-    "total_instructions": 209
+    "fileloc": 405,
+    "instructions": 182,
+    "name": "maxpool2d_wide_nonoverlap_cl<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, config5>",
+    "total_instructions": 546
   }
 }

@@ -466,10 +466,10 @@ entry:28 %br_ln120 = br void %InsertRowWide
 
 <Node id="33" bw="9" op_0_bw="9" op_1_bw="0">
 <![CDATA[
-InsertRowWide:0 %i_ih_1 = load i9 %i_ih
+InsertRowWide:0 %i_ih_3 = load i9 %i_ih
 
 ]]></Node>
-<StgValue><ssdm name="i_ih_1"/></StgValue>
+<StgValue><ssdm name="i_ih_3"/></StgValue>
 </operation>
 
 <operation id="36" st_id="1" stage="1" lat="1">
@@ -511,7 +511,7 @@ InsertRowWide:2 %wptr_1 = load i32 %wptr
 
 <Node id="36" bw="1" op_0_bw="9" op_1_bw="9">
 <![CDATA[
-InsertRowWide:3 %icmp_ln120 = icmp_eq  i9 %i_ih_1, i9 256
+InsertRowWide:3 %icmp_ln120 = icmp_eq  i9 %i_ih_3, i9 256
 
 ]]></Node>
 <StgValue><ssdm name="icmp_ln120"/></StgValue>
@@ -526,10 +526,10 @@ InsertRowWide:3 %icmp_ln120 = icmp_eq  i9 %i_ih_1, i9 256
 
 <Node id="37" bw="9" op_0_bw="9" op_1_bw="9">
 <![CDATA[
-InsertRowWide:4 %i_ih_2 = add i9 %i_ih_1, i9 1
+InsertRowWide:4 %i_ih_4 = add i9 %i_ih_3, i9 1
 
 ]]></Node>
-<StgValue><ssdm name="i_ih_2"/></StgValue>
+<StgValue><ssdm name="i_ih_4"/></StgValue>
 </operation>
 
 <operation id="40" st_id="1" stage="1" lat="1">
@@ -1205,7 +1205,7 @@ arrayidx62.3.exit:2 %oldest = select i1 %icmp_ln132, i32 0, i32 %add_ln132
 
 <Node id="84" bw="7" op_0_bw="7" op_1_bw="9" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-arrayidx62.3.exit:3 %tmp = partselect i7 @_ssdm_op_PartSelect.i7.i9.i32.i32, i9 %i_ih_1, i32 2, i32 8
+arrayidx62.3.exit:3 %tmp = partselect i7 @_ssdm_op_PartSelect.i7.i9.i32.i32, i9 %i_ih_3, i32 2, i32 8
 
 ]]></Node>
 <StgValue><ssdm name="tmp"/></StgValue>
@@ -1653,7 +1653,7 @@ if.end_ifconv:5 %store_ln117 = store i32 %stride_cnt_5, i32 %stride_cnt
 
 <Node id="530" bw="0" op_0_bw="9" op_1_bw="9" op_2_bw="0" op_3_bw="0">
 <![CDATA[
-if.end_ifconv:6 %store_ln120 = store i9 %i_ih_2, i9 %i_ih
+if.end_ifconv:6 %store_ln120 = store i9 %i_ih_4, i9 %i_ih
 
 ]]></Node>
 <StgValue><ssdm name="store_ln120"/></StgValue>
@@ -3353,10 +3353,10 @@ WriteOutputWidthWide:122 %tmp20987 = sub i13 %sext_ln42_10, i13 %sext_ln42
 
 <Node id="213" bw="15" op_0_bw="15" op_1_bw="13" op_2_bw="2">
 <![CDATA[
-WriteOutputWidthWide:123 %tmp8 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i13.i2, i13 %tmp20987, i2 0
+WriteOutputWidthWide:123 %tmp1 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i13.i2, i13 %tmp20987, i2 0
 
 ]]></Node>
-<StgValue><ssdm name="tmp8"/></StgValue>
+<StgValue><ssdm name="tmp1"/></StgValue>
 </operation>
 
 <operation id="213" st_id="2" stage="1" lat="1">
@@ -3369,7 +3369,7 @@ WriteOutputWidthWide:123 %tmp8 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15
 
 <Node id="214" bw="15" op_0_bw="15" op_1_bw="15">
 <![CDATA[
-WriteOutputWidthWide:124 %add_ln58_13 = add i15 %sub_ln42, i15 %tmp8
+WriteOutputWidthWide:124 %add_ln58_13 = add i15 %sub_ln42, i15 %tmp1
 
 ]]></Node>
 <StgValue><ssdm name="add_ln58_13"/></StgValue>
@@ -4729,10 +4729,10 @@ WriteOutputWidthWide:212 %tmp21859 = sub i13 %sext_ln42_23, i13 %sext_ln42_14
 
 <Node id="303" bw="15" op_0_bw="15" op_1_bw="13" op_2_bw="2">
 <![CDATA[
-WriteOutputWidthWide:213 %tmp1 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i13.i2, i13 %tmp21859, i2 0
+WriteOutputWidthWide:213 %tmp2 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i13.i2, i13 %tmp21859, i2 0
 
 ]]></Node>
-<StgValue><ssdm name="tmp1"/></StgValue>
+<StgValue><ssdm name="tmp2"/></StgValue>
 </operation>
 
 <operation id="299" st_id="2" stage="1" lat="1">
@@ -4745,7 +4745,7 @@ WriteOutputWidthWide:213 %tmp1 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15
 
 <Node id="304" bw="15" op_0_bw="15" op_1_bw="15">
 <![CDATA[
-WriteOutputWidthWide:214 %add_ln58_36 = add i15 %sub_ln42_9, i15 %tmp1
+WriteOutputWidthWide:214 %add_ln58_36 = add i15 %sub_ln42_9, i15 %tmp2
 
 ]]></Node>
 <StgValue><ssdm name="add_ln58_36"/></StgValue>
@@ -6041,10 +6041,10 @@ WriteOutputWidthWide:297 %tmp22831 = sub i13 %sext_ln42_34, i13 %sext_ln42_26
 
 <Node id="388" bw="15" op_0_bw="15" op_1_bw="13" op_2_bw="2">
 <![CDATA[
-WriteOutputWidthWide:298 %tmp2 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i13.i2, i13 %tmp22831, i2 0
+WriteOutputWidthWide:298 %tmp3 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i13.i2, i13 %tmp22831, i2 0
 
 ]]></Node>
-<StgValue><ssdm name="tmp2"/></StgValue>
+<StgValue><ssdm name="tmp3"/></StgValue>
 </operation>
 
 <operation id="381" st_id="2" stage="1" lat="1">
@@ -6057,7 +6057,7 @@ WriteOutputWidthWide:298 %tmp2 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15
 
 <Node id="389" bw="15" op_0_bw="15" op_1_bw="15">
 <![CDATA[
-WriteOutputWidthWide:299 %add_ln58_61 = add i15 %sub_ln42_18, i15 %tmp2
+WriteOutputWidthWide:299 %add_ln58_61 = add i15 %sub_ln42_18, i15 %tmp3
 
 ]]></Node>
 <StgValue><ssdm name="add_ln58_61"/></StgValue>
@@ -7353,10 +7353,10 @@ WriteOutputWidthWide:382 %tmp2383 = sub i13 %sext_ln42_45, i13 %sext_ln42_37
 
 <Node id="473" bw="15" op_0_bw="15" op_1_bw="13" op_2_bw="2">
 <![CDATA[
-WriteOutputWidthWide:383 %tmp3 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i13.i2, i13 %tmp2383, i2 0
+WriteOutputWidthWide:383 %tmp4 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15.i13.i2, i13 %tmp2383, i2 0
 
 ]]></Node>
-<StgValue><ssdm name="tmp3"/></StgValue>
+<StgValue><ssdm name="tmp4"/></StgValue>
 </operation>
 
 <operation id="463" st_id="2" stage="1" lat="1">
@@ -7369,7 +7369,7 @@ WriteOutputWidthWide:383 %tmp3 = bitconcatenate i15 @_ssdm_op_BitConcatenate.i15
 
 <Node id="474" bw="15" op_0_bw="15" op_1_bw="15">
 <![CDATA[
-WriteOutputWidthWide:384 %add_ln58_84 = add i15 %sub_ln42_27, i15 %tmp3
+WriteOutputWidthWide:384 %add_ln58_84 = add i15 %sub_ln42_27, i15 %tmp4
 
 ]]></Node>
 <StgValue><ssdm name="add_ln58_84"/></StgValue>
@@ -8339,7 +8339,7 @@ WriteOutputWidthWide:430 %or_ln170_s = bitconcatenate i252 @_ssdm_op_BitConcaten
 </operation>
 
 <operation id="523" st_id="3" stage="1" lat="1">
-<core>FIFO</core>
+<core>FIFO_SRL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp><literal name="on_stride" val="1"/>

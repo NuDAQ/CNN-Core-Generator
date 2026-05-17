@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s'" level="0">
-<item name = "Date">Sun May 17 02:50:18 2026
+<item name = "Date">Sun May 17 03:02:37 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_streaming_prj</item>
@@ -187,7 +187,7 @@
 <column name="add_ln58_90_fu_3765_p2">+, 0, 0, 16, 15, 15</column>
 <column name="add_ln58_9_fu_2166_p2">+, 0, 0, 16, 15, 15</column>
 <column name="add_ln58_fu_2076_p2">+, 0, 0, 21, 14, 11</column>
-<column name="i_ih_2_fu_897_p2">+, 0, 0, 16, 9, 1</column>
+<column name="i_ih_4_fu_897_p2">+, 0, 0, 16, 9, 1</column>
 <column name="tmp118_fu_2112_p2">+, 0, 0, 20, 13, 13</column>
 <column name="tmp211_fu_2224_p2">+, 0, 0, 20, 13, 13</column>
 <column name="tmp213_fu_2276_p2">+, 0, 0, 20, 13, 13</column>
@@ -314,7 +314,7 @@
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_done_int">9, 2, 1, 2</column>
 <column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
-<column name="ap_sig_allocacmp_i_ih_1">9, 2, 9, 18</column>
+<column name="ap_sig_allocacmp_i_ih_3">9, 2, 9, 18</column>
 <column name="ap_sig_allocacmp_stride_cnt_3">9, 2, 32, 64</column>
 <column name="ap_sig_allocacmp_wptr_1">9, 2, 32, 64</column>
 <column name="i_ih_fu_134">9, 2, 9, 18</column>
@@ -429,8 +429,8 @@
 <column name="input_layer_TDATA">in, 64, axis, input_layer, pointer</column>
 <column name="input_layer_TREADY">out, 1, axis, input_layer, pointer</column>
 <column name="layer3x4_out_din">out, 252, ap_fifo, layer3x4_out, pointer</column>
-<column name="layer3x4_out_num_data_valid">in, 8, ap_fifo, layer3x4_out, pointer</column>
-<column name="layer3x4_out_fifo_cap">in, 8, ap_fifo, layer3x4_out, pointer</column>
+<column name="layer3x4_out_num_data_valid">in, 3, ap_fifo, layer3x4_out, pointer</column>
+<column name="layer3x4_out_fifo_cap">in, 3, ap_fifo, layer3x4_out, pointer</column>
 <column name="layer3x4_out_full_n">in, 1, ap_fifo, layer3x4_out, pointer</column>
 <column name="layer3x4_out_write">out, 1, ap_fifo, layer3x4_out, pointer</column>
 </table>

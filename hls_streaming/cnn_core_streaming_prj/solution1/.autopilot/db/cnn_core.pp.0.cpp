@@ -36421,8 +36421,10 @@ typedef nnet::array<ap_fixed<9,5>, 7*4> layer3x4_t;
 typedef ap_fixed<9,5> q_conv2d_weight_t;
 typedef ap_fixed<9,5> q_conv2d_bias_t;
 typedef nnet::array<ap_fixed<16,6>, 7*1> layer4_t;
+typedef nnet::array<ap_fixed<16,6>, 7*4> layer4x4_t;
 typedef ap_fixed<18,8> q_conv2d_relu_table_t;
 typedef nnet::array<ap_fixed<16,6>, 7*1> layer5_t;
+typedef nnet::array<ap_fixed<16,6>, 7*4> layer5x4_t;
 typedef nnet::array<ap_fixed<9,5>, 1*1> result_t;
 typedef ap_fixed<9,5> q_dense_weight_t;
 typedef ap_fixed<9,5> q_dense_bias_t;
@@ -63478,6 +63480,60 @@ PoolMain:
     }
 }
 
+template <class data_T, class res_T, typename CONFIG_T>
+void maxpool2d_wide_nonoverlap_cl(hls::stream<data_T> &data, hls::stream<res_T> &res) {
+    static_assert(CONFIG_T::pool_height == 2,
+                  "maxpool2d_wide_nonoverlap_cl: pool_height must be 2");
+    static_assert(CONFIG_T::pool_height == CONFIG_T::stride_height,
+                  "maxpool2d_wide_nonoverlap_cl: pool must equal stride (non-overlapping)");
+    static_assert(CONFIG_T::pool_width == 1 && CONFIG_T::stride_width == 1,
+                  "maxpool2d_wide_nonoverlap_cl: pool_width must be 1");
+    static_assert(CONFIG_T::pad_top == 0 && CONFIG_T::pad_bottom == 0 &&
+                  CONFIG_T::pad_left == 0 && CONFIG_T::pad_right == 0,
+                  "maxpool2d_wide_nonoverlap_cl: padding must be zero");
+    static_assert(CONFIG_T::pool_op == nnet::Max,
+                  "maxpool2d_wide_nonoverlap_cl: only Max pooling supported");
+    static_assert(data_T::size == CONFIG_T::in_width * CONFIG_T::n_filt,
+                  "wide pool input must pack all width positions and filters");
+    static_assert(res_T::size == CONFIG_T::out_width * CONFIG_T::n_filt,
+                  "wide pool output must pack all width positions and filters");
+
+    typedef typename data_T::value_type data_value_t;
+
+    data_value_t prev_row[CONFIG_T::in_width * CONFIG_T::n_filt];
+#pragma HLS ARRAY_PARTITION variable=prev_row complete
+
+ bool on_second_row = false;
+
+PoolWideMain:
+    for (unsigned i_ih = 0; i_ih < CONFIG_T::in_height; i_ih++) {
+#pragma HLS PIPELINE II=1
+
+ data_T cur = data.read();
+
+        if (!on_second_row) {
+        StoreWidePrev:
+            for (unsigned i = 0; i < data_T::size; i++) {
+#pragma HLS UNROLL
+ prev_row[i] = cur[i];
+            }
+        } else {
+            res_T out_pack;
+
+
+        PoolWideMax:
+            for (unsigned i = 0; i < res_T::size; i++) {
+#pragma HLS UNROLL
+ out_pack[i] = (prev_row[i] > cur[i]) ? prev_row[i] : cur[i];
+            }
+
+            res.write(out_pack);
+        }
+
+        on_second_row = !on_second_row;
+    }
+}
+
 }
 # 20 "firmware/parameters.h" 2
 
@@ -63633,13 +63689,13 @@ __attribute__((sdx_kernel("cnn_core", 0))) void cnn_core(
 #pragma HLS DATAFLOW
 # 32 "firmware/cnn_core.cpp"
  hls::stream<layer3x4_t> layer3x4_out("layer3x4_out");
-#pragma HLS STREAM variable=layer3x4_out depth=84
+#pragma HLS STREAM variable=layer3x4_out depth=4
 
- hls::stream<layer3_t> layer3_out("layer3_out");
-#pragma HLS STREAM variable=layer3_out depth=336
+ hls::stream<layer4x4_t> layer4x4_out("layer4x4_out");
+#pragma HLS STREAM variable=layer4x4_out depth=4
 
- hls::stream<layer4_t> layer4_out("layer4_out");
-#pragma HLS STREAM variable=layer4_out depth=336
+ hls::stream<layer5x4_t> layer5x4_out("layer5x4_out");
+#pragma HLS STREAM variable=layer5x4_out depth=4
 
  hls::stream<layer5_t> layer5_out("layer5_out");
 #pragma HLS STREAM variable=layer5_out depth=168
@@ -63648,11 +63704,11 @@ __attribute__((sdx_kernel("cnn_core", 0))) void cnn_core(
 
     nnet::first_conv_4lane_temporal_wide_cl<input_t, layer3x4_t, config3>(input_layer, layer3x4_out, w3, b3);
 
-    nnet::unpack_4lane_temporal_cl<layer3x4_t, layer3_t, config3>(layer3x4_out, layer3_out);
+    nnet::relu<layer3x4_t, layer4x4_t, relu_config4>(layer3x4_out, layer4x4_out);
 
-    nnet::relu<layer3_t, layer4_t, relu_config4>(layer3_out, layer4_out);
+    nnet::maxpool2d_wide_nonoverlap_cl<layer4x4_t, layer5x4_t, config5>(layer4x4_out, layer5x4_out);
 
-    nnet::maxpool2d_nonoverlap_cl<layer4_t, layer5_t, config5>(layer4_out, layer5_out);
+    nnet::unpack_4lane_temporal_cl<layer5x4_t, layer5_t, config5>(layer5x4_out, layer5_out);
 
     nnet::dense<layer5_t, result_t, config7>(layer6_out, layer7_out, w7, b7);
 

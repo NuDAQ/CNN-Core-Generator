@@ -227,42 +227,9 @@ Args:
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, Line: 380, 
-                   Column: 13 }
-Function:        _ZN4nnet23maxpool2d_nonoverlap_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj7EEES6_7config5EEvRN3hls6streamIT_Li0EEERNS9_IT0_Li0EEE
-Args:            
-  - String:          'Loop '''
-  - LoopName:        StorePrev
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, Line: 388, 
-                   Column: 13 }
-Function:        _ZN4nnet23maxpool2d_nonoverlap_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj7EEES6_7config5EEvRN3hls6streamIT_Li0EEERNS9_IT0_Li0EEE
-Args:            
-  - String:          'Loop '''
-  - LoopName:        PoolMax
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: firmware/nnet_utils/nnet_activation_stream.h, 
-                   Line: 49, Column: 9 }
-Function:        _ZN4nnet4reluINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj7EEENS1_IS2_ILi16ELi6ELS3_5ELS4_3ELi0EELj7EEE12relu_config4EEvRN3hls6streamIT_Li0EEERNSB_IT0_Li0EEE
-Args:            
-  - String:          'Loop '''
-  - LoopName:        ReLUPackLoop
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
 DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
                    Line: 202, Column: 9 }
-Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config3EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
+Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config5EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
 Args:            
   - String:          'Loop '''
   - LoopName:        UnpackFilters
@@ -272,10 +239,43 @@ Args:
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
 DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 27, Column: 26 }
-Function:        _ZN4nnet5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEaSERKS5_
+Function:        _ZN4nnet5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEaSERKS5_
 Args:            
   - String:          'Loop '''
   - LoopName:        VITIS_LOOP_27_1
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, Line: 437, 
+                   Column: 13 }
+Function:        _ZN4nnet28maxpool2d_wide_nonoverlap_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEES6_7config5EEvRN3hls6streamIT_Li0EEERNS9_IT0_Li0EEE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        StoreWidePrev
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, Line: 446, 
+                   Column: 13 }
+Function:        _ZN4nnet28maxpool2d_wide_nonoverlap_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEES6_7config5EEvRN3hls6streamIT_Li0EEERNS9_IT0_Li0EEE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        PoolWideMax
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_activation_stream.h, 
+                   Line: 49, Column: 9 }
+Function:        _ZN4nnet4reluINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS2_ILi16ELi6ELS3_5ELS4_3ELi0EELj28EEE12relu_config4EEvRN3hls6streamIT_Li0EEERNSB_IT0_Li0EEE
+Args:            
+  - String:          'Loop '''
+  - LoopName:        ReLUPackLoop
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
@@ -40477,60 +40477,9 @@ Args:
 --- !Passed
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, Line: 348, 
-                   Column: 0 }
-Function:        _ZN4nnet23maxpool2d_nonoverlap_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj7EEES6_7config5EEvRN3hls6streamIT_Li0EEERNS9_IT0_Li0EEE
-Args:            
-  - String:          'Unrolling loop '''
-  - LoopName:        StorePrev
-  - String:          ''' ('
-  - LoopLoc:         'firmware/nnet_utils/nnet_pooling_stream.h:380:13'
-  - String:          ') '
-  - String:          'in function '''
-  - String:          'nnet::maxpool2d_nonoverlap_cl<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, config5>'
-  - String:          ''' completely with a factor of '
-  - Factor:          '7'
-...
---- !Passed
-Pass:            reflow-pragma-loop-unroll
-Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, Line: 348, 
-                   Column: 0 }
-Function:        _ZN4nnet23maxpool2d_nonoverlap_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj7EEES6_7config5EEvRN3hls6streamIT_Li0EEERNS9_IT0_Li0EEE
-Args:            
-  - String:          'Unrolling loop '''
-  - LoopName:        PoolMax
-  - String:          ''' ('
-  - LoopLoc:         'firmware/nnet_utils/nnet_pooling_stream.h:388:13'
-  - String:          ') '
-  - String:          'in function '''
-  - String:          'nnet::maxpool2d_nonoverlap_cl<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, config5>'
-  - String:          ''' completely with a factor of '
-  - Factor:          '7'
-...
---- !Passed
-Pass:            reflow-pragma-loop-unroll
-Name:            PragmaFullyUnroll
-DebugLoc:        { File: firmware/nnet_utils/nnet_activation_stream.h, 
-                   Line: 39, Column: 0 }
-Function:        _ZN4nnet4reluINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj7EEENS1_IS2_ILi16ELi6ELS3_5ELS4_3ELi0EELj7EEE12relu_config4EEvRN3hls6streamIT_Li0EEERNSB_IT0_Li0EEE
-Args:            
-  - String:          'Unrolling loop '''
-  - LoopName:        ReLUPackLoop
-  - String:          ''' ('
-  - LoopLoc:         'firmware/nnet_utils/nnet_activation_stream.h:49:9'
-  - String:          ') '
-  - String:          'in function '''
-  - String:          'nnet::relu<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, relu_config4>'
-  - String:          ''' completely with a factor of '
-  - Factor:          '7'
-...
---- !Passed
-Pass:            reflow-pragma-loop-unroll
-Name:            PragmaFullyUnroll
 DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
                    Line: 181, Column: 0 }
-Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config3EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
+Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config5EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        UnpackFilters
@@ -40538,7 +40487,7 @@ Args:
   - LoopLoc:         'firmware/nnet_utils/nnet_first_conv_stream.h:202:9'
   - String:          ') '
   - String:          'in function '''
-  - String:          'nnet::unpack_4lane_temporal_cl<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, config3>'
+  - String:          'nnet::unpack_4lane_temporal_cl<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, config5>'
   - String:          ''' completely with a factor of '
   - Factor:          '7'
 ...
@@ -40546,7 +40495,7 @@ Args:
 Pass:            reflow-pragma-loop-unroll
 Name:            PragmaFullyUnroll
 DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 21, Column: 0 }
-Function:        _ZN4nnet5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEaSERKS5_
+Function:        _ZN4nnet5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEaSERKS5_
 Args:            
   - String:          'Unrolling loop '''
   - LoopName:        VITIS_LOOP_27_1
@@ -40554,7 +40503,58 @@ Args:
   - LoopLoc:         'firmware/nnet_utils/nnet_types.h:27:26'
   - String:          ') '
   - String:          'in function '''
-  - String:          'nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator='
+  - String:          'nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator='
+  - String:          ''' completely with a factor of '
+  - Factor:          '28'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, Line: 405, 
+                   Column: 0 }
+Function:        _ZN4nnet28maxpool2d_wide_nonoverlap_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEES6_7config5EEvRN3hls6streamIT_Li0EEERNS9_IT0_Li0EEE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        StoreWidePrev
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_pooling_stream.h:437:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::maxpool2d_wide_nonoverlap_cl<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '28'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, Line: 405, 
+                   Column: 0 }
+Function:        _ZN4nnet28maxpool2d_wide_nonoverlap_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEES6_7config5EEvRN3hls6streamIT_Li0EEERNS9_IT0_Li0EEE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        PoolWideMax
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_pooling_stream.h:446:13'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::maxpool2d_wide_nonoverlap_cl<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config5>'
+  - String:          ''' completely with a factor of '
+  - Factor:          '28'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: firmware/nnet_utils/nnet_activation_stream.h, 
+                   Line: 39, Column: 0 }
+Function:        _ZN4nnet4reluINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS2_ILi16ELi6ELS3_5ELS4_3ELi0EELj28EEE12relu_config4EEvRN3hls6streamIT_Li0EEERNSB_IT0_Li0EEE
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        ReLUPackLoop
+  - String:          ''' ('
+  - LoopLoc:         'firmware/nnet_utils/nnet_activation_stream.h:49:9'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          'nnet::relu<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, relu_config4>'
   - String:          ''' completely with a factor of '
   - Factor:          '28'
 ...
@@ -41008,7 +41008,7 @@ DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h,
 Function:        _ZN4nnet33first_conv_4lane_temporal_wide_clINS_5arrayI8ap_fixedILi12ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj4EEENS1_IS2_ILi9ELi5ELS3_5ELS4_3ELi0EELj28EEE7config3EEvRN3hls6streamIT_Li0EEERNSB_IT0_Li0EEEPNT1_8weight_tEPNSI_6bias_tE
 Args:            
   - String:          'Inlining function '''
-  - Callee:          'nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator[](unsigned long) (.17)'
+  - Callee:          'nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator[](unsigned long)'
     DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 17, 
                        Column: 0 }
   - String:          ''' into '''
@@ -41020,66 +41020,83 @@ Args:
 --- !Passed
 Pass:            reflow-inliner
 Name:            Inline
-DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 21, Column: 0 }
-Function:        _ZN4nnet5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEaSERKS5_
-Args:            
-  - String:          'Inlining function '''
-  - Callee:          'nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator[](unsigned long) const'
-    DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 19, 
-                       Column: 0 }
-  - String:          ''' into '''
-  - Caller:          'nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator=(nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u> const&)'
-    DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 21, 
-                       Column: 0 }
-  - String:          ''''
-...
---- !Passed
-Pass:            reflow-inliner
-Name:            Inline
-DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
-                   Line: 181, Column: 0 }
-Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config3EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
-Args:            
-  - String:          'Inlining function '''
-  - Callee:          'nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>::operator[](unsigned long)'
-    DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 17, 
-                       Column: 0 }
-  - String:          ''' into '''
-  - Caller:          'void nnet::unpack_4lane_temporal_cl<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, config3>(hls::stream<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, 0>&)'
-    DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
-                       Line: 181, Column: 0 }
-  - String:          ''''
-...
---- !Passed
-Pass:            reflow-inliner
-Name:            Inline
-DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
-                   Line: 181, Column: 0 }
-Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config3EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
-Args:            
-  - String:          'Inlining function '''
-  - Callee:          'nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator=(nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u> const&)'
-    DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 21, 
-                       Column: 0 }
-  - String:          ''' into '''
-  - Caller:          'void nnet::unpack_4lane_temporal_cl<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, config3>(hls::stream<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, 0>&)'
-    DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
-                       Line: 181, Column: 0 }
-  - String:          ''''
-...
---- !Passed
-Pass:            reflow-inliner
-Name:            Inline
-DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
-                   Line: 181, Column: 0 }
-Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config3EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
+DebugLoc:        { File: firmware/nnet_utils/nnet_activation_stream.h, 
+                   Line: 39, Column: 0 }
+Function:        _ZN4nnet4reluINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS2_ILi16ELi6ELS3_5ELS4_3ELi0EELj28EEE12relu_config4EEvRN3hls6streamIT_Li0EEERNSB_IT0_Li0EEE
 Args:            
   - String:          'Inlining function '''
   - Callee:          'nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator[](unsigned long)'
     DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 17, 
                        Column: 0 }
   - String:          ''' into '''
-  - Caller:          'void nnet::unpack_4lane_temporal_cl<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, config3>(hls::stream<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, 0>&)'
+  - Caller:          'void nnet::relu<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, relu_config4>(hls::stream<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_activation_stream.h, 
+                       Line: 39, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: firmware/nnet_utils/nnet_activation_stream.h, 
+                   Line: 39, Column: 0 }
+Function:        _ZN4nnet4reluINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS2_ILi16ELi6ELS3_5ELS4_3ELi0EELj28EEE12relu_config4EEvRN3hls6streamIT_Li0EEERNSB_IT0_Li0EEE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator[](unsigned long) (.21)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 17, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void nnet::relu<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, relu_config4>(hls::stream<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_activation_stream.h, 
+                       Line: 39, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, Line: 405, 
+                   Column: 0 }
+Function:        _ZN4nnet28maxpool2d_wide_nonoverlap_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEES6_7config5EEvRN3hls6streamIT_Li0EEERNS9_IT0_Li0EEE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator[](unsigned long) (.21)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 17, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void nnet::maxpool2d_wide_nonoverlap_cl<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config5>(hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, 
+                       Line: 405, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 21, Column: 0 }
+Function:        _ZN4nnet5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEaSERKS5_
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator[](unsigned long) const'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 19, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator=(nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u> const&)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 21, 
+                       Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            Inline
+DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
+                   Line: 181, Column: 0 }
+Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config5EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>::operator[](unsigned long)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 17, 
+                       Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'void nnet::unpack_4lane_temporal_cl<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, config5>(hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, 0>&)'
     DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
                        Line: 181, Column: 0 }
   - String:          ''''
@@ -41087,52 +41104,35 @@ Args:
 --- !Passed
 Pass:            reflow-inliner
 Name:            Inline
-DebugLoc:        { File: firmware/nnet_utils/nnet_activation_stream.h, 
-                   Line: 39, Column: 0 }
-Function:        _ZN4nnet4reluINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj7EEENS1_IS2_ILi16ELi6ELS3_5ELS4_3ELi0EELj7EEE12relu_config4EEvRN3hls6streamIT_Li0EEERNSB_IT0_Li0EEE
+DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
+                   Line: 181, Column: 0 }
+Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config5EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
 Args:            
   - String:          'Inlining function '''
-  - Callee:          'nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>::operator[](unsigned long)'
-    DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 17, 
+  - Callee:          'nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator=(nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u> const&)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 21, 
                        Column: 0 }
   - String:          ''' into '''
-  - Caller:          'void nnet::relu<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, relu_config4>(hls::stream<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, 0>&, hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, 0>&)'
-    DebugLoc:        { File: firmware/nnet_utils/nnet_activation_stream.h, 
-                       Line: 39, Column: 0 }
+  - Caller:          'void nnet::unpack_4lane_temporal_cl<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, config5>(hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, 0>&)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
+                       Line: 181, Column: 0 }
   - String:          ''''
 ...
 --- !Passed
 Pass:            reflow-inliner
 Name:            Inline
-DebugLoc:        { File: firmware/nnet_utils/nnet_activation_stream.h, 
-                   Line: 39, Column: 0 }
-Function:        _ZN4nnet4reluINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj7EEENS1_IS2_ILi16ELi6ELS3_5ELS4_3ELi0EELj7EEE12relu_config4EEvRN3hls6streamIT_Li0EEERNSB_IT0_Li0EEE
+DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
+                   Line: 181, Column: 0 }
+Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config5EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
 Args:            
   - String:          'Inlining function '''
-  - Callee:          'nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>::operator[](unsigned long)'
+  - Callee:          'nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator[](unsigned long)'
     DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 17, 
                        Column: 0 }
   - String:          ''' into '''
-  - Caller:          'void nnet::relu<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, relu_config4>(hls::stream<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, 0>&, hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, 0>&)'
-    DebugLoc:        { File: firmware/nnet_utils/nnet_activation_stream.h, 
-                       Line: 39, Column: 0 }
-  - String:          ''''
-...
---- !Passed
-Pass:            reflow-inliner
-Name:            Inline
-DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, Line: 348, 
-                   Column: 0 }
-Function:        _ZN4nnet23maxpool2d_nonoverlap_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj7EEES6_7config5EEvRN3hls6streamIT_Li0EEERNS9_IT0_Li0EEE
-Args:            
-  - String:          'Inlining function '''
-  - Callee:          'nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>::operator[](unsigned long)'
-    DebugLoc:        { File: firmware/nnet_utils/nnet_types.h, Line: 17, 
-                       Column: 0 }
-  - String:          ''' into '''
-  - Caller:          'void nnet::maxpool2d_nonoverlap_cl<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, config5>(hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, 0>&, hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, 0>&)'
-    DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, 
-                       Line: 348, Column: 0 }
+  - Caller:          'void nnet::unpack_4lane_temporal_cl<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, config5>(hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, 0>&)'
+    DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
+                       Line: 181, Column: 0 }
   - String:          ''''
 ...
 --- !Passed
@@ -41250,9 +41250,9 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, Line: 366, 
+DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, Line: 424, 
                    Column: 18 }
-Function:        _ZN4nnet23maxpool2d_nonoverlap_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj7EEES6_7config5EEvRN3hls6streamIT_Li0EEERNS9_IT0_Li0EEE
+Function:        _ZN4nnet28maxpool2d_wide_nonoverlap_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEES6_7config5EEvRN3hls6streamIT_Li0EEERNS9_IT0_Li0EEE
 Args:            
   - String:          'Applying '
   - String:          array_partition
@@ -41264,12 +41264,6 @@ Args:
   - String:          ' partitioning'
   - String:          ' on dimension '
   - Dim:             '1'
-  - String:          .
-  - String:          ' '
-  - Mode:            Complete
-  - String:          ' partitioning'
-  - String:          ' on dimension '
-  - Dim:             '2'
   - String:          .
 ...
 --- !Passed
@@ -41348,33 +41342,33 @@ Args:
 --- !Passed
 Pass:            reflow-aggr
 Name:            AggrSucc
-DebugLoc:        { File: firmware/cnn_core.cpp, Line: 38, Column: 24 }
+DebugLoc:        { File: firmware/cnn_core.cpp, Line: 38, Column: 26 }
 Function:        _Z8cnn_coreRN3hls6streamIN4nnet5arrayI8ap_fixedILi12ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj4EEELi0EEERNS0_INS2_IS3_ILi9ELi5ELS4_5ELS5_3ELi0EELj1EEELi0EEE
 Args:            
   - String:          'Aggregating '
   - HwTyName:        'fifo (hls::stream)'
   - String:          ' variable '''
-  - Name:            layer4_out
+  - Name:            layer5x4_out
   - String:          ''' with '
   - AggregateTypeName: 'compact=bit'
   - String:          ' mode in '
-  - Bitwidth:        '112'
+  - Bitwidth:        '448'
   - String:          '-bits'
 ...
 --- !Passed
 Pass:            reflow-aggr
 Name:            AggrSucc
-DebugLoc:        { File: firmware/cnn_core.cpp, Line: 35, Column: 24 }
+DebugLoc:        { File: firmware/cnn_core.cpp, Line: 35, Column: 26 }
 Function:        _Z8cnn_coreRN3hls6streamIN4nnet5arrayI8ap_fixedILi12ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj4EEELi0EEERNS0_INS2_IS3_ILi9ELi5ELS4_5ELS5_3ELi0EELj1EEELi0EEE
 Args:            
   - String:          'Aggregating '
   - HwTyName:        'fifo (hls::stream)'
   - String:          ' variable '''
-  - Name:            layer3_out
+  - Name:            layer4x4_out
   - String:          ''' with '
   - AggregateTypeName: 'compact=bit'
   - String:          ' mode in '
-  - Bitwidth:        '63'
+  - Bitwidth:        '448'
   - String:          '-bits'
 ...
 --- !Passed
@@ -41396,9 +41390,24 @@ Args:
 --- !Failure
 Pass:            reflow-occurrence-analysis
 Name:            CouldNotAnalyzeBBInfo
+DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, Line: 448, 
+                   Column: 29 }
+Function:        _ZN4nnet28maxpool2d_wide_nonoverlap_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEES6_7config5EEvRN3hls6streamIT_Li0EEERNS9_IT0_Li0EEE
+Args:            
+  - String:          'Could not analyze occurrence information for '''
+  - BBName:          PoolWideMax
+  - String:          ''' living in '''
+  - LoopName:        PoolWideMain
+  - String:          '''('
+  - LoopLoc:         'firmware/nnet_utils/nnet_pooling_stream.h:430:5'
+  - String:          ') .'
+...
+--- !Failure
+Pass:            reflow-occurrence-analysis
+Name:            CouldNotAnalyzeBBInfo
 DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
                    Line: 195, Column: 28 }
-Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config3EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
+Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config5EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
 Args:            
   - String:          'Could not analyze occurrence information for '''
   - BBName:          if.then
@@ -41406,21 +41415,6 @@ Args:
   - LoopName:        UnpackOutputFlat
   - String:          '''('
   - LoopLoc:         'firmware/nnet_utils/nnet_first_conv_stream.h:191:5'
-  - String:          ') .'
-...
---- !Failure
-Pass:            reflow-occurrence-analysis
-Name:            CouldNotAnalyzeBBInfo
-DebugLoc:        { File: firmware/nnet_utils/nnet_pooling_stream.h, Line: 390, 
-                   Column: 34 }
-Function:        _ZN4nnet23maxpool2d_nonoverlap_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj7EEES6_7config5EEvRN3hls6streamIT_Li0EEERNS9_IT0_Li0EEE
-Args:            
-  - String:          'Could not analyze occurrence information for '''
-  - BBName:          PoolMax
-  - String:          ''' living in '''
-  - LoopName:        PoolMain
-  - String:          '''('
-  - LoopLoc:         'firmware/nnet_utils/nnet_pooling_stream.h:373:5'
   - String:          ') .'
 ...
 --- !Passed
@@ -41509,7 +41503,7 @@ Pass:            reflow-auto-array-partition
 Name:            AutoParallelPerformanceDrivenVerbosePassed
 DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
                    Line: 186, Column: 12 }
-Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config3EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
+Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config5EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
 Args:            
   - PragmaType:      array_partition
   - String:          ' '
@@ -41517,7 +41511,7 @@ Args:
   - String:          ' '
   - PragmaIsAuto:    '1'
   - String:          ' '
-  - PragmaFunction:  'nnet::unpack_4lane_temporal_cl<nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<9, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, config3>'
+  - PragmaFunction:  'nnet::unpack_4lane_temporal_cl<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, config5>'
   - String:          ' '
   - varLoc:          'firmware/nnet_utils/nnet_first_conv_stream.h:186:12'
   - String:          ' '
@@ -41532,7 +41526,7 @@ Pass:            reflow-auto-array-partition
 Name:            AutoArrayXform
 DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
                    Line: 192, Column: 9 }
-Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config3EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
+Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config5EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
 Args:            
   - String:          'Inferring pragma '''
   - PragmaType:      array_partition
@@ -41552,7 +41546,7 @@ Pass:            reflow-array-partition
 Name:            ArrayXform
 DebugLoc:        { File: firmware/nnet_utils/nnet_first_conv_stream.h, 
                    Line: 186, Column: 12 }
-Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi9ELi5EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config3EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
+Function:        _ZN4nnet24unpack_4lane_temporal_clINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj28EEENS1_IS5_Lj7EEE7config5EEvRN3hls6streamIT_Li0EEERNSA_IT0_Li0EEE
 Args:            
   - String:          'Applying '
   - String:          array_partition

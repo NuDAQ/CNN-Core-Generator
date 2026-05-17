@@ -36,8 +36,8 @@ set portList {
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
 	{ input_layer_TVALID sc_in sc_logic 1 invld 0 } 
 	{ layer3x4_out_din sc_out sc_lv 252 signal 1 } 
-	{ layer3x4_out_num_data_valid sc_in sc_lv 8 signal 1 } 
-	{ layer3x4_out_fifo_cap sc_in sc_lv 8 signal 1 } 
+	{ layer3x4_out_num_data_valid sc_in sc_lv 3 signal 1 } 
+	{ layer3x4_out_fifo_cap sc_in sc_lv 3 signal 1 } 
 	{ layer3x4_out_full_n sc_in sc_logic 1 signal 1 } 
 	{ layer3x4_out_write sc_out sc_logic 1 signal 1 } 
 	{ start_out sc_out sc_logic 1 signal -1 } 
@@ -56,8 +56,8 @@ set NewPortList {[
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
  	{ "name": "input_layer_TVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "input_layer", "role": "TVALID" }} , 
  	{ "name": "layer3x4_out_din", "direction": "out", "datatype": "sc_lv", "bitwidth":252, "type": "signal", "bundle":{"name": "layer3x4_out", "role": "din" }} , 
- 	{ "name": "layer3x4_out_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "layer3x4_out", "role": "num_data_valid" }} , 
- 	{ "name": "layer3x4_out_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":8, "type": "signal", "bundle":{"name": "layer3x4_out", "role": "fifo_cap" }} , 
+ 	{ "name": "layer3x4_out_num_data_valid", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "layer3x4_out", "role": "num_data_valid" }} , 
+ 	{ "name": "layer3x4_out_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "layer3x4_out", "role": "fifo_cap" }} , 
  	{ "name": "layer3x4_out_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "layer3x4_out", "role": "full_n" }} , 
  	{ "name": "layer3x4_out_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "layer3x4_out", "role": "write" }} , 
  	{ "name": "start_out", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "start_out", "role": "default" }} , 
@@ -84,7 +84,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "input_layer", "Type" : "Axis", "Direction" : "I",
 				"BlockSignal" : [
 					{"Name" : "input_layer_TDATA_blk_n", "Type" : "RtlSignal"}]},
-			{"Name" : "layer3x4_out", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "84", "DependentChanType" : "0",
+			{"Name" : "layer3x4_out", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["0"], "DependentChan" : "0", "DependentChanDepth" : "4", "DependentChanType" : "0",
 				"BlockSignal" : [
 					{"Name" : "layer3x4_out_blk_n", "Type" : "RtlSignal"}]}],
 		"Loop" : [
@@ -136,5 +136,5 @@ set PipelineEnableSignalInfo {[
 
 set Spec2ImplPortList { 
 	input_layer { axis {  { input_layer_TVALID in_vld 0 1 }  { input_layer_TDATA in_data 0 64 }  { input_layer_TREADY in_acc 1 1 } } }
-	layer3x4_out { ap_fifo {  { layer3x4_out_din fifo_data_in 1 252 }  { layer3x4_out_num_data_valid fifo_status_num_data_valid 0 8 }  { layer3x4_out_fifo_cap fifo_update 0 8 }  { layer3x4_out_full_n fifo_status 0 1 }  { layer3x4_out_write fifo_port_we 1 1 } } }
+	layer3x4_out { ap_fifo {  { layer3x4_out_din fifo_data_in 1 252 }  { layer3x4_out_num_data_valid fifo_status_num_data_valid 0 3 }  { layer3x4_out_fifo_cap fifo_update 0 3 }  { layer3x4_out_full_n fifo_status 0 1 }  { layer3x4_out_write fifo_port_we 1 1 } } }
 }

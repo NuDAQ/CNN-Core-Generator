@@ -6887,7 +6887,7 @@ cnn_core_mul_16s_6ns_19_1_1 #(
     .din0_WIDTH( 16 ),
     .din1_WIDTH( 6 ),
     .dout_WIDTH( 19 ))
-mul_16s_6ns_19_1_1_U843(
+mul_16s_6ns_19_1_1_U835(
     .din0(data_367_val269_int_reg),
     .din1(mul_ln42_13_fu_6589_p1),
     .dout(mul_ln42_13_fu_6589_p2)
@@ -6899,7 +6899,7 @@ cnn_core_mul_16s_6ns_19_1_1 #(
     .din0_WIDTH( 16 ),
     .din1_WIDTH( 6 ),
     .dout_WIDTH( 19 ))
-mul_16s_6ns_19_1_1_U844(
+mul_16s_6ns_19_1_1_U836(
     .din0(data_388_val289_int_reg),
     .din1(mul_ln42_15_fu_6741_p1),
     .dout(mul_ln42_15_fu_6741_p2)
@@ -6911,7 +6911,7 @@ cnn_core_mul_16s_6ns_19_1_1 #(
     .din0_WIDTH( 16 ),
     .din1_WIDTH( 6 ),
     .dout_WIDTH( 19 ))
-mul_16s_6ns_19_1_1_U845(
+mul_16s_6ns_19_1_1_U837(
     .din0(data_374_val276_int_reg),
     .din1(mul_ln42_14_fu_6813_p1),
     .dout(mul_ln42_14_fu_6813_p2)
@@ -6923,7 +6923,7 @@ cnn_core_mul_16s_5ns_19_1_1 #(
     .din0_WIDTH( 16 ),
     .din1_WIDTH( 5 ),
     .dout_WIDTH( 19 ))
-mul_16s_5ns_19_1_1_U846(
+mul_16s_5ns_19_1_1_U838(
     .din0(data_330_val232_int_reg),
     .din1(mul_ln42_9_fu_6889_p1),
     .dout(mul_ln42_9_fu_6889_p2)
@@ -6935,7 +6935,7 @@ cnn_core_mul_16s_5ns_19_1_1 #(
     .din0_WIDTH( 16 ),
     .din1_WIDTH( 5 ),
     .dout_WIDTH( 19 ))
-mul_16s_5ns_19_1_1_U847(
+mul_16s_5ns_19_1_1_U839(
     .din0(data_332_val234_int_reg),
     .din1(mul_ln42_10_fu_6965_p1),
     .dout(mul_ln42_10_fu_6965_p2)
@@ -6947,7 +6947,7 @@ cnn_core_mul_16s_5ns_19_1_1 #(
     .din0_WIDTH( 16 ),
     .din1_WIDTH( 5 ),
     .dout_WIDTH( 19 ))
-mul_16s_5ns_19_1_1_U848(
+mul_16s_5ns_19_1_1_U840(
     .din0(data_347_val249_int_reg),
     .din1(mul_ln42_11_fu_7076_p1),
     .dout(mul_ln42_11_fu_7076_p2)
@@ -6959,7 +6959,7 @@ cnn_core_mul_16s_5ns_19_1_1 #(
     .din0_WIDTH( 16 ),
     .din1_WIDTH( 5 ),
     .dout_WIDTH( 19 ))
-mul_16s_5ns_19_1_1_U849(
+mul_16s_5ns_19_1_1_U841(
     .din0(data_361_val263_int_reg),
     .din1(mul_ln42_12_fu_7208_p1),
     .dout(mul_ln42_12_fu_7208_p2)
@@ -6971,7 +6971,7 @@ cnn_core_mul_16s_5ns_19_1_1 #(
     .din0_WIDTH( 16 ),
     .din1_WIDTH( 5 ),
     .dout_WIDTH( 19 ))
-mul_16s_5ns_19_1_1_U850(
+mul_16s_5ns_19_1_1_U842(
     .din0(data_304_val206_int_reg),
     .din1(mul_ln42_5_fu_7224_p1),
     .dout(mul_ln42_5_fu_7224_p2)
@@ -6983,7 +6983,7 @@ cnn_core_mul_16s_5ns_19_1_1 #(
     .din0_WIDTH( 16 ),
     .din1_WIDTH( 5 ),
     .dout_WIDTH( 19 ))
-mul_16s_5ns_19_1_1_U851(
+mul_16s_5ns_19_1_1_U843(
     .din0(data_309_val211_int_reg),
     .din1(mul_ln42_6_fu_7241_p1),
     .dout(mul_ln42_6_fu_7241_p2)
@@ -6995,7 +6995,7 @@ cnn_core_mul_16s_5ns_19_1_1 #(
     .din0_WIDTH( 16 ),
     .din1_WIDTH( 5 ),
     .dout_WIDTH( 19 ))
-mul_16s_5ns_19_1_1_U852(
+mul_16s_5ns_19_1_1_U844(
     .din0(data_316_val218_int_reg),
     .din1(mul_ln42_7_fu_7280_p1),
     .dout(mul_ln42_7_fu_7280_p2)
@@ -7007,7 +7007,7 @@ cnn_core_mul_16s_5ns_19_1_1 #(
     .din0_WIDTH( 16 ),
     .din1_WIDTH( 5 ),
     .dout_WIDTH( 19 ))
-mul_16s_5ns_19_1_1_U853(
+mul_16s_5ns_19_1_1_U845(
     .din0(data_323_val225_int_reg),
     .din1(mul_ln42_8_fu_7298_p1),
     .dout(mul_ln42_8_fu_7298_p2)
@@ -7019,7 +7019,7 @@ cnn_core_mul_16s_5ns_19_1_1 #(
     .din0_WIDTH( 16 ),
     .din1_WIDTH( 5 ),
     .dout_WIDTH( 19 ))
-mul_16s_5ns_19_1_1_U854(
+mul_16s_5ns_19_1_1_U846(
     .din0(data_283_val185_int_reg),
     .din1(mul_ln42_fu_7458_p1),
     .dout(mul_ln42_fu_7458_p2)
@@ -7031,7 +7031,7 @@ cnn_core_mul_16s_5ns_19_1_1 #(
     .din0_WIDTH( 16 ),
     .din1_WIDTH( 5 ),
     .dout_WIDTH( 19 ))
-mul_16s_5ns_19_1_1_U855(
+mul_16s_5ns_19_1_1_U847(
     .din0(data_290_val192_int_reg),
     .din1(mul_ln42_4_fu_7479_p1),
     .dout(mul_ln42_4_fu_7479_p2)

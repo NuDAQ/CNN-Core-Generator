@@ -6147,7 +6147,7 @@ attribute shreg_extract : string;
 
 
 begin
-    mul_16s_6ns_19_1_1_U843 : component cnn_core_mul_16s_6ns_19_1_1
+    mul_16s_6ns_19_1_1_U835 : component cnn_core_mul_16s_6ns_19_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -6159,7 +6159,7 @@ begin
         din1 => mul_ln42_13_fu_6589_p1,
         dout => mul_ln42_13_fu_6589_p2);
 
-    mul_16s_6ns_19_1_1_U844 : component cnn_core_mul_16s_6ns_19_1_1
+    mul_16s_6ns_19_1_1_U836 : component cnn_core_mul_16s_6ns_19_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -6171,7 +6171,7 @@ begin
         din1 => mul_ln42_15_fu_6741_p1,
         dout => mul_ln42_15_fu_6741_p2);
 
-    mul_16s_6ns_19_1_1_U845 : component cnn_core_mul_16s_6ns_19_1_1
+    mul_16s_6ns_19_1_1_U837 : component cnn_core_mul_16s_6ns_19_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -6183,7 +6183,7 @@ begin
         din1 => mul_ln42_14_fu_6813_p1,
         dout => mul_ln42_14_fu_6813_p2);
 
-    mul_16s_5ns_19_1_1_U846 : component cnn_core_mul_16s_5ns_19_1_1
+    mul_16s_5ns_19_1_1_U838 : component cnn_core_mul_16s_5ns_19_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -6195,7 +6195,7 @@ begin
         din1 => mul_ln42_9_fu_6889_p1,
         dout => mul_ln42_9_fu_6889_p2);
 
-    mul_16s_5ns_19_1_1_U847 : component cnn_core_mul_16s_5ns_19_1_1
+    mul_16s_5ns_19_1_1_U839 : component cnn_core_mul_16s_5ns_19_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -6207,7 +6207,7 @@ begin
         din1 => mul_ln42_10_fu_6965_p1,
         dout => mul_ln42_10_fu_6965_p2);
 
-    mul_16s_5ns_19_1_1_U848 : component cnn_core_mul_16s_5ns_19_1_1
+    mul_16s_5ns_19_1_1_U840 : component cnn_core_mul_16s_5ns_19_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -6219,7 +6219,7 @@ begin
         din1 => mul_ln42_11_fu_7076_p1,
         dout => mul_ln42_11_fu_7076_p2);
 
-    mul_16s_5ns_19_1_1_U849 : component cnn_core_mul_16s_5ns_19_1_1
+    mul_16s_5ns_19_1_1_U841 : component cnn_core_mul_16s_5ns_19_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -6231,7 +6231,7 @@ begin
         din1 => mul_ln42_12_fu_7208_p1,
         dout => mul_ln42_12_fu_7208_p2);
 
-    mul_16s_5ns_19_1_1_U850 : component cnn_core_mul_16s_5ns_19_1_1
+    mul_16s_5ns_19_1_1_U842 : component cnn_core_mul_16s_5ns_19_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -6243,7 +6243,7 @@ begin
         din1 => mul_ln42_5_fu_7224_p1,
         dout => mul_ln42_5_fu_7224_p2);
 
-    mul_16s_5ns_19_1_1_U851 : component cnn_core_mul_16s_5ns_19_1_1
+    mul_16s_5ns_19_1_1_U843 : component cnn_core_mul_16s_5ns_19_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -6255,7 +6255,7 @@ begin
         din1 => mul_ln42_6_fu_7241_p1,
         dout => mul_ln42_6_fu_7241_p2);
 
-    mul_16s_5ns_19_1_1_U852 : component cnn_core_mul_16s_5ns_19_1_1
+    mul_16s_5ns_19_1_1_U844 : component cnn_core_mul_16s_5ns_19_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -6267,7 +6267,7 @@ begin
         din1 => mul_ln42_7_fu_7280_p1,
         dout => mul_ln42_7_fu_7280_p2);
 
-    mul_16s_5ns_19_1_1_U853 : component cnn_core_mul_16s_5ns_19_1_1
+    mul_16s_5ns_19_1_1_U845 : component cnn_core_mul_16s_5ns_19_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -6279,7 +6279,7 @@ begin
         din1 => mul_ln42_8_fu_7298_p1,
         dout => mul_ln42_8_fu_7298_p2);
 
-    mul_16s_5ns_19_1_1_U854 : component cnn_core_mul_16s_5ns_19_1_1
+    mul_16s_5ns_19_1_1_U846 : component cnn_core_mul_16s_5ns_19_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -6291,7 +6291,7 @@ begin
         din1 => mul_ln42_fu_7458_p1,
         dout => mul_ln42_fu_7458_p2);
 
-    mul_16s_5ns_19_1_1_U855 : component cnn_core_mul_16s_5ns_19_1_1
+    mul_16s_5ns_19_1_1_U847 : component cnn_core_mul_16s_5ns_19_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,

@@ -10,28 +10,28 @@ part: xcku5p-ffvb676-2-e
 target_clock_ns: 5.00
 clock_uncertainty_ns: 1.35
 estimated_clock_ns: 3.886
-latency_min: 345
-latency_max: 345
-latency_time: 1.725 us
-interval_min: 340
-interval_max: 340
-dataflow_throughput: 340
+latency_min: 265
+latency_max: 265
+latency_time: 1.325 us
+interval_min: 260
+interval_max: 260
+dataflow_throughput: 260
 
 Top Resources
 -------------
-bram_18k: 32
+bram_18k: 57
 dsp: 17
-ff: 30269
-lut: 37938
+ff: 30852
+lut: 39067
 uram: 0
 
 Slowest Instances By Interval
 -----------------------------
-     339 cyc | latency      339 | unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0 | DSP 0 FF 304 LUT 410 BRAM 0
-     339 cyc | latency      339 | relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0 | DSP 0 FF 78 LUT 311 BRAM 0
-     339 cyc | latency      339 | maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0 | DSP 0 FF 614 LUT 670 BRAM 0
      259 cyc | latency      259 | first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0 | DSP 4 FF 731 LUT 4529 BRAM 0
      176 cyc | latency      176 | dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0 | DSP 13 FF 27888 LUT 31767 BRAM 0
+     171 cyc | latency      171 | unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0 | DSP 0 FF 499 LUT 408 BRAM 0
+      87 cyc | latency       87 | relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0 | DSP 0 FF 265 LUT 937 BRAM 0
+      87 cyc | latency       87 | maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0 | DSP 0 FF 913 LUT 1215 BRAM 0
 
 Notes
 -----

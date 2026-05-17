@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'dense_latency_wrapper_ap_fixed_ap_fixed_9_5_5_3_0_config7_s'" level="0">
-<item name = "Date">Sun May 17 02:50:22 2026
+<item name = "Date">Sun May 17 03:02:42 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_streaming_prj</item>
@@ -61,19 +61,19 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="mul_16s_5ns_19_1_1_U838">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
+<column name="mul_16s_5ns_19_1_1_U839">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
+<column name="mul_16s_5ns_19_1_1_U840">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
+<column name="mul_16s_5ns_19_1_1_U841">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
+<column name="mul_16s_5ns_19_1_1_U842">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
+<column name="mul_16s_5ns_19_1_1_U843">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
+<column name="mul_16s_5ns_19_1_1_U844">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
+<column name="mul_16s_5ns_19_1_1_U845">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
 <column name="mul_16s_5ns_19_1_1_U846">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
 <column name="mul_16s_5ns_19_1_1_U847">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
-<column name="mul_16s_5ns_19_1_1_U848">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
-<column name="mul_16s_5ns_19_1_1_U849">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
-<column name="mul_16s_5ns_19_1_1_U850">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
-<column name="mul_16s_5ns_19_1_1_U851">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
-<column name="mul_16s_5ns_19_1_1_U852">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
-<column name="mul_16s_5ns_19_1_1_U853">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
-<column name="mul_16s_5ns_19_1_1_U854">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
-<column name="mul_16s_5ns_19_1_1_U855">mul_16s_5ns_19_1_1, 0, 1, 0, 5, 0</column>
-<column name="mul_16s_6ns_19_1_1_U843">mul_16s_6ns_19_1_1, 0, 1, 0, 5, 0</column>
-<column name="mul_16s_6ns_19_1_1_U844">mul_16s_6ns_19_1_1, 0, 1, 0, 5, 0</column>
-<column name="mul_16s_6ns_19_1_1_U845">mul_16s_6ns_19_1_1, 0, 1, 0, 5, 0</column>
+<column name="mul_16s_6ns_19_1_1_U835">mul_16s_6ns_19_1_1, 0, 1, 0, 5, 0</column>
+<column name="mul_16s_6ns_19_1_1_U836">mul_16s_6ns_19_1_1, 0, 1, 0, 5, 0</column>
+<column name="mul_16s_6ns_19_1_1_U837">mul_16s_6ns_19_1_1, 0, 1, 0, 5, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
