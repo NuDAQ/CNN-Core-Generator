@@ -470,11 +470,40 @@ config7::reuse_factor: 1 -> 42
 make compare SAMPLES=1024: PASS
 ```
 
-This should not change model math. The remote HLS run should check whether
-dense remains below the 259-cycle first-conv interval and how much FF/LUT are
-actually recovered. Because the current dense latency implementation still
-fully partitions local input and intermediate arrays, the resource reduction may
-be less linear than the raw multiplier-count estimate suggests.
+HLS result with RF=42:
+
+```text
+HLS latency estimate:    265 cycles
+HLS interval estimate:   260 cycles
+Estimated clock:         3.886 ns at 5.00 ns target
+Resources:               7 BRAM_18K, 17 DSP, 25733 FF, 39159 LUT
+dense interval:          176 cycles
+dense resources:         13 DSP, 22865 FF, 31807 LUT
+```
+
+Compared with RF=1, the top interval and dense interval are unchanged. Dense FF
+drops by about 5k, but DSP is unchanged and LUT is essentially unchanged. The
+reason is structural: the active latency dense still fully partitions the local
+input and intermediate arrays and HLS still fully unrolls the product and
+accumulation loops. `reuse_factor` alone is therefore not enough to turn this
+into a genuinely resource-shared dense block. The next useful dense resource
+optimization is a custom streaming/wide dense that reads `layer5x4_t` directly
+and accumulates without first materializing all 1176 scalars in a fully
+partitioned local array.
+
+Source update after this report:
+
+```text
+maxpool_wide -> dense_wide_stream -> result
+make compare SAMPLES=1024: PASS
+```
+
+The new dense path removes the post-pool unpack stage and the 168-deep
+`layer5_out` FIFO. It reads 42 `layer5x4_t` words directly, processes one width
+lane per cycle, and unrolls the 7 filters within that lane. Expected dense
+interval is about 168 cycles, still below the 259-cycle first-conv limiter.
+HLS csynth is pending to measure the actual FF/LUT/DSP/BRAM change and whether
+the 7-lane MAC chain affects estimated clock.
 
 Baseline top-level reports:
 

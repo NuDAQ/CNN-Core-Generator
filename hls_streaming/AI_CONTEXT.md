@@ -466,10 +466,38 @@ config7::reuse_factor: 1 -> 42
 make compare SAMPLES=1024: PASS
 ```
 
-This is a functional-equivalence-preserving probe. HLS csynth is still needed
-to measure the actual dense interval and resource reduction. The expected
-success condition is that the dense interval remains below the 259-cycle
-first-conv limiter while FF/LUT drop meaningfully.
+HLS result with RF=42:
+
+```text
+top latency / interval:        265 / 260 cycles
+estimated clock:               3.886 ns at 5.00 ns target
+Resources:                   7 BRAM_18K, 17 DSP, 25733 FF, 39159 LUT
+dense interval:                176 cycles
+dense resources:             13 DSP, 22865 FF, 31807 LUT
+```
+
+Compared with RF=1, the top interval and dense interval are unchanged. Dense FF
+drops by about 5k, but DSP is unchanged and LUT is essentially unchanged. The
+current hls4ml latency dense implementation still fully partitions the input
+and intermediate arrays and fully unrolls the product/accumulation loops, so
+`reuse_factor` alone is not a strong resource-control knob here. The next dense
+resource step should be a custom streaming/wide dense that accumulates directly
+from `layer5x4_t` words, instead of unpacking into a 1176-scalar fully
+partitioned array.
+
+Source update after this report:
+
+```text
+maxpool_wide -> dense_wide_stream -> result
+make compare SAMPLES=1024: PASS
+```
+
+`dense_wide_stream` reads the 42 pooled `layer5x4_t` words directly. It processes
+one width lane per cycle and unrolls the 7 filters inside that lane, so the
+expected dense interval is about 168 cycles. This keeps dense below the
+259-cycle first-conv limiter while removing the post-pool unpack stage and the
+168-deep `layer5_out` FIFO. HLS csynth is pending for the actual resource and
+timing estimates.
 
 ### repack_stream
 
