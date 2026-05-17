@@ -247,6 +247,7 @@ NNET_EINSUM_DENSE_H_	hls_streaming/firmware/nnet_utils/nnet_einsum_dense.h	/^#de
 NNET_EINSUM_H_	hls_streaming/firmware/nnet_utils/nnet_einsum.h	/^#define NNET_EINSUM_H_$/;"	d
 NNET_EMBED_H_	hls_streaming/firmware/nnet_utils/nnet_embed.h	/^#define NNET_EMBED_H_$/;"	d
 NNET_EMBED_STREAM_H_	hls_streaming/firmware/nnet_utils/nnet_embed_stream.h	/^#define NNET_EMBED_STREAM_H_$/;"	d
+NNET_FIRST_CONV_STREAM_H_	hls_streaming/firmware/nnet_utils/nnet_first_conv_stream.h	/^#define NNET_FIRST_CONV_STREAM_H_$/;"	d
 NNET_FUNCTION_STUBS_H_	hls_streaming/firmware/nnet_utils/nnet_function_stubs.h	/^#define NNET_FUNCTION_STUBS_H_$/;"	d
 NNET_GARNET_H_	hls_streaming/firmware/nnet_utils/nnet_garnet.h	/^#define NNET_GARNET_H_$/;"	d
 NNET_HELPERS_H	hls_streaming/firmware/nnet_utils/nnet_helpers.h	/^#define NNET_HELPERS_H$/;"	d
@@ -1005,6 +1006,7 @@ data_binary	hls_streaming/firmware/nnet_utils/nnet_mult.h	/^template <class x_T,
 data_prepare	hls_streaming/firmware/nnet_utils/nnet_dense_stream.h	/^void data_prepare(hls::stream<data_T> &data_stream, typename data_T::value_type data[CONFIG_T::n/;"	f	namespace:nnet	typeref:typename:void
 data_t	hls_streaming/firmware/nnet_utils/nnet_garnet.h	/^    typedef data_T data_t;$/;"	t	struct:nnet::garnet_utils::InputDataGetter	typeref:typename:data_T
 data_t	hls_streaming/firmware/nnet_utils/nnet_garnet.h	/^    typedef data_T data_t;$/;"	t	struct:nnet::garnet_utils::SingleVertexDataGetter	typeref:typename:data_T
+data_value_t	hls_streaming/firmware/nnet_utils/nnet_first_conv_stream.h	/^    typedef typename data_T::value_type data_value_t;$/;"	t	function:nnet::first_conv_4lane_temporal_cl	typeref:typename:data_T::value_type
 dataref	hls_streaming/firmware/nnet_utils/nnet_garnet.h	/^    data_T const (&dataref)[CONFIG_T::n_in_features];$/;"	m	struct:nnet::garnet_utils::SingleVertexDataGetter	typeref:typename:data_T const (&)[]
 dataref	hls_streaming/firmware/nnet_utils/nnet_garnet.h	/^    data_T const *dataref;$/;"	m	struct:nnet::garnet_utils::InputDataGetter	typeref:typename:data_T const *
 datatype	hls_streaming/firmware/nnet_utils/nnet_math.h	/^            datatype;$/;"	t	function:nnet::sincos_lut
@@ -1128,6 +1130,7 @@ filt_width	hls_streaming/firmware/nnet_utils/nnet_conv1d.h	/^    static const un
 filt_width	hls_streaming/firmware/nnet_utils/nnet_conv2d.h	/^    static const unsigned filt_width = 1;$/;"	m	struct:nnet::conv2d_config	typeref:typename:const unsigned
 filt_width	hls_streaming/firmware/parameters.h	/^    static const unsigned filt_width = 1;$/;"	m	struct:config3	typeref:typename:const unsigned
 filt_width	hls_streaming/firmware/parameters.h	/^    static const unsigned filt_width = pool_width;$/;"	m	struct:config5	typeref:typename:const unsigned
+first_conv_4lane_temporal_cl	hls_streaming/firmware/nnet_utils/nnet_first_conv_stream.h	/^void first_conv_4lane_temporal_cl($/;"	f	namespace:nnet	typeref:typename:void
 first_layer_t	hls_streaming/firmware/nnet_utils/nnet_garnet.h	/^    typedef typename CONFIG_T::template sublayer_t<0> first_layer_t;$/;"	t	function:nnet::garnet_stack	typeref:typename:CONFIG_T::template sublayer_t<0>
 flip	hls_streaming/firmware/ap_types/etc/ap_private.h	/^  INLINE ap_private& flip() {$/;"	f	class:ap_private	typeref:typename:INLINE ap_private &
 flip	hls_streaming/firmware/ap_types/etc/ap_private.h	/^  INLINE ap_private& flip(uint32_t bitPosition) {$/;"	f	class:ap_private	typeref:typename:INLINE ap_private &
@@ -1623,6 +1626,7 @@ nnet	hls_streaming/firmware/nnet_utils/nnet_einsum.h	/^namespace nnet {$/;"	n
 nnet	hls_streaming/firmware/nnet_utils/nnet_einsum_dense.h	/^namespace nnet {$/;"	n
 nnet	hls_streaming/firmware/nnet_utils/nnet_embed.h	/^namespace nnet {$/;"	n
 nnet	hls_streaming/firmware/nnet_utils/nnet_embed_stream.h	/^namespace nnet {$/;"	n
+nnet	hls_streaming/firmware/nnet_utils/nnet_first_conv_stream.h	/^namespace nnet {$/;"	n
 nnet	hls_streaming/firmware/nnet_utils/nnet_function_stubs.h	/^namespace nnet {$/;"	n
 nnet	hls_streaming/firmware/nnet_utils/nnet_garnet.h	/^namespace nnet {$/;"	n
 nnet	hls_streaming/firmware/nnet_utils/nnet_helpers.h	/^namespace nnet {$/;"	n
@@ -2259,6 +2263,7 @@ report	hls_streaming/firmware/ap_types/ap_fixed_base.h	/^  INLINE void report() 
 report	hls_streaming/firmware/ap_types/etc/ap_private.h	/^  INLINE void report() {$/;"	f	class:ap_private	typeref:typename:INLINE void
 res_t	hls_streaming/firmware/nnet_utils/nnet_garnet.h	/^    typedef res_T res_t;$/;"	t	struct:nnet::garnet_utils::OutputResSetter	typeref:typename:res_T
 res_t	hls_streaming/firmware/nnet_utils/nnet_garnet.h	/^    typedef res_T res_t;$/;"	t	struct:nnet::garnet_utils::SingleVertexResSetter	typeref:typename:res_T
+res_value_t	hls_streaming/firmware/nnet_utils/nnet_first_conv_stream.h	/^    typedef typename res_T::value_type res_value_t;$/;"	t	function:nnet::first_conv_4lane_temporal_cl	typeref:typename:res_T::value_type
 res_write	hls_streaming/firmware/nnet_utils/nnet_dense_stream.h	/^void res_write(typename res_T::value_type res[CONFIG_T::n_out], hls::stream<res_T> &res_stream) /;"	f	namespace:nnet	typeref:typename:void
 resize_config	hls_streaming/firmware/nnet_utils/nnet_image.h	/^struct resize_config {$/;"	s	namespace:nnet
 resize_nearest	hls_streaming/firmware/nnet_utils/nnet_image.h	/^void resize_nearest(data_T image[CONFIG_T::height * CONFIG_T::width * CONFIG_T::n_chan],$/;"	f	namespace:nnet	typeref:typename:void

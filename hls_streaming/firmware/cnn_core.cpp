@@ -29,9 +29,6 @@ void cnn_core(
 
     // hls-fpga-machine-learning insert layers
 
-    hls::stream<layer2_t> layer8_out("layer8_out");
-    #pragma HLS STREAM variable=layer8_out depth=1024
-
     hls::stream<layer3_t> layer3_out("layer3_out");
     #pragma HLS STREAM variable=layer3_out depth=336
 
@@ -42,9 +39,8 @@ void cnn_core(
     #pragma HLS STREAM variable=layer5_out depth=168
 
     auto& layer6_out = layer5_out;
-    nnet::repack_stream<input_t, layer2_t, 1024>(input_layer, layer8_out); // repack_reshape
 
-    nnet::conv_2d_cl<layer2_t, layer3_t, config3>(layer8_out, layer3_out, w3, b3); // q_conv2d
+    nnet::first_conv_4lane_temporal_cl<input_t, layer3_t, config3>(input_layer, layer3_out, w3, b3); // repack_reshape + q_conv2d
 
     nnet::relu<layer3_t, layer4_t, relu_config4>(layer3_out, layer4_out); // q_conv2d_relu
 
@@ -53,4 +49,3 @@ void cnn_core(
     nnet::dense<layer5_t, result_t, config7>(layer6_out, layer7_out, w7, b7); // q_dense
 
 }
-

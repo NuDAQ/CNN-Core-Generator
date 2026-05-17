@@ -1,5 +1,7 @@
 CXX ?= g++
 CXXFLAGS ?= -std=c++14 -O2
+SAMPLES ?= 8
+ALLOW_MISMATCH ?= 0
 
 REPO_ROOT := ..
 BASELINE_ROOT := $(REPO_ROOT)/cnn_core_project
@@ -15,7 +17,7 @@ STREAMING_EXE := $(BUILD_DIR)/streaming_runner
 BASELINE_OUT := $(RUN_DIR)/baseline_results.log
 STREAMING_OUT := $(RUN_DIR)/streaming_results.log
 
-.PHONY: all compare clean prepare prepare-compat
+.PHONY: all compare compare-long run-streaming clean prepare prepare-compat
 
 all: compare
 
@@ -40,10 +42,22 @@ prepare:
 	cp -R $(BASELINE_ROOT)/firmware/weights $(RUN_DIR)/weights
 
 compare: $(BASELINE_EXE) $(STREAMING_EXE) prepare
-	cd $(RUN_DIR) && ../baseline_runner baseline_results.log 8
-	cd $(RUN_DIR) && ../streaming_runner streaming_results.log 8
-	cmp -s $(BASELINE_OUT) $(STREAMING_OUT)
-	@echo "PASS: baseline and hls_streaming C++ outputs match exactly."
+	cd $(RUN_DIR) && ../baseline_runner baseline_results.log $(SAMPLES)
+	cd $(RUN_DIR) && ../streaming_runner streaming_results.log $(SAMPLES)
+	@if cmp -s $(BASELINE_OUT) $(STREAMING_OUT); then \
+		echo "PASS: baseline and hls_streaming C++ outputs match exactly."; \
+	elif [ "$(ALLOW_MISMATCH)" = "1" ]; then \
+		echo "WARN: baseline and hls_streaming outputs differ; continuing because ALLOW_MISMATCH=1."; \
+	else \
+		echo "FAIL: baseline and hls_streaming outputs differ. Use ALLOW_MISMATCH=1 for intentional architecture/model changes."; \
+		exit 1; \
+	fi
+
+compare-long:
+	$(MAKE) compare SAMPLES=128
+
+run-streaming: $(STREAMING_EXE) prepare
+	cd $(RUN_DIR) && ../streaming_runner streaming_results.log $(SAMPLES)
 
 clean:
 	rm -rf $(BUILD_DIR)

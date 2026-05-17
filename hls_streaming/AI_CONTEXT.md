@@ -59,6 +59,13 @@ For large future work, prefer this loop:
 context -> targeted source read -> edit -> make compare -> HLS/report check if needed -> update context
 ```
 
+`make compare` is a useful equivalence guardrail, not the project gold
+standard. The design owner can change packetization, model-facing interfaces,
+test references, and DAQ scheduling to improve total throughput. When an
+architecture or model change intentionally changes output values, use
+throughput/resource/DAQ-level tests and updated references instead of treating
+baseline byte equality as mandatory.
+
 ## Current Goal
 
 The current optimization target is steady-state chunk interval, not minimum
@@ -144,30 +151,48 @@ The current comparison is behavioral C++ comparison, not RTL comparison.
 1. Copy and patch temporary ap_types under build/.
 2. Build baseline_runner from tb/compare_runner.cpp and ../cnn_core_project/firmware/cnn_core.cpp.
 3. Build streaming_runner from tb/compare_runner.cpp and hls_streaming/firmware/cnn_core.cpp.
-4. Run both on 8 deterministic chunks.
+4. Run both on SAMPLES deterministic chunks, default 8.
 5. Compare output logs byte-for-byte.
+```
+
+Useful Makefile knobs:
+
+```text
+make compare SAMPLES=128
+make compare ALLOW_MISMATCH=1
+make run-streaming SAMPLES=1024
 ```
 
 Current verification status:
 
 ```text
 make compare: PASS
+latest checked after first_conv_4lane_temporal_cl replacement: PASS
+extra 128-chunk runner comparison after replacement: PASS
 ```
 
 ## Current Model Path
 
-The whole active model is:
+The current `hls_streaming/firmware` active model is:
 
 ```text
 cnn_core(input_layer, layer7_out)
-  -> repack_stream<input_t, layer2_t, 1024>
-  -> conv_2d_cl<layer2_t, layer3_t, config3>
+  -> first_conv_4lane_temporal_cl<input_t, layer3_t, config3>
   -> relu<layer3_t, layer4_t, relu_config4>
   -> pooling2d_cl<layer4_t, layer5_t, config5>
   -> dense<layer5_t, result_t, config7>
 ```
 
-There are no other active neural-network layers in the current generated model.
+The immutable baseline under `../cnn_core_project/firmware` still uses:
+
+```text
+repack_stream<input_t, layer2_t, 1024>
+  -> conv_2d_cl<layer2_t, layer3_t, config3>
+```
+
+The working replacement is behavior-equivalent in C++ comparison for the
+current deterministic test vectors, but it still needs Vitis HLS synthesis and
+RTL report comparison before claiming an actual hardware interval improvement.
 
 `cnn_core()` has:
 
@@ -179,7 +204,6 @@ There are no other active neural-network layers in the current generated model.
 Internal streams:
 
 ```text
-layer8_out   depth 1024   scalar input after repack
 layer3_out   depth 336    Conv2D output, packed 7 filter values per word
 layer4_out   depth 336    ReLU output
 layer5_out   depth 168    MaxPool output, packed 7 filter values per word
@@ -234,6 +258,32 @@ unless the model structure changes.
 
 ## Stage-Level Understanding
 
+### first_conv_4lane_temporal_cl
+
+Location:
+
+```text
+firmware/nnet_utils/nnet_first_conv_stream.h
+```
+
+Working-copy status:
+
+```text
+Replaces repack_stream + conv_2d_cl in hls_streaming/firmware/cnn_core.cpp.
+Consumes 256 input_t words directly, each with 4 lanes.
+Maintains a 5 x 4 row window.
+Emits the same 336 layer3_t words expected by ReLU/pooling/dense.
+make compare: PASS against ../cnn_core_project/firmware baseline.
+128-chunk manual runner comparison: PASS.
+Vitis HLS/RTL interval report: not yet regenerated.
+```
+
+RTL optimization intent: remove the generated scalar adapter boundary
+`layer8_out` and avoid the 1024 scalar FIFO writes from `repack_stream`. The
+minimum output-side work for this layer is still at least 336 `layer3_t` writes,
+so the expected hardware improvement is a reduction from the old 1024-scalar
+adapter schedule, not a zero-cost conversion.
+
 ### repack_stream
 
 Location:
@@ -273,8 +323,9 @@ output interface:   12-bit ap_fifo layer8_out, depth 1024
 ```
 
 Meaning: this is currently the largest interval limiter, and it performs only
-format conversion. It is the first candidate to remove, bypass, or fuse with
-the first convolution.
+format conversion in the original hls4ml baseline. In the current working copy,
+it has been bypassed by `first_conv_4lane_temporal_cl`; keep this section as
+the baseline bottleneck evidence until new HLS reports are generated.
 
 RTL-level interpretation:
 
@@ -440,7 +491,11 @@ intervals are improved.
 
 ## Current Bottleneck Facts
 
-Top-level reports:
+Top-level reports below are from the original generated baseline before the
+`first_conv_4lane_temporal_cl` working-copy replacement. Regenerate Vitis HLS
+reports before using these numbers to evaluate the new hardware schedule.
+
+Baseline reports:
 
 ```text
 RTL cosim latency:       3068 cycles

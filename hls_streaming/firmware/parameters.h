@@ -14,6 +14,7 @@
 #include "nnet_utils/nnet_dense.h"
 #include "nnet_utils/nnet_dense_compressed.h"
 #include "nnet_utils/nnet_dense_stream.h"
+#include "nnet_utils/nnet_first_conv_stream.h"
 #include "nnet_utils/nnet_pooling.h"
 #include "nnet_utils/nnet_pooling_stream.h"
 #include "nnet_utils/nnet_stream.h"

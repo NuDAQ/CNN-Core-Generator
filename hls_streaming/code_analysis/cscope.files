@@ -23,6 +23,7 @@
 ../firmware/nnet_utils/nnet_types.h
 ../firmware/nnet_utils/nnet_recurrent.h
 ../firmware/nnet_utils/nnet_transpose_stream.h
+../firmware/nnet_utils/nnet_first_conv_stream.h
 ../firmware/nnet_utils/nnet_sepconv_stream.h
 ../firmware/nnet_utils/nnet_transpose.h
 ../firmware/nnet_utils/nnet_pooling.h

@@ -36,6 +36,12 @@ and writes, inferred local memories, achieved II, clock timing, and utilization.
 When a claim matters, prefer generated Verilog/VHDL and HLS schedule/resource
 reports over surface-level C loop intuition.
 
+Functional comparison against the hls4ml baseline is a guardrail, not the final
+metric. The DAQ/front-end packetization, test reference, and model-facing
+interface can change if that improves total chunk throughput. For intentional
+architecture/model changes, replace byte-for-byte baseline comparison with an
+appropriate throughput/resource/reference test instead of forcing equivalence.
+
 ## Size and Reading Strategy
 
 Excluding `hls_streaming/build/`, the project has about 27k lines of relevant
@@ -99,31 +105,40 @@ transaction.
 
 ## Top-Level Execution Path
 
-Current `cnn_core.cpp` is short and generated:
+Current working `hls_streaming/firmware/cnn_core.cpp` has replaced the
+generated repack + Conv2D front end with a model-specific first-conv block:
 
 ```text
 input_layer
-  -> repack_stream<input_t, layer2_t, 1024>
-  -> conv_2d_cl<layer2_t, layer3_t, config3>
+  -> first_conv_4lane_temporal_cl<input_t, layer3_t, config3>
   -> relu<layer3_t, layer4_t, relu_config4>
   -> pooling2d_cl<layer4_t, layer5_t, config5>
   -> dense<layer5_t, result_t, config7>
   -> layer7_out
 ```
 
+The immutable generated baseline under `../cnn_core_project/firmware` still
+uses:
+
+```text
+input_layer
+  -> repack_stream<input_t, layer2_t, 1024>
+  -> conv_2d_cl<layer2_t, layer3_t, config3>
+```
+
 Internal streams:
 
 ```text
-layer8_out   depth 1024   scalar input stream after repack
 layer3_out   depth 336    conv outputs, 7 filters per word
 layer4_out   depth 336    ReLU outputs, 7 values per word
 layer5_out   depth 168    maxpool outputs, 7 values per word
 ```
 
-`#pragma HLS DATAFLOW` allows these stages to overlap inside a transaction.
-However, the HLS report still gives a back-to-back top-level interval of about
-3076 cycles. Current dataflow overlap does not mean the core can accept a new
-256-sample chunk every 256 cycles.
+`make compare` passes after this replacement, and an extra 128-chunk manual
+runner comparison also passes, so the working copy remains behavior-equivalent
+to the baseline for the deterministic C++ comparisons. The old HLS report still
+gives a baseline back-to-back top-level interval of about 3076 cycles;
+regenerate Vitis HLS/RTL reports before claiming the new hardware interval.
 
 ## Data Types and Tensor Meaning
 
@@ -341,7 +356,11 @@ parallelism into the dense dot product.
 
 ## Current Report Summary
 
-Top-level reports:
+The following reports describe the original generated baseline before
+`first_conv_4lane_temporal_cl`. They remain bottleneck evidence for the old RTL,
+not proof of the new working-copy hardware interval.
+
+Baseline top-level reports:
 
 ```text
 RTL cosim latency:       3068 cycles
@@ -407,6 +426,11 @@ These should be treated as experiments, not conclusions:
    non-compute stage may disappear. This requires either adapting the conv
    line-buffer path or writing a model-specific first convolution.
 
+   Current working-copy status: `first_conv_4lane_temporal_cl` bypasses
+   `layer8_out` and replaces `repack_stream + conv_2d_cl` while preserving C++
+   comparison output. Next evidence needed: regenerated HLS schedule and RTL
+   cosim reports for the new module.
+
 2. Preserve chunk semantics but change input granularity.
 
    Candidate shapes include `16 x 4`, `32 x 4`, `64 x 4`, `128 x 4`, and
@@ -462,11 +486,13 @@ These should be treated as experiments, not conclusions:
    clean equivalence target: replace `repack_stream + conv_2d_cl` with one
    function and compare against baseline.
 
-4. Keep `make compare` as the behavior guard.
+4. Keep `make compare` as a behavior guard when equivalence is intended.
 
    For every refactor that should preserve math, run the baseline-vs-streaming
    comparison. For intentional model/architecture changes, create a new
-   reference flow rather than changing `../cnn_core_project/firmware`.
+   reference flow rather than changing `../cnn_core_project/firmware`. The
+   Makefile supports `SAMPLES=...`, `ALLOW_MISMATCH=1`, and `run-streaming` for
+   exploratory tests where byte equality is not the pass/fail criterion.
 
 ## Mental Model for Future Edits
 
