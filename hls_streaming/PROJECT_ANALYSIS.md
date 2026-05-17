@@ -138,10 +138,12 @@ layer5_out   depth 168    maxpool outputs, 7 values per word
 
 `make compare SAMPLES=1024` passes after the wide first-conv plus unpack
 adapter change, so the working copy remains behavior-equivalent to the baseline
-for the deterministic C++ comparisons. The last regenerated HLS csynth report
-before this wide-output experiment gives a top-level interval of 1029 cycles.
-A new csynth run is needed to confirm the expected interval drop toward the
-339-cycle unpack/ReLU/pool limit.
+for the deterministic C++ comparisons. The regenerated HLS csynth report after
+this wide-output experiment gives a top-level interval of 842 cycles. The
+first-conv improvement is real, but the narrow unpack adapter is now the
+largest limiter. The source now uses a flat 336-iteration unpack loop to remove
+that nested-loop scheduler overhead; `make compare SAMPLES=1024` still passes.
+New HLS csynth is pending for the flat-unpack version.
 
 ## Data Types and Tensor Meaning
 
@@ -364,52 +366,54 @@ The current working copy has a regenerated Vitis HLS csynth report under
 RTL cosim transaction report or OOC implementation report, so these are
 pre-place-and-route HLS estimates.
 
-Latest confirmed HLS report before the wide-output experiment:
+Latest confirmed HLS report after the wide-output experiment:
 
 ```text
-HLS latency estimate:    1032 cycles
-HLS interval estimate:   1029 cycles
-Latency time:            5.160 us at 5.00 ns
+HLS latency estimate:    844 cycles
+HLS interval estimate:   842 cycles
+Latency time:            4.220 us at 5.00 ns
 Estimated clock:         3.886 ns at 5.00 ns target
-Resources:               18 BRAM_18K, 17 DSP, 29687 FF, 37553 LUT
+Resources:               32 BRAM_18K, 17 DSP, 30238 FF, 38246 LUT
 ```
 
 Latest confirmed per-stage HLS estimates:
 
 ```text
-Stage                      Latency   Interval   Main reason to care
-first_conv_4lane_temporal     1028       1028   current limiter, 4 writes/stride to one FIFO
-maxpool2d_nonoverlap           339        339   II=1, no longer second-order generic pool cost
-relu                           339        339   simple streaming stage
-dense                          176        176   resource-heavy, not interval limiter
+Stage                           Latency   Interval   Main reason to care
+unpack_4lane_temporal              841        841   current limiter, outer loop not pipelined
+relu                                339        339   simple streaming stage
+maxpool2d_nonoverlap                339        339   II=1
+first_conv_4lane_temporal_wide      259        259   fixed, input loop II=1
+dense                               176        176   resource-heavy, not interval limiter
 ```
 
 Result versus the original generated baseline:
 
 ```text
-Latency:  3082 -> 1032 cycles, about 2.99x faster
-Interval: 3076 -> 1029 cycles, about 2.99x faster
-BRAM:       19 ->   18
+Latency:  3082 -> 844 cycles, about 3.65x faster
+Interval: 3076 -> 842 cycles, about 3.65x faster
+BRAM:       19 ->  32
 DSP:        14 ->   17
-FF:      30061 -> 29687
-LUT:     34994 -> 37553
+FF:      30061 -> 30238
+LUT:     34994 -> 38246
 ```
 
 The useful FPGA-level interpretation is that the optimization bought nearly a
-3x interval reduction. The ring-buffer/nonoverlap-pool version did increase the
-estimated clock period, so OOC timing is still required before treating this as
-implementation timing.
+3.65x interval reduction versus the original baseline, and the first-conv wide
+packing hypothesis is confirmed. The tradeoff is extra FIFO BRAM: `layer3x4_out`
+uses 14 BRAM_18K by itself because it is 252 bits wide at depth 84.
 
 The remaining issue is not C++ algorithmic work; it is the generated RTL
-schedule for `first_conv_4lane_temporal_cl`. Its `ReadInputHeight` loop still
-has trip count 256, target II=1, achieved II=4, and latency near 1026 cycles.
-The post-ring-buffer report shows the remaining II=4 cause is four writes to
-the same output FIFO on each stride event, not the old row-window RAW.
+schedule for `unpack_4lane_temporal_cl`. The first-conv wide loop now reaches
+II=1 and 259 cycles. The unpack stage has an inner `UnpackOutputWidth` loop at
+II=1, but the outer `UnpackOutputHeight` loop is not pipelined and costs 840
+cycles across 84 wide words.
 
-The current source now tests that hypothesis directly by writing one
-`layer3x4_t` wide word per stride event and unpacking it back to the existing
-`layer3_t` stream. If csynth confirms first_conv near II=1, the top interval
-should move toward the 336-339 cycle unpack/ReLU/pool limit.
+The current source has already applied the next adapter fix: unpack is now one
+flat 336-iteration loop that keeps the current 28-value wide word in registers
+and emits one 7-value `layer3_t` per cycle. If HLS confirms the expected
+336-339 cycle interval, the following target is to remove the unpack entirely
+by pushing the 4-width packing through ReLU and pool.
 
 Baseline top-level reports:
 

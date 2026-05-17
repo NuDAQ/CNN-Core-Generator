@@ -172,6 +172,7 @@ extra 128-chunk runner comparison after replacement: PASS
 make compare PASS after ring-buffer + stride-counter + nonoverlap-pool: PASS (8 chunks)
 make compare SAMPLES=128 PASS after same changes: PASS (128 chunks)
 make compare SAMPLES=1024 PASS after wide first_conv + unpack adapter: PASS (1024 chunks)
+make compare SAMPLES=1024 PASS after flat unpack adapter: PASS (1024 chunks)
 ```
 
 ## Current Model Path
@@ -196,9 +197,9 @@ repack_stream<input_t, layer2_t, 1024>
 ```
 
 The working copy is behavior-equivalent in C++ comparison for all tested vectors.
-The last confirmed HLS csynth result before the wide-output experiment is top
-latency / interval 1032 / 1029 cycles. A new HLS csynth run is required to
-confirm the wide first-conv effect.
+The latest confirmed HLS csynth result after the wide-output experiment is top
+latency / interval 844 / 842 cycles. The wide first-conv worked, but the narrow
+unpack adapter became the current bottleneck.
 
 `cnn_core()` has:
 
@@ -282,7 +283,9 @@ Consumes 256 input_t words directly, each with 4 lanes.
 Maintains a 5 x 4 row window (ring buffer, not shift register).
 Emits 84 layer3x4_t wide words, then unpack adapter restores 336 layer3_t words.
 make compare 8/128/1024 chunks: PASS.
-HLS csynth pending after wide-output first_conv + unpack adapter changes.
+HLS csynth after wide-output first_conv + nested unpack adapter: first_conv
+fixed, unpack adapter bottlenecked the top interval. Source now uses a flat
+unpack loop; HLS csynth pending.
 ```
 
 Previous csynth result (shift-register version, before ring-buffer fix):
@@ -361,15 +364,26 @@ first_conv_4lane_temporal_wide_cl:
 unpack_4lane_temporal_cl:
   84 reads of layer3x4_t -> 336 writes of layer3_t
 
-Expected HLS interval target:
-  first_conv near 256-270 cycles if II=1
-  unpack/relu/pool near 336-339 cycles
-  top interval near 339 cycles if timing and DATAFLOW scheduling cooperate
+Confirmed HLS result:
+  top latency / interval:        844 / 842 cycles
+  first_conv wide:               259 / 259 cycles, ReadInputHeightWide II=1
+  unpack adapter:                841 / 841 cycles
+  relu / maxpool2d_nonoverlap:   339 / 339 cycles each
 ```
 
-This keeps downstream math and types unchanged after the adapter. If the HLS
-report confirms the expected top interval, the next larger experiment is to push
-the 4-width packing through ReLU and pool rather than unpacking immediately.
+The first-conv hypothesis is confirmed: packing 4 width outputs into one
+`layer3x4_t` write removes the II=4 output-FIFO bottleneck. The adapter did not
+meet the expected ~336-cycle limit because HLS schedules the outer
+`UnpackOutputHeight` loop as an unpipelined loop with latency 840 cycles. It
+calls the pipelined `UnpackOutputWidth` helper 84 times, and that helper has
+latency/interval 6 cycles despite inner II=1.
+
+Source update after this report: unpack is now a flat 336-iteration loop with a
+small current-wide-word register and a width counter. It reads one `layer3x4_t`
+when the width counter is zero and writes one `layer3_t` every cycle, targeting
+about 336-339 cycles. `make compare SAMPLES=1024` passes after this change. HLS
+csynth is pending. The larger follow-on experiment is to push 4-width packing
+through ReLU and pool rather than unpacking immediately.
 
 ### repack_stream
 
@@ -624,8 +638,10 @@ Top interval              1029          first_conv dominates; pool gain absorbed
 Pool improvement (674→339) is real but invisible at top level while first_conv > 339.
 Top interval gain this round: 1041 → 1029 (−12 cycles, ~1%).
 Current source experiment breaks first_conv's 4-write bottleneck with an
-internal wide stream and narrow unpack adapter. HLS csynth is pending; expected
-next bottleneck is the 336-339 cycle unpack/ReLU/pool chain.
+internal wide stream and narrow unpack adapter. HLS confirms first_conv drops to
+259 cycles, but the nested-loop unpack adapter is 841 cycles. Source now uses a
+flat unpack adapter; HLS should confirm whether the top interval moves toward
+the 339-cycle ReLU/pool limit.
 
 Baseline reports before first-conv replacement:
 
