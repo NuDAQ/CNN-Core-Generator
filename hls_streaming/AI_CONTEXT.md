@@ -573,6 +573,51 @@ make compare
 For math-preserving refactors, output should remain byte-for-byte identical to
 baseline for equivalent chunk inputs.
 
+## Local HLS Estimate Flow
+
+`hls_streaming` has an independent lightweight Vitis HLS flow, separate from
+the hls4ml-generated `cnn_core_project` scripts.
+
+```text
+hls_streaming/project.tcl                  part/clock/project defaults
+hls_streaming/build_opt.tcl                flow switches
+hls_streaming/build_hls.tcl                creates/runs the HLS project
+hls_streaming/scripts/run_hls.sh           shell entry point
+hls_streaming/scripts/summarize_hls.py     extracts compact latency/clock/resource summary
+hls_streaming/scripts/vivado_ooc_synth.tcl optional out-of-context Vivado synthesis
+```
+
+Default remote-Ubuntu use:
+
+```bash
+cd hls_streaming
+source /tools/Xilinx/Vitis/2023.2/settings64.sh
+make hls
+```
+
+Useful overrides:
+
+```bash
+HLS_CLOCK=4 make hls
+HLS_CSIM=1 make hls
+HLS_COSIM=1 make hls
+HLS_PROJECT=my_streaming_prj HLS_SOLUTION=trial_a make hls
+HLS_OOC_SYNTH=1 make hls
+```
+
+Default output:
+
+```text
+cnn_core_streaming_prj/solution1/hls_summary.txt
+```
+
+The default flow runs `csynth_design` only. This is intentional for quick
+iteration on estimated clock, latency/interval, top resources, and slowest
+instances. Avoid using full top-level implementation as the first timing
+signal, because this CNN core is intended as an internal module. If extra
+timing/resource checking is needed, use the OOC Vivado flow so external
+pin/IO-buffer assumptions do not dominate the result.
+
 ## Best First Optimization Experiments
 
 1. Replace `repack_stream + conv_2d_cl` with a model-specific first-conv block.

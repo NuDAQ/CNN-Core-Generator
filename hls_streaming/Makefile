@@ -17,7 +17,7 @@ STREAMING_EXE := $(BUILD_DIR)/streaming_runner
 BASELINE_OUT := $(RUN_DIR)/baseline_results.log
 STREAMING_OUT := $(RUN_DIR)/streaming_results.log
 
-.PHONY: all compare compare-long run-streaming clean prepare prepare-compat
+.PHONY: all compare compare-long run-streaming hls hls-cosim hls-ooc-synth clean prepare prepare-compat
 
 all: compare
 
@@ -58,6 +58,15 @@ compare-long:
 
 run-streaming: $(STREAMING_EXE) prepare
 	cd $(RUN_DIR) && ../streaming_runner streaming_results.log $(SAMPLES)
+
+hls:
+	./scripts/run_hls.sh
+
+hls-cosim:
+	HLS_COSIM=1 ./scripts/run_hls.sh
+
+hls-ooc-synth:
+	HLS_OOC_SYNTH=1 ./scripts/run_hls.sh
 
 clean:
 	rm -rf $(BUILD_DIR)

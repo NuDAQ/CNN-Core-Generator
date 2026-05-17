@@ -34,6 +34,14 @@ Run:
 make compare
 ```
 
+Useful variants:
+
+```bash
+make compare SAMPLES=128
+make compare ALLOW_MISMATCH=1
+make run-streaming SAMPLES=1024
+```
+
 The Makefile builds two executables:
 
 ```text
@@ -49,6 +57,76 @@ A passing result looks like:
 ```text
 PASS: baseline and hls_streaming C++ outputs match exactly.
 ```
+
+This comparison is a guardrail, not the final design metric. It is useful for
+math-preserving refactors. For intentional DAQ/interface/model changes, use
+`ALLOW_MISMATCH=1` or a new reference/test flow and judge the design by
+throughput, resources, and trigger requirements.
+
+## Vitis HLS Estimate Flow
+
+`hls_streaming` has its own lightweight Vitis HLS flow. It does not reuse the
+hls4ml-generated `cnn_core_project` scripts directly.
+
+On a machine with Vitis available:
+
+```bash
+cd hls_streaming
+source /tools/Xilinx/Vitis/2023.2/settings64.sh
+make hls
+```
+
+Equivalent direct entry point:
+
+```bash
+./scripts/run_hls.sh
+```
+
+The default flow runs C/RTL synthesis only and writes a short summary to:
+
+```text
+cnn_core_streaming_prj/solution1/hls_summary.txt
+```
+
+The summary reports:
+
+```text
+Estimated clock period
+HLS latency and interval
+Top-level resource estimates
+RTL cosim transaction latency/interval if cosim was run
+Slowest dataflow instances by interval
+```
+
+Useful overrides:
+
+```bash
+HLS_CLOCK=4 make hls
+HLS_CSIM=1 make hls
+HLS_COSIM=1 make hls
+HLS_PROJECT=my_streaming_prj HLS_SOLUTION=trial_a make hls
+```
+
+The main scripts are:
+
+```text
+project.tcl                         Default part/clock/project settings
+build_opt.tcl                       Default flow switches
+build_hls.tcl                       Vitis HLS project build
+scripts/summarize_hls.py            Compact report extractor
+scripts/vivado_ooc_synth.tcl        Optional out-of-context Vivado synthesis
+```
+
+The optional Vivado step should be out-of-context:
+
+```bash
+HLS_OOC_SYNTH=1 make hls
+```
+
+Out-of-context synthesis avoids treating this internal CNN block like a full
+device top with externally placed pins and I/O buffers. For quick iteration,
+prefer the HLS `csynth` report first; only use OOC synthesis when you need a
+more realistic internal-module timing/resource sanity check.
 
 ## Development Flow
 
