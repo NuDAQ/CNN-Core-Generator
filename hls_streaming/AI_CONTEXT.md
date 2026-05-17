@@ -499,6 +499,23 @@ expected dense interval is about 168 cycles. This keeps dense below the
 168-deep `layer5_out` FIFO. HLS csynth is pending for the actual resource and
 timing estimates.
 
+Confirmed HLS result after wide streaming dense:
+
+```text
+top latency / interval:        263 / 260 cycles
+estimated clock:               3.886 ns at 5.00 ns target
+Resources:                   0 BRAM_18K, 11 DSP, 2975 FF, 26500 LUT
+first_conv interval:           259 cycles
+dense_wide interval:           176 cycles
+dense_wide resources:        7 DSP, 769 FF, 19616 LUT
+```
+
+The post-pool unpack stage and `layer5_out` FIFO are gone. BRAM is now zero,
+FF is roughly 10x lower than the hls4ml baseline, and throughput remains at the
+first-conv lower bound. Dense LUT remains noticeable because the 7-lane streaming
+dense dynamically indexes fully partitioned weights, which HLS implements with
+large muxing; this is now a resource cleanup issue, not a throughput issue.
+
 ### repack_stream
 
 Location:

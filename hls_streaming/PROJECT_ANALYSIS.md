@@ -505,6 +505,25 @@ interval is about 168 cycles, still below the 259-cycle first-conv limiter.
 HLS csynth is pending to measure the actual FF/LUT/DSP/BRAM change and whether
 the 7-lane MAC chain affects estimated clock.
 
+Confirmed HLS result after wide streaming dense:
+
+```text
+HLS latency estimate:    263 cycles
+HLS interval estimate:   260 cycles
+Estimated clock:         3.886 ns at 5.00 ns target
+Resources:               0 BRAM_18K, 11 DSP, 2975 FF, 26500 LUT
+first_conv interval:     259 cycles
+dense_wide interval:     176 cycles
+dense_wide resources:    7 DSP, 769 FF, 19616 LUT
+```
+
+The structural dense cleanup worked: the unpack stage and `layer5_out` FIFO are
+removed, BRAM drops to zero, and FF drops by almost an order of magnitude while
+the top interval remains 260 cycles. Dense LUT is still noticeable because the
+7-lane dense dynamically indexes a fully partitioned weight array, which HLS
+implements as large muxing. This is now a resource-polish topic rather than a
+throughput blocker.
+
 Baseline top-level reports:
 
 ```text
