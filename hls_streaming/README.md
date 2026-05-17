@@ -61,26 +61,60 @@ PASS: baseline and hls_streaming C++ outputs match exactly.
 
 ## Current Development Plan
 
-The trigger problem is primarily a throughput problem, not a single-chunk
-end-to-end latency problem. The ADC front end is expected to provide one sample
-per channel per nanosecond, and the DAQ/front-end logic packages these samples
-into non-overlapping 256-sample chunks. For the current four-channel inference
-path, each chunk contains a 256 x 4 input and produces one trigger score. A
-fixed latency of multiple microseconds can still be acceptable if the steady
-state pipeline interval is high enough to keep up with the incoming chunk rate.
+The trigger problem is primarily a throughput problem, not a single-inference
+end-to-end latency problem. The fixed model-level semantic contract is:
 
-The current hls4ml implementation already treats one complete 256 x 4 input
-window as one inference transaction. This is the correct functional baseline for
-the present DAQ contract: adjacent chunks are independent and should not be
-assumed to overlap. The hardware work should therefore focus on making the
-chunked stream path efficient, avoiding unnecessary format-conversion or
-full-tensor repacking overhead inside the HLS design.
+```text
+256 time samples x 4 channels -> one trigger score
+```
+
+Adjacent 256-sample chunks are independent for the current trigger definition;
+there is no required sliding-window overlap between chunks. Scores only need to
+be produced in the same order as the input chunks.
+
+The front-end packet format is a design variable, not a hard constraint. The
+ADC/DAQ path can include clock-domain crossing, buffering, packetization, and
+scheduling before data reaches the CNN core. Therefore the HLS interface should
+be chosen for the best CNN throughput/resource tradeoff rather than for direct
+cycle-by-cycle attachment to the ADC. Candidate input granularities include:
+
+```text
+16 x 4
+32 x 4
+64 x 4
+128 x 4
+256 x 4
+```
+
+Larger input blocks may reduce control overhead, but can increase buffering,
+routing pressure, resource use, and the cost of internal reshaping. Smaller
+blocks may be easier to stream and schedule, but can make it harder to keep the
+CNN compute pipeline full. The useful design point should be measured, not
+assumed.
+
+The key metric is the steady-state chunk interval: how often the core can
+accept a new 256-sample chunk and eventually produce the corresponding score. A
+fixed latency of multiple microseconds can still be acceptable if multiple
+chunks can be in flight and the interval is short enough. This makes the main
+question:
+
+```text
+Can the implementation pipeline different chunks concurrently, or does each
+chunk block the next chunk until the whole inference completes?
+```
+
+The current hls4ml implementation treats one complete 256 x 4 input window as
+one inference transaction, which is the correct functional baseline. The
+hardware work should focus on reducing the steady-state interval by improving
+the input path, the CNN kernels, and the ability to overlap work from different
+chunks.
 
 The streaming design should move toward:
 
 ```text
-ADC/front-end packet stream
-  -> 256-sample chunk buffer or direct chunk stream
+ADC/DAQ stream
+  -> CDC / buffering / packetization / scheduler
+  -> chosen CNN input granularity
   -> convolution kernel
   -> activation
   -> pooling
@@ -93,16 +127,23 @@ path:
 
 1. Use `make compare` as the guardrail while refactoring.
 2. Keep the hls4ml baseline untouched under `../cnn_core_project/firmware`.
-3. First replace or wrap the `repack_stream`/full-window input path in
-   `./firmware`.
-4. Preserve the non-overlapping 256-sample chunk semantics: one chunk in, one
-   score out.
-5. Keep output alignment against the baseline for equivalent chunk inputs before
+3. Preserve the model semantic contract: each 256 x 4 chunk produces exactly
+   one score, and scores remain ordered.
+4. Measure whether the current dataflow core can overlap multiple chunks, using
+   interval rather than latency as the main throughput metric.
+5. Experiment with input granularities such as 16 x 4, 32 x 4, 64 x 4, 128 x 4,
+   and 256 x 4.
+6. Replace or wrap the `repack_stream`/full-window input path if it only adds
+   format-conversion overhead.
+7. Keep output alignment against the baseline for equivalent chunk inputs before
    adding higher-throughput streaming tests.
 
-Once the input path is stable, the next optimization target is the first
-convolution path. For waveform-trigger workloads, a 1D-CNN-like implementation
-may map more directly to shift-register and FSM hardware than a general 2D CNN.
+The input path and CNN kernel cannot be optimized independently. If the current
+core cannot accept a new chunk while earlier chunks are still inside later
+layers, the CNN structure itself must be changed or replicated. The first
+convolution path is therefore a major optimization target together with
+`repack_stream`. For waveform-trigger workloads, a 1D-CNN-like implementation
+may map more directly to HLS pipelines and FSM scheduling than a general 2D CNN.
 The current model is represented as Conv2D with a 5 x 1 kernel over a 256 x 4 x
 1 input, so changes to channel mixing or true Conv1D structure should be
 coordinated with the model-training side rather than treated as a pure HLS
@@ -112,7 +153,9 @@ Open design questions:
 
 ```text
 Throughput target       Can the steady-state pipeline keep up with one 256-sample chunk every 256 ns?
-Chunk contract          What exact packet framing and valid/ready behavior will the front end provide?
+Input granularity       Which packet/block shape gives the best interval/resource tradeoff?
+Pipeline overlap        Can multiple chunks be in flight through different CNN stages?
+Scheduling strategy     Is one core enough, or is multi-core interleaving required?
 Channel mixing          Should early kernels mix the 4 channels, or preserve per-channel feature extraction first?
 Quantization            Can heterogeneous or channel-wise quantization reduce kernel cost without accuracy loss?
 Reference comparison    How should high-throughput chunk streams be checked against the chunk baseline?
@@ -184,13 +227,13 @@ layer5_out   depth 168    maxpool output, packed 7 values per stream word
 
 This mapping is important for streaming work. The current C++ project still
 processes one complete hls4ml input window at a time. This matches the current
-non-overlapping chunk contract from the front end. A future ADC-streaming
-version should replace or wrap the `repack_stream`/window input path so that
-the data path accepts chunked ADC packets efficiently instead of spending cycles
-on avoidable internal format conversion. The first milestone is not to change
-the network math, but to make the data path look more like a continuous stream
-of independent chunks while preserving baseline outputs for equivalent chunk
-inputs.
+model-level chunk semantic: one non-overlapping 256 x 4 chunk produces one
+score. A future ADC-streaming version should replace or wrap the
+`repack_stream`/window input path so that the data path accepts the chosen input
+granularity efficiently instead of spending cycles on avoidable internal format
+conversion. The first milestone is not to change the network math, but to make
+the data path support a higher-throughput stream of independent chunks while
+preserving baseline outputs for equivalent chunk inputs.
 
 ## Current hls4ml Baseline Bottlenecks
 
