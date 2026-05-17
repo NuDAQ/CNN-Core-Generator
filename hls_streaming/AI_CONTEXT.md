@@ -316,11 +316,44 @@ Element-wise StorePrev loop (unrolled) replaces struct assignment.
 Verified: make compare SAMPLES=128 PASS after fix.
 ```
 
-Remaining II concern: WriteOutputWidth inner loop (4 stream writes, 4 iterations)
-sits inside the pipelined ReadInputHeight loop. HLS may still set outer II to 4
-for stride iterations. Actual II after these changes requires a new HLS csynth run.
-If II stays at 4, the next step is to decouple the output path into a separate
-dataflow process or a local output buffer.
+Confirmed csynth result after ring-buffer + stride-counter + nonoverlap-pool (2026-05-17):
+
+```text
+top latency / interval:        1032 / 1029 cycles
+first_conv latency/interval:   1028 / 1028 cycles   (II=4, see root cause below)
+maxpool2d_nonoverlap:           339 /  339 cycles   (II=1 confirmed, PoolMain trip 336)
+relu latency/interval:          339 /  339 cycles   (unchanged)
+dense latency/interval:         176 /  176 cycles   (unchanged)
+estimated clock:               3.886 ns at 5.00 ns  (up from 3.236 ns, ring mux path)
+Resources:                  18 BRAM_18K, 17 DSP, 29687 FF, 37553 LUT
+```
+
+Confirmed root cause of first_conv II=4 (post-fix):
+
+```text
+WriteOutputWidth was completely unrolled by the outer PIPELINE pragma (confirmed in log).
+The 4 unrolled res.write() calls to the same hls::stream cannot be parallelized.
+HLS schedules them as 4 sequential cycles → outer loop II=4.
+The RAW dependency is gone; the new bottleneck is stream-write throughput.
+Net gain from ring buffer: only −12 cycles (from urem removal, not RAW fix).
+```
+
+Clock path concern:
+
+```text
+3.886 ns + 1.35 ns uncertainty = 5.24 ns > 5.00 ns target (csynth estimate only).
+Suspect path: oldest + k → ridx mux → row_buf register → kernel_data → dense.
+20 sparsemux instances (5:1 mux, 4 lanes × 5 ring positions) add ~520 LUT.
+Verify after OOC synthesis before treating as a hard timing failure.
+```
+
+Next step for first_conv interval: eliminate the 4 sequential stream writes.
+Two options to evaluate:
+1. Output buffer: compute 4 outputs into a local array during input loop (II=1),
+   drain 1 per cycle in a separate loop. Estimated: 256 + 336 = 592 cycles total.
+   Cost: 336 × 7 × 9 bits ≈ 21 Kbits local storage (1-2 BRAM or many registers).
+2. Widen output stream: pack all 4 width outputs per word → 1 write per stride event.
+   Requires changing layer3_t and all downstream stage interfaces (relu, pool, dense).
 
 ### repack_stream
 
@@ -561,28 +594,20 @@ relu                           339        339   simple stream stage, II=1
 dense                          176        176   resource-heavy, not interval limiter
 ```
 
-Changes applied (HLS csynth not yet re-run, run on server to confirm):
+Confirmed bottleneck chain after ring-buffer + nonoverlap-pool (2026-05-17):
 
 ```text
-first_conv: ring buffer + stride counter → removes RAW dep + urem divider.
-            If WriteOutputWidth (4 stream writes) limits outer II: expect II=4 still.
-            If HLS resolves: expect II closer to 1-2, interval ~256-512 cycles.
-pooling:    maxpool2d_nonoverlap_cl flat loop → target II=1, expected ~336 cycles.
+Stage                   Interval   II   Notes
+first_conv (ring buf)     1028      4   stream-write throughput limit (4 writes/stride)
+relu                       339      1   simple stage, unchanged
+maxpool2d_nonoverlap       339      1   II=1 confirmed, was 674 (II=2)
+dense                      176      -   resource hotspot, not interval limiter
+Top interval              1029          first_conv dominates; pool gain absorbed
 ```
 
-After changes, estimated bottleneck chain (pending HLS confirmation):
-
-```text
-Stage                      Est. Interval   Basis
-first_conv (ring buf)      256–1040        depends on whether WriteOutputWidth limits II
-maxpool2d_nonoverlap       ~336            flat loop II=1 target
-relu                        339            unchanged, II=1
-dense                       176            unchanged, resource hotspot
-```
-
-If first_conv interval drops below 339, the next bottleneck becomes relu (~339 cycles).
-If first_conv stays near 1040, the pool improvement (~674 → 336) does not change top interval.
-Run HLS csynth to determine which scenario applies.
+Pool improvement (674→339) is real but invisible at top level while first_conv > 339.
+Top interval gain this round: 1041 → 1029 (−12 cycles, ~1%).
+Next target: break first_conv's 4-write bottleneck to get top interval below 339.
 
 Baseline reports before first-conv replacement:
 
