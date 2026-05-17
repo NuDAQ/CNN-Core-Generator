@@ -1238,10 +1238,16 @@ firmware/cnn_core.cpp:33:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_X
 firmware/cnn_core.cpp:36:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=cnn_core_XLX_SEP_ PragmaOptions=variable=layer4x4_out depth=4_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS STREAM variable=layer4x4_out depth=4
         ^
-firmware/cnn_core.cpp:39:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=cnn_core_XLX_SEP_ PragmaOptions=variable=layer5x4_out depth=4_XLX_SEP_ [-Wdump-hls-pragmas]
+firmware/cnn_core.cpp:37:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=cnn_core_XLX_SEP_ PragmaOptions=variable=layer4x4_out type=fifo impl=srl_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=layer4x4_out type=fifo impl=srl
+        ^
+firmware/cnn_core.cpp:40:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=cnn_core_XLX_SEP_ PragmaOptions=variable=layer5x4_out depth=4_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS STREAM variable=layer5x4_out depth=4
         ^
-firmware/cnn_core.cpp:42:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=cnn_core_XLX_SEP_ PragmaOptions=variable=layer5_out depth=168_XLX_SEP_ [-Wdump-hls-pragmas]
+firmware/cnn_core.cpp:41:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=cnn_core_XLX_SEP_ PragmaOptions=variable=layer5x4_out type=fifo impl=srl_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS BIND_STORAGE variable=layer5x4_out type=fifo impl=srl
+        ^
+firmware/cnn_core.cpp:44:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=cnn_core_XLX_SEP_ PragmaOptions=variable=layer5_out depth=168_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS STREAM variable=layer5_out depth=168
         ^
-395 warnings generated.
+397 warnings generated.

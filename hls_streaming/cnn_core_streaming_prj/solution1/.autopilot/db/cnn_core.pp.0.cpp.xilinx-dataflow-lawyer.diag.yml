@@ -3,18 +3,18 @@ MainSourceFile:  /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_str
 Diagnostics:     
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '46:102'
+    FileOffset:      '48:102'
     FilePath:        firmware/cnn_core.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '46:106'
+    FileOffset:      '48:106'
     FilePath:        firmware/cnn_core.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '54:70'
+    FileOffset:      '56:70'
     FilePath:        firmware/cnn_core.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '54:74'
+    FileOffset:      '56:74'
     FilePath:        firmware/cnn_core.cpp
 ...

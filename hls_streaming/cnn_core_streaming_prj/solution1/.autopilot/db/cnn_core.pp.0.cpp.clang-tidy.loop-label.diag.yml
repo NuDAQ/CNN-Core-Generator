@@ -934,4 +934,14 @@ Diagnostics:
         Offset:          2528572
         Length:          0
         ReplacementText: 'VITIS_LOOP_256_5: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, fifo + srl is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      37
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/cnn_core.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, fifo + srl is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      41
+    FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/cnn_core.cpp
+    Replacements:    
 ...

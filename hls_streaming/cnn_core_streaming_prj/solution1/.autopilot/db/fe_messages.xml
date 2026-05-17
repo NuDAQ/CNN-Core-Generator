@@ -11,10 +11,10 @@
     <msg msg_groups="PRAGMA_INVALID" msg_id="207-5536" msg_severity="WARNING" msg_loc="firmware/nnet_utils/nnet_dense_resource.h:189:9" msg_body="'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead">
         <args ClangWarningOption="ignored-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-113" msg_severity="WARNING" msg_loc="firmware/cnn_core.cpp:46:102" msg_body="Either use an argument of the function or declare the variable inside the dataflow loop body"/>
-    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-113" msg_severity="WARNING" msg_loc="firmware/cnn_core.cpp:46:106" msg_body="Either use an argument of the function or declare the variable inside the dataflow loop body"/>
-    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-113" msg_severity="WARNING" msg_loc="firmware/cnn_core.cpp:54:70" msg_body="Either use an argument of the function or declare the variable inside the dataflow loop body"/>
-    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-113" msg_severity="WARNING" msg_loc="firmware/cnn_core.cpp:54:74" msg_body="Either use an argument of the function or declare the variable inside the dataflow loop body"/>
+    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-113" msg_severity="WARNING" msg_loc="firmware/cnn_core.cpp:48:102" msg_body="Either use an argument of the function or declare the variable inside the dataflow loop body"/>
+    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-113" msg_severity="WARNING" msg_loc="firmware/cnn_core.cpp:48:106" msg_body="Either use an argument of the function or declare the variable inside the dataflow loop body"/>
+    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-113" msg_severity="WARNING" msg_loc="firmware/cnn_core.cpp:56:70" msg_body="Either use an argument of the function or declare the variable inside the dataflow loop body"/>
+    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-113" msg_severity="WARNING" msg_loc="firmware/cnn_core.cpp:56:74" msg_body="Either use an argument of the function or declare the variable inside the dataflow loop body"/>
     <msg msg_groups="" msg_id="207-5292" msg_severity="WARNING" msg_loc="firmware/nnet_utils/nnet_helpers.h:285:99" msg_body="unused parameter 'keep'">
         <args ClangWarningOption="unused-parameter"/>
     </msg>
@@ -1182,10 +1182,16 @@
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/cnn_core.cpp:36:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="cnn_core" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=layer4x4_out depth=4" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/cnn_core.cpp:39:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/cnn_core.cpp:37:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cnn_core" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=layer4x4_out type=fifo impl=srl" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/cnn_core.cpp:40:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="cnn_core" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=layer5x4_out depth=4" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/cnn_core.cpp:42:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/cnn_core.cpp:41:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cnn_core" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=layer5x4_out type=fifo impl=srl" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="firmware/cnn_core.cpp:44:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="cnn_core" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=layer5_out depth=168" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
     <msg msg_groups="PRAGMA_INLINE" msg_id="214-415" msg_severity="INFO" msg_loc="firmware/nnet_utils/nnet_dense_stream.h:85:9" msg_body="Performing recursive inline in function 'nnet::dense&lt;nnet::array&lt;ap_fixed&lt;16, 6, (ap_q_mode)5, (ap_o_mode)3, 0&gt;, 7u&gt;, nnet::array&lt;ap_fixed&lt;9, 5, (ap_q_mode)5, (ap_o_mode)3, 0&gt;, 1u&gt;, config7&gt;'">
@@ -1386,10 +1392,10 @@
     <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="firmware/nnet_utils/nnet_dense_stream.h:90:29" msg_body="Applying array_partition to 'res': Complete partitioning on dimension 1.">
         <args Dim="1" Mode="Complete" UOName="res"/>
     </msg>
-    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="firmware/cnn_core.cpp:41:24" msg_body="Aggregating fifo (hls::stream) variable 'layer5_out' with compact=bit mode in 112-bits">
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="firmware/cnn_core.cpp:43:24" msg_body="Aggregating fifo (hls::stream) variable 'layer5_out' with compact=bit mode in 112-bits">
         <args AggregateTypeName="compact=bit" Bitwidth="112" HwTyName="fifo (hls::stream)" Name="layer5_out"/>
     </msg>
-    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="firmware/cnn_core.cpp:38:26" msg_body="Aggregating fifo (hls::stream) variable 'layer5x4_out' with compact=bit mode in 448-bits">
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="firmware/cnn_core.cpp:39:26" msg_body="Aggregating fifo (hls::stream) variable 'layer5x4_out' with compact=bit mode in 448-bits">
         <args AggregateTypeName="compact=bit" Bitwidth="448" HwTyName="fifo (hls::stream)" Name="layer5x4_out"/>
     </msg>
     <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="firmware/cnn_core.cpp:35:26" msg_body="Aggregating fifo (hls::stream) variable 'layer4x4_out' with compact=bit mode in 448-bits">

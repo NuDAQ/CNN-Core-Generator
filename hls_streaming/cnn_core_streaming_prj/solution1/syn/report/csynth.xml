@@ -37,10 +37,10 @@
     </PerformanceEstimates>
     <AreaEstimates>
         <Resources>
-            <BRAM_18K>57</BRAM_18K>
+            <BRAM_18K>7</BRAM_18K>
             <DSP>17</DSP>
-            <FF>30852</FF>
-            <LUT>39067</LUT>
+            <FF>30756</FF>
+            <LUT>39119</LUT>
             <URAM>0</URAM>
         </Resources>
         <AvailableResources>
@@ -199,35 +199,35 @@
                     <InstName>first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0</InstName>
                     <ModuleName>first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>72</ID>
+                    <ID>80</ID>
                     <BindInstances>i_ih_4_fu_897_p2 add_ln132_fu_1047_p2 add_ln156_fu_1095_p2 add_ln154_fu_1109_p2 add_ln156_1_fu_1121_p2 add_ln154_1_fu_1135_p2 add_ln154_2_fu_1151_p2 add_ln154_3_fu_1276_p2 add_ln154_4_fu_1169_p2 sub_ln42_fu_1913_p2 sub_ln42_1_fu_1919_p2 mul_12s_5ns_15_1_1_U3 sub_ln42_2_fu_1958_p2 sub_ln42_7_fu_2036_p2 sub_ln42_8_fu_2070_p2 add_ln58_fu_2076_p2 add_ln58_1_fu_2086_p2 add_ln58_2_fu_2096_p2 sub_ln58_fu_2106_p2 tmp118_fu_2112_p2 add_ln58_3_fu_2126_p2 add_ln58_5_fu_2148_p2 add_ln58_7_fu_2160_p2 add_ln58_10_fu_2172_p2 tmp20987_fu_2188_p2 add_ln58_14_fu_2208_p2 tmp211_fu_2224_p2 tmp213_fu_2276_p2 tmp214_fu_2294_p2 sub_ln42_9_fu_2420_p2 sub_ln42_10_fu_2426_p2 mul_12s_5ns_15_1_1_U4 sub_ln42_11_fu_2465_p2 sub_ln42_16_fu_2543_p2 sub_ln42_17_fu_2577_p2 add_ln58_21_fu_2583_p2 add_ln58_22_fu_2593_p2 add_ln58_24_fu_2603_p2 sub_ln58_5_fu_2613_p2 tmp215116_fu_2619_p2 add_ln58_26_fu_2633_p2 add_ln58_28_fu_2655_p2 add_ln58_30_fu_2667_p2 add_ln58_33_fu_2679_p2 tmp21859_fu_2695_p2 add_ln58_39_fu_2715_p2 tmp221_fu_2731_p2 tmp223_fu_2783_p2 tmp224_fu_2801_p2 sub_ln42_18_fu_2887_p2 sub_ln42_19_fu_2893_p2 mul_12s_5ns_15_1_1_U2 sub_ln42_20_fu_2932_p2 sub_ln42_25_fu_3010_p2 sub_ln42_26_fu_3044_p2 add_ln58_42_fu_3050_p2 add_ln58_43_fu_3060_p2 add_ln58_45_fu_3070_p2 sub_ln58_10_fu_3080_p2 tmp225114_fu_3086_p2 add_ln58_49_fu_3100_p2 add_ln58_52_fu_3122_p2 add_ln58_53_fu_3134_p2 add_ln58_56_fu_3146_p2 tmp22831_fu_3162_p2 add_ln58_62_fu_3182_p2 tmp231_fu_3198_p2 tmp233_fu_3250_p2 tmp234_fu_3268_p2 sub_ln42_27_fu_3354_p2 sub_ln42_28_fu_3360_p2 mul_12s_5ns_15_1_1_U1 sub_ln42_29_fu_3399_p2 sub_ln42_34_fu_3477_p2 sub_ln42_35_fu_3511_p2 add_ln58_63_fu_3517_p2 add_ln58_64_fu_3527_p2 add_ln58_66_fu_3537_p2 sub_ln58_15_fu_3547_p2 tmp235112_fu_3553_p2 add_ln58_70_fu_3567_p2 add_ln58_75_fu_3589_p2 add_ln58_76_fu_3601_p2 add_ln58_81_fu_3613_p2 tmp2383_fu_3629_p2 add_ln58_85_fu_3649_p2 tmp241_fu_3665_p2 tmp243_fu_3717_p2 tmp244_fu_3735_p2 add_ln175_fu_1181_p2</BindInstances>
                 </Instance>
                 <Instance>
                     <InstName>relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0</InstName>
                     <ModuleName>relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>79</ID>
-                    <BindInstances>i_4_fu_243_p2</BindInstances>
+                    <ID>87</ID>
+                    <BindInstances>i_4_fu_251_p2</BindInstances>
                 </Instance>
                 <Instance>
                     <InstName>maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0</InstName>
                     <ModuleName>maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>85</ID>
-                    <BindInstances>i_ih_2_fu_306_p2</BindInstances>
+                    <ID>93</ID>
+                    <BindInstances>i_ih_2_fu_314_p2</BindInstances>
                 </Instance>
                 <Instance>
                     <InstName>unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0</InstName>
                     <ModuleName>unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>91</ID>
-                    <BindInstances>i_2_fu_317_p2 add_ln209_fu_339_p2</BindInstances>
+                    <ID>99</ID>
+                    <BindInstances>i_2_fu_325_p2 add_ln209_fu_347_p2</BindInstances>
                 </Instance>
                 <Instance>
                     <InstName>dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0</InstName>
                     <ModuleName>dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>97</ID>
+                    <ID>105</ID>
                     <InstancesList>
                         <Instance>
                             <InstName>grp_dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare_fu_3197</InstName>
@@ -478,7 +478,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReLUActLoop" OPTYPE="add" PRAGMA="" RTLNAME="i_4_fu_243_p2" SOURCE="firmware/nnet_utils/nnet_activation_stream.h:41" STORAGESUBTYPE="" URAM="0" VARIABLE="i_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReLUActLoop" OPTYPE="add" PRAGMA="" RTLNAME="i_4_fu_251_p2" SOURCE="firmware/nnet_utils/nnet_activation_stream.h:41" STORAGESUBTYPE="" URAM="0" VARIABLE="i_4"/>
             </BindNodes>
         </Module>
         <Module>
@@ -490,7 +490,7 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>5.00</TargetClockPeriod>
                     <ClockUncertainty>1.35</ClockUncertainty>
-                    <EstimatedClockPeriod>2.831</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>3.020</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>87</Best-caseLatency>
@@ -549,7 +549,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="PoolWideMain" OPTYPE="add" PRAGMA="" RTLNAME="i_ih_2_fu_306_p2" SOURCE="firmware/nnet_utils/nnet_pooling_stream.h:430" STORAGESUBTYPE="" URAM="0" VARIABLE="i_ih_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="PoolWideMain" OPTYPE="add" PRAGMA="" RTLNAME="i_ih_2_fu_314_p2" SOURCE="firmware/nnet_utils/nnet_pooling_stream.h:430" STORAGESUBTYPE="" URAM="0" VARIABLE="i_ih_2"/>
             </BindNodes>
         </Module>
         <Module>
@@ -620,8 +620,8 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="UnpackOutputFlat" OPTYPE="add" PRAGMA="" RTLNAME="i_2_fu_317_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:191" STORAGESUBTYPE="" URAM="0" VARIABLE="i_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="UnpackOutputFlat" OPTYPE="add" PRAGMA="" RTLNAME="add_ln209_fu_339_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:209" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln209"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="UnpackOutputFlat" OPTYPE="add" PRAGMA="" RTLNAME="i_2_fu_325_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:191" STORAGESUBTYPE="" URAM="0" VARIABLE="i_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="UnpackOutputFlat" OPTYPE="add" PRAGMA="" RTLNAME="add_ln209_fu_347_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:209" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln209"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1862,16 +1862,16 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <BRAM_18K>57</BRAM_18K>
+                    <BRAM_18K>7</BRAM_18K>
                     <AVAIL_BRAM>960</AVAIL_BRAM>
-                    <UTIL_BRAM>5</UTIL_BRAM>
+                    <UTIL_BRAM>~0</UTIL_BRAM>
                     <DSP>17</DSP>
                     <AVAIL_DSP>1824</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>30852</FF>
+                    <FF>30756</FF>
                     <AVAIL_FF>433920</AVAIL_FF>
                     <UTIL_FF>7</UTIL_FF>
-                    <LUT>39067</LUT>
+                    <LUT>39119</LUT>
                     <AVAIL_LUT>216960</AVAIL_LUT>
                     <UTIL_LUT>18</UTIL_LUT>
                     <URAM>0</URAM>
@@ -1881,8 +1881,8 @@
             </AreaEstimates>
             <BindNodes>
                 <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="layer3x4_out_U" SOURCE=":0" STORAGESIZE="252 4 1" STORAGESUBTYPE="stream" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="layer3x4_out"/>
-                <BindNode BINDTYPE="storage" BRAM="25" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="memory" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="layer4x4_out_U" SOURCE=":0" STORAGESIZE="448 4 1" STORAGESUBTYPE="stream" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="layer4x4_out"/>
-                <BindNode BINDTYPE="storage" BRAM="25" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="memory" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="layer5x4_out_U" SOURCE=":0" STORAGESIZE="448 4 1" STORAGESUBTYPE="stream" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="layer5x4_out"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="layer4x4_out_U" SOURCE=":0" STORAGESIZE="448 4 1" STORAGESUBTYPE="stream" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="layer4x4_out"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="layer5x4_out_U" SOURCE=":0" STORAGESIZE="448 4 1" STORAGESUBTYPE="stream" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="layer5x4_out"/>
                 <BindNode BINDTYPE="storage" BRAM="7" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="memory" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="layer5_out_U" SOURCE=":0" STORAGESIZE="112 168 1" STORAGESUBTYPE="stream" STORAGEUSAGE="fifo channel" URAM="0" VARIABLE="layer5_out"/>
             </BindNodes>
         </Module>
@@ -2066,8 +2066,10 @@
         <Pragma type="dataflow" location="firmware/cnn_core.cpp:14" status="valid" parentFunction="cnn_core" variable="" isDirective="0" options=""/>
         <Pragma type="stream" location="firmware/cnn_core.cpp:33" status="valid" parentFunction="cnn_core" variable="layer3x4_out" isDirective="0" options="variable=layer3x4_out depth=4"/>
         <Pragma type="stream" location="firmware/cnn_core.cpp:36" status="valid" parentFunction="cnn_core" variable="layer4x4_out" isDirective="0" options="variable=layer4x4_out depth=4"/>
-        <Pragma type="stream" location="firmware/cnn_core.cpp:39" status="valid" parentFunction="cnn_core" variable="layer5x4_out" isDirective="0" options="variable=layer5x4_out depth=4"/>
-        <Pragma type="stream" location="firmware/cnn_core.cpp:42" status="valid" parentFunction="cnn_core" variable="layer5_out" isDirective="0" options="variable=layer5_out depth=168"/>
+        <Pragma type="bind_storage" location="firmware/cnn_core.cpp:37" status="valid" parentFunction="cnn_core" variable="layer4x4_out" isDirective="0" options="variable=layer4x4_out type=fifo impl=srl"/>
+        <Pragma type="stream" location="firmware/cnn_core.cpp:40" status="valid" parentFunction="cnn_core" variable="layer5x4_out" isDirective="0" options="variable=layer5x4_out depth=4"/>
+        <Pragma type="bind_storage" location="firmware/cnn_core.cpp:41" status="valid" parentFunction="cnn_core" variable="layer5x4_out" isDirective="0" options="variable=layer5x4_out type=fifo impl=srl"/>
+        <Pragma type="stream" location="firmware/cnn_core.cpp:44" status="valid" parentFunction="cnn_core" variable="layer5_out" isDirective="0" options="variable=layer5_out depth=168"/>
         <Pragma type="pipeline" location="firmware/nnet_utils/nnet_activation.h:29" status="valid" parentFunction="linear" variable="" isDirective="0" options=""/>
         <Pragma type="pipeline" location="firmware/nnet_utils/nnet_activation.h:40" status="valid" parentFunction="relu" variable="" isDirective="0" options=""/>
         <Pragma type="pipeline" location="firmware/nnet_utils/nnet_activation.h:54" status="valid" parentFunction="relu_max" variable="" isDirective="0" options=""/>

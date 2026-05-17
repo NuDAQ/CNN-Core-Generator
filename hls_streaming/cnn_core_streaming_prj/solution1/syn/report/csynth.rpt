@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'cnn_core'
 ================================================================
 + General Information: 
-    * Date:           Sun May 17 03:02:43 2026
+    * Date:           Sun May 17 03:12:07 2026
     * Version:        2023.2 (Build 4023990 on Oct 11 2023)
     * Project:        cnn_core_streaming_prj
     * Solution:       solution1 (Vivado IP Flow Target)
@@ -19,12 +19,12 @@
     |                                  Modules                                 |  Issue |       | Latency |  Latency  | Iteration|         | Trip |          |         |          |            |             |     |
     |                                  & Loops                                 |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval| Count| Pipelined|  BRAM   |    DSP   |     FF     |     LUT     | URAM|
     +--------------------------------------------------------------------------+--------+-------+---------+-----------+----------+---------+------+----------+---------+----------+------------+-------------+-----+
-    |+ cnn_core*                                                               |  Timing|  -0.24|      265|  1.325e+03|         -|      260|     -|  dataflow|  57 (5%)|  17 (~0%)|  30852 (7%)|  39067 (18%)|    -|
+    |+ cnn_core*                                                               |  Timing|  -0.24|      265|  1.325e+03|         -|      260|     -|  dataflow|  7 (~0%)|  17 (~0%)|  30756 (7%)|  39119 (18%)|    -|
     | + first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s   |  Timing|  -0.24|      259|  1.295e+03|         -|      259|     -|        no|        -|   4 (~0%)|   731 (~0%)|    4529 (2%)|    -|
     |  o ReadInputHeightWide                                                   |       -|   3.65|      257|  1.285e+03|         3|        1|   256|       yes|        -|         -|           -|            -|    -|
     | + relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s   |       -|   1.05|       87|    435.000|         -|       87|     -|        no|        -|         -|   265 (~0%)|    937 (~0%)|    -|
     |  o ReLUActLoop                                                           |       -|   3.65|       85|    425.000|         3|        1|    84|       yes|        -|         -|           -|            -|    -|
-    | + maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s        |       -|   0.82|       87|    435.000|         -|       87|     -|        no|        -|         -|   913 (~0%)|   1215 (~0%)|    -|
+    | + maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s        |       -|   0.63|       87|    435.000|         -|       87|     -|        no|        -|         -|   913 (~0%)|   1215 (~0%)|    -|
     |  o PoolWideMain                                                          |       -|   3.65|       85|    425.000|         3|        1|    84|       yes|        -|         -|           -|            -|    -|
     | + unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s  |       -|   1.37|      171|    855.000|         -|      171|     -|        no|        -|         -|   499 (~0%)|    408 (~0%)|    -|
     |  o UnpackOutputFlat                                                      |       -|   3.65|      169|    845.000|         3|        1|   168|       yes|        -|         -|           -|            -|    -|
@@ -175,12 +175,12 @@
 |    tmp244_fu_3735_p2                                                     |     |        | tmp244       | sub | fabric | 0       |
 |    add_ln175_fu_1181_p2                                                  |     |        | add_ln175    | add | fabric | 0       |
 |  + relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s  | 0   |        |              |     |        |         |
-|    i_4_fu_243_p2                                                         |     |        | i_4          | add | fabric | 0       |
+|    i_4_fu_251_p2                                                         |     |        | i_4          | add | fabric | 0       |
 |  + maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s       | 0   |        |              |     |        |         |
-|    i_ih_2_fu_306_p2                                                      |     |        | i_ih_2       | add | fabric | 0       |
+|    i_ih_2_fu_314_p2                                                      |     |        | i_ih_2       | add | fabric | 0       |
 |  + unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s | 0   |        |              |     |        |         |
-|    i_2_fu_317_p2                                                         |     |        | i_2          | add | fabric | 0       |
-|    add_ln209_fu_339_p2                                                   |     |        | add_ln209    | add | fabric | 0       |
+|    i_2_fu_325_p2                                                         |     |        | i_2          | add | fabric | 0       |
+|    add_ln209_fu_347_p2                                                   |     |        | add_ln209    | add | fabric | 0       |
 |  + dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s         | 13  |        |              |     |        |         |
 |   + dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare | 0   |        |              |     |        |         |
 |     add_ln33_fu_10684_p2                                                 |     |        | add_ln33     | add | fabric | 0       |
@@ -1243,10 +1243,10 @@
 | Name             | Usage        | Type   | BRAM | URAM | Pragma | Variable     | Impl   | Latency | Bitwidth, Depth, |
 |                  |              |        |      |      |        |              |        |         | Banks            |
 +------------------+--------------+--------+------+------+--------+--------------+--------+---------+------------------+
-| + cnn_core       |              |        | 57   | 0    |        |              |        |         |                  |
+| + cnn_core       |              |        | 7    | 0    |        |              |        |         |                  |
 |   layer3x4_out_U | fifo channel | stream |      |      |        | layer3x4_out | srl    | 0       | 252, 4, 1        |
-|   layer4x4_out_U | fifo channel | stream | 25   |      |        | layer4x4_out | memory | 0       | 448, 4, 1        |
-|   layer5x4_out_U | fifo channel | stream | 25   |      |        | layer5x4_out | memory | 0       | 448, 4, 1        |
+|   layer4x4_out_U | fifo channel | stream |      |      |        | layer4x4_out | srl    | 0       | 448, 4, 1        |
+|   layer5x4_out_U | fifo channel | stream |      |      |        | layer5x4_out | srl    | 0       | 448, 4, 1        |
 |   layer5_out_U   | fifo channel | stream | 7    |      |        | layer5_out   | memory | 0       | 112, 168, 1      |
 +------------------+--------------+--------+------+------+--------+--------------+--------+---------+------------------+
 
@@ -1278,8 +1278,10 @@
 | dataflow             |                                                                                                                                             | firmware/cnn_core.cpp:14 in cnn_core                                                               |
 | stream               | variable=layer3x4_out depth=4                                                                                                               | firmware/cnn_core.cpp:33 in cnn_core, layer3x4_out                                                 |
 | stream               | variable=layer4x4_out depth=4                                                                                                               | firmware/cnn_core.cpp:36 in cnn_core, layer4x4_out                                                 |
-| stream               | variable=layer5x4_out depth=4                                                                                                               | firmware/cnn_core.cpp:39 in cnn_core, layer5x4_out                                                 |
-| stream               | variable=layer5_out depth=168                                                                                                               | firmware/cnn_core.cpp:42 in cnn_core, layer5_out                                                   |
+| bind_storage         | variable=layer4x4_out type=fifo impl=srl                                                                                                    | firmware/cnn_core.cpp:37 in cnn_core, layer4x4_out                                                 |
+| stream               | variable=layer5x4_out depth=4                                                                                                               | firmware/cnn_core.cpp:40 in cnn_core, layer5x4_out                                                 |
+| bind_storage         | variable=layer5x4_out type=fifo impl=srl                                                                                                    | firmware/cnn_core.cpp:41 in cnn_core, layer5x4_out                                                 |
+| stream               | variable=layer5_out depth=168                                                                                                               | firmware/cnn_core.cpp:44 in cnn_core, layer5_out                                                   |
 | pipeline             |                                                                                                                                             | firmware/nnet_utils/nnet_activation.h:29 in linear                                                 |
 | pipeline             |                                                                                                                                             | firmware/nnet_utils/nnet_activation.h:40 in relu                                                   |
 | pipeline             |                                                                                                                                             | firmware/nnet_utils/nnet_activation.h:54 in relu_max                                               |

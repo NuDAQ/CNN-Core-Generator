@@ -6,7 +6,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="cnn_core_cnn_core,hls_ip_2023_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcku5p-ffvb676-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=3.886000,HLS_SYN_LAT=265,HLS_SYN_TPT=260,HLS_SYN_MEM=57,HLS_SYN_DSP=0,HLS_SYN_FF=30852,HLS_SYN_LUT=39067,HLS_VERSION=2023_2}" *)
+(* CORE_GENERATION_INFO="cnn_core_cnn_core,hls_ip_2023_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcku5p-ffvb676-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=3.886000,HLS_SYN_LAT=265,HLS_SYN_TPT=260,HLS_SYN_MEM=7,HLS_SYN_DSP=0,HLS_SYN_FF=30756,HLS_SYN_LUT=39119,HLS_VERSION=2023_2}" *)
 
 module cnn_core (
         input_layer_TDATA,
@@ -246,7 +246,7 @@ cnn_core_fifo_w252_d4_S layer3x4_out_U(
     .if_read(relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0_layer3x4_out_read)
 );
 
-cnn_core_fifo_w448_d4_A layer4x4_out_U(
+cnn_core_fifo_w448_d4_S layer4x4_out_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
@@ -261,7 +261,7 @@ cnn_core_fifo_w448_d4_A layer4x4_out_U(
     .if_read(maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_layer4x4_out_read)
 );
 
-cnn_core_fifo_w448_d4_A layer5x4_out_U(
+cnn_core_fifo_w448_d4_S layer5x4_out_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),

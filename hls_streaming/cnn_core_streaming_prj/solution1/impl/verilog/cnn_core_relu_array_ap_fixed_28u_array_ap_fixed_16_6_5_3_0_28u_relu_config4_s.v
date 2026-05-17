@@ -71,7 +71,7 @@ reg    ap_block_state1_pp0_stage0_iter0;
 reg    ap_block_state2_pp0_stage0_iter1;
 reg    ap_block_state3_pp0_stage0_iter2;
 reg    ap_block_pp0_stage0_subdone;
-wire   [0:0] icmp_ln41_fu_237_p2;
+wire   [0:0] icmp_ln41_fu_245_p2;
 reg    ap_condition_exit_pp0_iter0_stage0;
 wire    ap_loop_exit_ready;
 reg    ap_ready_int;
@@ -79,208 +79,208 @@ reg    layer3x4_out_blk_n;
 wire    ap_block_pp0_stage0;
 reg    layer4x4_out_blk_n;
 reg    ap_block_pp0_stage0_11001;
-wire   [0:0] icmp_ln51_fu_528_p2;
-reg   [0:0] icmp_ln51_reg_1546;
-wire   [7:0] trunc_ln52_fu_534_p1;
-reg   [7:0] trunc_ln52_reg_1551;
-wire   [0:0] icmp_ln51_1_fu_538_p2;
-reg   [0:0] icmp_ln51_1_reg_1556;
-reg   [7:0] tmp_1_reg_1561;
-wire   [0:0] icmp_ln51_2_fu_554_p2;
-reg   [0:0] icmp_ln51_2_reg_1566;
-reg   [7:0] tmp_2_reg_1571;
-wire   [0:0] icmp_ln51_3_fu_570_p2;
-reg   [0:0] icmp_ln51_3_reg_1576;
-reg   [7:0] tmp_3_reg_1581;
-wire   [0:0] icmp_ln51_4_fu_586_p2;
-reg   [0:0] icmp_ln51_4_reg_1586;
-reg   [7:0] tmp_4_reg_1591;
-wire   [0:0] icmp_ln51_5_fu_602_p2;
-reg   [0:0] icmp_ln51_5_reg_1596;
-reg   [7:0] tmp_5_reg_1601;
-wire   [0:0] icmp_ln51_6_fu_618_p2;
-reg   [0:0] icmp_ln51_6_reg_1606;
-reg   [7:0] tmp_6_reg_1611;
-wire   [0:0] icmp_ln51_7_fu_634_p2;
-reg   [0:0] icmp_ln51_7_reg_1616;
-reg   [7:0] tmp_7_reg_1621;
-wire   [0:0] icmp_ln51_8_fu_650_p2;
-reg   [0:0] icmp_ln51_8_reg_1626;
-reg   [7:0] tmp_8_reg_1631;
-wire   [0:0] icmp_ln51_9_fu_666_p2;
-reg   [0:0] icmp_ln51_9_reg_1636;
-reg   [7:0] tmp_9_reg_1641;
-wire   [0:0] icmp_ln51_10_fu_682_p2;
-reg   [0:0] icmp_ln51_10_reg_1646;
-reg   [7:0] tmp_s_reg_1651;
-wire   [0:0] icmp_ln51_11_fu_698_p2;
-reg   [0:0] icmp_ln51_11_reg_1656;
-reg   [7:0] tmp_10_reg_1661;
-wire   [0:0] icmp_ln51_12_fu_714_p2;
-reg   [0:0] icmp_ln51_12_reg_1666;
-reg   [7:0] tmp_11_reg_1671;
-wire   [0:0] icmp_ln51_13_fu_730_p2;
-reg   [0:0] icmp_ln51_13_reg_1676;
-reg   [7:0] tmp_12_reg_1681;
-wire   [0:0] icmp_ln51_14_fu_746_p2;
-reg   [0:0] icmp_ln51_14_reg_1686;
-reg   [7:0] tmp_13_reg_1691;
-wire   [0:0] icmp_ln51_15_fu_762_p2;
-reg   [0:0] icmp_ln51_15_reg_1696;
-reg   [7:0] tmp_14_reg_1701;
-wire   [0:0] icmp_ln51_16_fu_778_p2;
-reg   [0:0] icmp_ln51_16_reg_1706;
-reg   [7:0] tmp_15_reg_1711;
-wire   [0:0] icmp_ln51_17_fu_794_p2;
-reg   [0:0] icmp_ln51_17_reg_1716;
-reg   [7:0] tmp_16_reg_1721;
-wire   [0:0] icmp_ln51_18_fu_810_p2;
-reg   [0:0] icmp_ln51_18_reg_1726;
-reg   [7:0] tmp_17_reg_1731;
-wire   [0:0] icmp_ln51_19_fu_826_p2;
-reg   [0:0] icmp_ln51_19_reg_1736;
-reg   [7:0] tmp_18_reg_1741;
-wire   [0:0] icmp_ln51_20_fu_842_p2;
-reg   [0:0] icmp_ln51_20_reg_1746;
-reg   [7:0] tmp_19_reg_1751;
-wire   [0:0] icmp_ln51_21_fu_858_p2;
-reg   [0:0] icmp_ln51_21_reg_1756;
-reg   [7:0] tmp_20_reg_1761;
-wire   [0:0] icmp_ln51_22_fu_874_p2;
-reg   [0:0] icmp_ln51_22_reg_1766;
-reg   [7:0] tmp_21_reg_1771;
-wire   [0:0] icmp_ln51_23_fu_890_p2;
-reg   [0:0] icmp_ln51_23_reg_1776;
-reg   [7:0] tmp_22_reg_1781;
-wire   [0:0] icmp_ln51_24_fu_906_p2;
-reg   [0:0] icmp_ln51_24_reg_1786;
-reg   [7:0] tmp_23_reg_1791;
-wire   [0:0] icmp_ln51_25_fu_922_p2;
-reg   [0:0] icmp_ln51_25_reg_1796;
-reg   [7:0] tmp_24_reg_1801;
-wire   [0:0] icmp_ln51_26_fu_938_p2;
-reg   [0:0] icmp_ln51_26_reg_1806;
-reg   [7:0] tmp_25_reg_1811;
-wire   [0:0] icmp_ln51_27_fu_954_p2;
-reg   [0:0] icmp_ln51_27_reg_1816;
-reg   [7:0] tmp_26_reg_1821;
-reg   [6:0] i_fu_212;
-wire   [6:0] i_4_fu_243_p2;
+wire   [0:0] icmp_ln51_fu_536_p2;
+reg   [0:0] icmp_ln51_reg_1554;
+wire   [7:0] trunc_ln52_fu_542_p1;
+reg   [7:0] trunc_ln52_reg_1559;
+wire   [0:0] icmp_ln51_1_fu_546_p2;
+reg   [0:0] icmp_ln51_1_reg_1564;
+reg   [7:0] tmp_1_reg_1569;
+wire   [0:0] icmp_ln51_2_fu_562_p2;
+reg   [0:0] icmp_ln51_2_reg_1574;
+reg   [7:0] tmp_2_reg_1579;
+wire   [0:0] icmp_ln51_3_fu_578_p2;
+reg   [0:0] icmp_ln51_3_reg_1584;
+reg   [7:0] tmp_3_reg_1589;
+wire   [0:0] icmp_ln51_4_fu_594_p2;
+reg   [0:0] icmp_ln51_4_reg_1594;
+reg   [7:0] tmp_4_reg_1599;
+wire   [0:0] icmp_ln51_5_fu_610_p2;
+reg   [0:0] icmp_ln51_5_reg_1604;
+reg   [7:0] tmp_5_reg_1609;
+wire   [0:0] icmp_ln51_6_fu_626_p2;
+reg   [0:0] icmp_ln51_6_reg_1614;
+reg   [7:0] tmp_6_reg_1619;
+wire   [0:0] icmp_ln51_7_fu_642_p2;
+reg   [0:0] icmp_ln51_7_reg_1624;
+reg   [7:0] tmp_7_reg_1629;
+wire   [0:0] icmp_ln51_8_fu_658_p2;
+reg   [0:0] icmp_ln51_8_reg_1634;
+reg   [7:0] tmp_8_reg_1639;
+wire   [0:0] icmp_ln51_9_fu_674_p2;
+reg   [0:0] icmp_ln51_9_reg_1644;
+reg   [7:0] tmp_9_reg_1649;
+wire   [0:0] icmp_ln51_10_fu_690_p2;
+reg   [0:0] icmp_ln51_10_reg_1654;
+reg   [7:0] tmp_s_reg_1659;
+wire   [0:0] icmp_ln51_11_fu_706_p2;
+reg   [0:0] icmp_ln51_11_reg_1664;
+reg   [7:0] tmp_10_reg_1669;
+wire   [0:0] icmp_ln51_12_fu_722_p2;
+reg   [0:0] icmp_ln51_12_reg_1674;
+reg   [7:0] tmp_11_reg_1679;
+wire   [0:0] icmp_ln51_13_fu_738_p2;
+reg   [0:0] icmp_ln51_13_reg_1684;
+reg   [7:0] tmp_12_reg_1689;
+wire   [0:0] icmp_ln51_14_fu_754_p2;
+reg   [0:0] icmp_ln51_14_reg_1694;
+reg   [7:0] tmp_13_reg_1699;
+wire   [0:0] icmp_ln51_15_fu_770_p2;
+reg   [0:0] icmp_ln51_15_reg_1704;
+reg   [7:0] tmp_14_reg_1709;
+wire   [0:0] icmp_ln51_16_fu_786_p2;
+reg   [0:0] icmp_ln51_16_reg_1714;
+reg   [7:0] tmp_15_reg_1719;
+wire   [0:0] icmp_ln51_17_fu_802_p2;
+reg   [0:0] icmp_ln51_17_reg_1724;
+reg   [7:0] tmp_16_reg_1729;
+wire   [0:0] icmp_ln51_18_fu_818_p2;
+reg   [0:0] icmp_ln51_18_reg_1734;
+reg   [7:0] tmp_17_reg_1739;
+wire   [0:0] icmp_ln51_19_fu_834_p2;
+reg   [0:0] icmp_ln51_19_reg_1744;
+reg   [7:0] tmp_18_reg_1749;
+wire   [0:0] icmp_ln51_20_fu_850_p2;
+reg   [0:0] icmp_ln51_20_reg_1754;
+reg   [7:0] tmp_19_reg_1759;
+wire   [0:0] icmp_ln51_21_fu_866_p2;
+reg   [0:0] icmp_ln51_21_reg_1764;
+reg   [7:0] tmp_20_reg_1769;
+wire   [0:0] icmp_ln51_22_fu_882_p2;
+reg   [0:0] icmp_ln51_22_reg_1774;
+reg   [7:0] tmp_21_reg_1779;
+wire   [0:0] icmp_ln51_23_fu_898_p2;
+reg   [0:0] icmp_ln51_23_reg_1784;
+reg   [7:0] tmp_22_reg_1789;
+wire   [0:0] icmp_ln51_24_fu_914_p2;
+reg   [0:0] icmp_ln51_24_reg_1794;
+reg   [7:0] tmp_23_reg_1799;
+wire   [0:0] icmp_ln51_25_fu_930_p2;
+reg   [0:0] icmp_ln51_25_reg_1804;
+reg   [7:0] tmp_24_reg_1809;
+wire   [0:0] icmp_ln51_26_fu_946_p2;
+reg   [0:0] icmp_ln51_26_reg_1814;
+reg   [7:0] tmp_25_reg_1819;
+wire   [0:0] icmp_ln51_27_fu_962_p2;
+reg   [0:0] icmp_ln51_27_reg_1824;
+reg   [7:0] tmp_26_reg_1829;
+reg   [6:0] i_fu_220;
+wire   [6:0] i_4_fu_251_p2;
 wire    ap_loop_init;
 reg   [6:0] ap_sig_allocacmp_i_3;
 reg    ap_block_pp0_stage0_01001;
-wire   [8:0] trunc_ln44_fu_254_p1;
-wire   [8:0] trunc_ln44_1_fu_258_p4;
-wire   [8:0] trunc_ln44_2_fu_268_p4;
-wire   [8:0] trunc_ln44_3_fu_278_p4;
-wire   [8:0] trunc_ln44_4_fu_288_p4;
-wire   [8:0] trunc_ln44_5_fu_298_p4;
-wire   [8:0] trunc_ln44_6_fu_308_p4;
-wire   [8:0] trunc_ln44_7_fu_318_p4;
-wire   [8:0] trunc_ln44_8_fu_328_p4;
-wire   [8:0] trunc_ln44_9_fu_338_p4;
-wire   [8:0] trunc_ln44_s_fu_348_p4;
-wire   [8:0] trunc_ln44_10_fu_358_p4;
-wire   [8:0] trunc_ln44_11_fu_368_p4;
-wire   [8:0] trunc_ln44_12_fu_378_p4;
-wire   [8:0] trunc_ln44_13_fu_388_p4;
-wire   [8:0] trunc_ln44_14_fu_398_p4;
-wire   [8:0] trunc_ln44_15_fu_408_p4;
-wire   [8:0] trunc_ln44_16_fu_418_p4;
-wire   [8:0] trunc_ln44_17_fu_428_p4;
-wire   [8:0] trunc_ln44_18_fu_438_p4;
-wire   [8:0] trunc_ln44_19_fu_448_p4;
-wire   [8:0] trunc_ln44_20_fu_458_p4;
-wire   [8:0] trunc_ln44_21_fu_468_p4;
-wire   [8:0] trunc_ln44_22_fu_478_p4;
-wire   [8:0] trunc_ln44_23_fu_488_p4;
-wire   [8:0] trunc_ln44_24_fu_498_p4;
-wire   [8:0] trunc_ln44_25_fu_508_p4;
-wire   [8:0] trunc_ln44_26_fu_518_p4;
-wire   [13:0] out_data_fu_970_p3;
-wire   [13:0] out_data_1_fu_977_p3;
-wire   [13:0] out_data_2_fu_988_p3;
-wire   [13:0] out_data_3_fu_995_p3;
-wire   [13:0] out_data_4_fu_1006_p3;
-wire   [13:0] out_data_5_fu_1013_p3;
-wire   [13:0] out_data_6_fu_1024_p3;
-wire   [13:0] out_data_7_fu_1031_p3;
-wire   [13:0] shl_ln_fu_1042_p3;
-wire   [13:0] select_ln51_fu_1049_p3;
-wire   [13:0] shl_ln52_1_fu_1060_p3;
-wire   [13:0] select_ln51_1_fu_1067_p3;
-wire   [13:0] shl_ln52_2_fu_1078_p3;
-wire   [13:0] select_ln51_2_fu_1085_p3;
-wire   [13:0] shl_ln52_3_fu_1096_p3;
-wire   [13:0] select_ln51_3_fu_1103_p3;
-wire   [13:0] shl_ln52_4_fu_1114_p3;
-wire   [13:0] select_ln51_4_fu_1121_p3;
-wire   [13:0] shl_ln52_5_fu_1132_p3;
-wire   [13:0] select_ln51_5_fu_1139_p3;
-wire   [13:0] shl_ln52_6_fu_1150_p3;
-wire   [13:0] select_ln51_6_fu_1157_p3;
-wire   [13:0] shl_ln52_7_fu_1168_p3;
-wire   [13:0] select_ln51_7_fu_1175_p3;
-wire   [13:0] shl_ln52_8_fu_1186_p3;
-wire   [13:0] select_ln51_8_fu_1193_p3;
-wire   [13:0] shl_ln52_9_fu_1204_p3;
-wire   [13:0] select_ln51_9_fu_1211_p3;
-wire   [13:0] shl_ln52_s_fu_1222_p3;
-wire   [13:0] select_ln51_10_fu_1229_p3;
-wire   [13:0] shl_ln52_10_fu_1240_p3;
-wire   [13:0] select_ln51_11_fu_1247_p3;
-wire   [13:0] shl_ln52_11_fu_1258_p3;
-wire   [13:0] select_ln51_12_fu_1265_p3;
-wire   [13:0] shl_ln52_12_fu_1276_p3;
-wire   [13:0] select_ln51_13_fu_1283_p3;
-wire   [13:0] shl_ln52_13_fu_1294_p3;
-wire   [13:0] select_ln51_14_fu_1301_p3;
-wire   [13:0] shl_ln52_14_fu_1312_p3;
-wire   [13:0] select_ln51_15_fu_1319_p3;
-wire   [13:0] shl_ln52_15_fu_1330_p3;
-wire   [13:0] select_ln51_16_fu_1337_p3;
-wire   [13:0] shl_ln52_16_fu_1348_p3;
-wire   [13:0] select_ln51_17_fu_1355_p3;
-wire   [13:0] shl_ln52_17_fu_1366_p3;
-wire   [13:0] select_ln51_18_fu_1373_p3;
-wire   [13:0] shl_ln52_18_fu_1384_p3;
-wire   [13:0] select_ln51_19_fu_1391_p3;
-wire   [13:0] shl_ln52_19_fu_1402_p3;
-wire   [13:0] select_ln51_20_fu_1409_p3;
-wire   [13:0] shl_ln52_20_fu_1420_p3;
-wire   [13:0] select_ln51_21_fu_1427_p3;
-wire   [13:0] shl_ln52_21_fu_1438_p3;
-wire   [13:0] select_ln51_22_fu_1445_p3;
-wire   [13:0] shl_ln52_22_fu_1456_p3;
-wire   [13:0] select_ln51_23_fu_1463_p3;
-wire   [15:0] zext_ln51_22_fu_1452_p1;
-wire   [15:0] zext_ln51_21_fu_1434_p1;
-wire   [15:0] zext_ln51_20_fu_1416_p1;
-wire   [15:0] zext_ln51_19_fu_1398_p1;
-wire   [15:0] zext_ln51_18_fu_1380_p1;
-wire   [15:0] zext_ln51_17_fu_1362_p1;
-wire   [15:0] zext_ln51_16_fu_1344_p1;
-wire   [15:0] zext_ln51_15_fu_1326_p1;
-wire   [15:0] zext_ln51_14_fu_1308_p1;
-wire   [15:0] zext_ln51_13_fu_1290_p1;
-wire   [15:0] zext_ln51_12_fu_1272_p1;
-wire   [15:0] zext_ln51_11_fu_1254_p1;
-wire   [15:0] zext_ln51_10_fu_1236_p1;
-wire   [15:0] zext_ln51_9_fu_1218_p1;
-wire   [15:0] zext_ln51_8_fu_1200_p1;
-wire   [15:0] zext_ln51_7_fu_1182_p1;
-wire   [15:0] zext_ln51_6_fu_1164_p1;
-wire   [15:0] zext_ln51_5_fu_1146_p1;
-wire   [15:0] zext_ln51_4_fu_1128_p1;
-wire   [15:0] zext_ln51_3_fu_1110_p1;
-wire   [15:0] zext_ln51_2_fu_1092_p1;
-wire   [15:0] zext_ln51_1_fu_1074_p1;
-wire   [15:0] zext_ln51_fu_1056_p1;
-wire   [15:0] zext_ln45_3_fu_1038_p1;
-wire   [15:0] zext_ln45_2_fu_1020_p1;
-wire   [15:0] zext_ln45_1_fu_1002_p1;
-wire   [15:0] zext_ln45_fu_984_p1;
-wire   [445:0] or_ln57_s_fu_1470_p29;
+wire   [8:0] trunc_ln44_fu_262_p1;
+wire   [8:0] trunc_ln44_1_fu_266_p4;
+wire   [8:0] trunc_ln44_2_fu_276_p4;
+wire   [8:0] trunc_ln44_3_fu_286_p4;
+wire   [8:0] trunc_ln44_4_fu_296_p4;
+wire   [8:0] trunc_ln44_5_fu_306_p4;
+wire   [8:0] trunc_ln44_6_fu_316_p4;
+wire   [8:0] trunc_ln44_7_fu_326_p4;
+wire   [8:0] trunc_ln44_8_fu_336_p4;
+wire   [8:0] trunc_ln44_9_fu_346_p4;
+wire   [8:0] trunc_ln44_s_fu_356_p4;
+wire   [8:0] trunc_ln44_10_fu_366_p4;
+wire   [8:0] trunc_ln44_11_fu_376_p4;
+wire   [8:0] trunc_ln44_12_fu_386_p4;
+wire   [8:0] trunc_ln44_13_fu_396_p4;
+wire   [8:0] trunc_ln44_14_fu_406_p4;
+wire   [8:0] trunc_ln44_15_fu_416_p4;
+wire   [8:0] trunc_ln44_16_fu_426_p4;
+wire   [8:0] trunc_ln44_17_fu_436_p4;
+wire   [8:0] trunc_ln44_18_fu_446_p4;
+wire   [8:0] trunc_ln44_19_fu_456_p4;
+wire   [8:0] trunc_ln44_20_fu_466_p4;
+wire   [8:0] trunc_ln44_21_fu_476_p4;
+wire   [8:0] trunc_ln44_22_fu_486_p4;
+wire   [8:0] trunc_ln44_23_fu_496_p4;
+wire   [8:0] trunc_ln44_24_fu_506_p4;
+wire   [8:0] trunc_ln44_25_fu_516_p4;
+wire   [8:0] trunc_ln44_26_fu_526_p4;
+wire   [13:0] out_data_fu_978_p3;
+wire   [13:0] out_data_1_fu_985_p3;
+wire   [13:0] out_data_2_fu_996_p3;
+wire   [13:0] out_data_3_fu_1003_p3;
+wire   [13:0] out_data_4_fu_1014_p3;
+wire   [13:0] out_data_5_fu_1021_p3;
+wire   [13:0] out_data_6_fu_1032_p3;
+wire   [13:0] out_data_7_fu_1039_p3;
+wire   [13:0] shl_ln_fu_1050_p3;
+wire   [13:0] select_ln51_fu_1057_p3;
+wire   [13:0] shl_ln52_1_fu_1068_p3;
+wire   [13:0] select_ln51_1_fu_1075_p3;
+wire   [13:0] shl_ln52_2_fu_1086_p3;
+wire   [13:0] select_ln51_2_fu_1093_p3;
+wire   [13:0] shl_ln52_3_fu_1104_p3;
+wire   [13:0] select_ln51_3_fu_1111_p3;
+wire   [13:0] shl_ln52_4_fu_1122_p3;
+wire   [13:0] select_ln51_4_fu_1129_p3;
+wire   [13:0] shl_ln52_5_fu_1140_p3;
+wire   [13:0] select_ln51_5_fu_1147_p3;
+wire   [13:0] shl_ln52_6_fu_1158_p3;
+wire   [13:0] select_ln51_6_fu_1165_p3;
+wire   [13:0] shl_ln52_7_fu_1176_p3;
+wire   [13:0] select_ln51_7_fu_1183_p3;
+wire   [13:0] shl_ln52_8_fu_1194_p3;
+wire   [13:0] select_ln51_8_fu_1201_p3;
+wire   [13:0] shl_ln52_9_fu_1212_p3;
+wire   [13:0] select_ln51_9_fu_1219_p3;
+wire   [13:0] shl_ln52_s_fu_1230_p3;
+wire   [13:0] select_ln51_10_fu_1237_p3;
+wire   [13:0] shl_ln52_10_fu_1248_p3;
+wire   [13:0] select_ln51_11_fu_1255_p3;
+wire   [13:0] shl_ln52_11_fu_1266_p3;
+wire   [13:0] select_ln51_12_fu_1273_p3;
+wire   [13:0] shl_ln52_12_fu_1284_p3;
+wire   [13:0] select_ln51_13_fu_1291_p3;
+wire   [13:0] shl_ln52_13_fu_1302_p3;
+wire   [13:0] select_ln51_14_fu_1309_p3;
+wire   [13:0] shl_ln52_14_fu_1320_p3;
+wire   [13:0] select_ln51_15_fu_1327_p3;
+wire   [13:0] shl_ln52_15_fu_1338_p3;
+wire   [13:0] select_ln51_16_fu_1345_p3;
+wire   [13:0] shl_ln52_16_fu_1356_p3;
+wire   [13:0] select_ln51_17_fu_1363_p3;
+wire   [13:0] shl_ln52_17_fu_1374_p3;
+wire   [13:0] select_ln51_18_fu_1381_p3;
+wire   [13:0] shl_ln52_18_fu_1392_p3;
+wire   [13:0] select_ln51_19_fu_1399_p3;
+wire   [13:0] shl_ln52_19_fu_1410_p3;
+wire   [13:0] select_ln51_20_fu_1417_p3;
+wire   [13:0] shl_ln52_20_fu_1428_p3;
+wire   [13:0] select_ln51_21_fu_1435_p3;
+wire   [13:0] shl_ln52_21_fu_1446_p3;
+wire   [13:0] select_ln51_22_fu_1453_p3;
+wire   [13:0] shl_ln52_22_fu_1464_p3;
+wire   [13:0] select_ln51_23_fu_1471_p3;
+wire   [15:0] zext_ln51_22_fu_1460_p1;
+wire   [15:0] zext_ln51_21_fu_1442_p1;
+wire   [15:0] zext_ln51_20_fu_1424_p1;
+wire   [15:0] zext_ln51_19_fu_1406_p1;
+wire   [15:0] zext_ln51_18_fu_1388_p1;
+wire   [15:0] zext_ln51_17_fu_1370_p1;
+wire   [15:0] zext_ln51_16_fu_1352_p1;
+wire   [15:0] zext_ln51_15_fu_1334_p1;
+wire   [15:0] zext_ln51_14_fu_1316_p1;
+wire   [15:0] zext_ln51_13_fu_1298_p1;
+wire   [15:0] zext_ln51_12_fu_1280_p1;
+wire   [15:0] zext_ln51_11_fu_1262_p1;
+wire   [15:0] zext_ln51_10_fu_1244_p1;
+wire   [15:0] zext_ln51_9_fu_1226_p1;
+wire   [15:0] zext_ln51_8_fu_1208_p1;
+wire   [15:0] zext_ln51_7_fu_1190_p1;
+wire   [15:0] zext_ln51_6_fu_1172_p1;
+wire   [15:0] zext_ln51_5_fu_1154_p1;
+wire   [15:0] zext_ln51_4_fu_1136_p1;
+wire   [15:0] zext_ln51_3_fu_1118_p1;
+wire   [15:0] zext_ln51_2_fu_1100_p1;
+wire   [15:0] zext_ln51_1_fu_1082_p1;
+wire   [15:0] zext_ln51_fu_1064_p1;
+wire   [15:0] zext_ln45_3_fu_1046_p1;
+wire   [15:0] zext_ln45_2_fu_1028_p1;
+wire   [15:0] zext_ln45_1_fu_1010_p1;
+wire   [15:0] zext_ln45_fu_992_p1;
+wire   [445:0] or_ln57_s_fu_1478_p29;
 wire    ap_continue_int;
 reg    ap_done_int;
 reg    ap_loop_exit_ready_pp0_iter1_reg;
@@ -297,7 +297,7 @@ initial begin
 #0 ap_enable_reg_pp0_iter1 = 1'b0;
 #0 ap_enable_reg_pp0_iter2 = 1'b0;
 #0 ap_done_reg = 1'b0;
-#0 i_fu_212 = 7'd0;
+#0 i_fu_220 = 7'd0;
 end
 
 cnn_core_flow_control_loop_pipe flow_control_loop_pipe_U(
@@ -372,10 +372,10 @@ end
 
 always @ (posedge ap_clk) begin
     if ((1'b1 == ap_condition_225)) begin
-        if ((icmp_ln41_fu_237_p2 == 1'd0)) begin
-            i_fu_212 <= i_4_fu_243_p2;
+        if ((icmp_ln41_fu_245_p2 == 1'd0)) begin
+            i_fu_220 <= i_4_fu_251_p2;
         end else if ((ap_loop_init == 1'b1)) begin
-            i_fu_212 <= 7'd0;
+            i_fu_220 <= 7'd0;
         end
     end
 end
@@ -383,67 +383,67 @@ end
 always @ (posedge ap_clk) begin
     if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_loop_exit_ready_pp0_iter1_reg <= ap_loop_exit_ready;
-        icmp_ln51_10_reg_1646 <= icmp_ln51_10_fu_682_p2;
-        icmp_ln51_11_reg_1656 <= icmp_ln51_11_fu_698_p2;
-        icmp_ln51_12_reg_1666 <= icmp_ln51_12_fu_714_p2;
-        icmp_ln51_13_reg_1676 <= icmp_ln51_13_fu_730_p2;
-        icmp_ln51_14_reg_1686 <= icmp_ln51_14_fu_746_p2;
-        icmp_ln51_15_reg_1696 <= icmp_ln51_15_fu_762_p2;
-        icmp_ln51_16_reg_1706 <= icmp_ln51_16_fu_778_p2;
-        icmp_ln51_17_reg_1716 <= icmp_ln51_17_fu_794_p2;
-        icmp_ln51_18_reg_1726 <= icmp_ln51_18_fu_810_p2;
-        icmp_ln51_19_reg_1736 <= icmp_ln51_19_fu_826_p2;
-        icmp_ln51_1_reg_1556 <= icmp_ln51_1_fu_538_p2;
-        icmp_ln51_20_reg_1746 <= icmp_ln51_20_fu_842_p2;
-        icmp_ln51_21_reg_1756 <= icmp_ln51_21_fu_858_p2;
-        icmp_ln51_22_reg_1766 <= icmp_ln51_22_fu_874_p2;
-        icmp_ln51_23_reg_1776 <= icmp_ln51_23_fu_890_p2;
-        icmp_ln51_24_reg_1786 <= icmp_ln51_24_fu_906_p2;
-        icmp_ln51_25_reg_1796 <= icmp_ln51_25_fu_922_p2;
-        icmp_ln51_26_reg_1806 <= icmp_ln51_26_fu_938_p2;
-        icmp_ln51_27_reg_1816 <= icmp_ln51_27_fu_954_p2;
-        icmp_ln51_2_reg_1566 <= icmp_ln51_2_fu_554_p2;
-        icmp_ln51_3_reg_1576 <= icmp_ln51_3_fu_570_p2;
-        icmp_ln51_4_reg_1586 <= icmp_ln51_4_fu_586_p2;
-        icmp_ln51_5_reg_1596 <= icmp_ln51_5_fu_602_p2;
-        icmp_ln51_6_reg_1606 <= icmp_ln51_6_fu_618_p2;
-        icmp_ln51_7_reg_1616 <= icmp_ln51_7_fu_634_p2;
-        icmp_ln51_8_reg_1626 <= icmp_ln51_8_fu_650_p2;
-        icmp_ln51_9_reg_1636 <= icmp_ln51_9_fu_666_p2;
-        icmp_ln51_reg_1546 <= icmp_ln51_fu_528_p2;
-        tmp_10_reg_1661 <= {{layer3x4_out_dout[106:99]}};
-        tmp_11_reg_1671 <= {{layer3x4_out_dout[115:108]}};
-        tmp_12_reg_1681 <= {{layer3x4_out_dout[124:117]}};
-        tmp_13_reg_1691 <= {{layer3x4_out_dout[133:126]}};
-        tmp_14_reg_1701 <= {{layer3x4_out_dout[142:135]}};
-        tmp_15_reg_1711 <= {{layer3x4_out_dout[151:144]}};
-        tmp_16_reg_1721 <= {{layer3x4_out_dout[160:153]}};
-        tmp_17_reg_1731 <= {{layer3x4_out_dout[169:162]}};
-        tmp_18_reg_1741 <= {{layer3x4_out_dout[178:171]}};
-        tmp_19_reg_1751 <= {{layer3x4_out_dout[187:180]}};
-        tmp_1_reg_1561 <= {{layer3x4_out_dout[16:9]}};
-        tmp_20_reg_1761 <= {{layer3x4_out_dout[196:189]}};
-        tmp_21_reg_1771 <= {{layer3x4_out_dout[205:198]}};
-        tmp_22_reg_1781 <= {{layer3x4_out_dout[214:207]}};
-        tmp_23_reg_1791 <= {{layer3x4_out_dout[223:216]}};
-        tmp_24_reg_1801 <= {{layer3x4_out_dout[232:225]}};
-        tmp_25_reg_1811 <= {{layer3x4_out_dout[241:234]}};
-        tmp_26_reg_1821 <= {{layer3x4_out_dout[250:243]}};
-        tmp_2_reg_1571 <= {{layer3x4_out_dout[25:18]}};
-        tmp_3_reg_1581 <= {{layer3x4_out_dout[34:27]}};
-        tmp_4_reg_1591 <= {{layer3x4_out_dout[43:36]}};
-        tmp_5_reg_1601 <= {{layer3x4_out_dout[52:45]}};
-        tmp_6_reg_1611 <= {{layer3x4_out_dout[61:54]}};
-        tmp_7_reg_1621 <= {{layer3x4_out_dout[70:63]}};
-        tmp_8_reg_1631 <= {{layer3x4_out_dout[79:72]}};
-        tmp_9_reg_1641 <= {{layer3x4_out_dout[88:81]}};
-        tmp_s_reg_1651 <= {{layer3x4_out_dout[97:90]}};
-        trunc_ln52_reg_1551 <= trunc_ln52_fu_534_p1;
+        icmp_ln51_10_reg_1654 <= icmp_ln51_10_fu_690_p2;
+        icmp_ln51_11_reg_1664 <= icmp_ln51_11_fu_706_p2;
+        icmp_ln51_12_reg_1674 <= icmp_ln51_12_fu_722_p2;
+        icmp_ln51_13_reg_1684 <= icmp_ln51_13_fu_738_p2;
+        icmp_ln51_14_reg_1694 <= icmp_ln51_14_fu_754_p2;
+        icmp_ln51_15_reg_1704 <= icmp_ln51_15_fu_770_p2;
+        icmp_ln51_16_reg_1714 <= icmp_ln51_16_fu_786_p2;
+        icmp_ln51_17_reg_1724 <= icmp_ln51_17_fu_802_p2;
+        icmp_ln51_18_reg_1734 <= icmp_ln51_18_fu_818_p2;
+        icmp_ln51_19_reg_1744 <= icmp_ln51_19_fu_834_p2;
+        icmp_ln51_1_reg_1564 <= icmp_ln51_1_fu_546_p2;
+        icmp_ln51_20_reg_1754 <= icmp_ln51_20_fu_850_p2;
+        icmp_ln51_21_reg_1764 <= icmp_ln51_21_fu_866_p2;
+        icmp_ln51_22_reg_1774 <= icmp_ln51_22_fu_882_p2;
+        icmp_ln51_23_reg_1784 <= icmp_ln51_23_fu_898_p2;
+        icmp_ln51_24_reg_1794 <= icmp_ln51_24_fu_914_p2;
+        icmp_ln51_25_reg_1804 <= icmp_ln51_25_fu_930_p2;
+        icmp_ln51_26_reg_1814 <= icmp_ln51_26_fu_946_p2;
+        icmp_ln51_27_reg_1824 <= icmp_ln51_27_fu_962_p2;
+        icmp_ln51_2_reg_1574 <= icmp_ln51_2_fu_562_p2;
+        icmp_ln51_3_reg_1584 <= icmp_ln51_3_fu_578_p2;
+        icmp_ln51_4_reg_1594 <= icmp_ln51_4_fu_594_p2;
+        icmp_ln51_5_reg_1604 <= icmp_ln51_5_fu_610_p2;
+        icmp_ln51_6_reg_1614 <= icmp_ln51_6_fu_626_p2;
+        icmp_ln51_7_reg_1624 <= icmp_ln51_7_fu_642_p2;
+        icmp_ln51_8_reg_1634 <= icmp_ln51_8_fu_658_p2;
+        icmp_ln51_9_reg_1644 <= icmp_ln51_9_fu_674_p2;
+        icmp_ln51_reg_1554 <= icmp_ln51_fu_536_p2;
+        tmp_10_reg_1669 <= {{layer3x4_out_dout[106:99]}};
+        tmp_11_reg_1679 <= {{layer3x4_out_dout[115:108]}};
+        tmp_12_reg_1689 <= {{layer3x4_out_dout[124:117]}};
+        tmp_13_reg_1699 <= {{layer3x4_out_dout[133:126]}};
+        tmp_14_reg_1709 <= {{layer3x4_out_dout[142:135]}};
+        tmp_15_reg_1719 <= {{layer3x4_out_dout[151:144]}};
+        tmp_16_reg_1729 <= {{layer3x4_out_dout[160:153]}};
+        tmp_17_reg_1739 <= {{layer3x4_out_dout[169:162]}};
+        tmp_18_reg_1749 <= {{layer3x4_out_dout[178:171]}};
+        tmp_19_reg_1759 <= {{layer3x4_out_dout[187:180]}};
+        tmp_1_reg_1569 <= {{layer3x4_out_dout[16:9]}};
+        tmp_20_reg_1769 <= {{layer3x4_out_dout[196:189]}};
+        tmp_21_reg_1779 <= {{layer3x4_out_dout[205:198]}};
+        tmp_22_reg_1789 <= {{layer3x4_out_dout[214:207]}};
+        tmp_23_reg_1799 <= {{layer3x4_out_dout[223:216]}};
+        tmp_24_reg_1809 <= {{layer3x4_out_dout[232:225]}};
+        tmp_25_reg_1819 <= {{layer3x4_out_dout[241:234]}};
+        tmp_26_reg_1829 <= {{layer3x4_out_dout[250:243]}};
+        tmp_2_reg_1579 <= {{layer3x4_out_dout[25:18]}};
+        tmp_3_reg_1589 <= {{layer3x4_out_dout[34:27]}};
+        tmp_4_reg_1599 <= {{layer3x4_out_dout[43:36]}};
+        tmp_5_reg_1609 <= {{layer3x4_out_dout[52:45]}};
+        tmp_6_reg_1619 <= {{layer3x4_out_dout[61:54]}};
+        tmp_7_reg_1629 <= {{layer3x4_out_dout[70:63]}};
+        tmp_8_reg_1639 <= {{layer3x4_out_dout[79:72]}};
+        tmp_9_reg_1649 <= {{layer3x4_out_dout[88:81]}};
+        tmp_s_reg_1659 <= {{layer3x4_out_dout[97:90]}};
+        trunc_ln52_reg_1559 <= trunc_ln52_fu_542_p1;
     end
 end
 
 always @ (*) begin
-    if (((icmp_ln41_fu_237_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_start_int == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+    if (((icmp_ln41_fu_245_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_start_int == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b1;
     end else begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b0;
@@ -486,7 +486,7 @@ always @ (*) begin
     if (((1'b0 == ap_block_pp0_stage0) & (ap_start_int == 1'b1) & (ap_loop_init == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_sig_allocacmp_i_3 = 7'd0;
     end else begin
-        ap_sig_allocacmp_i_3 = i_fu_212;
+        ap_sig_allocacmp_i_3 = i_fu_220;
     end
 end
 
@@ -589,294 +589,294 @@ assign ap_loop_exit_ready = ap_condition_exit_pp0_iter0_stage0;
 
 assign ap_ready = internal_ap_ready;
 
-assign i_4_fu_243_p2 = (ap_sig_allocacmp_i_3 + 7'd1);
+assign i_4_fu_251_p2 = (ap_sig_allocacmp_i_3 + 7'd1);
 
-assign icmp_ln41_fu_237_p2 = ((ap_sig_allocacmp_i_3 == 7'd84) ? 1'b1 : 1'b0);
+assign icmp_ln41_fu_245_p2 = ((ap_sig_allocacmp_i_3 == 7'd84) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_10_fu_682_p2 = (($signed(trunc_ln44_s_fu_348_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_10_fu_690_p2 = (($signed(trunc_ln44_s_fu_356_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_11_fu_698_p2 = (($signed(trunc_ln44_10_fu_358_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_11_fu_706_p2 = (($signed(trunc_ln44_10_fu_366_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_12_fu_714_p2 = (($signed(trunc_ln44_11_fu_368_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_12_fu_722_p2 = (($signed(trunc_ln44_11_fu_376_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_13_fu_730_p2 = (($signed(trunc_ln44_12_fu_378_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_13_fu_738_p2 = (($signed(trunc_ln44_12_fu_386_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_14_fu_746_p2 = (($signed(trunc_ln44_13_fu_388_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_14_fu_754_p2 = (($signed(trunc_ln44_13_fu_396_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_15_fu_762_p2 = (($signed(trunc_ln44_14_fu_398_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_15_fu_770_p2 = (($signed(trunc_ln44_14_fu_406_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_16_fu_778_p2 = (($signed(trunc_ln44_15_fu_408_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_16_fu_786_p2 = (($signed(trunc_ln44_15_fu_416_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_17_fu_794_p2 = (($signed(trunc_ln44_16_fu_418_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_17_fu_802_p2 = (($signed(trunc_ln44_16_fu_426_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_18_fu_810_p2 = (($signed(trunc_ln44_17_fu_428_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_18_fu_818_p2 = (($signed(trunc_ln44_17_fu_436_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_19_fu_826_p2 = (($signed(trunc_ln44_18_fu_438_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_19_fu_834_p2 = (($signed(trunc_ln44_18_fu_446_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_1_fu_538_p2 = (($signed(trunc_ln44_1_fu_258_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_1_fu_546_p2 = (($signed(trunc_ln44_1_fu_266_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_20_fu_842_p2 = (($signed(trunc_ln44_19_fu_448_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_20_fu_850_p2 = (($signed(trunc_ln44_19_fu_456_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_21_fu_858_p2 = (($signed(trunc_ln44_20_fu_458_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_21_fu_866_p2 = (($signed(trunc_ln44_20_fu_466_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_22_fu_874_p2 = (($signed(trunc_ln44_21_fu_468_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_22_fu_882_p2 = (($signed(trunc_ln44_21_fu_476_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_23_fu_890_p2 = (($signed(trunc_ln44_22_fu_478_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_23_fu_898_p2 = (($signed(trunc_ln44_22_fu_486_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_24_fu_906_p2 = (($signed(trunc_ln44_23_fu_488_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_24_fu_914_p2 = (($signed(trunc_ln44_23_fu_496_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_25_fu_922_p2 = (($signed(trunc_ln44_24_fu_498_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_25_fu_930_p2 = (($signed(trunc_ln44_24_fu_506_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_26_fu_938_p2 = (($signed(trunc_ln44_25_fu_508_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_26_fu_946_p2 = (($signed(trunc_ln44_25_fu_516_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_27_fu_954_p2 = (($signed(trunc_ln44_26_fu_518_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_27_fu_962_p2 = (($signed(trunc_ln44_26_fu_526_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_2_fu_554_p2 = (($signed(trunc_ln44_2_fu_268_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_2_fu_562_p2 = (($signed(trunc_ln44_2_fu_276_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_3_fu_570_p2 = (($signed(trunc_ln44_3_fu_278_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_3_fu_578_p2 = (($signed(trunc_ln44_3_fu_286_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_4_fu_586_p2 = (($signed(trunc_ln44_4_fu_288_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_4_fu_594_p2 = (($signed(trunc_ln44_4_fu_296_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_5_fu_602_p2 = (($signed(trunc_ln44_5_fu_298_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_5_fu_610_p2 = (($signed(trunc_ln44_5_fu_306_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_6_fu_618_p2 = (($signed(trunc_ln44_6_fu_308_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_6_fu_626_p2 = (($signed(trunc_ln44_6_fu_316_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_7_fu_634_p2 = (($signed(trunc_ln44_7_fu_318_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_7_fu_642_p2 = (($signed(trunc_ln44_7_fu_326_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_8_fu_650_p2 = (($signed(trunc_ln44_8_fu_328_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_8_fu_658_p2 = (($signed(trunc_ln44_8_fu_336_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_9_fu_666_p2 = (($signed(trunc_ln44_9_fu_338_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_9_fu_674_p2 = (($signed(trunc_ln44_9_fu_346_p4) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign icmp_ln51_fu_528_p2 = (($signed(trunc_ln44_fu_254_p1) > $signed(9'd0)) ? 1'b1 : 1'b0);
+assign icmp_ln51_fu_536_p2 = (($signed(trunc_ln44_fu_262_p1) > $signed(9'd0)) ? 1'b1 : 1'b0);
 
-assign layer4x4_out_din = or_ln57_s_fu_1470_p29;
+assign layer4x4_out_din = or_ln57_s_fu_1478_p29;
 
-assign or_ln57_s_fu_1470_p29 = {{{{{{{{{{{{{{{{{{{{{{{{{{{{select_ln51_23_fu_1463_p3}, {zext_ln51_22_fu_1452_p1}}, {zext_ln51_21_fu_1434_p1}}, {zext_ln51_20_fu_1416_p1}}, {zext_ln51_19_fu_1398_p1}}, {zext_ln51_18_fu_1380_p1}}, {zext_ln51_17_fu_1362_p1}}, {zext_ln51_16_fu_1344_p1}}, {zext_ln51_15_fu_1326_p1}}, {zext_ln51_14_fu_1308_p1}}, {zext_ln51_13_fu_1290_p1}}, {zext_ln51_12_fu_1272_p1}}, {zext_ln51_11_fu_1254_p1}}, {zext_ln51_10_fu_1236_p1}}, {zext_ln51_9_fu_1218_p1}}, {zext_ln51_8_fu_1200_p1}}, {zext_ln51_7_fu_1182_p1}}, {zext_ln51_6_fu_1164_p1}}, {zext_ln51_5_fu_1146_p1}}, {zext_ln51_4_fu_1128_p1}}, {zext_ln51_3_fu_1110_p1}}, {zext_ln51_2_fu_1092_p1}}, {zext_ln51_1_fu_1074_p1}}, {zext_ln51_fu_1056_p1}}, {zext_ln45_3_fu_1038_p1}}, {zext_ln45_2_fu_1020_p1}}, {zext_ln45_1_fu_1002_p1}}, {zext_ln45_fu_984_p1}};
+assign or_ln57_s_fu_1478_p29 = {{{{{{{{{{{{{{{{{{{{{{{{{{{{select_ln51_23_fu_1471_p3}, {zext_ln51_22_fu_1460_p1}}, {zext_ln51_21_fu_1442_p1}}, {zext_ln51_20_fu_1424_p1}}, {zext_ln51_19_fu_1406_p1}}, {zext_ln51_18_fu_1388_p1}}, {zext_ln51_17_fu_1370_p1}}, {zext_ln51_16_fu_1352_p1}}, {zext_ln51_15_fu_1334_p1}}, {zext_ln51_14_fu_1316_p1}}, {zext_ln51_13_fu_1298_p1}}, {zext_ln51_12_fu_1280_p1}}, {zext_ln51_11_fu_1262_p1}}, {zext_ln51_10_fu_1244_p1}}, {zext_ln51_9_fu_1226_p1}}, {zext_ln51_8_fu_1208_p1}}, {zext_ln51_7_fu_1190_p1}}, {zext_ln51_6_fu_1172_p1}}, {zext_ln51_5_fu_1154_p1}}, {zext_ln51_4_fu_1136_p1}}, {zext_ln51_3_fu_1118_p1}}, {zext_ln51_2_fu_1100_p1}}, {zext_ln51_1_fu_1082_p1}}, {zext_ln51_fu_1064_p1}}, {zext_ln45_3_fu_1046_p1}}, {zext_ln45_2_fu_1028_p1}}, {zext_ln45_1_fu_1010_p1}}, {zext_ln45_fu_992_p1}};
 
-assign out_data_1_fu_977_p3 = ((icmp_ln51_reg_1546[0:0] == 1'b1) ? out_data_fu_970_p3 : 14'd0);
+assign out_data_1_fu_985_p3 = ((icmp_ln51_reg_1554[0:0] == 1'b1) ? out_data_fu_978_p3 : 14'd0);
 
-assign out_data_2_fu_988_p3 = {{tmp_1_reg_1561}, {6'd0}};
+assign out_data_2_fu_996_p3 = {{tmp_1_reg_1569}, {6'd0}};
 
-assign out_data_3_fu_995_p3 = ((icmp_ln51_1_reg_1556[0:0] == 1'b1) ? out_data_2_fu_988_p3 : 14'd0);
+assign out_data_3_fu_1003_p3 = ((icmp_ln51_1_reg_1564[0:0] == 1'b1) ? out_data_2_fu_996_p3 : 14'd0);
 
-assign out_data_4_fu_1006_p3 = {{tmp_2_reg_1571}, {6'd0}};
+assign out_data_4_fu_1014_p3 = {{tmp_2_reg_1579}, {6'd0}};
 
-assign out_data_5_fu_1013_p3 = ((icmp_ln51_2_reg_1566[0:0] == 1'b1) ? out_data_4_fu_1006_p3 : 14'd0);
+assign out_data_5_fu_1021_p3 = ((icmp_ln51_2_reg_1574[0:0] == 1'b1) ? out_data_4_fu_1014_p3 : 14'd0);
 
-assign out_data_6_fu_1024_p3 = {{tmp_3_reg_1581}, {6'd0}};
+assign out_data_6_fu_1032_p3 = {{tmp_3_reg_1589}, {6'd0}};
 
-assign out_data_7_fu_1031_p3 = ((icmp_ln51_3_reg_1576[0:0] == 1'b1) ? out_data_6_fu_1024_p3 : 14'd0);
+assign out_data_7_fu_1039_p3 = ((icmp_ln51_3_reg_1584[0:0] == 1'b1) ? out_data_6_fu_1032_p3 : 14'd0);
 
-assign out_data_fu_970_p3 = {{trunc_ln52_reg_1551}, {6'd0}};
+assign out_data_fu_978_p3 = {{trunc_ln52_reg_1559}, {6'd0}};
 
-assign select_ln51_10_fu_1229_p3 = ((icmp_ln51_14_reg_1686[0:0] == 1'b1) ? shl_ln52_s_fu_1222_p3 : 14'd0);
+assign select_ln51_10_fu_1237_p3 = ((icmp_ln51_14_reg_1694[0:0] == 1'b1) ? shl_ln52_s_fu_1230_p3 : 14'd0);
 
-assign select_ln51_11_fu_1247_p3 = ((icmp_ln51_15_reg_1696[0:0] == 1'b1) ? shl_ln52_10_fu_1240_p3 : 14'd0);
+assign select_ln51_11_fu_1255_p3 = ((icmp_ln51_15_reg_1704[0:0] == 1'b1) ? shl_ln52_10_fu_1248_p3 : 14'd0);
 
-assign select_ln51_12_fu_1265_p3 = ((icmp_ln51_16_reg_1706[0:0] == 1'b1) ? shl_ln52_11_fu_1258_p3 : 14'd0);
+assign select_ln51_12_fu_1273_p3 = ((icmp_ln51_16_reg_1714[0:0] == 1'b1) ? shl_ln52_11_fu_1266_p3 : 14'd0);
 
-assign select_ln51_13_fu_1283_p3 = ((icmp_ln51_17_reg_1716[0:0] == 1'b1) ? shl_ln52_12_fu_1276_p3 : 14'd0);
+assign select_ln51_13_fu_1291_p3 = ((icmp_ln51_17_reg_1724[0:0] == 1'b1) ? shl_ln52_12_fu_1284_p3 : 14'd0);
 
-assign select_ln51_14_fu_1301_p3 = ((icmp_ln51_18_reg_1726[0:0] == 1'b1) ? shl_ln52_13_fu_1294_p3 : 14'd0);
+assign select_ln51_14_fu_1309_p3 = ((icmp_ln51_18_reg_1734[0:0] == 1'b1) ? shl_ln52_13_fu_1302_p3 : 14'd0);
 
-assign select_ln51_15_fu_1319_p3 = ((icmp_ln51_19_reg_1736[0:0] == 1'b1) ? shl_ln52_14_fu_1312_p3 : 14'd0);
+assign select_ln51_15_fu_1327_p3 = ((icmp_ln51_19_reg_1744[0:0] == 1'b1) ? shl_ln52_14_fu_1320_p3 : 14'd0);
 
-assign select_ln51_16_fu_1337_p3 = ((icmp_ln51_20_reg_1746[0:0] == 1'b1) ? shl_ln52_15_fu_1330_p3 : 14'd0);
+assign select_ln51_16_fu_1345_p3 = ((icmp_ln51_20_reg_1754[0:0] == 1'b1) ? shl_ln52_15_fu_1338_p3 : 14'd0);
 
-assign select_ln51_17_fu_1355_p3 = ((icmp_ln51_21_reg_1756[0:0] == 1'b1) ? shl_ln52_16_fu_1348_p3 : 14'd0);
+assign select_ln51_17_fu_1363_p3 = ((icmp_ln51_21_reg_1764[0:0] == 1'b1) ? shl_ln52_16_fu_1356_p3 : 14'd0);
 
-assign select_ln51_18_fu_1373_p3 = ((icmp_ln51_22_reg_1766[0:0] == 1'b1) ? shl_ln52_17_fu_1366_p3 : 14'd0);
+assign select_ln51_18_fu_1381_p3 = ((icmp_ln51_22_reg_1774[0:0] == 1'b1) ? shl_ln52_17_fu_1374_p3 : 14'd0);
 
-assign select_ln51_19_fu_1391_p3 = ((icmp_ln51_23_reg_1776[0:0] == 1'b1) ? shl_ln52_18_fu_1384_p3 : 14'd0);
+assign select_ln51_19_fu_1399_p3 = ((icmp_ln51_23_reg_1784[0:0] == 1'b1) ? shl_ln52_18_fu_1392_p3 : 14'd0);
 
-assign select_ln51_1_fu_1067_p3 = ((icmp_ln51_5_reg_1596[0:0] == 1'b1) ? shl_ln52_1_fu_1060_p3 : 14'd0);
+assign select_ln51_1_fu_1075_p3 = ((icmp_ln51_5_reg_1604[0:0] == 1'b1) ? shl_ln52_1_fu_1068_p3 : 14'd0);
 
-assign select_ln51_20_fu_1409_p3 = ((icmp_ln51_24_reg_1786[0:0] == 1'b1) ? shl_ln52_19_fu_1402_p3 : 14'd0);
+assign select_ln51_20_fu_1417_p3 = ((icmp_ln51_24_reg_1794[0:0] == 1'b1) ? shl_ln52_19_fu_1410_p3 : 14'd0);
 
-assign select_ln51_21_fu_1427_p3 = ((icmp_ln51_25_reg_1796[0:0] == 1'b1) ? shl_ln52_20_fu_1420_p3 : 14'd0);
+assign select_ln51_21_fu_1435_p3 = ((icmp_ln51_25_reg_1804[0:0] == 1'b1) ? shl_ln52_20_fu_1428_p3 : 14'd0);
 
-assign select_ln51_22_fu_1445_p3 = ((icmp_ln51_26_reg_1806[0:0] == 1'b1) ? shl_ln52_21_fu_1438_p3 : 14'd0);
+assign select_ln51_22_fu_1453_p3 = ((icmp_ln51_26_reg_1814[0:0] == 1'b1) ? shl_ln52_21_fu_1446_p3 : 14'd0);
 
-assign select_ln51_23_fu_1463_p3 = ((icmp_ln51_27_reg_1816[0:0] == 1'b1) ? shl_ln52_22_fu_1456_p3 : 14'd0);
+assign select_ln51_23_fu_1471_p3 = ((icmp_ln51_27_reg_1824[0:0] == 1'b1) ? shl_ln52_22_fu_1464_p3 : 14'd0);
 
-assign select_ln51_2_fu_1085_p3 = ((icmp_ln51_6_reg_1606[0:0] == 1'b1) ? shl_ln52_2_fu_1078_p3 : 14'd0);
+assign select_ln51_2_fu_1093_p3 = ((icmp_ln51_6_reg_1614[0:0] == 1'b1) ? shl_ln52_2_fu_1086_p3 : 14'd0);
 
-assign select_ln51_3_fu_1103_p3 = ((icmp_ln51_7_reg_1616[0:0] == 1'b1) ? shl_ln52_3_fu_1096_p3 : 14'd0);
+assign select_ln51_3_fu_1111_p3 = ((icmp_ln51_7_reg_1624[0:0] == 1'b1) ? shl_ln52_3_fu_1104_p3 : 14'd0);
 
-assign select_ln51_4_fu_1121_p3 = ((icmp_ln51_8_reg_1626[0:0] == 1'b1) ? shl_ln52_4_fu_1114_p3 : 14'd0);
+assign select_ln51_4_fu_1129_p3 = ((icmp_ln51_8_reg_1634[0:0] == 1'b1) ? shl_ln52_4_fu_1122_p3 : 14'd0);
 
-assign select_ln51_5_fu_1139_p3 = ((icmp_ln51_9_reg_1636[0:0] == 1'b1) ? shl_ln52_5_fu_1132_p3 : 14'd0);
+assign select_ln51_5_fu_1147_p3 = ((icmp_ln51_9_reg_1644[0:0] == 1'b1) ? shl_ln52_5_fu_1140_p3 : 14'd0);
 
-assign select_ln51_6_fu_1157_p3 = ((icmp_ln51_10_reg_1646[0:0] == 1'b1) ? shl_ln52_6_fu_1150_p3 : 14'd0);
+assign select_ln51_6_fu_1165_p3 = ((icmp_ln51_10_reg_1654[0:0] == 1'b1) ? shl_ln52_6_fu_1158_p3 : 14'd0);
 
-assign select_ln51_7_fu_1175_p3 = ((icmp_ln51_11_reg_1656[0:0] == 1'b1) ? shl_ln52_7_fu_1168_p3 : 14'd0);
+assign select_ln51_7_fu_1183_p3 = ((icmp_ln51_11_reg_1664[0:0] == 1'b1) ? shl_ln52_7_fu_1176_p3 : 14'd0);
 
-assign select_ln51_8_fu_1193_p3 = ((icmp_ln51_12_reg_1666[0:0] == 1'b1) ? shl_ln52_8_fu_1186_p3 : 14'd0);
+assign select_ln51_8_fu_1201_p3 = ((icmp_ln51_12_reg_1674[0:0] == 1'b1) ? shl_ln52_8_fu_1194_p3 : 14'd0);
 
-assign select_ln51_9_fu_1211_p3 = ((icmp_ln51_13_reg_1676[0:0] == 1'b1) ? shl_ln52_9_fu_1204_p3 : 14'd0);
+assign select_ln51_9_fu_1219_p3 = ((icmp_ln51_13_reg_1684[0:0] == 1'b1) ? shl_ln52_9_fu_1212_p3 : 14'd0);
 
-assign select_ln51_fu_1049_p3 = ((icmp_ln51_4_reg_1586[0:0] == 1'b1) ? shl_ln_fu_1042_p3 : 14'd0);
+assign select_ln51_fu_1057_p3 = ((icmp_ln51_4_reg_1594[0:0] == 1'b1) ? shl_ln_fu_1050_p3 : 14'd0);
 
-assign shl_ln52_10_fu_1240_p3 = {{tmp_14_reg_1701}, {6'd0}};
+assign shl_ln52_10_fu_1248_p3 = {{tmp_14_reg_1709}, {6'd0}};
 
-assign shl_ln52_11_fu_1258_p3 = {{tmp_15_reg_1711}, {6'd0}};
+assign shl_ln52_11_fu_1266_p3 = {{tmp_15_reg_1719}, {6'd0}};
 
-assign shl_ln52_12_fu_1276_p3 = {{tmp_16_reg_1721}, {6'd0}};
+assign shl_ln52_12_fu_1284_p3 = {{tmp_16_reg_1729}, {6'd0}};
 
-assign shl_ln52_13_fu_1294_p3 = {{tmp_17_reg_1731}, {6'd0}};
+assign shl_ln52_13_fu_1302_p3 = {{tmp_17_reg_1739}, {6'd0}};
 
-assign shl_ln52_14_fu_1312_p3 = {{tmp_18_reg_1741}, {6'd0}};
+assign shl_ln52_14_fu_1320_p3 = {{tmp_18_reg_1749}, {6'd0}};
 
-assign shl_ln52_15_fu_1330_p3 = {{tmp_19_reg_1751}, {6'd0}};
+assign shl_ln52_15_fu_1338_p3 = {{tmp_19_reg_1759}, {6'd0}};
 
-assign shl_ln52_16_fu_1348_p3 = {{tmp_20_reg_1761}, {6'd0}};
+assign shl_ln52_16_fu_1356_p3 = {{tmp_20_reg_1769}, {6'd0}};
 
-assign shl_ln52_17_fu_1366_p3 = {{tmp_21_reg_1771}, {6'd0}};
+assign shl_ln52_17_fu_1374_p3 = {{tmp_21_reg_1779}, {6'd0}};
 
-assign shl_ln52_18_fu_1384_p3 = {{tmp_22_reg_1781}, {6'd0}};
+assign shl_ln52_18_fu_1392_p3 = {{tmp_22_reg_1789}, {6'd0}};
 
-assign shl_ln52_19_fu_1402_p3 = {{tmp_23_reg_1791}, {6'd0}};
+assign shl_ln52_19_fu_1410_p3 = {{tmp_23_reg_1799}, {6'd0}};
 
-assign shl_ln52_1_fu_1060_p3 = {{tmp_5_reg_1601}, {6'd0}};
+assign shl_ln52_1_fu_1068_p3 = {{tmp_5_reg_1609}, {6'd0}};
 
-assign shl_ln52_20_fu_1420_p3 = {{tmp_24_reg_1801}, {6'd0}};
+assign shl_ln52_20_fu_1428_p3 = {{tmp_24_reg_1809}, {6'd0}};
 
-assign shl_ln52_21_fu_1438_p3 = {{tmp_25_reg_1811}, {6'd0}};
+assign shl_ln52_21_fu_1446_p3 = {{tmp_25_reg_1819}, {6'd0}};
 
-assign shl_ln52_22_fu_1456_p3 = {{tmp_26_reg_1821}, {6'd0}};
+assign shl_ln52_22_fu_1464_p3 = {{tmp_26_reg_1829}, {6'd0}};
 
-assign shl_ln52_2_fu_1078_p3 = {{tmp_6_reg_1611}, {6'd0}};
+assign shl_ln52_2_fu_1086_p3 = {{tmp_6_reg_1619}, {6'd0}};
 
-assign shl_ln52_3_fu_1096_p3 = {{tmp_7_reg_1621}, {6'd0}};
+assign shl_ln52_3_fu_1104_p3 = {{tmp_7_reg_1629}, {6'd0}};
 
-assign shl_ln52_4_fu_1114_p3 = {{tmp_8_reg_1631}, {6'd0}};
+assign shl_ln52_4_fu_1122_p3 = {{tmp_8_reg_1639}, {6'd0}};
 
-assign shl_ln52_5_fu_1132_p3 = {{tmp_9_reg_1641}, {6'd0}};
+assign shl_ln52_5_fu_1140_p3 = {{tmp_9_reg_1649}, {6'd0}};
 
-assign shl_ln52_6_fu_1150_p3 = {{tmp_s_reg_1651}, {6'd0}};
+assign shl_ln52_6_fu_1158_p3 = {{tmp_s_reg_1659}, {6'd0}};
 
-assign shl_ln52_7_fu_1168_p3 = {{tmp_10_reg_1661}, {6'd0}};
+assign shl_ln52_7_fu_1176_p3 = {{tmp_10_reg_1669}, {6'd0}};
 
-assign shl_ln52_8_fu_1186_p3 = {{tmp_11_reg_1671}, {6'd0}};
+assign shl_ln52_8_fu_1194_p3 = {{tmp_11_reg_1679}, {6'd0}};
 
-assign shl_ln52_9_fu_1204_p3 = {{tmp_12_reg_1681}, {6'd0}};
+assign shl_ln52_9_fu_1212_p3 = {{tmp_12_reg_1689}, {6'd0}};
 
-assign shl_ln52_s_fu_1222_p3 = {{tmp_13_reg_1691}, {6'd0}};
+assign shl_ln52_s_fu_1230_p3 = {{tmp_13_reg_1699}, {6'd0}};
 
-assign shl_ln_fu_1042_p3 = {{tmp_4_reg_1591}, {6'd0}};
+assign shl_ln_fu_1050_p3 = {{tmp_4_reg_1599}, {6'd0}};
 
 assign start_out = real_start;
 
-assign trunc_ln44_10_fu_358_p4 = {{layer3x4_out_dout[107:99]}};
+assign trunc_ln44_10_fu_366_p4 = {{layer3x4_out_dout[107:99]}};
 
-assign trunc_ln44_11_fu_368_p4 = {{layer3x4_out_dout[116:108]}};
+assign trunc_ln44_11_fu_376_p4 = {{layer3x4_out_dout[116:108]}};
 
-assign trunc_ln44_12_fu_378_p4 = {{layer3x4_out_dout[125:117]}};
+assign trunc_ln44_12_fu_386_p4 = {{layer3x4_out_dout[125:117]}};
 
-assign trunc_ln44_13_fu_388_p4 = {{layer3x4_out_dout[134:126]}};
+assign trunc_ln44_13_fu_396_p4 = {{layer3x4_out_dout[134:126]}};
 
-assign trunc_ln44_14_fu_398_p4 = {{layer3x4_out_dout[143:135]}};
+assign trunc_ln44_14_fu_406_p4 = {{layer3x4_out_dout[143:135]}};
 
-assign trunc_ln44_15_fu_408_p4 = {{layer3x4_out_dout[152:144]}};
+assign trunc_ln44_15_fu_416_p4 = {{layer3x4_out_dout[152:144]}};
 
-assign trunc_ln44_16_fu_418_p4 = {{layer3x4_out_dout[161:153]}};
+assign trunc_ln44_16_fu_426_p4 = {{layer3x4_out_dout[161:153]}};
 
-assign trunc_ln44_17_fu_428_p4 = {{layer3x4_out_dout[170:162]}};
+assign trunc_ln44_17_fu_436_p4 = {{layer3x4_out_dout[170:162]}};
 
-assign trunc_ln44_18_fu_438_p4 = {{layer3x4_out_dout[179:171]}};
+assign trunc_ln44_18_fu_446_p4 = {{layer3x4_out_dout[179:171]}};
 
-assign trunc_ln44_19_fu_448_p4 = {{layer3x4_out_dout[188:180]}};
+assign trunc_ln44_19_fu_456_p4 = {{layer3x4_out_dout[188:180]}};
 
-assign trunc_ln44_1_fu_258_p4 = {{layer3x4_out_dout[17:9]}};
+assign trunc_ln44_1_fu_266_p4 = {{layer3x4_out_dout[17:9]}};
 
-assign trunc_ln44_20_fu_458_p4 = {{layer3x4_out_dout[197:189]}};
+assign trunc_ln44_20_fu_466_p4 = {{layer3x4_out_dout[197:189]}};
 
-assign trunc_ln44_21_fu_468_p4 = {{layer3x4_out_dout[206:198]}};
+assign trunc_ln44_21_fu_476_p4 = {{layer3x4_out_dout[206:198]}};
 
-assign trunc_ln44_22_fu_478_p4 = {{layer3x4_out_dout[215:207]}};
+assign trunc_ln44_22_fu_486_p4 = {{layer3x4_out_dout[215:207]}};
 
-assign trunc_ln44_23_fu_488_p4 = {{layer3x4_out_dout[224:216]}};
+assign trunc_ln44_23_fu_496_p4 = {{layer3x4_out_dout[224:216]}};
 
-assign trunc_ln44_24_fu_498_p4 = {{layer3x4_out_dout[233:225]}};
+assign trunc_ln44_24_fu_506_p4 = {{layer3x4_out_dout[233:225]}};
 
-assign trunc_ln44_25_fu_508_p4 = {{layer3x4_out_dout[242:234]}};
+assign trunc_ln44_25_fu_516_p4 = {{layer3x4_out_dout[242:234]}};
 
-assign trunc_ln44_26_fu_518_p4 = {{layer3x4_out_dout[251:243]}};
+assign trunc_ln44_26_fu_526_p4 = {{layer3x4_out_dout[251:243]}};
 
-assign trunc_ln44_2_fu_268_p4 = {{layer3x4_out_dout[26:18]}};
+assign trunc_ln44_2_fu_276_p4 = {{layer3x4_out_dout[26:18]}};
 
-assign trunc_ln44_3_fu_278_p4 = {{layer3x4_out_dout[35:27]}};
+assign trunc_ln44_3_fu_286_p4 = {{layer3x4_out_dout[35:27]}};
 
-assign trunc_ln44_4_fu_288_p4 = {{layer3x4_out_dout[44:36]}};
+assign trunc_ln44_4_fu_296_p4 = {{layer3x4_out_dout[44:36]}};
 
-assign trunc_ln44_5_fu_298_p4 = {{layer3x4_out_dout[53:45]}};
+assign trunc_ln44_5_fu_306_p4 = {{layer3x4_out_dout[53:45]}};
 
-assign trunc_ln44_6_fu_308_p4 = {{layer3x4_out_dout[62:54]}};
+assign trunc_ln44_6_fu_316_p4 = {{layer3x4_out_dout[62:54]}};
 
-assign trunc_ln44_7_fu_318_p4 = {{layer3x4_out_dout[71:63]}};
+assign trunc_ln44_7_fu_326_p4 = {{layer3x4_out_dout[71:63]}};
 
-assign trunc_ln44_8_fu_328_p4 = {{layer3x4_out_dout[80:72]}};
+assign trunc_ln44_8_fu_336_p4 = {{layer3x4_out_dout[80:72]}};
 
-assign trunc_ln44_9_fu_338_p4 = {{layer3x4_out_dout[89:81]}};
+assign trunc_ln44_9_fu_346_p4 = {{layer3x4_out_dout[89:81]}};
 
-assign trunc_ln44_fu_254_p1 = layer3x4_out_dout[8:0];
+assign trunc_ln44_fu_262_p1 = layer3x4_out_dout[8:0];
 
-assign trunc_ln44_s_fu_348_p4 = {{layer3x4_out_dout[98:90]}};
+assign trunc_ln44_s_fu_356_p4 = {{layer3x4_out_dout[98:90]}};
 
-assign trunc_ln52_fu_534_p1 = layer3x4_out_dout[7:0];
+assign trunc_ln52_fu_542_p1 = layer3x4_out_dout[7:0];
 
-assign zext_ln45_1_fu_1002_p1 = out_data_3_fu_995_p3;
+assign zext_ln45_1_fu_1010_p1 = out_data_3_fu_1003_p3;
 
-assign zext_ln45_2_fu_1020_p1 = out_data_5_fu_1013_p3;
+assign zext_ln45_2_fu_1028_p1 = out_data_5_fu_1021_p3;
 
-assign zext_ln45_3_fu_1038_p1 = out_data_7_fu_1031_p3;
+assign zext_ln45_3_fu_1046_p1 = out_data_7_fu_1039_p3;
 
-assign zext_ln45_fu_984_p1 = out_data_1_fu_977_p3;
+assign zext_ln45_fu_992_p1 = out_data_1_fu_985_p3;
 
-assign zext_ln51_10_fu_1236_p1 = select_ln51_10_fu_1229_p3;
+assign zext_ln51_10_fu_1244_p1 = select_ln51_10_fu_1237_p3;
 
-assign zext_ln51_11_fu_1254_p1 = select_ln51_11_fu_1247_p3;
+assign zext_ln51_11_fu_1262_p1 = select_ln51_11_fu_1255_p3;
 
-assign zext_ln51_12_fu_1272_p1 = select_ln51_12_fu_1265_p3;
+assign zext_ln51_12_fu_1280_p1 = select_ln51_12_fu_1273_p3;
 
-assign zext_ln51_13_fu_1290_p1 = select_ln51_13_fu_1283_p3;
+assign zext_ln51_13_fu_1298_p1 = select_ln51_13_fu_1291_p3;
 
-assign zext_ln51_14_fu_1308_p1 = select_ln51_14_fu_1301_p3;
+assign zext_ln51_14_fu_1316_p1 = select_ln51_14_fu_1309_p3;
 
-assign zext_ln51_15_fu_1326_p1 = select_ln51_15_fu_1319_p3;
+assign zext_ln51_15_fu_1334_p1 = select_ln51_15_fu_1327_p3;
 
-assign zext_ln51_16_fu_1344_p1 = select_ln51_16_fu_1337_p3;
+assign zext_ln51_16_fu_1352_p1 = select_ln51_16_fu_1345_p3;
 
-assign zext_ln51_17_fu_1362_p1 = select_ln51_17_fu_1355_p3;
+assign zext_ln51_17_fu_1370_p1 = select_ln51_17_fu_1363_p3;
 
-assign zext_ln51_18_fu_1380_p1 = select_ln51_18_fu_1373_p3;
+assign zext_ln51_18_fu_1388_p1 = select_ln51_18_fu_1381_p3;
 
-assign zext_ln51_19_fu_1398_p1 = select_ln51_19_fu_1391_p3;
+assign zext_ln51_19_fu_1406_p1 = select_ln51_19_fu_1399_p3;
 
-assign zext_ln51_1_fu_1074_p1 = select_ln51_1_fu_1067_p3;
+assign zext_ln51_1_fu_1082_p1 = select_ln51_1_fu_1075_p3;
 
-assign zext_ln51_20_fu_1416_p1 = select_ln51_20_fu_1409_p3;
+assign zext_ln51_20_fu_1424_p1 = select_ln51_20_fu_1417_p3;
 
-assign zext_ln51_21_fu_1434_p1 = select_ln51_21_fu_1427_p3;
+assign zext_ln51_21_fu_1442_p1 = select_ln51_21_fu_1435_p3;
 
-assign zext_ln51_22_fu_1452_p1 = select_ln51_22_fu_1445_p3;
+assign zext_ln51_22_fu_1460_p1 = select_ln51_22_fu_1453_p3;
 
-assign zext_ln51_2_fu_1092_p1 = select_ln51_2_fu_1085_p3;
+assign zext_ln51_2_fu_1100_p1 = select_ln51_2_fu_1093_p3;
 
-assign zext_ln51_3_fu_1110_p1 = select_ln51_3_fu_1103_p3;
+assign zext_ln51_3_fu_1118_p1 = select_ln51_3_fu_1111_p3;
 
-assign zext_ln51_4_fu_1128_p1 = select_ln51_4_fu_1121_p3;
+assign zext_ln51_4_fu_1136_p1 = select_ln51_4_fu_1129_p3;
 
-assign zext_ln51_5_fu_1146_p1 = select_ln51_5_fu_1139_p3;
+assign zext_ln51_5_fu_1154_p1 = select_ln51_5_fu_1147_p3;
 
-assign zext_ln51_6_fu_1164_p1 = select_ln51_6_fu_1157_p3;
+assign zext_ln51_6_fu_1172_p1 = select_ln51_6_fu_1165_p3;
 
-assign zext_ln51_7_fu_1182_p1 = select_ln51_7_fu_1175_p3;
+assign zext_ln51_7_fu_1190_p1 = select_ln51_7_fu_1183_p3;
 
-assign zext_ln51_8_fu_1200_p1 = select_ln51_8_fu_1193_p3;
+assign zext_ln51_8_fu_1208_p1 = select_ln51_8_fu_1201_p3;
 
-assign zext_ln51_9_fu_1218_p1 = select_ln51_9_fu_1211_p3;
+assign zext_ln51_9_fu_1226_p1 = select_ln51_9_fu_1219_p3;
 
-assign zext_ln51_fu_1056_p1 = select_ln51_fu_1049_p3;
+assign zext_ln51_fu_1064_p1 = select_ln51_fu_1057_p3;
 
 endmodule //cnn_core_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s

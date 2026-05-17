@@ -19,10 +19,10 @@ dataflow_throughput: 260
 
 Top Resources
 -------------
-bram_18k: 57
+bram_18k: 7
 dsp: 17
-ff: 30852
-lut: 39067
+ff: 30756
+lut: 39119
 uram: 0
 
 Slowest Instances By Interval

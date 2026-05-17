@@ -41326,7 +41326,7 @@ Args:
 --- !Passed
 Pass:            reflow-aggr
 Name:            AggrSucc
-DebugLoc:        { File: firmware/cnn_core.cpp, Line: 41, Column: 24 }
+DebugLoc:        { File: firmware/cnn_core.cpp, Line: 43, Column: 24 }
 Function:        _Z8cnn_coreRN3hls6streamIN4nnet5arrayI8ap_fixedILi12ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj4EEELi0EEERNS0_INS2_IS3_ILi9ELi5ELS4_5ELS5_3ELi0EELj1EEELi0EEE
 Args:            
   - String:          'Aggregating '
@@ -41342,7 +41342,7 @@ Args:
 --- !Passed
 Pass:            reflow-aggr
 Name:            AggrSucc
-DebugLoc:        { File: firmware/cnn_core.cpp, Line: 38, Column: 26 }
+DebugLoc:        { File: firmware/cnn_core.cpp, Line: 39, Column: 26 }
 Function:        _Z8cnn_coreRN3hls6streamIN4nnet5arrayI8ap_fixedILi12ELi6EL9ap_q_mode5EL9ap_o_mode3ELi0EELj4EEELi0EEERNS0_INS2_IS3_ILi9ELi5ELS4_5ELS5_3ELi0EELj1EEELi0EEE
 Args:            
   - String:          'Aggregating '

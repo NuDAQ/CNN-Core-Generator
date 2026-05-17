@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'cnn_core'" level="0">
-<item name = "Date">Sun May 17 03:02:43 2026
+<item name = "Date">Sun May 17 03:12:07 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_streaming_prj</item>
@@ -53,13 +53,13 @@
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 2, -</column>
-<column name="FIFO">57, -, 556, 209, -</column>
+<column name="FIFO">7, -, 460, 261, -</column>
 <column name="Instance">-, 17, 30296, 38856, -</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, -, -</column>
 <column name="Register">-, -, -, -, -</column>
 <specialColumn name="Available">960, 1824, 433920, 216960, 64</specialColumn>
-<specialColumn name="Utilization (%)">5, ~0, 7, 18, 0</specialColumn>
+<specialColumn name="Utilization (%)">~0, ~0, 7, 18, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
@@ -84,9 +84,9 @@
 <item name = "FIFO"><table name="" hasTotal="1">
 <keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
 <column name="layer3x4_out_U">0, 99, 0, -, 4, 252, 1008</column>
-<column name="layer4x4_out_U">25, 147, 0, -, 4, 448, 1792</column>
+<column name="layer4x4_out_U">0, 99, 0, -, 4, 448, 1792</column>
 <column name="layer5_out_U">7, 163, 0, -, 168, 112, 18816</column>
-<column name="layer5x4_out_U">25, 147, 0, -, 4, 448, 1792</column>
+<column name="layer5x4_out_U">0, 99, 0, -, 4, 448, 1792</column>
 </table>
 </item>
 <item name = "Expression"><table name="" hasTotal="1">

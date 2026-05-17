@@ -28,7 +28,7 @@ end;
 architecture behav of cnn_core is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "cnn_core_cnn_core,hls_ip_2023_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcku5p-ffvb676-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=3.886000,HLS_SYN_LAT=265,HLS_SYN_TPT=260,HLS_SYN_MEM=57,HLS_SYN_DSP=0,HLS_SYN_FF=30852,HLS_SYN_LUT=39067,HLS_VERSION=2023_2}";
+    "cnn_core_cnn_core,hls_ip_2023_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcku5p-ffvb676-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=3.886000,HLS_SYN_LAT=265,HLS_SYN_TPT=260,HLS_SYN_MEM=7,HLS_SYN_DSP=0,HLS_SYN_FF=30756,HLS_SYN_LUT=39119,HLS_VERSION=2023_2}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
 
@@ -253,7 +253,7 @@ architecture behav of cnn_core is
     end component;
 
 
-    component cnn_core_fifo_w448_d4_A IS
+    component cnn_core_fifo_w448_d4_S IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -472,7 +472,7 @@ begin
         if_empty_n => layer3x4_out_empty_n,
         if_read => relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0_layer3x4_out_read);
 
-    layer4x4_out_U : component cnn_core_fifo_w448_d4_A
+    layer4x4_out_U : component cnn_core_fifo_w448_d4_S
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -487,7 +487,7 @@ begin
         if_empty_n => layer4x4_out_empty_n,
         if_read => maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_layer4x4_out_read);
 
-    layer5x4_out_U : component cnn_core_fifo_w448_d4_A
+    layer5x4_out_U : component cnn_core_fifo_w448_d4_S
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,

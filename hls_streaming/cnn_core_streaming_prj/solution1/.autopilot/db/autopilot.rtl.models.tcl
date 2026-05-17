@@ -29,8 +29,8 @@ set SynModuleInfo {
   {SRCNAME cnn_core MODELNAME cnn_core RTLNAME cnn_core IS_TOP 1
     SUBMODULES {
       {MODELNAME cnn_core_fifo_w252_d4_S RTLNAME cnn_core_fifo_w252_d4_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME layer3x4_out_U}
-      {MODELNAME cnn_core_fifo_w448_d4_A RTLNAME cnn_core_fifo_w448_d4_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME layer4x4_out_U}
-      {MODELNAME cnn_core_fifo_w448_d4_A RTLNAME cnn_core_fifo_w448_d4_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME layer5x4_out_U}
+      {MODELNAME cnn_core_fifo_w448_d4_S RTLNAME cnn_core_fifo_w448_d4_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME layer4x4_out_U}
+      {MODELNAME cnn_core_fifo_w448_d4_S RTLNAME cnn_core_fifo_w448_d4_S BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME layer5x4_out_U}
       {MODELNAME cnn_core_fifo_w112_d168_A RTLNAME cnn_core_fifo_w112_d168_A BINDTYPE storage TYPE fifo IMPL memory ALLOW_PRAGMA 1 INSTNAME layer5_out_U}
       {MODELNAME cnn_core_start_for_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0 RTLNAME cnn_core_start_for_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0 BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME start_for_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0_U}
       {MODELNAME cnn_core_start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0 RTLNAME cnn_core_start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0 BINDTYPE storage TYPE fifo IMPL srl ALLOW_PRAGMA 1 INSTNAME start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_U}

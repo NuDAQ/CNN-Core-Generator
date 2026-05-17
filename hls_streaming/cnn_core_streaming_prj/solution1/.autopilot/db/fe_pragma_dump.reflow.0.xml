@@ -29,8 +29,10 @@
 <pragma file="firmware/cnn_core.cpp" line="13" pragmaType="interface" parentfunction="cnn_core" mode="axis" port="input_layer" register="0" register_mode="both" name="" depth="-1"/>
 <pragma file="firmware/cnn_core.cpp" line="33" pragmaType="stream" parentfunction="cnn_core" depth="4" type="fifo" variable="layer3x4_out"/>
 <pragma file="firmware/cnn_core.cpp" line="36" pragmaType="stream" parentfunction="cnn_core" depth="4" type="fifo" variable="layer4x4_out"/>
-<pragma file="firmware/cnn_core.cpp" line="39" pragmaType="stream" parentfunction="cnn_core" depth="4" type="fifo" variable="layer5x4_out"/>
-<pragma file="firmware/cnn_core.cpp" line="42" pragmaType="stream" parentfunction="cnn_core" depth="168" type="fifo" variable="layer5_out"/>
+<pragma file="firmware/cnn_core.cpp" line="37" pragmaType="bind_storage" parentfunction="cnn_core" op="666" impl="10" latency="-1" variable="layer4x4_out"/>
+<pragma file="firmware/cnn_core.cpp" line="40" pragmaType="stream" parentfunction="cnn_core" depth="4" type="fifo" variable="layer5x4_out"/>
+<pragma file="firmware/cnn_core.cpp" line="41" pragmaType="bind_storage" parentfunction="cnn_core" op="666" impl="10" latency="-1" variable="layer5x4_out"/>
+<pragma file="firmware/cnn_core.cpp" line="44" pragmaType="stream" parentfunction="cnn_core" depth="168" type="fifo" variable="layer5_out"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>::stream(char const*)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 7u>, 0>::stream(char const*)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>& ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>::operator+=<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0>(ap_fixed_base<16, 6, true, (ap_q_mode)5, (ap_o_mode)3, 0> const&)" off="0" region="0" recursive="0"/>

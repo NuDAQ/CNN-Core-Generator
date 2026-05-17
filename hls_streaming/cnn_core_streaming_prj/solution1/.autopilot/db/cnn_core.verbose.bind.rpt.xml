@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'cnn_core'" level="0">
-<item name = "Date">Sun May 17 03:02:36 2026
+<item name = "Date">Sun May 17 03:12:01 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_streaming_prj</item>
@@ -31,11 +31,11 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s_fu_72">first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s, 259, 259, 1.295 us, 1.295 us, 259, 259, no</column>
-<column name="grp_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s_fu_79">relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s, 87, 87, 0.435 us, 0.435 us, 87, 87, no</column>
-<column name="grp_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s_fu_85">maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s, 87, 87, 0.435 us, 0.435 us, 87, 87, no</column>
-<column name="grp_unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s_fu_91">unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s, 171, 171, 0.855 us, 0.855 us, 171, 171, no</column>
-<column name="grp_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s_fu_97">dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s, 176, 176, 0.880 us, 0.880 us, 176, 176, no</column>
+<column name="grp_first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s_fu_80">first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s, 259, 259, 1.295 us, 1.295 us, 259, 259, no</column>
+<column name="grp_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s_fu_87">relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s, 87, 87, 0.435 us, 0.435 us, 87, 87, no</column>
+<column name="grp_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s_fu_93">maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s, 87, 87, 0.435 us, 0.435 us, 87, 87, no</column>
+<column name="grp_unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s_fu_99">unpack_4lane_temporal_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s, 171, 171, 0.855 us, 0.855 us, 171, 171, no</column>
+<column name="grp_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s_fu_105">dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s, 176, 176, 0.880 us, 0.880 us, 176, 176, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
