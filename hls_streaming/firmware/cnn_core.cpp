@@ -29,6 +29,9 @@ void cnn_core(
 
     // hls-fpga-machine-learning insert layers
 
+    hls::stream<layer3x4_t> layer3x4_out("layer3x4_out");
+    #pragma HLS STREAM variable=layer3x4_out depth=84
+
     hls::stream<layer3_t> layer3_out("layer3_out");
     #pragma HLS STREAM variable=layer3_out depth=336
 
@@ -40,7 +43,9 @@ void cnn_core(
 
     auto& layer6_out = layer5_out;
 
-    nnet::first_conv_4lane_temporal_cl<input_t, layer3_t, config3>(input_layer, layer3_out, w3, b3); // repack_reshape + q_conv2d
+    nnet::first_conv_4lane_temporal_wide_cl<input_t, layer3x4_t, config3>(input_layer, layer3x4_out, w3, b3); // repack_reshape + q_conv2d
+
+    nnet::unpack_4lane_temporal_cl<layer3x4_t, layer3_t, config3>(layer3x4_out, layer3_out);
 
     nnet::relu<layer3_t, layer4_t, relu_config4>(layer3_out, layer4_out); // q_conv2d_relu
 

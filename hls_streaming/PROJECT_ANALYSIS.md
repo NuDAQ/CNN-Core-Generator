@@ -110,9 +110,10 @@ generated repack + Conv2D front end with a model-specific first-conv block:
 
 ```text
 input_layer
-  -> first_conv_4lane_temporal_cl<input_t, layer3_t, config3>
+  -> first_conv_4lane_temporal_wide_cl<input_t, layer3x4_t, config3>
+  -> unpack_4lane_temporal_cl<layer3x4_t, layer3_t, config3>
   -> relu<layer3_t, layer4_t, relu_config4>
-  -> pooling2d_cl<layer4_t, layer5_t, config5>
+  -> maxpool2d_nonoverlap_cl<layer4_t, layer5_t, config5>
   -> dense<layer5_t, result_t, config7>
   -> layer7_out
 ```
@@ -130,16 +131,17 @@ Internal streams:
 
 ```text
 layer3_out   depth 336    conv outputs, 7 filters per word
+layer3x4_out depth 84     wide first-conv outputs, 4 widths x 7 filters per word
 layer4_out   depth 336    ReLU outputs, 7 values per word
 layer5_out   depth 168    maxpool outputs, 7 values per word
 ```
 
-`make compare` passes after this replacement, and an extra 128-chunk manual
-runner comparison also passes, so the working copy remains behavior-equivalent
-to the baseline for the deterministic C++ comparisons. The regenerated HLS
-csynth report for the working copy gives a top-level interval of 1041 cycles.
-That is a large hardware-schedule improvement over the old 3076-cycle baseline,
-but the new custom first-conv block is now the bottleneck.
+`make compare SAMPLES=1024` passes after the wide first-conv plus unpack
+adapter change, so the working copy remains behavior-equivalent to the baseline
+for the deterministic C++ comparisons. The last regenerated HLS csynth report
+before this wide-output experiment gives a top-level interval of 1029 cycles.
+A new csynth run is needed to confirm the expected interval drop toward the
+339-cycle unpack/ReLU/pool limit.
 
 ## Data Types and Tensor Meaning
 
@@ -362,22 +364,22 @@ The current working copy has a regenerated Vitis HLS csynth report under
 RTL cosim transaction report or OOC implementation report, so these are
 pre-place-and-route HLS estimates.
 
-Optimized working-copy top-level report:
+Latest confirmed HLS report before the wide-output experiment:
 
 ```text
-HLS latency estimate:    1041 cycles
-HLS interval estimate:   1041 cycles
-Latency time:            5.205 us at 5.00 ns
-Estimated clock:         3.236 ns at 5.00 ns target
-Resources:               18 BRAM_18K, 17 DSP, 30477 FF, 36936 LUT
+HLS latency estimate:    1032 cycles
+HLS interval estimate:   1029 cycles
+Latency time:            5.160 us at 5.00 ns
+Estimated clock:         3.886 ns at 5.00 ns target
+Resources:               18 BRAM_18K, 17 DSP, 29687 FF, 37553 LUT
 ```
 
-Optimized per-stage HLS estimates:
+Latest confirmed per-stage HLS estimates:
 
 ```text
 Stage                      Latency   Interval   Main reason to care
-first_conv_4lane_temporal     1040       1040   current limiter, input loop II=4
-pooling2d                      674        674   next limiter after first conv
+first_conv_4lane_temporal     1028       1028   current limiter, 4 writes/stride to one FIFO
+maxpool2d_nonoverlap           339        339   II=1, no longer second-order generic pool cost
 relu                           339        339   simple streaming stage
 dense                          176        176   resource-heavy, not interval limiter
 ```
@@ -385,35 +387,29 @@ dense                          176        176   resource-heavy, not interval lim
 Result versus the original generated baseline:
 
 ```text
-Latency:  3082 -> 1041 cycles, about 2.96x faster
-Interval: 3076 -> 1041 cycles, about 2.95x faster
+Latency:  3082 -> 1032 cycles, about 2.99x faster
+Interval: 3076 -> 1029 cycles, about 2.99x faster
 BRAM:       19 ->   18
 DSP:        14 ->   17
-FF:      30061 -> 30477
-LUT:     34994 -> 36936
+FF:      30061 -> 29687
+LUT:     34994 -> 37553
 ```
 
 The useful FPGA-level interpretation is that the optimization bought nearly a
-3x interval reduction while keeping the estimated top clock unchanged and adding
-only modest logic/DSP cost. The cost is therefore acceptable for this stage.
+3x interval reduction. The ring-buffer/nonoverlap-pool version did increase the
+estimated clock period, so OOC timing is still required before treating this as
+implementation timing.
 
 The remaining issue is not C++ algorithmic work; it is the generated RTL
-schedule for `first_conv_4lane_temporal_cl`. Its `ReadInputHeight` loop has
-trip count 256, target II=1, achieved II=4, and latency 1038 cycles. This
-explains the 1040-cycle module interval: 256 input rows at II=4 produce roughly
-1024 cycles plus pipeline overhead.
+schedule for `first_conv_4lane_temporal_cl`. Its `ReadInputHeight` loop still
+has trip count 256, target II=1, achieved II=4, and latency near 1026 cycles.
+The post-ring-buffer report shows the remaining II=4 cause is four writes to
+the same output FIFO on each stride event, not the old row-window RAW.
 
-The report flags a memory-dependency II violation at
-`firmware/nnet_utils/nnet_first_conv_stream.h:28`, the outer input loop. In RTL
-terms, the row-window shift creates loop-carried state updates that HLS cannot
-schedule at one new input row per cycle. The stride test also synthesizes a
-`% 3` operation as a remainder/divider-like block, so replacing it with a small
-stride counter is a low-risk cleanup before deeper restructuring.
-
-The next optimization target is to make the first-conv input loop closer to
-II=1 by using a circular 5-row window or another structure that avoids shifting
-all rows every iteration. If first conv falls below 674 cycles, `pooling2d`
-becomes the next interval limiter.
+The current source now tests that hypothesis directly by writing one
+`layer3x4_t` wide word per stride event and unpacking it back to the existing
+`layer3_t` stream. If csynth confirms first_conv near II=1, the top interval
+should move toward the 336-339 cycle unpack/ReLU/pool limit.
 
 Baseline top-level reports:
 
@@ -484,10 +480,12 @@ These should be treated as experiments, not conclusions:
    non-compute stage may disappear. This requires either adapting the conv
    line-buffer path or writing a model-specific first convolution.
 
-   Current working-copy status: `first_conv_4lane_temporal_cl` bypasses
-   `layer8_out` and replaces `repack_stream + conv_2d_cl` while preserving C++
-   comparison output. Next evidence needed: regenerated HLS schedule and RTL
-   cosim reports for the new module.
+   Current working-copy status: `first_conv_4lane_temporal_wide_cl` bypasses
+   `layer8_out` and replaces `repack_stream + conv_2d_cl`, then an unpack
+   adapter restores the original 336-word `layer3_t` stream. C++ comparison is
+   preserved through 1024 deterministic chunks. Next evidence needed:
+   regenerated HLS schedule and RTL cosim/OOC reports for the wide-output
+   module.
 
 2. Preserve chunk semantics but change input granularity.
 

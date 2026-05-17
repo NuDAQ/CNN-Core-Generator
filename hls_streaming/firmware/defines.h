@@ -18,6 +18,7 @@ typedef nnet::array<ap_fixed<12,6>, 4*1> input_t;
 typedef nnet::array<ap_fixed<12,6>, 1*1> layer2_t;
 typedef ap_fixed<16,6> model_default_t;
 typedef nnet::array<ap_fixed<9,5>, 7*1> layer3_t;
+typedef nnet::array<ap_fixed<9,5>, 7*4> layer3x4_t;
 typedef ap_fixed<9,5> q_conv2d_weight_t;
 typedef ap_fixed<9,5> q_conv2d_bias_t;
 typedef nnet::array<ap_fixed<16,6>, 7*1> layer4_t;

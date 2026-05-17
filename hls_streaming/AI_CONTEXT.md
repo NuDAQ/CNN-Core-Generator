@@ -171,6 +171,7 @@ latest checked after first_conv_4lane_temporal_cl replacement: PASS
 extra 128-chunk runner comparison after replacement: PASS
 make compare PASS after ring-buffer + stride-counter + nonoverlap-pool: PASS (8 chunks)
 make compare SAMPLES=128 PASS after same changes: PASS (128 chunks)
+make compare SAMPLES=1024 PASS after wide first_conv + unpack adapter: PASS (1024 chunks)
 ```
 
 ## Current Model Path
@@ -179,7 +180,8 @@ The current `hls_streaming/firmware` active model is:
 
 ```text
 cnn_core(input_layer, layer7_out)
-  -> first_conv_4lane_temporal_cl<input_t, layer3_t, config3>   [ring buffer, stride counter]
+  -> first_conv_4lane_temporal_wide_cl<input_t, layer3x4_t, config3> [packs 4 width outputs]
+  -> unpack_4lane_temporal_cl<layer3x4_t, layer3_t, config3>         [restores narrow stream]
   -> relu<layer3_t, layer4_t, relu_config4>
   -> maxpool2d_nonoverlap_cl<layer4_t, layer5_t, config5>        [non-overlapping specialization]
   -> dense<layer5_t, result_t, config7>
@@ -194,9 +196,9 @@ repack_stream<input_t, layer2_t, 1024>
 ```
 
 The working copy is behavior-equivalent in C++ comparison for all tested vectors.
-The last confirmed HLS csynth result (before the ring-buffer and pooling changes)
-was top interval 1041 cycles. A new HLS csynth run is required to confirm the
-effect of the two optimizations described below.
+The last confirmed HLS csynth result before the wide-output experiment is top
+latency / interval 1032 / 1029 cycles. A new HLS csynth run is required to
+confirm the wide first-conv effect.
 
 `cnn_core()` has:
 
@@ -209,6 +211,7 @@ Internal streams:
 
 ```text
 layer3_out   depth 336    Conv2D output, packed 7 filter values per word
+layer3x4_out depth 84     wide first-conv output, packed 4 widths x 7 filters
 layer4_out   depth 336    ReLU output
 layer5_out   depth 168    MaxPool output, packed 7 filter values per word
 ```
@@ -221,6 +224,7 @@ From `defines.h`:
 input_t   = nnet::array<ap_fixed<12,6>, 4>
 layer2_t  = nnet::array<ap_fixed<12,6>, 1>
 layer3_t  = nnet::array<ap_fixed<9,5>, 7>
+layer3x4_t = nnet::array<ap_fixed<9,5>, 28>
 layer4_t  = nnet::array<ap_fixed<16,6>, 7>
 layer5_t  = nnet::array<ap_fixed<16,6>, 7>
 result_t  = nnet::array<ap_fixed<9,5>, 1>
@@ -276,9 +280,9 @@ Working-copy status:
 Replaces repack_stream + conv_2d_cl in hls_streaming/firmware/cnn_core.cpp.
 Consumes 256 input_t words directly, each with 4 lanes.
 Maintains a 5 x 4 row window (ring buffer, not shift register).
-Emits the same 336 layer3_t words expected by ReLU/pooling/dense.
-make compare 8-chunk: PASS. make compare 128-chunk: PASS.
-HLS csynth pending after ring-buffer + stride-counter changes.
+Emits 84 layer3x4_t wide words, then unpack adapter restores 336 layer3_t words.
+make compare 8/128/1024 chunks: PASS.
+HLS csynth pending after wide-output first_conv + unpack adapter changes.
 ```
 
 Previous csynth result (shift-register version, before ring-buffer fix):
@@ -348,12 +352,24 @@ Verify after OOC synthesis before treating as a hard timing failure.
 ```
 
 Next step for first_conv interval: eliminate the 4 sequential stream writes.
-Two options to evaluate:
-1. Output buffer: compute 4 outputs into a local array during input loop (II=1),
-   drain 1 per cycle in a separate loop. Estimated: 256 + 336 = 592 cycles total.
-   Cost: 336 × 7 × 9 bits ≈ 21 Kbits local storage (1-2 BRAM or many registers).
-2. Widen output stream: pack all 4 width outputs per word → 1 write per stride event.
-   Requires changing layer3_t and all downstream stage interfaces (relu, pool, dense).
+Implemented experiment:
+
+```text
+first_conv_4lane_temporal_wide_cl:
+  84 stride events -> 84 writes of layer3x4_t (4 widths x 7 filters)
+
+unpack_4lane_temporal_cl:
+  84 reads of layer3x4_t -> 336 writes of layer3_t
+
+Expected HLS interval target:
+  first_conv near 256-270 cycles if II=1
+  unpack/relu/pool near 336-339 cycles
+  top interval near 339 cycles if timing and DATAFLOW scheduling cooperate
+```
+
+This keeps downstream math and types unchanged after the adapter. If the HLS
+report confirms the expected top interval, the next larger experiment is to push
+the 4-width packing through ReLU and pool rather than unpacking immediately.
 
 ### repack_stream
 
@@ -607,7 +623,9 @@ Top interval              1029          first_conv dominates; pool gain absorbed
 
 Pool improvement (674→339) is real but invisible at top level while first_conv > 339.
 Top interval gain this round: 1041 → 1029 (−12 cycles, ~1%).
-Next target: break first_conv's 4-write bottleneck to get top interval below 339.
+Current source experiment breaks first_conv's 4-write bottleneck with an
+internal wide stream and narrow unpack adapter. HLS csynth is pending; expected
+next bottleneck is the 336-339 cycle unpack/ReLU/pool chain.
 
 Baseline reports before first-conv replacement:
 
