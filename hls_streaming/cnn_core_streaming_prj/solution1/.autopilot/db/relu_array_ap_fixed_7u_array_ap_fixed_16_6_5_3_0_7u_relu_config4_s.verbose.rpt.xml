@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s'" level="0">
-<item name = "Date">Sun May 17 02:23:00 2026
+<item name = "Date">Sun May 17 02:40:09 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_streaming_prj</item>

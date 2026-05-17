@@ -1,0 +1,225 @@
+
+
+================================================================
+== Vitis HLS Report for 'unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s'
+================================================================
+* Date:           Sun May 17 02:40:09 2026
+
+* Version:        2023.2 (Build 4023990 on Oct 11 2023)
+* Project:        cnn_core_streaming_prj
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: kintexuplus
+* Target device:  xcku5p-ffvb676-2-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  5.00 ns|  3.103 ns|     1.35 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      841|      841|  4.205 us|  4.205 us|  841|  841|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +------------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |                                                                                    |                                                                         |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+        |                                      Instance                                      |                                  Module                                 |   min   |   max   |    min    |    max    | min | max |   Type  |
+        +------------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+        |grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479  |unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth  |        6|        6|  30.000 ns|  30.000 ns|    6|    6|       no|
+        +------------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
+
+        * Loop: 
+        +----------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                      |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |       Loop Name      |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- UnpackOutputHeight  |      840|      840|        10|          -|          -|    84|        no|
+        +----------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+------+--------+--------+-----+
+|       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
++-----------------+---------+------+--------+--------+-----+
+|DSP              |        -|     -|       -|       -|    -|
+|Expression       |        -|     -|       0|      32|    -|
+|FIFO             |        -|     -|       -|       -|    -|
+|Instance         |        -|     -|       6|      71|    -|
+|Memory           |        0|     -|     126|       7|    0|
+|Multiplexer      |        -|     -|       -|     608|    -|
+|Register         |        -|     -|     141|       -|    -|
++-----------------+---------+------+--------+--------+-----+
+|Total            |        0|     0|     273|     718|    0|
++-----------------+---------+------+--------+--------+-----+
+|Available        |      960|  1824|  433920|  216960|   64|
++-----------------+---------+------+--------+--------+-----+
+|Utilization (%)  |        0|     0|      ~0|      ~0|    0|
++-----------------+---------+------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +------------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+----+---+----+-----+
+    |                                      Instance                                      |                                  Module                                 | BRAM_18K| DSP| FF| LUT| URAM|
+    +------------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+----+---+----+-----+
+    |grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479  |unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth  |        0|   0|  6|  71|    0|
+    +------------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+----+---+----+-----+
+    |Total                                                                               |                                                                         |        0|   0|  6|  71|    0|
+    +------------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+----+---+----+-----+
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    +-------------+----------------------------------------------------------------------------------+---------+----+----+-----+------+-----+------+-------------+
+    |    Memory   |                                      Module                                      | BRAM_18K| FF | LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +-------------+----------------------------------------------------------------------------------+---------+----+----+-----+------+-----+------+-------------+
+    |in_pack_U    |unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb  |        0|  18|   1|    0|     4|    9|     1|           36|
+    |in_pack_1_U  |unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb  |        0|  18|   1|    0|     4|    9|     1|           36|
+    |in_pack_2_U  |unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb  |        0|  18|   1|    0|     4|    9|     1|           36|
+    |in_pack_3_U  |unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb  |        0|  18|   1|    0|     4|    9|     1|           36|
+    |in_pack_4_U  |unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb  |        0|  18|   1|    0|     4|    9|     1|           36|
+    |in_pack_5_U  |unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb  |        0|  18|   1|    0|     4|    9|     1|           36|
+    |in_pack_6_U  |unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb  |        0|  18|   1|    0|     4|    9|     1|           36|
+    +-------------+----------------------------------------------------------------------------------+---------+----+----+-----+------+-----+------+-------------+
+    |Total        |                                                                                  |        0| 126|   7|    0|    28|   63|     7|          252|
+    +-------------+----------------------------------------------------------------------------------+---------+----+----+-----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------+----------+----+---+----+------------+------------+
+    |     Variable Name    | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |i_oh_2_fu_506_p2      |         +|   0|  0|  14|           7|           1|
+    |ap_block_state2       |       and|   0|  0|   2|           1|           1|
+    |icmp_ln187_fu_500_p2  |      icmp|   0|  0|  14|           7|           7|
+    |ap_block_state1       |        or|   0|  0|   2|           1|           1|
+    +----------------------+----------+----+---+----+------------+------------+
+    |Total                 |          |   0|  0|  32|          16|          10|
+    +----------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +--------------------+----+-----------+-----+-----------+
+    |        Name        | LUT| Input Size| Bits| Total Bits|
+    +--------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm           |  31|          6|    1|          6|
+    |ap_done             |   9|          2|    1|          2|
+    |i_oh_fu_154         |   9|          2|    7|         14|
+    |in_pack_1_address0  |  20|          4|    2|          8|
+    |in_pack_1_address1  |  14|          3|    2|          6|
+    |in_pack_1_ce0       |  14|          3|    1|          3|
+    |in_pack_1_d0        |  14|          3|    9|         27|
+    |in_pack_1_d1        |  14|          3|    9|         27|
+    |in_pack_2_address0  |  20|          4|    2|          8|
+    |in_pack_2_address1  |  14|          3|    2|          6|
+    |in_pack_2_ce0       |  14|          3|    1|          3|
+    |in_pack_2_d0        |  14|          3|    9|         27|
+    |in_pack_2_d1        |  14|          3|    9|         27|
+    |in_pack_3_address0  |  20|          4|    2|          8|
+    |in_pack_3_address1  |  14|          3|    2|          6|
+    |in_pack_3_ce0       |  14|          3|    1|          3|
+    |in_pack_3_d0        |  14|          3|    9|         27|
+    |in_pack_3_d1        |  14|          3|    9|         27|
+    |in_pack_4_address0  |  20|          4|    2|          8|
+    |in_pack_4_address1  |  14|          3|    2|          6|
+    |in_pack_4_ce0       |  14|          3|    1|          3|
+    |in_pack_4_d0        |  14|          3|    9|         27|
+    |in_pack_4_d1        |  14|          3|    9|         27|
+    |in_pack_5_address0  |  20|          4|    2|          8|
+    |in_pack_5_address1  |  14|          3|    2|          6|
+    |in_pack_5_ce0       |  14|          3|    1|          3|
+    |in_pack_5_d0        |  14|          3|    9|         27|
+    |in_pack_5_d1        |  14|          3|    9|         27|
+    |in_pack_6_address0  |  20|          4|    2|          8|
+    |in_pack_6_address1  |  14|          3|    2|          6|
+    |in_pack_6_ce0       |  14|          3|    1|          3|
+    |in_pack_6_d0        |  14|          3|    9|         27|
+    |in_pack_6_d1        |  14|          3|    9|         27|
+    |in_pack_address0    |  20|          4|    2|          8|
+    |in_pack_address1    |  14|          3|    2|          6|
+    |in_pack_ce0         |  14|          3|    1|          3|
+    |in_pack_d0          |  14|          3|    9|         27|
+    |in_pack_d1          |  14|          3|    9|         27|
+    |layer3_out_write    |   9|          2|    1|          2|
+    |layer3x4_out_blk_n  |   9|          2|    1|          2|
+    |real_start          |   9|          2|    1|          2|
+    +--------------------+----+-----------+-----+-----------+
+    |Total               | 608|        128|  173|        525|
+    +--------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------------------------------------------------------------------------------+---+----+-----+-----------+
+    |                                               Name                                              | FF| LUT| Bits| Const Bits|
+    +-------------------------------------------------------------------------------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                                                                                        |  5|   0|    5|          0|
+    |ap_done_reg                                                                                      |  1|   0|    1|          0|
+    |grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_start_reg  |  1|   0|    1|          0|
+    |i_oh_fu_154                                                                                      |  7|   0|    7|          0|
+    |start_once_reg                                                                                   |  1|   0|    1|          0|
+    |trunc_ln188_13_reg_955                                                                           |  9|   0|    9|          0|
+    |trunc_ln188_14_reg_960                                                                           |  9|   0|    9|          0|
+    |trunc_ln188_15_reg_965                                                                           |  9|   0|    9|          0|
+    |trunc_ln188_16_reg_970                                                                           |  9|   0|    9|          0|
+    |trunc_ln188_17_reg_975                                                                           |  9|   0|    9|          0|
+    |trunc_ln188_18_reg_980                                                                           |  9|   0|    9|          0|
+    |trunc_ln188_19_reg_985                                                                           |  9|   0|    9|          0|
+    |trunc_ln188_20_reg_990                                                                           |  9|   0|    9|          0|
+    |trunc_ln188_21_reg_995                                                                           |  9|   0|    9|          0|
+    |trunc_ln188_22_reg_1000                                                                          |  9|   0|    9|          0|
+    |trunc_ln188_23_reg_1005                                                                          |  9|   0|    9|          0|
+    |trunc_ln188_24_reg_1010                                                                          |  9|   0|    9|          0|
+    |trunc_ln188_25_reg_1015                                                                          |  9|   0|    9|          0|
+    |trunc_ln188_26_reg_1020                                                                          |  9|   0|    9|          0|
+    +-------------------------------------------------------------------------------------------------+---+----+-----+-----------+
+    |Total                                                                                            |141|   0|  141|          0|
+    +-------------------------------------------------------------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------------+-----+-----+------------+-----------------------------------------------------------------------+--------------+
+|          RTL Ports          | Dir | Bits|  Protocol  |                             Source Object                             |    C Type    |
++-----------------------------+-----+-----+------------+-----------------------------------------------------------------------+--------------+
+|ap_clk                       |   in|    1|  ap_ctrl_hs|  unpack_4lane_temporal_cl<array,array<ap_fixed<9,5,5,3,0>,7u>,config3>|  return value|
+|ap_rst                       |   in|    1|  ap_ctrl_hs|  unpack_4lane_temporal_cl<array,array<ap_fixed<9,5,5,3,0>,7u>,config3>|  return value|
+|ap_start                     |   in|    1|  ap_ctrl_hs|  unpack_4lane_temporal_cl<array,array<ap_fixed<9,5,5,3,0>,7u>,config3>|  return value|
+|start_full_n                 |   in|    1|  ap_ctrl_hs|  unpack_4lane_temporal_cl<array,array<ap_fixed<9,5,5,3,0>,7u>,config3>|  return value|
+|ap_done                      |  out|    1|  ap_ctrl_hs|  unpack_4lane_temporal_cl<array,array<ap_fixed<9,5,5,3,0>,7u>,config3>|  return value|
+|ap_continue                  |   in|    1|  ap_ctrl_hs|  unpack_4lane_temporal_cl<array,array<ap_fixed<9,5,5,3,0>,7u>,config3>|  return value|
+|ap_idle                      |  out|    1|  ap_ctrl_hs|  unpack_4lane_temporal_cl<array,array<ap_fixed<9,5,5,3,0>,7u>,config3>|  return value|
+|ap_ready                     |  out|    1|  ap_ctrl_hs|  unpack_4lane_temporal_cl<array,array<ap_fixed<9,5,5,3,0>,7u>,config3>|  return value|
+|start_out                    |  out|    1|  ap_ctrl_hs|  unpack_4lane_temporal_cl<array,array<ap_fixed<9,5,5,3,0>,7u>,config3>|  return value|
+|start_write                  |  out|    1|  ap_ctrl_hs|  unpack_4lane_temporal_cl<array,array<ap_fixed<9,5,5,3,0>,7u>,config3>|  return value|
+|layer3x4_out_dout            |   in|  252|     ap_fifo|                                                           layer3x4_out|       pointer|
+|layer3x4_out_num_data_valid  |   in|    8|     ap_fifo|                                                           layer3x4_out|       pointer|
+|layer3x4_out_fifo_cap        |   in|    8|     ap_fifo|                                                           layer3x4_out|       pointer|
+|layer3x4_out_empty_n         |   in|    1|     ap_fifo|                                                           layer3x4_out|       pointer|
+|layer3x4_out_read            |  out|    1|     ap_fifo|                                                           layer3x4_out|       pointer|
+|layer3_out_din               |  out|   63|     ap_fifo|                                                             layer3_out|       pointer|
+|layer3_out_num_data_valid    |   in|   10|     ap_fifo|                                                             layer3_out|       pointer|
+|layer3_out_fifo_cap          |   in|   10|     ap_fifo|                                                             layer3_out|       pointer|
+|layer3_out_full_n            |   in|    1|     ap_fifo|                                                             layer3_out|       pointer|
+|layer3_out_write             |  out|    1|     ap_fifo|                                                             layer3_out|       pointer|
++-----------------------------+-----+-----+------------+-----------------------------------------------------------------------+--------------+
+

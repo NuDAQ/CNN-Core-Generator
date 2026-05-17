@@ -11890,7 +11890,7 @@ newFuncRoot:790 %p_0_6_0_0_01579 = alloca i32 1
 
 <Node id="1583" bw="0" op_0_bw="0" op_1_bw="112" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-newFuncRoot:791 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i112 %layer5_out, void @empty_2, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0
+newFuncRoot:791 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i112 %layer5_out, void @empty_4, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0
 
 ]]></Node>
 <StgValue><ssdm name="specinterface_ln0"/></StgValue>
@@ -37342,7 +37342,7 @@ _ZN4nnet12data_prepareINS_5arrayI8ap_fixedILi16ELi6EL9ap_q_mode5EL9ap_o_mode3ELi
 
 <Node id="1592" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="32" op_5_bw="0">
 <![CDATA[
-for.body.i.split:0 %specpipeline_ln34 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_1
+for.body.i.split:0 %specpipeline_ln34 = specpipeline void @_ssdm_op_SpecPipeline, i32 4294967295, i32 0, i32 0, i32 0, void @empty_0
 
 ]]></Node>
 <StgValue><ssdm name="specpipeline_ln34"/></StgValue>
@@ -37372,7 +37372,7 @@ for.body.i.split:1 %speclooptripcount_ln33 = speclooptripcount void @_ssdm_op_Sp
 
 <Node id="1594" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-for.body.i.split:2 %specloopname_ln33 = specloopname void @_ssdm_op_SpecLoopName, void @empty_8
+for.body.i.split:2 %specloopname_ln33 = specloopname void @_ssdm_op_SpecLoopName, void @empty_2
 
 ]]></Node>
 <StgValue><ssdm name="specloopname_ln33"/></StgValue>
@@ -57789,23 +57789,23 @@ arrayidx.i3.6.case.1175:5 %br_ln39 = br void %arrayidx.i3.6.exit
 </dataflow>
 <dataflow id="4950" from="layer5_out" to="specinterface_ln0" fromId="3365" toId="796">
 </dataflow>
-<dataflow id="4952" from="empty_2" to="specinterface_ln0" fromId="4951" toId="796">
+<dataflow id="4952" from="empty_4" to="specinterface_ln0" fromId="4951" toId="796">
 </dataflow>
 <dataflow id="4954" from="StgValue_4953" to="specinterface_ln0" fromId="4953" toId="796">
 </dataflow>
 <dataflow id="4955" from="StgValue_4953" to="specinterface_ln0" fromId="4953" toId="796">
 </dataflow>
-<dataflow id="4957" from="empty_1" to="specinterface_ln0" fromId="4956" toId="796">
+<dataflow id="4957" from="empty_0" to="specinterface_ln0" fromId="4956" toId="796">
 </dataflow>
 <dataflow id="4958" from="StgValue_4953" to="specinterface_ln0" fromId="4953" toId="796">
 </dataflow>
 <dataflow id="4959" from="StgValue_4953" to="specinterface_ln0" fromId="4953" toId="796">
 </dataflow>
-<dataflow id="4960" from="empty_1" to="specinterface_ln0" fromId="4956" toId="796">
+<dataflow id="4960" from="empty_0" to="specinterface_ln0" fromId="4956" toId="796">
 </dataflow>
-<dataflow id="4961" from="empty_1" to="specinterface_ln0" fromId="4956" toId="796">
+<dataflow id="4961" from="empty_0" to="specinterface_ln0" fromId="4956" toId="796">
 </dataflow>
-<dataflow id="4962" from="empty_1" to="specinterface_ln0" fromId="4956" toId="796">
+<dataflow id="4962" from="empty_0" to="specinterface_ln0" fromId="4956" toId="796">
 </dataflow>
 <dataflow id="4963" from="StgValue_4953" to="specinterface_ln0" fromId="4953" toId="796">
 </dataflow>
@@ -57815,9 +57815,9 @@ arrayidx.i3.6.case.1175:5 %br_ln39 = br void %arrayidx.i3.6.exit
 </dataflow>
 <dataflow id="4966" from="StgValue_4953" to="specinterface_ln0" fromId="4953" toId="796">
 </dataflow>
-<dataflow id="4967" from="empty_1" to="specinterface_ln0" fromId="4956" toId="796">
+<dataflow id="4967" from="empty_0" to="specinterface_ln0" fromId="4956" toId="796">
 </dataflow>
-<dataflow id="4968" from="empty_1" to="specinterface_ln0" fromId="4956" toId="796">
+<dataflow id="4968" from="empty_0" to="specinterface_ln0" fromId="4956" toId="796">
 </dataflow>
 <dataflow id="4970" from="StgValue_4969" to="specinterface_ln0" fromId="4969" toId="796">
 </dataflow>
@@ -58189,7 +58189,7 @@ arrayidx.i3.6.case.1175:5 %br_ln39 = br void %arrayidx.i3.6.exit
 </dataflow>
 <dataflow id="5323" from="StgValue_4953" to="specpipeline_ln34" fromId="4953" toId="806">
 </dataflow>
-<dataflow id="5324" from="empty_1" to="specpipeline_ln34" fromId="4956" toId="806">
+<dataflow id="5324" from="empty_0" to="specpipeline_ln34" fromId="4956" toId="806">
 </dataflow>
 <dataflow id="5326" from="_ssdm_op_SpecLoopTripCount" to="speclooptripcount_ln33" fromId="5325" toId="807">
 </dataflow>
@@ -58201,7 +58201,7 @@ arrayidx.i3.6.case.1175:5 %br_ln39 = br void %arrayidx.i3.6.exit
 </dataflow>
 <dataflow id="5332" from="_ssdm_op_SpecLoopName" to="specloopname_ln33" fromId="5331" toId="808">
 </dataflow>
-<dataflow id="5334" from="empty_8" to="specloopname_ln33" fromId="5333" toId="808">
+<dataflow id="5334" from="empty_2" to="specloopname_ln33" fromId="5333" toId="808">
 </dataflow>
 <dataflow id="5336" from="_ssdm_op_Read.ap_fifo.volatile.i112P0A" to="layer5_out_read" fromId="5335" toId="809">
 </dataflow>

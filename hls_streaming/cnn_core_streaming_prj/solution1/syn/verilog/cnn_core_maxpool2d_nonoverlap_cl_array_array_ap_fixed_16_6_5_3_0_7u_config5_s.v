@@ -255,7 +255,7 @@ cnn_core_sparsemux_9_2_16_1_1 #(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U32(
+sparsemux_9_2_16_1_1_U43(
     .din0(p_0_0_0_0_045_fu_146),
     .din1(p_0_0_0_0_024_fu_118),
     .din2(p_0_0_0_0_03_fu_90),
@@ -279,7 +279,7 @@ cnn_core_sparsemux_9_2_16_1_1 #(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U33(
+sparsemux_9_2_16_1_1_U44(
     .din0(mux_case_09548_fu_150),
     .din1(mux_case_19627_fu_122),
     .din2(mux_case_2976_fu_94),
@@ -303,7 +303,7 @@ cnn_core_sparsemux_9_2_16_1_1 #(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U34(
+sparsemux_9_2_16_1_1_U45(
     .din0(mux_case_09951_fu_154),
     .din1(mux_case_110030_fu_126),
     .din2(mux_case_21019_fu_98),
@@ -327,7 +327,7 @@ cnn_core_sparsemux_9_2_16_1_1 #(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U35(
+sparsemux_9_2_16_1_1_U46(
     .din0(mux_case_010354_fu_158),
     .din1(mux_case_110433_fu_130),
     .din2(mux_case_210512_fu_102),
@@ -351,7 +351,7 @@ cnn_core_sparsemux_9_2_16_1_1 #(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U36(
+sparsemux_9_2_16_1_1_U47(
     .din0(mux_case_010757_fu_162),
     .din1(mux_case_110836_fu_134),
     .din2(mux_case_210915_fu_106),
@@ -375,7 +375,7 @@ cnn_core_sparsemux_9_2_16_1_1 #(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U37(
+sparsemux_9_2_16_1_1_U48(
     .din0(mux_case_011160_fu_166),
     .din1(mux_case_111239_fu_138),
     .din2(mux_case_211318_fu_110),
@@ -399,7 +399,7 @@ cnn_core_sparsemux_9_2_16_1_1 #(
     .def_WIDTH( 16 ),
     .sel_WIDTH( 2 ),
     .dout_WIDTH( 16 ))
-sparsemux_9_2_16_1_1_U38(
+sparsemux_9_2_16_1_1_U49(
     .din0(mux_case_011563_fu_170),
     .din1(mux_case_111642_fu_142),
     .din2(mux_case_211721_fu_114),

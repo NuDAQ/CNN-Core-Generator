@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s'
 ================================================================
-* Date:           Sun May 17 02:23:00 2026
+* Date:           Sun May 17 02:40:09 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_streaming_prj
@@ -73,13 +73,13 @@
     +--------------------------+----------------------+---------+----+---+----+-----+
     |         Instance         |        Module        | BRAM_18K| DSP| FF| LUT| URAM|
     +--------------------------+----------------------+---------+----+---+----+-----+
-    |sparsemux_9_2_16_1_1_U32  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
-    |sparsemux_9_2_16_1_1_U33  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
-    |sparsemux_9_2_16_1_1_U34  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
-    |sparsemux_9_2_16_1_1_U35  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
-    |sparsemux_9_2_16_1_1_U36  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
-    |sparsemux_9_2_16_1_1_U37  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
-    |sparsemux_9_2_16_1_1_U38  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
+    |sparsemux_9_2_16_1_1_U43  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
+    |sparsemux_9_2_16_1_1_U44  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
+    |sparsemux_9_2_16_1_1_U45  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
+    |sparsemux_9_2_16_1_1_U46  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
+    |sparsemux_9_2_16_1_1_U47  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
+    |sparsemux_9_2_16_1_1_U48  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
+    |sparsemux_9_2_16_1_1_U49  |sparsemux_9_2_16_1_1  |        0|   0|  0|  20|    0|
     +--------------------------+----------------------+---------+----+---+----+-----+
     |Total                     |                      |        0|   0|  0| 140|    0|
     +--------------------------+----------------------+---------+----+---+----+-----+
@@ -307,8 +307,8 @@ ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%mux_case_310675 = alloca i32 1"   
 ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%mux_case_311078 = alloca i32 1"   --->   Operation 33 'alloca' 'mux_case_311078' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%mux_case_311481 = alloca i32 1"   --->   Operation 34 'alloca' 'mux_case_311481' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%mux_case_311884 = alloca i32 1"   --->   Operation 35 'alloca' 'mux_case_311884' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i112 %layer5_out, void @empty_2, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0"   --->   Operation 36 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i112 %layer4_out, void @empty_2, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0"   --->   Operation 37 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i112 %layer5_out, void @empty_4, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 36 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i112 %layer4_out, void @empty_4, i32 0, i32 0, void @empty_0, i32 0, i32 0, void @empty_0, void @empty_0, void @empty_0, i32 0, i32 0, i32 0, i32 0, void @empty_0, void @empty_0, i32 4294967295, i32 0"   --->   Operation 37 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_1 : Operation 39 [1/1] (0.42ns)   --->   "%store_ln373 = store i9 0, i9 %i" [firmware/nnet_utils/nnet_pooling_stream.h:373]   --->   Operation 39 'store' 'store_ln373' <Predicate = true> <Delay = 0.42>
 ST_1 : Operation 40 [1/1] (0.42ns)   --->   "%br_ln373 = br void %for.body" [firmware/nnet_utils/nnet_pooling_stream.h:373]   --->   Operation 40 'br' 'br_ln373' <Predicate = true> <Delay = 0.42>
 ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%i_3 = load i9 %i" [firmware/nnet_utils/nnet_pooling_stream.h:373]   --->   Operation 41 'load' 'i_3' <Predicate = true> <Delay = 0.00>
@@ -321,9 +321,9 @@ State 2 <SV = 1> <Delay = 2.28>
 ST_2 : Operation 38 [1/1] (0.42ns)   --->   "%store_ln369 = store i32 0, i32 %i_w" [firmware/nnet_utils/nnet_pooling_stream.h:369]   --->   Operation 38 'store' 'store_ln369' <Predicate = true> <Delay = 0.42>
 ST_2 : Operation 46 [1/1] (0.00ns)   --->   "%on_second_row = phi i1 0, void %entry, i1 %on_second_row_2, void %if.end_ifconv"   --->   Operation 46 'phi' 'on_second_row' <Predicate = true> <Delay = 0.00>
 ST_2 : Operation 47 [1/1] (0.00ns)   --->   "%i_w_3 = load i32 %i_w" [firmware/nnet_utils/nnet_pooling_stream.h:373]   --->   Operation 47 'load' 'i_w_3' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%specpipeline_ln374 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_1" [firmware/nnet_utils/nnet_pooling_stream.h:374]   --->   Operation 48 'specpipeline' 'specpipeline_ln374' <Predicate = (!icmp_ln373)> <Delay = 0.00>
+ST_2 : Operation 48 [1/1] (0.00ns)   --->   "%specpipeline_ln374 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_0" [firmware/nnet_utils/nnet_pooling_stream.h:374]   --->   Operation 48 'specpipeline' 'specpipeline_ln374' <Predicate = (!icmp_ln373)> <Delay = 0.00>
 ST_2 : Operation 49 [1/1] (0.00ns)   --->   "%speclooptripcount_ln373 = speclooptripcount void @_ssdm_op_SpecLoopTripCount, i64 336, i64 336, i64 336" [firmware/nnet_utils/nnet_pooling_stream.h:373]   --->   Operation 49 'speclooptripcount' 'speclooptripcount_ln373' <Predicate = (!icmp_ln373)> <Delay = 0.00>
-ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%specloopname_ln373 = specloopname void @_ssdm_op_SpecLoopName, void @empty_6" [firmware/nnet_utils/nnet_pooling_stream.h:373]   --->   Operation 50 'specloopname' 'specloopname_ln373' <Predicate = (!icmp_ln373)> <Delay = 0.00>
+ST_2 : Operation 50 [1/1] (0.00ns)   --->   "%specloopname_ln373 = specloopname void @_ssdm_op_SpecLoopName, void @empty_9" [firmware/nnet_utils/nnet_pooling_stream.h:373]   --->   Operation 50 'specloopname' 'specloopname_ln373' <Predicate = (!icmp_ln373)> <Delay = 0.00>
 ST_2 : Operation 51 [1/1] (0.00ns)   --->   "%trunc_ln373 = trunc i32 %i_w_3" [firmware/nnet_utils/nnet_pooling_stream.h:373]   --->   Operation 51 'trunc' 'trunc_ln373' <Predicate = (!icmp_ln373)> <Delay = 0.00>
 ST_2 : Operation 52 [1/1] (1.72ns)   --->   "%layer4_out_read = read i112 @_ssdm_op_Read.ap_fifo.volatile.i112P0A, i112 %layer4_out" [firmware/nnet_utils/nnet_pooling_stream.h:376]   --->   Operation 52 'read' 'layer4_out_read' <Predicate = (!icmp_ln373)> <Delay = 1.72> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.72> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 112> <Depth = 336> <FIFO>
 ST_2 : Operation 53 [1/1] (0.00ns)   --->   "%cur = trunc i112 %layer4_out_read" [firmware/nnet_utils/nnet_pooling_stream.h:376]   --->   Operation 53 'trunc' 'cur' <Predicate = (!icmp_ln373)> <Delay = 0.00>
@@ -644,7 +644,7 @@ ret_ln402               (ret              ) [ 0000]
 <pin id="9" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_2"/></StgValue>
+<StgValue><ssdm name="empty_4"/></StgValue>
 </bind>
 </comp>
 
@@ -662,7 +662,7 @@ ret_ln402               (ret              ) [ 0000]
 <pin id="13" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_1"/></StgValue>
+<StgValue><ssdm name="empty_0"/></StgValue>
 </bind>
 </comp>
 
@@ -752,7 +752,7 @@ ret_ln402               (ret              ) [ 0000]
 <pin id="33" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_6"/></StgValue>
+<StgValue><ssdm name="empty_9"/></StgValue>
 </bind>
 </comp>
 

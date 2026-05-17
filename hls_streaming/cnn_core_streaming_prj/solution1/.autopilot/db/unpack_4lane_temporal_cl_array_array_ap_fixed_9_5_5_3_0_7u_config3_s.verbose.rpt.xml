@@ -1,0 +1,194 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s'" level="0">
+<item name = "Date">Sun May 17 02:40:09 2026
+</item>
+<item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
+<item name = "Project">cnn_core_streaming_prj</item>
+<item name = "Solution">solution1 (Vivado IP Flow Target)</item>
+<item name = "Product family">kintexuplus</item>
+<item name = "Target device">xcku5p-ffvb676-2-e</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00 ns, 3.103 ns, 1.35 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">841, 841, 4.205 us, 4.205 us, 841, 841, no</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479">unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth, 6, 6, 30.000 ns, 30.000 ns, 6, 6, no</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- UnpackOutputHeight">840, 840, 10, -, -, 84, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 32, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">-, -, 6, 71, -</column>
+<column name="Memory">0, -, 126, 7, 0</column>
+<column name="Multiplexer">-, -, -, 608, -</column>
+<column name="Register">-, -, 141, -, -</column>
+<specialColumn name="Available">960, 1824, 433920, 216960, 64</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, ~0, ~0, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479">unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth, 0, 0, 6, 71, 0</column>
+</table>
+</item>
+<item name = "DSP"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+<column name="in_pack_U">unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb, 0, 18, 1, 0, 4, 9, 1, 36</column>
+<column name="in_pack_1_U">unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb, 0, 18, 1, 0, 4, 9, 1, 36</column>
+<column name="in_pack_2_U">unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb, 0, 18, 1, 0, 4, 9, 1, 36</column>
+<column name="in_pack_3_U">unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb, 0, 18, 1, 0, 4, 9, 1, 36</column>
+<column name="in_pack_4_U">unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb, 0, 18, 1, 0, 4, 9, 1, 36</column>
+<column name="in_pack_5_U">unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb, 0, 18, 1, 0, 4, 9, 1, 36</column>
+<column name="in_pack_6_U">unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s_in_pack_bkb, 0, 18, 1, 0, 4, 9, 1, 36</column>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="i_oh_2_fu_506_p2">+, 0, 0, 14, 7, 1</column>
+<column name="ap_block_state2">and, 0, 0, 2, 1, 1</column>
+<column name="icmp_ln187_fu_500_p2">icmp, 0, 0, 14, 7, 7</column>
+<column name="ap_block_state1">or, 0, 0, 2, 1, 1</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">31, 6, 1, 6</column>
+<column name="ap_done">9, 2, 1, 2</column>
+<column name="i_oh_fu_154">9, 2, 7, 14</column>
+<column name="in_pack_1_address0">20, 4, 2, 8</column>
+<column name="in_pack_1_address1">14, 3, 2, 6</column>
+<column name="in_pack_1_ce0">14, 3, 1, 3</column>
+<column name="in_pack_1_d0">14, 3, 9, 27</column>
+<column name="in_pack_1_d1">14, 3, 9, 27</column>
+<column name="in_pack_2_address0">20, 4, 2, 8</column>
+<column name="in_pack_2_address1">14, 3, 2, 6</column>
+<column name="in_pack_2_ce0">14, 3, 1, 3</column>
+<column name="in_pack_2_d0">14, 3, 9, 27</column>
+<column name="in_pack_2_d1">14, 3, 9, 27</column>
+<column name="in_pack_3_address0">20, 4, 2, 8</column>
+<column name="in_pack_3_address1">14, 3, 2, 6</column>
+<column name="in_pack_3_ce0">14, 3, 1, 3</column>
+<column name="in_pack_3_d0">14, 3, 9, 27</column>
+<column name="in_pack_3_d1">14, 3, 9, 27</column>
+<column name="in_pack_4_address0">20, 4, 2, 8</column>
+<column name="in_pack_4_address1">14, 3, 2, 6</column>
+<column name="in_pack_4_ce0">14, 3, 1, 3</column>
+<column name="in_pack_4_d0">14, 3, 9, 27</column>
+<column name="in_pack_4_d1">14, 3, 9, 27</column>
+<column name="in_pack_5_address0">20, 4, 2, 8</column>
+<column name="in_pack_5_address1">14, 3, 2, 6</column>
+<column name="in_pack_5_ce0">14, 3, 1, 3</column>
+<column name="in_pack_5_d0">14, 3, 9, 27</column>
+<column name="in_pack_5_d1">14, 3, 9, 27</column>
+<column name="in_pack_6_address0">20, 4, 2, 8</column>
+<column name="in_pack_6_address1">14, 3, 2, 6</column>
+<column name="in_pack_6_ce0">14, 3, 1, 3</column>
+<column name="in_pack_6_d0">14, 3, 9, 27</column>
+<column name="in_pack_6_d1">14, 3, 9, 27</column>
+<column name="in_pack_address0">20, 4, 2, 8</column>
+<column name="in_pack_address1">14, 3, 2, 6</column>
+<column name="in_pack_ce0">14, 3, 1, 3</column>
+<column name="in_pack_d0">14, 3, 9, 27</column>
+<column name="in_pack_d1">14, 3, 9, 27</column>
+<column name="layer3_out_write">9, 2, 1, 2</column>
+<column name="layer3x4_out_blk_n">9, 2, 1, 2</column>
+<column name="real_start">9, 2, 1, 2</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">5, 0, 5, 0</column>
+<column name="ap_done_reg">1, 0, 1, 0</column>
+<column name="grp_unpack_4lane_temporal_cl_array_array_config3_Pipeline_UnpackOutputWidth_fu_479_ap_start_reg">1, 0, 1, 0</column>
+<column name="i_oh_fu_154">7, 0, 7, 0</column>
+<column name="start_once_reg">1, 0, 1, 0</column>
+<column name="trunc_ln188_13_reg_955">9, 0, 9, 0</column>
+<column name="trunc_ln188_14_reg_960">9, 0, 9, 0</column>
+<column name="trunc_ln188_15_reg_965">9, 0, 9, 0</column>
+<column name="trunc_ln188_16_reg_970">9, 0, 9, 0</column>
+<column name="trunc_ln188_17_reg_975">9, 0, 9, 0</column>
+<column name="trunc_ln188_18_reg_980">9, 0, 9, 0</column>
+<column name="trunc_ln188_19_reg_985">9, 0, 9, 0</column>
+<column name="trunc_ln188_20_reg_990">9, 0, 9, 0</column>
+<column name="trunc_ln188_21_reg_995">9, 0, 9, 0</column>
+<column name="trunc_ln188_22_reg_1000">9, 0, 9, 0</column>
+<column name="trunc_ln188_23_reg_1005">9, 0, 9, 0</column>
+<column name="trunc_ln188_24_reg_1010">9, 0, 9, 0</column>
+<column name="trunc_ln188_25_reg_1015">9, 0, 9, 0</column>
+<column name="trunc_ln188_26_reg_1020">9, 0, 9, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, unpack_4lane_temporal_cl&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,7u&gt;,config3&gt;, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, unpack_4lane_temporal_cl&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,7u&gt;,config3&gt;, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, unpack_4lane_temporal_cl&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,7u&gt;,config3&gt;, return value</column>
+<column name="start_full_n">in, 1, ap_ctrl_hs, unpack_4lane_temporal_cl&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,7u&gt;,config3&gt;, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, unpack_4lane_temporal_cl&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,7u&gt;,config3&gt;, return value</column>
+<column name="ap_continue">in, 1, ap_ctrl_hs, unpack_4lane_temporal_cl&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,7u&gt;,config3&gt;, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, unpack_4lane_temporal_cl&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,7u&gt;,config3&gt;, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, unpack_4lane_temporal_cl&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,7u&gt;,config3&gt;, return value</column>
+<column name="start_out">out, 1, ap_ctrl_hs, unpack_4lane_temporal_cl&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,7u&gt;,config3&gt;, return value</column>
+<column name="start_write">out, 1, ap_ctrl_hs, unpack_4lane_temporal_cl&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,7u&gt;,config3&gt;, return value</column>
+<column name="layer3x4_out_dout">in, 252, ap_fifo, layer3x4_out, pointer</column>
+<column name="layer3x4_out_num_data_valid">in, 8, ap_fifo, layer3x4_out, pointer</column>
+<column name="layer3x4_out_fifo_cap">in, 8, ap_fifo, layer3x4_out, pointer</column>
+<column name="layer3x4_out_empty_n">in, 1, ap_fifo, layer3x4_out, pointer</column>
+<column name="layer3x4_out_read">out, 1, ap_fifo, layer3x4_out, pointer</column>
+<column name="layer3_out_din">out, 63, ap_fifo, layer3_out, pointer</column>
+<column name="layer3_out_num_data_valid">in, 10, ap_fifo, layer3_out, pointer</column>
+<column name="layer3_out_fifo_cap">in, 10, ap_fifo, layer3_out, pointer</column>
+<column name="layer3_out_full_n">in, 1, ap_fifo, layer3_out, pointer</column>
+<column name="layer3_out_write">out, 1, ap_fifo, layer3_out, pointer</column>
+</table>
+</item>
+</section>
+</profile>

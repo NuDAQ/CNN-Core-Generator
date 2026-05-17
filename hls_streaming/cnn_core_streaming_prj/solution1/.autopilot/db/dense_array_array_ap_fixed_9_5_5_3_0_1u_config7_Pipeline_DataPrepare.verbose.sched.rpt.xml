@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'dense_array_array_ap_fixed_9_5_5_3_0_1u_config7_Pipeline_DataPrepare'" level="0">
-<item name = "Date">Sun May 17 02:22:52 2026
+<item name = "Date">Sun May 17 02:40:02 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_streaming_prj</item>

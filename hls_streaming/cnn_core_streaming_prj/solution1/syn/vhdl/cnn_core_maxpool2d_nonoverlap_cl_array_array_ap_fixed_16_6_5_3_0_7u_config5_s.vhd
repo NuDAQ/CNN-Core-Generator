@@ -259,7 +259,7 @@ attribute shreg_extract : string;
 
 
 begin
-    sparsemux_9_2_16_1_1_U32 : component cnn_core_sparsemux_9_2_16_1_1
+    sparsemux_9_2_16_1_1_U43 : component cnn_core_sparsemux_9_2_16_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -283,7 +283,7 @@ begin
         sel => trunc_ln373_reg_1041,
         dout => tmp_s_fu_591_p11);
 
-    sparsemux_9_2_16_1_1_U33 : component cnn_core_sparsemux_9_2_16_1_1
+    sparsemux_9_2_16_1_1_U44 : component cnn_core_sparsemux_9_2_16_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -307,7 +307,7 @@ begin
         sel => trunc_ln373_reg_1041,
         dout => tmp_1_fu_626_p11);
 
-    sparsemux_9_2_16_1_1_U34 : component cnn_core_sparsemux_9_2_16_1_1
+    sparsemux_9_2_16_1_1_U45 : component cnn_core_sparsemux_9_2_16_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -331,7 +331,7 @@ begin
         sel => trunc_ln373_reg_1041,
         dout => tmp_2_fu_661_p11);
 
-    sparsemux_9_2_16_1_1_U35 : component cnn_core_sparsemux_9_2_16_1_1
+    sparsemux_9_2_16_1_1_U46 : component cnn_core_sparsemux_9_2_16_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -355,7 +355,7 @@ begin
         sel => trunc_ln373_reg_1041,
         dout => tmp_3_fu_696_p11);
 
-    sparsemux_9_2_16_1_1_U36 : component cnn_core_sparsemux_9_2_16_1_1
+    sparsemux_9_2_16_1_1_U47 : component cnn_core_sparsemux_9_2_16_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -379,7 +379,7 @@ begin
         sel => trunc_ln373_reg_1041,
         dout => tmp_4_fu_731_p11);
 
-    sparsemux_9_2_16_1_1_U37 : component cnn_core_sparsemux_9_2_16_1_1
+    sparsemux_9_2_16_1_1_U48 : component cnn_core_sparsemux_9_2_16_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,
@@ -403,7 +403,7 @@ begin
         sel => trunc_ln373_reg_1041,
         dout => tmp_5_fu_766_p11);
 
-    sparsemux_9_2_16_1_1_U38 : component cnn_core_sparsemux_9_2_16_1_1
+    sparsemux_9_2_16_1_1_U49 : component cnn_core_sparsemux_9_2_16_1_1
     generic map (
         ID => 1,
         NUM_STAGE => 1,

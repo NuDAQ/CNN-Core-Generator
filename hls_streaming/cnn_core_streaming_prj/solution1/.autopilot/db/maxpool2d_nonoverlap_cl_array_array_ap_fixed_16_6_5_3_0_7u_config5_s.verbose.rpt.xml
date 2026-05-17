@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_s'" level="0">
-<item name = "Date">Sun May 17 02:23:00 2026
+<item name = "Date">Sun May 17 02:40:09 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_streaming_prj</item>
@@ -62,13 +62,13 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="sparsemux_9_2_16_1_1_U32">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="sparsemux_9_2_16_1_1_U33">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="sparsemux_9_2_16_1_1_U34">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="sparsemux_9_2_16_1_1_U35">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="sparsemux_9_2_16_1_1_U36">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="sparsemux_9_2_16_1_1_U37">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="sparsemux_9_2_16_1_1_U38">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="sparsemux_9_2_16_1_1_U43">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="sparsemux_9_2_16_1_1_U44">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="sparsemux_9_2_16_1_1_U45">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="sparsemux_9_2_16_1_1_U46">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="sparsemux_9_2_16_1_1_U47">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="sparsemux_9_2_16_1_1_U48">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="sparsemux_9_2_16_1_1_U49">sparsemux_9_2_16_1_1, 0, 0, 0, 20, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">

@@ -6,7 +6,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="cnn_core_cnn_core,hls_ip_2023_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcku5p-ffvb676-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=3.886000,HLS_SYN_LAT=1032,HLS_SYN_TPT=1029,HLS_SYN_MEM=18,HLS_SYN_DSP=0,HLS_SYN_FF=29687,HLS_SYN_LUT=37553,HLS_VERSION=2023_2}" *)
+(* CORE_GENERATION_INFO="cnn_core_cnn_core,hls_ip_2023_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcku5p-ffvb676-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=3.886000,HLS_SYN_LAT=844,HLS_SYN_TPT=842,HLS_SYN_MEM=32,HLS_SYN_DSP=0,HLS_SYN_FF=30238,HLS_SYN_LUT=38246,HLS_VERSION=2023_2}" *)
 
 module cnn_core (
         input_layer_TDATA,
@@ -38,16 +38,26 @@ output   ap_ready;
 output   ap_idle;
 
  reg    ap_rst_n_inv;
-wire    first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_start;
-wire    first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_done;
-wire    first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_continue;
-wire    first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_idle;
-wire    first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_ready;
-wire   [62:0] first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_din;
-wire    first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_write;
-wire    first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_out;
-wire    first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_write;
-wire    first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_input_layer_TREADY;
+wire    first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_start;
+wire    first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_done;
+wire    first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_continue;
+wire    first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_idle;
+wire    first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_ready;
+wire   [251:0] first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_layer3x4_out_din;
+wire    first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_layer3x4_out_write;
+wire    first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_start_out;
+wire    first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_start_write;
+wire    first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_input_layer_TREADY;
+wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_start;
+wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_done;
+wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_continue;
+wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_idle;
+wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_ready;
+wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_out;
+wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_write;
+wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3x4_out_read;
+wire   [62:0] unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_din;
+wire    unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_write;
 wire    relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ap_start;
 wire    relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ap_done;
 wire    relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ap_continue;
@@ -76,6 +86,11 @@ wire    dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_ready;
 wire    dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_layer5_out_read;
 wire   [15:0] dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_layer7_out_TDATA;
 wire    dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_layer7_out_TVALID;
+wire    layer3x4_out_full_n;
+wire   [251:0] layer3x4_out_dout;
+wire   [7:0] layer3x4_out_num_data_valid;
+wire   [7:0] layer3x4_out_fifo_cap;
+wire    layer3x4_out_empty_n;
 wire    layer3_out_full_n;
 wire   [62:0] layer3_out_dout;
 wire   [9:0] layer3_out_num_data_valid;
@@ -91,6 +106,10 @@ wire   [111:0] layer5_out_dout;
 wire   [8:0] layer5_out_num_data_valid;
 wire   [8:0] layer5_out_fifo_cap;
 wire    layer5_out_empty_n;
+wire   [0:0] start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_din;
+wire    start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_full_n;
+wire   [0:0] start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_dout;
+wire    start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_empty_n;
 wire   [0:0] start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_din;
 wire    start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_full_n;
 wire   [0:0] start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_dout;
@@ -104,25 +123,48 @@ wire    start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0
 wire   [0:0] start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_dout;
 wire    start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_empty_n;
 
-cnn_core_first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0(
+cnn_core_first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst_n_inv),
-    .ap_start(first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_start),
+    .ap_start(first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_start),
+    .start_full_n(start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_full_n),
+    .ap_done(first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_done),
+    .ap_continue(first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_continue),
+    .ap_idle(first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_idle),
+    .ap_ready(first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_ready),
+    .input_layer_TVALID(input_layer_TVALID),
+    .layer3x4_out_din(first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_layer3x4_out_din),
+    .layer3x4_out_num_data_valid(layer3x4_out_num_data_valid),
+    .layer3x4_out_fifo_cap(layer3x4_out_fifo_cap),
+    .layer3x4_out_full_n(layer3x4_out_full_n),
+    .layer3x4_out_write(first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_layer3x4_out_write),
+    .start_out(first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_start_out),
+    .start_write(first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_start_write),
+    .input_layer_TDATA(input_layer_TDATA),
+    .input_layer_TREADY(first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_input_layer_TREADY)
+);
+
+cnn_core_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_s unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst_n_inv),
+    .ap_start(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_start),
     .start_full_n(start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_full_n),
-    .ap_done(first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_done),
-    .ap_continue(first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_continue),
-    .ap_idle(first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_idle),
-    .ap_ready(first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_ready),
-    .layer3_out_din(first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_din),
+    .ap_done(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_done),
+    .ap_continue(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_continue),
+    .ap_idle(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_idle),
+    .ap_ready(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_ready),
+    .start_out(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_out),
+    .start_write(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_write),
+    .layer3x4_out_dout(layer3x4_out_dout),
+    .layer3x4_out_num_data_valid(layer3x4_out_num_data_valid),
+    .layer3x4_out_fifo_cap(layer3x4_out_fifo_cap),
+    .layer3x4_out_empty_n(layer3x4_out_empty_n),
+    .layer3x4_out_read(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3x4_out_read),
+    .layer3_out_din(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_din),
     .layer3_out_num_data_valid(layer3_out_num_data_valid),
     .layer3_out_fifo_cap(layer3_out_fifo_cap),
     .layer3_out_full_n(layer3_out_full_n),
-    .layer3_out_write(first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_write),
-    .start_out(first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_out),
-    .start_write(first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_write),
-    .input_layer_TDATA(input_layer_TDATA),
-    .input_layer_TVALID(input_layer_TVALID),
-    .input_layer_TREADY(first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_input_layer_TREADY)
+    .layer3_out_write(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_write)
 );
 
 cnn_core_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_s relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0(
@@ -189,14 +231,29 @@ cnn_core_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_s dense_arr
     .layer7_out_TREADY(layer7_out_TREADY)
 );
 
+cnn_core_fifo_w252_d84_A layer3x4_out_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_layer3x4_out_din),
+    .if_full_n(layer3x4_out_full_n),
+    .if_write(first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_layer3x4_out_write),
+    .if_dout(layer3x4_out_dout),
+    .if_num_data_valid(layer3x4_out_num_data_valid),
+    .if_fifo_cap(layer3x4_out_fifo_cap),
+    .if_empty_n(layer3x4_out_empty_n),
+    .if_read(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3x4_out_read)
+);
+
 cnn_core_fifo_w63_d336_A layer3_out_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
     .if_read_ce(1'b1),
     .if_write_ce(1'b1),
-    .if_din(first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_din),
+    .if_din(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_din),
     .if_full_n(layer3_out_full_n),
-    .if_write(first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_write),
+    .if_write(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_layer3_out_write),
     .if_dout(layer3_out_dout),
     .if_num_data_valid(layer3_out_num_data_valid),
     .if_fifo_cap(layer3_out_fifo_cap),
@@ -234,6 +291,19 @@ cnn_core_fifo_w112_d168_A layer5_out_U(
     .if_read(dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_layer5_out_read)
 );
 
+cnn_core_start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0 start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_U(
+    .clk(ap_clk),
+    .reset(ap_rst_n_inv),
+    .if_read_ce(1'b1),
+    .if_write_ce(1'b1),
+    .if_din(start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_din),
+    .if_full_n(start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_full_n),
+    .if_write(first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_start_write),
+    .if_dout(start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_dout),
+    .if_empty_n(start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_empty_n),
+    .if_read(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_ready)
+);
+
 cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0 start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_U(
     .clk(ap_clk),
     .reset(ap_rst_n_inv),
@@ -241,7 +311,7 @@ cnn_core_start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_conf
     .if_write_ce(1'b1),
     .if_din(start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_din),
     .if_full_n(start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_full_n),
-    .if_write(first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_write),
+    .if_write(unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_start_write),
     .if_dout(start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_dout),
     .if_empty_n(start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_empty_n),
     .if_read(relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ap_ready)
@@ -275,9 +345,9 @@ cnn_core_start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U
 
 assign ap_done = dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_done;
 
-assign ap_idle = (relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ap_idle & maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0_ap_idle & first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_idle & dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_idle);
+assign ap_idle = (unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_idle & relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_ap_idle & maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0_ap_idle & first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_idle & dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_idle);
 
-assign ap_ready = first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_ready;
+assign ap_ready = first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_ready;
 
 always @ (*) begin
     ap_rst_n_inv = ~ap_rst_n;
@@ -287,11 +357,11 @@ assign dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_continu
 
 assign dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_start = start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_empty_n;
 
-assign first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_continue = 1'b1;
+assign first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_continue = 1'b1;
 
-assign first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_start = ap_start;
+assign first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_start = ap_start;
 
-assign input_layer_TREADY = first_conv_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_input_layer_TREADY;
+assign input_layer_TREADY = first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_input_layer_TREADY;
 
 assign layer7_out_TDATA = dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_layer7_out_TDATA;
 
@@ -310,5 +380,11 @@ assign start_for_dense_array_ap_fixed_7u_array_ap_fixed_9_5_5_3_0_1u_config7_U0_
 assign start_for_maxpool2d_nonoverlap_cl_array_array_ap_fixed_16_6_5_3_0_7u_config5_U0_din = 1'b1;
 
 assign start_for_relu_array_ap_fixed_7u_array_ap_fixed_16_6_5_3_0_7u_relu_config4_U0_din = 1'b1;
+
+assign start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_din = 1'b1;
+
+assign unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_continue = 1'b1;
+
+assign unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_ap_start = start_for_unpack_4lane_temporal_cl_array_array_ap_fixed_9_5_5_3_0_7u_config3_U0_empty_n;
 
 endmodule //cnn_core
