@@ -1,0 +1,587 @@
+# AI Context for hls_streaming
+
+This file is the compact project memory for future AI/code-editing sessions.
+It records what has already been read and understood about the C++ HLS project,
+so future work should not need to rediscover the whole generated codebase.
+
+## How Future AI Agents Should Use This File
+
+Start here before scanning the project. This file is intended to be the shared
+working memory for Codex, Claude Code, and other AI coding agents.
+
+Recommended workflow:
+
+```text
+1. Load this AI_CONTEXT.md.
+2. Load hls_streaming/PROJECT_ANALYSIS.md only if more detail is needed.
+3. Use hls_streaming/code_analysis/tags and rg for navigation.
+4. Read source code only for the specific function/module being changed or verified.
+5. After learning a durable new fact, update this file.
+6. After generating new tool indexes or reports, document where they are and how to use them.
+```
+
+Do not repeatedly re-read the whole project to recover basic context. The
+purpose of this file is to avoid that. It is acceptable and expected to read
+source code when making an edit, checking a subtle behavior, or validating a
+claim. The distinction is:
+
+```text
+Use AI_CONTEXT.md for stable project facts and mental model.
+Use code reads for exact local implementation details before edits.
+Use reports/tool indexes for evidence and cross-checks.
+```
+
+When this file becomes stale, update it in the same change that changes the
+code or analysis assumption. Treat it as part of the working project state, not
+as a one-time note.
+
+Suggested update rules:
+
+```text
+If a layer implementation changes, update Current Model Path and Stage-Level Understanding.
+If a type/shape changes, update Data Types and Model Geometry.
+If HLS reports change, update Current Bottleneck Facts.
+If a new testbench or flow is added, update Codebase Shape and Editing Boundaries.
+If a tool index is regenerated, update Tool Artifacts.
+If an optimization hypothesis is disproven, mark or remove it.
+```
+
+For large future work, prefer this loop:
+
+```text
+context -> targeted source read -> edit -> make compare -> HLS/report check if needed -> update context
+```
+
+## Current Goal
+
+The current optimization target is steady-state chunk interval, not minimum
+single-inference latency.
+
+Fixed model semantic:
+
+```text
+256 time samples x 4 positions/channels -> 1 trigger score
+```
+
+Adjacent chunks are independent. There is no required sliding-window overlap.
+Scores only need to remain ordered with respect to chunks.
+
+The front-end data format is flexible. The ADC/DAQ path can perform CDC,
+buffering, packetization, and scheduling before data reaches this CNN core.
+Therefore input granularity is a design variable, not a fixed hardware
+constraint. Candidate granularities include `16 x 4`, `32 x 4`, `64 x 4`,
+`128 x 4`, and `256 x 4`.
+
+## What Was Actually Read
+
+Directly read and analyzed:
+
+```text
+hls_streaming/README.md
+hls_streaming/Makefile
+hls_streaming/tb/compare_runner.cpp
+hls_streaming/firmware/cnn_core.cpp
+hls_streaming/firmware/cnn_core.h
+hls_streaming/firmware/defines.h
+hls_streaming/firmware/parameters.h
+hls_streaming/firmware/weights/*.h shape comments
+hls_streaming/firmware/nnet_utils/nnet_stream.h
+hls_streaming/firmware/nnet_utils/nnet_conv2d_stream.h
+hls_streaming/firmware/nnet_utils/nnet_conv_stream.h
+hls_streaming/firmware/nnet_utils/nnet_activation_stream.h
+hls_streaming/firmware/nnet_utils/nnet_pooling_stream.h
+hls_streaming/firmware/nnet_utils/nnet_dense.h
+hls_streaming/firmware/nnet_utils/nnet_dense_stream.h
+hls_streaming/firmware/nnet_utils/nnet_dense_latency.h
+hls_streaming/firmware/nnet_utils/nnet_helpers.h testbench helpers
+cnn_core_project/cnn_core_prj/solution1/syn/report/* relevant HLS reports
+cnn_core_project/cnn_core_prj/solution1/sim/verilog/cnn_core.performance.result.transaction.xml
+```
+
+Tool-assisted inspected:
+
+```text
+ctags symbol index over firmware and tb
+rg search over all nnet_utils symbols/includes/call names
+tree and line-count summaries
+HLS report grep for latency, interval, loop II, and per-block resources
+```
+
+Not line-by-line read because they are support/generated libraries:
+
+```text
+hls_streaming/firmware/ap_types/*
+most unused hls_streaming/firmware/nnet_utils/*.h
+```
+
+The unused `nnet_utils` headers were categorized by symbol search. They are
+available as reference implementations but are not on the current model path.
+
+## Codebase Shape
+
+`hls_streaming` is a working copy of the generated hls4ml firmware plus a small
+comparison harness.
+
+```text
+../cnn_core_project/firmware   immutable hls4ml baseline
+hls_streaming/firmware         editable C++ HLS working copy
+hls_streaming/tb               comparison runner
+hls_streaming/Makefile         builds baseline_runner and streaming_runner
+```
+
+The current comparison is behavioral C++ comparison, not RTL comparison.
+
+`make compare` does this:
+
+```text
+1. Copy and patch temporary ap_types under build/.
+2. Build baseline_runner from tb/compare_runner.cpp and ../cnn_core_project/firmware/cnn_core.cpp.
+3. Build streaming_runner from tb/compare_runner.cpp and hls_streaming/firmware/cnn_core.cpp.
+4. Run both on 8 deterministic chunks.
+5. Compare output logs byte-for-byte.
+```
+
+Current verification status:
+
+```text
+make compare: PASS
+```
+
+## Current Model Path
+
+The whole active model is:
+
+```text
+cnn_core(input_layer, layer7_out)
+  -> repack_stream<input_t, layer2_t, 1024>
+  -> conv_2d_cl<layer2_t, layer3_t, config3>
+  -> relu<layer3_t, layer4_t, relu_config4>
+  -> pooling2d_cl<layer4_t, layer5_t, config5>
+  -> dense<layer5_t, result_t, config7>
+```
+
+There are no other active neural-network layers in the current generated model.
+
+`cnn_core()` has:
+
+```text
+#pragma HLS INTERFACE axis port=input_layer,layer7_out
+#pragma HLS DATAFLOW
+```
+
+Internal streams:
+
+```text
+layer8_out   depth 1024   scalar input after repack
+layer3_out   depth 336    Conv2D output, packed 7 filter values per word
+layer4_out   depth 336    ReLU output
+layer5_out   depth 168    MaxPool output, packed 7 filter values per word
+```
+
+## Data Types
+
+From `defines.h`:
+
+```text
+input_t   = nnet::array<ap_fixed<12,6>, 4>
+layer2_t  = nnet::array<ap_fixed<12,6>, 1>
+layer3_t  = nnet::array<ap_fixed<9,5>, 7>
+layer4_t  = nnet::array<ap_fixed<16,6>, 7>
+layer5_t  = nnet::array<ap_fixed<16,6>, 7>
+result_t  = nnet::array<ap_fixed<9,5>, 1>
+```
+
+`input_t` contains 4 fixed-point values per AXI-stream word.
+
+Important interpretation: the model represents the input as `256 x 4 x 1`,
+not as `256 x 1 x 4`. That means the four values are the width dimension, while
+`n_chan = 1`.
+
+## Model Geometry
+
+From `parameters.h`:
+
+```text
+Input:      256 x 4 x 1
+Conv2D:     kernel 5 x 1, 7 filters, stride 3 x 1
+Conv out:   84 x 4 x 7 = 2352 scalar values = 336 stream words of 7
+ReLU:       2352 values = 336 stream words of 7
+MaxPool2D:  pool 2 x 1, stride 2 x 1
+Pool out:   42 x 4 x 7 = 1176 scalar values = 168 stream words of 7
+Dense:      1176 -> 1 score
+```
+
+Weights:
+
+```text
+w3: 5 x 1 x 1 x 7 = 35 values
+b3: 7 values
+w7: 1176 x 1 values
+b7: 1 value
+```
+
+Consequence: the first convolution is temporal filtering applied independently
+at each of the four width positions. Early cross-position/channel mixing is not
+done in Conv2D. Cross-position information can only combine in the dense layer
+unless the model structure changes.
+
+## Stage-Level Understanding
+
+### repack_stream
+
+Location:
+
+```text
+firmware/nnet_utils/nnet_stream.h
+```
+
+Instantiation:
+
+```text
+data_T = input_t   size 4
+res_T  = layer2_t  size 1
+N      = 1024
+```
+
+Behavior:
+
+```text
+reads 256 input words, each with 4 values
+writes 1024 scalar words, each with 1 value
+```
+
+The active branch is `data_T::size > res_T::size`. For each input word, the
+function writes four output words.
+
+Observed HLS report:
+
+```text
+latency / interval: 3075 cycles
+trip count:         1024
+achieved II:        3
+```
+
+Meaning: this is currently the largest interval limiter, and it performs only
+format conversion. It is the first candidate to remove, bypass, or fuse with
+the first convolution.
+
+### conv_2d_cl
+
+Locations:
+
+```text
+firmware/nnet_utils/nnet_conv2d_stream.h
+firmware/nnet_utils/nnet_conv_stream.h
+```
+
+Instantiation:
+
+```text
+data_T = layer2_t  size 1
+res_T  = layer3_t  size 7
+CONFIG = config3
+```
+
+Behavior:
+
+```text
+reads 1024 scalar pixels
+uses linebuffer implementation
+produces 336 output words, each with 7 filter values
+```
+
+Call path:
+
+```text
+conv_2d_cl
+  -> conv_2d_buffer_latency_cl
+  -> compute_output_buffer_2d
+  -> shift_line_buffer
+  -> DenseLatency over 5 input values and 7 filters
+```
+
+Observed HLS report:
+
+```text
+latency / interval: 2051 cycles
+input loop trip:    1024
+achieved II:        2
+```
+
+Meaning: the multiply itself is small, but the scalarized input stream,
+line-buffer/counter schedule, and II=2 make it the second major interval
+problem.
+
+### ReLU
+
+Location:
+
+```text
+firmware/nnet_utils/nnet_activation_stream.h
+```
+
+Behavior:
+
+```text
+reads 336 words of 7
+writes 336 words of 7
+elementwise max(x, 0)
+```
+
+Observed HLS report:
+
+```text
+latency / interval: 339 cycles
+achieved II:        1
+```
+
+Meaning: simple streaming stage, not a main optimization target.
+
+### pooling2d_cl
+
+Location:
+
+```text
+firmware/nnet_utils/nnet_pooling_stream.h
+```
+
+Behavior:
+
+```text
+reads 336 words of 7
+linebuffer-style maxpool over 84 x 4 x 7
+pool 2 x 1, stride 2 x 1
+writes 168 words of 7
+```
+
+Observed HLS report:
+
+```text
+latency / interval: 674 cycles
+input loop trip:    336
+achieved II:        2
+```
+
+Meaning: smaller than repack and conv, but still above a 256-cycle chunk target.
+
+### dense
+
+Locations:
+
+```text
+firmware/nnet_utils/nnet_dense_stream.h
+firmware/nnet_utils/nnet_dense_latency.h
+```
+
+Behavior:
+
+```text
+data_prepare reads 168 stream words x 7 = 1176 scalar values
+stores them into a fully partitioned local array
+dense_latency computes 1176 -> 1
+res_write emits 1 result word
+```
+
+Observed HLS report:
+
+```text
+whole dense latency / interval: 176 cycles
+data_prepare:                    170 cycles
+dense_latency_wrapper:             2 cycles, II=1
+```
+
+Resource note:
+
+```text
+dense block HLS estimate: 13 DSP, 27888 FF, 31767 LUT
+```
+
+Meaning: dense is not the current interval limiter, but it is the main resource
+hotspot. It should become a resource optimization target after repack/conv/pool
+intervals are improved.
+
+## Current Bottleneck Facts
+
+Top-level reports:
+
+```text
+RTL cosim latency:       3068 cycles
+RTL cosim interval:      3074 cycles
+HLS latency estimate:    3082 cycles
+HLS interval estimate:   3076 cycles
+Estimated clock:         3.236 ns at a 5.00 ns target
+```
+
+Per-stage estimates:
+
+```text
+Stage          Latency   Interval   Why it matters
+repack_stream     3075       3075   largest limiter, pure reshaping
+conv_2d           2051       2051   main compute/input kernel
+pooling2d          674        674   II=2 over 336 inputs
+relu               339        339   simple stream stage
+dense              176        176   resource-heavy, not interval limiter
+```
+
+Interpretation:
+
+```text
+DATAFLOW overlaps stages within a transaction.
+The top-level interval is near the slowest stage, not the sum.
+The slowest stage is still about 3075 cycles.
+The current design is therefore not a high-throughput persistent chunk engine.
+```
+
+## Transaction Model vs Desired Engine
+
+Current design:
+
+```text
+call cnn_core once
+  -> consume one complete 256 x 4 chunk
+  -> produce one score
+  -> next transaction starts after long interval
+```
+
+Desired direction:
+
+```text
+accept ordered chunks at a much shorter steady-state interval
+allow longer end-to-end latency
+keep multiple chunks in flight if needed
+preserve one score per chunk in order
+```
+
+The key architectural question is whether a new chunk can enter while older
+chunks occupy later CNN stages. Current reports suggest that the generated
+transaction-level top function does not achieve this at the needed interval.
+
+## Editing Boundaries
+
+Do not edit the baseline unless explicitly asked:
+
+```text
+../cnn_core_project/firmware
+```
+
+Edit experiments here:
+
+```text
+hls_streaming/firmware
+```
+
+Preserve behavior with:
+
+```text
+cd hls_streaming
+make compare
+```
+
+For math-preserving refactors, output should remain byte-for-byte identical to
+baseline for equivalent chunk inputs.
+
+## Best First Optimization Experiments
+
+1. Replace `repack_stream + conv_2d_cl` with a model-specific first-conv block.
+
+   Target equivalence:
+
+   ```text
+   input_t stream of 256 words x 4 lanes
+     -> custom first conv
+     -> same 336 layer3_t words as baseline conv
+   ```
+
+   Reason: this attacks both the largest non-compute bottleneck and the second
+   bottleneck together.
+
+2. Test input granularity variants.
+
+   Candidate internal formats:
+
+   ```text
+   16 x 4, 32 x 4, 64 x 4, 128 x 4, 256 x 4
+   ```
+
+   These are not ADC constraints. They are scheduling/interface experiments.
+
+3. Add a throughput-oriented testbench.
+
+   The current C++ compare runner calls `cnn_core()` once per chunk. It checks
+   functional equivalence, not true stream throughput. A new testbench should
+   help reason about many chunks in order and about accepted chunk interval.
+
+4. Consider persistent streaming top-level logic.
+
+   A future design may need a top-level loop over chunks, with dataflow stages
+   operating continuously across chunk boundaries. Static counters in current
+   linebuffer helpers reset after one image; audit carefully before reusing them
+   in a persistent design.
+
+5. Consider multi-core interleaving if one core cannot meet interval.
+
+   Round-robin chunk dispatch is architecturally simple, but costs resources and
+   power. It should be evaluated after single-core interval improvements.
+
+6. Revisit dense only after interval bottlenecks move.
+
+   Dense dominates FF/LUT/DSP estimates but currently has only 176-cycle
+   interval. Optimize dense resource use later via quantization, sparsity,
+   reuse, or a different dense strategy.
+
+## Useful Search Commands
+
+Active top-level calls:
+
+```bash
+rg -n "nnet::(repack_stream|conv_2d_cl|relu|pooling2d_cl|dense)" hls_streaming/firmware
+```
+
+Layer configs:
+
+```bash
+rg -n "struct config3|struct relu_config4|struct config5|struct config7" hls_streaming/firmware/parameters.h
+```
+
+Report bottlenecks:
+
+```bash
+rg -n "Latency|Interval|repack_stream|conv_2d|pooling2d|dense|achieved" cnn_core_project/cnn_core_prj/solution1/syn/report
+```
+
+Generated symbol index:
+
+```bash
+ctags -x hls_streaming/firmware/cnn_core.cpp hls_streaming/firmware/parameters.h hls_streaming/firmware/nnet_utils/nnet_conv_stream.h
+```
+
+## Tool Artifacts
+
+`hls_streaming/code_analysis/tags` is a generated ctags index.
+
+`hls_streaming/code_analysis/cscope.files` lists the source files selected for
+cross-reference indexing, excluding `ap_types` and `build`.
+
+Note: the local `cscope` binary generated a database, but query mode reported
+`cannot read trailer offset` on this workspace path. Treat ctags/rg as reliable
+for now unless cscope is regenerated from a path without spaces/iCloud
+components.
+
+To regenerate the ctags index after code changes:
+
+```bash
+ctags -R -f hls_streaming/code_analysis/tags hls_streaming/firmware hls_streaming/tb
+```
+
+To refresh the selected source list:
+
+```bash
+find hls_streaming/firmware hls_streaming/tb \
+  -path 'hls_streaming/firmware/ap_types' -prune -o \
+  -path 'hls_streaming/build' -prune -o \
+  -type f \( -name '*.h' -o -name '*.cpp' \) -print \
+  > hls_streaming/code_analysis/cscope.files
+```
+
+After regenerating any tool database, add a short note here if the workflow or
+tool behavior changes.
