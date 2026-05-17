@@ -197,9 +197,9 @@ repack_stream<input_t, layer2_t, 1024>
 ```
 
 The working copy is behavior-equivalent in C++ comparison for all tested vectors.
-The latest confirmed HLS csynth result after the wide-output experiment is top
-latency / interval 844 / 842 cycles. The wide first-conv worked, but the narrow
-unpack adapter became the current bottleneck.
+The latest confirmed HLS csynth result after the flat-unpack experiment is top
+latency / interval 345 / 340 cycles. The wide first-conv and flat unpack both
+worked; unpack, ReLU, and pool are now tied near 339 cycles.
 
 `cnn_core()` has:
 
@@ -364,7 +364,7 @@ first_conv_4lane_temporal_wide_cl:
 unpack_4lane_temporal_cl:
   84 reads of layer3x4_t -> 336 writes of layer3_t
 
-Confirmed HLS result:
+Nested-unpack HLS result:
   top latency / interval:        844 / 842 cycles
   first_conv wide:               259 / 259 cycles, ReadInputHeightWide II=1
   unpack adapter:                841 / 841 cycles
@@ -381,9 +381,22 @@ latency/interval 6 cycles despite inner II=1.
 Source update after this report: unpack is now a flat 336-iteration loop with a
 small current-wide-word register and a width counter. It reads one `layer3x4_t`
 when the width counter is zero and writes one `layer3_t` every cycle, targeting
-about 336-339 cycles. `make compare SAMPLES=1024` passes after this change. HLS
-csynth is pending. The larger follow-on experiment is to push 4-width packing
-through ReLU and pool rather than unpacking immediately.
+about 336-339 cycles. `make compare SAMPLES=1024` passes after this change.
+
+Flat-unpack HLS result:
+
+```text
+top latency / interval:        345 / 340 cycles
+unpack flat:                   339 / 339 cycles, UnpackOutputFlat II=1
+first_conv wide:               259 / 259 cycles, ReadInputHeightWide II=1
+relu / maxpool2d_nonoverlap:   339 / 339 cycles each
+dense:                         176 / 176 cycles
+estimated clock:               3.886 ns at 5.00 ns target
+Resources:                  32 BRAM_18K, 17 DSP, 30269 FF, 37938 LUT
+```
+
+The larger follow-on experiment is to push 4-width packing through ReLU and pool
+rather than unpacking immediately.
 
 ### repack_stream
 
@@ -637,11 +650,10 @@ Top interval              1029          first_conv dominates; pool gain absorbed
 
 Pool improvement (674→339) is real but invisible at top level while first_conv > 339.
 Top interval gain this round: 1041 → 1029 (−12 cycles, ~1%).
-Current source experiment breaks first_conv's 4-write bottleneck with an
-internal wide stream and narrow unpack adapter. HLS confirms first_conv drops to
-259 cycles, but the nested-loop unpack adapter is 841 cycles. Source now uses a
-flat unpack adapter; HLS should confirm whether the top interval moves toward
-the 339-cycle ReLU/pool limit.
+Current source breaks first_conv's 4-write bottleneck and flattens unpack. HLS
+confirms first_conv drops to 259 cycles, unpack drops to 339 cycles, and the top
+interval reaches 340 cycles. The current bottleneck is a three-way tie:
+unpack/ReLU/maxpool at about 339 cycles.
 
 Baseline reports before first-conv replacement:
 
