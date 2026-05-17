@@ -61757,8 +61757,9 @@ void first_conv_4lane_temporal_cl(
 
 
 
- ap_uint<3> wptr = 0;
-    ap_uint<2> stride_cnt = 0;
+
+ unsigned wptr = 0;
+    unsigned stride_cnt = 0;
 
 ReadInputHeight:
     for (unsigned i_ih = 0; i_ih < CONFIG_T::in_height; i_ih++) {
@@ -61774,7 +61775,7 @@ ReadInputHeight:
         }
 
 
-        ap_uint<3> oldest = (wptr == CONFIG_T::filt_height - 1) ? ap_uint<3>(0) : ap_uint<3>(wptr + 1);
+        unsigned oldest = (wptr == CONFIG_T::filt_height - 1) ? 0u : wptr + 1;
 
         const bool have_full_window = i_ih >= CONFIG_T::filt_height - 1;
         const bool on_stride = have_full_window && (stride_cnt == 0);
@@ -61797,9 +61798,9 @@ ReadInputHeight:
                 for (unsigned k = 0; k < CONFIG_T::filt_height; k++) {
 #pragma HLS UNROLL
 
- ap_uint<3> ridx = (oldest + k < CONFIG_T::filt_height)
-                                      ? ap_uint<3>(oldest + k)
-                                      : ap_uint<3>(oldest + k - CONFIG_T::filt_height);
+ unsigned ridx = (oldest + k < CONFIG_T::filt_height)
+                                    ? oldest + k
+                                    : oldest + k - CONFIG_T::filt_height;
                     kernel_data[k] = row_buf[ridx][i_iw];
                 }
 
@@ -61819,8 +61820,7 @@ ReadInputHeight:
 
         wptr = oldest;
         if (have_full_window) {
-            stride_cnt = (stride_cnt == CONFIG_T::stride_height - 1)
-                         ? ap_uint<2>(0) : ap_uint<2>(stride_cnt + 1);
+            stride_cnt = (stride_cnt == CONFIG_T::stride_height - 1) ? 0u : stride_cnt + 1;
         }
     }
 }
@@ -63319,9 +63319,13 @@ void maxpool2d_nonoverlap_cl(hls::stream<data_T> &data, hls::stream<res_T> &res)
     static_assert(CONFIG_T::pool_op == nnet::Max,
                   "maxpool2d_nonoverlap_cl: only Max pooling supported");
 
+    typedef typename data_T::value_type data_value_t;
+    typedef typename res_T::value_type res_value_t;
 
-    data_T prev_row[CONFIG_T::in_width];
-#pragma HLS ARRAY_PARTITION variable=prev_row complete
+
+
+    data_value_t prev_row[CONFIG_T::in_width][data_T::size];
+#pragma HLS ARRAY_PARTITION variable=prev_row complete dim=0
 
  unsigned i_w = 0;
     bool on_second_row = false;
@@ -63333,7 +63337,11 @@ PoolMain:
  data_T cur = data.read();
 
         if (!on_second_row) {
-            prev_row[i_w] = cur;
+        StorePrev:
+            for (unsigned f = 0; f < data_T::size; f++) {
+#pragma HLS UNROLL
+ prev_row[i_w][f] = cur[f];
+            }
         } else {
             res_T out_pack;
 

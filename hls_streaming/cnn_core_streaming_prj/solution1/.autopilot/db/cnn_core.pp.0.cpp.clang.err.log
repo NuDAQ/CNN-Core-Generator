@@ -985,28 +985,28 @@ In file included from firmware/parameters.h:17:
 firmware/nnet_utils/nnet_first_conv_stream.h:26:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=variable=row_buf complete dim=0_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS ARRAY_PARTITION variable=row_buf complete dim=0
         ^
-firmware/nnet_utils/nnet_first_conv_stream.h:35:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+firmware/nnet_utils/nnet_first_conv_stream.h:36:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS PIPELINE II=1
         ^
-firmware/nnet_utils/nnet_first_conv_stream.h:36:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=dependence_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=variable=row_buf inter false_XLX_SEP_ [-Wdump-hls-pragmas]
+firmware/nnet_utils/nnet_first_conv_stream.h:37:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=dependence_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=variable=row_buf inter false_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS DEPENDENCE variable=row_buf inter false
         ^
-firmware/nnet_utils/nnet_first_conv_stream.h:42:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+firmware/nnet_utils/nnet_first_conv_stream.h:43:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS UNROLL
         ^
-firmware/nnet_utils/nnet_first_conv_stream.h:55:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+firmware/nnet_utils/nnet_first_conv_stream.h:56:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS PIPELINE II=1
         ^
-firmware/nnet_utils/nnet_first_conv_stream.h:58:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=variable=kernel_data complete_XLX_SEP_ [-Wdump-hls-pragmas]
+firmware/nnet_utils/nnet_first_conv_stream.h:59:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=variable=kernel_data complete_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS ARRAY_PARTITION variable=kernel_data complete
         ^
-firmware/nnet_utils/nnet_first_conv_stream.h:61:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=variable=res_out complete_XLX_SEP_ [-Wdump-hls-pragmas]
+firmware/nnet_utils/nnet_first_conv_stream.h:62:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=variable=res_out complete_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS ARRAY_PARTITION variable=res_out complete
         ^
-firmware/nnet_utils/nnet_first_conv_stream.h:68:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+firmware/nnet_utils/nnet_first_conv_stream.h:69:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS UNROLL
         ^
-firmware/nnet_utils/nnet_first_conv_stream.h:81:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+firmware/nnet_utils/nnet_first_conv_stream.h:82:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=first_conv_4lane_temporal_cl_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS UNROLL
         ^
 In file included from firmware/cnn_core.cpp:4:
@@ -1166,13 +1166,16 @@ firmware/nnet_utils/nnet_pooling_stream.h:328:9: warning: HLS pragma dump _XLX_S
 firmware/nnet_utils/nnet_pooling_stream.h:334:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=global_pooling1d_cl_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS UNROLL
         ^
-firmware/nnet_utils/nnet_pooling_stream.h:363:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=maxpool2d_nonoverlap_cl_XLX_SEP_ PragmaOptions=variable=prev_row complete_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS ARRAY_PARTITION variable=prev_row complete
+firmware/nnet_utils/nnet_pooling_stream.h:367:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=maxpool2d_nonoverlap_cl_XLX_SEP_ PragmaOptions=variable=prev_row complete dim=0_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS ARRAY_PARTITION variable=prev_row complete dim=0
         ^
-firmware/nnet_utils/nnet_pooling_stream.h:370:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=maxpool2d_nonoverlap_cl_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+firmware/nnet_utils/nnet_pooling_stream.h:374:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=maxpool2d_nonoverlap_cl_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS PIPELINE II=1
         ^
 firmware/nnet_utils/nnet_pooling_stream.h:381:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=maxpool2d_nonoverlap_cl_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS UNROLL
+        ^
+firmware/nnet_utils/nnet_pooling_stream.h:389:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=maxpool2d_nonoverlap_cl_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS UNROLL
         ^
 /home/work1/Works/CNN-Core-Generator/hls_streaming/build_hls.tcl:91:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=top_XLX_SEP_ PragmaContext=directive_XLX_SEP_ PragmaFunction=cnn_core_XLX_SEP_ PragmaOptions=name=cnn_core_XLX_SEP_ [-Wdump-hls-pragmas]
@@ -1193,4 +1196,4 @@ firmware/cnn_core.cpp:36:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_X
 firmware/cnn_core.cpp:39:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=cnn_core_XLX_SEP_ PragmaOptions=variable=layer5_out depth=168_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS STREAM variable=layer5_out depth=168
         ^
-378 warnings generated.
+379 warnings generated.
