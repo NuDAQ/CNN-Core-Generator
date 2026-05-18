@@ -38,8 +38,8 @@
     <AreaEstimates>
         <Resources>
             <DSP>11</DSP>
-            <FF>2975</FF>
-            <LUT>26500</LUT>
+            <FF>2953</FF>
+            <LUT>26534</LUT>
             <BRAM_18K>0</BRAM_18K>
             <URAM>0</URAM>
         </Resources>
@@ -200,7 +200,7 @@
                     <ModuleName>first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s</ModuleName>
                     <IsCompInst>true</IsCompInst>
                     <ID>70</ID>
-                    <BindInstances>i_ih_4_fu_897_p2 add_ln132_fu_1047_p2 add_ln156_fu_1095_p2 add_ln154_fu_1109_p2 add_ln156_1_fu_1121_p2 add_ln154_1_fu_1135_p2 add_ln154_2_fu_1151_p2 add_ln154_3_fu_1276_p2 add_ln154_4_fu_1169_p2 sub_ln42_fu_1913_p2 sub_ln42_1_fu_1919_p2 mul_12s_5ns_15_1_1_U3 sub_ln42_2_fu_1958_p2 sub_ln42_7_fu_2036_p2 sub_ln42_8_fu_2070_p2 add_ln58_fu_2076_p2 add_ln58_1_fu_2086_p2 add_ln58_2_fu_2096_p2 sub_ln58_fu_2106_p2 tmp118_fu_2112_p2 add_ln58_3_fu_2126_p2 add_ln58_5_fu_2148_p2 add_ln58_7_fu_2160_p2 add_ln58_10_fu_2172_p2 tmp20987_fu_2188_p2 add_ln58_14_fu_2208_p2 tmp211_fu_2224_p2 tmp213_fu_2276_p2 tmp214_fu_2294_p2 sub_ln42_9_fu_2420_p2 sub_ln42_10_fu_2426_p2 mul_12s_5ns_15_1_1_U4 sub_ln42_11_fu_2465_p2 sub_ln42_16_fu_2543_p2 sub_ln42_17_fu_2577_p2 add_ln58_21_fu_2583_p2 add_ln58_22_fu_2593_p2 add_ln58_24_fu_2603_p2 sub_ln58_5_fu_2613_p2 tmp215116_fu_2619_p2 add_ln58_26_fu_2633_p2 add_ln58_28_fu_2655_p2 add_ln58_30_fu_2667_p2 add_ln58_33_fu_2679_p2 tmp21859_fu_2695_p2 add_ln58_39_fu_2715_p2 tmp221_fu_2731_p2 tmp223_fu_2783_p2 tmp224_fu_2801_p2 sub_ln42_18_fu_2887_p2 sub_ln42_19_fu_2893_p2 mul_12s_5ns_15_1_1_U2 sub_ln42_20_fu_2932_p2 sub_ln42_25_fu_3010_p2 sub_ln42_26_fu_3044_p2 add_ln58_42_fu_3050_p2 add_ln58_43_fu_3060_p2 add_ln58_45_fu_3070_p2 sub_ln58_10_fu_3080_p2 tmp225114_fu_3086_p2 add_ln58_49_fu_3100_p2 add_ln58_52_fu_3122_p2 add_ln58_53_fu_3134_p2 add_ln58_56_fu_3146_p2 tmp22831_fu_3162_p2 add_ln58_62_fu_3182_p2 tmp231_fu_3198_p2 tmp233_fu_3250_p2 tmp234_fu_3268_p2 sub_ln42_27_fu_3354_p2 sub_ln42_28_fu_3360_p2 mul_12s_5ns_15_1_1_U1 sub_ln42_29_fu_3399_p2 sub_ln42_34_fu_3477_p2 sub_ln42_35_fu_3511_p2 add_ln58_63_fu_3517_p2 add_ln58_64_fu_3527_p2 add_ln58_66_fu_3537_p2 sub_ln58_15_fu_3547_p2 tmp235112_fu_3553_p2 add_ln58_70_fu_3567_p2 add_ln58_75_fu_3589_p2 add_ln58_76_fu_3601_p2 add_ln58_81_fu_3613_p2 tmp2383_fu_3629_p2 add_ln58_85_fu_3649_p2 tmp241_fu_3665_p2 tmp243_fu_3717_p2 tmp244_fu_3735_p2 add_ln175_fu_1181_p2</BindInstances>
+                    <BindInstances>i_ih_4_fu_895_p2 add_ln132_fu_1045_p2 add_ln156_fu_1093_p2 add_ln154_fu_1107_p2 add_ln156_1_fu_1119_p2 add_ln154_1_fu_1133_p2 add_ln154_2_fu_1149_p2 add_ln154_3_fu_1268_p2 add_ln154_4_fu_1279_p2 sub_ln42_32_fu_1889_p2 sub_ln42_2_fu_1945_p2 mul_12s_5ns_15_1_1_U3 sub_ln42_33_fu_2026_p2 sub_ln42_6_fu_2056_p2 sub_ln42_7_fu_2096_p2 add_ln58_fu_2102_p2 add_ln58_1_fu_2112_p2 sub_ln58_fu_2122_p2 add_ln58_2_fu_2128_p2 sub_ln58_1_fu_2138_p2 add_ln58_4_fu_2150_p2 add_ln58_6_fu_2162_p2 add_ln58_9_fu_3879_p2 add_ln58_12_fu_2186_p2 add_ln58_16_fu_2208_p2 add_ln58_17_fu_2218_p2 add_ln58_20_fu_2236_p2 tmp116_fu_2260_p2 sub_ln42_35_fu_2342_p2 sub_ln42_10_fu_2398_p2 mul_12s_5ns_15_1_1_U4 sub_ln42_36_fu_2479_p2 sub_ln42_14_fu_2509_p2 sub_ln42_15_fu_2549_p2 add_ln58_27_fu_2555_p2 add_ln58_28_fu_2565_p2 sub_ln58_5_fu_2575_p2 add_ln58_29_fu_2581_p2 sub_ln58_6_fu_2591_p2 add_ln58_31_fu_2603_p2 add_ln58_33_fu_2615_p2 add_ln58_36_fu_3904_p2 add_ln58_39_fu_2639_p2 add_ln58_43_fu_2661_p2 add_ln58_44_fu_2671_p2 add_ln58_47_fu_2689_p2 tmp202114_fu_2713_p2 sub_ln42_38_fu_2785_p2 sub_ln42_18_fu_2841_p2 mul_12s_5ns_15_1_1_U2 sub_ln42_39_fu_2922_p2 sub_ln42_22_fu_2952_p2 sub_ln42_23_fu_2992_p2 add_ln58_52_fu_2998_p2 add_ln58_54_fu_3008_p2 sub_ln58_10_fu_3018_p2 add_ln58_56_fu_3024_p2 sub_ln58_11_fu_3034_p2 add_ln58_58_fu_3046_p2 add_ln58_60_fu_3058_p2 add_ln58_63_fu_3919_p2 add_ln58_66_fu_3082_p2 add_ln58_70_fu_3104_p2 add_ln58_71_fu_3114_p2 add_ln58_75_fu_3132_p2 tmp205112_fu_3156_p2 sub_ln42_41_fu_3228_p2 sub_ln42_26_fu_3284_p2 mul_12s_5ns_15_1_1_U1 sub_ln42_42_fu_3365_p2 sub_ln42_30_fu_3395_p2 sub_ln42_31_fu_3435_p2 add_ln58_77_fu_3441_p2 add_ln58_79_fu_3451_p2 sub_ln58_15_fu_3461_p2 add_ln58_83_fu_3467_p2 sub_ln58_16_fu_3477_p2 add_ln58_85_fu_3489_p2 add_ln58_87_fu_3501_p2 add_ln58_90_fu_3934_p2 add_ln58_93_fu_3525_p2 add_ln58_97_fu_3547_p2 add_ln58_99_fu_3557_p2 add_ln58_102_fu_3575_p2 tmp208110_fu_3599_p2 add_ln175_fu_1173_p2</BindInstances>
                 </Instance>
                 <Instance>
                     <InstName>relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0</InstName>
@@ -217,17 +217,17 @@
                     <BindInstances>i_ih_2_fu_314_p2</BindInstances>
                 </Instance>
                 <Instance>
-                    <InstName>dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0</InstName>
-                    <ModuleName>dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s</ModuleName>
+                    <InstName>dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0</InstName>
+                    <ModuleName>dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_s</ModuleName>
                     <IsCompInst>true</IsCompInst>
                     <ID>89</ID>
                     <InstancesList>
                         <Instance>
-                            <InstName>grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53</InstName>
+                            <InstName>grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47</InstName>
                             <ModuleName>dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain</ModuleName>
                             <IsCompInst>true</IsCompInst>
-                            <ID>53</ID>
-                            <BindInstances>i_4_fu_2771_p2 sub_ln118_1_fu_2836_p2 mul_16s_6s_20_1_1_U42 mul_16s_6s_20_1_1_U44 mul_16s_6s_20_1_1_U46 mul_16s_6s_20_1_1_U48 mul_16s_6s_20_1_1_U50 mul_16s_6s_20_1_1_U52 mul_16s_6s_20_1_1_U54 add_ln119_2_fu_36718_p2 i_word_1_fu_2854_p2 i_width_4_fu_2860_p2</BindInstances>
+                            <ID>47</ID>
+                            <BindInstances>i_4_fu_2767_p2 sub_ln118_1_fu_2832_p2 mul_16s_6s_20_1_1_U42 mul_16s_6s_20_1_1_U44 mul_16s_6s_20_1_1_U46 mul_16s_6s_20_1_1_U48 mul_16s_6s_20_1_1_U50 mul_16s_6s_20_1_1_U52 mul_16s_6s_20_1_1_U54 add_ln119_2_fu_36709_p2 i_word_1_fu_2850_p2 i_width_4_fu_2856_p2</BindInstances>
                         </Instance>
                     </InstancesList>
                 </Instance>
@@ -289,10 +289,10 @@
                     <DSP>4</DSP>
                     <AVAIL_DSP>1824</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>731</FF>
+                    <FF>788</FF>
                     <AVAIL_FF>433920</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>4529</LUT>
+                    <LUT>4597</LUT>
                     <AVAIL_LUT>216960</AVAIL_LUT>
                     <UTIL_LUT>2</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -304,96 +304,92 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="i_ih_4_fu_897_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:120" STORAGESUBTYPE="" URAM="0" VARIABLE="i_ih_4"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln132_fu_1047_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:132" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln132"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln156_fu_1095_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:156" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln156"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln154_fu_1109_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:154" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln154"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln156_1_fu_1121_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:156" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln156_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln154_1_fu_1135_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:154" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln154_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln154_2_fu_1151_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:154" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln154_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln154_3_fu_1276_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:154" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln154_3"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln154_4_fu_1169_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:154" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln154_4"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_fu_1913_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_1_fu_1919_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="i_ih_4_fu_895_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:120" STORAGESUBTYPE="" URAM="0" VARIABLE="i_ih_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln132_fu_1045_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:132" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln132"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln156_fu_1093_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:156" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln156"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln154_fu_1107_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:154" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln154"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln156_1_fu_1119_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:156" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln156_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln154_1_fu_1133_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:154" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln154_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln154_2_fu_1149_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:154" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln154_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln154_3_fu_1268_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:154" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln154_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln154_4_fu_1279_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:154" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln154_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_32_fu_1889_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_32"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_2_fu_1945_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_2"/>
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="auto" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="mul" PRAGMA="" RTLNAME="mul_12s_5ns_15_1_1_U3" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln42"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_2_fu_1958_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_7_fu_2036_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_7"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_8_fu_2070_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_8"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_fu_2076_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_1_fu_2086_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_2_fu_2096_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln58_fu_2106_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln58"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp118_fu_2112_p2" SOURCE="firmware/nnet_utils/nnet_mult.h:70" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp118"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_3_fu_2126_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_3"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_5_fu_2148_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_5"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_7_fu_2160_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_7"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_10_fu_2172_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_10"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="tmp20987_fu_2188_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp20987"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_14_fu_2208_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_14"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp211_fu_2224_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp211"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp213_fu_2276_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp213"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="tmp214_fu_2294_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp214"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_9_fu_2420_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_9"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_10_fu_2426_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_10"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_33_fu_2026_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_33"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_6_fu_2056_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_7_fu_2096_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_7"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_fu_2102_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_1_fu_2112_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln58_fu_2122_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln58"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_2_fu_2128_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln58_1_fu_2138_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln58_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_4_fu_2150_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_6_fu_2162_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_9_fu_3879_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_9"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_12_fu_2186_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_12"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_16_fu_2208_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_16"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_17_fu_2218_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_17"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_20_fu_2236_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_20"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp116_fu_2260_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:157" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp116"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_35_fu_2342_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_35"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_10_fu_2398_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_10"/>
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="auto" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="mul" PRAGMA="" RTLNAME="mul_12s_5ns_15_1_1_U4" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln42_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_11_fu_2465_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_11"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_16_fu_2543_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_16"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_17_fu_2577_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_17"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_21_fu_2583_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_21"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_22_fu_2593_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_22"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_24_fu_2603_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_24"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln58_5_fu_2613_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln58_5"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp215116_fu_2619_p2" SOURCE="firmware/nnet_utils/nnet_mult.h:70" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp215116"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_26_fu_2633_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_26"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_28_fu_2655_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_28"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_30_fu_2667_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_30"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_33_fu_2679_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_33"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="tmp21859_fu_2695_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp21859"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_39_fu_2715_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_39"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp221_fu_2731_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp221"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp223_fu_2783_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp223"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="tmp224_fu_2801_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp224"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_18_fu_2887_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_18"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_19_fu_2893_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_19"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_36_fu_2479_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_36"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_14_fu_2509_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_14"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_15_fu_2549_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_15"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_27_fu_2555_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_27"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_28_fu_2565_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_28"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln58_5_fu_2575_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln58_5"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_29_fu_2581_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_29"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln58_6_fu_2591_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln58_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_31_fu_2603_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_31"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_33_fu_2615_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_33"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_36_fu_3904_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_36"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_39_fu_2639_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_39"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_43_fu_2661_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_43"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_44_fu_2671_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_44"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_47_fu_2689_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_47"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp202114_fu_2713_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:157" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp202114"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_38_fu_2785_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_38"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_18_fu_2841_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_18"/>
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="auto" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="mul" PRAGMA="" RTLNAME="mul_12s_5ns_15_1_1_U2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln42_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_20_fu_2932_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_20"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_25_fu_3010_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_25"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_26_fu_3044_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_26"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_42_fu_3050_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_42"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_43_fu_3060_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_43"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_45_fu_3070_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_45"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln58_10_fu_3080_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln58_10"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp225114_fu_3086_p2" SOURCE="firmware/nnet_utils/nnet_mult.h:70" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp225114"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_49_fu_3100_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_49"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_52_fu_3122_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_52"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_53_fu_3134_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_53"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_56_fu_3146_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_56"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="tmp22831_fu_3162_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp22831"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_62_fu_3182_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_62"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp231_fu_3198_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp231"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp233_fu_3250_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp233"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="tmp234_fu_3268_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp234"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_27_fu_3354_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_27"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_28_fu_3360_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_28"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_39_fu_2922_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_39"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_22_fu_2952_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_22"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_23_fu_2992_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_23"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_52_fu_2998_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_52"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_54_fu_3008_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_54"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln58_10_fu_3018_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln58_10"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_56_fu_3024_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_56"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln58_11_fu_3034_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln58_11"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_58_fu_3046_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_58"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_60_fu_3058_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_60"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_63_fu_3919_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_63"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_66_fu_3082_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_66"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_70_fu_3104_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_70"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_71_fu_3114_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_71"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_75_fu_3132_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_75"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp205112_fu_3156_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:157" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp205112"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_41_fu_3228_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_41"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_26_fu_3284_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_26"/>
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="auto" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="mul" PRAGMA="" RTLNAME="mul_12s_5ns_15_1_1_U1" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln42_3"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_29_fu_3399_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_29"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_34_fu_3477_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_34"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_35_fu_3511_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_35"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_63_fu_3517_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_63"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_64_fu_3527_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_64"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_66_fu_3537_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_66"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln58_15_fu_3547_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln58_15"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp235112_fu_3553_p2" SOURCE="firmware/nnet_utils/nnet_mult.h:70" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp235112"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_70_fu_3567_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_70"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_75_fu_3589_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_75"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_76_fu_3601_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_76"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_81_fu_3613_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_81"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="tmp2383_fu_3629_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp2383"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_85_fu_3649_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_85"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp241_fu_3665_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp241"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp243_fu_3717_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp243"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="tmp244_fu_3735_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp244"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln175_fu_1181_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:175" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln175"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_42_fu_3365_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_42"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_30_fu_3395_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_30"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln42_31_fu_3435_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:42" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln42_31"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_77_fu_3441_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_77"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_79_fu_3451_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_79"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln58_15_fu_3461_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln58_15"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_83_fu_3467_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_83"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln58_16_fu_3477_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln58_16"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_85_fu_3489_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_85"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_87_fu_3501_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_87"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_90_fu_3934_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_90"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_93_fu_3525_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_93"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_97_fu_3547_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_97"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_99_fu_3557_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_99"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_102_fu_3575_p2" SOURCE="firmware/nnet_utils/nnet_dense_latency.h:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58_102"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="tmp208110_fu_3599_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:157" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp208110"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="ReadInputHeightWide" OPTYPE="add" PRAGMA="" RTLNAME="add_ln175_fu_1173_p2" SOURCE="firmware/nnet_utils/nnet_first_conv_stream.h:175" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln175"/>
             </BindNodes>
         </Module>
         <Module>
@@ -550,13 +546,13 @@
                     <EstimatedClockPeriod>3.592</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>173</Best-caseLatency>
-                    <Average-caseLatency>173</Average-caseLatency>
-                    <Worst-caseLatency>173</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>0.865 us</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0.865 us</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>0.865 us</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>173</PipelineInitiationInterval>
+                    <Best-caseLatency>172</Best-caseLatency>
+                    <Average-caseLatency>172</Average-caseLatency>
+                    <Worst-caseLatency>172</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.860 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.860 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.860 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>172</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
@@ -564,8 +560,8 @@
                         <Name>DenseWideMain</Name>
                         <Slack>3.65</Slack>
                         <TripCount>168</TripCount>
-                        <Latency>171</Latency>
-                        <AbsoluteTimeLatency>0.855 us</AbsoluteTimeLatency>
+                        <Latency>170</Latency>
+                        <AbsoluteTimeLatency>0.850 us</AbsoluteTimeLatency>
                         <PipelineII>1</PipelineII>
                         <PipelineDepth>4</PipelineDepth>
                         <PipelineType>yes</PipelineType>
@@ -581,7 +577,7 @@
                             <Name>DenseWideMain</Name>
                             <IssueType>-</IssueType>
                             <ViolationType>-</ViolationType>
-                            <SourceLocation>firmware/nnet_utils/nnet_dense_stream.h:107</SourceLocation>
+                            <SourceLocation>firmware/nnet_utils/nnet_dense_stream.h:99</SourceLocation>
                         </DenseWideMain>
                     </SummaryOfLoopViolations>
                 </SummaryOfViolations>
@@ -591,12 +587,12 @@
                     <DSP>7</DSP>
                     <AVAIL_DSP>1824</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>748</FF>
+                    <FF>684</FF>
                     <AVAIL_FF>433920</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>19559</LUT>
+                    <LUT>19525</LUT>
                     <AVAIL_LUT>216960</AVAIL_LUT>
-                    <UTIL_LUT>9</UTIL_LUT>
+                    <UTIL_LUT>8</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
                     <AVAIL_BRAM>960</AVAIL_BRAM>
                     <UTIL_BRAM>0</UTIL_BRAM>
@@ -606,8 +602,8 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="DenseWideMain" OPTYPE="add" PRAGMA="" RTLNAME="i_4_fu_2771_p2" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:107" STORAGESUBTYPE="" URAM="0" VARIABLE="i_4"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="DenseWideMain" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln118_1_fu_2836_p2" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:118" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln118_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="DenseWideMain" OPTYPE="add" PRAGMA="" RTLNAME="i_4_fu_2767_p2" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:107" STORAGESUBTYPE="" URAM="0" VARIABLE="i_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="DenseWideMain" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln118_1_fu_2832_p2" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:118" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln118_1"/>
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="auto" LATENCY="0" LOOP="DenseWideMain" OPTYPE="mul" PRAGMA="" RTLNAME="mul_16s_6s_20_1_1_U42" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:119" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln119"/>
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="auto" LATENCY="0" LOOP="DenseWideMain" OPTYPE="mul" PRAGMA="" RTLNAME="mul_16s_6s_20_1_1_U44" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:119" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln119_1"/>
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="auto" LATENCY="0" LOOP="DenseWideMain" OPTYPE="mul" PRAGMA="" RTLNAME="mul_16s_6s_20_1_1_U46" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:119" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln119_2"/>
@@ -615,13 +611,13 @@
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="auto" LATENCY="0" LOOP="DenseWideMain" OPTYPE="mul" PRAGMA="" RTLNAME="mul_16s_6s_20_1_1_U50" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:119" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln119_4"/>
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="auto" LATENCY="0" LOOP="DenseWideMain" OPTYPE="mul" PRAGMA="" RTLNAME="mul_16s_6s_20_1_1_U52" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:119" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln119_5"/>
                 <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="auto" LATENCY="0" LOOP="DenseWideMain" OPTYPE="mul" PRAGMA="" RTLNAME="mul_16s_6s_20_1_1_U54" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:119" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln119_6"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="DenseWideMain" OPTYPE="add" PRAGMA="" RTLNAME="add_ln119_2_fu_36718_p2" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:119" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln119_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="DenseWideMain" OPTYPE="add" PRAGMA="" RTLNAME="i_word_1_fu_2854_p2" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:126" STORAGESUBTYPE="" URAM="0" VARIABLE="i_word_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="DenseWideMain" OPTYPE="add" PRAGMA="" RTLNAME="i_width_4_fu_2860_p2" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:128" STORAGESUBTYPE="" URAM="0" VARIABLE="i_width_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="DenseWideMain" OPTYPE="add" PRAGMA="" RTLNAME="add_ln119_2_fu_36709_p2" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:119" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln119_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="DenseWideMain" OPTYPE="add" PRAGMA="" RTLNAME="i_word_1_fu_2850_p2" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:126" STORAGESUBTYPE="" URAM="0" VARIABLE="i_word_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="DenseWideMain" OPTYPE="add" PRAGMA="" RTLNAME="i_width_4_fu_2856_p2" SOURCE="firmware/nnet_utils/nnet_dense_stream.h:128" STORAGESUBTYPE="" URAM="0" VARIABLE="i_width_4"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s</Name>
+            <Name>dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_s</Name>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>5.00</TargetClockPeriod>
@@ -629,19 +625,19 @@
                     <EstimatedClockPeriod>3.592</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>176</Best-caseLatency>
-                    <Average-caseLatency>176</Average-caseLatency>
-                    <Worst-caseLatency>176</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>0.880 us</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0.880 us</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>0.880 us</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>176</PipelineInitiationInterval>
+                    <Best-caseLatency>175</Best-caseLatency>
+                    <Average-caseLatency>175</Average-caseLatency>
+                    <Worst-caseLatency>175</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0.875 us</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0.875 us</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0.875 us</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>175</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfViolations>
                     <IssueType>-</IssueType>
                     <ViolationType>-</ViolationType>
-                    <SourceLocation>firmware/nnet_utils/nnet_mult.h:111~firmware/nnet_utils/nnet_dense_stream.h:134</SourceLocation>
+                    <SourceLocation>firmware/nnet_utils/nnet_dense_stream.h:135</SourceLocation>
                 </SummaryOfViolations>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -649,10 +645,10 @@
                     <DSP>7</DSP>
                     <AVAIL_DSP>1824</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>769</FF>
+                    <FF>690</FF>
                     <AVAIL_FF>433920</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>19616</LUT>
+                    <LUT>19582</LUT>
                     <AVAIL_LUT>216960</AVAIL_LUT>
                     <UTIL_LUT>9</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -694,10 +690,10 @@
                     <DSP>11</DSP>
                     <AVAIL_DSP>1824</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>2975</FF>
+                    <FF>2953</FF>
                     <AVAIL_FF>433920</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>26500</LUT>
+                    <LUT>26534</LUT>
                     <AVAIL_LUT>216960</AVAIL_LUT>
                     <UTIL_LUT>12</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -771,7 +767,7 @@
                 <hwRef type="interface" interface="input_layer" name="" usage="data" direction="in"/>
             </hwRefs>
         </Arg>
-        <Arg ArgName="layer7_out" index="1" direction="out" srcType="stream&lt;nnet::array&lt;ap_fixed&lt;9, 5, AP_TRN, AP_WRAP, 0&gt;, 1&gt;, 0&gt;&amp;" srcSize="16">
+        <Arg ArgName="layer7_out" index="1" direction="out" srcType="stream&lt;nnet::array&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, 1&gt;, 0&gt;&amp;" srcSize="16">
             <hwRefs>
                 <hwRef type="interface" interface="layer7_out" name="" usage="data" direction="out"/>
             </hwRefs>
@@ -861,7 +857,7 @@
                 <table>
                     <keys size="3">Argument, Direction, Datatype</keys>
                     <column name="input_layer">in, stream&lt;nnet::array&lt;ap_fixed&lt;12 6 AP_TRN AP_WRAP 0&gt; 4&gt; 0&gt;&amp;</column>
-                    <column name="layer7_out">out, stream&lt;nnet::array&lt;ap_fixed&lt;9 5 AP_TRN AP_WRAP 0&gt; 1&gt; 0&gt;&amp;</column>
+                    <column name="layer7_out">out, stream&lt;nnet::array&lt;ap_fixed&lt;16 6 AP_TRN AP_WRAP 0&gt; 1&gt; 0&gt;&amp;</column>
                 </table>
             </item>
             <item name="SW-to-HW Mapping">
@@ -1255,7 +1251,7 @@
         <Pragma type="unroll" location="firmware/nnet_utils/nnet_types.h:28" status="valid" parentFunction="operator=" variable="" isDirective="0" options=""/>
     </PragmaReport>
     <AutoPragmaReport>
-        <AutoPragma type="array_partition" parentFunction="nnet::dense_wide_stream&lt;nnet::array&lt;ap_fixed&lt;16, 6, (ap_q_mode)5, (ap_o_mode)3, 0&gt;, 28u&gt;, nnet::array&lt;ap_fixed&lt;9, 5, (ap_q_mode)5, (ap_o_mode)3, 0&gt;, 1u&gt;, config7&gt;" options="dim=1 type=complete  variable=in_pack" pragmaLocId="firmware/nnet_utils/nnet_dense_stream.h:101:0" srcPragmaType="pipeline" srcPragmaLoc="firmware/nnet_utils/nnet_dense_stream.h:108" srcPragmaSource="pragma" srcIsDirective="0" variable="in_pack" varLoc=""/>
+        <AutoPragma type="array_partition" parentFunction="nnet::dense_wide_stream&lt;nnet::array&lt;ap_fixed&lt;16, 6, (ap_q_mode)5, (ap_o_mode)3, 0&gt;, 28u&gt;, nnet::array&lt;ap_fixed&lt;16, 6, (ap_q_mode)5, (ap_o_mode)3, 0&gt;, 1u&gt;, config7&gt;" options="dim=1 type=complete  variable=in_pack" pragmaLocId="firmware/nnet_utils/nnet_dense_stream.h:101:0" srcPragmaType="pipeline" srcPragmaLoc="firmware/nnet_utils/nnet_dense_stream.h:108" srcPragmaSource="pragma" srcIsDirective="0" variable="in_pack" varLoc=""/>
     </AutoPragmaReport>
 </profile>
 

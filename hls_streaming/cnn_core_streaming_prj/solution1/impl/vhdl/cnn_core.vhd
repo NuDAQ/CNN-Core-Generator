@@ -28,7 +28,7 @@ end;
 architecture behav of cnn_core is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "cnn_core_cnn_core,hls_ip_2023_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcku5p-ffvb676-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=3.886000,HLS_SYN_LAT=263,HLS_SYN_TPT=260,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=2975,HLS_SYN_LUT=26500,HLS_VERSION=2023_2}";
+    "cnn_core_cnn_core,hls_ip_2023_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcku5p-ffvb676-2-e,HLS_INPUT_CLOCK=5.000000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=3.886000,HLS_SYN_LAT=263,HLS_SYN_TPT=260,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=2953,HLS_SYN_LUT=26534,HLS_VERSION=2023_2}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
 
@@ -63,14 +63,14 @@ architecture behav of cnn_core is
     signal maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_layer5x4_out_write : STD_LOGIC;
     signal maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_start_out : STD_LOGIC;
     signal maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_start_write : STD_LOGIC;
-    signal dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_start : STD_LOGIC;
-    signal dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_done : STD_LOGIC;
-    signal dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_continue : STD_LOGIC;
-    signal dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_idle : STD_LOGIC;
-    signal dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_ready : STD_LOGIC;
-    signal dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_layer5x4_out_read : STD_LOGIC;
-    signal dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_layer7_out_TDATA : STD_LOGIC_VECTOR (15 downto 0);
-    signal dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_layer7_out_TVALID : STD_LOGIC;
+    signal dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ap_start : STD_LOGIC;
+    signal dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ap_done : STD_LOGIC;
+    signal dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ap_continue : STD_LOGIC;
+    signal dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ap_idle : STD_LOGIC;
+    signal dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ap_ready : STD_LOGIC;
+    signal dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_layer5x4_out_read : STD_LOGIC;
+    signal dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_layer7_out_TDATA : STD_LOGIC_VECTOR (15 downto 0);
+    signal dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_layer7_out_TVALID : STD_LOGIC;
     signal layer3x4_out_full_n : STD_LOGIC;
     signal layer3x4_out_dout : STD_LOGIC_VECTOR (251 downto 0);
     signal layer3x4_out_num_data_valid : STD_LOGIC_VECTOR (2 downto 0);
@@ -94,10 +94,10 @@ architecture behav of cnn_core is
     signal start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_full_n : STD_LOGIC;
     signal start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_empty_n : STD_LOGIC;
-    signal start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_din : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_full_n : STD_LOGIC;
-    signal start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_empty_n : STD_LOGIC;
+    signal start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_din : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_full_n : STD_LOGIC;
+    signal start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_empty_n : STD_LOGIC;
 
     component cnn_core_first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s IS
     port (
@@ -172,7 +172,7 @@ architecture behav of cnn_core is
     end component;
 
 
-    component cnn_core_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s IS
+    component cnn_core_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_s IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -256,7 +256,7 @@ architecture behav of cnn_core is
     end component;
 
 
-    component cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0 IS
+    component cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0 IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -322,7 +322,7 @@ begin
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
         ap_start => maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_ap_start,
-        start_full_n => start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_full_n,
+        start_full_n => start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_full_n,
         ap_done => maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_ap_done,
         ap_continue => maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_ap_continue,
         ap_idle => maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_ap_idle,
@@ -340,22 +340,22 @@ begin
         start_out => maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_start_out,
         start_write => maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_start_write);
 
-    dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0 : component cnn_core_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s
+    dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0 : component cnn_core_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_s
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_start,
-        ap_done => dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_done,
-        ap_continue => dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_continue,
-        ap_idle => dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_idle,
-        ap_ready => dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_ready,
+        ap_start => dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ap_start,
+        ap_done => dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ap_done,
+        ap_continue => dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ap_continue,
+        ap_idle => dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ap_idle,
+        ap_ready => dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ap_ready,
         layer5x4_out_dout => layer5x4_out_dout,
         layer5x4_out_num_data_valid => layer5x4_out_num_data_valid,
         layer5x4_out_fifo_cap => layer5x4_out_fifo_cap,
         layer5x4_out_empty_n => layer5x4_out_empty_n,
-        layer5x4_out_read => dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_layer5x4_out_read,
-        layer7_out_TDATA => dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_layer7_out_TDATA,
-        layer7_out_TVALID => dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_layer7_out_TVALID,
+        layer5x4_out_read => dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_layer5x4_out_read,
+        layer7_out_TDATA => dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_layer7_out_TDATA,
+        layer7_out_TVALID => dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_layer7_out_TVALID,
         layer7_out_TREADY => layer7_out_TREADY);
 
     layer3x4_out_U : component cnn_core_fifo_w252_d4_S
@@ -401,7 +401,7 @@ begin
         if_num_data_valid => layer5x4_out_num_data_valid,
         if_fifo_cap => layer5x4_out_fifo_cap,
         if_empty_n => layer5x4_out_empty_n,
-        if_read => dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_layer5x4_out_read);
+        if_read => dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_layer5x4_out_read);
 
     start_for_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0_U : component cnn_core_start_for_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0
     port map (
@@ -429,24 +429,24 @@ begin
         if_empty_n => start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_empty_n,
         if_read => maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_ap_ready);
 
-    start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_U : component cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0
+    start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_U : component cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_din,
-        if_full_n => start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_full_n,
+        if_din => start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_din,
+        if_full_n => start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_full_n,
         if_write => maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_start_write,
-        if_dout => start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_dout,
-        if_empty_n => start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_empty_n,
-        if_read => dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_ready);
+        if_dout => start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_dout,
+        if_empty_n => start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_empty_n,
+        if_read => dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ap_ready);
 
 
 
 
-    ap_done <= dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_done;
-    ap_idle <= (relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0_ap_idle and maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_ap_idle and first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_idle and dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_idle);
+    ap_done <= dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ap_done;
+    ap_idle <= (relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0_ap_idle and maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_ap_idle and first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_idle and dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ap_idle);
     ap_ready <= first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_ready;
 
     ap_rst_n_inv_assign_proc : process(ap_rst_n)
@@ -454,18 +454,18 @@ begin
                 ap_rst_n_inv <= not(ap_rst_n);
     end process;
 
-    dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_continue <= ap_const_logic_1;
-    dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ap_start <= start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_empty_n;
+    dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ap_continue <= ap_const_logic_1;
+    dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ap_start <= start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_empty_n;
     first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_continue <= ap_const_logic_1;
     first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_ap_start <= ap_start;
     input_layer_TREADY <= first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0_input_layer_TREADY;
-    layer7_out_TDATA <= dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_layer7_out_TDATA;
-    layer7_out_TVALID <= dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_layer7_out_TVALID;
+    layer7_out_TDATA <= dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_layer7_out_TDATA;
+    layer7_out_TVALID <= dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_layer7_out_TVALID;
     maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_ap_continue <= ap_const_logic_1;
     maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_ap_start <= start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_empty_n;
     relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0_ap_continue <= ap_const_logic_1;
     relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0_ap_start <= start_for_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0_empty_n;
-    start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_din <= (0=>ap_const_logic_1, others=>'-');
+    start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0_din <= (0=>ap_const_logic_1, others=>'-');
     start_for_relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0_din <= (0=>ap_const_logic_1, others=>'-');
 end behav;

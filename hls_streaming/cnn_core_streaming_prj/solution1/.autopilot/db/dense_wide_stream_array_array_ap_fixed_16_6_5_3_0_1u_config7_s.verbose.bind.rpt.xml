@@ -1,7 +1,7 @@
 <profile>
 
-<section name = "Vitis HLS Report for 'dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s'" level="0">
-<item name = "Date">Sun May 17 03:31:37 2026
+<section name = "Vitis HLS Report for 'dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_s'" level="0">
+<item name = "Date">Sun May 17 19:12:33 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_streaming_prj</item>
@@ -24,14 +24,14 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">176, 176, 0.880 us, 0.880 us, 176, 176, no</column>
+<column name="">175, 175, 0.875 us, 0.875 us, 175, 175, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53">dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain, 173, 173, 0.865 us, 0.865 us, 173, 173, no</column>
+<column name="grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47">dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain, 172, 172, 0.860 us, 0.860 us, 172, 172, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

@@ -10,7 +10,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 --RAW latency 1 
  
-entity cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0 is 
+entity cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0 is 
     generic (
         MEM_STYLE         : string  := "shiftReg";
         DATA_WIDTH        : integer := 1;
@@ -35,9 +35,9 @@ entity cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_co
     );
 end entity;
 
-architecture rtl of cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0 is
+architecture rtl of cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0 is
 
-    component cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg is
+    component cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ShiftReg is
     generic (
         DATA_WIDTH : integer := 1;
         ADDR_WIDTH : integer := 1;
@@ -59,7 +59,7 @@ architecture rtl of cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_
     -- has num_data_valid? no 
 begin
 ----------------------- Instantiation -----------------------
-    U_cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg : cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg
+    U_cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ShiftReg : cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ShiftReg
     generic map (
         DATA_WIDTH => DATA_WIDTH,
         ADDR_WIDTH => ADDR_WIDTH,
@@ -143,7 +143,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_unsigned.all;
 
-entity cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg is
+entity cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ShiftReg is
     generic (
         DATA_WIDTH : integer := 1;
         ADDR_WIDTH : integer := 1;
@@ -154,9 +154,9 @@ entity cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_co
         addr       : in std_logic_vector(ADDR_WIDTH-1 downto 0);
         din        : in std_logic_vector(DATA_WIDTH-1 downto 0);
         dout       : out std_logic_vector(DATA_WIDTH-1 downto 0));
-end cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg;
+end cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ShiftReg;
 
-architecture rtl of cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg is
+architecture rtl of cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ShiftReg is
 type SRL_ARRAY is array (0 to DEPTH-1) of std_logic_vector(DATA_WIDTH-1 downto 0);
 signal SRL_SIG : SRL_ARRAY;
 

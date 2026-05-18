@@ -1,9 +1,9 @@
 
 
 ================================================================
-== Vitis HLS Report for 'dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s'
+== Vitis HLS Report for 'dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_s'
 ================================================================
-* Date:           Sun May 17 03:31:39 2026
+* Date:           Sun May 17 19:12:34 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_streaming_prj
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
     |   min   |   max   |    min   |    max   | min | max |   Type  |
     +---------+---------+----------+----------+-----+-----+---------+
-    |      176|      176|  0.880 us|  0.880 us|  176|  176|       no|
+    |      175|      175|  0.875 us|  0.875 us|  175|  175|       no|
     +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
@@ -38,7 +38,7 @@
         |                                                                                    |                                                                          |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
         |                                      Instance                                      |                                  Module                                  |   min   |   max   |    min   |    max   | min | max |   Type  |
         +------------------------------------------------------------------------------------+--------------------------------------------------------------------------+---------+---------+----------+----------+-----+-----+---------+
-        |grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53  |dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain  |      173|      173|  0.865 us|  0.865 us|  173|  173|       no|
+        |grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47  |dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain  |      172|      172|  0.860 us|  0.860 us|  172|  172|       no|
         +------------------------------------------------------------------------------------+--------------------------------------------------------------------------+---------+---------+----------+----------+-----+-----+---------+
 
         * Loop: 
@@ -56,12 +56,12 @@
 |DSP              |        -|     -|       -|       -|    -|
 |Expression       |        -|     -|       0|       4|    -|
 |FIFO             |        -|     -|       -|       -|    -|
-|Instance         |        -|     7|     748|   19559|    -|
+|Instance         |        -|     7|     684|   19525|    -|
 |Memory           |        -|     -|       -|       -|    -|
 |Multiplexer      |        -|     -|       -|      53|    -|
-|Register         |        -|     -|      21|       -|    -|
+|Register         |        -|     -|       6|       -|    -|
 +-----------------+---------+------+--------+--------+-----+
-|Total            |        0|     7|     769|   19616|    0|
+|Total            |        0|     7|     690|   19582|    0|
 +-----------------+---------+------+--------+--------+-----+
 |Available        |      960|  1824|  433920|  216960|   64|
 +-----------------+---------+------+--------+--------+-----+
@@ -73,9 +73,9 @@
     +------------------------------------------------------------------------------------+--------------------------------------------------------------------------+---------+----+-----+-------+-----+
     |                                      Instance                                      |                                  Module                                  | BRAM_18K| DSP|  FF |  LUT  | URAM|
     +------------------------------------------------------------------------------------+--------------------------------------------------------------------------+---------+----+-----+-------+-----+
-    |grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53  |dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain  |        0|   7|  748|  19559|    0|
+    |grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47  |dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain  |        0|   7|  684|  19525|    0|
     +------------------------------------------------------------------------------------+--------------------------------------------------------------------------+---------+----+-----+-------+-----+
-    |Total                                                                               |                                                                          |        0|   7|  748|  19559|    0|
+    |Total                                                                               |                                                                          |        0|   7|  684|  19525|    0|
     +------------------------------------------------------------------------------------+--------------------------------------------------------------------------+---------+----+-----+-------+-----+
 
     * DSP: 
@@ -110,16 +110,15 @@
     +------------------------+----+-----------+-----+-----------+
 
     * Register: 
-    +-------------------------------------------------------------------------------------------------+----+----+-----+-----------+
-    |                                               Name                                              | FF | LUT| Bits| Const Bits|
-    +-------------------------------------------------------------------------------------------------+----+----+-----+-----------+
-    |acc_loc_fu_42                                                                                    |  15|   0|   15|          0|
-    |ap_CS_fsm                                                                                        |   4|   0|    4|          0|
-    |ap_done_reg                                                                                      |   1|   0|    1|          0|
-    |grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_start_reg  |   1|   0|    1|          0|
-    +-------------------------------------------------------------------------------------------------+----+----+-----+-----------+
-    |Total                                                                                            |  21|   0|   21|          0|
-    +-------------------------------------------------------------------------------------------------+----+----+-----+-----------+
+    +-------------------------------------------------------------------------------------------------+---+----+-----+-----------+
+    |                                               Name                                              | FF| LUT| Bits| Const Bits|
+    +-------------------------------------------------------------------------------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                                                                                        |  4|   0|    4|          0|
+    |ap_done_reg                                                                                      |  1|   0|    1|          0|
+    |grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_start_reg  |  1|   0|    1|          0|
+    +-------------------------------------------------------------------------------------------------+---+----+-----+-----------+
+    |Total                                                                                            |  6|   0|    6|          0|
+    +-------------------------------------------------------------------------------------------------+---+----+-----+-----------+
 
 
 
@@ -127,23 +126,23 @@
 == Interface
 ================================================================
 * Summary: 
-+-----------------------------+-----+-----+------------+----------------------------------------------------------------+--------------+
-|          RTL Ports          | Dir | Bits|  Protocol  |                          Source Object                         |    C Type    |
-+-----------------------------+-----+-----+------------+----------------------------------------------------------------+--------------+
-|ap_clk                       |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<9,5,5,3,0>,1u>,config7>|  return value|
-|ap_rst                       |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<9,5,5,3,0>,1u>,config7>|  return value|
-|ap_start                     |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<9,5,5,3,0>,1u>,config7>|  return value|
-|ap_done                      |  out|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<9,5,5,3,0>,1u>,config7>|  return value|
-|ap_continue                  |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<9,5,5,3,0>,1u>,config7>|  return value|
-|ap_idle                      |  out|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<9,5,5,3,0>,1u>,config7>|  return value|
-|ap_ready                     |  out|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<9,5,5,3,0>,1u>,config7>|  return value|
-|layer5x4_out_dout            |   in|  448|     ap_fifo|                                                    layer5x4_out|       pointer|
-|layer5x4_out_num_data_valid  |   in|    3|     ap_fifo|                                                    layer5x4_out|       pointer|
-|layer5x4_out_fifo_cap        |   in|    3|     ap_fifo|                                                    layer5x4_out|       pointer|
-|layer5x4_out_empty_n         |   in|    1|     ap_fifo|                                                    layer5x4_out|       pointer|
-|layer5x4_out_read            |  out|    1|     ap_fifo|                                                    layer5x4_out|       pointer|
-|layer7_out_TDATA             |  out|   16|        axis|                                                      layer7_out|       pointer|
-|layer7_out_TVALID            |  out|    1|        axis|                                                      layer7_out|       pointer|
-|layer7_out_TREADY            |   in|    1|        axis|                                                      layer7_out|       pointer|
-+-----------------------------+-----+-----+------------+----------------------------------------------------------------+--------------+
++-----------------------------+-----+-----+------------+-----------------------------------------------------------------+--------------+
+|          RTL Ports          | Dir | Bits|  Protocol  |                          Source Object                          |    C Type    |
++-----------------------------+-----+-----+------------+-----------------------------------------------------------------+--------------+
+|ap_clk                       |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<16,6,5,3,0>,1u>,config7>|  return value|
+|ap_rst                       |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<16,6,5,3,0>,1u>,config7>|  return value|
+|ap_start                     |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<16,6,5,3,0>,1u>,config7>|  return value|
+|ap_done                      |  out|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<16,6,5,3,0>,1u>,config7>|  return value|
+|ap_continue                  |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<16,6,5,3,0>,1u>,config7>|  return value|
+|ap_idle                      |  out|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<16,6,5,3,0>,1u>,config7>|  return value|
+|ap_ready                     |  out|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<16,6,5,3,0>,1u>,config7>|  return value|
+|layer5x4_out_dout            |   in|  448|     ap_fifo|                                                     layer5x4_out|       pointer|
+|layer5x4_out_num_data_valid  |   in|    3|     ap_fifo|                                                     layer5x4_out|       pointer|
+|layer5x4_out_fifo_cap        |   in|    3|     ap_fifo|                                                     layer5x4_out|       pointer|
+|layer5x4_out_empty_n         |   in|    1|     ap_fifo|                                                     layer5x4_out|       pointer|
+|layer5x4_out_read            |  out|    1|     ap_fifo|                                                     layer5x4_out|       pointer|
+|layer7_out_TDATA             |  out|   16|        axis|                                                       layer7_out|       pointer|
+|layer7_out_TVALID            |  out|    1|        axis|                                                       layer7_out|       pointer|
+|layer7_out_TREADY            |   in|    1|        axis|                                                       layer7_out|       pointer|
++-----------------------------+-----+-----+------------+-----------------------------------------------------------------+--------------+
 

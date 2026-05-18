@@ -22,21 +22,21 @@
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>173</Best-caseLatency>
-<Average-caseLatency>173</Average-caseLatency>
-<Worst-caseLatency>173</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.865 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.865 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.865 us</Worst-caseRealTimeLatency>
-<Interval-min>173</Interval-min>
-<Interval-max>173</Interval-max>
+<Best-caseLatency>172</Best-caseLatency>
+<Average-caseLatency>172</Average-caseLatency>
+<Worst-caseLatency>172</Worst-caseLatency>
+<Best-caseRealTimeLatency>0.860 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>0.860 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>0.860 us</Worst-caseRealTimeLatency>
+<Interval-min>172</Interval-min>
+<Interval-max>172</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <DenseWideMain>
 <Slack>3.65</Slack>
 <TripCount>168</TripCount>
-<Latency>171</Latency>
-<AbsoluteTimeLatency>855</AbsoluteTimeLatency>
+<Latency>170</Latency>
+<AbsoluteTimeLatency>850</AbsoluteTimeLatency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>4</PipelineDepth>
 <InstanceList>
@@ -52,7 +52,7 @@
 <Name>DenseWideMain</Name>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/nnet_utils/nnet_dense_stream.h:107</SourceLocation>
+<SourceLocation>firmware/nnet_utils/nnet_dense_stream.h:99</SourceLocation>
 </DenseWideMain>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
@@ -61,8 +61,8 @@
 <AreaEstimates>
 <Resources>
 <DSP>7</DSP>
-<FF>748</FF>
-<LUT>19559</LUT>
+<FF>684</FF>
+<LUT>19525</LUT>
 <BRAM_18K>0</BRAM_18K>
 <URAM>0</URAM>
 </Resources>
@@ -205,7 +205,7 @@
 <IOProtocol>ap_vld</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>15</Bits>
+<Bits>16</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>

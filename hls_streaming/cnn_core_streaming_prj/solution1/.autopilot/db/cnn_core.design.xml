@@ -23,16 +23,16 @@
 <ID>83</ID>
 </Instance>
 <Instance>
-<InstName>dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0</InstName>
-<ModuleName>dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s</ModuleName>
+<InstName>dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0</InstName>
+<ModuleName>dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_s</ModuleName>
 <IsCompInst>true</IsCompInst>
 <ID>89</ID>
 <InstancesList>
 <Instance>
-<InstName>grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53</InstName>
+<InstName>grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47</InstName>
 <ModuleName>dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain</ModuleName>
 <IsCompInst>true</IsCompInst>
-<ID>53</ID>
+<ID>47</ID>
 </Instance>
 </InstancesList>
 </Instance>
@@ -95,10 +95,10 @@
 <DSP>4</DSP>
 <AVAIL_DSP>1824</AVAIL_DSP>
 <UTIL_DSP>~0</UTIL_DSP>
-<FF>731</FF>
+<FF>788</FF>
 <AVAIL_FF>433920</AVAIL_FF>
 <UTIL_FF>~0</UTIL_FF>
-<LUT>4529</LUT>
+<LUT>4597</LUT>
 <AVAIL_LUT>216960</AVAIL_LUT>
 <UTIL_LUT>2</UTIL_LUT>
 <BRAM_18K>0</BRAM_18K>
@@ -904,13 +904,13 @@
 <EstimatedClockPeriod>3.592</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>173</Best-caseLatency>
-<Average-caseLatency>173</Average-caseLatency>
-<Worst-caseLatency>173</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.865 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.865 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.865 us</Worst-caseRealTimeLatency>
-<PipelineInitiationInterval>173</PipelineInitiationInterval>
+<Best-caseLatency>172</Best-caseLatency>
+<Average-caseLatency>172</Average-caseLatency>
+<Worst-caseLatency>172</Worst-caseLatency>
+<Best-caseRealTimeLatency>0.860 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>0.860 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>0.860 us</Worst-caseRealTimeLatency>
+<PipelineInitiationInterval>172</PipelineInitiationInterval>
 <PipelineType>no</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
@@ -918,8 +918,8 @@
 <Name>DenseWideMain</Name>
 <Slack>3.65</Slack>
 <TripCount>168</TripCount>
-<Latency>171</Latency>
-<AbsoluteTimeLatency>0.855 us</AbsoluteTimeLatency>
+<Latency>170</Latency>
+<AbsoluteTimeLatency>0.850 us</AbsoluteTimeLatency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>4</PipelineDepth>
 <PipelineType>yes</PipelineType>
@@ -936,7 +936,7 @@
 <Name>DenseWideMain</Name>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/nnet_utils/nnet_dense_stream.h:107</SourceLocation>
+<SourceLocation>firmware/nnet_utils/nnet_dense_stream.h:99</SourceLocation>
 </DenseWideMain>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
@@ -946,12 +946,12 @@
 <DSP>7</DSP>
 <AVAIL_DSP>1824</AVAIL_DSP>
 <UTIL_DSP>~0</UTIL_DSP>
-<FF>748</FF>
+<FF>684</FF>
 <AVAIL_FF>433920</AVAIL_FF>
 <UTIL_FF>~0</UTIL_FF>
-<LUT>19559</LUT>
+<LUT>19525</LUT>
 <AVAIL_LUT>216960</AVAIL_LUT>
-<UTIL_LUT>9</UTIL_LUT>
+<UTIL_LUT>8</UTIL_LUT>
 <BRAM_18K>0</BRAM_18K>
 <AVAIL_BRAM>960</AVAIL_BRAM>
 <UTIL_BRAM>0</UTIL_BRAM>
@@ -1090,7 +1090,7 @@
 <IOProtocol>ap_vld</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>15</Bits>
+<Bits>16</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -1107,7 +1107,7 @@
 </InterfaceSummary>
 </Module>
 <Module>
-<Name>dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s</Name>
+<Name>dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_s</Name>
 <PerformanceEstimates>
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>5.00</TargetClockPeriod>
@@ -1115,19 +1115,19 @@
 <EstimatedClockPeriod>3.592</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
-<Best-caseLatency>176</Best-caseLatency>
-<Average-caseLatency>176</Average-caseLatency>
-<Worst-caseLatency>176</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.880 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.880 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.880 us</Worst-caseRealTimeLatency>
-<PipelineInitiationInterval>176</PipelineInitiationInterval>
+<Best-caseLatency>175</Best-caseLatency>
+<Average-caseLatency>175</Average-caseLatency>
+<Worst-caseLatency>175</Worst-caseLatency>
+<Best-caseRealTimeLatency>0.875 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>0.875 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>0.875 us</Worst-caseRealTimeLatency>
+<PipelineInitiationInterval>175</PipelineInitiationInterval>
 <PipelineType>no</PipelineType>
 </SummaryOfOverallLatency>
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/nnet_utils/nnet_mult.h:111~firmware/nnet_utils/nnet_dense_stream.h:134</SourceLocation>
+<SourceLocation>firmware/nnet_utils/nnet_dense_stream.h:135</SourceLocation>
 </SummaryOfViolations>
 </PerformanceEstimates>
 <AreaEstimates>
@@ -1135,10 +1135,10 @@
 <DSP>7</DSP>
 <AVAIL_DSP>1824</AVAIL_DSP>
 <UTIL_DSP>~0</UTIL_DSP>
-<FF>769</FF>
+<FF>690</FF>
 <AVAIL_FF>433920</AVAIL_FF>
 <UTIL_FF>~0</UTIL_FF>
-<LUT>19616</LUT>
+<LUT>19582</LUT>
 <AVAIL_LUT>216960</AVAIL_LUT>
 <UTIL_LUT>9</UTIL_LUT>
 <BRAM_18K>0</BRAM_18K>
@@ -1152,7 +1152,7 @@
 <InterfaceSummary>
 <RtlPorts>
 <name>ap_clk</name>
-<Object>dense_wide_stream&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,1u&gt;,config7&gt;</Object>
+<Object>dense_wide_stream&lt;array,array&lt;ap_fixed&lt;16,6,5,3,0&gt;,1u&gt;,config7&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -1163,7 +1163,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_rst</name>
-<Object>dense_wide_stream&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,1u&gt;,config7&gt;</Object>
+<Object>dense_wide_stream&lt;array,array&lt;ap_fixed&lt;16,6,5,3,0&gt;,1u&gt;,config7&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -1174,7 +1174,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_start</name>
-<Object>dense_wide_stream&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,1u&gt;,config7&gt;</Object>
+<Object>dense_wide_stream&lt;array,array&lt;ap_fixed&lt;16,6,5,3,0&gt;,1u&gt;,config7&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -1185,7 +1185,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_done</name>
-<Object>dense_wide_stream&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,1u&gt;,config7&gt;</Object>
+<Object>dense_wide_stream&lt;array,array&lt;ap_fixed&lt;16,6,5,3,0&gt;,1u&gt;,config7&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -1196,7 +1196,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_continue</name>
-<Object>dense_wide_stream&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,1u&gt;,config7&gt;</Object>
+<Object>dense_wide_stream&lt;array,array&lt;ap_fixed&lt;16,6,5,3,0&gt;,1u&gt;,config7&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -1207,7 +1207,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_idle</name>
-<Object>dense_wide_stream&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,1u&gt;,config7&gt;</Object>
+<Object>dense_wide_stream&lt;array,array&lt;ap_fixed&lt;16,6,5,3,0&gt;,1u&gt;,config7&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -1218,7 +1218,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_ready</name>
-<Object>dense_wide_stream&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,1u&gt;,config7&gt;</Object>
+<Object>dense_wide_stream&lt;array,array&lt;ap_fixed&lt;16,6,5,3,0&gt;,1u&gt;,config7&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -1347,10 +1347,10 @@
 <DSP>11</DSP>
 <AVAIL_DSP>1824</AVAIL_DSP>
 <UTIL_DSP>~0</UTIL_DSP>
-<FF>2975</FF>
+<FF>2953</FF>
 <AVAIL_FF>433920</AVAIL_FF>
 <UTIL_FF>~0</UTIL_FF>
-<LUT>26500</LUT>
+<LUT>26534</LUT>
 <AVAIL_LUT>216960</AVAIL_LUT>
 <UTIL_LUT>12</UTIL_LUT>
 <BRAM_18K>0</BRAM_18K>
