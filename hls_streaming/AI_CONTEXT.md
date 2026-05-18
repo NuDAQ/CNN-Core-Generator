@@ -247,6 +247,94 @@ Important interpretation: the model represents the input as `256 x 4 x 1`,
 not as `256 x 1 x 4`. That means the four values are the width dimension, while
 `n_chan = 1`.
 
+## Known Numerical Issues
+
+### Output Wrap Fix (result_t)
+
+`result_t` was `ap_fixed<9,5>` (range ±16). Large positive Keras scores (e.g.,
+22, 24 for samples 675 and 933) wrapped to negative in RTL. Changed to
+`ap_fixed<16,6>` (range ±32).
+
+Affected file: `hls_streaming/firmware/defines.h` line 29. Also mirrored to
+`../cnn_core_project/firmware/defines.h`. `make compare SAMPLES=1024` still
+PASS after this change.
+
+Wrapper testbench must decode RTL output as:
+
+```text
+float_out = signed(output_data[15:0]) / 1024.0   // ap_fixed<16,6>
+```
+
+Not the old format (`output_data[8:0] / 16.0` for ap_fixed<9,5>). The wrapper
+`hw/sim/tb_stream.sv` line 212 has been updated accordingly.
+
+### Systematic ~−6 Score Offset Between HGQ Keras and hls4ml RTL
+
+**Observed (2026-05-17, diagnose_offset.py):** RTL output scores are consistently
+~6.08 lower than original HGQ Keras model predictions across all 1000 test
+samples (stdev=0.68 after excluding 2 output-wrap outliers). All 1000 diffs are
+negative (RTL always below Keras).
+
+**Root cause, two additive parts:**
+
+```text
+Keras HGQ → Vanilla model:   −0.61   HGQ per-weight quantizer rounds small
+                                       negative weights to 0; vanilla uses proxy
+                                       float values directly.
+
+Vanilla model → RTL:         −5.47   hls4ml applies uniform ap_fixed<9,5>
+                                       (step=0.0625, 4 frac bits) to all dense
+                                       weights. HGQ uses per-weight heterogeneous
+                                       quantization (QDense weight[8] = per-weight
+                                       fractional bits: min=0, max=4.5, mean=2.9).
+                                       Small negative dense weights (proxy≈−0.06):
+                                       HGQ rounds to 0, hls4ml rounds to −0.0625.
+                                       616 such weights × 0.0625 × mean_pool_out
+                                       ≈ −5.47 accumulated dense shift.
+
+Total:                        −6.08
+```
+
+**Conv weights are not affected:** QConv2D `weight[8]` mean=4.51 (≈ hls4ml's 4
+frac bits). Only the dense layer has significant mismatch.
+
+**Fix: write HGQ-quantized weights directly to firmware files.**
+
+```bash
+cd /home/work1/Works/CNN-Core-Generator
+python3 scripts/extract_hgq_weights.py   # reads HGQ weight[0]+weight[8],
+                                          # writes quantized values to
+                                          # hls_streaming/firmware/weights/w7.{h,txt}
+                                          # and b7, w3, b3 (conv near-identical)
+cd hls_streaming
+make hls                                  # rebuild RTL with corrected weights
+```
+
+This is a pure firmware file edit. No hls4ml Python scripts (convert_homogeneous.py
+or hls4ml_config.yml) need to change.
+
+Expected result after fix:
+
+```text
+RTL − Keras offset:     ≈ −0.6 (down from −6.08)
+RTL best threshold:     near 0 (down from −6.47)
+RTL accuracy:           should match or exceed previous 98.5%
+```
+
+The remaining ≈−0.61 comes from HGQ's dense INPUT quantizer (QDense weight[4,5]),
+which is smaller and acceptable for trigger classification.
+
+**Key HGQ weight indices (QDense layer):**
+
+```text
+weight[0]  (1176, 1)  proxy kernel (what hls4ml currently loads)
+weight[1]  (1,)       proxy bias
+weight[8]  (1176, 1)  per-weight fractional bits, mean=2.903, min=0, max=4.5
+weight[11] (1,)       bias fractional bits = 3.906
+weight[4]  (1, 1176)  dense INPUT quantizer scale/offset (per-input)
+weight[5]  (1, 1176)  dense INPUT quantizer fractional bits, mean=1.453
+```
+
 ## Model Geometry
 
 From `parameters.h`:
