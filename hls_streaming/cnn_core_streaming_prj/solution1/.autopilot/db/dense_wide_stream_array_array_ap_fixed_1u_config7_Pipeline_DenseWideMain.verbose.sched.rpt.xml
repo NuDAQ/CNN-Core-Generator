@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain'" level="0">
-<item name = "Date">Sun May 17 03:31:37 2026
+<item name = "Date">Sun May 17 19:12:32 2026
 </item>
 <item name = "Version">2023.2 (Build 4023990 on Oct 11 2023)</item>
 <item name = "Project">cnn_core_streaming_prj</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">173, 173, 0.865 us, 0.865 us, 173, 173, no</column>
+<column name="">172, 172, 0.860 us, 0.860 us, 172, 172, no</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- DenseWideMain">171, 171, 4, 1, 1, 168, yes</column>
+<column name="- DenseWideMain">170, 170, 4, 1, 1, 168, yes</column>
 </table>
 </item>
 </section>

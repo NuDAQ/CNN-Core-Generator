@@ -8,7 +8,7 @@
 `timescale 1ns/1ps
 //RAW latency 1 
 
-module cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0
+module cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0
 #(parameter
     MEM_STYLE    = "shiftReg",
     DATA_WIDTH   = 1,
@@ -43,11 +43,11 @@ module cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_co
     reg                   full_n = 1'b1; 
     // has num_data_valid?  no 
 //------------------------Instantiation------------------
-    cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg 
+    cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ShiftReg 
     #(  .DATA_WIDTH (DATA_WIDTH),
         .ADDR_WIDTH (ADDR_WIDTH),
         .DEPTH      (DEPTH))
-    U_cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg (
+    U_cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ShiftReg (
         .clk        (clk),
         .we         (push),
         .addr       (addr),
@@ -114,7 +114,7 @@ module cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_co
 endmodule  
 
 
-module cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0_ShiftReg
+module cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0_ShiftReg
 #(parameter
     DATA_WIDTH  = 1,
     ADDR_WIDTH  = 1,

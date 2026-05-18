@@ -79,7 +79,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2393401
+        Offset:          2393402
         Length:          0
         ReplacementText: 'VITIS_LOOP_265_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -88,7 +88,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2393788
+        Offset:          2393789
         Length:          0
         ReplacementText: 'VITIS_LOOP_275_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -97,7 +97,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2394123
+        Offset:          2394124
         Length:          0
         ReplacementText: 'VITIS_LOOP_286_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -106,7 +106,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2394346
+        Offset:          2394347
         Length:          0
         ReplacementText: 'VITIS_LOOP_293_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -115,7 +115,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2394441
+        Offset:          2394442
         Length:          0
         ReplacementText: 'VITIS_LOOP_295_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -124,7 +124,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2394805
+        Offset:          2394806
         Length:          0
         ReplacementText: 'VITIS_LOOP_307_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -133,7 +133,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2394887
+        Offset:          2394888
         Length:          0
         ReplacementText: 'VITIS_LOOP_309_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -142,7 +142,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2395230
+        Offset:          2395231
         Length:          0
         ReplacementText: 'VITIS_LOOP_324_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -151,7 +151,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2395683
+        Offset:          2395684
         Length:          0
         ReplacementText: 'VITIS_LOOP_344_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -160,7 +160,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2395728
+        Offset:          2395729
         Length:          0
         ReplacementText: 'VITIS_LOOP_345_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -169,7 +169,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2396137
+        Offset:          2396138
         Length:          0
         ReplacementText: 'VITIS_LOOP_360_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -178,7 +178,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_helpers.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2396350
+        Offset:          2396351
         Length:          0
         ReplacementText: 'VITIS_LOOP_367_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -187,7 +187,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_conv1d_latency.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2405902
+        Offset:          2405903
         Length:          0
         ReplacementText: 'VITIS_LOOP_136_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -196,7 +196,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_conv1d_latency.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2405986
+        Offset:          2405987
         Length:          0
         ReplacementText: 'VITIS_LOOP_137_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -205,7 +205,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_conv1d_latency.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2406528
+        Offset:          2406529
         Length:          0
         ReplacementText: 'VITIS_LOOP_158_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -214,7 +214,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_conv1d_latency.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2406612
+        Offset:          2406613
         Length:          0
         ReplacementText: 'VITIS_LOOP_159_4: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -223,7 +223,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2410791
+        Offset:          2410792
         Length:          0
         ReplacementText: 'VITIS_LOOP_31_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -232,7 +232,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2411044
+        Offset:          2411045
         Length:          0
         ReplacementText: 'VITIS_LOOP_43_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -241,7 +241,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2411405
+        Offset:          2411406
         Length:          0
         ReplacementText: 'VITIS_LOOP_57_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -250,7 +250,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2412221
+        Offset:          2412222
         Length:          0
         ReplacementText: 'VITIS_LOOP_84_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -259,7 +259,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2412882
+        Offset:          2412883
         Length:          0
         ReplacementText: 'VITIS_LOOP_114_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -268,7 +268,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2414027
+        Offset:          2414028
         Length:          0
         ReplacementText: 'VITIS_LOOP_151_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -277,7 +277,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2414491
+        Offset:          2414492
         Length:          0
         ReplacementText: 'VITIS_LOOP_167_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -286,7 +286,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2415423
+        Offset:          2415424
         Length:          0
         ReplacementText: 'VITIS_LOOP_200_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -295,7 +295,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2415958
+        Offset:          2415959
         Length:          0
         ReplacementText: 'VITIS_LOOP_213_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -304,7 +304,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2416821
+        Offset:          2416822
         Length:          0
         ReplacementText: 'VITIS_LOOP_246_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -313,7 +313,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2417091
+        Offset:          2417092
         Length:          0
         ReplacementText: 'VITIS_LOOP_255_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -322,7 +322,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2417654
+        Offset:          2417655
         Length:          0
         ReplacementText: 'VITIS_LOOP_268_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -331,7 +331,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2417891
+        Offset:          2417892
         Length:          0
         ReplacementText: 'VITIS_LOOP_275_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -340,7 +340,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2418251
+        Offset:          2418252
         Length:          0
         ReplacementText: 'VITIS_LOOP_288_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -349,7 +349,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2419208
+        Offset:          2419209
         Length:          0
         ReplacementText: 'VITIS_LOOP_325_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -358,7 +358,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2419328
+        Offset:          2419329
         Length:          0
         ReplacementText: 'VITIS_LOOP_330_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -367,7 +367,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2419385
+        Offset:          2419386
         Length:          0
         ReplacementText: 'VITIS_LOOP_331_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -376,7 +376,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2419985
+        Offset:          2419986
         Length:          0
         ReplacementText: 'VITIS_LOOP_348_4: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -385,7 +385,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2420493
+        Offset:          2420494
         Length:          0
         ReplacementText: 'VITIS_LOOP_361_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -394,7 +394,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2420637
+        Offset:          2420638
         Length:          0
         ReplacementText: 'VITIS_LOOP_369_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -403,7 +403,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2421832
+        Offset:          2421833
         Length:          0
         ReplacementText: 'VITIS_LOOP_405_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -412,7 +412,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2421901
+        Offset:          2421902
         Length:          0
         ReplacementText: 'VITIS_LOOP_407_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -421,7 +421,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2421970
+        Offset:          2421971
         Length:          0
         ReplacementText: 'VITIS_LOOP_409_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -430,7 +430,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2422226
+        Offset:          2422227
         Length:          0
         ReplacementText: 'VITIS_LOOP_414_4: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -439,7 +439,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2422540
+        Offset:          2422541
         Length:          0
         ReplacementText: 'VITIS_LOOP_427_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -448,7 +448,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2423177
+        Offset:          2423178
         Length:          0
         ReplacementText: 'VITIS_LOOP_457_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -457,7 +457,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2424013
+        Offset:          2424014
         Length:          0
         ReplacementText: 'VITIS_LOOP_484_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -466,7 +466,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2424355
+        Offset:          2424356
         Length:          0
         ReplacementText: 'VITIS_LOOP_498_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -475,7 +475,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2424813
+        Offset:          2424814
         Length:          0
         ReplacementText: 'VITIS_LOOP_514_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -484,7 +484,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2425283
+        Offset:          2425284
         Length:          0
         ReplacementText: 'VITIS_LOOP_532_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -493,7 +493,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2425686
+        Offset:          2425687
         Length:          0
         ReplacementText: 'VITIS_LOOP_549_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -502,7 +502,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2426081
+        Offset:          2426082
         Length:          0
         ReplacementText: 'VITIS_LOOP_566_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -511,7 +511,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2426747
+        Offset:          2426748
         Length:          0
         ReplacementText: 'VITIS_LOOP_596_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -520,7 +520,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2427321
+        Offset:          2427322
         Length:          0
         ReplacementText: 'VITIS_LOOP_615_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -529,7 +529,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2427987
+        Offset:          2427988
         Length:          0
         ReplacementText: 'VITIS_LOOP_645_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -538,7 +538,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2428541
+        Offset:          2428542
         Length:          0
         ReplacementText: 'VITIS_LOOP_664_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -547,7 +547,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2429190
+        Offset:          2429191
         Length:          0
         ReplacementText: 'VITIS_LOOP_694_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -556,7 +556,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2430028
+        Offset:          2430029
         Length:          0
         ReplacementText: 'VITIS_LOOP_721_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -565,7 +565,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2430712
+        Offset:          2430713
         Length:          0
         ReplacementText: 'VITIS_LOOP_749_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -574,7 +574,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2431397
+        Offset:          2431398
         Length:          0
         ReplacementText: 'VITIS_LOOP_779_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -583,7 +583,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2432237
+        Offset:          2432238
         Length:          0
         ReplacementText: 'VITIS_LOOP_808_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -592,7 +592,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2432656
+        Offset:          2432657
         Length:          0
         ReplacementText: 'VITIS_LOOP_828_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -601,7 +601,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2438710
+        Offset:          2438711
         Length:          0
         ReplacementText: 'VITIS_LOOP_229_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -610,7 +610,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2438850
+        Offset:          2438851
         Length:          0
         ReplacementText: 'VITIS_LOOP_236_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -619,7 +619,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2439115
+        Offset:          2439116
         Length:          0
         ReplacementText: 'VITIS_LOOP_245_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -628,7 +628,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2439309
+        Offset:          2439310
         Length:          0
         ReplacementText: 'VITIS_LOOP_254_4: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -637,7 +637,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2439402
+        Offset:          2439403
         Length:          0
         ReplacementText: 'VITIS_LOOP_258_5: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -646,7 +646,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2439728
+        Offset:          2439729
         Length:          0
         ReplacementText: 'VITIS_LOOP_269_6: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -655,7 +655,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2439838
+        Offset:          2439839
         Length:          0
         ReplacementText: 'VITIS_LOOP_273_7: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -664,7 +664,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2440804
+        Offset:          2440805
         Length:          0
         ReplacementText: 'VITIS_LOOP_297_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -673,7 +673,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2440890
+        Offset:          2440891
         Length:          0
         ReplacementText: 'VITIS_LOOP_301_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -682,7 +682,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_stream.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2441566
+        Offset:          2441567
         Length:          0
         ReplacementText: 'VITIS_LOOP_320_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -691,7 +691,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation_stream.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2447868
+        Offset:          2447869
         Length:          0
         ReplacementText: 'VITIS_LOOP_211_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -700,7 +700,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation_stream.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2448146
+        Offset:          2448147
         Length:          0
         ReplacementText: 'VITIS_LOOP_220_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -709,7 +709,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation_stream.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2451367
+        Offset:          2451368
         Length:          0
         ReplacementText: 'VITIS_LOOP_325_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -718,7 +718,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation_stream.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2451509
+        Offset:          2451510
         Length:          0
         ReplacementText: 'VITIS_LOOP_330_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -727,7 +727,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_activation_stream.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2451713
+        Offset:          2451714
         Length:          0
         ReplacementText: 'VITIS_LOOP_338_3: '
   - DiagnosticName:  clang-diagnostic-error
@@ -751,7 +751,7 @@ Diagnostics:
     FilePath:        /tools/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/ap_shift_reg.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2488345
+        Offset:          2488346
         Length:          0
         ReplacementText: 'VITIS_LOOP_64_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -760,7 +760,7 @@ Diagnostics:
     FilePath:        /tools/Xilinx/Vitis_HLS/2023.2/common/technology/autopilot/ap_shift_reg.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2488549
+        Offset:          2488550
         Length:          0
         ReplacementText: 'VITIS_LOOP_71_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -769,7 +769,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_dense_compressed.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2505665
+        Offset:          2505666
         Length:          0
         ReplacementText: 'VITIS_LOOP_14_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -778,7 +778,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_dense_compressed.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2507536
+        Offset:          2507537
         Length:          0
         ReplacementText: 'VITIS_LOOP_74_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -787,7 +787,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2521166
+        Offset:          2521167
         Length:          0
         ReplacementText: 'VITIS_LOOP_13_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -796,7 +796,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2521365
+        Offset:          2521366
         Length:          0
         ReplacementText: 'VITIS_LOOP_22_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -805,7 +805,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2523293
+        Offset:          2523294
         Length:          0
         ReplacementText: 'VITIS_LOOP_97_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -814,7 +814,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2523350
+        Offset:          2523351
         Length:          0
         ReplacementText: 'VITIS_LOOP_99_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -823,7 +823,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2523575
+        Offset:          2523576
         Length:          0
         ReplacementText: 'VITIS_LOOP_104_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -832,7 +832,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2524892
+        Offset:          2524893
         Length:          0
         ReplacementText: 'VITIS_LOOP_132_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -841,7 +841,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2525035
+        Offset:          2525036
         Length:          0
         ReplacementText: 'VITIS_LOOP_135_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -850,7 +850,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2527312
+        Offset:          2527313
         Length:          0
         ReplacementText: 'VITIS_LOOP_190_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -859,7 +859,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2527369
+        Offset:          2527370
         Length:          0
         ReplacementText: 'VITIS_LOOP_192_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -868,7 +868,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2527463
+        Offset:          2527464
         Length:          0
         ReplacementText: 'VITIS_LOOP_194_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -877,7 +877,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2527722
+        Offset:          2527723
         Length:          0
         ReplacementText: 'VITIS_LOOP_201_4: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -886,7 +886,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2527796
+        Offset:          2527797
         Length:          0
         ReplacementText: 'VITIS_LOOP_203_5: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -895,7 +895,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2530161
+        Offset:          2530162
         Length:          0
         ReplacementText: 'VITIS_LOOP_244_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -904,7 +904,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2530218
+        Offset:          2530219
         Length:          0
         ReplacementText: 'VITIS_LOOP_246_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -913,7 +913,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2530312
+        Offset:          2530313
         Length:          0
         ReplacementText: 'VITIS_LOOP_248_3: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -922,7 +922,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2530568
+        Offset:          2530569
         Length:          0
         ReplacementText: 'VITIS_LOOP_254_4: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -931,7 +931,7 @@ Diagnostics:
     FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/firmware/nnet_utils/nnet_pooling.h
     Replacements:    
       - FilePath:        /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp
-        Offset:          2530644
+        Offset:          2530645
         Length:          0
         ReplacementText: 'VITIS_LOOP_256_5: '
   - DiagnosticName:  clang-diagnostic-error

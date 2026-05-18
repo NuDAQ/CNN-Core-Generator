@@ -1,14 +1,29 @@
 {
   "0": {
     "basicblocks": 1,
-    "calls": "2 4 1 5",
+    "calls": "5 4 2 1",
     "file": "cnn_core.cpp",
     "fileloc": 7,
     "instructions": 18,
     "name": "cnn_core",
-    "total_instructions": 2363
+    "total_instructions": 2360
   },
   "1": {
+    "basicblocks": 5,
+    "calls": "",
+    "file": "nnet_dense_stream.h",
+    "fileloc": 83,
+    "instructions": 250,
+    "loads": {
+      "L": 7
+    },
+    "name": "dense_wide_stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 1>, config7>",
+    "stores": {
+      "L": 28
+    },
+    "total_instructions": 250
+  },
+  "2": {
     "basicblocks": 6,
     "calls": "",
     "file": "nnet_pooling_stream.h",
@@ -22,21 +37,6 @@
       "L": 28
     },
     "total_instructions": 239
-  },
-  "2": {
-    "basicblocks": 13,
-    "calls": "3 3 3 3",
-    "file": "nnet_first_conv_stream.h",
-    "fileloc": 99,
-    "instructions": 363,
-    "loads": {
-      "L": 48
-    },
-    "name": "first_conv_4lane_temporal_wide_cl<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 28>, config3>",
-    "stores": {
-      "L": 40
-    },
-    "total_instructions": 1619
   },
   "3": {
     "basicblocks": 1,
@@ -63,18 +63,18 @@
     "total_instructions": 234
   },
   "5": {
-    "basicblocks": 5,
-    "calls": "",
-    "file": "nnet_dense_stream.h",
-    "fileloc": 83,
-    "instructions": 253,
+    "basicblocks": 13,
+    "calls": "3 3 3 3",
+    "file": "nnet_first_conv_stream.h",
+    "fileloc": 99,
+    "instructions": 363,
     "loads": {
-      "L": 7
+      "L": 48
     },
-    "name": "dense_wide_stream<nnet::array<ap_fixed<16, 6, AP_TRN, AP_WRAP, 0>, 28>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 1>, config7>",
+    "name": "first_conv_4lane_temporal_wide_cl<nnet::array<ap_fixed<12, 6, AP_TRN, AP_WRAP, 0>, 4>, nnet::array<ap_fixed<9, 5, AP_TRN, AP_WRAP, 0>, 28>, config3>",
     "stores": {
-      "L": 28
+      "L": 40
     },
-    "total_instructions": 253
+    "total_instructions": 1619
   }
 }

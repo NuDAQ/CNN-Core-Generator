@@ -6,7 +6,7 @@
 
 `timescale 1 ns / 1 ps 
 
-module cnn_core_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s (
+module cnn_core_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_s (
         ap_clk,
         ap_rst,
         ap_start,
@@ -56,18 +56,16 @@ wire    ap_CS_fsm_state1;
 reg    layer7_out_TDATA_blk_n;
 wire    ap_CS_fsm_state3;
 wire    ap_CS_fsm_state4;
-wire    grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_start;
-wire    grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_done;
-wire    grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_idle;
-wire    grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_ready;
-wire    grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_layer5x4_out_read;
-wire   [14:0] grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_acc_out;
-wire    grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_acc_out_ap_vld;
-reg    grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_start_reg;
+wire    grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_start;
+wire    grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_done;
+wire    grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_idle;
+wire    grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_ready;
+wire    grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_layer5x4_out_read;
+wire   [15:0] grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_acc_out;
+wire    grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_acc_out_ap_vld;
+reg    grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_start_reg;
 reg    ap_block_state1_ignore_call5;
 wire    ap_CS_fsm_state2;
-reg   [14:0] acc_loc_fu_42;
-wire   [8:0] lshr_ln_fu_63_p4;
 wire    regslice_both_layer7_out_U_apdone_blk;
 reg    ap_block_state4;
 reg   [3:0] ap_NS_fsm;
@@ -76,7 +74,6 @@ reg    ap_ST_fsm_state1_blk;
 reg    ap_ST_fsm_state2_blk;
 reg    ap_ST_fsm_state3_blk;
 reg    ap_ST_fsm_state4_blk;
-wire   [15:0] layer7_out_TDATA_int_regslice;
 reg    layer7_out_TVALID_int_regslice;
 wire    layer7_out_TREADY_int_regslice;
 wire    regslice_both_layer7_out_U_vld_out;
@@ -86,23 +83,23 @@ wire    ap_ce_reg;
 initial begin
 #0 ap_done_reg = 1'b0;
 #0 ap_CS_fsm = 4'd1;
-#0 grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_start_reg = 1'b0;
+#0 grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_start_reg = 1'b0;
 end
 
-cnn_core_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53(
+cnn_core_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_start),
-    .ap_done(grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_done),
-    .ap_idle(grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_idle),
-    .ap_ready(grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_ready),
+    .ap_start(grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_start),
+    .ap_done(grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_done),
+    .ap_idle(grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_idle),
+    .ap_ready(grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_ready),
     .layer5x4_out_dout(layer5x4_out_dout),
     .layer5x4_out_num_data_valid(3'd0),
     .layer5x4_out_fifo_cap(3'd0),
     .layer5x4_out_empty_n(layer5x4_out_empty_n),
-    .layer5x4_out_read(grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_layer5x4_out_read),
-    .acc_out(grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_acc_out),
-    .acc_out_ap_vld(grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_acc_out_ap_vld)
+    .layer5x4_out_read(grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_layer5x4_out_read),
+    .acc_out(grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_acc_out),
+    .acc_out_ap_vld(grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_acc_out_ap_vld)
 );
 
 cnn_core_regslice_both #(
@@ -110,7 +107,7 @@ cnn_core_regslice_both #(
 regslice_both_layer7_out_U(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .data_in(layer7_out_TDATA_int_regslice),
+    .data_in(grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_acc_out),
     .vld_in(layer7_out_TVALID_int_regslice),
     .ack_in(layer7_out_TREADY_int_regslice),
     .data_out(layer7_out_TDATA),
@@ -141,19 +138,13 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_start_reg <= 1'b0;
+        grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_start_reg <= 1'b0;
     end else begin
         if (((1'b0 == ap_block_state1_ignore_call5) & (1'b1 == ap_CS_fsm_state1))) begin
-            grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_start_reg <= 1'b1;
-        end else if ((grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_ready == 1'b1)) begin
-            grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_start_reg <= 1'b0;
+            grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_start_reg <= 1'b1;
+        end else if ((grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_ready == 1'b1)) begin
+            grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_start_reg <= 1'b0;
         end
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (((grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_acc_out_ap_vld == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
-        acc_loc_fu_42 <= grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_acc_out;
     end
 end
 
@@ -166,7 +157,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_done == 1'b0)) begin
+    if ((grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_done == 1'b0)) begin
         ap_ST_fsm_state2_blk = 1'b1;
     end else begin
         ap_ST_fsm_state2_blk = 1'b0;
@@ -215,7 +206,7 @@ end
 
 always @ (*) begin
     if ((1'b1 == ap_CS_fsm_state2)) begin
-        layer5x4_out_read = grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_layer5x4_out_read;
+        layer5x4_out_read = grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_layer5x4_out_read;
     end else begin
         layer5x4_out_read = 1'b0;
     end
@@ -247,7 +238,7 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+            if (((grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state2;
@@ -293,12 +284,8 @@ always @ (*) begin
     ap_block_state4 = ((regslice_both_layer7_out_U_apdone_blk == 1'b1) | (layer7_out_TREADY_int_regslice == 1'b0));
 end
 
-assign grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_start = grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_53_ap_start_reg;
-
-assign layer7_out_TDATA_int_regslice = lshr_ln_fu_63_p4;
+assign grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_start = grp_dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain_fu_47_ap_start_reg;
 
 assign layer7_out_TVALID = regslice_both_layer7_out_U_vld_out;
 
-assign lshr_ln_fu_63_p4 = {{acc_loc_fu_42[14:6]}};
-
-endmodule //cnn_core_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s
+endmodule //cnn_core_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_s

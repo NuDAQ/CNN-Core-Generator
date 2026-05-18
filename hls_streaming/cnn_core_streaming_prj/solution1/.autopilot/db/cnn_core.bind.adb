@@ -250,7 +250,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3889011664</coreId>
+						<coreId>2279246288</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -308,7 +308,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3888974400</coreId>
+						<coreId>4294967295</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -368,7 +368,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3889713616</coreId>
+						<coreId>2279472640</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -428,7 +428,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>757935405</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -488,7 +488,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1397508187</coreId>
+						<coreId>2279420496</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -533,7 +533,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>795177569</coreId>
+						<coreId>2279420584</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -564,7 +564,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>47504506</coreId>
+						<coreId>885871586</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -595,7 +595,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3889430832</coreId>
+						<coreId>2279698960</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -626,7 +626,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4294967295</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -639,7 +639,7 @@
 					<Obj>
 						<type>2</type>
 						<id>42</id>
-						<name>dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s</name>
+						<name>dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_s</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -657,13 +657,13 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>3889776272</coreId>
+						<coreId>2279910160</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
 				<const_type>6</const_type>
-				<content>&lt;constant:dense_wide_stream&lt;array,array&lt;ap_fixed&lt;9,5,5,3,0&gt;,1u&gt;,config7&gt;&gt;</content>
+				<content>&lt;constant:dense_wide_stream&lt;array,array&lt;ap_fixed&lt;16,6,5,3,0&gt;,1u&gt;,config7&gt;&gt;</content>
 			</item>
 		</consts>
 		<blocks class_id="17" tracking_level="0" version="0">
@@ -961,7 +961,7 @@
 					</item>
 					<item class_id_reference="28" object_id="_48">
 						<type>0</type>
-						<name>dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0</name>
+						<name>dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0</name>
 						<ssdmobj_id>23</ssdmobj_id>
 						<pins>
 							<count>1</count>
@@ -977,7 +977,7 @@
 								</port>
 								<inst class_id_reference="31" object_id="_51">
 									<type>0</type>
-									<name>dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0</name>
+									<name>dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0</name>
 									<ssdmobj_id>23</ssdmobj_id>
 								</inst>
 							</item>
@@ -1694,7 +1694,7 @@
 		<count>4</count>
 		<item_version>0</item_version>
 		<item>
-			<first>grp_dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s_fu_89</first>
+			<first>grp_dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_s_fu_89</first>
 			<second>
 				<count>2</count>
 				<item_version>0</item_version>

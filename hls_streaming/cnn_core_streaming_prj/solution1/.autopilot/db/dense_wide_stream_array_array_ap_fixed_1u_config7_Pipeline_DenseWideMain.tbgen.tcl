@@ -16,13 +16,13 @@ set C_modelName {dense_wide_stream<array,array<ap_fixed,1u>,config7>_Pipeline_De
 set C_modelType { void 0 }
 set C_modelArgList {
 	{ layer5x4_out int 448 regular {fifo 0 volatile }  }
-	{ acc_out int 15 regular {pointer 1}  }
+	{ acc_out int 16 regular {pointer 1}  }
 }
 set hasAXIMCache 0
 set AXIMCacheInstList { }
 set C_modelArgMapList {[ 
 	{ "Name" : "layer5x4_out", "interface" : "fifo", "bitwidth" : 448, "direction" : "READONLY"} , 
- 	{ "Name" : "acc_out", "interface" : "wire", "bitwidth" : 15, "direction" : "WRITEONLY"} ]}
+ 	{ "Name" : "acc_out", "interface" : "wire", "bitwidth" : 16, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
 set portNum 13
 set portList { 
@@ -37,7 +37,7 @@ set portList {
 	{ layer5x4_out_fifo_cap sc_in sc_lv 3 signal 0 } 
 	{ layer5x4_out_empty_n sc_in sc_logic 1 signal 0 } 
 	{ layer5x4_out_read sc_out sc_logic 1 signal 0 } 
-	{ acc_out sc_out sc_lv 15 signal 1 } 
+	{ acc_out sc_out sc_lv 16 signal 1 } 
 	{ acc_out_ap_vld sc_out sc_logic 1 outvld 1 } 
 }
 set NewPortList {[ 
@@ -52,7 +52,7 @@ set NewPortList {[
  	{ "name": "layer5x4_out_fifo_cap", "direction": "in", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "layer5x4_out", "role": "fifo_cap" }} , 
  	{ "name": "layer5x4_out_empty_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "layer5x4_out", "role": "empty_n" }} , 
  	{ "name": "layer5x4_out_read", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "layer5x4_out", "role": "read" }} , 
- 	{ "name": "acc_out", "direction": "out", "datatype": "sc_lv", "bitwidth":15, "type": "signal", "bundle":{"name": "acc_out", "role": "default" }} , 
+ 	{ "name": "acc_out", "direction": "out", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "acc_out", "role": "default" }} , 
  	{ "name": "acc_out_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "acc_out", "role": "ap_vld" }}  ]}
 
 set RtlHierarchyInfo {[
@@ -62,7 +62,7 @@ set RtlHierarchyInfo {[
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
 		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
 		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "173", "EstimateLatencyMax" : "173",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "172", "EstimateLatencyMax" : "172",
 		"Combinational" : "0",
 		"Datapath" : "0",
 		"ClockEnable" : "0",
@@ -105,13 +105,13 @@ set RtlHierarchyInfo {[
 set ArgLastReadFirstWriteLatency {
 	dense_wide_stream_array_array_ap_fixed_1u_config7_Pipeline_DenseWideMain {
 		layer5x4_out {Type I LastRead 2 FirstWrite -1}
-		acc_out {Type O LastRead -1 FirstWrite 4}}}
+		acc_out {Type O LastRead -1 FirstWrite 3}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "173", "Max" : "173"}
-	, {"Name" : "Interval", "Min" : "173", "Max" : "173"}
+	{"Name" : "Latency", "Min" : "172", "Max" : "172"}
+	, {"Name" : "Interval", "Min" : "172", "Max" : "172"}
 ]}
 
 set PipelineEnableSignalInfo {[
@@ -120,5 +120,5 @@ set PipelineEnableSignalInfo {[
 
 set Spec2ImplPortList { 
 	layer5x4_out { ap_fifo {  { layer5x4_out_dout fifo_data_in 0 448 }  { layer5x4_out_num_data_valid fifo_status_num_data_valid 0 3 }  { layer5x4_out_fifo_cap fifo_update 0 3 }  { layer5x4_out_empty_n fifo_status 0 1 }  { layer5x4_out_read fifo_port_we 1 1 } } }
-	acc_out { ap_vld {  { acc_out out_data 1 15 }  { acc_out_ap_vld out_vld 1 1 } } }
+	acc_out { ap_vld {  { acc_out out_data 1 16 }  { acc_out_ap_vld out_vld 1 1 } } }
 }

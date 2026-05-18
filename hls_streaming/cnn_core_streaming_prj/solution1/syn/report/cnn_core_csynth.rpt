@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'cnn_core'
 ================================================================
-* Date:           Sun May 17 03:31:39 2026
+* Date:           Sun May 17 19:12:34 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_streaming_prj
@@ -41,7 +41,7 @@
         |first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0  |first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s  |      259|      259|  1.295 us|  1.295 us|  259|  259|       no|
         |relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0  |relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s  |       87|       87|  0.435 us|  0.435 us|   87|   87|       no|
         |maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0       |maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s       |       87|       87|  0.435 us|  0.435 us|   87|   87|       no|
-        |dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0         |dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s         |      176|      176|  0.880 us|  0.880 us|  176|  176|       no|
+        |dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0        |dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_s        |      175|      175|  0.875 us|  0.875 us|  175|  175|       no|
         +-----------------------------------------------------------------------+----------------------------------------------------------------------+---------+---------+----------+----------+-----+-----+---------+
 
         * Loop: 
@@ -59,12 +59,12 @@
 |DSP              |        -|     -|       -|       -|    -|
 |Expression       |        -|     -|       0|       2|    -|
 |FIFO             |        -|     -|     297|     201|    -|
-|Instance         |        -|    11|    2678|   26297|    -|
+|Instance         |        -|    11|    2656|   26331|    -|
 |Memory           |        -|     -|       -|       -|    -|
 |Multiplexer      |        -|     -|       -|       -|    -|
 |Register         |        -|     -|       -|       -|    -|
 +-----------------+---------+------+--------+--------+-----+
-|Total            |        0|    11|    2975|   26500|    0|
+|Total            |        0|    11|    2953|   26534|    0|
 +-----------------+---------+------+--------+--------+-----+
 |Available        |      960|  1824|  433920|  216960|   64|
 +-----------------+---------+------+--------+--------+-----+
@@ -76,12 +76,12 @@
     +-----------------------------------------------------------------------+----------------------------------------------------------------------+---------+----+-----+-------+-----+
     |                                Instance                               |                                Module                                | BRAM_18K| DSP|  FF |  LUT  | URAM|
     +-----------------------------------------------------------------------+----------------------------------------------------------------------+---------+----+-----+-------+-----+
-    |dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0         |dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_s         |        0|   7|  769|  19616|    0|
-    |first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0  |first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s  |        0|   4|  731|   4529|    0|
+    |dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0        |dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_s        |        0|   7|  690|  19582|    0|
+    |first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0  |first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_s  |        0|   4|  788|   4597|    0|
     |maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0       |maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_s       |        0|   0|  913|   1215|    0|
     |relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0  |relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_s  |        0|   0|  265|    937|    0|
     +-----------------------------------------------------------------------+----------------------------------------------------------------------+---------+----+-----+-------+-----+
-    |Total                                                                  |                                                                      |        0|  11| 2678|  26297|    0|
+    |Total                                                                  |                                                                      |        0|  11| 2656|  26331|    0|
     +-----------------------------------------------------------------------+----------------------------------------------------------------------+---------+----+-----+-------+-----+
 
     * DSP: 

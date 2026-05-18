@@ -21,14 +21,14 @@ Top Resources
 -------------
 bram_18k: 0
 dsp: 11
-ff: 2975
-lut: 26500
+ff: 2953
+lut: 26534
 uram: 0
 
 Slowest Instances By Interval
 -----------------------------
-     259 cyc | latency      259 | first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0 | DSP 4 FF 731 LUT 4529 BRAM 0
-     176 cyc | latency      176 | dense_wide_stream_array_array_ap_fixed_9_5_5_3_0_1u_config7_U0 | DSP 7 FF 769 LUT 19616 BRAM 0
+     259 cyc | latency      259 | first_conv_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config3_U0 | DSP 4 FF 788 LUT 4597 BRAM 0
+     175 cyc | latency      175 | dense_wide_stream_array_array_ap_fixed_16_6_5_3_0_1u_config7_U0 | DSP 7 FF 690 LUT 19582 BRAM 0
       87 cyc | latency       87 | relu_array_ap_fixed_28u_array_ap_fixed_16_6_5_3_0_28u_relu_config4_U0 | DSP 0 FF 265 LUT 937 BRAM 0
       87 cyc | latency       87 | maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config5_U0 | DSP 0 FF 913 LUT 1215 BRAM 0
 

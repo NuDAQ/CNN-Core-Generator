@@ -79,7 +79,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_acc_out \
     op interface \
-    ports { acc_out { O 15 vector } acc_out_ap_vld { O 1 bit } } \
+    ports { acc_out { O 16 vector } acc_out_ap_vld { O 1 bit } } \
 } "
 }
 
