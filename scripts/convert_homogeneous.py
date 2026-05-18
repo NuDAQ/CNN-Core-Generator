@@ -33,6 +33,7 @@ BACKEND = 'Vitis'
 PART = 'xcku5p-ffvb676-2-e'
 
 INPUT_PRECISION = 'ap_fixed<12,6>' 
+DENSE_RESULT_PRECISION = 'ap_fixed<16,6>'
 
 
 
@@ -309,13 +310,15 @@ for layer_name, precision in layer_precisions.items():
 
         print(f"[CONFIG] Applying {precision} to '{layer_name}'")
 
+        result_precision = DENSE_RESULT_PRECISION if layer_name == 'q_dense' else precision
+
         config['LayerName'][layer_name]['Precision'] = {
 
             'weight': precision,
 
             'bias': precision,
 
-            'result': precision
+            'result': result_precision
 
         }
 

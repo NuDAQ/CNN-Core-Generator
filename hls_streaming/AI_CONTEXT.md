@@ -185,8 +185,7 @@ cnn_core(input_layer, layer7_out)
   -> first_conv_4lane_temporal_wide_cl<input_t, layer3x4_t, config3> [packs 4 width outputs]
   -> relu<layer3x4_t, layer4x4_t, relu_config4>                    [wide ReLU]
   -> maxpool2d_wide_nonoverlap_cl<layer4x4_t, layer5x4_t, config5>  [wide non-overlap pool]
-  -> unpack_4lane_temporal_cl<layer5x4_t, layer5_t, config5>        [restores dense input stream]
-  -> dense<layer5_t, result_t, config7>
+  -> dense_wide_stream<layer5x4_t, result_t, config7>               [wide streaming dense]
 ```
 
 The immutable baseline under `../cnn_core_project/firmware` still uses:
@@ -215,7 +214,6 @@ Internal streams:
 layer3x4_out depth 4      wide first-conv output, packed 4 widths x 7 filters
 layer4x4_out depth 4      wide ReLU output, packed 4 widths x 7 filters
 layer5x4_out depth 4      wide MaxPool output, packed 4 widths x 7 filters
-layer5_out   depth 168    MaxPool output, packed 7 filter values per word
 ```
 
 ## Data Types
@@ -231,10 +229,19 @@ layer4_t  = nnet::array<ap_fixed<16,6>, 7>
 layer4x4_t = nnet::array<ap_fixed<16,6>, 28>
 layer5_t  = nnet::array<ap_fixed<16,6>, 7>
 layer5x4_t = nnet::array<ap_fixed<16,6>, 28>
-result_t  = nnet::array<ap_fixed<9,5>, 1>
+result_t  = nnet::array<ap_fixed<16,6>, 1>
 ```
 
 `input_t` contains 4 fixed-point values per AXI-stream word.
+
+Current output precision note: `result_t` was widened from `ap_fixed<9,5>` to
+`ap_fixed<16,6>` after wrapper/Keras comparison showed final-score wraparound
+on large positive samples such as 675 and 933. Baseline C++, streaming C++, and
+wrapper RTL matched exactly before this change; the wrap originated in the
+shared hls4ml output type, not in the optimized streaming architecture. The
+wrapper/testbench score decoder must interpret the 16-bit output as
+`ap_fixed<16,6>` (divide signed raw output by 1024), not the old
+`ap_fixed<9,5>` byte-aligned format (divide low 9 bits by 16).
 
 Important interpretation: the model represents the input as `256 x 4 x 1`,
 not as `256 x 1 x 4`. That means the four values are the width dimension, while
@@ -515,6 +522,13 @@ FF is roughly 10x lower than the hls4ml baseline, and throughput remains at the
 first-conv lower bound. Dense LUT remains noticeable because the 7-lane streaming
 dense dynamically indexes fully partitioned weights, which HLS implements with
 large muxing; this is now a resource cleanup issue, not a throughput issue.
+
+Source update after this report: the final `result_t` precision is now
+`ap_fixed<16,6>` to avoid output wraparound. `make compare SAMPLES=1024` passes
+after the type change, so the baseline and optimized C++ paths remain exactly
+aligned under the new output precision. HLS csynth and wrapper RTL need to be
+rerun before treating the older 263/260-cycle resource/timing numbers as
+current.
 
 ### repack_stream
 
