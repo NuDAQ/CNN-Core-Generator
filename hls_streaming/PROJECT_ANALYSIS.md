@@ -156,8 +156,13 @@ layer2_t  = nnet::array<ap_fixed<12,6>, 1>
 layer3_t  = nnet::array<ap_fixed<9,5>, 7>
 layer4_t  = nnet::array<ap_fixed<16,6>, 7>
 layer5_t  = nnet::array<ap_fixed<16,6>, 7>
-result_t  = nnet::array<ap_fixed<9,5>, 1>
+result_t  = nnet::array<ap_fixed<16,6>, 1>
 ```
+
+The final score type was widened from `ap_fixed<9,5>` to `ap_fixed<16,6>` after
+wrapper/Keras comparison showed that large positive scores could wrap into the
+negative range at the output port. The AXI-stream output is still 16 bits wide,
+but downstream score decoding must use the `ap_fixed<16,6>` scale.
 
 The model shape is represented as:
 

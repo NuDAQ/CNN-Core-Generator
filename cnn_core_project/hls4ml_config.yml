@@ -29,7 +29,7 @@ HLSConfig:
     q_dense:
       Precision:
         bias: ap_fixed<9,5>
-        result: ap_fixed<9,5>
+        result: ap_fixed<16,6>
         weight: ap_fixed<9,5>
       Trace: false
     reshape:
