@@ -22,6 +22,9 @@
 !scripts/
 !scripts/**
 
+!doc/
+!doc/**
+
 !cnn_core_project/
 !cnn_core_project/**
 
