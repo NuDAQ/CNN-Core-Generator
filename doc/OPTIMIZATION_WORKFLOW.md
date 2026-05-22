@@ -290,7 +290,7 @@ fixed tolerance score comparison
 classification/trigger decision comparison
 DAQ-level chunk/order comparison
 throughput/resource acceptance test
-Keras/HGQ reference comparison
+model-reference comparison
 ```
 
 Do not silently weaken the comparison. If `ALLOW_MISMATCH=1` or a tolerance is
@@ -825,42 +825,25 @@ not the old low-9-bit `ap_fixed<9,5>` format.
 This fix was mirrored to the baseline and optimized firmware because it is a
 shared model correctness issue, not a streaming architecture change.
 
-### Historical HGQ Keras vs hls4ml Dense Weight Offset
+### Reference Model Alignment
 
-There was a recorded systematic score offset on the later `v3.0` experiment
-line between original HGQ Keras and hls4ml/RTL output:
-
-```text
-RTL output scores about 6.08 lower than HGQ Keras predictions
-```
-
-Root cause summary:
+Keep numerical/model-reference issues separate from structural HLS throughput
+changes. If the optimized C++ or RTL output disagrees with the chosen reference
+model, first determine whether the mismatch comes from:
 
 ```text
-Keras HGQ -> Vanilla model:  about -0.61
-Vanilla -> RTL:              about -5.47
+interface packing/unpacking
+fixed-point type width or signedness
+weight or bias quantization
+activation or pooling semantics
+output decoder interpretation
+testbench reference drift
 ```
 
-The large component was attributed to dense weight quantization mismatch.
-hls4ml uses uniform `ap_fixed<9,5>` for dense weights, while the HGQ model uses
-heterogeneous per-weight quantization.
-
-The experiment used a helper script named:
-
-```text
-scripts/extract_hgq_weights.py
-```
-
-That script is not part of the `v3.1` release-line branch. Treat it as a
-historical investigation result or as a possible future tool to re-create from
-the `v3.0` experiment branch if HGQ-vs-RTL numerical alignment becomes part of
-the acceptance criteria. Do not assume the current `v3.1` branch has already
-applied HGQ-quantized firmware weight files.
-
-When optimizing another model, keep numerical/model-reference issues separate
-from structural HLS throughput changes. Otherwise it becomes hard to know
-whether a mismatch came from architecture, quantization, or reference-model
-drift.
+Only change firmware weights, quantization policy, or acceptance tolerances
+after documenting which reference is authoritative and why the mismatch is
+expected. These are model-correctness decisions, not data-path optimization
+steps.
 
 ## Automation Design
 
