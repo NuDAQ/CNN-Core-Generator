@@ -66,6 +66,11 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Leave the generated IOStream project in vanilla hls4ml form instead of applying IOParallel HGQ reference data.",
     )
+    parser.add_argument(
+        "--debug-zero-quantizers",
+        action="store_true",
+        help="Force inserted HGQ stream quantizers to output zero; use only to check whether patched C++ is compiled and loaded.",
+    )
     parser.add_argument("--keep-build", action="store_true")
     parser.add_argument(
         "--init-streaming",
@@ -354,6 +359,16 @@ def convert_project(
     return hls_model
 
 
+def remove_compiled_artifacts(project_dir: Path) -> None:
+    removed = 0
+    for pattern in ("*.o", "firmware/*.so"):
+        for artifact in project_dir.glob(pattern):
+            artifact.unlink()
+            removed += 1
+    if removed:
+        print(f"[INFO] Removed {removed} stale compiled artifact(s) from {project_dir}")
+
+
 def extract_typedefs(defines_h: Path) -> dict[str, str]:
     typedefs: dict[str, str] = {}
     pattern = re.compile(r"^\s*typedef\s+(.+?)\s+(\w+)\s*;")
@@ -564,7 +579,7 @@ def extract_quantizer_casts(function_body: str | None) -> list[tuple[int, str]]:
     return casts
 
 
-def render_quantizer_struct(name: str, casts: list[tuple[int, str]]) -> str:
+def render_quantizer_struct(name: str, casts: list[tuple[int, str]], force_zero: bool = False) -> str:
     lines = [
         f"struct {name} {{",
         "    template <class in_T, class out_T>",
@@ -573,7 +588,10 @@ def render_quantizer_struct(name: str, casts: list[tuple[int, str]]) -> str:
         "        switch (index) {",
     ]
     for index, cast_type in casts:
-        lines.append(f"        case {index}: return (out_T) {cast_type}(value);")
+        if force_zero:
+            lines.append(f"        case {index}: return (out_T) 0;")
+        else:
+            lines.append(f"        case {index}: return (out_T) {cast_type}(value);")
     lines.extend(
         [
             "        default: return (out_T) value;",
@@ -585,7 +603,7 @@ def render_quantizer_struct(name: str, casts: list[tuple[int, str]]) -> str:
     return "\n".join(lines)
 
 
-def write_hgq_stream_header(firmware_dir: Path, quantizers: dict[str, str | None]) -> None:
+def write_hgq_stream_header(firmware_dir: Path, quantizers: dict[str, str | None], force_zero: bool = False) -> None:
     conv_casts = extract_quantizer_casts(quantizers.get("q_conv2d_iq"))
     dense_casts = extract_quantizer_casts(quantizers.get("q_dense_iq"))
     header = f"""#ifndef NNET_HGQ_STREAM_H_
@@ -620,9 +638,9 @@ QuantizePackets:
     }}
 }}
 
-{render_quantizer_struct("q_conv2d_iq_cast", conv_casts)}
+{render_quantizer_struct("q_conv2d_iq_cast", conv_casts, force_zero)}
 
-{render_quantizer_struct("q_dense_iq_cast", dense_casts)}
+{render_quantizer_struct("q_dense_iq_cast", dense_casts, force_zero)}
 
 }} // namespace nnet
 
@@ -631,6 +649,8 @@ QuantizePackets:
     output = firmware_dir / "nnet_utils" / "nnet_hgq_stream.h"
     output.write_text(header)
     print(f"[CONFIG] wrote HGQ stream quantizer header: {output}")
+    if force_zero:
+        print("[WARNING] Debug mode: HGQ stream quantizers are forced to output zero.")
 
 
 def insert_include_once(text: str, include_line: str) -> str:
@@ -733,7 +753,7 @@ def patch_cnn_core_for_stream_quantizers(cnn_core_cpp: Path, conv_quantizer_len:
     return {"conv_data_t": conv_call["data_t"], "dense_data_t": dense_call["data_t"]}
 
 
-def apply_hgq_reference_to_stream_project(stream_project: Path, manifest_path: Path) -> None:
+def apply_hgq_reference_to_stream_project(stream_project: Path, manifest_path: Path, force_zero_quantizers: bool = False) -> None:
     manifest = json.loads(manifest_path.read_text())
     parallel = manifest["parallel"]
     parallel_typedefs = parallel["typedefs"]
@@ -832,7 +852,7 @@ def apply_hgq_reference_to_stream_project(stream_project: Path, manifest_path: P
         copy_renamed_weight(src_text, stream_weights_dir / f"{dst_name}.txt", src_name, dst_name)
         print(f"[CONFIG] copied parallel weight {src_name} -> stream {dst_name}")
 
-    write_hgq_stream_header(firmware_dir, parallel_quantizers)
+    write_hgq_stream_header(firmware_dir, parallel_quantizers, force_zero=force_zero_quantizers)
     patch_cnn_core_for_stream_quantizers(
         cnn_core_cpp,
         len(extract_quantizer_casts(parallel_quantizers.get("q_conv2d_iq"))),
@@ -842,6 +862,7 @@ def apply_hgq_reference_to_stream_project(stream_project: Path, manifest_path: P
     manifest["applied_to_stream"] = {
         "safe_precision_typedefs": sorted(typedef_replacements),
         "copied_weights": weight_map,
+        "debug_zero_quantizers": force_zero_quantizers,
         "notes": [
             "The stream interface and layer graph are preserved.",
             "IOParallel per-index quantizer functions are converted into stream quantizer layers before q_conv2d and q_dense.",
@@ -893,10 +914,15 @@ def main() -> int:
     if args.skip_apply_hgq_reference:
         print("[INFO] Leaving IOStream candidate in vanilla hls4ml form.")
     else:
-        apply_hgq_reference_to_stream_project(stream_project, manifest_path)
+        apply_hgq_reference_to_stream_project(
+            stream_project,
+            manifest_path,
+            force_zero_quantizers=args.debug_zero_quantizers,
+        )
 
     if not args.skip_compile:
         print("[INFO] Compiling IOStream candidate.")
+        remove_compiled_artifacts(stream_project)
         stream_hls.compile()
     if not args.skip_verify:
         label = "IOStream candidate" if args.skip_apply_hgq_reference else "HGQ-guided IOStream candidate"
