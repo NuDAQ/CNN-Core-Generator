@@ -17,6 +17,7 @@
 #include "nnet_utils/nnet_pooling.h"
 #include "nnet_utils/nnet_pooling_stream.h"
 #include "nnet_utils/nnet_stream.h"
+#include "nnet_utils/nnet_hgq_stream.h"
 
 // hls-fpga-machine-learning insert weights
 #include "weights/w3.h"
@@ -32,9 +33,9 @@ struct config3_mult : nnet::dense_config {
     static const unsigned n_out = 7;
     static const unsigned reuse_factor = 1;
     static const unsigned strategy = nnet::latency;
-    static const unsigned n_zeros = 0;
+    static const unsigned n_zeros = 2;
     static const unsigned multiplier_limit = DIV_ROUNDUP(n_in * n_out, reuse_factor) - n_zeros / reuse_factor;
-    typedef model_default_t accum_t;
+    typedef q_conv2d_accum_t accum_t;
     typedef q_conv2d_bias_t bias_t;
     typedef q_conv2d_weight_t weight_t;
     template<class data_T, class res_T, class CONFIG_T>
@@ -60,7 +61,7 @@ struct config3 : nnet::conv2d_config {
     static const unsigned out_height = 84;
     static const unsigned out_width = 4;
     static const unsigned reuse_factor = 1;
-    static const unsigned n_zeros = 0;
+    static const unsigned n_zeros = 2;
     static const unsigned multiplier_limit =
         DIV_ROUNDUP(kernel_size * n_chan * n_filt, reuse_factor) - n_zeros / reuse_factor;
     static const bool store_weights_in_bram = false;
@@ -73,7 +74,7 @@ struct config3 : nnet::conv2d_config {
     static const unsigned n_pixels = out_height * out_width / n_partitions;
     template<class data_T, class CONFIG_T>
     using fill_buffer = nnet::FillConv2DBuffer<data_T, CONFIG_T>;
-    typedef model_default_t accum_t;
+    typedef q_conv2d_accum_t accum_t;
     typedef q_conv2d_bias_t bias_t;
     typedef q_conv2d_weight_t weight_t;
     typedef config3_mult mult_config;
@@ -127,11 +128,11 @@ struct config7 : nnet::dense_config {
     static const unsigned io_type = nnet::io_stream;
     static const unsigned strategy = nnet::latency;
     static const unsigned reuse_factor = 1;
-    static const unsigned n_zeros = 0;
-    static const unsigned n_nonzeros = 1176;
+    static const unsigned n_zeros = 655;
+    static const unsigned n_nonzeros = 521;
     static const unsigned multiplier_limit = DIV_ROUNDUP(n_in * n_out, reuse_factor) - n_zeros / reuse_factor;
     static const bool store_weights_in_bram = false;
-    typedef model_default_t accum_t;
+    typedef q_dense_accum_t accum_t;
     typedef q_dense_bias_t bias_t;
     typedef q_dense_weight_t weight_t;
     typedef layer7_index index_t;

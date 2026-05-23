@@ -1,4 +1,28 @@
 {
+  "applied_to_stream": {
+    "copied_weights": {
+      "b4": "b3",
+      "b9": "b7",
+      "w4": "w3",
+      "w9": "w7"
+    },
+    "debug_zero_quantizers": false,
+    "notes": [
+      "The stream interface and layer graph are preserved.",
+      "IOParallel per-index quantizer functions are converted into stream quantizer layers before q_conv2d and q_dense."
+    ],
+    "safe_precision_typedefs": [
+      "layer3_t",
+      "layer4_t",
+      "layer5_t",
+      "max_pooling2d_accum_t",
+      "q_conv2d_bias_t",
+      "q_conv2d_weight_t",
+      "q_dense_bias_t",
+      "q_dense_weight_t",
+      "result_t"
+    ]
+  },
   "parallel": {
     "configs": {
       "config4": {

@@ -44,13 +44,23 @@ void cnn_core(
     auto& layer6_out = layer5_out;
     nnet::repack_stream<input_t, layer2_t, 1024>(input_layer, layer8_out); // repack_reshape
 
-    nnet::conv_2d_cl<layer2_t, layer3_t, config3>(layer8_out, layer3_out, w3, b3); // q_conv2d
+    hls::stream<q_conv2d_iq_packet_t> q_conv2d_iq_out("q_conv2d_iq_out");
+    #pragma HLS STREAM variable=q_conv2d_iq_out depth=1024
+
+    nnet::hgq_quantize_stream<layer2_t, q_conv2d_iq_packet_t, 1024, nnet::q_conv2d_iq_cast>(layer8_out, q_conv2d_iq_out); // q_conv2d_iq
+
+    nnet::conv_2d_cl<q_conv2d_iq_packet_t, layer3_t, config3>(q_conv2d_iq_out, layer3_out, w3, b3); // q_conv2d
 
     nnet::relu<layer3_t, layer4_t, relu_config4>(layer3_out, layer4_out); // q_conv2d_relu
 
     nnet::pooling2d_cl<layer4_t, layer5_t, config5>(layer4_out, layer5_out); // max_pooling2d
 
-    nnet::dense<layer5_t, result_t, config7>(layer6_out, layer7_out, w7, b7); // q_dense
+    hls::stream<q_dense_iq_packet_t> q_dense_iq_out("q_dense_iq_out");
+    #pragma HLS STREAM variable=q_dense_iq_out depth=1176
+
+    nnet::hgq_quantize_stream<layer5_t, q_dense_iq_packet_t, 1176, nnet::q_dense_iq_cast>(layer6_out, q_dense_iq_out); // q_dense_iq
+
+    nnet::dense<q_dense_iq_packet_t, result_t, config7>(q_dense_iq_out, layer7_out, w7, b7); // q_dense
 
 }
 
