@@ -1,1 +1,0 @@
-set ::AESL_AUTOSIM::gTopFileName /home/work1/Works/CNN-Core-Generator/cnn_core_project/cnn_core_prj/solution1/./sim/autowrap/testbench/cnn_core.cpp_pre.cpp.tb.cpp

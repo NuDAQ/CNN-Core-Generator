@@ -117,7 +117,7 @@ struct config5 : nnet::pooling2d_config {
     static const nnet::Pool_Op pool_op = nnet::Max;
     static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
     static const unsigned reuse_factor = 1;
-    typedef model_default_t accum_t;
+    typedef max_pooling2d_accum_t accum_t;
 };
 
 // q_dense

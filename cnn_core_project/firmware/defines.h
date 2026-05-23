@@ -22,6 +22,7 @@ typedef ap_fixed<9,5> q_conv2d_weight_t;
 typedef ap_fixed<9,5> q_conv2d_bias_t;
 typedef nnet::array<ap_fixed<16,6>, 7*1> layer4_t;
 typedef ap_fixed<18,8> q_conv2d_relu_table_t;
+typedef ap_fixed<16,6> max_pooling2d_accum_t;
 typedef nnet::array<ap_fixed<16,6>, 7*1> layer5_t;
 typedef nnet::array<ap_fixed<16,6>, 1*1> result_t;
 typedef ap_fixed<9,5> q_dense_weight_t;
