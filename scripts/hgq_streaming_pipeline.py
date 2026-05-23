@@ -18,10 +18,12 @@ The IOParallel project is a precision oracle, not the target architecture.
 from __future__ import annotations
 
 import argparse
+import ctypes
 import json
 import os
 import re
 import shutil
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
@@ -367,6 +369,72 @@ def remove_compiled_artifacts(project_dir: Path) -> None:
             removed += 1
     if removed:
         print(f"[INFO] Removed {removed} stale compiled artifact(s) from {project_dir}")
+
+
+def compile_project_library(project_dir: Path, project_name: str) -> Path:
+    remove_compiled_artifacts(project_dir)
+    print(f"[INFO] Building patched shared library with {project_dir / 'build_lib.sh'}")
+    subprocess.run(["bash", "build_lib.sh"], cwd=project_dir, check=True)
+    libraries = sorted((project_dir / "firmware").glob(f"{project_name}-*.so"), key=lambda path: path.stat().st_mtime)
+    if not libraries:
+        raise FileNotFoundError(f"No compiled shared library found under {project_dir / 'firmware'}")
+    library = libraries[-1]
+    print(f"[INFO] Using shared library: {library}")
+    return library
+
+
+def predict_with_project_library(library_path: Path, project_name: str, x_test: np.ndarray) -> np.ndarray:
+    library = ctypes.CDLL(str(library_path))
+    function_name = f"{project_name}_float"
+    try:
+        predict_function = getattr(library, function_name)
+    except AttributeError as exc:
+        raise AttributeError(f"Shared library does not export {function_name}") from exc
+
+    predict_function.argtypes = [
+        ctypes.POINTER(ctypes.c_float),
+        ctypes.POINTER(ctypes.c_float),
+    ]
+    predict_function.restype = None
+
+    x_float = np.ascontiguousarray(x_test.reshape((x_test.shape[0], -1)), dtype=np.float32)
+    y_float = np.zeros((x_float.shape[0], 1), dtype=np.float32)
+    for index in range(x_float.shape[0]):
+        predict_function(
+            x_float[index].ctypes.data_as(ctypes.POINTER(ctypes.c_float)),
+            y_float[index].ctypes.data_as(ctypes.POINTER(ctypes.c_float)),
+        )
+    return y_float
+
+
+def verify_project_library_predictions(
+    library_path: Path,
+    project_name: str,
+    keras_model: Any,
+    data_dir: Path,
+    model_input_shape: tuple[int, ...],
+    label: str,
+) -> None:
+    prepared = prepare_test_data(data_dir, model_input_shape)
+    if prepared is None:
+        return
+
+    x_test, y_test = prepared
+    print("=" * 40)
+    print(f"[TEST] {label}")
+    print("=" * 40)
+    y_hls = predict_with_project_library(library_path, project_name, x_test)
+    y_keras = keras_model.predict(x_test)
+
+    y_hls_bin = (y_hls > 0).astype(int).flatten()
+    y_keras_bin = (y_keras > 0).astype(int).flatten()
+    y_label_bin = y_test.astype(int).flatten()
+    accuracy = float(np.mean(y_label_bin == y_hls_bin))
+    fidelity = float(np.mean(y_keras_bin == y_hls_bin))
+    max_abs_diff = float(np.max(np.abs(y_hls.flatten() - y_keras.flatten())))
+    print(f"   HLS accuracy:       {accuracy:.4f}")
+    print(f"   HLS/Keras fidelity: {fidelity:.4f}")
+    print(f"   Max abs score diff: {max_abs_diff:.6g}")
 
 
 def extract_typedefs(defines_h: Path) -> dict[str, str]:
@@ -921,12 +989,22 @@ def main() -> int:
         )
 
     if not args.skip_compile:
-        print("[INFO] Compiling IOStream candidate.")
-        remove_compiled_artifacts(stream_project)
-        stream_hls.compile()
+        print("[INFO] Compiling IOStream candidate from patched project files.")
+        stream_library = compile_project_library(stream_project, args.project_name)
+    else:
+        stream_library = None
     if not args.skip_verify:
         label = "IOStream candidate" if args.skip_apply_hgq_reference else "HGQ-guided IOStream candidate"
-        verify_predictions(stream_hls, stream_model, data_dir, model_input_shape, label)
+        if stream_library is None:
+            raise RuntimeError("Internal error: stream library is required for verification.")
+        verify_project_library_predictions(
+            stream_library,
+            args.project_name,
+            stream_model,
+            data_dir,
+            model_input_shape,
+            label,
+        )
 
     if args.install:
         install_stream_baseline(stream_project, manifest_path, output_dir)
