@@ -18,27 +18,27 @@
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>3.592</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.410</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>173</Best-caseLatency>
-<Average-caseLatency>173</Average-caseLatency>
-<Worst-caseLatency>173</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.865 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.865 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.865 us</Worst-caseRealTimeLatency>
-<Interval-min>173</Interval-min>
-<Interval-max>173</Interval-max>
+<Best-caseLatency>208</Best-caseLatency>
+<Average-caseLatency>208</Average-caseLatency>
+<Worst-caseLatency>208</Worst-caseLatency>
+<Best-caseRealTimeLatency>1.040 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>1.040 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>1.040 us</Worst-caseRealTimeLatency>
+<Interval-min>208</Interval-min>
+<Interval-max>208</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <DenseWideMain>
 <Slack>3.65</Slack>
 <TripCount>168</TripCount>
-<Latency>171</Latency>
-<AbsoluteTimeLatency>855</AbsoluteTimeLatency>
+<Latency>206</Latency>
+<AbsoluteTimeLatency>1030</AbsoluteTimeLatency>
 <PipelineII>1</PipelineII>
-<PipelineDepth>4</PipelineDepth>
+<PipelineDepth>40</PipelineDepth>
 <InstanceList>
 </InstanceList>
 </DenseWideMain>
@@ -46,13 +46,13 @@
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/nnet_utils/nnet_dense_stream.h:99</SourceLocation>
+<SourceLocation>firmware/nnet_utils/nnet_dense_stream.h:100</SourceLocation>
 <SummaryOfLoopViolations>
 <DenseWideMain>
 <Name>DenseWideMain</Name>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/nnet_utils/nnet_dense_stream.h:107</SourceLocation>
+<SourceLocation>firmware/nnet_utils/nnet_dense_stream.h:100</SourceLocation>
 </DenseWideMain>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
@@ -60,10 +60,10 @@
 
 <AreaEstimates>
 <Resources>
-<DSP>7</DSP>
-<FF>748</FF>
-<LUT>19559</LUT>
 <BRAM_18K>0</BRAM_18K>
+<DSP>28</DSP>
+<FF>10082</FF>
+<LUT>27769</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
@@ -150,7 +150,7 @@
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>448</Bits>
+<Bits>280</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -205,7 +205,7 @@
 <IOProtocol>ap_vld</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>15</Bits>
+<Bits>17</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
