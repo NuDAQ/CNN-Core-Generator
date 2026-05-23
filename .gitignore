@@ -22,6 +22,10 @@
 !scripts/
 !scripts/**
 
+!build/
+build/*
+!build/.gitignore
+
 !doc/
 !doc/**
 
