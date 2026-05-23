@@ -37,7 +37,7 @@ pip install -r requirements.txt
 The conversion entry point is:
 
 ```bash
-python scripts/convert_homogeneous.py
+python scripts/hgq_streaming_pipeline.py
 ```
 
 This script loads:

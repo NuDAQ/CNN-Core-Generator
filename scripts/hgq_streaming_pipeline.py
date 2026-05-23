@@ -1,3 +1,17 @@
+"""HGQ-to-IOStream preparation pipeline.
+
+This script is being expanded from the original homogeneous conversion helper.
+The intended flow is:
+
+1. Generate a temporary IOParallel HGQ reference project.
+2. Extract propagated precisions, per-index quantization, layer configs, and
+   weights from that reference.
+3. Apply those numerical specifications to the IOStream/streaming firmware.
+
+The current body still contains the original IOStream conversion path and will
+be refactored as the pipeline becomes fully automated.
+"""
+
 import hls4ml
 
 import tensorflow as tf
