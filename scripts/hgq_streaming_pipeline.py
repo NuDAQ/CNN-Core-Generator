@@ -7,8 +7,10 @@ The pipeline intentionally separates numerical truth from hardware structure:
 2. Generate an IOStream project under build/.
 3. Extract propagated precisions, layer configs, per-index quantizers, and
    weights from the IOParallel reference.
-4. Install the IOStream project as cnn_core_project and save the extracted HGQ
-   reference data next to it for the streaming patching step.
+4. Apply the safe IOParallel-derived reference data to the IOStream project
+   while preserving the stream interface and layer graph.
+5. Install the patched IOStream project as cnn_core_project and save the
+   extracted HGQ reference data next to it for the streaming patching step.
 
 The IOParallel project is a precision oracle, not the target architecture.
 """
@@ -59,6 +61,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--input-stream-depth", type=int, default=16)
     parser.add_argument("--skip-compile", action="store_true")
     parser.add_argument("--skip-verify", action="store_true")
+    parser.add_argument(
+        "--skip-apply-hgq-reference",
+        action="store_true",
+        help="Leave the generated IOStream project in vanilla hls4ml form instead of applying IOParallel HGQ reference data.",
+    )
     parser.add_argument("--keep-build", action="store_true")
     parser.add_argument(
         "--init-streaming",
@@ -443,6 +450,197 @@ def write_reference_manifest(parallel_project: Path, stream_project: Path, build
     return path
 
 
+def print_reference_summary(manifest_path: Path) -> None:
+    manifest = json.loads(manifest_path.read_text())
+    parallel = manifest["parallel"]
+    typedefs = parallel["typedefs"]
+    configs = parallel["configs"]
+    quantizers = parallel["quantizers"]
+    print("[INFO] HGQ reference summary:")
+    for alias in (
+        "q_conv2d_t",
+        "q_conv2d_weight_t",
+        "q_conv2d_bias_t",
+        "q_conv2d_relu_t",
+        "max_pooling2d_t",
+        "q_dense_weight_t",
+        "q_dense_bias_t",
+        "result_t",
+    ):
+        if alias in typedefs:
+            print(f"   {alias:<22} {typedefs[alias]}")
+    dense_config = configs.get("config9", {})
+    if dense_config:
+        print(
+            "   dense sparsity         "
+            f"n_zeros={dense_config.get('n_zeros', '?')}, "
+            f"n_nonzeros={dense_config.get('n_nonzeros', '?')}"
+        )
+    for name, body in quantizers.items():
+        status = "present" if body else "missing"
+        print(f"   quantizer {name:<12} {status}")
+
+
+def stream_array_type(scalar_type: str, width_expr: str) -> str:
+    return f"nnet::array<{scalar_type}, {width_expr}>"
+
+
+def replace_typedef(text: str, alias: str, target_type: str) -> str:
+    pattern = re.compile(rf"^(\s*typedef\s+)(.+?)(\s+{re.escape(alias)}\s*;)", re.MULTILINE)
+    replacement = rf"\g<1>{target_type}\g<3>"
+    new_text, count = pattern.subn(replacement, text, count=1)
+    if count != 1:
+        raise ValueError(f"Could not replace typedef for {alias}")
+    return new_text
+
+
+def append_missing_typedef(text: str, alias: str, target_type: str) -> str:
+    if re.search(rf"^\s*typedef\s+.+?\s+{re.escape(alias)}\s*;", text, re.MULTILINE):
+        return text
+    marker = "// hls-fpga-machine-learning insert emulator-defines"
+    typedef_line = f"typedef {target_type} {alias};\n"
+    if marker not in text:
+        return text + "\n" + typedef_line
+    return text.replace(marker, typedef_line + "\n" + marker, 1)
+
+
+def replace_struct_constant(text: str, struct_name: str, const_name: str, value: str) -> str:
+    struct_pattern = re.compile(rf"(struct\s+{re.escape(struct_name)}\b.*?\{{)(.*?)(^\s*\}};)", re.DOTALL | re.MULTILINE)
+    struct_match = struct_pattern.search(text)
+    if not struct_match:
+        raise ValueError(f"Could not find struct {struct_name}")
+
+    body = struct_match.group(2)
+    const_pattern = re.compile(
+        rf"^(\s*static const (?:unsigned|bool|nnet::\w+|nnet::\w+::\w+)\s+{re.escape(const_name)}\s*=\s*)([^;]+)(;)",
+        re.MULTILINE,
+    )
+    body, count = const_pattern.subn(rf"\g<1>{value}\g<3>", body, count=1)
+    if count != 1:
+        raise ValueError(f"Could not replace {struct_name}::{const_name}")
+    return text[: struct_match.start(2)] + body + text[struct_match.end(2) :]
+
+
+def replace_struct_typedef(text: str, struct_name: str, typedef_name: str, value: str) -> str:
+    struct_pattern = re.compile(rf"(struct\s+{re.escape(struct_name)}\b.*?\{{)(.*?)(^\s*\}};)", re.DOTALL | re.MULTILINE)
+    struct_match = struct_pattern.search(text)
+    if not struct_match:
+        raise ValueError(f"Could not find struct {struct_name}")
+
+    body = struct_match.group(2)
+    typedef_pattern = re.compile(rf"^(\s*typedef\s+)(.+?)(\s+{re.escape(typedef_name)}\s*;)", re.MULTILINE)
+    body, count = typedef_pattern.subn(rf"\g<1>{value}\g<3>", body, count=1)
+    if count != 1:
+        raise ValueError(f"Could not replace typedef {struct_name}::{typedef_name}")
+    return text[: struct_match.start(2)] + body + text[struct_match.end(2) :]
+
+
+def rename_weight_header(text: str, src_name: str, dst_name: str) -> str:
+    text = re.sub(rf"\b{re.escape(src_name)}\b", dst_name, text)
+    text = re.sub(rf"\b{re.escape(src_name.upper())}_H_\b", f"{dst_name.upper()}_H_", text)
+    return text
+
+
+def copy_renamed_weight(src: Path, dst: Path, src_name: str, dst_name: str) -> None:
+    if not src.exists():
+        raise FileNotFoundError(f"Missing source weight file: {src}")
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    if src.suffix == ".h":
+        dst.write_text(rename_weight_header(src.read_text(), src_name, dst_name))
+    else:
+        shutil.copy2(src, dst)
+
+
+def apply_hgq_reference_to_stream_project(stream_project: Path, manifest_path: Path) -> None:
+    manifest = json.loads(manifest_path.read_text())
+    parallel = manifest["parallel"]
+    parallel_typedefs = parallel["typedefs"]
+    parallel_configs = parallel["configs"]
+    parallel_weights = parallel["weights"]
+    firmware_dir = stream_project / "firmware"
+
+    print("[INFO] Applying IOParallel HGQ reference to IOStream project.")
+
+    defines_h = firmware_dir / "defines.h"
+    defines_text = defines_h.read_text()
+    optional_scalar_typedefs = {
+        "q_conv2d_iq_t": parallel_typedefs.get("q_conv2d_iq_t"),
+        "q_conv2d_t": parallel_typedefs.get("q_conv2d_t"),
+        "q_conv2d_accum_t": parallel_typedefs.get("q_conv2d_accum_t"),
+        "q_dense_iq_t": parallel_typedefs.get("q_dense_iq_t"),
+        "q_dense_accum_t": parallel_typedefs.get("q_dense_accum_t"),
+        "max_pooling2d_t": parallel_typedefs.get("max_pooling2d_t"),
+    }
+    for alias, target_type in optional_scalar_typedefs.items():
+        if target_type:
+            defines_text = append_missing_typedef(defines_text, alias, target_type)
+
+    typedef_replacements = {
+        "layer3_t": stream_array_type(parallel_typedefs["q_conv2d_t"], "7*1"),
+        "q_conv2d_weight_t": parallel_typedefs["q_conv2d_weight_t"],
+        "q_conv2d_bias_t": parallel_typedefs["q_conv2d_bias_t"],
+        "layer4_t": stream_array_type(parallel_typedefs["q_conv2d_relu_t"], "7*1"),
+        "max_pooling2d_accum_t": parallel_typedefs["max_pooling2d_accum_t"],
+        "layer5_t": stream_array_type(parallel_typedefs["max_pooling2d_t"], "7*1"),
+        "result_t": stream_array_type(parallel_typedefs["result_t"], "1*1"),
+        "q_dense_weight_t": parallel_typedefs["q_dense_weight_t"],
+        "q_dense_bias_t": parallel_typedefs["q_dense_bias_t"],
+    }
+    for alias, target_type in typedef_replacements.items():
+        defines_text = replace_typedef(defines_text, alias, target_type)
+        print(f"[CONFIG] typedef {alias} -> {target_type}")
+    defines_h.write_text(defines_text)
+
+    parameters_h = firmware_dir / "parameters.h"
+    parameters_text = parameters_h.read_text()
+    config_map = {
+        "config3_mult": "config4_mult",
+        "config3": "config4",
+        "config5": "config6",
+        "config7": "config9",
+    }
+    for stream_config, parallel_config in config_map.items():
+        parallel_constants = parallel_configs.get(parallel_config, {})
+        for const_name in ("n_zeros", "n_nonzeros"):
+            if const_name in parallel_constants:
+                parameters_text = replace_struct_constant(parameters_text, stream_config, const_name, parallel_constants[const_name])
+                print(f"[CONFIG] {stream_config}::{const_name} -> {parallel_constants[const_name]}")
+
+    parameters_text = replace_struct_typedef(parameters_text, "config3_mult", "accum_t", "q_conv2d_accum_t")
+    parameters_text = replace_struct_typedef(parameters_text, "config3", "accum_t", "q_conv2d_accum_t")
+    parameters_text = replace_struct_typedef(parameters_text, "config5", "accum_t", "max_pooling2d_accum_t")
+    parameters_text = replace_struct_typedef(parameters_text, "config7", "accum_t", "q_dense_accum_t")
+    parameters_h.write_text(parameters_text)
+
+    weight_map = {
+        "w4": "w3",
+        "b4": "b3",
+        "w9": "w7",
+        "b9": "b7",
+    }
+    stream_weights_dir = firmware_dir / "weights"
+    for src_name, dst_name in weight_map.items():
+        weight_info = parallel_weights.get(src_name)
+        if not weight_info:
+            raise ValueError(f"Missing parallel weight metadata for {src_name}")
+        src_header = Path(weight_info["header"])
+        src_text = Path(weight_info["text"])
+        copy_renamed_weight(src_header, stream_weights_dir / f"{dst_name}.h", src_name, dst_name)
+        copy_renamed_weight(src_text, stream_weights_dir / f"{dst_name}.txt", src_name, dst_name)
+        print(f"[CONFIG] copied parallel weight {src_name} -> stream {dst_name}")
+
+    manifest["applied_to_stream"] = {
+        "safe_precision_typedefs": sorted(typedef_replacements),
+        "copied_weights": weight_map,
+        "notes": [
+            "The stream interface and layer graph are preserved.",
+            "IOParallel per-index quantizer functions are recorded in the manifest but not injected into nnet stream kernels yet.",
+        ],
+    }
+    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True))
+    print("[INFO] HGQ reference applied to IOStream project.")
+
+
 def install_stream_baseline(stream_project: Path, manifest_path: Path, output_dir: Path) -> None:
     replace_directory(stream_project, output_dir)
     shutil.copy2(manifest_path, output_dir / "hgq_reference_manifest.json")
@@ -480,13 +678,19 @@ def main() -> int:
     stream_model = build_vanilla_model(keras, hgq_model, custom_objects)
     stream_config = build_stream_config(hls4ml, stream_model, layer_precisions, args)
     stream_hls = convert_project(hls4ml, stream_model, stream_config, stream_project, "io_stream", args)
+    manifest_path = write_reference_manifest(parallel_project, stream_project, build_dir)
+    print_reference_summary(manifest_path)
+    if args.skip_apply_hgq_reference:
+        print("[INFO] Leaving IOStream candidate in vanilla hls4ml form.")
+    else:
+        apply_hgq_reference_to_stream_project(stream_project, manifest_path)
+
     if not args.skip_compile:
         print("[INFO] Compiling IOStream candidate.")
         stream_hls.compile()
     if not args.skip_verify:
-        verify_predictions(stream_hls, stream_model, data_dir, model_input_shape, "IOStream candidate")
-
-    manifest_path = write_reference_manifest(parallel_project, stream_project, build_dir)
+        label = "IOStream candidate" if args.skip_apply_hgq_reference else "HGQ-guided IOStream candidate"
+        verify_predictions(stream_hls, stream_model, data_dir, model_input_shape, label)
 
     if args.install:
         install_stream_baseline(stream_project, manifest_path, output_dir)
