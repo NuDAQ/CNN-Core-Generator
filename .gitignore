@@ -22,6 +22,9 @@
 !scripts/
 !scripts/**
 
+!doc/
+!doc/**
+
 !cnn_core_project/
 !cnn_core_project/**
 
@@ -109,3 +112,20 @@
 
 .DS_Store
 **/.DS_Store
+
+###########################################################################
+## Generated HLS/Vivado outputs
+###########################################################################
+cnn_core_project/cnn_core_prj/**/.autopilot/
+cnn_core_project/*.log
+cnn_core_project/*.jou
+cnn_core_project/*.str
+
+hls_streaming/build/
+hls_streaming/cnn_core_streaming_prj/**/.autopilot/
+hls_streaming/*.log
+hls_streaming/*.jou
+hls_streaming/*.str
+hls_streaming/scripts/__pycache__/
+**/__pycache__/
+*.pyc
