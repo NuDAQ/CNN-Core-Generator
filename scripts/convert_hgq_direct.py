@@ -3,10 +3,10 @@
 
 This script is intended to create a new generated baseline from the HGQ model
 itself. Unlike convert_homogeneous.py, it does not replace HGQ layers with
-plain Keras layers and does not manually derive per-layer precision. The goal
-is to preserve hls4ml's HGQ precision propagation while keeping the important
-project-level choices close to the existing flow: Vitis backend, io_stream, the
-same target part, latency strategy, and reuse factor 1.
+plain Keras layers and does not manually derive per-layer precision in its
+default mode. The goal is to preserve hls4ml's HGQ precision propagation while
+keeping the important project-level choices close to the existing flow: Vitis
+backend, the same target part, latency strategy, and reuse factor 1.
 """
 
 from __future__ import annotations
@@ -27,7 +27,7 @@ DEFAULT_STREAMING_FIRMWARE_DIR = "hls_streaming/firmware"
 DEFAULT_BACKEND = "Vitis"
 DEFAULT_PART = "xcku5p-ffvb676-2-e"
 DEFAULT_PROJECT_NAME = "cnn_core"
-DEFAULT_IO_TYPE = "io_stream"
+DEFAULT_IO_TYPE = "io_parallel"
 DEFAULT_CLOCK_PERIOD = 5
 DEFAULT_INPUT_STREAM_DEPTH = 16
 DEFAULT_INPUT_PRECISION = "ap_fixed<12,6>"
@@ -51,11 +51,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--input-stream-depth", type=int, default=DEFAULT_INPUT_STREAM_DEPTH)
     parser.add_argument(
         "--conversion-mode",
-        default="auto",
+        default="direct",
         choices=("auto", "direct", "vanilla-stream"),
         help=(
-            "auto tries direct HGQ first and falls back to vanilla-stream only for "
-            "the known HGQ heterogeneous activation/io_stream limitation."
+            "direct keeps HGQ precision propagation authoritative. auto tries direct "
+            "first and falls back to vanilla-stream only for the known HGQ "
+            "heterogeneous activation/io_stream limitation."
         ),
     )
     parser.add_argument(
