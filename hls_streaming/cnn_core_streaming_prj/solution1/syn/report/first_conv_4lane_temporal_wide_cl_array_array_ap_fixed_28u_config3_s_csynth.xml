@@ -22,23 +22,23 @@
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>259</Best-caseLatency>
-<Average-caseLatency>259</Average-caseLatency>
-<Worst-caseLatency>259</Worst-caseLatency>
-<Best-caseRealTimeLatency>1.295 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>1.295 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>1.295 us</Worst-caseRealTimeLatency>
-<Interval-min>259</Interval-min>
-<Interval-max>259</Interval-max>
+<Best-caseLatency>261</Best-caseLatency>
+<Average-caseLatency>261</Average-caseLatency>
+<Worst-caseLatency>261</Worst-caseLatency>
+<Best-caseRealTimeLatency>1.305 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>1.305 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>1.305 us</Worst-caseRealTimeLatency>
+<Interval-min>261</Interval-min>
+<Interval-max>261</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <ReadInputHeightWide>
 <Slack>3.65</Slack>
 <TripCount>256</TripCount>
-<Latency>257</Latency>
-<AbsoluteTimeLatency>1285</AbsoluteTimeLatency>
+<Latency>259</Latency>
+<AbsoluteTimeLatency>1295</AbsoluteTimeLatency>
 <PipelineII>1</PipelineII>
-<PipelineDepth>3</PipelineDepth>
+<PipelineDepth>5</PipelineDepth>
 <InstanceList>
 </InstanceList>
 </ReadInputHeightWide>
@@ -52,7 +52,7 @@
 <Name>ReadInputHeightWide</Name>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/nnet_utils/nnet_first_conv_stream.h:120</SourceLocation>
+<SourceLocation>firmware/nnet_utils/nnet_first_conv_stream.h:180</SourceLocation>
 </ReadInputHeightWide>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
@@ -60,10 +60,10 @@
 
 <AreaEstimates>
 <Resources>
-<DSP>4</DSP>
-<FF>731</FF>
-<LUT>4529</LUT>
-<BRAM_18K>0</BRAM_18K>
+<BRAM_18K>4</BRAM_18K>
+<DSP>0</DSP>
+<FF>1345</FF>
+<LUT>8957</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
@@ -227,7 +227,7 @@
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>252</Bits>
+<Bits>420</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
