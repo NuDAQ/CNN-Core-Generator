@@ -13,24 +13,34 @@ HLSConfig:
       StreamDepth: 16
       Trace: false
     max_pooling2d:
+      ConvImplementation: LineBuffer
       Precision:
+        accum: auto
         result: auto
+      ReuseFactor: 1
       Trace: false
     q_conv2d:
+      ConvImplementation: LineBuffer
+      ParallelizationFactor: 1
       Precision:
         bias: ap_fixed<9,5>
         result: ap_fixed<9,5>
         weight: ap_fixed<9,5>
+      ReuseFactor: 1
       Trace: false
     q_conv2d_relu:
       Precision:
         result: auto
+        table: fixed<18,8,TRN,WRAP,0>
+      ReuseFactor: 1
+      TableSize: 1024
       Trace: false
     q_dense:
       Precision:
         bias: ap_fixed<9,5>
         result: ap_fixed<16,6>
         weight: ap_fixed<9,5>
+      ReuseFactor: 1
       Trace: false
     reshape:
       Precision:
@@ -50,15 +60,15 @@ InputShapes:
   input_layer:
   - 256
   - 4
-KerasModel: !keras_model 'cnn_core_project//keras_model.keras'
-OutputDir: cnn_core_project/
+KerasModel: !keras_model 'cnn_core_project/keras_model.keras'
+OutputDir: cnn_core_project
 OutputPredictions: null
 OutputShapes:
   layer7_out:
   - 1
 Part: xcku5p-ffvb676-2-e
 ProjectName: cnn_core
-Stamp: e9386e39
+Stamp: 6cb59b9b
 Version: 1.0.0
 WriterConfig:
   Namespace: null

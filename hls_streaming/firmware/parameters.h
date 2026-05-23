@@ -14,7 +14,6 @@
 #include "nnet_utils/nnet_dense.h"
 #include "nnet_utils/nnet_dense_compressed.h"
 #include "nnet_utils/nnet_dense_stream.h"
-#include "nnet_utils/nnet_first_conv_stream.h"
 #include "nnet_utils/nnet_pooling.h"
 #include "nnet_utils/nnet_pooling_stream.h"
 #include "nnet_utils/nnet_stream.h"
@@ -118,7 +117,7 @@ struct config5 : nnet::pooling2d_config {
     static const nnet::Pool_Op pool_op = nnet::Max;
     static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
     static const unsigned reuse_factor = 1;
-    typedef model_default_t accum_t;
+    typedef max_pooling2d_accum_t accum_t;
 };
 
 // q_dense
@@ -127,7 +126,7 @@ struct config7 : nnet::dense_config {
     static const unsigned n_out = 1;
     static const unsigned io_type = nnet::io_stream;
     static const unsigned strategy = nnet::latency;
-    static const unsigned reuse_factor = 42;
+    static const unsigned reuse_factor = 1;
     static const unsigned n_zeros = 0;
     static const unsigned n_nonzeros = 1176;
     static const unsigned multiplier_limit = DIV_ROUNDUP(n_in * n_out, reuse_factor) - n_zeros / reuse_factor;
