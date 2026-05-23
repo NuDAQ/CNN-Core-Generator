@@ -639,42 +639,98 @@ def insert_include_once(text: str, include_line: str) -> str:
     marker = '#include "nnet_utils/nnet_stream.h"'
     if marker in text:
         return text.replace(marker, marker + "\n" + include_line, 1)
-    return text.replace("// hls-fpga-machine-learning insert includes", "// hls-fpga-machine-learning insert includes\n" + include_line, 1)
+    marker = "// hls-fpga-machine-learning insert includes"
+    if marker in text:
+        return text.replace(marker, marker + "\n" + include_line, 1)
+    raise ValueError(f"Could not insert include line: {include_line}")
 
 
-def patch_cnn_core_for_stream_quantizers(cnn_core_cpp: Path) -> None:
+def replace_once(text: str, pattern: str, replacement: str, description: str) -> str:
+    new_text, count = re.subn(pattern, replacement, text, count=1, flags=re.MULTILINE)
+    if count != 1:
+        raise ValueError(f"Could not patch cnn_core.cpp: {description}")
+    return new_text
+
+
+def parse_layer_call(text: str, function_name: str) -> dict[str, str]:
+    pattern = re.compile(
+        rf"^(?P<indent>[ \t]*)nnet::{function_name}<\s*"
+        rf"(?P<data_t>\w+)\s*,\s*(?P<res_t>\w+)\s*,\s*(?P<config_t>\w+)\s*"
+        rf">\(\s*(?P<input_stream>\w+)\s*,\s*(?P<output_stream>\w+)\s*,\s*"
+        rf"(?P<weights>\w+)\s*,\s*(?P<biases>\w+)\s*\);\s*(?P<comment>//.*)?$",
+        re.MULTILINE,
+    )
+    match = pattern.search(text)
+    if not match:
+        raise ValueError(f"Could not find nnet::{function_name}<...>(...) call in cnn_core.cpp")
+    return match.groupdict()
+
+
+def parse_stream_layer_call(text: str, function_name: str) -> dict[str, str]:
+    pattern = re.compile(
+        rf"^(?P<indent>[ \t]*)nnet::{function_name}<\s*"
+        rf"(?P<data_t>\w+)\s*,\s*(?P<res_t>\w+)\s*,\s*(?P<config_t>\w+)\s*"
+        rf">\(\s*(?P<input_stream>\w+)\s*,\s*(?P<output_stream>\w+)\s*\);\s*(?P<comment>//.*)?$",
+        re.MULTILINE,
+    )
+    match = pattern.search(text)
+    if not match:
+        raise ValueError(f"Could not find nnet::{function_name}<...>(...) call in cnn_core.cpp")
+    return match.groupdict()
+
+
+def extract_array_width_expr(defines_text: str, alias: str) -> str:
+    pattern = re.compile(rf"^\s*typedef\s+nnet::array<.+,\s*(.+?)>\s+{re.escape(alias)}\s*;", re.MULTILINE)
+    match = pattern.search(defines_text)
+    if not match:
+        raise ValueError(f"Could not infer nnet::array width for typedef {alias}")
+    return match.group(1).strip()
+
+
+def patch_cnn_core_for_stream_quantizers(cnn_core_cpp: Path, conv_quantizer_len: int, dense_quantizer_len: int) -> dict[str, str]:
     text = cnn_core_cpp.read_text()
     if "hgq_quantize_stream" in text:
-        return
+        conv_call = parse_layer_call(text, "conv_2d_cl")
+        dense_call = parse_layer_call(text, "dense")
+        return {"conv_data_t": conv_call["data_t"], "dense_data_t": dense_call["data_t"]}
 
-    text = text.replace(
-        '    hls::stream<layer3_t> layer3_out("layer3_out");\n'
-        '    #pragma HLS STREAM variable=layer3_out depth=336\n',
-        '    hls::stream<layer2_iq_t> q_conv2d_iq_out("q_conv2d_iq_out");\n'
-        '    #pragma HLS STREAM variable=q_conv2d_iq_out depth=1024\n\n'
-        '    hls::stream<layer3_t> layer3_out("layer3_out");\n'
-        '    #pragma HLS STREAM variable=layer3_out depth=336\n',
+    conv_call = parse_layer_call(text, "conv_2d_cl")
+    dense_call = parse_layer_call(text, "dense")
+    conv_indent = conv_call["indent"]
+    dense_indent = dense_call["indent"]
+    conv_line = re.escape(
+        re.search(rf"^{conv_indent}nnet::conv_2d_cl<.*$", text, re.MULTILINE).group(0)  # type: ignore[union-attr]
     )
-    text = text.replace(
-        '    auto& layer6_out = layer5_out;\n'
-        '    nnet::repack_stream<input_t, layer2_t, 1024>(input_layer, layer8_out); // repack_reshape\n\n'
-        '    nnet::conv_2d_cl<layer2_t, layer3_t, config3>(layer8_out, layer3_out, w3, b3); // q_conv2d\n',
-        '    hls::stream<layer5_iq_t> q_dense_iq_out("q_dense_iq_out");\n'
-        '    #pragma HLS STREAM variable=q_dense_iq_out depth=168\n\n'
-        '    auto& layer6_out = q_dense_iq_out;\n'
-        '    nnet::repack_stream<input_t, layer2_t, 1024>(input_layer, layer8_out); // repack_reshape\n\n'
-        '    nnet::hgq_quantize_stream<layer2_t, layer2_iq_t, 1024, nnet::q_conv2d_iq_cast>(layer8_out, q_conv2d_iq_out); // q_conv2d_iq\n\n'
-        '    nnet::conv_2d_cl<layer2_iq_t, layer3_t, config3>(q_conv2d_iq_out, layer3_out, w3, b3); // q_conv2d\n',
+    dense_line = re.escape(
+        re.search(rf"^{dense_indent}nnet::dense<.*$", text, re.MULTILINE).group(0)  # type: ignore[union-attr]
     )
-    text = text.replace(
-        '    nnet::pooling2d_cl<layer4_t, layer5_t, config5>(layer4_out, layer5_out); // max_pooling2d\n\n'
-        '    nnet::dense<layer5_t, result_t, config7>(layer6_out, layer7_out, w7, b7); // q_dense\n',
-        '    nnet::pooling2d_cl<layer4_t, layer5_t, config5>(layer4_out, layer5_out); // max_pooling2d\n\n'
-        '    nnet::hgq_quantize_stream<layer5_t, layer5_iq_t, 1176, nnet::q_dense_iq_cast>(layer5_out, q_dense_iq_out); // q_dense_iq\n\n'
-        '    nnet::dense<layer5_iq_t, result_t, config7>(layer6_out, layer7_out, w7, b7); // q_dense\n',
+
+    conv_replacement = (
+        f'{conv_indent}hls::stream<q_conv2d_iq_packet_t> q_conv2d_iq_out("q_conv2d_iq_out");\n'
+        f"{conv_indent}#pragma HLS STREAM variable=q_conv2d_iq_out depth={conv_quantizer_len}\n\n"
+        f"{conv_indent}nnet::hgq_quantize_stream<{conv_call['data_t']}, q_conv2d_iq_packet_t, "
+        f"{conv_quantizer_len}, nnet::q_conv2d_iq_cast>({conv_call['input_stream']}, q_conv2d_iq_out); // q_conv2d_iq\n\n"
+        f"{conv_indent}nnet::conv_2d_cl<q_conv2d_iq_packet_t, {conv_call['res_t']}, {conv_call['config_t']}>"
+        f"(q_conv2d_iq_out, {conv_call['output_stream']}, {conv_call['weights']}, {conv_call['biases']}); "
+        f"{conv_call.get('comment') or '// q_conv2d'}"
     )
+    dense_replacement = (
+        f'{dense_indent}hls::stream<q_dense_iq_packet_t> q_dense_iq_out("q_dense_iq_out");\n'
+        f"{dense_indent}#pragma HLS STREAM variable=q_dense_iq_out depth={dense_quantizer_len}\n\n"
+        f"{dense_indent}nnet::hgq_quantize_stream<{dense_call['data_t']}, q_dense_iq_packet_t, "
+        f"{dense_quantizer_len}, nnet::q_dense_iq_cast>({dense_call['input_stream']}, q_dense_iq_out); // q_dense_iq\n\n"
+        f"{dense_indent}nnet::dense<q_dense_iq_packet_t, {dense_call['res_t']}, {dense_call['config_t']}>"
+        f"(q_dense_iq_out, {dense_call['output_stream']}, {dense_call['weights']}, {dense_call['biases']}); "
+        f"{dense_call.get('comment') or '// q_dense'}"
+    )
+
+    text = replace_once(text, rf"^{conv_line}$", conv_replacement, "insert q_conv2d_iq call")
+    text = replace_once(text, rf"^{dense_line}$", dense_replacement, "insert q_dense_iq call")
+    if "hgq_quantize_stream" not in text:
+        raise ValueError("Could not verify inserted HGQ stream quantizers in cnn_core.cpp")
     cnn_core_cpp.write_text(text)
     print("[CONFIG] inserted HGQ stream quantizers into cnn_core.cpp")
+    return {"conv_data_t": conv_call["data_t"], "dense_data_t": dense_call["data_t"]}
 
 
 def apply_hgq_reference_to_stream_project(stream_project: Path, manifest_path: Path) -> None:
@@ -685,6 +741,11 @@ def apply_hgq_reference_to_stream_project(stream_project: Path, manifest_path: P
     parallel_weights = parallel["weights"]
     parallel_quantizers = parallel["quantizers"]
     firmware_dir = stream_project / "firmware"
+    cnn_core_cpp = firmware_dir / "cnn_core.cpp"
+    cnn_core_text = cnn_core_cpp.read_text()
+    conv_call = parse_layer_call(cnn_core_text, "conv_2d_cl")
+    dense_call = parse_layer_call(cnn_core_text, "dense")
+    pool_call = parse_stream_layer_call(cnn_core_text, "pooling2d_cl")
 
     print("[INFO] Applying IOParallel HGQ reference to IOStream project.")
 
@@ -716,18 +777,30 @@ def apply_hgq_reference_to_stream_project(stream_project: Path, manifest_path: P
     for alias, target_type in typedef_replacements.items():
         defines_text = replace_typedef(defines_text, alias, target_type)
         print(f"[CONFIG] typedef {alias} -> {target_type}")
-    defines_text = append_missing_typedef(defines_text, "layer2_iq_t", stream_array_type(parallel_typedefs["q_conv2d_iq_t"], "1*1"))
-    defines_text = append_missing_typedef(defines_text, "layer5_iq_t", stream_array_type(parallel_typedefs["q_dense_iq_t"], "7*1"))
+    conv_packet_width = extract_array_width_expr(defines_text, conv_call["data_t"])
+    dense_packet_width = extract_array_width_expr(defines_text, dense_call["data_t"])
+    defines_text = append_missing_typedef(
+        defines_text,
+        "q_conv2d_iq_packet_t",
+        stream_array_type(parallel_typedefs["q_conv2d_iq_t"], conv_packet_width),
+    )
+    defines_text = append_missing_typedef(
+        defines_text,
+        "q_dense_iq_packet_t",
+        stream_array_type(parallel_typedefs["q_dense_iq_t"], dense_packet_width),
+    )
     defines_h.write_text(defines_text)
 
     parameters_h = firmware_dir / "parameters.h"
     parameters_text = parameters_h.read_text()
     parameters_text = insert_include_once(parameters_text, '#include "nnet_utils/nnet_hgq_stream.h"')
+    if "nnet_hgq_stream.h" not in parameters_text:
+        raise ValueError("Could not verify nnet_hgq_stream.h include in parameters.h")
     config_map = {
-        "config3_mult": "config4_mult",
-        "config3": "config4",
-        "config5": "config6",
-        "config7": "config9",
+        f"{conv_call['config_t']}_mult": "config4_mult",
+        conv_call["config_t"]: "config4",
+        pool_call["config_t"]: "config6",
+        dense_call["config_t"]: "config9",
     }
     for stream_config, parallel_config in config_map.items():
         parallel_constants = parallel_configs.get(parallel_config, {})
@@ -736,10 +809,10 @@ def apply_hgq_reference_to_stream_project(stream_project: Path, manifest_path: P
                 parameters_text = replace_struct_constant(parameters_text, stream_config, const_name, parallel_constants[const_name])
                 print(f"[CONFIG] {stream_config}::{const_name} -> {parallel_constants[const_name]}")
 
-    parameters_text = replace_struct_typedef(parameters_text, "config3_mult", "accum_t", "q_conv2d_accum_t")
-    parameters_text = replace_struct_typedef(parameters_text, "config3", "accum_t", "q_conv2d_accum_t")
-    parameters_text = replace_struct_typedef(parameters_text, "config5", "accum_t", "max_pooling2d_accum_t")
-    parameters_text = replace_struct_typedef(parameters_text, "config7", "accum_t", "q_dense_accum_t")
+    parameters_text = replace_struct_typedef(parameters_text, f"{conv_call['config_t']}_mult", "accum_t", "q_conv2d_accum_t")
+    parameters_text = replace_struct_typedef(parameters_text, conv_call["config_t"], "accum_t", "q_conv2d_accum_t")
+    parameters_text = replace_struct_typedef(parameters_text, pool_call["config_t"], "accum_t", "max_pooling2d_accum_t")
+    parameters_text = replace_struct_typedef(parameters_text, dense_call["config_t"], "accum_t", "q_dense_accum_t")
     parameters_h.write_text(parameters_text)
 
     weight_map = {
@@ -760,7 +833,11 @@ def apply_hgq_reference_to_stream_project(stream_project: Path, manifest_path: P
         print(f"[CONFIG] copied parallel weight {src_name} -> stream {dst_name}")
 
     write_hgq_stream_header(firmware_dir, parallel_quantizers)
-    patch_cnn_core_for_stream_quantizers(firmware_dir / "cnn_core.cpp")
+    patch_cnn_core_for_stream_quantizers(
+        cnn_core_cpp,
+        len(extract_quantizer_casts(parallel_quantizers.get("q_conv2d_iq"))),
+        len(extract_quantizer_casts(parallel_quantizers.get("q_dense_iq"))),
+    )
 
     manifest["applied_to_stream"] = {
         "safe_precision_typedefs": sorted(typedef_replacements),
