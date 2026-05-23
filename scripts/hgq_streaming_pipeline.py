@@ -335,6 +335,33 @@ def verify_predictions(hls_model: Any, keras_model: Any, data_dir: Path, model_i
     print(f"   Max abs score diff: {max_abs_diff:.6g}")
 
 
+def print_score_diagnostics(y_hls: np.ndarray, y_ref: np.ndarray, top_k: int = 5) -> None:
+    hls_flat = y_hls.flatten()
+    ref_flat = y_ref.flatten()
+    diff = hls_flat - ref_flat
+    abs_diff = np.abs(diff)
+    print("   Score diagnostics:")
+    print(
+        "      HLS min/max/mean/std: "
+        f"{np.min(hls_flat):.6g} / {np.max(hls_flat):.6g} / {np.mean(hls_flat):.6g} / {np.std(hls_flat):.6g}"
+    )
+    print(
+        "      Ref min/max/mean/std: "
+        f"{np.min(ref_flat):.6g} / {np.max(ref_flat):.6g} / {np.mean(ref_flat):.6g} / {np.std(ref_flat):.6g}"
+    )
+    print(
+        "      Diff min/max/mean/std: "
+        f"{np.min(diff):.6g} / {np.max(diff):.6g} / {np.mean(diff):.6g} / {np.std(diff):.6g}"
+    )
+    top_indices = np.argsort(abs_diff)[-top_k:][::-1]
+    print("      Top abs diffs:")
+    for index in top_indices:
+        print(
+            f"         sample {int(index):<5} "
+            f"hls={hls_flat[index]: .6g} ref={ref_flat[index]: .6g} diff={diff[index]: .6g}"
+        )
+
+
 def convert_project(
     hls4ml: Any,
     model: Any,
@@ -435,6 +462,7 @@ def verify_project_library_predictions(
     print(f"   HLS accuracy:       {accuracy:.4f}")
     print(f"   HLS/Keras fidelity: {fidelity:.4f}")
     print(f"   Max abs score diff: {max_abs_diff:.6g}")
+    print_score_diagnostics(y_hls, y_keras)
 
 
 def extract_typedefs(defines_h: Path) -> dict[str, str]:
@@ -994,13 +1022,13 @@ def main() -> int:
     else:
         stream_library = None
     if not args.skip_verify:
-        label = "IOStream candidate" if args.skip_apply_hgq_reference else "HGQ-guided IOStream candidate"
+        label = "IOStream candidate vs HGQ model" if args.skip_apply_hgq_reference else "HGQ-guided IOStream candidate vs HGQ model"
         if stream_library is None:
             raise RuntimeError("Internal error: stream library is required for verification.")
         verify_project_library_predictions(
             stream_library,
             args.project_name,
-            stream_model,
+            hgq_model,
             data_dir,
             model_input_shape,
             label,
