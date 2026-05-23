@@ -382,6 +382,20 @@ HLS_OOC_SYNTH=1 make hls
 HLS_PROJECT=my_streaming_prj HLS_SOLUTION=trial_a make hls
 ```
 
+The C++ comparison flow is intended to work on both Ubuntu and macOS. On macOS,
+Apple Clang/libc++ can conflict with the older Xilinx `ap_fixed` and `ap_int`
+simulation headers. The Makefile handles this by creating temporary patched
+copies of `ap_types` under:
+
+```text
+hls_streaming/build/baseline_ap_types
+hls_streaming/build/streaming_ap_types
+```
+
+Only these temporary build copies should be patched. Do not edit the real
+`firmware/ap_types` headers merely to make local C++ simulation pass on one
+host.
+
 Record at least:
 
 ```text
@@ -986,6 +1000,36 @@ new model-specific optimization log
 Do not overwrite prior evidence without preserving the date, tool version, or
 configuration when those details matter.
 
+### Source Navigation Artifacts
+
+For manual analysis and future automation, prefer `rg` for text search and keep
+generated navigation indexes separate from source truth:
+
+```text
+hls_streaming/code_analysis/tags
+hls_streaming/code_analysis/cscope.files
+```
+
+`tags` is a generated ctags index. `cscope.files` is the selected source-file
+list for cross-reference tooling and should exclude large/generated dependency
+trees such as `firmware/ap_types` and `build`.
+
+Refresh them after meaningful firmware or testbench changes:
+
+```bash
+ctags -R -f hls_streaming/code_analysis/tags hls_streaming/firmware hls_streaming/tb
+
+find hls_streaming/firmware hls_streaming/tb \
+  -path 'hls_streaming/firmware/ap_types' -prune -o \
+  -path 'hls_streaming/build' -prune -o \
+  -type f \( -name '*.h' -o -name '*.cpp' \) -print \
+  > hls_streaming/code_analysis/cscope.files
+```
+
+If `cscope` query mode fails on paths with spaces or cloud-synced directory
+components, treat `rg` and ctags as the reliable navigation tools until the
+database is regenerated from a simpler path.
+
 ## Manual Checklist for Another Similar Model
 
 Use this checklist when applying the workflow by hand.
@@ -995,6 +1039,7 @@ Use this checklist when applying the workflow by hand.
 [ ] Create editable firmware copy.
 [ ] Build baseline-vs-optimized C++ comparison harness.
 [ ] Confirm initial copied optimized firmware matches baseline.
+[ ] Confirm host-specific simulation patches stay under build-only copies.
 [ ] Extract input shape, layer shapes, precisions, and stream word sizes.
 [ ] Run or locate baseline HLS reports.
 [ ] Rank stages by interval, not just latency or resource.
@@ -1014,6 +1059,7 @@ Use this checklist when applying the workflow by hand.
 [ ] Re-run HLS after resource pragmas.
 [ ] Check output type range and downstream decoder format.
 [ ] Check model-reference quantization issues separately from HLS structure.
+[ ] Refresh navigation artifacts if source layout changed.
 [ ] Update project memory and optimization notes.
 ```
 
@@ -1231,3 +1277,20 @@ The result is close to the lower bound for a single core reading 256 input
 words at one word per cycle. Further throughput improvement should be treated
 as a system architecture problem rather than another local hls4ml wrapper
 cleanup.
+
+## Repository Hygiene
+
+Keep checked-in files focused on source, durable reports, scripts, and
+documentation. Do not commit transient HLS/Vitis implementation databases or
+logs as optimization evidence:
+
+```text
+.autopilot/
+*.log
+vitis_hls.log
+solution1.log
+```
+
+Regenerate those artifacts when needed, then preserve only the compact reports
+or explicit notes that explain a design decision. This keeps future model ports
+from inheriting stale local tool state.
