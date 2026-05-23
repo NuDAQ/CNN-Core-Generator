@@ -36,14 +36,14 @@ int main(int argc, char **argv) {
     }
 
     for (unsigned sample = 0; sample < num_samples; ++sample) {
-        hls::stream<input_t> input_layer("input_layer");
-        hls::stream<result_t> layer7_out("layer7_out");
+        input_layer_t input_layer[256 * 4];
+        result_t layer9_out[1];
 
         const std::vector<float> input = make_input(sample);
-        nnet::copy_data<float, input_t, 0, 256 * 4>(input, input_layer);
+        nnet::copy_data<float, input_layer_t, 0, 256 * 4>(input, input_layer);
 
-        cnn_core(input_layer, layer7_out);
-        nnet::print_result<result_t, 1>(layer7_out, fout);
+        cnn_core(input_layer, layer9_out);
+        nnet::print_result<result_t, 1>(layer9_out, fout);
     }
 
     return 0;
