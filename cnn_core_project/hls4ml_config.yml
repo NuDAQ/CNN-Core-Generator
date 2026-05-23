@@ -4,57 +4,40 @@ ClockUncertainty: 27%
 HLSConfig:
   LayerName:
     flatten:
-      Precision:
-        result: auto
       Trace: false
     input_layer:
-      Precision:
-        result: ap_fixed<12,6>
-      StreamDepth: 16
       Trace: false
     max_pooling2d:
       ConvImplementation: LineBuffer
-      Precision:
-        accum: auto
-        result: auto
       ReuseFactor: 1
       Trace: false
     q_conv2d:
       ConvImplementation: LineBuffer
       ParallelizationFactor: 1
-      Precision:
-        bias: ap_fixed<9,5>
-        result: ap_fixed<9,5>
-        weight: ap_fixed<9,5>
       ReuseFactor: 1
       Trace: false
+    q_conv2d_iq:
+      Trace: false
     q_conv2d_relu:
-      Precision:
-        result: auto
-        table: fixed<18,8,TRN,WRAP,0>
       ReuseFactor: 1
       TableSize: 1024
       Trace: false
     q_dense:
-      Precision:
-        bias: ap_fixed<9,5>
-        result: ap_fixed<16,6>
-        weight: ap_fixed<9,5>
       ReuseFactor: 1
       Trace: false
+    q_dense_iq:
+      Trace: false
     reshape:
-      Precision:
-        result: auto
       Trace: false
   Model:
     BitExact: null
     BramFactor: 1000000000
     Precision:
-      default: ap_fixed<16,6>
+      default: fixed<16,6>
     ReuseFactor: 1
     Strategy: Latency
     TraceOutput: false
-IOType: io_stream
+IOType: io_parallel
 InputData: null
 InputShapes:
   input_layer:
@@ -64,11 +47,11 @@ KerasModel: !keras_model 'cnn_core_project/keras_model.keras'
 OutputDir: cnn_core_project
 OutputPredictions: null
 OutputShapes:
-  layer7_out:
+  layer9_out:
   - 1
 Part: xcku5p-ffvb676-2-e
 ProjectName: cnn_core
-Stamp: 6cb59b9b
+Stamp: d797458e
 Version: 1.0.0
 WriterConfig:
   Namespace: null
