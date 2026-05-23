@@ -11,6 +11,8 @@ RUN_DIR := $(BUILD_DIR)/run
 BASELINE_AP_TYPES := $(BUILD_DIR)/baseline_ap_types
 STREAMING_AP_TYPES := $(BUILD_DIR)/streaming_ap_types
 TB_SRC := tb/compare_runner.cpp
+BASELINE_SRCS := $(shell find $(BASELINE_ROOT)/firmware -type f \( -name '*.h' -o -name '*.cpp' -o -name '*.txt' \))
+STREAMING_SRCS := $(shell find $(STREAMING_ROOT)/firmware -type f \( -name '*.h' -o -name '*.cpp' -o -name '*.txt' \))
 
 BASELINE_EXE := $(BUILD_DIR)/baseline_runner
 STREAMING_EXE := $(BUILD_DIR)/streaming_runner
@@ -28,11 +30,11 @@ prepare-compat:
 	cp -R $(STREAMING_ROOT)/firmware/ap_types $(STREAMING_AP_TYPES)
 	perl -0pi -e 's|// FIXME AP_AUTOCC cannot handle many standard headers, so declare instead of\n// include\.\n// \#include <complex>\nnamespace std \{\ntemplate<typename _Tp> class complex;\n\}\n|#include <complex>\n|g' $(BASELINE_AP_TYPES)/ap_int_special.h $(BASELINE_AP_TYPES)/ap_fixed_special.h $(STREAMING_AP_TYPES)/ap_int_special.h $(STREAMING_AP_TYPES)/ap_fixed_special.h
 
-$(BASELINE_EXE): $(TB_SRC) $(BASELINE_ROOT)/firmware/cnn_core.cpp prepare-compat
+$(BASELINE_EXE): $(TB_SRC) $(BASELINE_SRCS) prepare-compat
 	mkdir -p $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) -I$(BASELINE_AP_TYPES) -I$(BASELINE_ROOT) -I$(BASELINE_ROOT)/firmware $< $(BASELINE_ROOT)/firmware/cnn_core.cpp -o $@
 
-$(STREAMING_EXE): $(TB_SRC) $(STREAMING_ROOT)/firmware/cnn_core.cpp prepare-compat
+$(STREAMING_EXE): $(TB_SRC) $(STREAMING_SRCS) prepare-compat
 	mkdir -p $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) -I$(STREAMING_AP_TYPES) -I$(STREAMING_ROOT) -I$(STREAMING_ROOT)/firmware $< $(STREAMING_ROOT)/firmware/cnn_core.cpp -o $@
 

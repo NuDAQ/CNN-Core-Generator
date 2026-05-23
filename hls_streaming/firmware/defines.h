@@ -8,7 +8,6 @@
 #include <cstddef>
 #include <cstdio>
 #include <tuple>
-#include <tuple>
 
 
 // hls-fpga-machine-learning insert numbers
@@ -17,19 +16,26 @@
 typedef nnet::array<ap_fixed<12,6>, 4*1> input_t;
 typedef nnet::array<ap_fixed<12,6>, 1*1> layer2_t;
 typedef ap_fixed<16,6> model_default_t;
-typedef nnet::array<ap_fixed<9,5>, 7*1> layer3_t;
-typedef nnet::array<ap_fixed<9,5>, 7*4> layer3x4_t;
-typedef ap_fixed<9,5> q_conv2d_weight_t;
-typedef ap_fixed<9,5> q_conv2d_bias_t;
-typedef nnet::array<ap_fixed<16,6>, 7*1> layer4_t;
-typedef nnet::array<ap_fixed<16,6>, 7*4> layer4x4_t;
+typedef nnet::array<ap_fixed<15,6>, 7*1> layer3_t;
+typedef nnet::array<ap_fixed<15,6>, 7*4> layer3x4_t;
+typedef ap_fixed<6,1> q_conv2d_weight_t;
+typedef ap_fixed<5,1> q_conv2d_bias_t;
+typedef nnet::array<ap_ufixed<14,5>, 7*1> layer4_t;
+typedef nnet::array<ap_ufixed<14,5>, 7*4> layer4x4_t;
 typedef ap_fixed<18,8> q_conv2d_relu_table_t;
-typedef nnet::array<ap_fixed<16,6>, 7*1> layer5_t;
-typedef nnet::array<ap_fixed<16,6>, 7*4> layer5x4_t;
-typedef nnet::array<ap_fixed<16,6>, 1*1> result_t;
-typedef ap_fixed<9,5> q_dense_weight_t;
-typedef ap_fixed<9,5> q_dense_bias_t;
+typedef ap_ufixed<14,5> max_pooling2d_accum_t;
+typedef nnet::array<ap_ufixed<10,5>, 7*1> layer5_t;
+typedef nnet::array<ap_ufixed<10,5>, 7*4> layer5x4_t;
+typedef nnet::array<ap_fixed<17,9>, 1*1> result_t;
+typedef ap_fixed<7,2> q_dense_weight_t;
+typedef ap_fixed<3,0> q_dense_bias_t;
 typedef ap_uint<1> layer7_index;
+typedef ap_fixed<8,4> q_conv2d_iq_t;
+typedef ap_fixed<15,6> q_conv2d_t;
+typedef ap_fixed<15,6> q_conv2d_accum_t;
+typedef ap_fixed<7,3> q_dense_iq_t;
+typedef ap_fixed<17,9> q_dense_accum_t;
+typedef ap_ufixed<10,5> max_pooling2d_t;
 
 // hls-fpga-machine-learning insert emulator-defines
 

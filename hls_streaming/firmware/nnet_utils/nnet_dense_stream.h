@@ -3,6 +3,7 @@
 
 #include "hls_stream.h"
 #include "nnet_common.h"
+#include "nnet_hgq_stream.h"
 #include "nnet_mult.h"
 #include "nnet_types.h"
 #include <assert.h>
@@ -116,9 +117,11 @@ DenseWideMain:
             #pragma HLS UNROLL
             const unsigned data_idx = i_width * 7 + i_f;
             const unsigned weight_idx = i_word * data_T::size + data_idx;
-            acc += (typename CONFIG_T::accum_t)CONFIG_T::template product<typename data_T::value_type,
+            q_dense_iq_t q_value =
+                q_dense_iq_cast::template cast<typename data_T::value_type, q_dense_iq_t>(in_pack[data_idx], weight_idx);
+            acc += (typename CONFIG_T::accum_t)CONFIG_T::template product<q_dense_iq_t,
                                                                           typename CONFIG_T::weight_t>::product(
-                in_pack[data_idx], weights[weight_idx]);
+                q_value, weights[weight_idx]);
         }
 
         if (i_width == n_width_lanes - 1) {
@@ -131,7 +134,7 @@ DenseWideMain:
 
     res_T res_pack;
     PRAGMA_DATA_PACK(res_pack)
-    res_pack[0] = cast<typename data_T::value_type, typename res_T::value_type, CONFIG_T>(acc);
+    res_pack[0] = cast<q_dense_iq_t, typename res_T::value_type, CONFIG_T>(acc);
     res_stream.write(res_pack);
 }
 

@@ -4,6 +4,7 @@
 #include "hls_stream.h"
 #include "nnet_common.h"
 #include "nnet_dense.h"
+#include "nnet_hgq_stream.h"
 
 namespace nnet {
 
@@ -22,7 +23,7 @@ void first_conv_4lane_temporal_cl(
     typedef typename res_T::value_type res_value_t;
 
     // Ring buffer: each iteration writes one slot; no shift, no loop-carried RAW dependency.
-    data_value_t row_buf[CONFIG_T::filt_height][CONFIG_T::in_width];
+    q_conv2d_iq_t row_buf[CONFIG_T::filt_height][CONFIG_T::in_width];
     #pragma HLS ARRAY_PARTITION variable=row_buf complete dim=0
 
     // Use plain unsigned for array indices to avoid HLS ap_uint bit-extension warnings.
@@ -41,7 +42,9 @@ ReadInputHeight:
     InsertRow:
         for (unsigned i_iw = 0; i_iw < CONFIG_T::in_width; i_iw++) {
             #pragma HLS UNROLL
-            row_buf[wptr][i_iw] = in_pack[i_iw];
+            const unsigned input_index = i_ih * CONFIG_T::in_width + i_iw;
+            row_buf[wptr][i_iw] = q_conv2d_iq_cast::template cast<data_value_t, q_conv2d_iq_t>(
+                in_pack[i_iw], input_index);
         }
 
         // oldest points to the slot just after wptr (the oldest row in the window).
@@ -55,7 +58,7 @@ ReadInputHeight:
             for (unsigned i_iw = 0; i_iw < CONFIG_T::in_width; i_iw++) {
                 #pragma HLS PIPELINE II=1
 
-                data_value_t kernel_data[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan];
+                q_conv2d_iq_t kernel_data[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan];
                 #pragma HLS ARRAY_PARTITION variable=kernel_data complete
 
                 res_value_t res_out[CONFIG_T::n_filt];
@@ -74,7 +77,7 @@ ReadInputHeight:
                     kernel_data[k] = row_buf[ridx][i_iw];
                 }
 
-                CONFIG_T::mult_config::template kernel<data_value_t, res_value_t, typename CONFIG_T::mult_config>::dense(
+                CONFIG_T::mult_config::template kernel<q_conv2d_iq_t, res_value_t, typename CONFIG_T::mult_config>::dense(
                     kernel_data, res_out, weights, biases);
 
             PackOutput:
@@ -110,7 +113,7 @@ void first_conv_4lane_temporal_wide_cl(
     typedef typename data_T::value_type data_value_t;
     typedef typename res_T::value_type res_value_t;
 
-    data_value_t row_buf[CONFIG_T::filt_height][CONFIG_T::in_width];
+    q_conv2d_iq_t row_buf[CONFIG_T::filt_height][CONFIG_T::in_width];
     #pragma HLS ARRAY_PARTITION variable=row_buf complete dim=0
 
     unsigned wptr = 0;
@@ -126,7 +129,9 @@ ReadInputHeightWide:
     InsertRowWide:
         for (unsigned i_iw = 0; i_iw < CONFIG_T::in_width; i_iw++) {
             #pragma HLS UNROLL
-            row_buf[wptr][i_iw] = in_pack[i_iw];
+            const unsigned input_index = i_ih * CONFIG_T::in_width + i_iw;
+            row_buf[wptr][i_iw] = q_conv2d_iq_cast::template cast<data_value_t, q_conv2d_iq_t>(
+                in_pack[i_iw], input_index);
         }
 
         unsigned oldest = (wptr == CONFIG_T::filt_height - 1) ? 0u : wptr + 1;
@@ -142,7 +147,7 @@ ReadInputHeightWide:
             for (unsigned i_iw = 0; i_iw < CONFIG_T::out_width; i_iw++) {
                 #pragma HLS UNROLL
 
-                data_value_t kernel_data[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan];
+                q_conv2d_iq_t kernel_data[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan];
                 #pragma HLS ARRAY_PARTITION variable=kernel_data complete
 
                 res_value_t res_out[CONFIG_T::n_filt];
@@ -157,7 +162,7 @@ ReadInputHeightWide:
                     kernel_data[k] = row_buf[ridx][i_iw];
                 }
 
-                CONFIG_T::mult_config::template kernel<data_value_t, res_value_t, typename CONFIG_T::mult_config>::dense(
+                CONFIG_T::mult_config::template kernel<q_conv2d_iq_t, res_value_t, typename CONFIG_T::mult_config>::dense(
                     kernel_data, res_out, weights, biases);
 
             PackWideOutput:

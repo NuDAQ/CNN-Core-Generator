@@ -126,6 +126,7 @@ cnn_core_project/*.jou
 cnn_core_project/*.str
 
 hls_streaming/build/
+hls_streaming/firmware/*.so
 hls_streaming/cnn_core_streaming_prj/**/.autopilot/
 hls_streaming/*.log
 hls_streaming/*.jou
