@@ -107,6 +107,7 @@ hls_streaming/firmware/nnet_utils/nnet_pooling_stream.h
 hls_streaming/firmware/nnet_utils/nnet_dense.h
 hls_streaming/firmware/nnet_utils/nnet_dense_stream.h
 hls_streaming/firmware/nnet_utils/nnet_dense_latency.h
+hls_streaming/firmware/nnet_utils/nnet_hgq_stream.h
 hls_streaming/firmware/nnet_utils/nnet_helpers.h testbench helpers
 cnn_core_project/cnn_core_prj/solution1/syn/report/* relevant HLS reports
 cnn_core_project/cnn_core_prj/solution1/sim/verilog/cnn_core.performance.result.transaction.xml
@@ -182,10 +183,10 @@ The current `hls_streaming/firmware` active model is:
 
 ```text
 cnn_core(input_layer, layer7_out)
-  -> first_conv_4lane_temporal_wide_cl<input_t, layer3x4_t, config3> [packs 4 width outputs]
+  -> first_conv_4lane_temporal_wide_cl<input_t, layer3x4_t, config3> [packs 4 width outputs; applies q_conv2d_iq_cast by input index]
   -> relu<layer3x4_t, layer4x4_t, relu_config4>                    [wide ReLU]
   -> maxpool2d_wide_nonoverlap_cl<layer4x4_t, layer5x4_t, config5>  [wide non-overlap pool]
-  -> dense_wide_stream<layer5x4_t, result_t, config7>               [wide streaming dense]
+  -> dense_wide_stream<layer5x4_t, result_t, config7>               [wide streaming dense; applies q_dense_iq_cast by flattened dense index]
 ```
 
 The immutable baseline under `../cnn_core_project/firmware` still uses:
@@ -223,25 +224,32 @@ From `defines.h`:
 ```text
 input_t   = nnet::array<ap_fixed<12,6>, 4>
 layer2_t  = nnet::array<ap_fixed<12,6>, 1>
-layer3_t  = nnet::array<ap_fixed<9,5>, 7>
-layer3x4_t = nnet::array<ap_fixed<9,5>, 28>
-layer4_t  = nnet::array<ap_fixed<16,6>, 7>
-layer4x4_t = nnet::array<ap_fixed<16,6>, 28>
-layer5_t  = nnet::array<ap_fixed<16,6>, 7>
-layer5x4_t = nnet::array<ap_fixed<16,6>, 28>
-result_t  = nnet::array<ap_fixed<16,6>, 1>
+layer3_t  = nnet::array<ap_fixed<15,6>, 7>
+layer3x4_t = nnet::array<ap_fixed<15,6>, 28>
+layer4_t  = nnet::array<ap_ufixed<14,5>, 7>
+layer4x4_t = nnet::array<ap_ufixed<14,5>, 28>
+layer5_t  = nnet::array<ap_ufixed<10,5>, 7>
+layer5x4_t = nnet::array<ap_ufixed<10,5>, 28>
+result_t  = nnet::array<ap_fixed<17,9>, 1>
+q_conv2d_iq_t = ap_fixed<8,4>
+q_dense_iq_t  = ap_fixed<7,3>
+q_conv2d_weight_t / q_conv2d_bias_t = ap_fixed<6,1> / ap_fixed<5,1>
+q_dense_weight_t  / q_dense_bias_t  = ap_fixed<7,2> / ap_fixed<3,0>
 ```
 
 `input_t` contains 4 fixed-point values per AXI-stream word.
 
-Current output precision note: `result_t` was widened from `ap_fixed<9,5>` to
-`ap_fixed<16,6>` after wrapper/Keras comparison showed final-score wraparound
-on large positive samples such as 675 and 933. Baseline C++, streaming C++, and
-wrapper RTL matched exactly before this change; the wrap originated in the
-shared hls4ml output type, not in the optimized streaming architecture. The
-wrapper/testbench score decoder must interpret the 16-bit output as
-`ap_fixed<16,6>` (divide signed raw output by 1024), not the old
-`ap_fixed<9,5>` byte-aligned format (divide low 9 bits by 16).
+Current precision source: `scripts/hgq_streaming_pipeline.py` uses direct
+IOParallel HGQ conversion as the precision oracle, then applies the extracted
+precision, weights, sparsity metadata, and per-index quantizers to an IOStream
+project. The installed `cnn_core_project` is the HGQ-guided IOStream baseline.
+The optimized `hls_streaming` copy must preserve that numeric behavior while
+keeping its streaming architecture.
+
+Current output precision note: `result_t` is `ap_fixed<17,9>` from the HGQ
+reference. Older notes about `ap_fixed<16,6>` describe the previous model
+correctness fix and should not be used as the current decoder contract without
+checking the generated `defines.h`.
 
 Important interpretation: the model represents the input as `256 x 4 x 1`,
 not as `256 x 1 x 4`. That means the four values are the width dimension, while
@@ -523,12 +531,67 @@ first-conv lower bound. Dense LUT remains noticeable because the 7-lane streamin
 dense dynamically indexes fully partitioned weights, which HLS implements with
 large muxing; this is now a resource cleanup issue, not a throughput issue.
 
-Source update after this report: the final `result_t` precision is now
-`ap_fixed<16,6>` to avoid output wraparound. `make compare SAMPLES=1024` passes
-after the type change, so the baseline and optimized C++ paths remain exactly
-aligned under the new output precision. HLS csynth and wrapper RTL need to be
-rerun before treating the older 263/260-cycle resource/timing numbers as
-current.
+Source update after this report: the generated baseline has moved to the
+HGQ-guided IOStream flow. The optimized streaming tree imports the HGQ-derived
+weights, layer precisions, sparsity metadata, and per-index input quantization
+for first conv and dense. `make compare-long` passes against the installed
+baseline after this migration. HLS csynth and wrapper RTL need to be rerun
+before treating the older 263/260-cycle resource/timing numbers as current.
+
+### HGQ per-index quantizer implementation
+
+Location:
+
+```text
+firmware/nnet_utils/nnet_hgq_stream.h
+```
+
+Purpose:
+
+```text
+q_conv2d_iq_cast applies the HGQ input quantizer for 1024 input scalar positions.
+q_dense_iq_cast applies the HGQ dense-input quantizer for 1176 flattened features.
+```
+
+Important HLS lesson:
+
+```text
+Do not implement these as one switch(index) with one case per scalar position.
+The first generated version had 1024 conv cases and 1176 dense cases. In HLS,
+especially inside unrolled/wide optimized paths, that can become a very large
+selection network during Unroll/Inline and Array/Struct phases.
+```
+
+Observed warning pattern from Vitis HLS:
+
+```text
+WARNING: [HLS 200-1995] There were ~980k instructions after Compile/Link or Unroll/Inline.
+See solution1/syn/report/csynth_design_size.rpt.
+```
+
+Current fix:
+
+```text
+Use compact format-id tables:
+  q_conv2d_iq_cast::formats[1024] -> 10 actual quantization formats, cyclic partition factor 4
+  q_dense_iq_cast::formats[1176]  -> 10 actual quantization formats, cyclic partition factor 7
+
+Then switch only on the small format id, not on the full scalar index.
+```
+
+The partition factors match the active unroll widths in the optimized design:
+4 input lanes for first conv, 7 filter lanes for dense. This preserves exact
+C++ behavior while avoiding a thousands-of-cases inlined switch in the hot path.
+Current verification after compacting:
+
+```text
+make -C hls_streaming compare-long: PASS
+```
+
+For future model ports, regenerate or compact any per-index quantizer before
+running HLS. If `nnet_hgq_stream.h` grows to thousands of lines with one case
+per index, treat it as a likely HLS front-end and resource bottleneck even if
+C++ comparison passes.
 
 ### repack_stream
 

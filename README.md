@@ -146,9 +146,31 @@ parameters.h / defines.h          HGQ-derived precision and sparsity metadata
 weights/                          HGQ-derived generated weights and biases
 ```
 
+Per-index HGQ quantizers should stay compact. Do not emit one large
+`switch(index)` with one case per scalar position in the optimized HLS path.
+Use an index-to-format table plus a small switch over the distinct quantizer
+formats. The current compact implementation avoids the HLS front-end expansion
+seen with the direct per-index switch.
+
 The optimized implementation may differ structurally from the generated
 baseline. It should still pass `make compare` before HLS synthesis is used for
 resource or timing decisions.
+
+Current HLS direction:
+
+```text
+top interval: about 262 cycles
+primary limiter: first_conv_4lane_temporal_wide_cl, about 261 cycles
+secondary limiter: dense_wide_stream, about 211 cycles
+ReLU / MaxPool: about 87 cycles each
+```
+
+The main throughput limit is now the first convolution input path. With the
+current 4-lane input stream, the lower bound is close to reading 256 input
+words. ReLU and MaxPool are not first-order cycle targets. Further large
+throughput gains likely require a planned input-interface change, such as
+8-lane or 16-lane input words, and a corresponding dense-path review so the
+bottleneck does not simply move from first conv to dense.
 
 ## Vitis HLS Build
 

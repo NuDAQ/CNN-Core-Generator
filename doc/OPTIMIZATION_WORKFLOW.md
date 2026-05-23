@@ -808,6 +808,79 @@ RTL cosim and integration tests
 
 ## Known Numerical Correctness Issues
 
+### HGQ Per-Index Quantizer Expansion
+
+HGQ precision propagation can produce per-index quantizers. They are useful for
+matching the trained model, but a naive C++ implementation can become a major
+HLS front-end and resource problem.
+
+Problem pattern:
+
+```text
+q_conv2d_iq_cast(index): one switch case per input scalar
+q_dense_iq_cast(index):  one switch case per flattened dense feature
+```
+
+For the current model this meant:
+
+```text
+conv input quantizer: 1024 index cases
+dense input quantizer: 1176 index cases
+```
+
+This is C++-correct and can pass `make compare`, but Vitis HLS may inline and
+expand it into a very large selection network, especially when used inside
+wide/unrolled optimized loops. The visible symptom is a large design-size
+warning during synthesis, for example:
+
+```text
+WARNING: [HLS 200-1995] There were hundreds of thousands or millions of
+instructions in the design after Compile/Link, Unroll/Inline, or Array/Struct.
+See solution1/syn/report/csynth_design_size.rpt.
+```
+
+Preferred implementation:
+
+```text
+1. Collapse identical quantizer casts into a small set of format IDs.
+2. Store one unsigned-char format ID per scalar index.
+3. Lookup the format ID by index.
+4. Switch only on the small format ID, not the full scalar index.
+5. Partition the format-ID table to the actual unroll width, not completely.
+```
+
+For the current optimized design:
+
+```text
+q_conv2d_iq_cast::formats[1024] -> 10 formats, cyclic partition factor 4
+q_dense_iq_cast::formats[1176]  -> 10 formats, cyclic partition factor 7
+```
+
+The factors match the simultaneous reads in the optimized loops:
+
+```text
+first conv: 4 input lanes
+dense:      7 filter lanes
+```
+
+Validation sequence:
+
+```bash
+make -C hls_streaming compare-long
+make -C hls_streaming clean
+make -C hls_streaming hls
+```
+
+After HLS, inspect:
+
+```text
+hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+hls_streaming/cnn_core_streaming_prj/solution1/syn/report/cnn_core_csynth.rpt
+```
+
+Do not judge this only from functional accuracy. A per-index switch can be
+numerically perfect while still being the wrong hardware description.
+
 ### Output Type Wrap
 
 `result_t` was widened from:
@@ -1054,6 +1127,8 @@ Use this checklist when applying the workflow by hand.
 [ ] Validate with make compare.
 [ ] Remove late unpack by streaming directly into dense if feasible.
 [ ] Validate with make compare.
+[ ] If HGQ per-index quantizers are present, compact them before HLS.
+[ ] Check HLS design-size warnings for large switch/table expansion.
 [ ] Run HLS and record top/per-stage interval.
 [ ] Bind shallow wide FIFOs away from BRAM if needed.
 [ ] Re-run HLS after resource pragmas.
@@ -1170,6 +1245,32 @@ Fix:
 ```text
 map each incoming packed lane to the exact dense input index used by baseline
 compare partial sums or one-hot feature tests
+```
+
+### Per-Index Quantizer Expansion
+
+Symptom:
+
+```text
+HLS runs much longer than expected, or reports hundreds of thousands to
+millions of instructions after Compile/Link, Unroll/Inline, or Array/Struct
+```
+
+Cause:
+
+```text
+HGQ per-index quantization was emitted as one large switch(index) with one case
+per scalar position, then used inside a pipelined or unrolled loop
+```
+
+Fix:
+
+```text
+collapse repeated quantizer formats into small format IDs
+use an index -> format-id table
+switch on format ID instead of full scalar index
+partition the table only to the active unroll factor
+re-run C++ compare and HLS design-size checks
 ```
 
 ### BRAM Explosion from Shallow Wide FIFOs

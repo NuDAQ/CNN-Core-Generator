@@ -7,13 +7,17 @@ It starts from an unmodified copy of:
 ../cnn_core_project/firmware
 ```
 
-The original hls4ml firmware remains the baseline. Modify this directory when
-developing the streaming ADC pipeline.
+The installed `../cnn_core_project/firmware` tree is the current generated
+baseline. In the `v3.3` flow this is an HGQ-guided IOStream baseline: direct
+IOParallel HGQ conversion is used as a precision oracle, and the extracted
+precision, weights, sparsity metadata, and per-index quantizers are applied to
+the IOStream project. Modify this directory when developing the streaming ADC
+pipeline.
 
 ## Intended Use
 
 ```text
-../cnn_core_project/firmware   Reference hls4ml chunk implementation
+../cnn_core_project/firmware   Reference generated IOStream chunk implementation
 ./firmware                     Working copy for C++ HLS changes
 ./tb/compare_runner.cpp        Simple output-alignment testbench
 ./Makefile                     Build and compare flow
@@ -22,9 +26,21 @@ developing the streaming ADC pipeline.
 The current comparison verifies C++ behavior, not RTL. It answers:
 
 ```text
-Does hls_streaming/firmware still produce the same output as the original
-hls4ml firmware for the test inputs?
+Does hls_streaming/firmware still produce the same output as the generated
+baseline for the test inputs?
 ```
+
+For detailed optimization history and model-porting notes, read:
+
+```text
+AI_CONTEXT.md
+PROJECT_ANALYSIS.md
+../doc/OPTIMIZATION_WORKFLOW.md
+```
+
+The HGQ per-index quantizers are a known HLS-size risk if emitted as one large
+`switch(index)`. The current implementation keeps them compact as format-id
+tables in `firmware/nnet_utils/nnet_hgq_stream.h`.
 
 ## Compare
 
@@ -130,7 +146,7 @@ more realistic internal-module timing/resource sanity check.
 
 ## Development Flow
 
-1. Keep `../cnn_core_project/firmware` unchanged as the baseline.
+1. Keep `../cnn_core_project/firmware` unchanged as the generated baseline.
 2. Make C++ HLS changes under `./firmware`.
 3. Run `make compare`.
 4. If the comparison fails, decide whether the output change is expected. For

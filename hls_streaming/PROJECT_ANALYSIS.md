@@ -78,6 +78,7 @@ hls_streaming/firmware/nnet_utils/nnet_activation_stream.h
 hls_streaming/firmware/nnet_utils/nnet_pooling_stream.h
 hls_streaming/firmware/nnet_utils/nnet_dense_stream.h
 hls_streaming/firmware/nnet_utils/nnet_dense_latency.h
+hls_streaming/firmware/nnet_utils/nnet_hgq_stream.h
 ```
 
 The rest of `nnet_utils` is still useful as a reference library, especially the
@@ -113,8 +114,7 @@ input_layer
   -> first_conv_4lane_temporal_wide_cl<input_t, layer3x4_t, config3>
   -> relu<layer3x4_t, layer4x4_t, relu_config4>
   -> maxpool2d_wide_nonoverlap_cl<layer4x4_t, layer5x4_t, config5>
-  -> unpack_4lane_temporal_cl<layer5x4_t, layer5_t, config5>
-  -> dense<layer5_t, result_t, config7>
+  -> dense_wide_stream<layer5x4_t, result_t, config7>
   -> layer7_out
 ```
 
@@ -133,7 +133,6 @@ Internal streams:
 layer3x4_out depth 4      wide first-conv outputs, 4 widths x 7 filters per word
 layer4x4_out depth 4      wide ReLU outputs, 4 widths x 7 filters per word
 layer5x4_out depth 4      wide maxpool outputs, 4 widths x 7 filters per word
-layer5_out   depth 168    maxpool outputs, 7 values per word
 ```
 
 `make compare SAMPLES=1024` passes after the wide first-conv plus unpack
@@ -153,16 +152,21 @@ From `defines.h`:
 ```text
 input_t   = nnet::array<ap_fixed<12,6>, 4>
 layer2_t  = nnet::array<ap_fixed<12,6>, 1>
-layer3_t  = nnet::array<ap_fixed<9,5>, 7>
-layer4_t  = nnet::array<ap_fixed<16,6>, 7>
-layer5_t  = nnet::array<ap_fixed<16,6>, 7>
-result_t  = nnet::array<ap_fixed<16,6>, 1>
+layer3_t  = nnet::array<ap_fixed<15,6>, 7>
+layer3x4_t = nnet::array<ap_fixed<15,6>, 28>
+layer4_t  = nnet::array<ap_ufixed<14,5>, 7>
+layer4x4_t = nnet::array<ap_ufixed<14,5>, 28>
+layer5_t  = nnet::array<ap_ufixed<10,5>, 7>
+layer5x4_t = nnet::array<ap_ufixed<10,5>, 28>
+result_t  = nnet::array<ap_fixed<17,9>, 1>
+q_conv2d_iq_t = ap_fixed<8,4>
+q_dense_iq_t  = ap_fixed<7,3>
 ```
 
-The final score type was widened from `ap_fixed<9,5>` to `ap_fixed<16,6>` after
-wrapper/Keras comparison showed that large positive scores could wrap into the
-negative range at the output port. The AXI-stream output is still 16 bits wide,
-but downstream score decoding must use the `ap_fixed<16,6>` scale.
+The current precision set comes from the HGQ-guided IOStream baseline generated
+by `scripts/hgq_streaming_pipeline.py`. IOParallel HGQ conversion is used only
+as the precision oracle; the hardware baseline and optimized implementation
+remain IOStream-oriented.
 
 The model shape is represented as:
 
@@ -528,6 +532,74 @@ the top interval remains 260 cycles. Dense LUT is still noticeable because the
 7-lane dense dynamically indexes a fully partitioned weight array, which HLS
 implements as large muxing. This is now a resource-polish topic rather than a
 throughput blocker.
+
+## HGQ-Guided Precision Migration Notes
+
+The current `v3.3` flow separates numerical precision extraction from hardware
+structure:
+
+```text
+IOParallel HGQ conversion -> extract precision/weights/sparsity/per-index quantizers
+IOStream conversion       -> install as cnn_core_project baseline
+hls_streaming             -> keep optimized structure, import the same HGQ data
+```
+
+The optimized C++ path keeps the 4-lane streaming architecture. The HGQ changes
+are applied at the numerical boundaries:
+
+```text
+first_conv_4lane_temporal_wide_cl:
+  quantizes each input scalar with q_conv2d_iq_cast using index = row * 4 + width
+
+dense_wide_stream:
+  quantizes each pooled feature with q_dense_iq_cast using the flattened dense
+  input index used for the corresponding weight
+```
+
+The first direct implementation emitted one `switch(index)` case for every
+scalar position:
+
+```text
+q_conv2d_iq_cast: 1024 cases
+q_dense_iq_cast:  1176 cases
+```
+
+This is functionally correct in C++ but unsafe for HLS. During synthesis Vitis
+reported roughly one million instructions after early front-end phases, visible
+through warnings that point to:
+
+```text
+hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+```
+
+The fix is to compact per-index quantization into a format-id table plus a
+small switch over the distinct formats. For this model there are only 10 actual
+formats in each quantizer. The current implementation uses:
+
+```text
+q_conv2d_iq_cast::formats[1024]  unsigned char, cyclic partition factor 4
+q_dense_iq_cast::formats[1176]   unsigned char, cyclic partition factor 7
+```
+
+The partition factors match the number of simultaneous table reads in the
+optimized loops: four input lanes in first conv and seven filter lanes in
+dense. This keeps the per-lane format lookup parallel without expanding into a
+large full-index switch.
+
+Required checks after regenerating or porting HGQ quantizers:
+
+```text
+1. Count distinct quantizer formats, not only scalar positions.
+2. Implement per-index quantizers as compact lookup tables plus format switch.
+3. Partition the format table only to the loop unroll factor that actually reads it.
+4. Run make -C hls_streaming compare-long.
+5. Run HLS and inspect csynth_design_size.rpt before trusting resource estimates.
+```
+
+If `csynth_design_size.rpt` or HLS console warnings show hundreds of thousands
+to millions of instructions after `Compile/Link`, `Unroll/Inline`, or
+`Array/Struct`, inspect generated quantizers before assuming the core compute
+structure regressed.
 
 Baseline top-level reports:
 
