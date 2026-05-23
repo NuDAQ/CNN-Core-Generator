@@ -30,6 +30,8 @@ DEFAULT_PROJECT_NAME = "cnn_core"
 DEFAULT_IO_TYPE = "io_stream"
 DEFAULT_CLOCK_PERIOD = 5
 DEFAULT_INPUT_STREAM_DEPTH = 16
+DEFAULT_INPUT_PRECISION = "ap_fixed<12,6>"
+DEFAULT_DENSE_RESULT_PRECISION = "ap_fixed<16,6>"
 
 
 def parse_args() -> argparse.Namespace:
@@ -48,6 +50,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--strategy", default="Latency", choices=("Latency", "Resource"))
     parser.add_argument("--input-stream-depth", type=int, default=DEFAULT_INPUT_STREAM_DEPTH)
     parser.add_argument(
+        "--conversion-mode",
+        default="auto",
+        choices=("auto", "direct", "vanilla-stream"),
+        help=(
+            "auto tries direct HGQ first and falls back to vanilla-stream only for "
+            "the known HGQ heterogeneous activation/io_stream limitation."
+        ),
+    )
+    parser.add_argument(
         "--hls-config-mode",
         default="minimal",
         choices=("minimal", "none"),
@@ -56,6 +67,8 @@ def parse_args() -> argparse.Namespace:
             "without overriding HGQ layer precision; none passes no hls_config."
         ),
     )
+    parser.add_argument("--input-precision", default=DEFAULT_INPUT_PRECISION)
+    parser.add_argument("--dense-result-precision", default=DEFAULT_DENSE_RESULT_PRECISION)
     parser.add_argument(
         "--bit-exact",
         default="auto",
@@ -129,7 +142,7 @@ def print_model_summary(model: Any) -> None:
     model.summary(print_fn=lambda line: print(f"   {line}"))
 
 
-def build_minimal_hls_config(hls4ml: Any, model: Any, args: argparse.Namespace) -> dict[str, Any]:
+def build_direct_hls_config(hls4ml: Any, model: Any, args: argparse.Namespace) -> dict[str, Any]:
     print("[INFO] Building minimal hls4ml config.")
     print("[INFO] HGQ layer precision is not manually overridden.")
 
@@ -159,6 +172,142 @@ def build_minimal_hls_config(hls4ml: Any, model: Any, args: argparse.Namespace) 
         print("[WARNING] No input layer found in hls4ml config; StreamDepth not set.")
 
     return config
+
+
+def build_vanilla_hls_config(
+    hls4ml: Any,
+    vanilla_model: Any,
+    layer_precisions: dict[str, str],
+    args: argparse.Namespace,
+) -> dict[str, Any]:
+    print("[INFO] Building vanilla-stream hls4ml config.")
+    print("[INFO] HGQ layer precision is converted to explicit hls4ml layer precision.")
+
+    config_kwargs = supported_kwargs(
+        hls4ml.utils.config_from_keras_model,
+        {
+            "model": vanilla_model,
+            "granularity": "name",
+            "backend": args.backend,
+            "default_precision": "ap_fixed<16,6>",
+        },
+    )
+    config = hls4ml.utils.config_from_keras_model(**config_kwargs)
+
+    model_config = config.setdefault("Model", {})
+    model_config["Strategy"] = args.strategy
+    model_config["ReuseFactor"] = args.reuse_factor
+
+    for layer_name, precision in layer_precisions.items():
+        if layer_name not in config.get("LayerName", {}):
+            print(f"[WARNING] Layer '{layer_name}' not found in hls4ml config; precision not applied.")
+            continue
+
+        result_precision = args.dense_result_precision if layer_name == "q_dense" else precision
+        config["LayerName"][layer_name]["Precision"] = {
+            "weight": precision,
+            "bias": precision,
+            "result": result_precision,
+        }
+        print(f"[CONFIG] Layer '{layer_name}' -> {config['LayerName'][layer_name]['Precision']}")
+
+    input_layer_name = find_input_layer_name(config)
+    if input_layer_name is not None:
+        config["LayerName"][input_layer_name]["Precision"] = {"result": args.input_precision}
+        if args.io_type == "io_stream":
+            config["LayerName"][input_layer_name]["StreamDepth"] = args.input_stream_depth
+        print(f"[CONFIG] Input layer '{input_layer_name}' result -> {args.input_precision}")
+    else:
+        print("[WARNING] No input layer found in hls4ml config; input precision not set.")
+
+    return config
+
+
+def get_quant_bits(q_conf: dict[str, Any] | None) -> tuple[int, int]:
+    """Extract total and integer bits from an HGQ quantizer config."""
+    if q_conf and "config" in q_conf:
+        config = q_conf["config"]
+        if "i0" in config and "f0" in config:
+            sign_bits = int(config.get("k0", 0))
+            int_bits = int(config["i0"])
+            frac_bits = int(config["f0"])
+            return sign_bits + int_bits + frac_bits, sign_bits + int_bits
+    return 0, 0
+
+
+def collect_layer_precisions(model: Any) -> dict[str, str]:
+    layer_precisions: dict[str, str] = {}
+
+    for layer in model.layers:
+        layer_config = layer.get_config()
+        kernel_total, kernel_int = get_quant_bits(layer_config.get("kq_conf"))
+        bias_total, bias_int = get_quant_bits(layer_config.get("bq_conf"))
+        input_total, input_int = get_quant_bits(layer_config.get("iq_conf"))
+
+        local_total = max(kernel_total, bias_total, input_total)
+        local_int = max(kernel_int, bias_int, input_int)
+
+        if local_total == 0:
+            print(f"   Layer {layer.name:<15} -> [Skipping] (Will inherit precision)")
+            continue
+
+        local_total = max(local_total, 4)
+        local_int = max(local_int, 2)
+        precision = f"ap_fixed<{local_total},{local_int}>"
+        layer_precisions[layer.name] = precision
+        print(f"   Layer {layer.name:<15} -> {precision}")
+
+    return layer_precisions
+
+
+def build_vanilla_model(keras: Any, hgq_model: Any, custom_objects: dict[str, Any]) -> Any:
+    """Replace HGQ layers with ordinary Keras layers for io_stream fallback."""
+    layers = keras.layers
+    qconv_cls = custom_objects["QConv2D"]
+    qdense_cls = custom_objects["QDense"]
+    model_input_shape = get_model_input_shape(hgq_model)
+
+    vanilla_model = keras.Sequential(name=f"{hgq_model.name}_vanilla")
+    vanilla_model.add(layers.InputLayer(shape=model_input_shape, name="input_layer"))
+    current_shape = (None,) + model_input_shape
+
+    for layer in hgq_model.layers:
+        layer_config = layer.get_config()
+        weights = layer.get_weights()
+        new_layer = None
+
+        if isinstance(layer, qconv_cls):
+            new_layer = layers.Conv2D(
+                filters=layer_config["filters"],
+                kernel_size=layer_config["kernel_size"],
+                strides=layer_config["strides"],
+                padding=layer_config["padding"],
+                data_format=layer_config["data_format"],
+                dilation_rate=layer_config.get("dilation_rate", (1, 1)),
+                groups=layer_config.get("groups", 1),
+                activation=layer_config["activation"],
+                use_bias=layer_config["use_bias"],
+                name=layer_config["name"],
+            )
+        elif isinstance(layer, qdense_cls):
+            new_layer = layers.Dense(
+                units=layer_config["units"],
+                activation=layer_config["activation"],
+                use_bias=layer_config["use_bias"],
+                name=layer_config["name"],
+            )
+        elif isinstance(layer, layers.InputLayer):
+            continue
+        else:
+            new_layer = layer.__class__.from_config(layer_config)
+
+        new_layer.build(current_shape)
+        if weights:
+            new_layer.set_weights(weights[: len(new_layer.weights)])
+        vanilla_model.add(new_layer)
+        current_shape = new_layer.compute_output_shape(current_shape)
+
+    return vanilla_model
 
 
 def find_input_layer_name(config: dict[str, Any]) -> str | None:
@@ -257,6 +406,14 @@ def convert_model(hls4ml: Any, model: Any, hls_config: dict[str, Any] | None, ar
     return convert(**kwargs)
 
 
+def is_hgq_stream_heterogeneous_activation_error(exc: BaseException) -> bool:
+    message = str(exc)
+    return (
+        "Heterogenous quantization for activations" in message
+        and "IOType=io_parallel" in message
+    )
+
+
 def accuracy_score(reference: Any, predicted: Any) -> float:
     import numpy as np
 
@@ -346,14 +503,42 @@ def main() -> int:
     print(f"[INFO] Model input shape: {model_input_shape}")
     print_model_summary(model)
 
-    if args.hls_config_mode == "minimal":
-        hls_config = build_minimal_hls_config(hls4ml, model, args)
-    else:
-        print("[INFO] Passing no hls_config; hls4ml will choose the conversion config.")
-        hls_config = None
+    reference_model = model
+    active_mode = args.conversion_mode
 
-    prepare_output_dir(output_dir)
-    hls_model = convert_model(hls4ml, model, hls_config, args)
+    if args.conversion_mode in {"auto", "direct"}:
+        if args.hls_config_mode == "minimal":
+            hls_config = build_direct_hls_config(hls4ml, model, args)
+        else:
+            print("[INFO] Passing no hls_config; hls4ml will choose the conversion config.")
+            hls_config = None
+
+        try:
+            prepare_output_dir(output_dir)
+            hls_model = convert_model(hls4ml, model, hls_config, args)
+        except NotImplementedError as exc:
+            if args.conversion_mode != "auto" or not is_hgq_stream_heterogeneous_activation_error(exc):
+                raise
+
+            print("[WARNING] Direct HGQ conversion with io_stream is not supported by this hls4ml version:")
+            print(f"          {exc}")
+            print("[WARNING] Falling back to vanilla-stream conversion without changing IOType.")
+            prepare_output_dir(output_dir)
+            active_mode = "vanilla-stream"
+            layer_precisions = collect_layer_precisions(model)
+            reference_model = build_vanilla_model(keras, model, custom_objects)
+            hls_config = build_vanilla_hls_config(hls4ml, reference_model, layer_precisions, args)
+            hls_model = convert_model(hls4ml, reference_model, hls_config, args)
+    else:
+        print("[INFO] Using vanilla-stream conversion mode.")
+        active_mode = "vanilla-stream"
+        layer_precisions = collect_layer_precisions(model)
+        reference_model = build_vanilla_model(keras, model, custom_objects)
+        hls_config = build_vanilla_hls_config(hls4ml, reference_model, layer_precisions, args)
+        prepare_output_dir(output_dir)
+        hls_model = convert_model(hls4ml, reference_model, hls_config, args)
+
+    print(f"[INFO] Active conversion mode: {active_mode}")
     hls_model.write()
     print(f"[INFO] Project written to {output_dir}")
 
@@ -367,7 +552,7 @@ def main() -> int:
     if args.skip_verify:
         print("[INFO] Skipping verification.")
     else:
-        verify_model(hls_model, model, data_dir, model_input_shape)
+        verify_model(hls_model, reference_model, data_dir, model_input_shape)
 
     if args.init_streaming:
         initialize_streaming_firmware(output_dir, streaming_firmware_dir)
