@@ -22,7 +22,7 @@ cnn_core_project/       hls4ml-generated Vitis HLS project
 cnn_core_project/firmware/
                        Current generated IOStream baseline
 hls_streaming/          Working C++ HLS area for streaming trigger development
-rtl/                   RTL sources managed outside the hls4ml generated output
+hls_streaming_bk/       Previous streaming implementation kept as reference
 ```
 
 `build/` is local scratch space and should not be committed. Treat
@@ -35,142 +35,110 @@ work should normally happen under `hls_streaming/firmware`.
 pip install -r requirements.txt
 ```
 
-## HGQ-Guided Baseline Generation
+## Homogeneous HGQ Baseline Generation
 
 The conversion entry point is:
 
 ```bash
-python scripts/hgq_streaming_pipeline.py
+python scripts/convert_homo_stream.py
 ```
 
 This script loads:
 
 ```text
-models/hgq_config_beta7_gamma6_p1_cl_best_v3.keras
+models/hgq_config_beta7_gamma6_p1_cl_lowbop.keras
 ```
 
-The flow generates two temporary projects under `build/hgq_streaming_pipeline`:
+The v3.4 model is already homogeneous. The conversion therefore goes directly
+from the Keras model to an hls4ml IOStream project. There is no IOParallel
+precision oracle, no per-index HGQ extraction, and no generated stream
+quantizer patching step.
 
-```text
-ioparallel_reference/   Direct HGQ/IOParallel conversion used as precision oracle
-iostream_candidate/     IOStream project used as the hardware baseline candidate
-```
-
-The IOParallel project is not the target implementation. It is used to extract
-the propagated HGQ precision, weights, sparsity metadata, and per-index
-quantizers. Those values are then applied to the IOStream project so that the
-installed baseline keeps the stream interface while matching the HGQ model
-numerically.
-
-The default command builds and verifies the temporary projects only:
-
-```bash
-python scripts/hgq_streaming_pipeline.py
-```
-
-After verification, install the generated IOStream baseline:
-
-```bash
-python scripts/hgq_streaming_pipeline.py --install
-```
-
-This overwrites:
+The default output is:
 
 ```text
 cnn_core_project/
 ```
 
-To initialize both the generated baseline and the streaming working tree from
-the same generated firmware, use:
+The generated baseline still contains HGQ-derived homogeneous fixed-point
+types. Do not confuse this with the older heterogeneous per-index HGQ flow:
+homogeneous quantization should be represented by the generated layer types and
+weights, not by index-dependent cast tables.
+
+Useful options:
 
 ```bash
-python scripts/hgq_streaming_pipeline.py --install --init-streaming
+python scripts/convert_homo_stream.py --skip-compile --skip-verify
+python scripts/convert_homo_stream.py --compile --verify
+python scripts/convert_homo_stream.py --io-type io_stream
 ```
 
-Use this only when the streaming tree should be reset to the generated baseline.
-For normal optimized development, keep `hls_streaming/firmware` separate and
-patch it deliberately.
-
-Useful development options:
-
-```bash
-python scripts/hgq_streaming_pipeline.py --skip-compile --skip-verify
-python scripts/hgq_streaming_pipeline.py --keep-build
-python scripts/hgq_streaming_pipeline.py --debug-zero-quantizers
-```
-
-`--debug-zero-quantizers` is a compile-path check. It intentionally changes the
-numerical result and should not be used for final validation.
+The older `scripts/hgq_streaming_pipeline.py` flow is retained as historical
+context for heterogeneous HGQ models. Do not use it for the current v3.4
+homogeneous baseline unless the model changes back to a heterogeneous
+precision contract.
 
 Important generated reference files include:
 
 ```text
 cnn_core_project/firmware/
 cnn_core_project/hls4ml_config.yml
-cnn_core_project/hgq_reference_manifest.json
-build/hgq_streaming_pipeline/hgq_reference_manifest.json
+cnn_core_project/keras_model.keras
 ```
 
 ## Streaming Optimization Flow
 
-`hls_streaming` contains a copy of the hls4ml firmware plus a small comparison
-testbench. It is used to check whether the optimized streaming implementation
-still matches the generated IOStream baseline.
+`hls_streaming` contains the editable C++ HLS implementation. It is compared
+against the immutable generated baseline in `cnn_core_project`.
+
+The previous optimized implementation was moved to:
+
+```text
+hls_streaming_bk/
+```
+
+Keep it as a reference while v3.4 settles; remove it in a later cleanup once
+the new homogeneous streaming path has enough HLS evidence.
+
+Run the behavioral comparison:
 
 ```bash
 cd hls_streaming
 make compare
-make compare-long
+make compare SAMPLES=1024
 ```
 
 The comparison builds two executables:
 
 ```text
-../cnn_core_project/firmware/cnn_core.cpp
-./firmware/cnn_core.cpp
+../cnn_core_project/firmware/cnn_core.cpp   generated baseline
+./firmware/cnn_core.cpp                     optimized streaming implementation
 ```
 
-Both are run on the same deterministic inputs, and their output logs are
-compared byte-for-byte. This works on macOS and should also work on Ubuntu. On
-macOS, the Makefile patches temporary copies of the Xilinx `ap_types` headers
-under `hls_streaming/build/`; the source trees are not modified.
-
-The current optimized streaming firmware keeps the 4-lane stream interface and
-uses the HGQ-derived precision data from the installed baseline. In particular:
+The current optimized path uses a 2x input stream contract:
 
 ```text
-nnet_hgq_stream.h                 Per-index HGQ stream quantizers
-nnet_first_conv_stream.h          Input quantization before first convolution
-nnet_dense_stream.h               Dense input quantization by flattened index
-parameters.h / defines.h          HGQ-derived precision and sparsity metadata
-weights/                          HGQ-derived generated weights and biases
+baseline input word:   input_layer_t    = 1 time sample x 4 lanes
+streaming input word:  input_layer_x2_t = 2 time samples x 4 lanes
 ```
 
-Per-index HGQ quantizers should stay compact. Do not emit one large
-`switch(index)` with one case per scalar position in the optimized HLS path.
-Use an index-to-format table plus a small switch over the distinct quantizer
-formats. The current compact implementation avoids the HLS front-end expansion
-seen with the direct per-index switch.
+The testbench repacks the same deterministic `256 x 4` input chunk differently
+for the two runners, then compares output logs byte-for-byte.
+
+Current optimized data path:
+
+```text
+input_layer_x2_t
+  -> first_conv_2row_4lane_temporal_wide_cl
+  -> relu over 4-width packed words
+  -> maxpool2d_wide_nonoverlap_cl
+  -> dense_wide_stream
+  -> layer9_out
+```
 
 The optimized implementation may differ structurally from the generated
 baseline. It should still pass `make compare` before HLS synthesis is used for
 resource or timing decisions.
-
-Current HLS direction:
-
-```text
-top interval: about 262 cycles
-primary limiter: first_conv_4lane_temporal_wide_cl, about 261 cycles
-secondary limiter: dense_wide_stream, about 211 cycles
-ReLU / MaxPool: about 87 cycles each
-```
-
-The main throughput limit is now the first convolution input path. With the
-current 4-lane input stream, the lower bound is close to reading 256 input
-words. ReLU and MaxPool are not first-order cycle targets. Further large
-throughput gains likely require a planned input-interface change, such as
-8-lane or 16-lane input words, and a corresponding dense-path review so the
-bottleneck does not simply move from first conv to dense.
 
 ## Vitis HLS Build
 

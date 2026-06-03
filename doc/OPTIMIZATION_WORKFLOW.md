@@ -64,6 +64,11 @@ hls_streaming/AI_CONTEXT.md
 
 hls_streaming/PROJECT_ANALYSIS.md
     Detailed bottleneck and report analysis.
+
+hls_streaming_bk/
+    Previous optimized streaming implementation kept as a temporary reference.
+    It was derived from an older heterogeneous HGQ baseline and should not be
+    edited as the active v3.4 implementation.
 ```
 
 The baseline should stay available as a reference even when the optimized copy
@@ -77,7 +82,7 @@ From the current generated configuration:
 
 ```text
 Input window:       256 x 4 x 1
-Input stream word:  input_t = nnet::array<ap_fixed<12,6>, 4>
+Baseline input word: input_layer_t = nnet::array<ap_fixed<9,4,...>, 4>
 Conv2D:             5 x 1 kernel, 7 filters, stride 3 x 1
 Conv output:        84 x 4 x 7 = 2352 scalar values
 ReLU output:        84 x 4 x 7 = 2352 scalar values
@@ -94,7 +99,7 @@ width    = 4
 channels = 1
 ```
 
-The four values in `input_t` are the width dimension of a `256 x 4 x 1`
+The four values in `input_layer_t` are the width dimension of a `256 x 4 x 1`
 tensor, not `n_chan = 4`. The first convolution uses a `5 x 1` kernel, so it
 does temporal filtering independently at each of the four width positions. It
 does not perform early cross-position/channel mixing. Later, the dense layer
@@ -103,41 +108,68 @@ sees all `42 x 4 x 7` pooled features.
 This distinction matters when generating model-specific kernels. A true
 `256 x 1 x 4` model would require different channel-mixing logic.
 
+## Homogeneous HGQ Quantization Contract
+
+The v3.4 model is homogeneous HGQ. The generated hls4ml baseline already
+contains the fixed-point types needed to represent the model numerically:
+
+```text
+input_layer_t
+q_conv2d_t / q_conv2d_weight_t / q_conv2d_bias_t
+q_conv2d_relu_t
+max_pooling2d_t
+result_t / q_dense_weight_t / q_dense_bias_t
+```
+
+Optimization should preserve these generated homogeneous types unless there is
+an intentional model-reference change. Do not reintroduce the older
+heterogeneous per-index tables:
+
+```text
+q_conv2d_iq_cast(index)
+q_dense_iq_cast(index)
+nnet_hgq_stream.h
+```
+
+Those were needed when each scalar index could carry a different HGQ format.
+For the homogeneous model, the precision contract is layer/type based, not
+index based.
+
 ## Baseline Generated Data Path
 
 The hls4ml baseline path is:
 
 ```text
 input_layer
-  -> repack_stream<input_t, layer2_t, 1024>
-  -> conv_2d_cl<layer2_t, layer3_t, config3>
-  -> relu<layer3_t, layer4_t, relu_config4>
-  -> pooling2d_cl<layer4_t, layer5_t, config5>
-  -> dense<layer5_t, result_t, config7>
-  -> layer7_out
+  -> repack_stream<input_layer_t, reshape_t, 1024>
+  -> conv_2d_cl<reshape_t, q_conv2d_t, config4>
+  -> relu<q_conv2d_t, q_conv2d_relu_t, relu_config5>
+  -> pooling2d_cl<q_conv2d_relu_t, max_pooling2d_t, config6>
+  -> dense<max_pooling2d_t, result_t, config9>
+  -> layer9_out
 ```
 
 The baseline top-level uses:
 
 ```text
-#pragma HLS INTERFACE axis port=input_layer,layer7_out
+#pragma HLS INTERFACE axis port=input_layer,layer9_out
 #pragma HLS DATAFLOW
 ```
 
 The original internal streams were:
 
 ```text
-layer8_out   depth 1024   repacked scalar input stream
-layer3_out   depth 336    conv output, packed 7 values per stream word
-layer4_out   depth 336    ReLU output
-layer5_out   depth 168    maxpool output, packed 7 values per stream word
+layer10_out  depth 1024   repacked scalar input stream
+layer4_out   depth 336    conv output, packed 7 values per stream word
+layer5_out   depth 336    ReLU output
+layer6_out   depth 168    maxpool output, packed 7 values per stream word
 ```
 
 The key inefficiency is the first boundary:
 
 ```text
-input_t  = 4 values per stream word
-layer2_t = 1 value per stream word
+input_layer_t = 4 values per stream word
+reshape_t     = 1 value per stream word
 ```
 
 The generated `repack_stream` serializes each 4-lane input word into four
@@ -310,20 +342,21 @@ firmware/weights/*.h shape comments
 For the current model, the important types are:
 
 ```text
-input_t    = nnet::array<ap_fixed<12,6>, 4>
-layer2_t   = nnet::array<ap_fixed<12,6>, 1>
-layer3_t   = nnet::array<ap_fixed<9,5>, 7>
-layer4_t   = nnet::array<ap_fixed<16,6>, 7>
-layer5_t   = nnet::array<ap_fixed<16,6>, 7>
-result_t   = nnet::array<ap_fixed<16,6>, 1>
+input_layer_t    = nnet::array<ap_fixed<9,4,...>, 4>
+input_layer_x2_t = nnet::array<ap_fixed<9,4,...>, 8>
+reshape_t        = nnet::array<ap_fixed<9,4>, 1>
+q_conv2d_t       = nnet::array<ap_fixed<16,6>, 7>
+q_conv2d_relu_t  = nnet::array<ap_ufixed<15,5>, 7>
+max_pooling2d_t  = nnet::array<ap_fixed<9,4,...>, 7>
+result_t         = nnet::array<ap_fixed<22,11>, 1>
 ```
 
 The optimized wide types are:
 
 ```text
-layer3x4_t = nnet::array<ap_fixed<9,5>,  7 * 4>
-layer4x4_t = nnet::array<ap_fixed<16,6>, 7 * 4>
-layer5x4_t = nnet::array<ap_fixed<16,6>, 7 * 4>
+q_conv2d_x4_t      = nnet::array<ap_fixed<16,6>, 7 * 4>
+q_conv2d_relu_x4_t = nnet::array<ap_ufixed<15,5>, 7 * 4>
+max_pooling2d_x4_t = nnet::array<ap_fixed<9,4,...>, 7 * 4>
 ```
 
 For automation, parse:
@@ -442,7 +475,7 @@ a high-interval format-conversion stage immediately before or after compute
 In the current model, that was:
 
 ```text
-repack_stream<input_t, layer2_t, 1024>
+repack_stream<input_layer_t, reshape_t, 1024>
 ```
 
 It turned 256 input words into 1024 scalar words and achieved II=3, producing
@@ -454,18 +487,26 @@ it was safer and more valuable than rewriting dense first.
 Original path:
 
 ```text
-input_t stream, 4 values per word
+input_layer_t stream, 4 values per word
   -> repack_stream
-layer2_t stream, 1 value per word
+reshape_t stream, 1 value per word
   -> generic conv_2d_cl
 ```
 
-Optimized path:
+1x optimized path:
 
 ```text
-input_t stream, 4 values per word
+input_layer_t stream, 4 values per word
   -> first_conv_4lane_temporal_wide_cl
-layer3x4_t stream, 4 width positions x 7 filters per word
+q_conv2d_x4_t stream, 4 width positions x 7 filters per word
+```
+
+Current 2x optimized path:
+
+```text
+input_layer_x2_t stream, 8 values per word
+  -> first_conv_2row_4lane_temporal_wide_cl
+q_conv2d_x4_t stream, 4 width positions x 7 filters per output row
 ```
 
 Why this is valid for the current model:
@@ -482,7 +523,8 @@ The first convolution only needs a temporal window of 5 samples at each width
 position. Since the input word already contains all 4 width positions for one
 time sample, the custom kernel can:
 
-1. Read one `input_t` per cycle.
+1. Read one `input_layer_t` per cycle for 1x, or one `input_layer_x2_t`
+   every two row steps for the current 2x path.
 2. Maintain a temporal buffer or shift structure for the last 5 rows.
 3. Emit an output row when the stride condition is met.
 4. Compute all 4 width positions and 7 filters in a packed output word.
@@ -536,28 +578,28 @@ independent. ReLU is the current example.
 Narrow path:
 
 ```text
-layer3_t stream
+q_conv2d_t stream
 336 words, 7 values per word
 ```
 
 Wide path:
 
 ```text
-layer3x4_t stream
+q_conv2d_x4_t stream
 84 words, 28 values per word
 ```
 
 Current optimized path:
 
 ```text
-nnet::relu<layer3x4_t, layer4x4_t, relu_config4>
+nnet::relu<q_conv2d_x4_t, q_conv2d_relu_x4_t, relu_config5>
 ```
 
 Important checks:
 
 1. The activation implementation must iterate over `data_T::size` or otherwise
    support the wider array size.
-2. `relu_config4::n_in` should still describe the total scalar count:
+2. `relu_config5::n_in` should still describe the total scalar count:
    `84 * 4 * 7 = 2352`.
 3. Stream word count changes, but scalar count and scalar order must not.
 4. C++ comparison must still pass.
@@ -582,7 +624,7 @@ Because the pool is non-overlapping along height and does not combine width
 positions, it can be replaced with a specialized wide non-overlap pool:
 
 ```text
-maxpool2d_wide_nonoverlap_cl<layer4x4_t, layer5x4_t, config5>
+maxpool2d_wide_nonoverlap_cl<q_conv2d_relu_x4_t, max_pooling2d_x4_t, config6>
 ```
 
 This consumes:
@@ -617,18 +659,18 @@ validate against the baseline.
 An intermediate optimized design may still unpack after pool:
 
 ```text
-layer5x4_t
+max_pooling2d_x4_t
   -> unpack_4lane_temporal_cl
-layer5_t
-  -> dense<layer5_t, result_t, config7>
+max_pooling2d_t
+  -> dense<max_pooling2d_t, result_t, config9>
 ```
 
 This preserves the generated dense input format but adds an adapter and often a
 deep FIFO. The current final design removes that path:
 
 ```text
-layer5x4_t
-  -> dense_wide_stream<layer5x4_t, result_t, config7>
+max_pooling2d_x4_t
+  -> dense_wide_stream<max_pooling2d_x4_t, result_t, config9>
   -> result_t
 ```
 
@@ -644,11 +686,11 @@ optimization is structural:
 1. Do not materialize all 1176 scalar inputs in a fully partitioned local
    array.
 2. Accumulate directly from the incoming packed stream.
-3. Preserve the exact feature order used by `w7`.
+3. Preserve the exact feature order used by `w9`.
 4. Keep the dense interval below the first-conv interval so dense does not
    become the top-level limiter.
 
-Current confirmed result after wide streaming dense:
+Historical 1x result from the older streaming implementation:
 
 ```text
 HLS latency estimate:    263 cycles
@@ -660,9 +702,9 @@ dense_wide interval:     176 cycles
 dense_wide resources:    7 DSP, 769 FF, 19616 LUT
 ```
 
-Dense LUT usage remains noticeable because dynamic indexing into a fully
-partitioned weight array can become mux-heavy. At this point it is resource
-polish, not the top throughput blocker.
+Dense LUT usage can remain noticeable because dynamic indexing into a fully
+partitioned weight array can become mux-heavy. Re-check this after every model
+or input-width change; do not assume old report numbers apply to v3.4.
 
 ## Step 11: Update Top-Level Wiring
 
@@ -670,19 +712,19 @@ The current optimized top-level path in `hls_streaming/firmware/cnn_core.cpp`
 is:
 
 ```text
-cnn_core(input_layer, layer7_out)
-  -> first_conv_4lane_temporal_wide_cl<input_t, layer3x4_t, config3>
-  -> relu<layer3x4_t, layer4x4_t, relu_config4>
-  -> maxpool2d_wide_nonoverlap_cl<layer4x4_t, layer5x4_t, config5>
-  -> dense_wide_stream<layer5x4_t, result_t, config7>
+cnn_core(input_layer, layer9_out)
+  -> first_conv_2row_4lane_temporal_wide_cl<input_layer_x2_t, q_conv2d_x4_t, config4>
+  -> relu<q_conv2d_x4_t, q_conv2d_relu_x4_t, relu_config5>
+  -> maxpool2d_wide_nonoverlap_cl<q_conv2d_relu_x4_t, max_pooling2d_x4_t, config6>
+  -> dense_wide_stream<max_pooling2d_x4_t, result_t, config9>
 ```
 
 The internal streams are:
 
 ```text
-layer3x4_out depth 4      wide first-conv output, 4 widths x 7 filters
-layer4x4_out depth 4      wide ReLU output, 4 widths x 7 filters
-layer5x4_out depth 4      wide MaxPool output, 4 widths x 7 filters
+layer4x4_out depth 4      wide first-conv output, 4 widths x 7 filters
+layer5x4_out depth 4      wide ReLU output, 4 widths x 7 filters
+layer6x4_out depth 4      wide MaxPool output, 4 widths x 7 filters
 ```
 
 Use shallow FIFO depths where dataflow backpressure remains safe. After HLS,
@@ -690,11 +732,11 @@ check whether shallow wide FIFOs are inferred as BRAM. If so, bind them to SRL
 or another appropriate fabric implementation:
 
 ```cpp
-#pragma HLS BIND_STORAGE variable=layer4x4_out type=fifo impl=srl
 #pragma HLS BIND_STORAGE variable=layer5x4_out type=fifo impl=srl
+#pragma HLS BIND_STORAGE variable=layer6x4_out type=fifo impl=srl
 ```
 
-In the current design, this fixed a BRAM regression while preserving interval:
+In the older 1x design, this fixed a BRAM regression while preserving interval:
 
 ```text
 Before SRL binding: 57 BRAM_18K
@@ -774,15 +816,23 @@ largest limiter: repack_stream around 3075 cycles
 The current optimized design:
 
 ```text
-top interval around 260 cycles
-first_conv interval around 259 cycles
+2x C++ behavior-equivalent implementation is present.
+HLS interval/resource evidence still needs to be regenerated.
 ```
 
-This is close to the single-core lower bound imposed by reading 256 input
-stream words when the top-level interface accepts one `input_t` per cycle.
+The 2x top-level interface accepts two time rows per input word:
 
-Therefore, further single-core interval reduction is limited unless one of
-these changes happens:
+```text
+input_layer_x2_t = 2 time samples x 4 lanes
+```
+
+The input-read lower bound therefore moves from roughly 256 cycles to roughly
+128 cycles for one `256 x 4` chunk. Whether the final top interval gets close
+to that bound depends on Vitis scheduling of first convolution, dense, FIFOs,
+and timing closure.
+
+Further single-core interval reduction beyond 2x likely requires one of these
+changes:
 
 ```text
 wider top-level input interface
@@ -793,35 +843,34 @@ model architecture change
 different input granularity and scheduler contract
 ```
 
-For the current core, the next important work is less about removing another
-large single-stage bottleneck and more about:
+For the current core, the next important work is:
 
 ```text
-system-level chunk scheduling
-multi-core interleaving if needed
-timing closure
-resource polish
-weight quantization correctness
-DAQ/front-end packetization
+regenerate HLS evidence for the 2x path
+inspect whether first_conv or dense becomes the limiter
+check timing closure with the wider input packet
+decide whether 3x input is worth the additional schedule risk
+DAQ/front-end packetization for 2-row input words
 RTL cosim and integration tests
 ```
 
 ## Known Numerical Correctness Issues
 
-### HGQ Per-Index Quantizer Expansion
+### Homogeneous vs Heterogeneous HGQ
 
-HGQ precision propagation can produce per-index quantizers. They are useful for
-matching the trained model, but a naive C++ implementation can become a major
-HLS front-end and resource problem.
+The v3.4 model is homogeneous HGQ. Keep the generated fixed-point layer types
+and weights, but do not bring back the old heterogeneous per-index quantizer
+tables. In the current model, the optimized custom kernels should use the
+homogeneous scalar types from `defines.h`.
 
-Problem pattern:
+Historical problem pattern for heterogeneous models:
 
 ```text
 q_conv2d_iq_cast(index): one switch case per input scalar
 q_dense_iq_cast(index):  one switch case per flattened dense feature
 ```
 
-For the current model this meant:
+For an older heterogeneous model this meant:
 
 ```text
 conv input quantizer: 1024 index cases
@@ -849,7 +898,7 @@ Preferred implementation:
 5. Partition the format-ID table to the actual unroll width, not completely.
 ```
 
-For the current optimized design:
+For that older optimized design:
 
 ```text
 q_conv2d_iq_cast::formats[1024] -> 10 formats, cyclic partition factor 4
@@ -979,7 +1028,7 @@ Output a machine-readable model summary, for example:
 Detect patterns such as:
 
 ```text
-input_t size > next layer stream size
+input stream word size > next layer stream word size
 repack_stream immediately before first conv
 Conv2D with filt_width == 1 and n_chan == 1
 elementwise activation after conv
@@ -1237,7 +1286,8 @@ conv/pool intermediate checks pass, final score fails
 Cause:
 
 ```text
-wide streaming dense reads features in a different order than w7
+wide streaming dense reads features in a different order than the generated
+dense weights, currently `w9`
 ```
 
 Fix:
@@ -1356,8 +1406,8 @@ For this repository, the current optimized single-core end state is:
 
 ```text
 ADC/DAQ packetization or scheduler
-  -> input_t stream, one time row with 4 width positions per word
-  -> first_conv_4lane_temporal_wide_cl
+  -> input_layer_x2_t stream, two time rows with 4 width positions per word
+  -> first_conv_2row_4lane_temporal_wide_cl
   -> wide ReLU
   -> wide non-overlap maxpool
   -> wide streaming dense
@@ -1368,16 +1418,15 @@ Measured current status:
 
 ```text
 C++ comparison:         make compare SAMPLES=1024 PASS
-HLS interval:           about 260 cycles
-HLS latency:            about 263 cycles
-BRAM_18K:               0 in latest confirmed wide-dense result
-Remaining limiter:      first conv input-read lower bound around 259 cycles
+HLS interval:           must be regenerated for the 2x input path
+HLS latency:            must be regenerated for the 2x input path
+BRAM/DSP/LUT/FF:        must be regenerated for the 2x input path
+Expected input floor:   about 128 cycles before scheduling overhead
 ```
 
-The result is close to the lower bound for a single core reading 256 input
-words at one word per cycle. Further throughput improvement should be treated
-as a system architecture problem rather than another local hls4ml wrapper
-cleanup.
+The previous 1x design was close to the lower bound for a single core reading
+256 input words at one word per cycle. The current 2x design changes that
+contract and must be judged by fresh HLS reports, not by inherited 1x numbers.
 
 ## Repository Hygiene
 
