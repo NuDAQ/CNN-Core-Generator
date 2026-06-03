@@ -165,7 +165,50 @@ make hls-ooc-synth
 The HLS flow writes project outputs under `hls_streaming/cnn_core_streaming_prj`.
 These are generated outputs and should not be treated as source.
 
-## Reports
+## Performance Summary
+
+Target device: `xcku5p-ffvb676-2-e`, 5 ns clock (200 MHz).
+
+### Throughput (top-level interval per 256×4 inference)
+
+| Branch | Input width | csynth interval | RTL cosim interval |
+|--------|-------------|----------------|--------------------|
+| v3.2 (1x streaming) | 1 row/word | 260 cycles | — |
+| **v3.4 (2x streaming)** | **2 rows/word** | **260 cycles** | **257 cycles ✓** |
+
+Both streaming branches achieve the same csynth interval (260 cycles) because
+the bottleneck is the `first_conv` stage (259 cycles), which is limited by the
+256-row input depth regardless of how many rows arrive per stream word.
+v3.4 is the first branch with a confirmed RTL cosim result (257 cycles, PASS).
+
+### Per-layer interval (v3.4, csynth)
+
+| Layer | Interval | Loop II | Notes |
+|-------|----------|---------|-------|
+| `first_conv_2row_4lane_temporal_wide_cl` | 259 | **1** | bottleneck |
+| `relu` | 87 | 1 | |
+| `maxpool2d_wide_nonoverlap_cl` | 87 | 1 | |
+| `dense_wide_stream` | 177 | 1 | second limiter |
+
+### Resource usage
+
+| Metric | v3.2 csynth est. | v3.4 csynth est. | v3.4 OOC actual |
+|--------|-----------------|-----------------|-----------------|
+| LUT | 26 500 | 29 248 | **5 637** (2.6%) |
+| FF | 2 975 | 3 421 | **2 877** (0.7%) |
+| DSP | 11 | 4 | 7 |
+| BRAM | 0 | 0 | 2× RAMB18E2 (0.2%) |
+| OOC WNS | — | — | **+2.152 ns** ✓ |
+
+Notes:
+- v3.2 has no OOC synthesis report; csynth estimates are pre-place-and-route.
+- v3.4 uses wider homogeneous HGQ precision (`ap_fixed<22,11>` for dense vs
+  `ap_fixed<9,5>` in v3.2), which inflates csynth LUT estimates but is handled
+  efficiently by post-synthesis optimization (OOC LUT drops to 5 637).
+- DSP reduction from 11 → 4 (csynth) comes from v3.4's homogeneous quantization
+  allowing LUT-based multiply inference for the dense layer.
+
+### Reports
 
 HLS synthesis report:
 
@@ -174,20 +217,17 @@ cnn_core_project/cnn_core_prj/solution1/syn/report/cnn_core_csynth.rpt
 hls_streaming/cnn_core_streaming_prj/solution1/syn/report/cnn_core_csynth.rpt
 ```
 
-Vivado synthesis report:
+HLS summary (interval, latency, top resources, cosim):
 
 ```text
-cnn_core_project/vivado_synth.rpt
 hls_streaming/cnn_core_streaming_prj/solution1/hls_summary.txt
 ```
 
-Record at least:
+OOC timing and utilization (post-synthesis, v3.4 only):
 
 ```text
-Latency cycles
-Initiation interval
-Estimated clock period / fmax
-LUT / FF / DSP / BRAM usage
+hls_streaming/cnn_core_streaming_prj/solution1/ooc_synth/timing_ooc.rpt
+hls_streaming/cnn_core_streaming_prj/solution1/ooc_synth/utilization_ooc.rpt
 ```
 
 For final timing and utilization, run a separate Vivado implementation flow with
