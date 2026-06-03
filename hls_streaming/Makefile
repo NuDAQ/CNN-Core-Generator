@@ -36,7 +36,7 @@ $(BASELINE_EXE): $(TB_SRC) $(BASELINE_SRCS) prepare-compat
 
 $(STREAMING_EXE): $(TB_SRC) $(STREAMING_SRCS) prepare-compat
 	mkdir -p $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) -I$(STREAMING_AP_TYPES) -I$(STREAMING_ROOT) -I$(STREAMING_ROOT)/firmware $< $(STREAMING_ROOT)/firmware/cnn_core.cpp -o $@
+	$(CXX) $(CXXFLAGS) -DHLS_STREAMING_2X_INPUT -I$(STREAMING_AP_TYPES) -I$(STREAMING_ROOT) -I$(STREAMING_ROOT)/firmware $< $(STREAMING_ROOT)/firmware/cnn_core.cpp -o $@
 
 prepare:
 	mkdir -p $(RUN_DIR)

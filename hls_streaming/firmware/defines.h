@@ -15,6 +15,7 @@
 
 // hls-fpga-machine-learning insert layer-precision
 typedef nnet::array<ap_fixed<9,4,AP_RND,AP_SAT_SYM,0>, 4*1> input_layer_t;
+typedef nnet::array<ap_fixed<9,4,AP_RND,AP_SAT_SYM,0>, 2*4> input_layer_x2_t;
 typedef nnet::array<ap_fixed<9,4>, 1*1> reshape_t;
 typedef ap_fixed<16,6> q_conv2d_accum_t;
 typedef nnet::array<ap_fixed<16,6>, 7*1> q_conv2d_t;

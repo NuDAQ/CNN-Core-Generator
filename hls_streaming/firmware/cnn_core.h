@@ -10,7 +10,7 @@
 
 // Prototype of top level function for C-synthesis
 void cnn_core(
-    hls::stream<input_layer_t> &input_layer,
+    hls::stream<input_layer_x2_t> &input_layer,
     hls::stream<result_t> &layer9_out
 );
 
