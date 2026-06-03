@@ -48,8 +48,9 @@ if {$opt(reset)} {
 set_top $project_name
 
 set common_cflags "-std=c++14 -I. -Ifirmware"
+set tb_cflags [env_or_default HLS_TB_CFLAGS "$common_cflags -DHLS_STREAMING_2X_INPUT"]
 add_files firmware/${project_name}.cpp -cflags $common_cflags
-add_files -tb tb/compare_runner.cpp -cflags $common_cflags
+add_files -tb tb/compare_runner.cpp -cflags $tb_cflags
 add_files -tb firmware/weights
 
 if {$opt(reset)} {

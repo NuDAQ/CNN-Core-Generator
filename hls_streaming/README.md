@@ -61,5 +61,10 @@ make hls
 make hls-ooc-synth
 ```
 
+`build_hls.tcl` passes `-DHLS_STREAMING_2X_INPUT` to the C simulation
+testbench by default. Without that flag, the testbench creates a 1x input
+stream and CSIM fails because the top-level function now expects
+`input_layer_x2_t`.
+
 Record top interval, stage intervals, estimated clock, LUT/FF/DSP/BRAM, and
 any unexpected RAM inference after every meaningful schedule change.
