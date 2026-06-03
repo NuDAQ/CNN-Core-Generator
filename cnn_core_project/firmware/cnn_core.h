@@ -10,8 +10,8 @@
 
 // Prototype of top level function for C-synthesis
 void cnn_core(
-    hls::stream<input_t> &input_layer,
-    hls::stream<result_t> &layer7_out
+    hls::stream<input_layer_t> &input_layer,
+    hls::stream<result_t> &layer9_out
 );
 
 // hls-fpga-machine-learning insert emulator-defines

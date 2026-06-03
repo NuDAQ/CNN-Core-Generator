@@ -1,8 +1,8 @@
 array set opt {
     reset      1
-    csim       0
+    csim       1
     synth      1
-    cosim      0
+    cosim      1
     export     0
-    ooc_synth  0
+    ooc_synth  1
 }

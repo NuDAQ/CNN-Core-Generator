@@ -1,0 +1,9 @@
+                             latency        interval
+transaction       0:             185             144
+transaction       1:             218             177
+transaction       2:             218             177
+transaction       3:             218             177
+transaction       4:             218             177
+transaction       5:             218             177
+transaction       6:             218             177
+transaction       7:             218               x

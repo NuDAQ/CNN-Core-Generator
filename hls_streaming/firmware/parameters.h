@@ -20,22 +20,22 @@
 #include "nnet_utils/nnet_stream.h"
 
 // hls-fpga-machine-learning insert weights
-#include "weights/w3.h"
-#include "weights/b3.h"
-#include "weights/w7.h"
-#include "weights/b7.h"
+#include "weights/w4.h"
+#include "weights/b4.h"
+#include "weights/w9.h"
+#include "weights/b9.h"
 
 
 // hls-fpga-machine-learning insert layer-config
 // q_conv2d
-struct config3_mult : nnet::dense_config {
+struct config4_mult : nnet::dense_config {
     static const unsigned n_in = 5;
     static const unsigned n_out = 7;
     static const unsigned reuse_factor = 1;
     static const unsigned strategy = nnet::latency;
     static const unsigned n_zeros = 0;
     static const unsigned multiplier_limit = DIV_ROUNDUP(n_in * n_out, reuse_factor) - n_zeros / reuse_factor;
-    typedef model_default_t accum_t;
+    typedef q_conv2d_accum_t accum_t;
     typedef q_conv2d_bias_t bias_t;
     typedef q_conv2d_weight_t weight_t;
     template<class data_T, class res_T, class CONFIG_T>
@@ -44,7 +44,7 @@ struct config3_mult : nnet::dense_config {
     using product = nnet::product::mult<x_T, y_T>;
 };
 
-struct config3 : nnet::conv2d_config {
+struct config4 : nnet::conv2d_config {
     static const unsigned pad_top = 0;
     static const unsigned pad_bottom = 0;
     static const unsigned pad_left = 0;
@@ -74,28 +74,28 @@ struct config3 : nnet::conv2d_config {
     static const unsigned n_pixels = out_height * out_width / n_partitions;
     template<class data_T, class CONFIG_T>
     using fill_buffer = nnet::FillConv2DBuffer<data_T, CONFIG_T>;
-    typedef model_default_t accum_t;
+    typedef q_conv2d_accum_t accum_t;
     typedef q_conv2d_bias_t bias_t;
     typedef q_conv2d_weight_t weight_t;
-    typedef config3_mult mult_config;
+    typedef config4_mult mult_config;
     template<unsigned K, unsigned S, unsigned W>
     using scale_index_height = nnet::scale_index_regular<K, S, W>;
     template<unsigned K, unsigned S, unsigned W>
     using scale_index_width = nnet::scale_index_regular<K, S, W>;
 };
-const ap_uint<config3::filt_height * config3::filt_width> config3::pixels[] = {0};
+const ap_uint<config4::filt_height * config4::filt_width> config4::pixels[] = {0};
 
 // q_conv2d_relu
-struct relu_config4 : nnet::activ_config {
+struct relu_config5 : nnet::activ_config {
     static const unsigned n_in = 2352;
-    static const unsigned table_size = 1024;
+    static const unsigned table_size = 65536;
     static const unsigned io_type = nnet::io_stream;
     static const unsigned reuse_factor = 1;
     typedef q_conv2d_relu_table_t table_t;
 };
 
 // max_pooling2d
-struct config5 : nnet::pooling2d_config {
+struct config6 : nnet::pooling2d_config {
     static const unsigned in_height = 84;
     static const unsigned in_width = 4;
     static const unsigned n_filt = 7;
@@ -118,24 +118,24 @@ struct config5 : nnet::pooling2d_config {
     static const nnet::Pool_Op pool_op = nnet::Max;
     static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
     static const unsigned reuse_factor = 1;
-    typedef model_default_t accum_t;
+    typedef max_pooling2d_accum_t accum_t;
 };
 
 // q_dense
-struct config7 : nnet::dense_config {
+struct config9 : nnet::dense_config {
     static const unsigned n_in = 1176;
     static const unsigned n_out = 1;
     static const unsigned io_type = nnet::io_stream;
     static const unsigned strategy = nnet::latency;
-    static const unsigned reuse_factor = 42;
-    static const unsigned n_zeros = 0;
-    static const unsigned n_nonzeros = 1176;
+    static const unsigned reuse_factor = 1;
+    static const unsigned n_zeros = 106;
+    static const unsigned n_nonzeros = 1070;
     static const unsigned multiplier_limit = DIV_ROUNDUP(n_in * n_out, reuse_factor) - n_zeros / reuse_factor;
     static const bool store_weights_in_bram = false;
-    typedef model_default_t accum_t;
+    typedef q_dense_accum_t accum_t;
     typedef q_dense_bias_t bias_t;
     typedef q_dense_weight_t weight_t;
-    typedef layer7_index index_t;
+    typedef layer9_index index_t;
     template<class data_T, class res_T, class CONFIG_T>
     using kernel = nnet::DenseLatency<data_T, res_T, CONFIG_T>;
     template<class x_T, class y_T>

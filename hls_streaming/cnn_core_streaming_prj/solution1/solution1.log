@@ -1,0 +1,328 @@
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2023.2 (64-bit)
+Tool Version Limit: 2023.10
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+==============================================================
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+INFO: [HLS 200-1510] Running: config_compile -name_max_length 80 
+INFO: [XFORM 203-1161] The maximum of name length is set to 80.
+INFO: [HLS 200-1510] Running: set_part xcku5p-ffvb676-2-e 
+INFO: [HLS 200-1611] Setting target device to 'xcku5p-ffvb676-2-e'
+INFO: [XFORM 203-1161] The maximum of name length is set to 80.
+INFO: [HLS 200-1510] Running: config_schedule -enable_dsp_full_reg=false 
+INFO: [HLS 200-1510] Running: create_clock -period 5 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-1510] Running: set_clock_uncertainty 27% default 
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 1.35ns.
+INFO: [HLS 200-1510] Running: csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [HLS 200-2036] Building debug C Simulation binaries
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 3.34 seconds. CPU system time: 0.36 seconds. Elapsed time: 3.7 seconds; current allocated memory: 0.000 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 257.172 MB.
+INFO: [HLS 200-10] Analyzing design file 'firmware/cnn_core.cpp' ... 
+WARNING: [HLS 207-5566] unexpected pragma argument 'softmax', expects function/operation (firmware/nnet_utils/nnet_activation.h:402:36)
+WARNING: [HLS 207-5536] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (firmware/nnet_utils/nnet_dense_resource.h:33:9)
+WARNING: [HLS 207-5536] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (firmware/nnet_utils/nnet_dense_resource.h:107:9)
+WARNING: [HLS 207-5536] 'Resource pragma' is deprecated, use 'bind_op/bind_storage pragma' instead (firmware/nnet_utils/nnet_dense_resource.h:189:9)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/cnn_core.cpp:44:116)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/cnn_core.cpp:44:120)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/cnn_core.cpp:50:94)
+WARNING: [HLS 214-113] Either use an argument of the function or declare the variable inside the dataflow loop body (firmware/cnn_core.cpp:50:98)
+WARNING: [HLS 200-471] Dataflow form checks found 4 issue(s) in file firmware/cnn_core.cpp
+WARNING: [HLS 207-5292] unused parameter 'keep' (firmware/nnet_utils/nnet_helpers.h:285:99)
+WARNING: [HLS 207-5292] unused parameter 'data' (firmware/nnet_utils/nnet_function_stubs.h:14:36)
+WARNING: [HLS 207-5292] unused parameter 'buffer' (firmware/nnet_utils/nnet_function_stubs.h:15:36)
+WARNING: [HLS 207-5292] unused parameter 'partition' (firmware/nnet_utils/nnet_function_stubs.h:16:44)
+WARNING: [HLS 207-5292] unused parameter 'data' (firmware/nnet_utils/nnet_function_stubs.h:24:24)
+WARNING: [HLS 207-5292] unused parameter 'buffer' (firmware/nnet_utils/nnet_function_stubs.h:25:24)
+WARNING: [HLS 207-5292] unused parameter 'partition' (firmware/nnet_utils/nnet_function_stubs.h:26:32)
+WARNING: [HLS 207-5292] unused parameter 'data' (firmware/nnet_utils/nnet_function_stubs.h:33:30)
+WARNING: [HLS 207-5292] unused parameter 'res' (firmware/nnet_utils/nnet_function_stubs.h:33:58)
+WARNING: [HLS 207-5292] unused parameter 'weights' (firmware/nnet_utils/nnet_function_stubs.h:34:51)
+WARNING: [HLS 207-5292] unused parameter 'biases' (firmware/nnet_utils/nnet_function_stubs.h:35:49)
+WARNING: [HLS 207-5292] unused parameter 'data' (firmware/nnet_utils/nnet_function_stubs.h:42:30)
+WARNING: [HLS 207-5292] unused parameter 'res' (firmware/nnet_utils/nnet_function_stubs.h:42:58)
+WARNING: [HLS 207-5292] unused parameter 'weights' (firmware/nnet_utils/nnet_function_stubs.h:43:51)
+WARNING: [HLS 207-5292] unused parameter 'biases' (firmware/nnet_utils/nnet_function_stubs.h:44:49)
+WARNING: [HLS 207-5292] unused parameter 'data' (firmware/nnet_utils/nnet_function_stubs.h:51:29)
+WARNING: [HLS 207-5292] unused parameter 'res' (firmware/nnet_utils/nnet_function_stubs.h:51:80)
+WARNING: [HLS 207-5292] unused parameter 'weights' (firmware/nnet_utils/nnet_function_stubs.h:52:50)
+WARNING: [HLS 207-5292] unused parameter 'biases' (firmware/nnet_utils/nnet_function_stubs.h:53:48)
+WARNING: [HLS 207-5292] unused parameter 'data' (firmware/nnet_utils/nnet_code_gen.h:16:39)
+WARNING: [HLS 207-5292] unused parameter 'res' (firmware/nnet_utils/nnet_code_gen.h:17:38)
+WARNING: [HLS 207-5292] unused parameter 'weights' (firmware/nnet_utils/nnet_code_gen.h:18:60)
+WARNING: [HLS 207-5292] unused parameter 'biases' (firmware/nnet_utils/nnet_code_gen.h:19:58)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 4.37 seconds. CPU system time: 0.44 seconds. Elapsed time: 4.81 seconds; current allocated memory: 266.867 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 200-1995] There were 2,088 instructions in the design after the 'Compile/Link' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 14,985 instructions in the design after the 'Unroll/Inline (step 1)' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 6,144 instructions in the design after the 'Unroll/Inline (step 2)' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 5,834 instructions in the design after the 'Unroll/Inline (step 3)' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 5,167 instructions in the design after the 'Unroll/Inline (step 4)' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 13,239 instructions in the design after the 'Array/Struct (step 1)' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 3,363 instructions in the design after the 'Array/Struct (step 2)' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 3,369 instructions in the design after the 'Array/Struct (step 3)' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,458 instructions in the design after the 'Array/Struct (step 4)' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,654 instructions in the design after the 'Array/Struct (step 5)' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,336 instructions in the design after the 'Performance (step 1)' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,230 instructions in the design after the 'Performance (step 2)' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 4,179 instructions in the design after the 'Performance (step 3)' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 3,874 instructions in the design after the 'Performance (step 4)' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 3,685 instructions in the design after the 'HW Transforms (step 1)' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 200-1995] There were 3,879 instructions in the design after the 'HW Transforms (step 2)' phase of compilation. See the Design Size Report for more details: /home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/syn/report/csynth_design_size.rpt
+INFO: [HLS 214-415] Performing recursive inline in function 'nnet::dense_wide_stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>, config9>' (firmware/nnet_utils/nnet_dense_stream.h:86:9)
+INFO: [HLS 214-131] Inlining function 'nnet::product::mult<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<6, 1, (ap_q_mode)5, (ap_o_mode)3, 0> >::product(ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<6, 1, (ap_q_mode)5, (ap_o_mode)3, 0>)' into 'void nnet::dense_latency<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config4_mult>(ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>*, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>*, config4_mult::weight_t*, config4_mult::bias_t*)' (firmware/nnet_utils/nnet_dense_latency.h:42:27)
+INFO: [HLS 214-131] Inlining function 'nnet::DenseLatency<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config4_mult>::dense(ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>*, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<6, 1, (ap_q_mode)5, (ap_o_mode)3, 0>*, ap_fixed<5, 1, (ap_q_mode)5, (ap_o_mode)3, 0>*)' into 'void nnet::first_conv_2row_4lane_temporal_wide_cl<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config4>(hls::stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, 0>&, hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, config4::weight_t*, config4::bias_t*)' (firmware/nnet_utils/nnet_first_conv_stream.h:320:2)
+INFO: [HLS 214-131] Inlining function 'nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>::operator[](unsigned long) const (.28)' into 'nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>::operator=(nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u> const&) (.27)' (firmware/nnet_utils/nnet_types.h:29:12)
+INFO: [HLS 214-131] Inlining function 'nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>::operator[](unsigned long) (.2)' into 'void nnet::dense_wide_stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>, config9>(hls::stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>, 0>&, config9::weight_t*, config9::bias_t*)' (firmware/nnet_utils/nnet_dense_stream.h:134:5)
+INFO: [HLS 214-131] Inlining function 'std::enable_if<!(std::is_same<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_uint<1> >::value), ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0> >::type nnet::cast<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, config9>(config9::accum_t) (.3)' into 'void nnet::dense_wide_stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>, config9>(hls::stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>, 0>&, config9::weight_t*, config9::bias_t*)' (firmware/nnet_utils/nnet_dense_stream.h:134:19)
+INFO: [HLS 214-131] Inlining function 'nnet::product::mult<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<7, 1, (ap_q_mode)5, (ap_o_mode)3, 0> >::product(ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<7, 1, (ap_q_mode)5, (ap_o_mode)3, 0>) (.21)' into 'void nnet::dense_wide_stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>, config9>(hls::stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>, 0>&, config9::weight_t*, config9::bias_t*)' (firmware/nnet_utils/nnet_dense_stream.h:119:48)
+INFO: [HLS 214-131] Inlining function 'nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>::operator[](unsigned long) (.26)' into 'void nnet::dense_wide_stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>, config9>(hls::stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>, 0>&, config9::weight_t*, config9::bias_t*)' (firmware/nnet_utils/nnet_dense_stream.h:121:17)
+INFO: [HLS 214-131] Inlining function 'nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>::operator=(nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u> const&) (.27)' into 'void nnet::dense_wide_stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>, config9>(hls::stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>, 0>&, config9::weight_t*, config9::bias_t*)' (firmware/nnet_utils/nnet_dense_stream.h:111:21)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_27_1' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_types.h:27:26)
+INFO: [HLS 214-291] Loop 'DenseWideFilter' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_dense_stream.h:115:9)
+INFO: [HLS 214-291] Loop 'StoreWidePrev' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_pooling_stream.h:437:13)
+INFO: [HLS 214-291] Loop 'PoolWideMax' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_pooling_stream.h:446:13)
+INFO: [HLS 214-291] Loop 'ReLUPackLoop' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_activation_stream.h:49:9)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_240_1' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_first_conv_stream.h:240:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_252_2' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_first_conv_stream.h:252:20)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_254_3' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_first_conv_stream.h:254:20)
+INFO: [HLS 214-291] Loop 'AdvanceBufPair' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_first_conv_stream.h:267:9)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_272_4' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_first_conv_stream.h:272:27)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_274_5' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_first_conv_stream.h:274:20)
+INFO: [HLS 214-291] Loop 'WriteOutputPairWide' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_first_conv_stream.h:289:13)
+INFO: [HLS 214-291] Loop 'BuildKernelPairWide' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_first_conv_stream.h:306:17)
+INFO: [HLS 214-291] Loop 'PackPairOutput' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_first_conv_stream.h:324:17)
+INFO: [HLS 214-291] Loop 'Result' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_dense_latency.h:64:5)
+INFO: [HLS 214-291] Loop 'Accum1' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_dense_latency.h:54:5)
+INFO: [HLS 214-291] Loop 'Accum2' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_dense_latency.h:56:9)
+INFO: [HLS 214-291] Loop 'ResetAccum' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_dense_latency.h:48:5)
+INFO: [HLS 214-291] Loop 'Product1' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_dense_latency.h:37:5)
+INFO: [HLS 214-291] Loop 'Product2' is marked as complete unroll implied by the pipeline pragma (firmware/nnet_utils/nnet_dense_latency.h:40:9)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_27_1' (firmware/nnet_utils/nnet_types.h:27:26) in function 'nnet::dense_wide_stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>, config9>' completely with a factor of 28 (firmware/nnet_utils/nnet_dense_stream.h:85:0)
+INFO: [HLS 214-186] Unrolling loop 'DenseWideFilter' (firmware/nnet_utils/nnet_dense_stream.h:115:9) in function 'nnet::dense_wide_stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>, config9>' completely with a factor of 7 (firmware/nnet_utils/nnet_dense_stream.h:85:0)
+INFO: [HLS 214-186] Unrolling loop 'StoreWidePrev' (firmware/nnet_utils/nnet_pooling_stream.h:437:13) in function 'nnet::maxpool2d_wide_nonoverlap_cl<nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, config6>' completely with a factor of 28 (firmware/nnet_utils/nnet_pooling_stream.h:405:0)
+INFO: [HLS 214-186] Unrolling loop 'PoolWideMax' (firmware/nnet_utils/nnet_pooling_stream.h:446:13) in function 'nnet::maxpool2d_wide_nonoverlap_cl<nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, config6>' completely with a factor of 28 (firmware/nnet_utils/nnet_pooling_stream.h:405:0)
+INFO: [HLS 214-186] Unrolling loop 'ReLUPackLoop' (firmware/nnet_utils/nnet_activation_stream.h:49:9) in function 'nnet::relu<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, relu_config5>' completely with a factor of 28 (firmware/nnet_utils/nnet_activation_stream.h:39:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_240_1' (firmware/nnet_utils/nnet_first_conv_stream.h:240:20) in function 'nnet::first_conv_2row_4lane_temporal_wide_cl<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config4>' completely with a factor of 4 (firmware/nnet_utils/nnet_first_conv_stream.h:184:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_252_2' (firmware/nnet_utils/nnet_first_conv_stream.h:252:20) in function 'nnet::first_conv_2row_4lane_temporal_wide_cl<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config4>' completely with a factor of 5 (firmware/nnet_utils/nnet_first_conv_stream.h:184:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_254_3' (firmware/nnet_utils/nnet_first_conv_stream.h:254:20) in function 'nnet::first_conv_2row_4lane_temporal_wide_cl<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config4>' completely with a factor of 4 (firmware/nnet_utils/nnet_first_conv_stream.h:184:0)
+INFO: [HLS 214-186] Unrolling loop 'AdvanceBufPair' (firmware/nnet_utils/nnet_first_conv_stream.h:267:9) in function 'nnet::first_conv_2row_4lane_temporal_wide_cl<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config4>' completely with a factor of 4 (firmware/nnet_utils/nnet_first_conv_stream.h:184:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_272_4' (firmware/nnet_utils/nnet_first_conv_stream.h:272:27) in function 'nnet::first_conv_2row_4lane_temporal_wide_cl<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config4>' completely with a factor of 3 (firmware/nnet_utils/nnet_first_conv_stream.h:184:0)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_274_5' (firmware/nnet_utils/nnet_first_conv_stream.h:274:20) in function 'nnet::first_conv_2row_4lane_temporal_wide_cl<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config4>' completely with a factor of 4 (firmware/nnet_utils/nnet_first_conv_stream.h:184:0)
+INFO: [HLS 214-186] Unrolling loop 'WriteOutputPairWide' (firmware/nnet_utils/nnet_first_conv_stream.h:289:13) in function 'nnet::first_conv_2row_4lane_temporal_wide_cl<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config4>' completely with a factor of 4 (firmware/nnet_utils/nnet_first_conv_stream.h:184:0)
+INFO: [HLS 214-186] Unrolling loop 'PackPairOutput' (firmware/nnet_utils/nnet_first_conv_stream.h:324:17) in function 'nnet::first_conv_2row_4lane_temporal_wide_cl<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config4>' completely with a factor of 7 (firmware/nnet_utils/nnet_first_conv_stream.h:184:0)
+INFO: [HLS 214-186] Unrolling loop 'BuildKernelPairWide' (firmware/nnet_utils/nnet_first_conv_stream.h:306:17) in function 'nnet::first_conv_2row_4lane_temporal_wide_cl<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config4>' completely with a factor of 3 (firmware/nnet_utils/nnet_first_conv_stream.h:184:0)
+INFO: [HLS 214-186] Unrolling loop 'Result' (firmware/nnet_utils/nnet_dense_latency.h:64:5) in function 'nnet::dense_latency<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config4_mult>' completely with a factor of 7 (firmware/nnet_utils/nnet_dense_latency.h:15:0)
+INFO: [HLS 214-186] Unrolling loop 'Accum1' (firmware/nnet_utils/nnet_dense_latency.h:54:5) in function 'nnet::dense_latency<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config4_mult>' completely with a factor of 5 (firmware/nnet_utils/nnet_dense_latency.h:15:0)
+INFO: [HLS 214-186] Unrolling loop 'Accum2' (firmware/nnet_utils/nnet_dense_latency.h:56:9) in function 'nnet::dense_latency<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config4_mult>' completely with a factor of 7 (firmware/nnet_utils/nnet_dense_latency.h:15:0)
+INFO: [HLS 214-186] Unrolling loop 'ResetAccum' (firmware/nnet_utils/nnet_dense_latency.h:48:5) in function 'nnet::dense_latency<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config4_mult>' completely with a factor of 7 (firmware/nnet_utils/nnet_dense_latency.h:15:0)
+INFO: [HLS 214-186] Unrolling loop 'Product1' (firmware/nnet_utils/nnet_dense_latency.h:37:5) in function 'nnet::dense_latency<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config4_mult>' completely with a factor of 5 (firmware/nnet_utils/nnet_dense_latency.h:15:0)
+INFO: [HLS 214-186] Unrolling loop 'Product2' (firmware/nnet_utils/nnet_dense_latency.h:40:9) in function 'nnet::dense_latency<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config4_mult>' completely with a factor of 7 (firmware/nnet_utils/nnet_dense_latency.h:15:0)
+INFO: [HLS 214-178] Inlining function 'std::enable_if<!(std::is_same<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_uint<1> >::value), ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0> >::type nnet::cast<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config4_mult>(config4_mult::accum_t)' into 'void nnet::dense_latency<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config4_mult>(ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>*, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>*, config4_mult::weight_t*, config4_mult::bias_t*)' (firmware/nnet_utils/nnet_dense_latency.h:15:0)
+INFO: [HLS 214-178] Inlining function 'nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>::operator[](unsigned long)' into 'void nnet::first_conv_2row_4lane_temporal_wide_cl<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config4>(hls::stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, 0>&, hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, config4::weight_t*, config4::bias_t*)' (firmware/nnet_utils/nnet_first_conv_stream.h:184:0)
+INFO: [HLS 214-178] Inlining function 'nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator[](unsigned long)' into 'void nnet::first_conv_2row_4lane_temporal_wide_cl<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config4>(hls::stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, 0>&, hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, config4::weight_t*, config4::bias_t*)' (firmware/nnet_utils/nnet_first_conv_stream.h:184:0)
+INFO: [HLS 214-178] Inlining function 'nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator[](unsigned long)' into 'void nnet::relu<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, relu_config5>(hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&)' (firmware/nnet_utils/nnet_activation_stream.h:39:0)
+INFO: [HLS 214-178] Inlining function 'nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator[](unsigned long)' into 'void nnet::relu<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, relu_config5>(hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&)' (firmware/nnet_utils/nnet_activation_stream.h:39:0)
+INFO: [HLS 214-178] Inlining function 'nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>::operator[](unsigned long)' into 'void nnet::maxpool2d_wide_nonoverlap_cl<nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, config6>(hls::stream<nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, 0>&)' (firmware/nnet_utils/nnet_pooling_stream.h:405:0)
+INFO: [HLS 214-178] Inlining function 'nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>::operator[](unsigned long)' into 'void nnet::maxpool2d_wide_nonoverlap_cl<nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, config6>(hls::stream<nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, hls::stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, 0>&)' (firmware/nnet_utils/nnet_pooling_stream.h:405:0)
+INFO: [HLS 214-248] Applying array_partition to 'b4': Complete partitioning on dimension 1. (firmware/weights/b4.h:12:0)
+INFO: [HLS 214-248] Applying array_partition to 'w9': Complete partitioning on dimension 1. (firmware/weights/w9.h:12:0)
+INFO: [HLS 214-248] Applying array_partition to 'b9': Complete partitioning on dimension 1. (firmware/weights/b9.h:12:0)
+INFO: [HLS 214-248] Applying array_partition to 'row0': Complete partitioning on dimension 1. (firmware/nnet_utils/nnet_first_conv_stream.h:236:22)
+INFO: [HLS 214-248] Applying array_partition to 'row1': Complete partitioning on dimension 1. (firmware/nnet_utils/nnet_first_conv_stream.h:236:48)
+INFO: [HLS 214-248] Applying array_partition to 'old_buf': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (firmware/nnet_utils/nnet_first_conv_stream.h:249:22)
+INFO: [HLS 214-248] Applying array_partition to 'kernel_data': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to 'res_out': Complete partitioning on dimension 1.
+INFO: [HLS 214-248] Applying array_partition to 'prev_row': Complete partitioning on dimension 1. (firmware/nnet_utils/nnet_pooling_stream.h:424:18)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'layer6x4_out' with compact=bit mode in 252-bits (firmware/cnn_core.cpp:40:34)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'layer5x4_out' with compact=bit mode in 420-bits (firmware/cnn_core.cpp:36:34)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'layer4x4_out' with compact=bit mode in 448-bits (firmware/cnn_core.cpp:32:29)
+INFO: [HLS 214-364] Automatically inlining function 'void nnet::dense_latency<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, config4_mult>(ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>*, ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>*, config4_mult::weight_t*, config4_mult::bias_t*)' to improve effectiveness of pipeline pragma in function 'void nnet::first_conv_2row_4lane_temporal_wide_cl<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config4>(hls::stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, 0>&, hls::stream<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, 0>&, config4::weight_t*, config4::bias_t*)' (firmware/nnet_utils/nnet_dense.h:54:2)
+INFO: [HLS 214-270] Inferring pragma 'array_partition type=complete dim=1' for array 'in_pack' due to pipeline pragma (firmware/nnet_utils/nnet_dense_stream.h:108:9)
+INFO: [HLS 214-248] Applying array_partition to 'in_pack': Complete partitioning on dimension 1. (firmware/nnet_utils/nnet_dense_stream.h:101:12)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.24 seconds. CPU system time: 0.32 seconds. Elapsed time: 6.54 seconds; current allocated memory: 268.652 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 268.652 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 274.031 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.14 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 277.922 MB.
+INFO: [XFORM 203-712] Applying dataflow to function 'cnn_core' (firmware/cnn_core.cpp:8), detected/extracted 4 process function(s): 
+	 'nnet::first_conv_2row_4lane_temporal_wide_cl<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config4>'
+	 'nnet::relu<nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, relu_config5>'
+	 'nnet::maxpool2d_wide_nonoverlap_cl<nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, config6>'
+	 'nnet::dense_wide_stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>, config9>'.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (firmware/nnet_utils/nnet_pooling_stream.h:448:29) in function 'nnet::maxpool2d_wide_nonoverlap_cl<nnet::array<ap_ufixed<15, 5, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, config6>'... converting 57 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'nnet::first_conv_2row_4lane_temporal_wide_cl<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 8u>, nnet::array<ap_fixed<16, 6, (ap_q_mode)5, (ap_o_mode)3, 0>, 28u>, config4>' (firmware/nnet_utils/nnet_first_conv_stream.h:33:5)...24 expression(s) balanced.
+INFO: [XFORM 203-11] Balancing expressions in function 'nnet::dense_wide_stream<nnet::array<ap_fixed<9, 4, (ap_q_mode)0, (ap_o_mode)2, 0>, 28u>, nnet::array<ap_fixed<22, 11, (ap_q_mode)5, (ap_o_mode)3, 0>, 1u>, config9>' (firmware/nnet_utils/nnet_dense_stream.h:73:5)...7 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.4 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.4 seconds; current allocated memory: 310.066 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.21 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.22 seconds; current allocated memory: 367.648 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'cnn_core' ...
+WARNING: [SYN 201-103] Legalizing function name 'first_conv_2row_4lane_temporal_wide_cl<array,array<ap_fixed,28u>,config4>' to 'first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config4_s'.
+WARNING: [SYN 201-103] Legalizing function name 'relu<array<ap_fixed,28u>,array<ap_ufixed<15,5,5,3,0>,28u>,relu_config5>' to 'relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5_s'.
+WARNING: [SYN 201-103] Legalizing function name 'maxpool2d_wide_nonoverlap_cl<array,array<ap_fixed,28u>,config6>' to 'maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_s'.
+WARNING: [SYN 201-103] Legalizing function name 'dense_wide_stream<array,array<ap_fixed,1u>,config9>_Pipeline_DenseWideMain' to 'dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseWideMain'.
+WARNING: [SYN 201-103] Legalizing function name 'dense_wide_stream<array,array<ap_fixed<22,11,5,3,0>,1u>,config9>' to 'dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_s'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config4_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'ReadPairsWide'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'ReadPairsWide'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.35 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.38 seconds; current allocated memory: 376.566 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Starting global binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 376.566 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'ReLUActLoop'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 3, loop 'ReLUActLoop'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 376.566 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 376.566 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'PoolWideMain'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'PoolWideMain'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.15 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 380.637 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 380.637 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseWideMain' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'DenseWideMain'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 7, loop 'DenseWideMain'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 383.723 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.11 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.11 seconds; current allocated memory: 398.102 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 399.555 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 399.555 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'cnn_core' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 399.555 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 399.555 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config4_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config4_s' pipeline 'ReadPairsWide' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mul_9s_5ns_13_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_9s_5ns_14_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_9s_6ns_14_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_9s_6ns_15_1_1': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_9s_6s_15_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config4_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.09 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 403.305 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5_s' pipeline 'ReLUActLoop' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.18 seconds; current allocated memory: 417.895 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_s' pipeline 'PoolWideMain' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.11 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.11 seconds; current allocated memory: 422.461 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseWideMain' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseWideMain' pipeline 'DenseWideMain' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_9s_7s_16s_16_1_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mac_muladd_9s_7s_16s_17_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mul_9s_7s_16_1_1': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_2353_11_7_1_1': 7 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'sparsemux_9_2_9_1_1': 7 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseWideMain'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.58 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.61 seconds; current allocated memory: 480.711 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_s' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_s'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.21 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.23 seconds; current allocated memory: 510.348 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'cnn_core' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cnn_core/input_layer' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'cnn_core/layer9_out' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'cnn_core' to 'ap_ctrl_hs'.
+WARNING: [HLS 200-656] Deadlocks can occur since process first_conv_2row_4lane_temporal_wide_cl<array,array<ap_fixed,28u>,config4> is instantiated in a dataflow region with ap_ctrl_none or without start propagation and contains an auto-rewind pipeline.
+INFO: [SYN 201-210] Renamed object name 'start_for_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5_U0' to 'start_for_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5bkb' due to the length limit 80
+INFO: [RTGEN 206-100] Finished creating RTL model for 'cnn_core'.
+INFO: [RTMG 210-285] Implementing FIFO 'layer4x4_out_U(cnn_core_fifo_w448_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer5x4_out_U(cnn_core_fifo_w420_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'layer6x4_out_U(cnn_core_fifo_w252_d4_S)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5bkb_U(cnn_core_start_for_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5bkb)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_U0_U(cnn_core_start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_U0)' using Shift Registers.
+INFO: [RTMG 210-285] Implementing FIFO 'start_for_dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_U0_U(cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_U0)' using Shift Registers.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 510.348 MB.
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 0.17 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.19 seconds; current allocated memory: 510.348 MB.
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 0.29 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.31 seconds; current allocated memory: 516.906 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for cnn_core.
+INFO: [VLOG 209-307] Generating Verilog RTL for cnn_core.
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 274.20 MHz
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 10.31 seconds. CPU system time: 0.93 seconds. Elapsed time: 15.25 seconds; current allocated memory: 260.281 MB.
+INFO: [HLS 200-1510] Running: cosim_design 
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+INFO: [COSIM 212-302] Starting C TB testing ... 
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+INFO: [COSIM 212-316] Starting C post checking ...
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [HLS 200-111] Finished Command cosim_design CPU user time: 18.35 seconds. CPU system time: 1.87 seconds. Elapsed time: 17.52 seconds; current allocated memory: 11.551 MB.

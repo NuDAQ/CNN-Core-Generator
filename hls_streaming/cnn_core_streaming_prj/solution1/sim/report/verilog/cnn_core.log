@@ -1,0 +1,208 @@
+INFO: [COSIM-47] Using XSIM for RTL simulation.
+INFO: [COSIM-14] Instrumenting C test bench ...
+make[1]: Entering directory '/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/wrapc'
+   Build using "/tools/Xilinx/Vitis_HLS/2023.2/tps/lnx64/gcc-8.3.0/bin/g++"
+   Compiling apatb_cnn_core.cpp
+   Compiling apatb_cnn_core_util.cpp
+   Compiling cnn_core.cpp_pre.cpp.tb.cpp
+   Compiling compare_runner.cpp_pre.cpp.tb.cpp
+   Compiling apatb_cnn_core_ir.ll
+   Generating cosim.tv.exe
+make[1]: Leaving directory '/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/wrapc'
+INFO: [COSIM-302] Starting C TB testing ... 
+INFO: [COSIM-333] Generating C post check test bench ...
+INFO: [COSIM-12] Generating RTL test bench ...
+INFO: [COSIM-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM-323] Starting verilog simulation. 
+INFO: [COSIM-15] Starting XSIM ...
+INFO: [COSIM-316] Starting C post checking ...
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 128
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_cnn_core_top glbl -Oenable_linking_all_libraries -prj cnn_core.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_1_16 -L floating_point_v7_0_21 --lib ieee_proposed=./ieee_proposed -s cnn_core 
+Multi-threading is on. Using 30 slave threads.
+WARNING: [XSIM 43-3431] One or more environment variables have been detected which affect the operation of the C compiler. These are typically not set in standard installations and are not tested by AMD, however they may be appropriate for your system, so the flow will attempt to continue.  If errors occur, try running xelab with the "-mt off -v 1" switches to see more information from the C compiler. The following environment variables have been detected:
+    LIBRARY_PATH
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_fifo_w448_d4_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_fifo_w448_d4_S
+INFO: [VRFC 10-311] analyzing module cnn_core_fifo_w448_d4_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_mac_muladd_9s_7s_16s_17_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_9s_7s_16s_17_1_1_DSP48_1
+INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_9s_7s_16s_17_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_fifo_w252_d4_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_fifo_w252_d4_S
+INFO: [VRFC 10-311] analyzing module cnn_core_fifo_w252_d4_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_cnn_core_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseWideMain.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseWideMain
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_start_for_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5bkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_start_for_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5bkb
+INFO: [VRFC 10-311] analyzing module cnn_core_start_for_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5bkb_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_sparsemux_2353_11_7_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_sparsemux_2353_11_7_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detect_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_U0
+INFO: [VRFC 10-311] analyzing module cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_U0_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_U0
+INFO: [VRFC 10-311] analyzing module cnn_core_start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_U0_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_mul_9s_7s_16_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mul_9s_7s_16_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/AESL_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/AESL_deadlock_detector.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detector
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_mul_9s_6ns_15_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mul_9s_6ns_15_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_regslice_both.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_regslice_both
+INFO: [VRFC 10-311] analyzing module cnn_core_regslice_both_w1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_fifo_w420_d4_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_fifo_w420_d4_S
+INFO: [VRFC 10-311] analyzing module cnn_core_fifo_w420_d4_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_mul_9s_5ns_14_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mul_9s_5ns_14_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_flow_control_loop_pipe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_flow_control_loop_pipe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_mul_9s_5ns_13_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mul_9s_5ns_13_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_mul_9s_6s_15_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mul_9s_6s_15_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/AESL_axi_s_input_layer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_s_input_layer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/AESL_deadlock_idx0_monitor.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_idx0_monitor
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/AESL_deadlock_kernel_monitor_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_kernel_monitor_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_mac_muladd_9s_7s_16s_16_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_9s_7s_16s_16_1_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_9s_7s_16s_16_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_flow_control_loop_pipe_sequential_init.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_flow_control_loop_pipe_sequential_init
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config4_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config4_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_sparsemux_9_2_9_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_sparsemux_9_2_9_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_mul_9s_6ns_14_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mul_9s_6ns_14_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/AESL_axi_s_layer9_out.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_s_layer9_out
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'reset' is not connected on this instance [/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_fifo_w448_d4_S.v:49]
+WARNING: [VRFC 10-5021] port 'reset' is not connected on this instance [/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_fifo_w420_d4_S.v:49]
+WARNING: [VRFC 10-5021] port 'reset' is not connected on this instance [/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_fifo_w252_d4_S.v:49]
+WARNING: [VRFC 10-5021] port 'reset' is not connected on this instance [/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_start_for_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5bkb.v:46]
+WARNING: [VRFC 10-5021] port 'reset' is not connected on this instance [/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_U0.v:46]
+WARNING: [VRFC 10-5021] port 'reset' is not connected on this instance [/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_U0.v:46]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.cnn_core_mul_9s_6ns_15_1_1(NUM_S...
+Compiling module xil_defaultlib.cnn_core_mul_9s_5ns_13_1_1(NUM_S...
+Compiling module xil_defaultlib.cnn_core_mul_9s_5ns_14_1_1(NUM_S...
+Compiling module xil_defaultlib.cnn_core_mul_9s_6ns_14_1_1(NUM_S...
+Compiling module xil_defaultlib.cnn_core_mul_9s_6s_15_1_1(NUM_ST...
+Compiling module xil_defaultlib.cnn_core_flow_control_loop_pipe
+Compiling module xil_defaultlib.cnn_core_regslice_both(DataWidth...
+Compiling module xil_defaultlib.cnn_core_first_conv_2row_4lane_t...
+Compiling module xil_defaultlib.cnn_core_relu_array_ap_fixed_28u...
+Compiling module xil_defaultlib.cnn_core_maxpool2d_wide_nonoverl...
+Compiling module xil_defaultlib.cnn_core_sparsemux_9_2_9_1_1(din...
+Compiling module xil_defaultlib.cnn_core_sparsemux_2353_11_7_1_1...
+Compiling module xil_defaultlib.cnn_core_mul_9s_7s_16_1_1(NUM_ST...
+Compiling module xil_defaultlib.cnn_core_mac_muladd_9s_7s_16s_16...
+Compiling module xil_defaultlib.cnn_core_mac_muladd_9s_7s_16s_16...
+Compiling module xil_defaultlib.cnn_core_mac_muladd_9s_7s_16s_17...
+Compiling module xil_defaultlib.cnn_core_mac_muladd_9s_7s_16s_17...
+Compiling module xil_defaultlib.cnn_core_flow_control_loop_pipe_...
+Compiling module xil_defaultlib.cnn_core_dense_wide_stream_array...
+Compiling module xil_defaultlib.cnn_core_regslice_both
+Compiling module xil_defaultlib.cnn_core_dense_wide_stream_array...
+Compiling module xil_defaultlib.cnn_core_fifo_w448_d4_S_ShiftReg
+Compiling module xil_defaultlib.cnn_core_fifo_w448_d4_S
+Compiling module xil_defaultlib.cnn_core_fifo_w420_d4_S_ShiftReg
+Compiling module xil_defaultlib.cnn_core_fifo_w420_d4_S
+Compiling module xil_defaultlib.cnn_core_fifo_w252_d4_S_ShiftReg
+Compiling module xil_defaultlib.cnn_core_fifo_w252_d4_S
+Compiling module xil_defaultlib.cnn_core_start_for_relu_array_ap...
+Compiling module xil_defaultlib.cnn_core_start_for_relu_array_ap...
+Compiling module xil_defaultlib.cnn_core_start_for_maxpool2d_wid...
+Compiling module xil_defaultlib.cnn_core_start_for_maxpool2d_wid...
+Compiling module xil_defaultlib.cnn_core_start_for_dense_wide_st...
+Compiling module xil_defaultlib.cnn_core_start_for_dense_wide_st...
+Compiling module xil_defaultlib.cnn_core
+Compiling module xil_defaultlib.fifo(DEPTH=128,WIDTH=128)
+Compiling module xil_defaultlib.AESL_axi_s_input_layer
+Compiling module xil_defaultlib.fifo(DEPTH=2,WIDTH=32)
+Compiling module xil_defaultlib.AESL_axi_s_layer9_out
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(IN_CHA...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_I...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_I...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_I...
+Compiling module xil_defaultlib.AESL_deadlock_report_unit_defaul...
+Compiling module xil_defaultlib.AESL_deadlock_detector_1
+Compiling module xil_defaultlib.AESL_deadlock_idx0_monitor
+Compiling module xil_defaultlib.AESL_deadlock_kernel_monitor_top...
+Compiling module xil_defaultlib.df_fifo_intf
+Compiling module xil_defaultlib.df_process_intf
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.upc_loop_intf(FSM_WIDTH=1)
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_cnn_core_top
+Compiling module work.glbl
+Built simulation snapshot cnn_core
+
+****** xsim v2023.2 (64-bit)
+  **** SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/cnn_core/xsim_script.tcl
+# xsim {cnn_core} -autoloadwcfg -tclbatch {cnn_core.tcl}
+Time resolution is 1 ps
+source cnn_core.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 8 [0.00%] @ "113000"
+// RTL Simulation : 1 / 8 [22.40%] @ "1048000"
+// RTL Simulation : 2 / 8 [22.40%] @ "1933000"
+// RTL Simulation : 3 / 8 [22.40%] @ "2818000"
+// RTL Simulation : 4 / 8 [22.40%] @ "3703000"
+// RTL Simulation : 5 / 8 [22.40%] @ "4588000"
+// RTL Simulation : 6 / 8 [22.40%] @ "5473000"
+// RTL Simulation : 7 / 8 [22.40%] @ "6358000"
+// RTL Simulation : 8 / 8 [100.00%] @ "7243000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 7272500 ps : File "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core.autotb.v" Line 249
+## quit
+INFO: [Common 17-206] Exiting xsim at Wed Jun  3 16:48:29 2026...
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 128
+INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***

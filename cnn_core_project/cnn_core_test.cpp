@@ -59,12 +59,12 @@ int main(int argc, char **argv) {
             }
 
             // hls-fpga-machine-learning insert data
-      hls::stream<input_t> input_layer("input_layer");
-      nnet::copy_data<float, input_t, 0, 256*4>(in, input_layer);
-      hls::stream<result_t> layer7_out("layer7_out");
+      hls::stream<input_layer_t> input_layer("input_layer");
+      nnet::copy_data<float, input_layer_t, 0, 256*4>(in, input_layer);
+      hls::stream<result_t> layer9_out("layer9_out");
 
             // hls-fpga-machine-learning insert top-level-function
-            cnn_core(input_layer,layer7_out);
+            cnn_core(input_layer,layer9_out);
 
             if (e % CHECKPOINT == 0) {
                 std::cout << "Predictions" << std::endl;
@@ -75,12 +75,12 @@ int main(int argc, char **argv) {
                 std::cout << std::endl;
                 std::cout << "Quantized predictions" << std::endl;
                 // hls-fpga-machine-learning insert quantized
-                nnet::print_result<result_t, 1>(layer7_out, std::cout, true);
+                nnet::print_result<result_t, 1>(layer9_out, std::cout, true);
             }
             e++;
 
             // hls-fpga-machine-learning insert tb-output
-            nnet::print_result<result_t, 1>(layer7_out, fout);
+            nnet::print_result<result_t, 1>(layer9_out, fout);
         }
         fin.close();
         fpr.close();
@@ -89,18 +89,18 @@ int main(int argc, char **argv) {
         const unsigned NUM_TEST_SAMPLES = 5;
         for (unsigned i = 0; i < NUM_TEST_SAMPLES; i++) {
             // hls-fpga-machine-learning insert zero
-            hls::stream<input_t> input_layer("input_layer");
-            nnet::fill_zero<input_t, 256*4>(input_layer);
-            hls::stream<result_t> layer7_out("layer7_out");
+            hls::stream<input_layer_t> input_layer("input_layer");
+            nnet::fill_zero<input_layer_t, 256*4>(input_layer);
+            hls::stream<result_t> layer9_out("layer9_out");
 
             // hls-fpga-machine-learning insert top-level-function
-            cnn_core(input_layer,layer7_out);
+            cnn_core(input_layer,layer9_out);
 
             // hls-fpga-machine-learning insert output
-            nnet::print_result<result_t, 1>(layer7_out, std::cout, true);
+            nnet::print_result<result_t, 1>(layer9_out, std::cout, true);
 
             // hls-fpga-machine-learning insert tb-output
-            nnet::print_result<result_t, 1>(layer7_out, fout);
+            nnet::print_result<result_t, 1>(layer9_out, fout);
         }
     }
 
