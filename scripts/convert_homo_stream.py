@@ -82,7 +82,7 @@ def prepare_output_dir(path: Path, keep_output: bool) -> None:
         path.parent.mkdir(parents=True, exist_ok=True)
 
 
-def import_dependencies() -> tuple[Any, Any]:
+def import_dependencies() -> tuple[Any, Any, dict[str, Any]]:
     try:
         import hls4ml
     except ImportError as exc:
@@ -98,7 +98,16 @@ def import_dependencies() -> tuple[Any, Any]:
             print(f"[ERROR] Missing keras/tensorflow: {exc}", file=sys.stderr)
             raise
 
-    return hls4ml, keras
+    custom_objects: dict[str, Any] = {}
+    try:
+        from hgq.layers import QConv2D, QDense
+    except ImportError:
+        print("[INFO] HGQ package not found; loading model with standard Keras objects only.")
+    else:
+        custom_objects = {"QConv2D": QConv2D, "QDense": QDense}
+        print("[INFO] HGQ package found; registering QConv2D/QDense for model loading.")
+
+    return hls4ml, keras, custom_objects
 
 
 def supported_kwargs(func: Any, kwargs: dict[str, Any]) -> dict[str, Any]:
@@ -219,7 +228,7 @@ def verify_model(hls_model: Any, keras_model: Any, data_dir: Path, model_input_s
 
 def main() -> int:
     args = parse_args()
-    hls4ml, keras = import_dependencies()
+    hls4ml, keras, custom_objects = import_dependencies()
 
     model_path = rel(args.model_path)
     output_dir = rel(args.output_dir)
@@ -229,7 +238,7 @@ def main() -> int:
         raise FileNotFoundError(f"Model file does not exist: {model_path}")
 
     print(f"[INFO] Loading homogeneous Keras model: {model_path}")
-    model = keras.models.load_model(model_path)
+    model = keras.models.load_model(model_path, custom_objects=custom_objects)
     model_input_shape = get_model_input_shape(model)
     print(f"[INFO] Model input shape: {model_input_shape}")
 
