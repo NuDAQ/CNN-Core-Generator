@@ -194,22 +194,50 @@ void first_conv_2row_4lane_temporal_wide_cl(
     typedef typename res_T::value_type res_value_t;
 
     // Shift-register row buffer: buf[0]=newest row, buf[filt_height-1]=oldest row.
-    // All read/write indices are compile-time constants after UNROLL, so HLS can
-    // prove no aliasing and schedule ReadInputPairsWide at II=1.
     data_value_t row_buf[CONFIG_T::filt_height][CONFIG_T::in_width];
     #pragma HLS ARRAY_PARTITION variable=row_buf complete dim=0
 
-    unsigned pair_phase = 0;
+    // Holds row1 from the last stream read so odd iterations can use it without
+    // re-reading the stream.  Separating row0 and row1 into two iterations gives
+    // ONE shift per iteration, breaking the intra-iteration ShiftRow0→ShiftRow1
+    // RAW chain that forced II=2.
+    data_value_t row1_pending[CONFIG_T::in_width];
+    #pragma HLS ARRAY_PARTITION variable=row1_pending complete
 
-ReadInputPairsWide:
-    for (unsigned i_pair = 0; i_pair < CONFIG_T::in_height / 2; i_pair++) {
+    // out_phase cycles 0..stride_height-1.  Output fires when out_phase reaches
+    // TARGET_PHASE (= (filt_height-1) % stride_height) and the window is full.
+    constexpr unsigned TARGET_PHASE =
+        (CONFIG_T::filt_height - 1) % CONFIG_T::stride_height;
+    unsigned out_phase = 0;
+
+    // Loop over individual rows (not pairs).  Even iterations read a new pair
+    // from the stream and process row0; odd iterations process the saved row1.
+    // Each iteration performs exactly one shift of row_buf, so the loop-carried
+    // write of row_buf completes in stage 0 and is visible to stage 0 of the
+    // next iteration — II=1 is achievable.
+ReadInputsWide:
+    for (unsigned i_row = 0; i_row < CONFIG_T::in_height; i_row++) {
         #pragma HLS PIPELINE II=1
 
-        data_T in_pack = data.read();
+        data_value_t new_row[CONFIG_T::in_width];
+        #pragma HLS ARRAY_PARTITION variable=new_row complete
 
-        // Shift all rows down by one slot, then install row0 at buf[0].
-        // With UNROLL each copy uses a literal index — no variable aliasing.
-    ShiftRow0:
+        if ((i_row & 1u) == 0u) {
+            data_T in_pack = data.read();
+            for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
+                #pragma HLS UNROLL
+                new_row[c]       = in_pack[c];
+                row1_pending[c]  = in_pack[CONFIG_T::in_width + c];
+            }
+        } else {
+            for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
+                #pragma HLS UNROLL
+                new_row[c] = row1_pending[c];
+            }
+        }
+
+        // Single shift: one stage, no intra-iteration chain on row_buf.
+    ShiftRow:
         for (unsigned b = CONFIG_T::filt_height - 1; b > 0; b--) {
             #pragma HLS UNROLL
             for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
@@ -217,17 +245,16 @@ ReadInputPairsWide:
                 row_buf[b][c] = row_buf[b - 1][c];
             }
         }
-    InsertPairRow0Wide:
         for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
             #pragma HLS UNROLL
-            row_buf[0][c] = in_pack[c];
+            row_buf[0][c] = new_row[c];
         }
 
-        if (pair_phase == 2) {
+        if (i_row >= CONFIG_T::filt_height - 1 && out_phase == TARGET_PHASE) {
             res_T res_pack;
             PRAGMA_DATA_PACK(res_pack)
 
-        WritePairRow0OutputWidthWide:
+        WriteOutputWidthWide:
             for (unsigned i_iw = 0; i_iw < CONFIG_T::out_width; i_iw++) {
                 #pragma HLS UNROLL
 
@@ -237,8 +264,7 @@ ReadInputPairsWide:
                 res_value_t res_out[CONFIG_T::n_filt];
                 #pragma HLS ARRAY_PARTITION variable=res_out complete
 
-                // buf[filt_height-1] = oldest (kernel row 0), buf[0] = newest (kernel row filt_height-1)
-            CopyPairRow0KernelWide:
+            CopyKernelWide:
                 for (unsigned k = 0; k < CONFIG_T::filt_height; k++) {
                     #pragma HLS UNROLL
                     kernel_data[k] = row_buf[CONFIG_T::filt_height - 1 - k][i_iw];
@@ -247,7 +273,7 @@ ReadInputPairsWide:
                 CONFIG_T::mult_config::template kernel<data_value_t, res_value_t, typename CONFIG_T::mult_config>::dense(
                     kernel_data, res_out, weights, biases);
 
-            PackPairRow0WideOutput:
+            PackWideOutput:
                 for (unsigned i_f = 0; i_f < CONFIG_T::n_filt; i_f++) {
                     #pragma HLS UNROLL
                     res_pack[i_iw * CONFIG_T::n_filt + i_f] = res_out[i_f];
@@ -257,55 +283,7 @@ ReadInputPairsWide:
             res.write(res_pack);
         }
 
-        // Shift again and install row1 at buf[0].
-    ShiftRow1:
-        for (unsigned b = CONFIG_T::filt_height - 1; b > 0; b--) {
-            #pragma HLS UNROLL
-            for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
-                #pragma HLS UNROLL
-                row_buf[b][c] = row_buf[b - 1][c];
-            }
-        }
-    InsertPairRow1Wide:
-        for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
-            #pragma HLS UNROLL
-            row_buf[0][c] = in_pack[CONFIG_T::in_width + c];
-        }
-
-        if (i_pair != 0 && pair_phase == 0) {
-            res_T res_pack;
-            PRAGMA_DATA_PACK(res_pack)
-
-        WritePairRow1OutputWidthWide:
-            for (unsigned i_iw = 0; i_iw < CONFIG_T::out_width; i_iw++) {
-                #pragma HLS UNROLL
-
-                data_value_t kernel_data[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan];
-                #pragma HLS ARRAY_PARTITION variable=kernel_data complete
-
-                res_value_t res_out[CONFIG_T::n_filt];
-                #pragma HLS ARRAY_PARTITION variable=res_out complete
-
-            CopyPairRow1KernelWide:
-                for (unsigned k = 0; k < CONFIG_T::filt_height; k++) {
-                    #pragma HLS UNROLL
-                    kernel_data[k] = row_buf[CONFIG_T::filt_height - 1 - k][i_iw];
-                }
-
-                CONFIG_T::mult_config::template kernel<data_value_t, res_value_t, typename CONFIG_T::mult_config>::dense(
-                    kernel_data, res_out, weights, biases);
-
-            PackPairRow1WideOutput:
-                for (unsigned i_f = 0; i_f < CONFIG_T::n_filt; i_f++) {
-                    #pragma HLS UNROLL
-                    res_pack[i_iw * CONFIG_T::n_filt + i_f] = res_out[i_f];
-                }
-            }
-
-            res.write(res_pack);
-        }
-
-        pair_phase = (pair_phase == 2) ? 0u : pair_phase + 1;
+        out_phase = (out_phase == CONFIG_T::stride_height - 1) ? 0u : out_phase + 1;
     }
 }
 
