@@ -70,8 +70,15 @@ Record top interval, stage intervals, estimated clock, LUT/FF/DSP/BRAM, and
 any unexpected RAM inference after every meaningful schedule change.
 
 After edits to `first_conv_2row_4lane_temporal_wide_cl`, check the
-`ReadInputPairsWide` loop in the generated first-conv report. The intended
-schedule is one 2-row input word per cycle. If Vitis reports `II=2`, inspect
-loop-carried ring-buffer dependencies, generated `urem` operators, and whether
-the output window is emitted before the second row overwrites an older buffer
-slot.
+`ReadInputsWide` loop in the generated first-conv report. The loop iterates
+over individual rows (`in_height` = 256 iterations), not input pairs. Even
+iterations read one pair from the stream and process row0; odd iterations use
+the saved `row1_pending` register for row1. Each iteration performs a single
+shift of the shift-register row buffer (II=1 achieved).
+
+If Vitis reports `II=2`, the most common cause is multiple shifts per iteration
+creating an intra-iteration RAW chain on `row_buf` that spans two pipeline
+stages. A double-shift loop (ShiftRow0 then ShiftRow1 in the same iteration)
+forces II=2 because the second shift reads values the first shift just wrote,
+making the loop-carried write land in the same clock cycle as the next
+iteration's read. Keep exactly one shift per iteration.

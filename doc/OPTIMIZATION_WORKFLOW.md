@@ -509,12 +509,25 @@ input_layer_x2_t stream, 8 values per word
 q_conv2d_x4_t stream, 4 width positions x 7 filters per output row
 ```
 
-The 2x first-conv kernel should be scheduled as one input pair per cycle. Avoid
-unsigned remainder operations and loop structures that force Vitis to serialize
-the two rows inside one input word. The current source uses a three-state
-`pair_phase` counter instead of `(row - offset) % stride`, and emits either the
-row0 or row1 convolution window before any overwrite can invalidate the
-five-row temporal buffer.
+The 2x first-conv kernel processes one row per cycle (II=1 achieved). The loop
+(`ReadInputsWide`) iterates over individual rows (`in_height` iterations, not
+`in_height/2` pairs). Even iterations read one pair from the stream and handle
+row0; odd iterations use the saved `row1_pending` register for row1. Each
+iteration performs a single shift of the shift-register row buffer.
+
+Key scheduling rule: one shift per iteration. Doing two shifts per iteration
+creates an intra-iteration RAW chain — ShiftRow0 writes `row_buf`, then
+ShiftRow1 reads those same locations before the iteration ends — spanning two
+pipeline stages. This makes the loop-carried `row_buf` write land in the same
+clock cycle as the next iteration's read, forcing II=2. With one shift, the
+write completes in stage 0 and the next iteration reads at the start of the
+following cycle: no hazard, II=1 achievable.
+
+The output condition uses an `out_phase` counter cycling `0..stride_height-1`
+instead of `(row - offset) % stride_height`, which would synthesize a divider.
+Output fires when `i_row >= filt_height - 1` and `out_phase == TARGET_PHASE`
+where `TARGET_PHASE = (filt_height-1) % stride_height` is a compile-time
+constant.
 
 Why this is valid for the current model:
 
@@ -823,12 +836,16 @@ largest limiter: repack_stream around 3075 cycles
 The current optimized design:
 
 ```text
-2x C++ behavior-equivalent implementation is present.
-Previous 2x HLS report before pair-loop cleanup:
-  csynth interval:          271 cycles
-  RTL cosim interval:       258 cycles
-  first_conv interval:      270 cycles
-  ReadInputPairsWide loop:  II=2, trip count 128
+2x C++ behavior-equivalent implementation is present and verified.
+Current 2x HLS results (v3.4, commit after per-row loop rewrite):
+  csynth interval:          260 cycles
+  RTL cosim interval:       257 cycles  (Verilog PASS)
+  first_conv interval:      259 cycles
+  ReadInputsWide loop:      II=1, trip count 256  (target achieved)
+  OOC LUT:                  5637  (2.60%)
+  OOC FF:                   2877  (0.66%)
+  OOC DSP:                  7
+  OOC BRAM:                 2x RAMB18E2  (0.21%, from dense retiming)
   OOC timing:               met at 5 ns, WNS +2.152 ns
 ```
 
@@ -838,33 +855,30 @@ The 2x top-level interface accepts two time rows per input word:
 input_layer_x2_t = 2 time samples x 4 lanes
 ```
 
-The input-read lower bound therefore moves from roughly 256 cycles to roughly
-128 cycles for one `256 x 4` chunk. Whether the final top interval gets close
-to that bound depends on Vitis scheduling of first convolution, dense, FIFOs,
-and timing closure.
+The 2x input halves the stream transaction count (128 reads instead of 256),
+but the top interval is still 257–260 cycles because the first_conv module
+itself takes 259 cycles — dominated by the 256-row temporal convolution, not
+by the stream read rate. The `ReadInputsWide` loop at II=1 is no longer the
+scheduling bottleneck.
 
-Further single-core interval reduction beyond 2x likely requires one of these
-changes:
+Further single-core interval reduction beyond the current 257–260 cycles
+likely requires one of these changes:
 
 ```text
-wider top-level input interface
-more than one input word per cycle
+wider top-level input interface (3x or 4x rows per word)
 multiple cores interleaved across chunks
 persistent top-level loop that overlaps chunks differently
-model architecture change
+model architecture change (fewer rows, smaller kernel)
 different input granularity and scheduler contract
 ```
 
-For the current core, the next important work is:
+For the current core, open work items are:
 
 ```text
-regenerate HLS evidence after the pair-loop cleanup
-check whether ReadInputPairsWide reaches II=1
-check whether first_conv or dense becomes the limiter
-confirm layer4x4_out stays out of BRAM after SRL binding
-decide whether 3x input is worth the additional schedule risk
 DAQ/front-end packetization for 2-row input words
-RTL cosim and integration tests
+integration tests at system level
+decide whether 3x input reduces first_conv interval below 257 cycles
+confirm layer4x4_out FIFO depth is sufficient under back-pressure
 ```
 
 ## Known Numerical Correctness Issues
