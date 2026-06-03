@@ -42,8 +42,6 @@ INFO: [VRFC 10-311] analyzing module cnn_core_dense_wide_stream_array_array_ap_f
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_start_for_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5bkb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cnn_core_start_for_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5bkb
 INFO: [VRFC 10-311] analyzing module cnn_core_start_for_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5bkb_ShiftReg
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_sparsemux_11_3_9_1_1.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module cnn_core_sparsemux_11_3_9_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_sparsemux_2353_11_7_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cnn_core_sparsemux_2353_11_7_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
@@ -80,6 +78,8 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Ge
 INFO: [VRFC 10-311] analyzing module cnn_core_flow_control_loop_pipe
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_mul_9s_5ns_13_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cnn_core_mul_9s_5ns_13_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_mul_9s_6s_15_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mul_9s_6s_15_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/AESL_axi_s_input_layer.v" into library xil_defaultlib
@@ -97,6 +97,8 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Ge
 INFO: [VRFC 10-311] analyzing module cnn_core_first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config4_s
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_sparsemux_9_2_9_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cnn_core_sparsemux_9_2_9_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_mul_9s_6ns_14_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mul_9s_6ns_14_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cnn_core
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/AESL_axi_s_layer9_out.v" into library xil_defaultlib
@@ -120,12 +122,13 @@ Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
-Compiling module xil_defaultlib.cnn_core_mul_9s_5ns_13_1_1(NUM_S...
+Compiling module xil_defaultlib.cnn_core_mul_9s_6ns_14_1_1(NUM_S...
 Compiling module xil_defaultlib.cnn_core_mul_9s_5ns_14_1_1(NUM_S...
 Compiling module xil_defaultlib.cnn_core_mul_9s_6s_14_1_1(NUM_ST...
 Compiling module xil_defaultlib.cnn_core_mul_10s_6ns_15_1_1(NUM_...
+Compiling module xil_defaultlib.cnn_core_mul_9s_5ns_13_1_1(NUM_S...
 Compiling module xil_defaultlib.cnn_core_mul_9s_6ns_15_1_1(NUM_S...
-Compiling module xil_defaultlib.cnn_core_sparsemux_11_3_9_1_1(di...
+Compiling module xil_defaultlib.cnn_core_mul_9s_6s_15_1_1(NUM_ST...
 Compiling module xil_defaultlib.cnn_core_flow_control_loop_pipe
 Compiling module xil_defaultlib.cnn_core_regslice_both(DataWidth...
 Compiling module xil_defaultlib.cnn_core_first_conv_2row_4lane_t...
@@ -196,17 +199,17 @@ source cnn_core.tcl
 // RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
 ////////////////////////////////////////////////////////////////////////////////////
 // RTL Simulation : 0 / 8 [0.00%] @ "113000"
-// RTL Simulation : 1 / 8 [5.30%] @ "1483000"
-// RTL Simulation : 2 / 8 [5.30%] @ "2773000"
-// RTL Simulation : 3 / 8 [5.30%] @ "4063000"
-// RTL Simulation : 4 / 8 [5.30%] @ "5353000"
-// RTL Simulation : 5 / 8 [5.30%] @ "6643000"
-// RTL Simulation : 6 / 8 [5.30%] @ "7933000"
-// RTL Simulation : 7 / 8 [5.30%] @ "9223000"
-// RTL Simulation : 8 / 8 [100.00%] @ "10513000"
+// RTL Simulation : 1 / 8 [4.94%] @ "1478000"
+// RTL Simulation : 2 / 8 [4.94%] @ "2768000"
+// RTL Simulation : 3 / 8 [4.94%] @ "4058000"
+// RTL Simulation : 4 / 8 [4.94%] @ "5348000"
+// RTL Simulation : 5 / 8 [4.94%] @ "6638000"
+// RTL Simulation : 6 / 8 [4.94%] @ "7928000"
+// RTL Simulation : 7 / 8 [4.94%] @ "9218000"
+// RTL Simulation : 8 / 8 [100.00%] @ "10508000"
 ////////////////////////////////////////////////////////////////////////////////////
-$finish called at time : 10542500 ps : File "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core.autotb.v" Line 249
+$finish called at time : 10537500 ps : File "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core.autotb.v" Line 249
 ## quit
-INFO: [Common 17-206] Exiting xsim at Wed Jun  3 15:32:52 2026...
+INFO: [Common 17-206] Exiting xsim at Wed Jun  3 15:48:36 2026...
 INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 128
 INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***

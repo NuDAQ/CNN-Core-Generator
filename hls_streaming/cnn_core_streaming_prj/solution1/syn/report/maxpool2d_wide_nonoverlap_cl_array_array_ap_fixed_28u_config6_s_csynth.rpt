@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_s'
 ================================================================
-* Date:           Wed Jun  3 15:32:34 2026
+* Date:           Wed Jun  3 15:48:16 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_streaming_prj
