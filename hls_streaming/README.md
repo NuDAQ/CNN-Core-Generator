@@ -69,6 +69,19 @@ stream and CSIM fails because the top-level function now expects
 Record top interval, stage intervals, estimated clock, LUT/FF/DSP/BRAM, and
 any unexpected RAM inference after every meaningful schedule change.
 
+Current verified results (pair parallelism, commit 14f2686):
+
+```
+csynth interval:   178 cycles   (dense bottleneck 177, first_conv 131)
+RTL cosim:         177 cycles max, PASS
+OOC LUT (logic):   4829  (2.2%)
+OOC LUT (SR):      1093  (1.1%, 5-row shift-register row buffer)
+OOC FF:            2953  (0.7%)
+OOC DSP:           7
+OOC BRAM:          2× RAMB18E2  (0.2%)
+OOC WNS:           +2.152 ns ✓
+```
+
 After edits to `first_conv_2row_4lane_temporal_wide_cl`, check the
 `ReadPairsWide` loop in the generated first-conv report. The loop iterates
 over input pairs (`in_height/2` = 128 iterations). Each iteration reads one

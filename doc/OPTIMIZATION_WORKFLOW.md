@@ -852,22 +852,24 @@ The current optimized design:
 
 ```text
 2x C++ behavior-equivalent implementation is present and verified.
-Last verified 2x HLS results (v3.4, per-row loop, commit 7677c0d):
-  csynth interval:          260 cycles
-  RTL cosim interval:       257 cycles  (Verilog PASS)
-  first_conv interval:      259 cycles
-  ReadInputsWide loop:      II=1, trip count 256
-  OOC LUT:                  5637  (2.60%)
-  OOC FF:                   2877  (0.66%)
+Current 2x HLS results (v3.4, pair parallelism, commit 14f2686):
+  csynth interval:          178 cycles
+  RTL cosim interval:       177 cycles max  (Verilog PASS, avg 172, min 144)
+  first_conv interval:      131 cycles  (ReadPairsWide: II=1, trip 128)
+  dense interval:           177 cycles  (DenseWideMain: II=1, trip 168) ← bottleneck
+  OOC LUT (logic):          4829  (2.23%)
+  OOC LUT (shift reg):      1093  (1.09%, row_buf 5-row SR)
+  OOC FF:                   2953  (0.68%)
   OOC DSP:                  7
-  OOC BRAM:                 2x RAMB18E2  (0.21%, from dense retiming)
+  OOC BRAM:                 2x RAMB18E2  (0.21%)
   OOC timing:               met at 5 ns, WNS +2.152 ns
 
-Pair parallelism (ReadPairsWide, trip count 128) implemented in source;
-HLS results pending.  Expected:
-  first_conv interval:      ~131 cycles  (ReadPairsWide: 128 iter × II=1)
-  top bottleneck:           dense_wide_stream (~177 cycles)
-  top interval:             ~177 cycles  (~32% improvement)
+Previous per-row loop baseline (commit 7677c0d):
+  csynth interval:          260 cycles
+  RTL cosim interval:       257 cycles  (Verilog PASS)
+  first_conv interval:      259 cycles  (ReadInputsWide: II=1, trip 256)
+  OOC LUT:                  5637
+  OOC FF:                   2877
 ```
 
 The 2x top-level interface accepts two time rows per input word:
@@ -877,15 +879,14 @@ input_layer_x2_t = 2 time samples x 4 lanes
 ```
 
 With pair parallelism the 128-iteration loop reads one stream word per cycle,
-fully utilizing the 2x input bandwidth.  The top bottleneck shifts from
-first_conv (259 → ~131) to dense_wide_stream (177 cycles, DenseWideMain
-168 iter II=1).
+fully utilizing the 2x input bandwidth.  The top bottleneck shifted from
+first_conv (259 → 131 cycles) to dense_wide_stream (177 cycles,
+DenseWideMain 168 iter II=1).
 
 For the current core, open work items are:
 
 ```text
-HLS verification of pair parallelism (ReadPairsWide II=1, first_conv ~131)
-dense_wide_stream optimization (next bottleneck at ~177 cycles)
+dense_wide_stream optimization (bottleneck at 177 cycles, DenseWideMain 168 iter II=1)
 DAQ/front-end packetization for 2-row input words
 integration tests at system level
 confirm layer4x4_out FIFO depth is sufficient under back-pressure

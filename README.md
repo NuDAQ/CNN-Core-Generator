@@ -171,45 +171,44 @@ Target device: `xcku5p-ffvb676-2-e`, 5 ns clock (200 MHz).
 
 ### Throughput (top-level interval per 256×4 inference)
 
-| Branch | Input width | csynth interval | RTL cosim interval |
-|--------|-------------|----------------|--------------------|
-| v3.2 (1x streaming) | 1 row/word | 260 cycles | — |
-| **v3.4 (2x streaming)** | **2 rows/word** | **260 cycles** | **257 cycles ✓** |
+| Branch / Optimization | Loop structure | csynth interval | RTL cosim interval |
+|----------------------|----------------|----------------|--------------------|
+| v3.2 (1x streaming) | per-row, 1 row/word | 260 cycles | — |
+| v3.4 per-row loop (7677c0d) | 256 iter/II=1, 2 rows/word | 260 cycles | 257 cycles ✓ |
+| **v3.4 pair parallelism** | **128 iter/II=1, 2 rows/word** | **178 cycles** | **177 cycles ✓** |
 
-Both streaming branches achieve the same csynth interval (260 cycles) because
-the bottleneck is the `first_conv` stage (259 cycles), which is limited by the
-256-row input depth regardless of how many rows arrive per stream word.
-v3.4 is the first branch with a confirmed RTL cosim result (257 cycles, PASS).
+v3.4 pair parallelism delivers a **32% interval reduction** vs. v3.2 (260 → 178 cycles
+csynth; 257 → 177 cycles cosim). The top-level bottleneck shifted from
+`first_conv` (259 → 131 cycles) to `dense_wide_stream` (177 cycles).
 
-### Per-layer interval (v3.4, csynth)
+### Per-layer interval (v3.4 pair parallelism, csynth)
 
 | Layer | Interval | Loop | Notes |
 |-------|----------|------|-------|
-| `first_conv_2row_4lane_temporal_wide_cl` | 259 → **~131** | `ReadPairsWide` 128 iter II=1 | pair parallelism implemented; HLS pending |
+| `dense_wide_stream` | **177** | `DenseWideMain` 168 iter II=1 | **bottleneck** |
+| `first_conv_2row_4lane_temporal_wide_cl` | **131** | `ReadPairsWide` 128 iter II=1 | was 259 |
 | `relu` | 87 | — | |
 | `maxpool2d_wide_nonoverlap_cl` | 87 | — | |
-| `dense_wide_stream` | 177 | `DenseWideMain` 168 iter II=1 | becomes bottleneck after first_conv improves |
-
-Per-row loop baseline (commit 7677c0d): first_conv=259, top cosim=257 cycles.
-Pair parallelism target: first_conv≈131, top≈177 cycles (dense-limited).
 
 ### Resource usage
 
 | Metric | v3.2 csynth est. | v3.4 csynth est. | v3.4 OOC actual |
 |--------|-----------------|-----------------|-----------------|
-| LUT | 26 500 | 29 248 | **5 637** (2.6%) |
-| FF | 2 975 | 3 421 | **2 877** (0.7%) |
-| DSP | 11 | 4 | 7 |
-| BRAM | 0 | 0 | 2× RAMB18E2 (0.2%) |
+| LUT (logic) | 26 500 | 28 922 | **4 829** (2.2%) |
+| LUT (shift reg) | — | — | **1 093** (1.1%) |
+| FF | 2 975 | 3 483 | **2 953** (0.7%) |
+| DSP | 11 | 4 | **7** (0.4%) |
+| BRAM | 0 | 0 | **2× RAMB18E2** (0.2%) |
 | OOC WNS | — | — | **+2.152 ns** ✓ |
 
 Notes:
 - v3.2 has no OOC synthesis report; csynth estimates are pre-place-and-route.
 - v3.4 uses wider homogeneous HGQ precision (`ap_fixed<22,11>` for dense vs
-  `ap_fixed<9,5>` in v3.2), which inflates csynth LUT estimates but is handled
-  efficiently by post-synthesis optimization (OOC LUT drops to 5 637).
-- DSP reduction from 11 → 4 (csynth) comes from v3.4's homogeneous quantization
-  allowing LUT-based multiply inference for the dense layer.
+  `ap_fixed<9,5>` in v3.2), which inflates csynth LUT estimates but is
+  absorbed efficiently post-synthesis (OOC logic LUT < 5k vs. csynth 29k).
+- LUT-SR (1 093) is the 5-row shift-register row buffer inferred by Vivado.
+- DSP stays at 7 (OOC) despite csynth reporting 4; Vivado infers a few
+  additional DSPs for the dense fixed-point multiply tree.
 
 ### Reports
 
