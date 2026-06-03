@@ -29,28 +29,23 @@ void cnn_core(
 
     // hls-fpga-machine-learning insert layers
 
-    hls::stream<reshape_t> layer10_out("layer10_out");
-    #pragma HLS STREAM variable=layer10_out depth=1024
+    hls::stream<q_conv2d_x4_t> layer4x4_out("layer4x4_out");
+    #pragma HLS STREAM variable=layer4x4_out depth=4
 
-    hls::stream<q_conv2d_t> layer4_out("layer4_out");
-    #pragma HLS STREAM variable=layer4_out depth=336
+    hls::stream<q_conv2d_relu_x4_t> layer5x4_out("layer5x4_out");
+    #pragma HLS STREAM variable=layer5x4_out depth=4
+    #pragma HLS BIND_STORAGE variable=layer5x4_out type=fifo impl=srl
 
-    hls::stream<q_conv2d_relu_t> layer5_out("layer5_out");
-    #pragma HLS STREAM variable=layer5_out depth=336
+    hls::stream<max_pooling2d_x4_t> layer6x4_out("layer6x4_out");
+    #pragma HLS STREAM variable=layer6x4_out depth=4
+    #pragma HLS BIND_STORAGE variable=layer6x4_out type=fifo impl=srl
 
-    hls::stream<max_pooling2d_t> layer6_out("layer6_out");
-    #pragma HLS STREAM variable=layer6_out depth=168
+    nnet::first_conv_4lane_temporal_wide_cl<input_layer_t, q_conv2d_x4_t, config4>(input_layer, layer4x4_out, w4, b4); // repack_reshape + q_conv2d
 
-    auto& layer7_out = layer6_out;
-    nnet::repack_stream<input_layer_t, reshape_t, 1024>(input_layer, layer10_out); // repack_reshape
+    nnet::relu<q_conv2d_x4_t, q_conv2d_relu_x4_t, relu_config5>(layer4x4_out, layer5x4_out); // q_conv2d_relu
 
-    nnet::conv_2d_cl<reshape_t, q_conv2d_t, config4>(layer10_out, layer4_out, w4, b4); // q_conv2d
+    nnet::maxpool2d_wide_nonoverlap_cl<q_conv2d_relu_x4_t, max_pooling2d_x4_t, config6>(layer5x4_out, layer6x4_out); // max_pooling2d
 
-    nnet::relu<q_conv2d_t, q_conv2d_relu_t, relu_config5>(layer4_out, layer5_out); // q_conv2d_relu
-
-    nnet::pooling2d_cl<q_conv2d_relu_t, max_pooling2d_t, config6>(layer5_out, layer6_out); // max_pooling2d
-
-    nnet::dense<max_pooling2d_t, result_t, config9>(layer7_out, layer9_out, w9, b9); // q_dense
+    nnet::dense_wide_stream<max_pooling2d_x4_t, result_t, config9>(layer6x4_out, layer9_out, w9, b9); // q_dense
 
 }
-
