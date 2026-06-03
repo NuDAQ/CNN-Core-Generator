@@ -26,6 +26,9 @@ WARNING: [XSIM 43-3431] One or more environment variables have been detected whi
     LIBRARY_PATH
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/glbl.v" into library work
 INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_fifo_w448_d4_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_fifo_w448_d4_S
+INFO: [VRFC 10-311] analyzing module cnn_core_fifo_w448_d4_S_ShiftReg
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_mac_muladd_9s_7s_16s_17_1_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_9s_7s_16s_17_1_1_DSP48_1
 INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_9s_7s_16s_17_1_1
@@ -52,12 +55,6 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Ge
 INFO: [VRFC 10-311] analyzing module cnn_core_mul_9s_6s_14_1_1
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_s.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cnn_core_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_s
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_urem_8ns_3ns_2_12_1.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module cnn_core_urem_8ns_3ns_2_12_1_divider
-INFO: [VRFC 10-311] analyzing module cnn_core_urem_8ns_3ns_2_12_1
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_fifo_w448_d4_A.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module cnn_core_fifo_w448_d4_A
-INFO: [VRFC 10-311] analyzing module cnn_core_fifo_w448_d4_A_ram
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_U0.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cnn_core_start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_U0
 INFO: [VRFC 10-311] analyzing module cnn_core_start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_U0_ShiftReg
@@ -112,6 +109,7 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Ge
 INFO: [VRFC 10-311] analyzing module dataflow_monitor
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'reset' is not connected on this instance [/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_fifo_w448_d4_S.v:49]
 WARNING: [VRFC 10-5021] port 'reset' is not connected on this instance [/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_fifo_w420_d4_S.v:49]
 WARNING: [VRFC 10-5021] port 'reset' is not connected on this instance [/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_fifo_w252_d4_S.v:49]
 WARNING: [VRFC 10-5021] port 'reset' is not connected on this instance [/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core_start_for_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5bkb.v:46]
@@ -127,8 +125,6 @@ Compiling module xil_defaultlib.cnn_core_mul_9s_5ns_14_1_1(NUM_S...
 Compiling module xil_defaultlib.cnn_core_mul_9s_6s_14_1_1(NUM_ST...
 Compiling module xil_defaultlib.cnn_core_mul_10s_6ns_15_1_1(NUM_...
 Compiling module xil_defaultlib.cnn_core_mul_9s_6ns_15_1_1(NUM_S...
-Compiling module xil_defaultlib.cnn_core_urem_8ns_3ns_2_12_1_div...
-Compiling module xil_defaultlib.cnn_core_urem_8ns_3ns_2_12_1(NUM...
 Compiling module xil_defaultlib.cnn_core_sparsemux_11_3_9_1_1(di...
 Compiling module xil_defaultlib.cnn_core_flow_control_loop_pipe
 Compiling module xil_defaultlib.cnn_core_regslice_both(DataWidth...
@@ -146,8 +142,8 @@ Compiling module xil_defaultlib.cnn_core_flow_control_loop_pipe_...
 Compiling module xil_defaultlib.cnn_core_dense_wide_stream_array...
 Compiling module xil_defaultlib.cnn_core_regslice_both
 Compiling module xil_defaultlib.cnn_core_dense_wide_stream_array...
-Compiling module xil_defaultlib.cnn_core_fifo_w448_d4_A_ram
-Compiling module xil_defaultlib.cnn_core_fifo_w448_d4_A
+Compiling module xil_defaultlib.cnn_core_fifo_w448_d4_S_ShiftReg
+Compiling module xil_defaultlib.cnn_core_fifo_w448_d4_S
 Compiling module xil_defaultlib.cnn_core_fifo_w420_d4_S_ShiftReg
 Compiling module xil_defaultlib.cnn_core_fifo_w420_d4_S
 Compiling module xil_defaultlib.cnn_core_fifo_w252_d4_S_ShiftReg
@@ -200,17 +196,17 @@ source cnn_core.tcl
 // RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
 ////////////////////////////////////////////////////////////////////////////////////
 // RTL Simulation : 0 / 8 [0.00%] @ "113000"
-// RTL Simulation : 1 / 8 [9.12%] @ "1538000"
-// RTL Simulation : 2 / 8 [9.12%] @ "2828000"
-// RTL Simulation : 3 / 8 [9.12%] @ "4118000"
-// RTL Simulation : 4 / 8 [9.12%] @ "5408000"
-// RTL Simulation : 5 / 8 [9.12%] @ "6698000"
-// RTL Simulation : 6 / 8 [9.12%] @ "7988000"
-// RTL Simulation : 7 / 8 [9.12%] @ "9278000"
-// RTL Simulation : 8 / 8 [100.00%] @ "10568000"
+// RTL Simulation : 1 / 8 [5.30%] @ "1483000"
+// RTL Simulation : 2 / 8 [5.30%] @ "2773000"
+// RTL Simulation : 3 / 8 [5.30%] @ "4063000"
+// RTL Simulation : 4 / 8 [5.30%] @ "5353000"
+// RTL Simulation : 5 / 8 [5.30%] @ "6643000"
+// RTL Simulation : 6 / 8 [5.30%] @ "7933000"
+// RTL Simulation : 7 / 8 [5.30%] @ "9223000"
+// RTL Simulation : 8 / 8 [100.00%] @ "10513000"
 ////////////////////////////////////////////////////////////////////////////////////
-$finish called at time : 10597500 ps : File "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core.autotb.v" Line 249
+$finish called at time : 10542500 ps : File "/home/work1/Works/CNN-Core-Generator/hls_streaming/cnn_core_streaming_prj/solution1/sim/verilog/cnn_core.autotb.v" Line 249
 ## quit
-INFO: [Common 17-206] Exiting xsim at Wed Jun  3 15:23:17 2026...
+INFO: [Common 17-206] Exiting xsim at Wed Jun  3 15:32:52 2026...
 INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 128
 INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***
