@@ -509,6 +509,13 @@ input_layer_x2_t stream, 8 values per word
 q_conv2d_x4_t stream, 4 width positions x 7 filters per output row
 ```
 
+The 2x first-conv kernel should be scheduled as one input pair per cycle. Avoid
+unsigned remainder operations and loop structures that force Vitis to serialize
+the two rows inside one input word. The current source uses a three-state
+`pair_phase` counter instead of `(row - offset) % stride`, and emits either the
+row0 or row1 convolution window before any overwrite can invalidate the
+five-row temporal buffer.
+
 Why this is valid for the current model:
 
 ```text
@@ -817,7 +824,12 @@ The current optimized design:
 
 ```text
 2x C++ behavior-equivalent implementation is present.
-HLS interval/resource evidence still needs to be regenerated.
+Previous 2x HLS report before pair-loop cleanup:
+  csynth interval:          271 cycles
+  RTL cosim interval:       258 cycles
+  first_conv interval:      270 cycles
+  ReadInputPairsWide loop:  II=2, trip count 128
+  OOC timing:               met at 5 ns, WNS +2.152 ns
 ```
 
 The 2x top-level interface accepts two time rows per input word:
@@ -846,9 +858,10 @@ different input granularity and scheduler contract
 For the current core, the next important work is:
 
 ```text
-regenerate HLS evidence for the 2x path
-inspect whether first_conv or dense becomes the limiter
-check timing closure with the wider input packet
+regenerate HLS evidence after the pair-loop cleanup
+check whether ReadInputPairsWide reaches II=1
+check whether first_conv or dense becomes the limiter
+confirm layer4x4_out stays out of BRAM after SRL binding
 decide whether 3x input is worth the additional schedule risk
 DAQ/front-end packetization for 2-row input words
 RTL cosim and integration tests

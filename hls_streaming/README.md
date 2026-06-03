@@ -68,3 +68,10 @@ stream and CSIM fails because the top-level function now expects
 
 Record top interval, stage intervals, estimated clock, LUT/FF/DSP/BRAM, and
 any unexpected RAM inference after every meaningful schedule change.
+
+After edits to `first_conv_2row_4lane_temporal_wide_cl`, check the
+`ReadInputPairsWide` loop in the generated first-conv report. The intended
+schedule is one 2-row input word per cycle. If Vitis reports `II=2`, inspect
+loop-carried ring-buffer dependencies, generated `urem` operators, and whether
+the output window is emitted before the second row overwrites an older buffer
+slot.
