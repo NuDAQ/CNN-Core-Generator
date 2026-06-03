@@ -509,25 +509,40 @@ input_layer_x2_t stream, 8 values per word
 q_conv2d_x4_t stream, 4 width positions x 7 filters per output row
 ```
 
-The 2x first-conv kernel processes one row per cycle (II=1 achieved). The loop
-(`ReadInputsWide`) iterates over individual rows (`in_height` iterations, not
-`in_height/2` pairs). Even iterations read one pair from the stream and handle
-row0; odd iterations use the saved `row1_pending` register for row1. Each
-iteration performs a single shift of the shift-register row buffer.
+The 2x first-conv kernel processes **two rows per cycle** (pair parallelism,
+II=1). The loop (`ReadPairsWide`) iterates over input pairs
+(`in_height/2` = 128 iterations). Each iteration:
 
-Key scheduling rule: one shift per iteration. Doing two shifts per iteration
-creates an intra-iteration RAW chain — ShiftRow0 writes `row_buf`, then
-ShiftRow1 reads those same locations before the iteration ends — spanning two
-pipeline stages. This makes the loop-carried `row_buf` write land in the same
-clock cycle as the next iteration's read, forcing II=2. With one shift, the
-write completes in stage 0 and the next iteration reads at the start of the
-following cycle: no hazard, II=1 achievable.
+1. Reads one stream word containing row0 + row1.
+2. Snapshots `row_buf` into a local `old_buf` (wire connections to the
+   registered row_buf elements — no extra pipeline stage).
+3. Unconditionally advances `row_buf` by 2 rows from `old_buf` and inputs:
+   `new_buf[0]=row1, new_buf[1]=row0, new_buf[b]=old_buf[b-2]` for b≥2.
+4. Conditionally computes a MAC and emits one output word.
 
-The output condition uses an `out_phase` counter cycling `0..stride_height-1`
-instead of `(row - offset) % stride_height`, which would synthesize a divider.
-Output fires when `i_row >= filt_height - 1` and `out_phase == TARGET_PHASE`
-where `TARGET_PHASE = (filt_height-1) % stride_height` is a compile-time
-constant.
+Scheduling rule: all sources for the `row_buf` write are registered values
+(`old_buf`) or combinational stream inputs. There is no intra-iteration
+sequential dependency on `row_buf`; the write lands at stage 0 and is visible
+at stage 0 of the next iteration — II=1 achievable.
+
+The output condition uses a `pair_phase` counter cycling `0..stride_height-1`.
+For config4 (filt_height=5, stride_height=3):
+- `EMIT_ROW0_PHASE = ((filt_height-1)/2) % stride_height = 2`
+- `EMIT_ROW1_PHASE = ((filt_height-1+stride_height)/2) % stride_height = 0`
+- phase 1: no output
+
+Stride=3 > 2 guarantees at most one `res.write()` per pair iteration.
+Kernel arrays are built from `old_buf` + current inputs with compile-time
+constant indices (fully unrolled), so no runtime division or modulo.
+
+History of II violations in this loop:
+
+| Attempt | Structure | II | Cause |
+|---------|-----------|----|----|
+| Ring buffer | 128 pair-iters | 2 | Variable-index aliasing |
+| Shift register, 2-shift | 128 pair-iters | 2 | ShiftRow1 reads ShiftRow0 output in same iter |
+| Shift register, 1-shift | 256 row-iters | 1 | One shift, per-row loop |
+| **Pair parallelism** | **128 pair-iters** | **1** | old_buf snapshot; no intra-iter RAW |
 
 Why this is valid for the current model:
 
@@ -837,16 +852,22 @@ The current optimized design:
 
 ```text
 2x C++ behavior-equivalent implementation is present and verified.
-Current 2x HLS results (v3.4, commit after per-row loop rewrite):
+Last verified 2x HLS results (v3.4, per-row loop, commit 7677c0d):
   csynth interval:          260 cycles
   RTL cosim interval:       257 cycles  (Verilog PASS)
   first_conv interval:      259 cycles
-  ReadInputsWide loop:      II=1, trip count 256  (target achieved)
+  ReadInputsWide loop:      II=1, trip count 256
   OOC LUT:                  5637  (2.60%)
   OOC FF:                   2877  (0.66%)
   OOC DSP:                  7
   OOC BRAM:                 2x RAMB18E2  (0.21%, from dense retiming)
   OOC timing:               met at 5 ns, WNS +2.152 ns
+
+Pair parallelism (ReadPairsWide, trip count 128) implemented in source;
+HLS results pending.  Expected:
+  first_conv interval:      ~131 cycles  (ReadPairsWide: 128 iter × II=1)
+  top bottleneck:           dense_wide_stream (~177 cycles)
+  top interval:             ~177 cycles  (~32% improvement)
 ```
 
 The 2x top-level interface accepts two time rows per input word:
@@ -855,29 +876,18 @@ The 2x top-level interface accepts two time rows per input word:
 input_layer_x2_t = 2 time samples x 4 lanes
 ```
 
-The 2x input halves the stream transaction count (128 reads instead of 256),
-but the top interval is still 257–260 cycles because the first_conv module
-itself takes 259 cycles — dominated by the 256-row temporal convolution, not
-by the stream read rate. The `ReadInputsWide` loop at II=1 is no longer the
-scheduling bottleneck.
-
-Further single-core interval reduction beyond the current 257–260 cycles
-likely requires one of these changes:
-
-```text
-wider top-level input interface (3x or 4x rows per word)
-multiple cores interleaved across chunks
-persistent top-level loop that overlaps chunks differently
-model architecture change (fewer rows, smaller kernel)
-different input granularity and scheduler contract
-```
+With pair parallelism the 128-iteration loop reads one stream word per cycle,
+fully utilizing the 2x input bandwidth.  The top bottleneck shifts from
+first_conv (259 → ~131) to dense_wide_stream (177 cycles, DenseWideMain
+168 iter II=1).
 
 For the current core, open work items are:
 
 ```text
+HLS verification of pair parallelism (ReadPairsWide II=1, first_conv ~131)
+dense_wide_stream optimization (next bottleneck at ~177 cycles)
 DAQ/front-end packetization for 2-row input words
 integration tests at system level
-decide whether 3x input reduces first_conv interval below 257 cycles
 confirm layer4x4_out FIFO depth is sufficient under back-pressure
 ```
 

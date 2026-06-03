@@ -189,91 +189,138 @@ void first_conv_2row_4lane_temporal_wide_cl(
     static_assert(CONFIG_T::n_filt * CONFIG_T::out_width == res_T::size,
                   "wide output must pack all width positions and filters");
     static_assert(CONFIG_T::in_height % 2 == 0, "2-row input expects an even input height");
+    static_assert(CONFIG_T::stride_height >= 2,
+                  "pair parallelism requires stride_height >= 2 to guarantee at most one output per pair");
 
     typedef typename data_T::value_type data_value_t;
     typedef typename res_T::value_type res_value_t;
 
     // Shift-register row buffer: buf[0]=newest row, buf[filt_height-1]=oldest row.
+    // Pair parallelism: each iteration advances the buffer by 2 rows.  The new
+    // state is computed entirely from the registered old_buf snapshot and the
+    // current stream inputs — no intra-iteration RAW chain on row_buf → II=1.
     data_value_t row_buf[CONFIG_T::filt_height][CONFIG_T::in_width];
     #pragma HLS ARRAY_PARTITION variable=row_buf complete dim=0
 
-    // Holds row1 from the last stream read so odd iterations can use it without
-    // re-reading the stream.  Separating row0 and row1 into two iterations gives
-    // ONE shift per iteration, breaking the intra-iteration ShiftRow0→ShiftRow1
-    // RAW chain that forced II=2.
-    data_value_t row1_pending[CONFIG_T::in_width];
-    #pragma HLS ARRAY_PARTITION variable=row1_pending complete
+    // pair_phase cycles 0..stride_height-1, one step per pair iteration.
+    // For config4 (filt_height=5, stride_height=3):
+    //   EMIT_ROW0_PHASE = 2: output row0 of the current pair  (row 2*i_pair)
+    //   EMIT_ROW1_PHASE = 0: output row1 of the current pair  (row 2*i_pair+1)
+    //   phase 1: no output
+    //
+    // General derivation: the first output row is filt_height-1 = 4 (even → row0).
+    // It lands in pair (filt_height-1)/2 = 2, so pair_phase = 2 % stride_height = 2.
+    // The next output (stride_height rows later) lands in pair
+    // (filt_height-1+stride_height)/2 = 3, pair_phase = 3 % stride_height = 0.
+    constexpr unsigned EMIT_ROW0_PHASE =
+        ((CONFIG_T::filt_height - 1) / 2) % CONFIG_T::stride_height;
+    constexpr unsigned EMIT_ROW1_PHASE =
+        ((CONFIG_T::filt_height - 1 + CONFIG_T::stride_height) / 2) % CONFIG_T::stride_height;
 
-    // out_phase cycles 0..stride_height-1.  Output fires when out_phase reaches
-    // TARGET_PHASE (= (filt_height-1) % stride_height) and the window is full.
-    constexpr unsigned TARGET_PHASE =
-        (CONFIG_T::filt_height - 1) % CONFIG_T::stride_height;
-    unsigned out_phase = 0;
+    // Minimum pair index before the first complete filter window is loaded.
+    constexpr unsigned PAIR_WINDOW_START = CONFIG_T::filt_height / 2;  // = 2 for filt_height=5
 
-    // Loop over individual rows (not pairs).  Even iterations read a new pair
-    // from the stream and process row0; odd iterations process the saved row1.
-    // Each iteration performs exactly one shift of row_buf, so the loop-carried
-    // write of row_buf completes in stage 0 and is visible to stage 0 of the
-    // next iteration — II=1 is achievable.
-ReadInputsWide:
-    for (unsigned i_row = 0; i_row < CONFIG_T::in_height; i_row++) {
+    unsigned pair_phase = 0;
+
+    // Each iteration reads one stream word (row0 + row1), advances row_buf by 2
+    // rows, and emits at most one output.  Trip count = in_height/2 = 128.
+    //
+    // Loop-carried dep: row_buf written at stage 0 (pure combinational unroll),
+    // read at stage 0 of the next iteration → II=1 achievable.
+ReadPairsWide:
+    for (unsigned i_pair = 0; i_pair < CONFIG_T::in_height / 2; i_pair++) {
         #pragma HLS PIPELINE II=1
 
-        data_value_t new_row[CONFIG_T::in_width];
-        #pragma HLS ARRAY_PARTITION variable=new_row complete
+        data_T in_pack = data.read();
 
-        if ((i_row & 1u) == 0u) {
-            data_T in_pack = data.read();
-            for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
-                #pragma HLS UNROLL
-                new_row[c]       = in_pack[c];
-                row1_pending[c]  = in_pack[CONFIG_T::in_width + c];
-            }
-        } else {
-            for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
-                #pragma HLS UNROLL
-                new_row[c] = row1_pending[c];
-            }
-        }
+        data_value_t row0[CONFIG_T::in_width], row1[CONFIG_T::in_width];
+        #pragma HLS ARRAY_PARTITION variable=row0 complete
+        #pragma HLS ARRAY_PARTITION variable=row1 complete
 
-        // Single shift: one stage, no intra-iteration chain on row_buf.
-    ShiftRow:
-        for (unsigned b = CONFIG_T::filt_height - 1; b > 0; b--) {
-            #pragma HLS UNROLL
-            for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
-                #pragma HLS UNROLL
-                row_buf[b][c] = row_buf[b - 1][c];
-            }
-        }
         for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
             #pragma HLS UNROLL
-            row_buf[0][c] = new_row[c];
+            row0[c] = in_pack[c];
+            row1[c] = in_pack[CONFIG_T::in_width + c];
         }
 
-        if (i_row >= CONFIG_T::filt_height - 1 && out_phase == TARGET_PHASE) {
+        // Snapshot the current registered state.  old_buf is wired directly to
+        // the row_buf registers — no extra pipeline stage, no intra-iteration
+        // dependency between this read and the row_buf write below.
+        data_value_t old_buf[CONFIG_T::filt_height][CONFIG_T::in_width];
+        #pragma HLS ARRAY_PARTITION variable=old_buf complete dim=0
+
+        for (unsigned b = 0; b < CONFIG_T::filt_height; b++) {
+            #pragma HLS UNROLL
+            for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
+                #pragma HLS UNROLL
+                old_buf[b][c] = row_buf[b][c];
+            }
+        }
+
+        // Advance row_buf by 2 rows unconditionally.  All sources are registered
+        // values (old_buf) or current stream inputs; no sequential dependency
+        // within the iteration.
+        //   new_buf[0] = row1   (newest)
+        //   new_buf[1] = row0
+        //   new_buf[b] = old_buf[b-2]  for b = 2..filt_height-1  (oldest preserved)
+    AdvanceBufPair:
+        for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
+            #pragma HLS UNROLL
+            row_buf[0][c] = row1[c];
+            row_buf[1][c] = row0[c];
+        }
+        for (unsigned b = 2; b < CONFIG_T::filt_height; b++) {
+            #pragma HLS UNROLL
+            for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
+                #pragma HLS UNROLL
+                row_buf[b][c] = old_buf[b - 2][c];
+            }
+        }
+
+        const bool have_window = (i_pair >= PAIR_WINDOW_START);
+        const bool emit_row0   = have_window && (pair_phase == EMIT_ROW0_PHASE);
+        const bool emit_row1   = have_window && (pair_phase == EMIT_ROW1_PHASE);
+
+        if (emit_row0 || emit_row1) {
             res_T res_pack;
             PRAGMA_DATA_PACK(res_pack)
 
-        WriteOutputWidthWide:
+        WriteOutputPairWide:
             for (unsigned i_iw = 0; i_iw < CONFIG_T::out_width; i_iw++) {
                 #pragma HLS UNROLL
 
-                data_value_t kernel_data[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan];
+                // Build kernel[0..filt_height-1] (oldest→newest) from registered state.
+                //
+                // emit_row0 window = [old_buf[fh-2], ..., old_buf[0], row0]
+                //   kernel[k] = old_buf[filt_height-2-k]  for k < filt_height-1
+                //   kernel[filt_height-1] = row0
+                //
+                // emit_row1 window = [old_buf[fh-3], ..., old_buf[0], row0, row1]
+                //   kernel[k] = old_buf[filt_height-3-k]  for k < filt_height-2
+                //   kernel[filt_height-2] = row0
+                //   kernel[filt_height-1] = row1
+                data_value_t kernel_data[CONFIG_T::filt_height];
                 #pragma HLS ARRAY_PARTITION variable=kernel_data complete
+
+            BuildKernelPairWide:
+                for (unsigned k = 0; k < CONFIG_T::filt_height - 2; k++) {
+                    #pragma HLS UNROLL
+                    kernel_data[k] = emit_row0
+                        ? old_buf[CONFIG_T::filt_height - 2 - k][i_iw]
+                        : old_buf[CONFIG_T::filt_height - 3 - k][i_iw];
+                }
+                kernel_data[CONFIG_T::filt_height - 2] =
+                    emit_row0 ? old_buf[0][i_iw] : row0[i_iw];
+                kernel_data[CONFIG_T::filt_height - 1] =
+                    emit_row0 ? row0[i_iw] : row1[i_iw];
 
                 res_value_t res_out[CONFIG_T::n_filt];
                 #pragma HLS ARRAY_PARTITION variable=res_out complete
 
-            CopyKernelWide:
-                for (unsigned k = 0; k < CONFIG_T::filt_height; k++) {
-                    #pragma HLS UNROLL
-                    kernel_data[k] = row_buf[CONFIG_T::filt_height - 1 - k][i_iw];
-                }
-
                 CONFIG_T::mult_config::template kernel<data_value_t, res_value_t, typename CONFIG_T::mult_config>::dense(
                     kernel_data, res_out, weights, biases);
 
-            PackWideOutput:
+            PackPairOutput:
                 for (unsigned i_f = 0; i_f < CONFIG_T::n_filt; i_f++) {
                     #pragma HLS UNROLL
                     res_pack[i_iw * CONFIG_T::n_filt + i_f] = res_out[i_f];
@@ -283,7 +330,7 @@ ReadInputsWide:
             res.write(res_pack);
         }
 
-        out_phase = (out_phase == CONFIG_T::stride_height - 1) ? 0u : out_phase + 1;
+        pair_phase = (pair_phase == CONFIG_T::stride_height - 1) ? 0u : pair_phase + 1;
     }
 }
 

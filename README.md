@@ -183,12 +183,15 @@ v3.4 is the first branch with a confirmed RTL cosim result (257 cycles, PASS).
 
 ### Per-layer interval (v3.4, csynth)
 
-| Layer | Interval | Loop II | Notes |
-|-------|----------|---------|-------|
-| `first_conv_2row_4lane_temporal_wide_cl` | 259 | **1** | bottleneck |
-| `relu` | 87 | 1 | |
-| `maxpool2d_wide_nonoverlap_cl` | 87 | 1 | |
-| `dense_wide_stream` | 177 | 1 | second limiter |
+| Layer | Interval | Loop | Notes |
+|-------|----------|------|-------|
+| `first_conv_2row_4lane_temporal_wide_cl` | 259 → **~131** | `ReadPairsWide` 128 iter II=1 | pair parallelism implemented; HLS pending |
+| `relu` | 87 | — | |
+| `maxpool2d_wide_nonoverlap_cl` | 87 | — | |
+| `dense_wide_stream` | 177 | `DenseWideMain` 168 iter II=1 | becomes bottleneck after first_conv improves |
+
+Per-row loop baseline (commit 7677c0d): first_conv=259, top cosim=257 cycles.
+Pair parallelism target: first_conv≈131, top≈177 cycles (dense-limited).
 
 ### Resource usage
 

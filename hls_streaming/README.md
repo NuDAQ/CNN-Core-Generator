@@ -70,15 +70,33 @@ Record top interval, stage intervals, estimated clock, LUT/FF/DSP/BRAM, and
 any unexpected RAM inference after every meaningful schedule change.
 
 After edits to `first_conv_2row_4lane_temporal_wide_cl`, check the
-`ReadInputsWide` loop in the generated first-conv report. The loop iterates
-over individual rows (`in_height` = 256 iterations), not input pairs. Even
-iterations read one pair from the stream and process row0; odd iterations use
-the saved `row1_pending` register for row1. Each iteration performs a single
-shift of the shift-register row buffer (II=1 achieved).
+`ReadPairsWide` loop in the generated first-conv report. The loop iterates
+over input pairs (`in_height/2` = 128 iterations). Each iteration reads one
+stream word (row0 + row1), snapshots the registered `row_buf` into a local
+`old_buf` (wire connections, no extra register stage), advances `row_buf` by
+two rows from `old_buf` and inputs, and conditionally emits a MAC result.
 
-If Vitis reports `II=2`, the most common cause is multiple shifts per iteration
-creating an intra-iteration RAW chain on `row_buf` that spans two pipeline
-stages. A double-shift loop (ShiftRow0 then ShiftRow1 in the same iteration)
-forces II=2 because the second shift reads values the first shift just wrote,
-making the loop-carried write land in the same clock cycle as the next
-iteration's read. Keep exactly one shift per iteration.
+Scheduling rule: the `AdvanceBufPair` block writes `row_buf` from `old_buf`
+and current inputs in a single unrolled stage. Because all sources are
+registered values (old_buf) or combinational stream inputs, the write lands at
+stage 0 and is visible to stage 0 of the next iteration — II=1 is achievable.
+
+`pair_phase` cycles 0→1→2→0... (for stride_height=3):
+- phase == EMIT_ROW0_PHASE (2): emit row0 MAC output
+- phase == EMIT_ROW1_PHASE (0): emit row1 MAC output
+- phase == 1: no output
+Stride=3 guarantees at most one output per pair iteration.
+
+### History of II violations
+
+| Attempt | Loop | II | Root cause |
+|---------|------|----|------------|
+| Ring buffer | `ReadInputPairsWide` (128 iter) | 2 | Variable-index ring pointer, aliasing |
+| Shift register, 2-shift | `ReadInputPairsWide` (128 iter) | 2 | ShiftRow0 writes row_buf; ShiftRow1 reads it within same iteration → 2-stage RAW |
+| Shift register, 1-shift | `ReadInputsWide` (256 iter) | **1** | One shift per iteration; per-row loop |
+| **Pair parallelism** | **`ReadPairsWide` (128 iter)** | **1** | old_buf snapshot; row_buf updated from registered values only |
+
+If Vitis reports `II=2` on `ReadPairsWide`, the most likely cause is that
+`old_buf` was inferred as a registered pipeline stage rather than a wire
+connection. Check that `old_buf` is fully unrolled (`complete` partition) and
+that the `AdvanceBufPair` write is not conditional on any loop-carried variable.
