@@ -34,5 +34,4 @@ cnn_core_streaming_prj/solution*/sim/.autosim.status
 cnn_core_streaming_prj/solution*/syn/verilog/
 cnn_core_streaming_prj/solution*/syn/vhdl/
 cnn_core_streaming_prj/solution*/syn/report/*.xml
-cnn_core_streaming_prj/solution*/impl/
 cnn_core_streaming_prj/solution*/ooc_synth/*.dcp
