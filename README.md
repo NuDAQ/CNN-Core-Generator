@@ -174,8 +174,8 @@ Target device: `xcku5p-ffvb676-2-e`, 5 ns clock (200 MHz).
 | Branch / Optimization | Loop structure | csynth interval | RTL cosim interval |
 |----------------------|----------------|----------------|--------------------|
 | v3.2 (1x streaming) | per-row, 1 row/word | 260 cycles | — |
-| v3.4 per-row loop (7677c0d) | 256 iter/II=1, 2 rows/word | 260 cycles | 257 cycles ✓ |
-| **v3.4 pair parallelism** | **128 iter/II=1, 2 rows/word** | **178 cycles** | **177 cycles ✓** |
+| v3.4 per-row loop (7677c0d) | 256 iter/II=1, 2 rows/word | 260 cycles | 257 cycles |
+| **v3.4 pair parallelism** | **128 iter/II=1, 2 rows/word** | **178 cycles** | **177 cycles** |
 
 v3.4 pair parallelism delivers a **32% interval reduction** vs. v3.2 (260 → 178 cycles
 csynth; 257 → 177 cycles cosim). The top-level bottleneck shifted from
@@ -199,7 +199,7 @@ csynth; 257 → 177 cycles cosim). The top-level bottleneck shifted from
 | FF | 2 975 | 3 483 | **2 953** (0.7%) |
 | DSP | 11 | 4 | **7** (0.4%) |
 | BRAM | 0 | 0 | **2× RAMB18E2** (0.2%) |
-| OOC WNS | — | — | **+2.152 ns** ✓ |
+| OOC WNS | — | — | **+2.152 ns** |
 
 Notes:
 - v3.2 has no OOC synthesis report; csynth estimates are pre-place-and-route.
