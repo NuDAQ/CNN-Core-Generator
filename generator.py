@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent
 MODEL = ROOT / "models" / "hgq_config_beta7_gamma6_p1_cl_lowbop.keras"
 OUTPUT = ROOT / "cnn_core"
 
-PROJECT_NAME = "cnn_core"
+PROJECT_NAME = "cnn_core_prj"
 
 PART = "xcku5p-ffvb676-2-e"
 CLOCK_PERIOD = 5.0
