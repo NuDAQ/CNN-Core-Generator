@@ -1,15 +1,11 @@
 #!/usr/bin/env python3
-
 import json
 from pathlib import Path
-
 import hls4ml
 import keras
 import numpy as np
-
 from hgq.layers import QConv2D, QDense
 from ravel_hls import RavelConfig, convert_from_keras_model
-
 
 # ============================================================
 # Configuration
