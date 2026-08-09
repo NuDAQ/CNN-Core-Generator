@@ -18,6 +18,9 @@
 !models/
 !models/**
 
+!cnn_core/
+!cnn_core/**
+
 ###########################################################################
 ##	VIVADO
 ###########################################################################
@@ -101,12 +104,42 @@
 ###########################################################################
 ## Generated HLS/Vivado outputs
 ###########################################################################
+# Compiled binaries and build outputs
 cnn_core/build/
-cnn_core/firmware/*.so
-cnn_core/cnn_core_streaming_prj/**/.autopilot/
-cnn_core/*.log
-cnn_core/*.jou
-cnn_core/*.str
-cnn_core/scripts/__pycache__/
-**/__pycache__/
+cnn_core/*.o
+cnn_core/*.a
+cnn_core/*.so
+cnn_core/*.exe
+
+# Python
+__pycache__/
 *.pyc
+*.pyo
+
+# Xilinx / Vivado temp files
+.Xil/
+vivado.jou
+vivado.log
+vitis_hls.log
+
+cnn_core_prj/.Xil/
+cnn_core_prj/vivado.jou
+cnn_core_prj/vivado.log
+cnn_core_prj/vitis_hls.log
+
+# Vitis HLS project - large generated artifacts (not worth committing)
+# Keep: hls.app, solution*.aps, solution*.directive, solution*_data.json,
+#        hls_summary.txt, solution*.log, syn/report/*.rpt, sim/report/, ooc_synth/*.rpt
+cnn_core_prj/solution*/.autopilot/
+cnn_core_prj/solution*/.debug/
+cnn_core_prj/solution*/csim/build/
+cnn_core_prj/solution*/sim/wrapc/
+cnn_core_prj/solution*/sim/wrapc_pc/
+cnn_core_prj/solution*/sim/autowrap/
+cnn_core_prj/solution*/sim/verilog/
+cnn_core_prj/solution*/sim/.sim.status.tcl
+cnn_core_prj/solution*/sim/.autosim.status
+cnn_core_prj/solution*/syn/verilog/
+cnn_core_prj/solution*/syn/vhdl/
+cnn_core_prj/solution*/syn/report/*.xml
+cnn_core_prj/solution*/ooc_synth/*.dcp
