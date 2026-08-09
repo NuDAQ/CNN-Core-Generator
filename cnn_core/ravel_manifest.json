@@ -1,0 +1,273 @@
+{
+  "configuration_sha256": "344bc3fe7e28aeaed90b0259cbb9408db43790510968f530100acf44703df74b",
+  "dependencies": {
+    "Jinja2": {
+      "installed": "3.1.6",
+      "required": "==3.1.6",
+      "status": "qualified"
+    },
+    "PyYAML": {
+      "installed": "6.0.3",
+      "required": "==6.0.3",
+      "status": "qualified"
+    },
+    "hgq2": {
+      "installed": "0.1.7",
+      "required": "==0.1.7",
+      "status": "qualified"
+    },
+    "hls4ml": {
+      "installed": "1.2.0",
+      "required": "==1.2.0",
+      "status": "qualified"
+    },
+    "keras": {
+      "installed": "3.12.1",
+      "required": "==3.12.1",
+      "status": "qualified"
+    },
+    "numpy": {
+      "installed": "1.26.4",
+      "required": "==1.26.4",
+      "status": "qualified"
+    },
+    "quantizers": {
+      "installed": "1.2.2",
+      "required": "==1.2.2",
+      "status": "qualified"
+    }
+  },
+  "generation_fingerprint": "0b0f14a5df7b54e12208e25b42c8340ba61d44c36f4d96d1027c07fcec24418b",
+  "implementation_plan": {
+    "channels_per_row": 4,
+    "dense_inputs": 1176,
+    "filter_lanes": 7,
+    "input_words_per_inference": 128,
+    "internal_fifo_depth": 4,
+    "template_profile": "aria-2x-v1",
+    "temporal_pack": 2,
+    "values_per_input_word": 8,
+    "values_per_internal_word": 28,
+    "width_lanes": 4
+  },
+  "implementation_sha256": "9fcfb08993f01e1911d849df46fd965d5b6cd54c34b55a7532641f2e57655ab6",
+  "interfaces": {
+    "hls_stream_interface": {
+      "block_control": "ap_ctrl_hs",
+      "channels_per_row": 4,
+      "input_rows_per_word": 2,
+      "input_scalar_bits": 9,
+      "input_words_per_inference": 128,
+      "optional_axis_sidebands": [],
+      "ordering": "row-major; time before channel",
+      "output_scalar_bits": 22,
+      "output_words_per_inference": 1,
+      "protocol": "axis",
+      "values_per_input_word": 8
+    },
+    "logical_model_interface": {
+      "input_shape": [
+        256,
+        4
+      ],
+      "output_shape": [
+        1
+      ]
+    },
+    "rtl_interface": {
+      "expected": {
+        "input_scalar_bits": 9,
+        "input_tdata_bits": 128,
+        "input_tdata_port": "input_layer_TDATA",
+        "output_scalar_bits": 22,
+        "output_tdata_bits": 32,
+        "output_tdata_port": "layer9_out_TDATA",
+        "qualification_profile": "hls4ml-1.2.0-vitis-2023.2-axis-packing-v1"
+      },
+      "measured": null
+    }
+  },
+  "managed_files": {
+    "cnn_core_prj_bridge.cpp": "d76f31edbb9c8066bcff50952561ae3d106292635a1814e470481fb0c76b7f62",
+    "cnn_core_prj_test.cpp": "ff4c3e8eb92131fa819bdf77e477cb3c28fe01d961d51a1dbb3b7025873a3bd9",
+    "firmware/cnn_core_prj.cpp": "17456a56bea19314d54868a66bdaae4516ccf919c01fdb3b836dc1787e1bebf0",
+    "firmware/cnn_core_prj.h": "69130cbfe1d2ae5cc8f8fc0df0b74944a2337dec2ebd1cd0a18e73f2fff5ba81",
+    "firmware/defines.h": "5e9a1b7689f7801d1858ada315dec0dea41e210b9aa5fa958a17068fb8a18229",
+    "firmware/nnet_utils/nnet_aria.h": "101555cb64858092fd39434a61dc772e830b4a72b98d79a88afe775372ebaba1",
+    "hls4ml_config.yml": "ec083bd6552504beaf668620c94b709da35178224ff9c7326fe6b1c24b42c9cc",
+    "ravel_config.yml": "4ea69cbe6f4293c70ad3a01b46daa24546b09a334c1253511e4194098e48c33b"
+  },
+  "normalized_configuration": {
+    "hls4ml": {
+      "Backend": "Vitis",
+      "ClockPeriod": 5.0,
+      "IOType": "io_stream",
+      "Part": "xcku5p-ffvb676-2-e",
+      "ProjectName": "cnn_core_prj",
+      "ReuseFactor": 1,
+      "Strategy": "Latency"
+    },
+    "ravel": {
+      "Profile": "aria",
+      "Verification": {
+        "Mode": "required",
+        "Samples": 32,
+        "Seed": 19
+      }
+    }
+  },
+  "pipeline": {
+    "passes": [
+      {
+        "affected_artifacts": [
+          "firmware/defines.h",
+          "bridge",
+          "testbench"
+        ],
+        "id": "PackTemporalInput2x",
+        "input_ir_sha256": "3fdad40310ae435d5edb24566dc63ba794e3532f1aab658e58fd7af04565debf",
+        "legality": "passed",
+        "order": 1,
+        "output_ir_sha256": "df5b7bf824dfbdff800b0303ac0ce93c10d7fc5c10194e2a00c9b264b31ad118",
+        "resolved_parameters": {
+          "rows_per_word": 2,
+          "values_per_word": 8
+        },
+        "version": 1
+      },
+      {
+        "affected_artifacts": [
+          "firmware/top.cpp",
+          "firmware/nnet_utils/nnet_aria.h"
+        ],
+        "id": "FuseRepackReshapeIntoFirstConv",
+        "input_ir_sha256": "df5b7bf824dfbdff800b0303ac0ce93c10d7fc5c10194e2a00c9b264b31ad118",
+        "legality": "passed",
+        "order": 2,
+        "output_ir_sha256": "54fcb9fcd59bdaef86bdb0764e4d4d41fe6dc3a5f2f98f42b5957ab291e0208e",
+        "resolved_parameters": {
+          "filter_lanes": 7,
+          "width_lanes": 4
+        },
+        "version": 1
+      },
+      {
+        "affected_artifacts": [
+          "firmware/top.cpp",
+          "firmware/defines.h"
+        ],
+        "id": "PropagateWideReLUStream",
+        "input_ir_sha256": "54fcb9fcd59bdaef86bdb0764e4d4d41fe6dc3a5f2f98f42b5957ab291e0208e",
+        "legality": "passed",
+        "order": 3,
+        "output_ir_sha256": "fccbce0199183394d8de83e5d846f93754e56aeaa728d18d6f00909ec23cd49d",
+        "resolved_parameters": {
+          "values_per_word": 28
+        },
+        "version": 1
+      },
+      {
+        "affected_artifacts": [
+          "firmware/top.cpp",
+          "firmware/nnet_utils/nnet_aria.h"
+        ],
+        "id": "SpecializeNonOverlappingMaxPool",
+        "input_ir_sha256": "fccbce0199183394d8de83e5d846f93754e56aeaa728d18d6f00909ec23cd49d",
+        "legality": "passed",
+        "order": 4,
+        "output_ir_sha256": "fb32ba0b00c356fc6562b9dda9fc939ef8b0e9cbad28ef15ccf18699726d56be",
+        "resolved_parameters": {
+          "pool_height": 2,
+          "pool_width": 1,
+          "stride_height": 2
+        },
+        "version": 1
+      },
+      {
+        "affected_artifacts": [
+          "firmware/top.cpp",
+          "firmware/nnet_utils/nnet_aria.h"
+        ],
+        "id": "StreamFlattenIntoDense",
+        "input_ir_sha256": "fb32ba0b00c356fc6562b9dda9fc939ef8b0e9cbad28ef15ccf18699726d56be",
+        "legality": "passed",
+        "order": 5,
+        "output_ir_sha256": "89f1d786d55e531f276e4dfeaa8a83a75f43af3c16e48cf5b763d1aa58f224f1",
+        "resolved_parameters": {
+          "dense_inputs": 1176,
+          "filter_lanes": 7
+        },
+        "version": 1
+      },
+      {
+        "affected_artifacts": [
+          "firmware/top.cpp"
+        ],
+        "id": "BindShallowInternalFifos",
+        "input_ir_sha256": "89f1d786d55e531f276e4dfeaa8a83a75f43af3c16e48cf5b763d1aa58f224f1",
+        "legality": "passed",
+        "order": 6,
+        "output_ir_sha256": "b566963767242d342db4573f314eba8bdee6aedd2866d22f51399b4a5fb5ebd4",
+        "resolved_parameters": {
+          "fifo_depth": 4,
+          "storage": "srl"
+        },
+        "version": 1
+      }
+    ],
+    "phases": [
+      "ValidateProfile",
+      "GenerateBaseline",
+      "BuildIR",
+      "ApplyAriaPasses",
+      "RenderProject",
+      "ValidateProject",
+      "PromoteProject"
+    ]
+  },
+  "profile": {
+    "id": "aria",
+    "version": 1
+  },
+  "ravel": {
+    "generation": "Aria",
+    "package_version": "1.0.0",
+    "product": "RAVEL",
+    "release": "1.0"
+  },
+  "schema_version": 1,
+  "source_model": {
+    "semantic_model_sha256": "d4c7b751faf8b1173ac7ae9cad74c72a872a1707b24c4168f4a6835b0a390259",
+    "source_artifact_sha256": "42ba7e56c1739c790d66a7177738461ccc94f52d738f3d30b612589239f0dc33"
+  },
+  "status": {
+    "correctness_verification": "passed",
+    "dependency_qualification": "qualified",
+    "generation": "complete",
+    "model_fidelity": "reported",
+    "performance_qualification": "not_run",
+    "source_integrity": "clean"
+  },
+  "verification": {
+    "mode": "required",
+    "model_fidelity": "reported",
+    "model_fidelity_report": {
+      "max_abs_score_diff": 0.0,
+      "shape_match": true,
+      "status": "reported"
+    },
+    "stimuli": {
+      "content_sha256": "470292a0159df1fb828451f6921da044cbf5023589d2fd10b28fcf956e60ac31",
+      "dtype": "float32",
+      "kind": "synthetic",
+      "sample_count": 32,
+      "seed": 19,
+      "shape": [
+        32,
+        256,
+        4
+      ]
+    },
+    "transformation_equivalence": "passed"
+  }
+}
