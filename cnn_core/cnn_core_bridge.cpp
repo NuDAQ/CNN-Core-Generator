@@ -1,7 +1,7 @@
-#ifndef CNN_CORE_PRJ_BRIDGE_H_
-#define CNN_CORE_PRJ_BRIDGE_H_
+#ifndef CNN_CORE_BRIDGE_H_
+#define CNN_CORE_BRIDGE_H_
 
-#include "firmware/cnn_core_prj.h"
+#include "firmware/cnn_core.h"
 #include "firmware/nnet_utils/nnet_helpers.h"
 #include <cstdlib>
 #include <map>
@@ -62,19 +62,19 @@ void collect_trace_output(struct trace_data *outputs) {
     }
 }
 
-void cnn_core_prj_float(float *input_layer, float *layer9_out) {
+void cnn_core_float(float *input_layer, float *layer9_out) {
     hls::stream<input_layer_x2_t> input_layer_ap("input_layer");
     pack_aria_input(input_layer, input_layer_ap);
     hls::stream<result_t> layer9_out_ap("layer9_out");
-    cnn_core_prj(input_layer_ap, layer9_out_ap);
+    cnn_core(input_layer_ap, layer9_out_ap);
     nnet::convert_data<result_t, float, 1>(layer9_out_ap, layer9_out);
 }
 
-void cnn_core_prj_double(double *input_layer, double *layer9_out) {
+void cnn_core_double(double *input_layer, double *layer9_out) {
     hls::stream<input_layer_x2_t> input_layer_ap("input_layer");
     pack_aria_input(input_layer, input_layer_ap);
     hls::stream<result_t> layer9_out_ap("layer9_out");
-    cnn_core_prj(input_layer_ap, layer9_out_ap);
+    cnn_core(input_layer_ap, layer9_out_ap);
     nnet::convert_data<result_t, double, 1>(layer9_out_ap, layer9_out);
 }
 

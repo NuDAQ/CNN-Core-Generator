@@ -76,8 +76,8 @@ OutputShapes:
   layer9_out:
   - 1
 Part: xcku5p-ffvb676-2-e
-ProjectName: cnn_core_prj
-Stamp: cf909b9e
+ProjectName: cnn_core
+Stamp: c9478452
 Version: 1.0.0
 WriterConfig:
   Namespace: null

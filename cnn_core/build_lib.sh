@@ -18,8 +18,8 @@ fi
 
 LDFLAGS=
 INCFLAGS="-Ifirmware/ap_types/"
-PROJECT=cnn_core_prj
-LIB_STAMP=cf909b9e
+PROJECT=cnn_core
+LIB_STAMP=c9478452
 BASEDIR="$(cd "$(dirname "$0")" && pwd)"
 WEIGHTS_DIR="\"${BASEDIR}/firmware/weights\""
 

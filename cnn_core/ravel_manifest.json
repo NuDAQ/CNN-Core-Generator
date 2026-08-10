@@ -1,5 +1,5 @@
 {
-  "configuration_sha256": "344bc3fe7e28aeaed90b0259cbb9408db43790510968f530100acf44703df74b",
+  "configuration_sha256": "6960123fb44ca32087c17be8bc92d7c2ab264db143df12ce911b7fbf4687686e",
   "dependencies": {
     "Jinja2": {
       "installed": "3.1.6",
@@ -37,7 +37,7 @@
       "status": "qualified"
     }
   },
-  "generation_fingerprint": "0b0f14a5df7b54e12208e25b42c8340ba61d44c36f4d96d1027c07fcec24418b",
+  "generation_fingerprint": "423f5b6d3fe1d2f3a731ed70b2dbdf6f644df8e57d782c901a130d5b6dc909a0",
   "implementation_plan": {
     "channels_per_row": 4,
     "dense_inputs": 1176,
@@ -88,14 +88,14 @@
     }
   },
   "managed_files": {
-    "cnn_core_prj_bridge.cpp": "d76f31edbb9c8066bcff50952561ae3d106292635a1814e470481fb0c76b7f62",
-    "cnn_core_prj_test.cpp": "ff4c3e8eb92131fa819bdf77e477cb3c28fe01d961d51a1dbb3b7025873a3bd9",
-    "firmware/cnn_core_prj.cpp": "17456a56bea19314d54868a66bdaae4516ccf919c01fdb3b836dc1787e1bebf0",
-    "firmware/cnn_core_prj.h": "69130cbfe1d2ae5cc8f8fc0df0b74944a2337dec2ebd1cd0a18e73f2fff5ba81",
+    "cnn_core_bridge.cpp": "d6dec56170277d832f85c279e5907555b58f688f8007bff818045dc97a1f6b37",
+    "cnn_core_test.cpp": "bb44744eb5b9acf5468e72d1ff26c176c68d66767d177f68b7adc90f8f3c71eb",
+    "firmware/cnn_core.cpp": "64b6d103484cd1bee8735e5149b075c85f6f11c7c6a75e4e2aac120e5ae754d7",
+    "firmware/cnn_core.h": "e98dfac88ae691e1eccbad63e47574480cb5077e7fe987aadd8ffb1699938c41",
     "firmware/defines.h": "5e9a1b7689f7801d1858ada315dec0dea41e210b9aa5fa958a17068fb8a18229",
     "firmware/nnet_utils/nnet_aria.h": "101555cb64858092fd39434a61dc772e830b4a72b98d79a88afe775372ebaba1",
-    "hls4ml_config.yml": "ec083bd6552504beaf668620c94b709da35178224ff9c7326fe6b1c24b42c9cc",
-    "ravel_config.yml": "4ea69cbe6f4293c70ad3a01b46daa24546b09a334c1253511e4194098e48c33b"
+    "hls4ml_config.yml": "db784cd0c8ae38e6b65211a5574caa99ee6b0189abe77a6e294c694da2a93466",
+    "ravel_config.yml": "77a2a98e566950896d3eec648b310a27a92293548b2047df9147ee41f2a76978"
   },
   "normalized_configuration": {
     "hls4ml": {
@@ -103,16 +103,14 @@
       "ClockPeriod": 5.0,
       "IOType": "io_stream",
       "Part": "xcku5p-ffvb676-2-e",
-      "ProjectName": "cnn_core_prj",
+      "ProjectName": "cnn_core",
       "ReuseFactor": 1,
       "Strategy": "Latency"
     },
     "ravel": {
       "Profile": "aria",
       "Verification": {
-        "Mode": "required",
-        "Samples": 32,
-        "Seed": 19
+        "Mode": "required"
       }
     }
   },
@@ -238,7 +236,7 @@
   "schema_version": 1,
   "source_model": {
     "semantic_model_sha256": "d4c7b751faf8b1173ac7ae9cad74c72a872a1707b24c4168f4a6835b0a390259",
-    "source_artifact_sha256": "42ba7e56c1739c790d66a7177738461ccc94f52d738f3d30b612589239f0dc33"
+    "source_artifact_sha256": "9609d04fd6cee8cd6624df06580f3d94fc39c9399d8ec51c40b65dcf05738285"
   },
   "status": {
     "correctness_verification": "passed",
@@ -257,13 +255,13 @@
       "status": "reported"
     },
     "stimuli": {
-      "content_sha256": "470292a0159df1fb828451f6921da044cbf5023589d2fd10b28fcf956e60ac31",
+      "content_sha256": "bd415782aaef805e659125ef3a0dbf92dc16c750aa2e3de7bc9360d3dfe7a7c8",
       "dtype": "float32",
-      "kind": "synthetic",
-      "sample_count": 32,
-      "seed": 19,
+      "kind": "supplied",
+      "sample_count": 1000,
+      "seed": null,
       "shape": [
-        32,
+        1000,
         256,
         4
       ]

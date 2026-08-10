@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#include "firmware/cnn_core_prj.h"
+#include "firmware/cnn_core.h"
 #include "firmware/nnet_utils/nnet_helpers.h"
 
 namespace nnet {
@@ -52,7 +52,7 @@ int main() {
         hls::stream<input_layer_x2_t> input_layer("input_layer");
         hls::stream<result_t> layer9_out("layer9_out");
         pack_aria_test_input(input, input_layer);
-        cnn_core_prj(input_layer, layer9_out);
+        cnn_core(input_layer, layer9_out);
         nnet::print_result<result_t, 1>(layer9_out, results);
         sample++;
     }
@@ -62,7 +62,7 @@ int main() {
         hls::stream<input_layer_x2_t> input_layer("input_layer");
         hls::stream<result_t> layer9_out("layer9_out");
         pack_aria_test_input(zero_input, input_layer);
-        cnn_core_prj(input_layer, layer9_out);
+        cnn_core(input_layer, layer9_out);
         nnet::print_result<result_t, 1>(layer9_out, results);
     }
     std::cout << "INFO: Saved inference results to file: " << results_path << std::endl;

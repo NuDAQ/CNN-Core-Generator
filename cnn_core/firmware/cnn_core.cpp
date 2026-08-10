@@ -1,10 +1,10 @@
 #include <iostream>
 
-#include "cnn_core_prj.h"
+#include "cnn_core.h"
 #include "parameters.h"
 #include "nnet_utils/nnet_aria.h"
 
-void cnn_core_prj(
+void cnn_core(
     hls::stream<input_layer_x2_t> &input_layer,
     hls::stream<result_t> &layer9_out
 ) {

@@ -1,5 +1,5 @@
 variable project_name
-set project_name "cnn_core_prj"
+set project_name "cnn_core"
 variable backend
 set backend "vitis"
 variable part
