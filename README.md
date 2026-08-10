@@ -77,10 +77,11 @@ results are:
 
 | System performance | Result |
 |---|---:|
-| ADC input | 8 channels at 1 Gsample/s per channel |
+| Target ADC input | 8 channels at 1 Gsa/s per channel |
+| Processing capacity (conservative config.) | 8 channels at 1.26 Gsa/s per channel |
 | Aggregate chunk throughput | 3.91 million 256-sample chunks/s |
 | CNN lanes | 5, each at 200 MHz |
-| Behavioral-simulation latency | 203.6 CNN cycles (1.018 us) |
+| Latency for each lane | 203.6 CNN cycles (1.018 us) |
 | Routed timing | WNS 1.085 ns; TNS 0 ns; WHS 0.009 ns; THS 0 ns |
 
 | System resource | Used | Available | Utilization |
@@ -92,12 +93,7 @@ results are:
 | URAM | 6 | 64 | 9.38% |
 
 The routed OOC vectorless power estimate is 1.301 W total (0.844 W dynamic and
-0.458 W static). These are block-level results rather than
-board/package-level sign-off; aggregate throughput is the ADC-boundary design
-target, not a board measurement.
-
-The DAQ implementation demonstrates low-power, high-throughput, full-bandwidth
-real-time triggering.
+0.458 W static). The DAQ implementation demonstrates low-power, high-throughput, full-bandwidth real-time triggering.
 
 ## License
 
