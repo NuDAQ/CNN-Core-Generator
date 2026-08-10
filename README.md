@@ -52,18 +52,15 @@ Large reproducible HLS/Vivado databases are ignored.
 ## Performance
 
 Performance and resource figures are provided for reference only. Refer to the
-latest committed reports for authoritative results. The standalone-core
-resource figures are from Vivado out-of-context synthesis before place and
-route.
+latest committed reports for authoritative results.
 
 | Performance | Result |
 |---|---:|
 | Target clock | 200 MHz (5 ns) |
-| Initiation interval | 178 cycles |
 | Latency | 183 cycles (0.915 us) |
 | Theoretical throughput | 1.12 million inferences/s |
 
-| Resource | Used | Available | Utilization |
+| Resource | Used | Available | Utilization (KU5P) |
 |---|---:|---:|---:|
 | CLB LUTs | 5,857 | 216,960 | 2.70% |
 | Flip-flops | 2,956 | 433,920 | 0.68% |
@@ -84,7 +81,7 @@ results are:
 | Latency for each lane | 203.6 CNN cycles (1.018 us) |
 | Routed timing | WNS 1.085 ns; TNS 0 ns; WHS 0.009 ns; THS 0 ns |
 
-| System resource | Used | Available | Utilization |
+| System resource | Used | Available | Utilization (KU5P) |
 |---|---:|---:|---:|
 | CLB LUTs | 28,864 | 216,960 | 13.30% |
 | Flip-flops | 18,847 | 433,920 | 4.34% |
