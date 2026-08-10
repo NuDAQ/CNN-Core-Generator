@@ -171,6 +171,8 @@ cnn_core/cnn_core_prj/solution*/syn/vhdl/**
 cnn_core/cnn_core_prj/solution*/impl/**
 !cnn_core/cnn_core_prj/solution*/impl/
 !cnn_core/cnn_core_prj/solution*/impl/**/
+!cnn_core/cnn_core_prj/solution*/impl/verilog/**
+!cnn_core/cnn_core_prj/solution*/impl/vhdl/**
 !cnn_core/cnn_core_prj/solution*/impl/**/*.log
 
 cnn_core/cnn_core_prj/solution*/sim/.sim.status.tcl
