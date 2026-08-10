@@ -5,7 +5,7 @@ package:
 
   # The list of package authors and contributors. Optional.
   # By convention, authors should be listed in the form shown below.
-  authors: ["Albert L. Cheung <albert.cheung@cern.ch>"]
+  authors: ["Albert Zhang <albert.chang@cern.ch>"]
 
 sources:
   - hls_streaming/cnn_core_streaming_prj/solution1/impl/verilog/*

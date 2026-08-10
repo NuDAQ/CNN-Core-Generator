@@ -10,33 +10,17 @@
 ###########################################################################
 ##	DO NOT IGNORE THE FOLLOWING FILES
 ###########################################################################
+!*.py
+
 !data/
 !data/**
 
 !models/
 !models/**
 
-!out/
-!out/**
+!cnn_core/
+!cnn_core/**
 
-!scripts/
-!scripts/**
-
-!build/
-build/*
-!build/.gitignore
-
-!doc/
-!doc/**
-
-!cnn_core_project/
-!cnn_core_project/**
-
-!hls_streaming/
-!hls_streaming/**
-
-!rtl
-!rtl/**
 ###########################################################################
 ##	VIVADO
 ###########################################################################
@@ -120,17 +104,77 @@ build/*
 ###########################################################################
 ## Generated HLS/Vivado outputs
 ###########################################################################
-cnn_core_project/cnn_core_prj/**/.autopilot/
-cnn_core_project/*.log
-cnn_core_project/*.jou
-cnn_core_project/*.str
+# Compiled binaries and local build outputs
+cnn_core/build/
+cnn_core/**/*.o
+cnn_core/**/*.a
+cnn_core/**/*.so
+cnn_core/**/*.exe
 
-hls_streaming/build/
-hls_streaming/firmware/*.so
-hls_streaming/cnn_core_streaming_prj/**/.autopilot/
-hls_streaming/*.log
-hls_streaming/*.jou
-hls_streaming/*.str
-hls_streaming/scripts/__pycache__/
-**/__pycache__/
+# Python
+.venv/
+__pycache__/
 *.pyc
+*.pyo
+
+# Xilinx journals and transient databases. Logs and reports are intentionally kept.
+cnn_core/**/.Xil/
+cnn_core/**/*.jou
+
+# Vitis HLS project: discard reproducible compiler/simulator/IP payloads while
+# retaining solution metadata, reports, and every *.log file for diagnosis.
+cnn_core/cnn_core_prj/solution*/.autopilot/**
+!cnn_core/cnn_core_prj/solution*/.autopilot/
+!cnn_core/cnn_core_prj/solution*/.autopilot/**/
+!cnn_core/cnn_core_prj/solution*/.autopilot/**/*.log
+
+cnn_core/cnn_core_prj/solution*/.debug/**
+!cnn_core/cnn_core_prj/solution*/.debug/
+!cnn_core/cnn_core_prj/solution*/.debug/**/
+!cnn_core/cnn_core_prj/solution*/.debug/**/*.log
+
+cnn_core/cnn_core_prj/solution*/csim/build/**
+!cnn_core/cnn_core_prj/solution*/csim/build/
+!cnn_core/cnn_core_prj/solution*/csim/build/**/
+!cnn_core/cnn_core_prj/solution*/csim/build/**/*.log
+
+cnn_core/cnn_core_prj/solution*/sim/wrapc/**
+!cnn_core/cnn_core_prj/solution*/sim/wrapc/
+!cnn_core/cnn_core_prj/solution*/sim/wrapc/**/
+!cnn_core/cnn_core_prj/solution*/sim/wrapc/**/*.log
+
+cnn_core/cnn_core_prj/solution*/sim/wrapc_pc/**
+!cnn_core/cnn_core_prj/solution*/sim/wrapc_pc/
+!cnn_core/cnn_core_prj/solution*/sim/wrapc_pc/**/
+!cnn_core/cnn_core_prj/solution*/sim/wrapc_pc/**/*.log
+
+cnn_core/cnn_core_prj/solution*/sim/autowrap/**
+!cnn_core/cnn_core_prj/solution*/sim/autowrap/
+!cnn_core/cnn_core_prj/solution*/sim/autowrap/**/
+!cnn_core/cnn_core_prj/solution*/sim/autowrap/**/*.log
+
+cnn_core/cnn_core_prj/solution*/sim/verilog/**
+!cnn_core/cnn_core_prj/solution*/sim/verilog/
+!cnn_core/cnn_core_prj/solution*/sim/verilog/**/
+!cnn_core/cnn_core_prj/solution*/sim/verilog/**/*.log
+
+cnn_core/cnn_core_prj/solution*/syn/verilog/**
+!cnn_core/cnn_core_prj/solution*/syn/verilog/
+!cnn_core/cnn_core_prj/solution*/syn/verilog/**/
+!cnn_core/cnn_core_prj/solution*/syn/verilog/**/*.log
+
+cnn_core/cnn_core_prj/solution*/syn/vhdl/**
+!cnn_core/cnn_core_prj/solution*/syn/vhdl/
+!cnn_core/cnn_core_prj/solution*/syn/vhdl/**/
+!cnn_core/cnn_core_prj/solution*/syn/vhdl/**/*.log
+
+cnn_core/cnn_core_prj/solution*/impl/**
+!cnn_core/cnn_core_prj/solution*/impl/
+!cnn_core/cnn_core_prj/solution*/impl/**/
+!cnn_core/cnn_core_prj/solution*/impl/verilog/**
+!cnn_core/cnn_core_prj/solution*/impl/vhdl/**
+!cnn_core/cnn_core_prj/solution*/impl/**/*.log
+
+cnn_core/cnn_core_prj/solution*/sim/.sim.status.tcl
+cnn_core/cnn_core_prj/solution*/sim/.autosim.status
+cnn_core/cnn_core_prj/solution*/ooc_synth/*.dcp
