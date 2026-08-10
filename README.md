@@ -52,16 +52,20 @@ Large reproducible HLS/Vivado databases are ignored.
 ## Performance
 
 Performance and resource figures are provided for reference only. Refer to the
-latest committed reports for authoritative results.
+latest committed reports for authoritative results. Resource figures are from
+Vivado out-of-context synthesis before place and route.
 
-At the 200 MHz target clock, HLS reports an initiation interval of 178 cycles
-and a latency of 183 cycles. This corresponds to a theoretical steady-state
-throughput of about 1.12 million inferences per second and a latency of
-0.915 us per inference.
-
-Vivado out-of-context synthesis reports 5,857 CLB LUTs (4,764 logic and 1,093
-shift-register LUTs), 2,956 flip-flops, 7 DSP48E2s, 2 RAMB18E2s, and no URAM.
-These resource figures are before place and route.
+| Metric | Result |
+|---|---:|
+| Target clock | 200 MHz (5 ns) |
+| Initiation interval | 178 cycles |
+| Latency | 183 cycles (0.915 us) |
+| Theoretical throughput | 1.12 million inferences/s |
+| CLB LUTs | 5,857 (4,764 logic + 1,093 shift register) |
+| Flip-flops | 2,956 |
+| DSP48E2 | 7 |
+| RAMB18E2 | 2 |
+| URAM | 0 |
 
 ## License
 
