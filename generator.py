@@ -54,12 +54,7 @@ ravel_scores = ravel.predict(ravel_x).ravel()
 keras_classes = keras_scores > 0
 ravel_classes = ravel_scores > 0
 
-cosim_x = ravel_x[:32]
-np.savetxt(
-    OUTPUT / "tb_data" / "tb_input_features.dat",
-    cosim_x.reshape(len(cosim_x), -1),
-    fmt="%.9g",
-)
+vitis_cosim_samples = min(32, len(ravel_x))
 
 print(
     json.dumps(
@@ -78,7 +73,7 @@ print(
                     np.max(np.abs(keras_scores - ravel_scores))
                 ),
             },
-            "vitis_cosim_samples": len(cosim_x),
+            "vitis_cosim_samples": vitis_cosim_samples,
         },
         indent=2,
     )
