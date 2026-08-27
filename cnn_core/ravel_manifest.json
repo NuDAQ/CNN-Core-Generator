@@ -1,5 +1,1702 @@
 {
-  "configuration_sha256": "6960123fb44ca32087c17be8bc92d7c2ab264db143df12ce911b7fbf4687686e",
+  "architecture_contract_sha256": "9c5da8264993dfa110b96279fd32657b7bde7c2f4b15e499dde9398ad286a1cb",
+  "architecture_envelope": {
+    "generation": {
+      "id": "aria",
+      "version": "1.5.1"
+    },
+    "implementation_plan": {
+      "channels_per_row": 4,
+      "dataflow_start_propagation": true,
+      "dense_inputs": 1176,
+      "dense_parallelism": 4,
+      "dense_steps": 42,
+      "filter_lanes": 7,
+      "first_convolution": {
+        "id": "pool-aligned-direct",
+        "multiplier_limit": 280,
+        "parallel_windows": 8,
+        "products_per_window": 35,
+        "target_loop_ii": 1,
+        "version": 1
+      },
+      "input_words_per_inference": 32,
+      "internal_fifo_depth": 4,
+      "phara": {
+        "pool_rows_per_supertile": 2,
+        "pooled_words": 42,
+        "realization": "hybrid",
+        "scheduler": {
+          "buffer_rows": 16,
+          "id": "row-credit",
+          "max_live_rows": 14,
+          "read_cycles": 32,
+          "version": 1
+        },
+        "stage_cycles": {
+          "dense": 42,
+          "fused_region": 42,
+          "input": 32
+        },
+        "structural_ii_lower_bound": 42,
+        "supertile_input_rows": 8,
+        "version": 1
+      },
+      "template_profile": "aria-phara-p8-q1-d4-v1",
+      "temporal_pack": 8,
+      "values_per_input_word": 32,
+      "values_per_internal_word": 28,
+      "weight_delivery": {
+        "accumulation": {
+          "policy": "ordered"
+        },
+        "applicability": {
+          "reasons": [],
+          "status": "applicable"
+        },
+        "depth": 42,
+        "id": "wide-sequential",
+        "mac_lanes": 28,
+        "multipliers": {
+          "implementation": "dsp",
+          "instances": 28
+        },
+        "storage": {
+          "implementation": "bram",
+          "type": "rom_1p"
+        },
+        "tail_elements": 0,
+        "tail_mask": 268435455,
+        "version": 1,
+        "word_bits": 168
+      },
+      "width_lanes": 4
+    },
+    "interfaces": {
+      "hls_stream": {
+        "input_rows_per_word": 8,
+        "input_words_per_inference": 32,
+        "values_per_input_word": 32
+      },
+      "logical": {
+        "input_shape": [
+          256,
+          4
+        ],
+        "output_shape": [
+          1
+        ]
+      },
+      "rtl": {
+        "input_tdata_bits": 512,
+        "output_tdata_bits": 32
+      }
+    },
+    "model_family": {
+      "id": "hgq-conv-pool-dense",
+      "version": 1
+    },
+    "model_structure_sha256": "b06840aead23e62710886e7b596019ac7f5417fe74f0af853e2dce993a705e51",
+    "parameter_bindings": [
+      {
+        "descriptor": {
+          "numeric_type": {
+            "integer": 1,
+            "kind": "fixed",
+            "rounding": "TRN",
+            "saturation": "WRAP",
+            "saturation_bits": 0,
+            "signed": true,
+            "width": 5
+          },
+          "role": "bias",
+          "shape": [
+            7
+          ]
+        },
+        "id": "conv2d_0:bias"
+      },
+      {
+        "descriptor": {
+          "numeric_type": {
+            "integer": 1,
+            "kind": "fixed",
+            "rounding": "TRN",
+            "saturation": "WRAP",
+            "saturation_bits": 0,
+            "signed": true,
+            "width": 6
+          },
+          "role": "weight",
+          "shape": [
+            5,
+            1,
+            1,
+            7
+          ]
+        },
+        "id": "conv2d_0:weight"
+      },
+      {
+        "descriptor": {
+          "numeric_type": {
+            "integer": -1,
+            "kind": "fixed",
+            "rounding": "TRN",
+            "saturation": "WRAP",
+            "saturation_bits": 0,
+            "signed": true,
+            "width": 1
+          },
+          "role": "bias",
+          "shape": [
+            1
+          ]
+        },
+        "id": "dense_0:bias"
+      },
+      {
+        "descriptor": {
+          "numeric_type": {
+            "integer": 1,
+            "kind": "fixed",
+            "rounding": "TRN",
+            "saturation": "WRAP",
+            "saturation_bits": 0,
+            "signed": true,
+            "width": 6
+          },
+          "role": "weight",
+          "shape": [
+            1176,
+            1
+          ]
+        },
+        "id": "dense_0:weight"
+      }
+    ],
+    "passes": [
+      {
+        "id": "pack-temporal-input",
+        "order": 1,
+        "result": "applied",
+        "version": 1
+      },
+      {
+        "id": "fuse-pool-aligned-conv-relu-maxpool",
+        "order": 2,
+        "result": "applied",
+        "version": 1
+      },
+      {
+        "id": "stream-flatten-into-dense",
+        "order": 3,
+        "result": "applied",
+        "version": 1
+      },
+      {
+        "id": "bind-shallow-internal-fifos",
+        "order": 4,
+        "result": "applied",
+        "version": 1
+      },
+      {
+        "id": "preserve-phara-dataflow-start-propagation",
+        "order": 5,
+        "result": "applied",
+        "version": 1
+      }
+    ],
+    "rendering": {
+      "dense_function": "dense_wide_stream",
+      "first_convolution_function": "first_conv_8row_4lane_temporal_wide_cl",
+      "operations": {
+        "conv2d_0": {
+          "config_symbol": "config4",
+          "output_precision_cpp": "ap_fixed<16,6>",
+          "output_symbol": "layer4_out",
+          "output_type": "q_conv2d_t"
+        },
+        "dense_0": {
+          "config_symbol": "config9",
+          "output_precision_cpp": "ap_fixed<23,13>",
+          "output_symbol": "layer9_out",
+          "output_type": "result_t"
+        },
+        "input_0": {
+          "output_precision_cpp": "ap_fixed<10,5,AP_RND,AP_SAT_SYM,0>",
+          "output_symbol": "waveform",
+          "output_type": "waveform_t"
+        },
+        "max_pool2d_0": {
+          "config_symbol": "config6",
+          "output_precision_cpp": "ap_fixed<10,5,AP_RND,AP_SAT_SYM,0>",
+          "output_symbol": "layer6_out",
+          "output_type": "max_pooling2d_t"
+        },
+        "relu_0": {
+          "config_symbol": "relu_config5",
+          "output_precision_cpp": "ap_ufixed<15,5>",
+          "output_symbol": "layer5_out",
+          "output_type": "q_conv2d_relu_t"
+        },
+        "repack_0": {
+          "output_precision_cpp": "ap_fixed<10,5>",
+          "output_symbol": "layer10_out",
+          "output_type": "ravel_repack_t"
+        },
+        "reshape_0": {
+          "output_precision_cpp": "ap_fixed<10,5,AP_RND,AP_SAT_SYM,0>",
+          "output_symbol": "layer7_out",
+          "output_type": "max_pooling2d_t"
+        }
+      },
+      "phara_fused_function": "phara_pool_aligned_hybrid_p8_cl",
+      "streams": {
+        "activation": "layer5_out_x4",
+        "convolution": "layer4_out_x4",
+        "pooling": "layer6_out_x4"
+      },
+      "types": {
+        "activation_wide": "q_conv2d_relu_x4_t",
+        "convolution_wide": "q_conv2d_x4_t",
+        "input_wide": "waveform_x8_t",
+        "pooling_wide": "max_pooling2d_x4_t"
+      }
+    },
+    "resolver": {
+      "id": "aria-aggressive-phara",
+      "version": 1
+    },
+    "schema_version": 1,
+    "specialization": {
+      "dense_parallelism": 4,
+      "temporal_packing": 8
+    },
+    "strategy": {
+      "id": "phara",
+      "version": 1
+    },
+    "streaming": {
+      "buffers": {
+        "depth": 4,
+        "storage": "srl"
+      },
+      "dataflow_control": {
+        "block_control": "ap_ctrl_hs",
+        "start_propagation": true
+      },
+      "dense": {
+        "inputs": 1176,
+        "operation_id": "dense_0",
+        "parallelism": 4,
+        "steps": 42,
+        "weight_delivery": {
+          "accumulation": {
+            "policy": "ordered"
+          },
+          "applicability": {
+            "reasons": [],
+            "status": "applicable"
+          },
+          "depth": 42,
+          "id": "wide-sequential",
+          "mac_lanes": 28,
+          "multipliers": {
+            "implementation": "dsp",
+            "instances": 28
+          },
+          "storage": {
+            "implementation": "bram",
+            "type": "rom_1p"
+          },
+          "tail_elements": 0,
+          "tail_mask": 268435455,
+          "version": 1,
+          "word_bits": 168
+        }
+      },
+      "input": {
+        "rows_per_word": 8,
+        "values_per_word": 32,
+        "words_per_inference": 32
+      },
+      "phara_fused_region": {
+        "operation_ids": [
+          "conv2d_0",
+          "relu_0",
+          "max_pool2d_0"
+        ],
+        "pool_rows_per_supertile": 2,
+        "pooled_words": 42,
+        "realization": "hybrid",
+        "scheduler": {
+          "buffer_rows": 16,
+          "id": "row-credit",
+          "max_live_rows": 14,
+          "read_cycles": 32,
+          "version": 1
+        },
+        "supertile_input_rows": 8
+      }
+    }
+  },
+  "architecture_envelope_sha256": "9c5da8264993dfa110b96279fd32657b7bde7c2f4b15e499dde9398ad286a1cb",
+  "coefficient_realization": {
+    "graph": {
+      "input_ids": [
+        "x0",
+        "x1",
+        "x2",
+        "x3",
+        "x4",
+        "x5",
+        "x6",
+        "x7"
+      ],
+      "modulus": 65536,
+      "nodes": [
+        {
+          "id": "x0_shift1",
+          "inputs": [
+            "x0"
+          ],
+          "operation": "shift",
+          "value": 1
+        },
+        {
+          "id": "x1_shift3",
+          "inputs": [
+            "x1"
+          ],
+          "operation": "shift",
+          "value": 3
+        },
+        {
+          "id": "x1_c-8_negate",
+          "inputs": [
+            "x1_shift3"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x2_shift1",
+          "inputs": [
+            "x2"
+          ],
+          "operation": "shift",
+          "value": 1
+        },
+        {
+          "id": "x2_shift3",
+          "inputs": [
+            "x2"
+          ],
+          "operation": "shift",
+          "value": 3
+        },
+        {
+          "id": "x2_c-10_negate",
+          "inputs": [
+            "x2_shift1"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x2_c-10_negative1",
+          "inputs": [
+            "x2_c-10_negate",
+            "x2_shift3"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x3_shift3",
+          "inputs": [
+            "x3"
+          ],
+          "operation": "shift",
+          "value": 3
+        },
+        {
+          "id": "x3_c-7_negative1",
+          "inputs": [
+            "x3",
+            "x3_shift3"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x4_shift1",
+          "inputs": [
+            "x4"
+          ],
+          "operation": "shift",
+          "value": 1
+        },
+        {
+          "id": "x4_c-2_negate",
+          "inputs": [
+            "x4_shift1"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "constant0",
+          "inputs": [],
+          "operation": "constant",
+          "value": -448
+        },
+        {
+          "id": "x0_c-2_negate",
+          "inputs": [
+            "x0_shift1"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x2_shift2",
+          "inputs": [
+            "x2"
+          ],
+          "operation": "shift",
+          "value": 2
+        },
+        {
+          "id": "constant1",
+          "inputs": [],
+          "operation": "constant",
+          "value": 320
+        },
+        {
+          "id": "x0_shift2",
+          "inputs": [
+            "x0"
+          ],
+          "operation": "shift",
+          "value": 2
+        },
+        {
+          "id": "x0_c-5_negate",
+          "inputs": [
+            "x0"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x0_c-5_negative1",
+          "inputs": [
+            "x0_c-5_negate",
+            "x0_shift2"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x3_c11_dsp",
+          "inputs": [
+            "x3"
+          ],
+          "operation": "multiply",
+          "value": 11
+        },
+        {
+          "id": "x4_shift3",
+          "inputs": [
+            "x4"
+          ],
+          "operation": "shift",
+          "value": 3
+        },
+        {
+          "id": "x4_c9_positive1",
+          "inputs": [
+            "x4",
+            "x4_shift3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "x0_shift3",
+          "inputs": [
+            "x0"
+          ],
+          "operation": "shift",
+          "value": 3
+        },
+        {
+          "id": "x0_c-10_negate",
+          "inputs": [
+            "x0_shift1"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x0_c-10_negative1",
+          "inputs": [
+            "x0_c-10_negate",
+            "x0_shift3"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x1_shift1",
+          "inputs": [
+            "x1"
+          ],
+          "operation": "shift",
+          "value": 1
+        },
+        {
+          "id": "x1_c-10_negate",
+          "inputs": [
+            "x1_shift1"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x1_c-10_negative1",
+          "inputs": [
+            "x1_c-10_negate",
+            "x1_shift3"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x2_c-8_negate",
+          "inputs": [
+            "x2_shift3"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x3_c-8_negate",
+          "inputs": [
+            "x3_shift3"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x4_shift2",
+          "inputs": [
+            "x4"
+          ],
+          "operation": "shift",
+          "value": 2
+        },
+        {
+          "id": "x4_c-5_negate",
+          "inputs": [
+            "x4"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x4_c-5_negative1",
+          "inputs": [
+            "x4_c-5_negate",
+            "x4_shift2"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "constant2",
+          "inputs": [],
+          "operation": "constant",
+          "value": -512
+        },
+        {
+          "id": "x0_c-1_negate",
+          "inputs": [
+            "x0"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x1_c-6_negative1",
+          "inputs": [
+            "x1_shift1",
+            "x1_shift3"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x2_c-1_negate",
+          "inputs": [
+            "x2"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x3_shift2",
+          "inputs": [
+            "x3"
+          ],
+          "operation": "shift",
+          "value": 2
+        },
+        {
+          "id": "x4_c5_positive1",
+          "inputs": [
+            "x4",
+            "x4_shift2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "constant3",
+          "inputs": [],
+          "operation": "constant",
+          "value": 256
+        },
+        {
+          "id": "x0_c-3_negative1",
+          "inputs": [
+            "x0",
+            "x0_shift2"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x2_c-3_negative1",
+          "inputs": [
+            "x2",
+            "x2_shift2"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x3_shift1",
+          "inputs": [
+            "x3"
+          ],
+          "operation": "shift",
+          "value": 1
+        },
+        {
+          "id": "x3_c6_negative1",
+          "inputs": [
+            "x3_shift3",
+            "x3_shift1"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x0_c6_negative1",
+          "inputs": [
+            "x0_shift3",
+            "x0_shift1"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x1_c13_dsp",
+          "inputs": [
+            "x1"
+          ],
+          "operation": "multiply",
+          "value": 13
+        },
+        {
+          "id": "x2_c13_dsp",
+          "inputs": [
+            "x2"
+          ],
+          "operation": "multiply",
+          "value": 13
+        },
+        {
+          "id": "x3_c9_positive1",
+          "inputs": [
+            "x3",
+            "x3_shift3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "x4_c7_negative1",
+          "inputs": [
+            "x4_shift3",
+            "x4"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "constant4",
+          "inputs": [],
+          "operation": "constant",
+          "value": -576
+        },
+        {
+          "id": "x4_c-8_negate",
+          "inputs": [
+            "x4_shift3"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x5_shift1",
+          "inputs": [
+            "x5"
+          ],
+          "operation": "shift",
+          "value": 1
+        },
+        {
+          "id": "x5_shift3",
+          "inputs": [
+            "x5"
+          ],
+          "operation": "shift",
+          "value": 3
+        },
+        {
+          "id": "x5_c-10_negate",
+          "inputs": [
+            "x5_shift1"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x5_c-10_negative1",
+          "inputs": [
+            "x5_c-10_negate",
+            "x5_shift3"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x6_shift3",
+          "inputs": [
+            "x6"
+          ],
+          "operation": "shift",
+          "value": 3
+        },
+        {
+          "id": "x6_c-7_negative1",
+          "inputs": [
+            "x6",
+            "x6_shift3"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x7_shift1",
+          "inputs": [
+            "x7"
+          ],
+          "operation": "shift",
+          "value": 1
+        },
+        {
+          "id": "x7_c-2_negate",
+          "inputs": [
+            "x7_shift1"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x3_c-2_negate",
+          "inputs": [
+            "x3_shift1"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x5_shift2",
+          "inputs": [
+            "x5"
+          ],
+          "operation": "shift",
+          "value": 2
+        },
+        {
+          "id": "x3_c-5_negate",
+          "inputs": [
+            "x3"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x3_c-5_negative1",
+          "inputs": [
+            "x3_c-5_negate",
+            "x3_shift2"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x6_c11_dsp",
+          "inputs": [
+            "x6"
+          ],
+          "operation": "multiply",
+          "value": 11
+        },
+        {
+          "id": "x7_shift3",
+          "inputs": [
+            "x7"
+          ],
+          "operation": "shift",
+          "value": 3
+        },
+        {
+          "id": "x7_c9_positive1",
+          "inputs": [
+            "x7",
+            "x7_shift3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "x3_c-10_negate",
+          "inputs": [
+            "x3_shift1"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x3_c-10_negative1",
+          "inputs": [
+            "x3_c-10_negate",
+            "x3_shift3"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x4_c-10_negate",
+          "inputs": [
+            "x4_shift1"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x4_c-10_negative1",
+          "inputs": [
+            "x4_c-10_negate",
+            "x4_shift3"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x5_c-8_negate",
+          "inputs": [
+            "x5_shift3"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x6_c-8_negate",
+          "inputs": [
+            "x6_shift3"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x7_shift2",
+          "inputs": [
+            "x7"
+          ],
+          "operation": "shift",
+          "value": 2
+        },
+        {
+          "id": "x7_c-5_negate",
+          "inputs": [
+            "x7"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x7_c-5_negative1",
+          "inputs": [
+            "x7_c-5_negate",
+            "x7_shift2"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x3_c-1_negate",
+          "inputs": [
+            "x3"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x4_c-6_negative1",
+          "inputs": [
+            "x4_shift1",
+            "x4_shift3"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x5_c-1_negate",
+          "inputs": [
+            "x5"
+          ],
+          "operation": "negate",
+          "value": null
+        },
+        {
+          "id": "x6_shift2",
+          "inputs": [
+            "x6"
+          ],
+          "operation": "shift",
+          "value": 2
+        },
+        {
+          "id": "x7_c5_positive1",
+          "inputs": [
+            "x7",
+            "x7_shift2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "x3_c-3_negative1",
+          "inputs": [
+            "x3",
+            "x3_shift2"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x5_c-3_negative1",
+          "inputs": [
+            "x5",
+            "x5_shift2"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x6_shift1",
+          "inputs": [
+            "x6"
+          ],
+          "operation": "shift",
+          "value": 1
+        },
+        {
+          "id": "x6_c6_negative1",
+          "inputs": [
+            "x6_shift3",
+            "x6_shift1"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "x4_c13_dsp",
+          "inputs": [
+            "x4"
+          ],
+          "operation": "multiply",
+          "value": 13
+        },
+        {
+          "id": "x5_c13_dsp",
+          "inputs": [
+            "x5"
+          ],
+          "operation": "multiply",
+          "value": 13
+        },
+        {
+          "id": "x6_c9_positive1",
+          "inputs": [
+            "x6",
+            "x6_shift3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "x7_c7_negative1",
+          "inputs": [
+            "x7_shift3",
+            "x7"
+          ],
+          "operation": "subtract",
+          "value": null
+        },
+        {
+          "id": "cse0",
+          "inputs": [
+            "constant0",
+            "x1_c-8_negate"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "cse1",
+          "inputs": [
+            "constant0",
+            "x4_c-8_negate"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f0_sum1",
+          "inputs": [
+            "x0_shift1",
+            "x2_c-10_negative1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f0_sum2",
+          "inputs": [
+            "x3_c-7_negative1",
+            "y0_f0_sum1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f0_sum3",
+          "inputs": [
+            "x4_c-2_negate",
+            "y0_f0_sum2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f0_sum4",
+          "inputs": [
+            "cse0",
+            "y0_f0_sum3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f1_sum1",
+          "inputs": [
+            "x0_c-2_negate",
+            "x1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f1_sum2",
+          "inputs": [
+            "x2_shift2",
+            "y0_f1_sum1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f1_sum3",
+          "inputs": [
+            "constant1",
+            "y0_f1_sum2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f2_sum1",
+          "inputs": [
+            "x0_c-5_negative1",
+            "x2_shift1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f2_sum2",
+          "inputs": [
+            "x3_c11_dsp",
+            "y0_f2_sum1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f2_sum3",
+          "inputs": [
+            "x4_c9_positive1",
+            "y0_f2_sum2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f2_sum4",
+          "inputs": [
+            "cse0",
+            "y0_f2_sum3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f3_sum1",
+          "inputs": [
+            "x0_c-10_negative1",
+            "x1_c-10_negative1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f3_sum2",
+          "inputs": [
+            "x2_c-8_negate",
+            "y0_f3_sum1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f3_sum3",
+          "inputs": [
+            "x3_c-8_negate",
+            "y0_f3_sum2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f3_sum4",
+          "inputs": [
+            "x4_c-5_negative1",
+            "y0_f3_sum3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f3_sum5",
+          "inputs": [
+            "constant2",
+            "y0_f3_sum4"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f4_sum1",
+          "inputs": [
+            "x0_c-1_negate",
+            "x1_c-6_negative1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f4_sum2",
+          "inputs": [
+            "x2_c-1_negate",
+            "y0_f4_sum1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f4_sum3",
+          "inputs": [
+            "x3_shift2",
+            "y0_f4_sum2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f4_sum4",
+          "inputs": [
+            "x4_c5_positive1",
+            "y0_f4_sum3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f4_sum5",
+          "inputs": [
+            "constant3",
+            "y0_f4_sum4"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f5_sum1",
+          "inputs": [
+            "x0_c-3_negative1",
+            "x1_shift1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f5_sum2",
+          "inputs": [
+            "x2_c-3_negative1",
+            "y0_f5_sum1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f5_sum3",
+          "inputs": [
+            "x3_c6_negative1",
+            "y0_f5_sum2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f5_sum4",
+          "inputs": [
+            "x4_c-2_negate",
+            "y0_f5_sum3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f5_sum5",
+          "inputs": [
+            "constant3",
+            "y0_f5_sum4"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f6_sum1",
+          "inputs": [
+            "x0_c6_negative1",
+            "x1_c13_dsp"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f6_sum2",
+          "inputs": [
+            "x2_c13_dsp",
+            "y0_f6_sum1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f6_sum3",
+          "inputs": [
+            "x3_c9_positive1",
+            "y0_f6_sum2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f6_sum4",
+          "inputs": [
+            "x4_c7_negative1",
+            "y0_f6_sum3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y0_f6_sum5",
+          "inputs": [
+            "constant4",
+            "y0_f6_sum4"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f0_sum1",
+          "inputs": [
+            "x3_shift1",
+            "x5_c-10_negative1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f0_sum2",
+          "inputs": [
+            "x6_c-7_negative1",
+            "y1_f0_sum1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f0_sum3",
+          "inputs": [
+            "x7_c-2_negate",
+            "y1_f0_sum2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f0_sum4",
+          "inputs": [
+            "cse1",
+            "y1_f0_sum3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f1_sum1",
+          "inputs": [
+            "x3_c-2_negate",
+            "x4"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f1_sum2",
+          "inputs": [
+            "x5_shift2",
+            "y1_f1_sum1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f1_sum3",
+          "inputs": [
+            "constant1",
+            "y1_f1_sum2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f2_sum1",
+          "inputs": [
+            "x3_c-5_negative1",
+            "x5_shift1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f2_sum2",
+          "inputs": [
+            "x6_c11_dsp",
+            "y1_f2_sum1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f2_sum3",
+          "inputs": [
+            "x7_c9_positive1",
+            "y1_f2_sum2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f2_sum4",
+          "inputs": [
+            "cse1",
+            "y1_f2_sum3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f3_sum1",
+          "inputs": [
+            "x3_c-10_negative1",
+            "x4_c-10_negative1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f3_sum2",
+          "inputs": [
+            "x5_c-8_negate",
+            "y1_f3_sum1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f3_sum3",
+          "inputs": [
+            "x6_c-8_negate",
+            "y1_f3_sum2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f3_sum4",
+          "inputs": [
+            "x7_c-5_negative1",
+            "y1_f3_sum3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f3_sum5",
+          "inputs": [
+            "constant2",
+            "y1_f3_sum4"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f4_sum1",
+          "inputs": [
+            "x3_c-1_negate",
+            "x4_c-6_negative1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f4_sum2",
+          "inputs": [
+            "x5_c-1_negate",
+            "y1_f4_sum1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f4_sum3",
+          "inputs": [
+            "x6_shift2",
+            "y1_f4_sum2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f4_sum4",
+          "inputs": [
+            "x7_c5_positive1",
+            "y1_f4_sum3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f4_sum5",
+          "inputs": [
+            "constant3",
+            "y1_f4_sum4"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f5_sum1",
+          "inputs": [
+            "x3_c-3_negative1",
+            "x4_shift1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f5_sum2",
+          "inputs": [
+            "x5_c-3_negative1",
+            "y1_f5_sum1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f5_sum3",
+          "inputs": [
+            "x6_c6_negative1",
+            "y1_f5_sum2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f5_sum4",
+          "inputs": [
+            "x7_c-2_negate",
+            "y1_f5_sum3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f5_sum5",
+          "inputs": [
+            "constant3",
+            "y1_f5_sum4"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f6_sum1",
+          "inputs": [
+            "x3_c6_negative1",
+            "x4_c13_dsp"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f6_sum2",
+          "inputs": [
+            "x5_c13_dsp",
+            "y1_f6_sum1"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f6_sum3",
+          "inputs": [
+            "x6_c9_positive1",
+            "y1_f6_sum2"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f6_sum4",
+          "inputs": [
+            "x7_c7_negative1",
+            "y1_f6_sum3"
+          ],
+          "operation": "add",
+          "value": null
+        },
+        {
+          "id": "y1_f6_sum5",
+          "inputs": [
+            "constant4",
+            "y1_f6_sum4"
+          ],
+          "operation": "add",
+          "value": null
+        }
+      ],
+      "output_ids": [
+        "y0_f0_sum4",
+        "y0_f1_sum3",
+        "y0_f2_sum4",
+        "y0_f3_sum5",
+        "y0_f4_sum5",
+        "y0_f5_sum5",
+        "y0_f6_sum5",
+        "y1_f0_sum4",
+        "y1_f1_sum3",
+        "y1_f2_sum4",
+        "y1_f3_sum5",
+        "y1_f4_sum5",
+        "y1_f5_sum5",
+        "y1_f6_sum5"
+      ]
+    },
+    "graph_sha256": "2c6df1bebeb6b1e7c741aa9d255f9c65d28ed6e9c8fe24059ed80f5275de2c0b",
+    "graph_summary": {
+      "add_nodes": 70,
+      "constant_nodes": 5,
+      "convolution_rows": 2,
+      "depth": 8,
+      "dsp_product_budget": 16,
+      "dsp_product_uses": 6,
+      "filter_lanes": 7,
+      "input_rows": 8,
+      "max_fanout": 9,
+      "multiply_nodes": 6,
+      "negate_nodes": 24,
+      "output_values": 14,
+      "shared_pair_uses": 2,
+      "shared_product_uses": 5,
+      "shift_nodes": 23,
+      "subtract_nodes": 23
+    },
+    "kind": "hybrid",
+    "policy": {
+      "id": "phara-hybrid-csd-cse-dsp",
+      "version": 1
+    },
+    "proof": {
+      "identity": "a3685189e87bb55a1ba4d504823843f51e87a3914dee9c40f90d232488da158e",
+      "modulus": 65536,
+      "status": "proven"
+    }
+  },
+  "coefficient_realization_sha256": "a9f58cc9672b8fc35b0740624cbb4d361cd8d2e4efba992280d39233132abc36",
+  "configuration_sha256": "e5e69a5a454c7d602d13a6e710aabb60797e0be202a0ebc992d464a2605ff4fd",
   "dependencies": {
     "Jinja2": {
       "installed": "3.1.6",
@@ -37,33 +1734,107 @@
       "status": "qualified"
     }
   },
-  "generation_fingerprint": "423f5b6d3fe1d2f3a731ed70b2dbdf6f644df8e57d782c901a130d5b6dc909a0",
+  "generation_configuration": {
+    "hls4ml": {
+      "Backend": "Vitis",
+      "ClockPeriod": 5.0,
+      "IOType": "io_stream",
+      "Part": "xcku5p-ffvb676-2-e",
+      "ProjectName": "cnn_core",
+      "ReuseFactor": 1,
+      "Strategy": "Latency"
+    },
+    "ravel": {
+      "Optimization": {
+        "DenseParallelism": 4,
+        "TemporalPacking": 8
+      },
+      "OptimizationPolicy": "aria-aggressive-phara-v1",
+      "Profile": "aria"
+    }
+  },
+  "generation_fingerprint": "ebfdc7eecce8968152da5a03cae933118b1756dacac1527f044a312f89734492",
   "implementation_plan": {
     "channels_per_row": 4,
+    "dataflow_start_propagation": true,
     "dense_inputs": 1176,
+    "dense_parallelism": 4,
+    "dense_steps": 42,
     "filter_lanes": 7,
-    "input_words_per_inference": 128,
+    "first_convolution": {
+      "id": "pool-aligned-direct",
+      "multiplier_limit": 280,
+      "parallel_windows": 8,
+      "products_per_window": 35,
+      "target_loop_ii": 1,
+      "version": 1
+    },
+    "input_words_per_inference": 32,
     "internal_fifo_depth": 4,
-    "template_profile": "aria-2x-v1",
-    "temporal_pack": 2,
-    "values_per_input_word": 8,
+    "phara": {
+      "pool_rows_per_supertile": 2,
+      "pooled_words": 42,
+      "realization": "hybrid",
+      "scheduler": {
+        "buffer_rows": 16,
+        "id": "row-credit",
+        "max_live_rows": 14,
+        "read_cycles": 32,
+        "version": 1
+      },
+      "stage_cycles": {
+        "dense": 42,
+        "fused_region": 42,
+        "input": 32
+      },
+      "structural_ii_lower_bound": 42,
+      "supertile_input_rows": 8,
+      "version": 1
+    },
+    "template_profile": "aria-phara-p8-q1-d4-v1",
+    "temporal_pack": 8,
+    "values_per_input_word": 32,
     "values_per_internal_word": 28,
+    "weight_delivery": {
+      "accumulation": {
+        "policy": "ordered"
+      },
+      "applicability": {
+        "reasons": [],
+        "status": "applicable"
+      },
+      "depth": 42,
+      "id": "wide-sequential",
+      "mac_lanes": 28,
+      "multipliers": {
+        "implementation": "dsp",
+        "instances": 28
+      },
+      "storage": {
+        "implementation": "bram",
+        "type": "rom_1p"
+      },
+      "tail_elements": 0,
+      "tail_mask": 268435455,
+      "version": 1,
+      "word_bits": 168
+    },
     "width_lanes": 4
   },
-  "implementation_sha256": "9fcfb08993f01e1911d849df46fd965d5b6cd54c34b55a7532641f2e57655ab6",
+  "implementation_sha256": "e08523e8452d17d1b3cdd76bb4e3816c5b53d2e4a0a2b37980e77f2077b42181",
   "interfaces": {
     "hls_stream_interface": {
       "block_control": "ap_ctrl_hs",
       "channels_per_row": 4,
-      "input_rows_per_word": 2,
-      "input_scalar_bits": 9,
-      "input_words_per_inference": 128,
+      "input_rows_per_word": 8,
+      "input_scalar_bits": 10,
+      "input_words_per_inference": 32,
       "optional_axis_sidebands": [],
       "ordering": "row-major; time before channel",
-      "output_scalar_bits": 22,
+      "output_scalar_bits": 23,
       "output_words_per_inference": 1,
       "protocol": "axis",
-      "values_per_input_word": 8
+      "values_per_input_word": 32
     },
     "logical_model_interface": {
       "input_shape": [
@@ -76,26 +1847,16 @@
     },
     "rtl_interface": {
       "expected": {
-        "input_scalar_bits": 9,
-        "input_tdata_bits": 128,
-        "input_tdata_port": "input_layer_TDATA",
-        "output_scalar_bits": 22,
+        "input_scalar_bits": 10,
+        "input_tdata_bits": 512,
+        "input_tdata_port": "waveform_TDATA",
+        "output_scalar_bits": 23,
         "output_tdata_bits": 32,
         "output_tdata_port": "layer9_out_TDATA",
         "qualification_profile": "hls4ml-1.2.0-vitis-2023.2-axis-packing-v1"
       },
       "measured": null
     }
-  },
-  "managed_files": {
-    "cnn_core_bridge.cpp": "d6dec56170277d832f85c279e5907555b58f688f8007bff818045dc97a1f6b37",
-    "cnn_core_test.cpp": "bb44744eb5b9acf5468e72d1ff26c176c68d66767d177f68b7adc90f8f3c71eb",
-    "firmware/cnn_core.cpp": "64b6d103484cd1bee8735e5149b075c85f6f11c7c6a75e4e2aac120e5ae754d7",
-    "firmware/cnn_core.h": "e98dfac88ae691e1eccbad63e47574480cb5077e7fe987aadd8ffb1699938c41",
-    "firmware/defines.h": "5e9a1b7689f7801d1858ada315dec0dea41e210b9aa5fa958a17068fb8a18229",
-    "firmware/nnet_utils/nnet_aria.h": "101555cb64858092fd39434a61dc772e830b4a72b98d79a88afe775372ebaba1",
-    "hls4ml_config.yml": "db784cd0c8ae38e6b65211a5574caa99ee6b0189abe77a6e294c694da2a93466",
-    "ravel_config.yml": "77a2a98e566950896d3eec648b310a27a92293548b2047df9147ee41f2a76978"
   },
   "normalized_configuration": {
     "hls4ml": {
@@ -108,108 +1869,162 @@
       "Strategy": "Latency"
     },
     "ravel": {
-      "Profile": "aria",
+      "HLS": {
+        "Backend": "Vitis",
+        "ClockPeriod": 5.0,
+        "Config": {
+          "LayerName": {
+            "flatten": {
+              "Precision": {
+                "result": "auto"
+              },
+              "Trace": false
+            },
+            "max_pooling2d": {
+              "ConvImplementation": "LineBuffer",
+              "Precision": {
+                "accum": "auto",
+                "result": "auto"
+              },
+              "ReuseFactor": 1,
+              "Trace": false
+            },
+            "q_conv2d": {
+              "ConvImplementation": "LineBuffer",
+              "ParallelizationFactor": 1,
+              "Precision": {
+                "accum": "auto",
+                "bias": "auto",
+                "result": "auto",
+                "weight": "auto"
+              },
+              "ReuseFactor": 1,
+              "Trace": false
+            },
+            "q_conv2d_iq": {
+              "Precision": {
+                "result": "auto"
+              },
+              "Trace": false
+            },
+            "q_conv2d_relu": {
+              "Precision": {
+                "result": "auto",
+                "table": "fixed<18,8,TRN,WRAP,0>"
+              },
+              "ReuseFactor": 1,
+              "TableSize": 1024,
+              "Trace": false
+            },
+            "q_dense": {
+              "Precision": {
+                "accum": "auto",
+                "bias": "auto",
+                "result": "auto",
+                "weight": "auto"
+              },
+              "ReuseFactor": 1,
+              "Trace": false
+            },
+            "q_dense_iq": {
+              "Precision": {
+                "result": "auto"
+              },
+              "Trace": false
+            },
+            "ravel_repack": {
+              "Precision": {
+                "result": "auto"
+              },
+              "Trace": false
+            },
+            "waveform": {
+              "Precision": {
+                "result": "auto"
+              },
+              "Trace": false
+            }
+          },
+          "Model": {
+            "BitExact": null,
+            "BramFactor": 1000000000,
+            "Precision": {
+              "default": "fixed<16,6>"
+            },
+            "ReuseFactor": 1,
+            "Strategy": "Latency",
+            "TraceOutput": false
+          }
+        },
+        "IOType": "io_stream",
+        "Part": "xcku5p-ffvb676-2-e"
+      },
+      "Optimization": {
+        "DenseParallelism": 4,
+        "TemporalPacking": 8
+      },
+      "Project": {
+        "ForceReplace": true,
+        "Name": "cnn_core",
+        "OutputDir": "."
+      },
       "Verification": {
         "Mode": "required"
+      },
+      "Vitis": {
+        "Run": false,
+        "Stages": {
+          "CSim": false,
+          "CoSim": false,
+          "Export": false,
+          "Reset": true,
+          "Synth": true,
+          "VSynth": false,
+          "Validation": false
+        }
       }
     }
   },
   "pipeline": {
     "passes": [
       {
-        "affected_artifacts": [
-          "firmware/defines.h",
-          "bridge",
-          "testbench"
-        ],
-        "id": "PackTemporalInput2x",
-        "input_ir_sha256": "3fdad40310ae435d5edb24566dc63ba794e3532f1aab658e58fd7af04565debf",
-        "legality": "passed",
+        "id": "pack-temporal-input",
+        "input_design_sha256": "ce425cc34b8e705e60afb12fe5b50975fcff3737c7383d2161bd6566bd93c968",
         "order": 1,
-        "output_ir_sha256": "df5b7bf824dfbdff800b0303ac0ce93c10d7fc5c10194e2a00c9b264b31ad118",
-        "resolved_parameters": {
-          "rows_per_word": 2,
-          "values_per_word": 8
-        },
+        "output_design_sha256": "086c76ca995aa21bbfbee909b338164e55beb3fc8ac71349eab7cb1b14eaafa0",
+        "result": "applied",
         "version": 1
       },
       {
-        "affected_artifacts": [
-          "firmware/top.cpp",
-          "firmware/nnet_utils/nnet_aria.h"
-        ],
-        "id": "FuseRepackReshapeIntoFirstConv",
-        "input_ir_sha256": "df5b7bf824dfbdff800b0303ac0ce93c10d7fc5c10194e2a00c9b264b31ad118",
-        "legality": "passed",
+        "id": "fuse-pool-aligned-conv-relu-maxpool",
+        "input_design_sha256": "086c76ca995aa21bbfbee909b338164e55beb3fc8ac71349eab7cb1b14eaafa0",
         "order": 2,
-        "output_ir_sha256": "54fcb9fcd59bdaef86bdb0764e4d4d41fe6dc3a5f2f98f42b5957ab291e0208e",
-        "resolved_parameters": {
-          "filter_lanes": 7,
-          "width_lanes": 4
-        },
+        "output_design_sha256": "6dd7860891ab848124c43f6030c5412338aaddff900e7ef6838cf5448cfd93da",
+        "result": "applied",
         "version": 1
       },
       {
-        "affected_artifacts": [
-          "firmware/top.cpp",
-          "firmware/defines.h"
-        ],
-        "id": "PropagateWideReLUStream",
-        "input_ir_sha256": "54fcb9fcd59bdaef86bdb0764e4d4d41fe6dc3a5f2f98f42b5957ab291e0208e",
-        "legality": "passed",
+        "id": "stream-flatten-into-dense",
+        "input_design_sha256": "6dd7860891ab848124c43f6030c5412338aaddff900e7ef6838cf5448cfd93da",
         "order": 3,
-        "output_ir_sha256": "fccbce0199183394d8de83e5d846f93754e56aeaa728d18d6f00909ec23cd49d",
-        "resolved_parameters": {
-          "values_per_word": 28
-        },
+        "output_design_sha256": "6bd39eddc0aa0981ad4306431493e85d9edf7ea52deee9a4f733319f9fd02472",
+        "result": "applied",
         "version": 1
       },
       {
-        "affected_artifacts": [
-          "firmware/top.cpp",
-          "firmware/nnet_utils/nnet_aria.h"
-        ],
-        "id": "SpecializeNonOverlappingMaxPool",
-        "input_ir_sha256": "fccbce0199183394d8de83e5d846f93754e56aeaa728d18d6f00909ec23cd49d",
-        "legality": "passed",
+        "id": "bind-shallow-internal-fifos",
+        "input_design_sha256": "6bd39eddc0aa0981ad4306431493e85d9edf7ea52deee9a4f733319f9fd02472",
         "order": 4,
-        "output_ir_sha256": "fb32ba0b00c356fc6562b9dda9fc939ef8b0e9cbad28ef15ccf18699726d56be",
-        "resolved_parameters": {
-          "pool_height": 2,
-          "pool_width": 1,
-          "stride_height": 2
-        },
+        "output_design_sha256": "f0e4f410aae0ca7902f9955249af4ec74d9153646661f167e1cc9dadfae77693",
+        "result": "applied",
         "version": 1
       },
       {
-        "affected_artifacts": [
-          "firmware/top.cpp",
-          "firmware/nnet_utils/nnet_aria.h"
-        ],
-        "id": "StreamFlattenIntoDense",
-        "input_ir_sha256": "fb32ba0b00c356fc6562b9dda9fc939ef8b0e9cbad28ef15ccf18699726d56be",
-        "legality": "passed",
+        "id": "preserve-phara-dataflow-start-propagation",
+        "input_design_sha256": "f0e4f410aae0ca7902f9955249af4ec74d9153646661f167e1cc9dadfae77693",
         "order": 5,
-        "output_ir_sha256": "89f1d786d55e531f276e4dfeaa8a83a75f43af3c16e48cf5b763d1aa58f224f1",
-        "resolved_parameters": {
-          "dense_inputs": 1176,
-          "filter_lanes": 7
-        },
-        "version": 1
-      },
-      {
-        "affected_artifacts": [
-          "firmware/top.cpp"
-        ],
-        "id": "BindShallowInternalFifos",
-        "input_ir_sha256": "89f1d786d55e531f276e4dfeaa8a83a75f43af3c16e48cf5b763d1aa58f224f1",
-        "legality": "passed",
-        "order": 6,
-        "output_ir_sha256": "b566963767242d342db4573f314eba8bdee6aedd2866d22f51399b4a5fb5ebd4",
-        "resolved_parameters": {
-          "fifo_depth": 4,
-          "storage": "srl"
-        },
+        "output_design_sha256": "f9d379cc44fcfc9a5221b4e145785d20803c992dd6a98e20bae7b304eb8cf5e9",
+        "result": "applied",
         "version": 1
       }
     ],
@@ -224,19 +2039,2850 @@
     ]
   },
   "profile": {
-    "id": "aria",
-    "version": 1
+    "generation": {
+      "id": "aria",
+      "version": "1.5.1"
+    },
+    "model_family": {
+      "id": "hgq-conv-pool-dense",
+      "version": 1
+    }
   },
   "ravel": {
     "generation": "Aria",
-    "package_version": "1.0.0",
+    "package_version": "1.0.1.dev135",
     "product": "RAVEL",
-    "release": "1.0"
+    "release": "1.5.1"
   },
-  "schema_version": 1,
+  "resolved_design": {
+    "coefficient_realization": {
+      "graph": {
+        "input_ids": [
+          "x0",
+          "x1",
+          "x2",
+          "x3",
+          "x4",
+          "x5",
+          "x6",
+          "x7"
+        ],
+        "modulus": 65536,
+        "nodes": [
+          {
+            "id": "x0_shift1",
+            "inputs": [
+              "x0"
+            ],
+            "operation": "shift",
+            "value": 1
+          },
+          {
+            "id": "x1_shift3",
+            "inputs": [
+              "x1"
+            ],
+            "operation": "shift",
+            "value": 3
+          },
+          {
+            "id": "x1_c-8_negate",
+            "inputs": [
+              "x1_shift3"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x2_shift1",
+            "inputs": [
+              "x2"
+            ],
+            "operation": "shift",
+            "value": 1
+          },
+          {
+            "id": "x2_shift3",
+            "inputs": [
+              "x2"
+            ],
+            "operation": "shift",
+            "value": 3
+          },
+          {
+            "id": "x2_c-10_negate",
+            "inputs": [
+              "x2_shift1"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x2_c-10_negative1",
+            "inputs": [
+              "x2_c-10_negate",
+              "x2_shift3"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x3_shift3",
+            "inputs": [
+              "x3"
+            ],
+            "operation": "shift",
+            "value": 3
+          },
+          {
+            "id": "x3_c-7_negative1",
+            "inputs": [
+              "x3",
+              "x3_shift3"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x4_shift1",
+            "inputs": [
+              "x4"
+            ],
+            "operation": "shift",
+            "value": 1
+          },
+          {
+            "id": "x4_c-2_negate",
+            "inputs": [
+              "x4_shift1"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "constant0",
+            "inputs": [],
+            "operation": "constant",
+            "value": -448
+          },
+          {
+            "id": "x0_c-2_negate",
+            "inputs": [
+              "x0_shift1"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x2_shift2",
+            "inputs": [
+              "x2"
+            ],
+            "operation": "shift",
+            "value": 2
+          },
+          {
+            "id": "constant1",
+            "inputs": [],
+            "operation": "constant",
+            "value": 320
+          },
+          {
+            "id": "x0_shift2",
+            "inputs": [
+              "x0"
+            ],
+            "operation": "shift",
+            "value": 2
+          },
+          {
+            "id": "x0_c-5_negate",
+            "inputs": [
+              "x0"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x0_c-5_negative1",
+            "inputs": [
+              "x0_c-5_negate",
+              "x0_shift2"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x3_c11_dsp",
+            "inputs": [
+              "x3"
+            ],
+            "operation": "multiply",
+            "value": 11
+          },
+          {
+            "id": "x4_shift3",
+            "inputs": [
+              "x4"
+            ],
+            "operation": "shift",
+            "value": 3
+          },
+          {
+            "id": "x4_c9_positive1",
+            "inputs": [
+              "x4",
+              "x4_shift3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "x0_shift3",
+            "inputs": [
+              "x0"
+            ],
+            "operation": "shift",
+            "value": 3
+          },
+          {
+            "id": "x0_c-10_negate",
+            "inputs": [
+              "x0_shift1"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x0_c-10_negative1",
+            "inputs": [
+              "x0_c-10_negate",
+              "x0_shift3"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x1_shift1",
+            "inputs": [
+              "x1"
+            ],
+            "operation": "shift",
+            "value": 1
+          },
+          {
+            "id": "x1_c-10_negate",
+            "inputs": [
+              "x1_shift1"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x1_c-10_negative1",
+            "inputs": [
+              "x1_c-10_negate",
+              "x1_shift3"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x2_c-8_negate",
+            "inputs": [
+              "x2_shift3"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x3_c-8_negate",
+            "inputs": [
+              "x3_shift3"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x4_shift2",
+            "inputs": [
+              "x4"
+            ],
+            "operation": "shift",
+            "value": 2
+          },
+          {
+            "id": "x4_c-5_negate",
+            "inputs": [
+              "x4"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x4_c-5_negative1",
+            "inputs": [
+              "x4_c-5_negate",
+              "x4_shift2"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "constant2",
+            "inputs": [],
+            "operation": "constant",
+            "value": -512
+          },
+          {
+            "id": "x0_c-1_negate",
+            "inputs": [
+              "x0"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x1_c-6_negative1",
+            "inputs": [
+              "x1_shift1",
+              "x1_shift3"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x2_c-1_negate",
+            "inputs": [
+              "x2"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x3_shift2",
+            "inputs": [
+              "x3"
+            ],
+            "operation": "shift",
+            "value": 2
+          },
+          {
+            "id": "x4_c5_positive1",
+            "inputs": [
+              "x4",
+              "x4_shift2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "constant3",
+            "inputs": [],
+            "operation": "constant",
+            "value": 256
+          },
+          {
+            "id": "x0_c-3_negative1",
+            "inputs": [
+              "x0",
+              "x0_shift2"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x2_c-3_negative1",
+            "inputs": [
+              "x2",
+              "x2_shift2"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x3_shift1",
+            "inputs": [
+              "x3"
+            ],
+            "operation": "shift",
+            "value": 1
+          },
+          {
+            "id": "x3_c6_negative1",
+            "inputs": [
+              "x3_shift3",
+              "x3_shift1"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x0_c6_negative1",
+            "inputs": [
+              "x0_shift3",
+              "x0_shift1"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x1_c13_dsp",
+            "inputs": [
+              "x1"
+            ],
+            "operation": "multiply",
+            "value": 13
+          },
+          {
+            "id": "x2_c13_dsp",
+            "inputs": [
+              "x2"
+            ],
+            "operation": "multiply",
+            "value": 13
+          },
+          {
+            "id": "x3_c9_positive1",
+            "inputs": [
+              "x3",
+              "x3_shift3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "x4_c7_negative1",
+            "inputs": [
+              "x4_shift3",
+              "x4"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "constant4",
+            "inputs": [],
+            "operation": "constant",
+            "value": -576
+          },
+          {
+            "id": "x4_c-8_negate",
+            "inputs": [
+              "x4_shift3"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x5_shift1",
+            "inputs": [
+              "x5"
+            ],
+            "operation": "shift",
+            "value": 1
+          },
+          {
+            "id": "x5_shift3",
+            "inputs": [
+              "x5"
+            ],
+            "operation": "shift",
+            "value": 3
+          },
+          {
+            "id": "x5_c-10_negate",
+            "inputs": [
+              "x5_shift1"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x5_c-10_negative1",
+            "inputs": [
+              "x5_c-10_negate",
+              "x5_shift3"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x6_shift3",
+            "inputs": [
+              "x6"
+            ],
+            "operation": "shift",
+            "value": 3
+          },
+          {
+            "id": "x6_c-7_negative1",
+            "inputs": [
+              "x6",
+              "x6_shift3"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x7_shift1",
+            "inputs": [
+              "x7"
+            ],
+            "operation": "shift",
+            "value": 1
+          },
+          {
+            "id": "x7_c-2_negate",
+            "inputs": [
+              "x7_shift1"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x3_c-2_negate",
+            "inputs": [
+              "x3_shift1"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x5_shift2",
+            "inputs": [
+              "x5"
+            ],
+            "operation": "shift",
+            "value": 2
+          },
+          {
+            "id": "x3_c-5_negate",
+            "inputs": [
+              "x3"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x3_c-5_negative1",
+            "inputs": [
+              "x3_c-5_negate",
+              "x3_shift2"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x6_c11_dsp",
+            "inputs": [
+              "x6"
+            ],
+            "operation": "multiply",
+            "value": 11
+          },
+          {
+            "id": "x7_shift3",
+            "inputs": [
+              "x7"
+            ],
+            "operation": "shift",
+            "value": 3
+          },
+          {
+            "id": "x7_c9_positive1",
+            "inputs": [
+              "x7",
+              "x7_shift3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "x3_c-10_negate",
+            "inputs": [
+              "x3_shift1"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x3_c-10_negative1",
+            "inputs": [
+              "x3_c-10_negate",
+              "x3_shift3"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x4_c-10_negate",
+            "inputs": [
+              "x4_shift1"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x4_c-10_negative1",
+            "inputs": [
+              "x4_c-10_negate",
+              "x4_shift3"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x5_c-8_negate",
+            "inputs": [
+              "x5_shift3"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x6_c-8_negate",
+            "inputs": [
+              "x6_shift3"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x7_shift2",
+            "inputs": [
+              "x7"
+            ],
+            "operation": "shift",
+            "value": 2
+          },
+          {
+            "id": "x7_c-5_negate",
+            "inputs": [
+              "x7"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x7_c-5_negative1",
+            "inputs": [
+              "x7_c-5_negate",
+              "x7_shift2"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x3_c-1_negate",
+            "inputs": [
+              "x3"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x4_c-6_negative1",
+            "inputs": [
+              "x4_shift1",
+              "x4_shift3"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x5_c-1_negate",
+            "inputs": [
+              "x5"
+            ],
+            "operation": "negate",
+            "value": null
+          },
+          {
+            "id": "x6_shift2",
+            "inputs": [
+              "x6"
+            ],
+            "operation": "shift",
+            "value": 2
+          },
+          {
+            "id": "x7_c5_positive1",
+            "inputs": [
+              "x7",
+              "x7_shift2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "x3_c-3_negative1",
+            "inputs": [
+              "x3",
+              "x3_shift2"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x5_c-3_negative1",
+            "inputs": [
+              "x5",
+              "x5_shift2"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x6_shift1",
+            "inputs": [
+              "x6"
+            ],
+            "operation": "shift",
+            "value": 1
+          },
+          {
+            "id": "x6_c6_negative1",
+            "inputs": [
+              "x6_shift3",
+              "x6_shift1"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "x4_c13_dsp",
+            "inputs": [
+              "x4"
+            ],
+            "operation": "multiply",
+            "value": 13
+          },
+          {
+            "id": "x5_c13_dsp",
+            "inputs": [
+              "x5"
+            ],
+            "operation": "multiply",
+            "value": 13
+          },
+          {
+            "id": "x6_c9_positive1",
+            "inputs": [
+              "x6",
+              "x6_shift3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "x7_c7_negative1",
+            "inputs": [
+              "x7_shift3",
+              "x7"
+            ],
+            "operation": "subtract",
+            "value": null
+          },
+          {
+            "id": "cse0",
+            "inputs": [
+              "constant0",
+              "x1_c-8_negate"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "cse1",
+            "inputs": [
+              "constant0",
+              "x4_c-8_negate"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f0_sum1",
+            "inputs": [
+              "x0_shift1",
+              "x2_c-10_negative1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f0_sum2",
+            "inputs": [
+              "x3_c-7_negative1",
+              "y0_f0_sum1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f0_sum3",
+            "inputs": [
+              "x4_c-2_negate",
+              "y0_f0_sum2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f0_sum4",
+            "inputs": [
+              "cse0",
+              "y0_f0_sum3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f1_sum1",
+            "inputs": [
+              "x0_c-2_negate",
+              "x1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f1_sum2",
+            "inputs": [
+              "x2_shift2",
+              "y0_f1_sum1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f1_sum3",
+            "inputs": [
+              "constant1",
+              "y0_f1_sum2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f2_sum1",
+            "inputs": [
+              "x0_c-5_negative1",
+              "x2_shift1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f2_sum2",
+            "inputs": [
+              "x3_c11_dsp",
+              "y0_f2_sum1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f2_sum3",
+            "inputs": [
+              "x4_c9_positive1",
+              "y0_f2_sum2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f2_sum4",
+            "inputs": [
+              "cse0",
+              "y0_f2_sum3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f3_sum1",
+            "inputs": [
+              "x0_c-10_negative1",
+              "x1_c-10_negative1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f3_sum2",
+            "inputs": [
+              "x2_c-8_negate",
+              "y0_f3_sum1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f3_sum3",
+            "inputs": [
+              "x3_c-8_negate",
+              "y0_f3_sum2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f3_sum4",
+            "inputs": [
+              "x4_c-5_negative1",
+              "y0_f3_sum3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f3_sum5",
+            "inputs": [
+              "constant2",
+              "y0_f3_sum4"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f4_sum1",
+            "inputs": [
+              "x0_c-1_negate",
+              "x1_c-6_negative1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f4_sum2",
+            "inputs": [
+              "x2_c-1_negate",
+              "y0_f4_sum1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f4_sum3",
+            "inputs": [
+              "x3_shift2",
+              "y0_f4_sum2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f4_sum4",
+            "inputs": [
+              "x4_c5_positive1",
+              "y0_f4_sum3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f4_sum5",
+            "inputs": [
+              "constant3",
+              "y0_f4_sum4"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f5_sum1",
+            "inputs": [
+              "x0_c-3_negative1",
+              "x1_shift1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f5_sum2",
+            "inputs": [
+              "x2_c-3_negative1",
+              "y0_f5_sum1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f5_sum3",
+            "inputs": [
+              "x3_c6_negative1",
+              "y0_f5_sum2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f5_sum4",
+            "inputs": [
+              "x4_c-2_negate",
+              "y0_f5_sum3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f5_sum5",
+            "inputs": [
+              "constant3",
+              "y0_f5_sum4"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f6_sum1",
+            "inputs": [
+              "x0_c6_negative1",
+              "x1_c13_dsp"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f6_sum2",
+            "inputs": [
+              "x2_c13_dsp",
+              "y0_f6_sum1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f6_sum3",
+            "inputs": [
+              "x3_c9_positive1",
+              "y0_f6_sum2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f6_sum4",
+            "inputs": [
+              "x4_c7_negative1",
+              "y0_f6_sum3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y0_f6_sum5",
+            "inputs": [
+              "constant4",
+              "y0_f6_sum4"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f0_sum1",
+            "inputs": [
+              "x3_shift1",
+              "x5_c-10_negative1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f0_sum2",
+            "inputs": [
+              "x6_c-7_negative1",
+              "y1_f0_sum1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f0_sum3",
+            "inputs": [
+              "x7_c-2_negate",
+              "y1_f0_sum2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f0_sum4",
+            "inputs": [
+              "cse1",
+              "y1_f0_sum3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f1_sum1",
+            "inputs": [
+              "x3_c-2_negate",
+              "x4"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f1_sum2",
+            "inputs": [
+              "x5_shift2",
+              "y1_f1_sum1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f1_sum3",
+            "inputs": [
+              "constant1",
+              "y1_f1_sum2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f2_sum1",
+            "inputs": [
+              "x3_c-5_negative1",
+              "x5_shift1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f2_sum2",
+            "inputs": [
+              "x6_c11_dsp",
+              "y1_f2_sum1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f2_sum3",
+            "inputs": [
+              "x7_c9_positive1",
+              "y1_f2_sum2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f2_sum4",
+            "inputs": [
+              "cse1",
+              "y1_f2_sum3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f3_sum1",
+            "inputs": [
+              "x3_c-10_negative1",
+              "x4_c-10_negative1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f3_sum2",
+            "inputs": [
+              "x5_c-8_negate",
+              "y1_f3_sum1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f3_sum3",
+            "inputs": [
+              "x6_c-8_negate",
+              "y1_f3_sum2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f3_sum4",
+            "inputs": [
+              "x7_c-5_negative1",
+              "y1_f3_sum3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f3_sum5",
+            "inputs": [
+              "constant2",
+              "y1_f3_sum4"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f4_sum1",
+            "inputs": [
+              "x3_c-1_negate",
+              "x4_c-6_negative1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f4_sum2",
+            "inputs": [
+              "x5_c-1_negate",
+              "y1_f4_sum1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f4_sum3",
+            "inputs": [
+              "x6_shift2",
+              "y1_f4_sum2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f4_sum4",
+            "inputs": [
+              "x7_c5_positive1",
+              "y1_f4_sum3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f4_sum5",
+            "inputs": [
+              "constant3",
+              "y1_f4_sum4"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f5_sum1",
+            "inputs": [
+              "x3_c-3_negative1",
+              "x4_shift1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f5_sum2",
+            "inputs": [
+              "x5_c-3_negative1",
+              "y1_f5_sum1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f5_sum3",
+            "inputs": [
+              "x6_c6_negative1",
+              "y1_f5_sum2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f5_sum4",
+            "inputs": [
+              "x7_c-2_negate",
+              "y1_f5_sum3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f5_sum5",
+            "inputs": [
+              "constant3",
+              "y1_f5_sum4"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f6_sum1",
+            "inputs": [
+              "x3_c6_negative1",
+              "x4_c13_dsp"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f6_sum2",
+            "inputs": [
+              "x5_c13_dsp",
+              "y1_f6_sum1"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f6_sum3",
+            "inputs": [
+              "x6_c9_positive1",
+              "y1_f6_sum2"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f6_sum4",
+            "inputs": [
+              "x7_c7_negative1",
+              "y1_f6_sum3"
+            ],
+            "operation": "add",
+            "value": null
+          },
+          {
+            "id": "y1_f6_sum5",
+            "inputs": [
+              "constant4",
+              "y1_f6_sum4"
+            ],
+            "operation": "add",
+            "value": null
+          }
+        ],
+        "output_ids": [
+          "y0_f0_sum4",
+          "y0_f1_sum3",
+          "y0_f2_sum4",
+          "y0_f3_sum5",
+          "y0_f4_sum5",
+          "y0_f5_sum5",
+          "y0_f6_sum5",
+          "y1_f0_sum4",
+          "y1_f1_sum3",
+          "y1_f2_sum4",
+          "y1_f3_sum5",
+          "y1_f4_sum5",
+          "y1_f5_sum5",
+          "y1_f6_sum5"
+        ]
+      },
+      "graph_sha256": "2c6df1bebeb6b1e7c741aa9d255f9c65d28ed6e9c8fe24059ed80f5275de2c0b",
+      "graph_summary": {
+        "add_nodes": 70,
+        "constant_nodes": 5,
+        "convolution_rows": 2,
+        "depth": 8,
+        "dsp_product_budget": 16,
+        "dsp_product_uses": 6,
+        "filter_lanes": 7,
+        "input_rows": 8,
+        "max_fanout": 9,
+        "multiply_nodes": 6,
+        "negate_nodes": 24,
+        "output_values": 14,
+        "shared_pair_uses": 2,
+        "shared_product_uses": 5,
+        "shift_nodes": 23,
+        "subtract_nodes": 23
+      },
+      "kind": "hybrid",
+      "policy": {
+        "id": "phara-hybrid-csd-cse-dsp",
+        "version": 1
+      },
+      "proof": {
+        "identity": "a3685189e87bb55a1ba4d504823843f51e87a3914dee9c40f90d232488da158e",
+        "modulus": 65536,
+        "status": "proven"
+      }
+    },
+    "executed_passes": [
+      {
+        "id": "pack-temporal-input",
+        "input_design_sha256": "ce425cc34b8e705e60afb12fe5b50975fcff3737c7383d2161bd6566bd93c968",
+        "order": 1,
+        "output_design_sha256": "086c76ca995aa21bbfbee909b338164e55beb3fc8ac71349eab7cb1b14eaafa0",
+        "result": "applied",
+        "version": 1
+      },
+      {
+        "id": "fuse-pool-aligned-conv-relu-maxpool",
+        "input_design_sha256": "086c76ca995aa21bbfbee909b338164e55beb3fc8ac71349eab7cb1b14eaafa0",
+        "order": 2,
+        "output_design_sha256": "6dd7860891ab848124c43f6030c5412338aaddff900e7ef6838cf5448cfd93da",
+        "result": "applied",
+        "version": 1
+      },
+      {
+        "id": "stream-flatten-into-dense",
+        "input_design_sha256": "6dd7860891ab848124c43f6030c5412338aaddff900e7ef6838cf5448cfd93da",
+        "order": 3,
+        "output_design_sha256": "6bd39eddc0aa0981ad4306431493e85d9edf7ea52deee9a4f733319f9fd02472",
+        "result": "applied",
+        "version": 1
+      },
+      {
+        "id": "bind-shallow-internal-fifos",
+        "input_design_sha256": "6bd39eddc0aa0981ad4306431493e85d9edf7ea52deee9a4f733319f9fd02472",
+        "order": 4,
+        "output_design_sha256": "f0e4f410aae0ca7902f9955249af4ec74d9153646661f167e1cc9dadfae77693",
+        "result": "applied",
+        "version": 1
+      },
+      {
+        "id": "preserve-phara-dataflow-start-propagation",
+        "input_design_sha256": "f0e4f410aae0ca7902f9955249af4ec74d9153646661f167e1cc9dadfae77693",
+        "order": 5,
+        "output_design_sha256": "f9d379cc44fcfc9a5221b4e145785d20803c992dd6a98e20bae7b304eb8cf5e9",
+        "result": "applied",
+        "version": 1
+      }
+    ],
+    "generation": {
+      "id": "aria",
+      "version": "1.5.1"
+    },
+    "implementation_plan": {
+      "channels_per_row": 4,
+      "dataflow_start_propagation": true,
+      "dense_inputs": 1176,
+      "dense_parallelism": 4,
+      "dense_steps": 42,
+      "filter_lanes": 7,
+      "first_convolution": {
+        "id": "pool-aligned-direct",
+        "multiplier_limit": 280,
+        "parallel_windows": 8,
+        "products_per_window": 35,
+        "target_loop_ii": 1,
+        "version": 1
+      },
+      "input_words_per_inference": 32,
+      "internal_fifo_depth": 4,
+      "phara": {
+        "pool_rows_per_supertile": 2,
+        "pooled_words": 42,
+        "realization": "hybrid",
+        "scheduler": {
+          "buffer_rows": 16,
+          "id": "row-credit",
+          "max_live_rows": 14,
+          "read_cycles": 32,
+          "version": 1
+        },
+        "stage_cycles": {
+          "dense": 42,
+          "fused_region": 42,
+          "input": 32
+        },
+        "structural_ii_lower_bound": 42,
+        "supertile_input_rows": 8,
+        "version": 1
+      },
+      "template_profile": "aria-phara-p8-q1-d4-v1",
+      "temporal_pack": 8,
+      "values_per_input_word": 32,
+      "values_per_internal_word": 28,
+      "weight_delivery": {
+        "accumulation": {
+          "policy": "ordered"
+        },
+        "applicability": {
+          "reasons": [],
+          "status": "applicable"
+        },
+        "depth": 42,
+        "id": "wide-sequential",
+        "mac_lanes": 28,
+        "multipliers": {
+          "implementation": "dsp",
+          "instances": 28
+        },
+        "storage": {
+          "implementation": "bram",
+          "type": "rom_1p"
+        },
+        "tail_elements": 0,
+        "tail_mask": 268435455,
+        "version": 1,
+        "word_bits": 168
+      },
+      "width_lanes": 4
+    },
+    "interfaces": {
+      "hls_stream": {
+        "input_rows_per_word": 8,
+        "input_words_per_inference": 32,
+        "values_per_input_word": 32
+      },
+      "logical": {
+        "input_shape": [
+          256,
+          4
+        ],
+        "output_shape": [
+          1
+        ]
+      },
+      "rtl": {
+        "input_tdata_bits": 512,
+        "output_tdata_bits": 32
+      }
+    },
+    "model_family": {
+      "id": "hgq-conv-pool-dense",
+      "version": 1
+    },
+    "parameter_bindings": [
+      {
+        "descriptor": {
+          "numeric_type": {
+            "integer": 1,
+            "kind": "fixed",
+            "rounding": "TRN",
+            "saturation": "WRAP",
+            "saturation_bits": 0,
+            "signed": true,
+            "width": 5
+          },
+          "role": "bias",
+          "shape": [
+            7
+          ]
+        },
+        "id": "conv2d_0:bias",
+        "operation_id": "conv2d_0",
+        "role": "bias",
+        "symbol": "b4",
+        "type_name": "q_conv2d_bias_t"
+      },
+      {
+        "descriptor": {
+          "numeric_type": {
+            "integer": 1,
+            "kind": "fixed",
+            "rounding": "TRN",
+            "saturation": "WRAP",
+            "saturation_bits": 0,
+            "signed": true,
+            "width": 6
+          },
+          "role": "weight",
+          "shape": [
+            5,
+            1,
+            1,
+            7
+          ]
+        },
+        "id": "conv2d_0:weight",
+        "operation_id": "conv2d_0",
+        "role": "weight",
+        "symbol": "w4",
+        "type_name": "q_conv2d_weight_t"
+      },
+      {
+        "descriptor": {
+          "numeric_type": {
+            "integer": -1,
+            "kind": "fixed",
+            "rounding": "TRN",
+            "saturation": "WRAP",
+            "saturation_bits": 0,
+            "signed": true,
+            "width": 1
+          },
+          "role": "bias",
+          "shape": [
+            1
+          ]
+        },
+        "id": "dense_0:bias",
+        "operation_id": "dense_0",
+        "role": "bias",
+        "symbol": "b9",
+        "type_name": "q_dense_bias_t"
+      },
+      {
+        "descriptor": {
+          "numeric_type": {
+            "integer": 1,
+            "kind": "fixed",
+            "rounding": "TRN",
+            "saturation": "WRAP",
+            "saturation_bits": 0,
+            "signed": true,
+            "width": 6
+          },
+          "role": "weight",
+          "shape": [
+            1176,
+            1
+          ]
+        },
+        "id": "dense_0:weight",
+        "operation_id": "dense_0",
+        "role": "weight",
+        "symbol": "w9",
+        "type_name": "q_dense_weight_t"
+      }
+    ],
+    "rendering": {
+      "dense_function": "dense_wide_stream",
+      "first_convolution_function": "first_conv_8row_4lane_temporal_wide_cl",
+      "operations": {
+        "conv2d_0": {
+          "config_symbol": "config4",
+          "output_precision_cpp": "ap_fixed<16,6>",
+          "output_symbol": "layer4_out",
+          "output_type": "q_conv2d_t"
+        },
+        "dense_0": {
+          "config_symbol": "config9",
+          "output_precision_cpp": "ap_fixed<23,13>",
+          "output_symbol": "layer9_out",
+          "output_type": "result_t"
+        },
+        "input_0": {
+          "output_precision_cpp": "ap_fixed<10,5,AP_RND,AP_SAT_SYM,0>",
+          "output_symbol": "waveform",
+          "output_type": "waveform_t"
+        },
+        "max_pool2d_0": {
+          "config_symbol": "config6",
+          "output_precision_cpp": "ap_fixed<10,5,AP_RND,AP_SAT_SYM,0>",
+          "output_symbol": "layer6_out",
+          "output_type": "max_pooling2d_t"
+        },
+        "relu_0": {
+          "config_symbol": "relu_config5",
+          "output_precision_cpp": "ap_ufixed<15,5>",
+          "output_symbol": "layer5_out",
+          "output_type": "q_conv2d_relu_t"
+        },
+        "repack_0": {
+          "output_precision_cpp": "ap_fixed<10,5>",
+          "output_symbol": "layer10_out",
+          "output_type": "ravel_repack_t"
+        },
+        "reshape_0": {
+          "output_precision_cpp": "ap_fixed<10,5,AP_RND,AP_SAT_SYM,0>",
+          "output_symbol": "layer7_out",
+          "output_type": "max_pooling2d_t"
+        }
+      },
+      "phara_fused_function": "phara_pool_aligned_hybrid_p8_cl",
+      "streams": {
+        "activation": "layer5_out_x4",
+        "convolution": "layer4_out_x4",
+        "pooling": "layer6_out_x4"
+      },
+      "types": {
+        "activation_wide": "q_conv2d_relu_x4_t",
+        "convolution_wide": "q_conv2d_x4_t",
+        "input_wide": "waveform_x8_t",
+        "pooling_wide": "max_pooling2d_x4_t"
+      }
+    },
+    "resolved_design_sha256": "f9d379cc44fcfc9a5221b4e145785d20803c992dd6a98e20bae7b304eb8cf5e9",
+    "resolver": {
+      "id": "aria-aggressive-phara",
+      "version": 1
+    },
+    "schema_version": 1,
+    "specialization": {
+      "dense_parallelism": 4,
+      "temporal_packing": 8
+    },
+    "strategy": {
+      "id": "phara",
+      "version": 1
+    },
+    "streaming": {
+      "buffers": {
+        "depth": 4,
+        "storage": "srl"
+      },
+      "dataflow_control": {
+        "block_control": "ap_ctrl_hs",
+        "start_propagation": true
+      },
+      "dense": {
+        "inputs": 1176,
+        "operation_id": "dense_0",
+        "parallelism": 4,
+        "steps": 42,
+        "weight_delivery": {
+          "accumulation": {
+            "policy": "ordered"
+          },
+          "applicability": {
+            "reasons": [],
+            "status": "applicable"
+          },
+          "depth": 42,
+          "id": "wide-sequential",
+          "mac_lanes": 28,
+          "multipliers": {
+            "implementation": "dsp",
+            "instances": 28
+          },
+          "storage": {
+            "implementation": "bram",
+            "type": "rom_1p"
+          },
+          "tail_elements": 0,
+          "tail_mask": 268435455,
+          "version": 1,
+          "word_bits": 168
+        }
+      },
+      "input": {
+        "rows_per_word": 8,
+        "values_per_word": 32,
+        "words_per_inference": 32
+      },
+      "phara_fused_region": {
+        "operation_ids": [
+          "conv2d_0",
+          "relu_0",
+          "max_pool2d_0"
+        ],
+        "pool_rows_per_supertile": 2,
+        "pooled_words": 42,
+        "realization": "hybrid",
+        "scheduler": {
+          "buffer_rows": 16,
+          "id": "row-credit",
+          "max_live_rows": 14,
+          "read_cycles": 32,
+          "version": 1
+        },
+        "supertile_input_rows": 8
+      }
+    }
+  },
+  "schema_version": 5,
+  "source_closure": [
+    {
+      "path": "build_lib.sh",
+      "role": "project",
+      "sha256": "0dac18b02cb51a0c9753e626eecb5fd301b6f62c5ac41d8193f071acee374e1d",
+      "size": 962
+    },
+    {
+      "path": "build_opt.tcl",
+      "role": "vendor_script",
+      "sha256": "717ff54f8e5eea81388e125cf4dfe2f4428e5a392d37e0404ac698ec5115a152",
+      "size": 154
+    },
+    {
+      "path": "build_prj.tcl",
+      "role": "vendor_script",
+      "sha256": "00ca8797acd0c5e49951aaa86576a0780fbc743a99c8c2c1fc8fe6916935262c",
+      "size": 7665
+    },
+    {
+      "path": "cnn_core_bridge.cpp",
+      "role": "simulation",
+      "sha256": "05b325c7c9f8d0dbdfe5cb20c420b8c29c891220434a54f2ff35d3c7a30145af",
+      "size": 2487
+    },
+    {
+      "path": "cnn_core_test.cpp",
+      "role": "simulation",
+      "sha256": "8eae55d96eb2f03b068297fcdfb1b97253416d64a3fb3dceb561198c4d3e7529",
+      "size": 2870
+    },
+    {
+      "path": "firmware/ap_types/ap_common.h",
+      "role": "firmware",
+      "sha256": "d61258f6ebca39dc11492965e6e7a1508499478b6c4ac435cf83cd454738e0a5",
+      "size": 10180
+    },
+    {
+      "path": "firmware/ap_types/ap_decl.h",
+      "role": "firmware",
+      "sha256": "cf51ec1fed914af4a8a1f4d947b4477aa21f02711856e1dc22efeeb5ef608c48",
+      "size": 6473
+    },
+    {
+      "path": "firmware/ap_types/ap_fixed.h",
+      "role": "firmware",
+      "sha256": "de5778ab2178ef99c3b68e7b00772c2ddf8f7e827b765a650e864f2d7228e9de",
+      "size": 12185
+    },
+    {
+      "path": "firmware/ap_types/ap_fixed_base.h",
+      "role": "firmware",
+      "sha256": "09dd402506631f154a6efa38c3d6bdca5904c8d8dd5c747b545f625281936f4a",
+      "size": 85182
+    },
+    {
+      "path": "firmware/ap_types/ap_fixed_ref.h",
+      "role": "firmware",
+      "sha256": "4cef7266a7567f4564b17986e1237dfe7fc20d8415594e32ba36b461f92b402c",
+      "size": 27302
+    },
+    {
+      "path": "firmware/ap_types/ap_fixed_special.h",
+      "role": "firmware",
+      "sha256": "c977d09e301cf2f26fe53e91f5ae0bfde03453f6b4ca9ccafd14a7f32ab3b7fb",
+      "size": 6985
+    },
+    {
+      "path": "firmware/ap_types/ap_float.h",
+      "role": "firmware",
+      "sha256": "c6c8ea808e4595ab3e1b8d5fb2da427e388104979fb31f9014d12915e47a6e1b",
+      "size": 6528
+    },
+    {
+      "path": "firmware/ap_types/ap_int.h",
+      "role": "firmware",
+      "sha256": "9d38b2ac537c20f08646ce516290a42d3f72e08c5aaa84541ed21ba5488e2cd0",
+      "size": 10012
+    },
+    {
+      "path": "firmware/ap_types/ap_int_base.h",
+      "role": "firmware",
+      "sha256": "2ade108df516f39afc9718d8e044aa7a547f0a7a4cd2e6dbe0ae5dd86d3718c4",
+      "size": 71735
+    },
+    {
+      "path": "firmware/ap_types/ap_int_ref.h",
+      "role": "firmware",
+      "sha256": "e6bb0e75a6e5c1e0bd84a1ad43c2a4b6bd3beec110f75833487e46e6133b9b96",
+      "size": 55218
+    },
+    {
+      "path": "firmware/ap_types/ap_int_special.h",
+      "role": "firmware",
+      "sha256": "1c8bd146e88a1a90270a98a05115f470e4145fcf1d6e9de51a4516a5b8253022",
+      "size": 6301
+    },
+    {
+      "path": "firmware/ap_types/ap_shift_reg.h",
+      "role": "firmware",
+      "sha256": "c2a7bc8f78a46dd6625f062c62502c15b3857902e161721b2a8442e9f2467ae7",
+      "size": 4894
+    },
+    {
+      "path": "firmware/ap_types/etc/ap_private.h",
+      "role": "firmware",
+      "sha256": "4c37711885f4af70fa425f0a797a1c79198785d970140dc092bdfebef31502d9",
+      "size": 261465
+    },
+    {
+      "path": "firmware/ap_types/hls_math.h",
+      "role": "firmware",
+      "sha256": "69b141a19cd88e6fe97c2db092e725561d47baf609fd8a1b9cdfb543df464627",
+      "size": 674
+    },
+    {
+      "path": "firmware/ap_types/hls_stream.h",
+      "role": "firmware",
+      "sha256": "3539157db138f1ce979cc21f47d5b325b0f05277deeb2d7dc495f1052dc6fbe2",
+      "size": 7480
+    },
+    {
+      "path": "firmware/ap_types/utils/x_hls_utils.h",
+      "role": "firmware",
+      "sha256": "c76e1c7f51f264abf427c61022852f604deec3a48d2fbbd67ad446222166d89c",
+      "size": 2227
+    },
+    {
+      "path": "firmware/cnn_core.cpp",
+      "role": "firmware",
+      "sha256": "da0e0b886d78ddfd843457e5f6282bc0554d0fe2bf63e324f0963cb3d31270de",
+      "size": 1262
+    },
+    {
+      "path": "firmware/cnn_core.h",
+      "role": "firmware",
+      "sha256": "4d1598c6b24568e30c2d38046e17e10d7fe1a2c4d5c6e99817755552b241421b",
+      "size": 236
+    },
+    {
+      "path": "firmware/defines.h",
+      "role": "firmware",
+      "sha256": "1459cff5ef351322a67985c1b27e369e87ac2a3511961d595d61265817fe8be5",
+      "size": 1410
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_activation.h",
+      "role": "firmware",
+      "sha256": "2581cd0352d5df49fcd11902375c00e20da9562f7dac2a2137377de19bfe9e29",
+      "size": 31520
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_activation_stream.h",
+      "role": "firmware",
+      "sha256": "f802bfc772baa07f85e4ce83b0edcdc6a703e6ed59c8018bf21f7ed2bd862dfb",
+      "size": 27068
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_aria.h",
+      "role": "firmware",
+      "sha256": "2f2108ec98dd3d8ddd5ed9a3550fa55fb01993c479a9344ee8ca55f6a8661ffb",
+      "size": 42405
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_batchnorm.h",
+      "role": "firmware",
+      "sha256": "6665f9fb59f8c5aa0dc472852f5f85443cbbbab29218639a1ba2c77e80e400e3",
+      "size": 4214
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_batchnorm_stream.h",
+      "role": "firmware",
+      "sha256": "3a580856776ee62a341ee35e45096e98042a8df9154bc3e3c299672ff1d68c40",
+      "size": 4182
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_code_gen.h",
+      "role": "firmware",
+      "sha256": "9de4b308358b39a759ff555adb5804e73d419674f5492cf5d74320e69feaf57b",
+      "size": 786
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_common.h",
+      "role": "firmware",
+      "sha256": "cac405e71adaa8cd03960d6c311d5b625f0631454ec6d30f8f425c756f33a4ef",
+      "size": 2127
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_conv1d.h",
+      "role": "firmware",
+      "sha256": "65add8931f0a3c9d0e3ee07978f2c5291ef3350300a89b9c4b1def73209e14a5",
+      "size": 6211
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_conv1d_latency.h",
+      "role": "firmware",
+      "sha256": "35c2971d1bb480c56f243e22a16d83c630c367846b6814669c7e035bf188ef7f",
+      "size": 7034
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_conv1d_resource.h",
+      "role": "firmware",
+      "sha256": "ead84fac549f8340c52a153992716c420882ad66dabf5b8230ff59c66531dbc3",
+      "size": 4126
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_conv1d_stream.h",
+      "role": "firmware",
+      "sha256": "5b7ec28b42bbbd79db9d9885b7c47ebf6f655b17d83219db2652b70afbab2fe5",
+      "size": 1480
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_conv2d.h",
+      "role": "firmware",
+      "sha256": "3de5f4078081aa31aa5c7f7e4ccbea73f73c40549e9cc7e50bcbeb9330ff3424",
+      "size": 3748
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_conv2d_latency.h",
+      "role": "firmware",
+      "sha256": "508f64a51b17679caac753eadd8c912f39f76c23695e61ba8e2668b071a3cf37",
+      "size": 3343
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_conv2d_resource.h",
+      "role": "firmware",
+      "sha256": "c02c1da4f73ae52456562f2b3f0487173d016e9fa4e295202d920e75ab9b6d3e",
+      "size": 4254
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_conv2d_stream.h",
+      "role": "firmware",
+      "sha256": "a332d3983f36f06835f8f5530961b9b96de44f52ccc5d42cffc10ae3831c447a",
+      "size": 3813
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_conv_stream.h",
+      "role": "firmware",
+      "sha256": "bbf2b6d3869c644296bc643f54b268c42413e3981a79a9640d89569fdff8bbfe",
+      "size": 14130
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_cropping.h",
+      "role": "firmware",
+      "sha256": "d1e419717c94b155951b5eed161f27536aac744dfdc29dd066bc36cdb237acf2",
+      "size": 2948
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_cropping_stream.h",
+      "role": "firmware",
+      "sha256": "760dede5c6d10b184e0ebb3e822a8832a727be04bc7f95eafc9c83728bf96640",
+      "size": 1600
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_da_wrappers.h",
+      "role": "firmware",
+      "sha256": "af95f6f6ce7e0bcf02e6c015909c4e216376bc60fbec1d460f6d2ee29f31d548",
+      "size": 3968
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_dense.h",
+      "role": "firmware",
+      "sha256": "96a8568b0b32eda76b90ae0f7b4f4194cf948802b2c55f48135d13504928f6c2",
+      "size": 3023
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_dense_compressed.h",
+      "role": "firmware",
+      "sha256": "bd898a282cc1275b942da2a51289831dfab6d073b0dea2744c537ca85e86d7dd",
+      "size": 2859
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_dense_latency.h",
+      "role": "firmware",
+      "sha256": "38d0f0957711681d600f2328ad8ea8f0cdb977b4b7cc5e1f47194d97aaeae770",
+      "size": 2424
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_dense_resource.h",
+      "role": "firmware",
+      "sha256": "247e6bf2ab59bef2ed100df348168308e71b0f2e464a09a3a09ce9d62fdfdb5e",
+      "size": 9928
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_dense_stream.h",
+      "role": "firmware",
+      "sha256": "87ea7b6d015b7de69fab590295309f65837ddd0a6011154b344e93305473a0f8",
+      "size": 3975
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_depthwise_product.h",
+      "role": "firmware",
+      "sha256": "440ce61e86999aeabbc782a5dfa9a80ca1e7f3f02a4b792511ac14ac16182ed3",
+      "size": 10646
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_einsum.h",
+      "role": "firmware",
+      "sha256": "2fbe65d527216602cf6a68c53fbc57156f3cf852d0ebb5b2157313f9e79d9819",
+      "size": 2881
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_einsum_dense.h",
+      "role": "firmware",
+      "sha256": "f1aa9f3987fabb5073ace8ead7641d76fb259b6cc90fa31d4393342952b32829",
+      "size": 4643
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_embed.h",
+      "role": "firmware",
+      "sha256": "a0026798df56ba20bec8708a307cb28b473d0069021ecdc62e793b48d0206764",
+      "size": 1292
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_embed_stream.h",
+      "role": "firmware",
+      "sha256": "4238c65129da40ebafc0bffb0b5b598246968870a26190f67d26ce72eb0da1a4",
+      "size": 839
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_function_stubs.h",
+      "role": "firmware",
+      "sha256": "ebf011b1965d033f89ff2c6d29d5ea8d5acf14140f176c2a15a4c99e5d56d0d0",
+      "size": 2960
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_garnet.h",
+      "role": "firmware",
+      "sha256": "358a67f4f5e1a45eb5262cb773dff084264d7fbbbfcd1f74e5443c9d1962dae6",
+      "size": 30731
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_helpers.h",
+      "role": "firmware",
+      "sha256": "be3b44aa21ba78d32f47d74ef42be38e082dab1913bbe6214dc83afd74511c61",
+      "size": 12528
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_image.h",
+      "role": "firmware",
+      "sha256": "3b1ce15c0c271670e26f3499860e1a6d05e95eb614ac31ead747b64b2cdc849d",
+      "size": 1293
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_image_stream.h",
+      "role": "firmware",
+      "sha256": "de91a55af0c7f415ef7aaadbaa0689a827ad340cafcd26772f04eb87054ed7cf",
+      "size": 1847
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_layernorm.h",
+      "role": "firmware",
+      "sha256": "70c2547b92be5a3ef8cd341cc0a671fae73fde6cea581538411d925d804ad844",
+      "size": 4986
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_math.h",
+      "role": "firmware",
+      "sha256": "854ad22a2122186b1aa30a11b92aa685670c559e7abfcb679bcdd3db6ac7c54f",
+      "size": 7677
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_merge.h",
+      "role": "firmware",
+      "sha256": "64224f5b5d6b6cf95b0ceeebfb23fee5b4e21e7503e41b4cf8f5b63e7355dcea",
+      "size": 11100
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_merge_stream.h",
+      "role": "firmware",
+      "sha256": "4d5dfda8cee2a6085519515d27c3d6f9c809048523f5791f85f723ca854d55b5",
+      "size": 11891
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_mult.h",
+      "role": "firmware",
+      "sha256": "28bc325053f8458fc65e12c54a6b98aa4d9bfe8f8984836a6ddbb149bdd9a269",
+      "size": 3306
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_padding.h",
+      "role": "firmware",
+      "sha256": "dcf886fb846c6a93cb5537c21f723fecea4170cb792361f5c95529cb5c0a8289",
+      "size": 4327
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_padding_stream.h",
+      "role": "firmware",
+      "sha256": "881dd9fd4017abdcf7ee2e503e688ea8b7bcc7de67344b084cf0a38da2c7edd9",
+      "size": 2191
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_pooling.h",
+      "role": "firmware",
+      "sha256": "53bc840be504ac7b863d73a64edaf63eac6c4e05caaba56722221332f01eebbe",
+      "size": 14814
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_pooling_stream.h",
+      "role": "firmware",
+      "sha256": "3052c16c8e9f58af2c9d44350e19d4be2224decb9cceab4b9fe9b2a97ec6395d",
+      "size": 12369
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_recr_activations.h",
+      "role": "firmware",
+      "sha256": "91a6c8d6bcd026ea5153d71f8621da8d9ce172c4b9f0be6276ab2732c90ef42f",
+      "size": 1889
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_recurrent.h",
+      "role": "firmware",
+      "sha256": "a776387c17848500a884d3da56885d9dac680132862d08535304ffc5ed8fb0c3",
+      "size": 40588
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_sepconv1d.h",
+      "role": "firmware",
+      "sha256": "851f8cf9068e08160eaa3b07378d916efa10f7db5b8c2706a59f210838f68a97",
+      "size": 2502
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_sepconv1d_latency.h",
+      "role": "firmware",
+      "sha256": "365edd0cdbf3c3f0537a7130d84e76245253838850f5346068729de194291b42",
+      "size": 3216
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_sepconv1d_stream.h",
+      "role": "firmware",
+      "sha256": "22b2f187bf02f765c41320e5ab2be7fea8520816bfaea4759cf721959941c004",
+      "size": 4981
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_sepconv2d.h",
+      "role": "firmware",
+      "sha256": "4a21453b6d223cd8a326cb25b05dcd376e0c633b06070795f28ba6d356bc16f6",
+      "size": 2823
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_sepconv2d_latency.h",
+      "role": "firmware",
+      "sha256": "3e3ab3b3797fd42e9827a0d7411ce43d9fa2d9c4f944fbdbd76f420076018650",
+      "size": 3248
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_sepconv2d_stream.h",
+      "role": "firmware",
+      "sha256": "6b88e512b99df79ea16ec8c1f58c27be7e6c73304c10d0f0da75926297752fc6",
+      "size": 6908
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_sepconv_stream.h",
+      "role": "firmware",
+      "sha256": "dd351d9b275011c4f9df05221b85cb8abf5ebf7060347fb5baea2c6cc852ef99",
+      "size": 8899
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_stream.h",
+      "role": "firmware",
+      "sha256": "9b49c36ab28cd1f23d5462bc8a27e1d35ef31048d919eef7ae2e2210da66ac60",
+      "size": 10823
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_time_distributed.h",
+      "role": "firmware",
+      "sha256": "bcdc66cc9c10bee19995692287c7567f994962da50d7ff0629dc33759a2c417a",
+      "size": 3910
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_transpose.h",
+      "role": "firmware",
+      "sha256": "5d182f26e0f0d95bb3e2cbb6d0ce308a8f29ae2db05625bcf72eacca14de0032",
+      "size": 1210
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_transpose_stream.h",
+      "role": "firmware",
+      "sha256": "6a756046342e73694b078f331d59e15b389a8ab1be7d303c87c061a5caf89dd0",
+      "size": 2424
+    },
+    {
+      "path": "firmware/nnet_utils/nnet_types.h",
+      "role": "firmware",
+      "sha256": "559c986616e4b03ae3844070cb2325e7274479e4400e14d700dd28597117d0a4",
+      "size": 1920
+    },
+    {
+      "path": "firmware/parameters.h",
+      "role": "firmware",
+      "sha256": "3c1490613fd7b9d14665514b39e07eb2d93904baf0d6d0ed2efff8b3b1b4cb1e",
+      "size": 5687
+    },
+    {
+      "path": "firmware/weights/b4.h",
+      "role": "parameter",
+      "sha256": "f6d873551cdd06daedf821fbd3792f6a3a16c27c5b130856f165e46bab1bd11a",
+      "size": 270
+    },
+    {
+      "path": "firmware/weights/b4.txt",
+      "role": "parameter",
+      "sha256": "dbe8c0501050af5ea8441933762167485c6859ee556234c9f6869dad8f8193e5",
+      "size": 58
+    },
+    {
+      "path": "firmware/weights/b9.h",
+      "role": "parameter",
+      "sha256": "473ba93d54b0ba3c0bda19fc0cf2361943b3f958c485d11e502bfd0e209cbf1f",
+      "size": 216
+    },
+    {
+      "path": "firmware/weights/b9.txt",
+      "role": "parameter",
+      "sha256": "c39e10a12e907115c23f0597a37ba310350471a14f107c08bc831478d0114554",
+      "size": 5
+    },
+    {
+      "path": "firmware/weights/w4.h",
+      "role": "parameter",
+      "sha256": "6ab8b320ba59d83edfc9367958947cc069a5bd44e685a333563b84c81ea9ddb7",
+      "size": 558
+    },
+    {
+      "path": "firmware/weights/w4.txt",
+      "role": "parameter",
+      "sha256": "f75182e86123bc71c5dd77b7ecdbcf48ed60823aec2d2320e4b122e21b7da700",
+      "size": 331
+    },
+    {
+      "path": "firmware/weights/w9.h",
+      "role": "parameter",
+      "sha256": "cc316dd7fb33fc48786766d7cb52c8fedd83e42ebf360b51e9454512a615cd46",
+      "size": 11272
+    },
+    {
+      "path": "firmware/weights/w9.txt",
+      "role": "parameter",
+      "sha256": "317e80e9890164ae3524a00252476bb6fd361fb00e4808c26503a84548de00e5",
+      "size": 11045
+    },
+    {
+      "path": "firmware/weights/w9_ravel_packed.h",
+      "role": "parameter",
+      "sha256": "6e630f6d9e3fc8293735cf0c0a53c29e0090ce7a6524ffc02e70eae5040a32f8",
+      "size": 3069
+    },
+    {
+      "path": "hls4ml_config.yml",
+      "role": "configuration",
+      "sha256": "c9e39eeac65afb9b50bfa891df4db964ba209e24cc0e6936bf8aa5a8ab1d35b4",
+      "size": 1681
+    },
+    {
+      "path": "keras_model.keras",
+      "role": "model",
+      "sha256": "d5bf2510106b1e0ccbb310b07bfc994263bf8c6e4af57308a91924290234039e",
+      "size": 65792
+    },
+    {
+      "path": "project.tcl",
+      "role": "vendor_script",
+      "sha256": "662017c99ab3c8aecf075bb1e0d436306dcdc3a693bde6b2a95b8997c9df619d",
+      "size": 308
+    },
+    {
+      "path": "ravel_config.yml",
+      "role": "configuration",
+      "sha256": "e4323f7a76329eb19baf1f9838d93d7d09de264766773daeeb51e10276a8e94e",
+      "size": 1742
+    },
+    {
+      "path": "tb_data/tb_input_features.dat",
+      "role": "project",
+      "sha256": "bb365f528b7263919fea4cc93777b61981e2e80ff34ca38d6c8c18e5e1148dac",
+      "size": 398417
+    },
+    {
+      "path": "vivado_synth.tcl",
+      "role": "vendor_script",
+      "sha256": "ce4820bd66e1d7532145f060b185d3488cec83494ee8ac62acda63e55a2ee4c1",
+      "size": 295
+    }
+  ],
+  "source_closure_sha256": "4abf0a99060e84c86f41a2e63a8025ae50c5f259b7254426107cf3a0f072f5a5",
   "source_model": {
-    "semantic_model_sha256": "d4c7b751faf8b1173ac7ae9cad74c72a872a1707b24c4168f4a6835b0a390259",
-    "source_artifact_sha256": "9609d04fd6cee8cd6624df06580f3d94fc39c9399d8ec51c40b65dcf05738285"
+    "facts": {
+      "dense": [
+        {
+          "bias": {
+            "elements": 1,
+            "shape": [
+              1
+            ]
+          },
+          "feature_ordering": {
+            "kind": "identity",
+            "order": "C"
+          },
+          "graph": {
+            "predecessors": [
+              "Reshape"
+            ],
+            "successors": []
+          },
+          "input_group_size": 7,
+          "kernel": {
+            "elements": 1176,
+            "shape": [
+              1176,
+              1
+            ],
+            "statistics": {
+              "nonzero": 1089,
+              "power_of_two": 717,
+              "unique": 16,
+              "zero": 87
+            }
+          },
+          "n_in": 1176,
+          "n_out": 1,
+          "numeric": {
+            "accumulator": {
+              "fractional": 10,
+              "integer": 13,
+              "kind": "fixed",
+              "overflow": "WRAP",
+              "rounding": "TRN",
+              "saturation_bits": 0,
+              "signed": true,
+              "width": 23
+            },
+            "bias": {
+              "fractional": 2,
+              "integer": -1,
+              "kind": "fixed",
+              "overflow": "WRAP",
+              "rounding": "TRN",
+              "saturation_bits": 0,
+              "signed": true,
+              "width": 1
+            },
+            "input": {
+              "fractional": 5,
+              "integer": 5,
+              "kind": "fixed",
+              "overflow": "SAT_SYM",
+              "rounding": "RND",
+              "saturation_bits": 0,
+              "signed": true,
+              "width": 10
+            },
+            "output": {
+              "fractional": 10,
+              "integer": 13,
+              "kind": "fixed",
+              "overflow": "WRAP",
+              "rounding": "TRN",
+              "saturation_bits": 0,
+              "signed": true,
+              "width": 23
+            },
+            "weight": {
+              "fractional": 5,
+              "integer": 1,
+              "kind": "fixed",
+              "overflow": "WRAP",
+              "rounding": "TRN",
+              "saturation_bits": 0,
+              "signed": true,
+              "width": 6
+            }
+          },
+          "parameter_representation": "dense",
+          "role": "output"
+        }
+      ],
+      "inputs": [
+        "input_0:out0"
+      ],
+      "operations": [
+        {
+          "attributes": {
+            "input_shape": [
+              256,
+              4
+            ]
+          },
+          "id": "input_0",
+          "inputs": [],
+          "kind": "input",
+          "outputs": [
+            {
+              "id": "input_0:out0",
+              "numeric_type": {
+                "integer": 5,
+                "kind": "fixed",
+                "rounding": "RND",
+                "saturation": "SAT_SYM",
+                "saturation_bits": 0,
+                "signed": true,
+                "width": 10
+              },
+              "shape": [
+                256,
+                4
+              ]
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "attributes": {
+            "target_shape": [
+              256,
+              4,
+              1
+            ]
+          },
+          "id": "repack_0",
+          "inputs": [
+            "input_0:out0"
+          ],
+          "kind": "repack",
+          "outputs": [
+            {
+              "id": "repack_0:out0",
+              "numeric_type": {
+                "integer": 5,
+                "kind": "fixed",
+                "rounding": "TRN",
+                "saturation": "WRAP",
+                "saturation_bits": 0,
+                "signed": true,
+                "width": 10
+              },
+              "shape": [
+                256,
+                4,
+                1
+              ]
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "attributes": {
+            "filt_height": 5,
+            "filt_width": 1,
+            "in_height": 256,
+            "in_width": 4,
+            "n_chan": 1,
+            "n_filt": 7,
+            "out_height": 84,
+            "out_width": 4,
+            "pad_bottom": 0,
+            "pad_left": 0,
+            "pad_right": 0,
+            "pad_top": 0,
+            "stride_height": 3,
+            "stride_width": 1
+          },
+          "id": "conv2d_0",
+          "inputs": [
+            "repack_0:out0"
+          ],
+          "kind": "conv2d",
+          "outputs": [
+            {
+              "id": "conv2d_0:out0",
+              "numeric_type": {
+                "integer": 6,
+                "kind": "fixed",
+                "rounding": "TRN",
+                "saturation": "WRAP",
+                "saturation_bits": 0,
+                "signed": true,
+                "width": 16
+              },
+              "shape": [
+                84,
+                4,
+                7
+              ]
+            }
+          ],
+          "parameters": [
+            {
+              "content_sha256": "2001e05adf9fb093391dd695a0f838acf64b3d2cb0951251b9b16aa68f4eb236",
+              "numeric_type": {
+                "integer": 1,
+                "kind": "fixed",
+                "rounding": "TRN",
+                "saturation": "WRAP",
+                "saturation_bits": 0,
+                "signed": true,
+                "width": 6
+              },
+              "role": "weight",
+              "shape": [
+                5,
+                1,
+                1,
+                7
+              ]
+            },
+            {
+              "content_sha256": "5aa1674b2796250113f022d663752ae6e901280d3f6e4ed4c6fbe4ca47a83999",
+              "numeric_type": {
+                "integer": 1,
+                "kind": "fixed",
+                "rounding": "TRN",
+                "saturation": "WRAP",
+                "saturation_bits": 0,
+                "signed": true,
+                "width": 5
+              },
+              "role": "bias",
+              "shape": [
+                7
+              ]
+            }
+          ]
+        },
+        {
+          "attributes": {
+            "activation": "relu",
+            "n_in": 2352
+          },
+          "id": "relu_0",
+          "inputs": [
+            "conv2d_0:out0"
+          ],
+          "kind": "relu",
+          "outputs": [
+            {
+              "id": "relu_0:out0",
+              "numeric_type": {
+                "integer": 5,
+                "kind": "fixed",
+                "rounding": "TRN",
+                "saturation": "WRAP",
+                "saturation_bits": 0,
+                "signed": false,
+                "width": 15
+              },
+              "shape": [
+                84,
+                4,
+                7
+              ]
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "attributes": {
+            "in_height": 84,
+            "in_width": 4,
+            "n_filt": 7,
+            "out_height": 42,
+            "out_width": 4,
+            "pad_bottom": 0,
+            "pad_left": 0,
+            "pad_right": 0,
+            "pad_top": 0,
+            "pool_height": 2,
+            "pool_op": "Max",
+            "pool_width": 1,
+            "stride_height": 2,
+            "stride_width": 1
+          },
+          "id": "max_pool2d_0",
+          "inputs": [
+            "relu_0:out0"
+          ],
+          "kind": "max_pool2d",
+          "outputs": [
+            {
+              "id": "max_pool2d_0:out0",
+              "numeric_type": {
+                "integer": 5,
+                "kind": "fixed",
+                "rounding": "RND",
+                "saturation": "SAT_SYM",
+                "saturation_bits": 0,
+                "signed": true,
+                "width": 10
+              },
+              "shape": [
+                42,
+                4,
+                7
+              ]
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "attributes": {
+            "target_shape": [
+              1176
+            ]
+          },
+          "id": "reshape_0",
+          "inputs": [
+            "max_pool2d_0:out0"
+          ],
+          "kind": "reshape",
+          "outputs": [
+            {
+              "id": "reshape_0:out0",
+              "numeric_type": {
+                "integer": 5,
+                "kind": "fixed",
+                "rounding": "RND",
+                "saturation": "SAT_SYM",
+                "saturation_bits": 0,
+                "signed": true,
+                "width": 10
+              },
+              "shape": [
+                1176
+              ]
+            }
+          ],
+          "parameters": []
+        },
+        {
+          "attributes": {
+            "n_in": 1176,
+            "n_out": 1
+          },
+          "id": "dense_0",
+          "inputs": [
+            "reshape_0:out0"
+          ],
+          "kind": "dense",
+          "outputs": [
+            {
+              "id": "dense_0:out0",
+              "numeric_type": {
+                "integer": 13,
+                "kind": "fixed",
+                "rounding": "TRN",
+                "saturation": "WRAP",
+                "saturation_bits": 0,
+                "signed": true,
+                "width": 23
+              },
+              "shape": [
+                1
+              ]
+            }
+          ],
+          "parameters": [
+            {
+              "content_sha256": "9c2dc67f9c6a01b37743565f794fcaf7815bd2c2aa46dd4e2f93428787034abe",
+              "numeric_type": {
+                "integer": 1,
+                "kind": "fixed",
+                "rounding": "TRN",
+                "saturation": "WRAP",
+                "saturation_bits": 0,
+                "signed": true,
+                "width": 6
+              },
+              "role": "weight",
+              "shape": [
+                1176,
+                1
+              ]
+            },
+            {
+              "content_sha256": "12a3ae445661ce5dee78d0650d33362dec29c4f82af05e7e57fb595bbbacf0ca",
+              "numeric_type": {
+                "integer": -1,
+                "kind": "fixed",
+                "rounding": "TRN",
+                "saturation": "WRAP",
+                "saturation_bits": 0,
+                "signed": true,
+                "width": 1
+              },
+              "role": "bias",
+              "shape": [
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        "dense_0:out0"
+      ],
+      "schema_version": 1
+    },
+    "fingerprints": {
+      "frontend_provenance_sha256": "37acf2566611cb35165bd951146b8d72875523fb5b8d2a249095253314350b6f",
+      "model_structure_sha256": "b06840aead23e62710886e7b596019ac7f5417fe74f0af853e2dce993a705e51",
+      "parameter_state_sha256": "dda58fe5ccf96f429fc155e4bfedb0020476826d7030679a2a5ef008ea795cd8"
+    },
+    "frontend_provenance": {
+      "adapter": {
+        "id": "keras-hgq2",
+        "version": 1
+      },
+      "quantizer_contracts": [
+        {
+          "heterogeneous_axis": [],
+          "homogeneous_axis": null,
+          "is_weight": false,
+          "overflow": "SAT_SYM",
+          "q_type": "kif",
+          "role": "input",
+          "rounding": "RND",
+          "source_ordinal": 2
+        },
+        {
+          "heterogeneous_axis": [],
+          "homogeneous_axis": null,
+          "is_weight": true,
+          "overflow": "SAT_SYM",
+          "q_type": "kif",
+          "role": "weight",
+          "rounding": "RND",
+          "source_ordinal": 2
+        },
+        {
+          "heterogeneous_axis": [],
+          "homogeneous_axis": null,
+          "is_weight": false,
+          "overflow": "SAT_SYM",
+          "q_type": "kif",
+          "role": "bias",
+          "rounding": "RND",
+          "source_ordinal": 2
+        },
+        {
+          "heterogeneous_axis": [],
+          "homogeneous_axis": null,
+          "is_weight": false,
+          "overflow": "SAT_SYM",
+          "q_type": "kif",
+          "role": "input",
+          "rounding": "RND",
+          "source_ordinal": 5
+        },
+        {
+          "heterogeneous_axis": [],
+          "homogeneous_axis": null,
+          "is_weight": true,
+          "overflow": "SAT_SYM",
+          "q_type": "kif",
+          "role": "weight",
+          "rounding": "RND",
+          "source_ordinal": 5
+        },
+        {
+          "heterogeneous_axis": [],
+          "homogeneous_axis": null,
+          "is_weight": false,
+          "overflow": "SAT_SYM",
+          "q_type": "kif",
+          "role": "bias",
+          "rounding": "RND",
+          "source_ordinal": 5
+        }
+      ],
+      "source_layers": [
+        {
+          "class_name": "InputLayer",
+          "module": "keras.src.layers.core.input_layer",
+          "ordinal": 0
+        },
+        {
+          "class_name": "Reshape",
+          "module": "keras.src.layers.reshaping.reshape",
+          "ordinal": 1
+        },
+        {
+          "class_name": "QConv2D",
+          "module": "hgq.layers.conv",
+          "ordinal": 2
+        },
+        {
+          "class_name": "MaxPooling2D",
+          "module": "keras.src.layers.pooling.max_pooling2d",
+          "ordinal": 3
+        },
+        {
+          "class_name": "Flatten",
+          "module": "keras.src.layers.reshaping.flatten",
+          "ordinal": 4
+        },
+        {
+          "class_name": "QDense",
+          "module": "hgq.layers.core.dense",
+          "ordinal": 5
+        }
+      ]
+    },
+    "model_family": {
+      "id": "hgq-conv-pool-dense",
+      "version": 1
+    },
+    "semantic_model_sha256": "624364e2283e0c1eb3ebd0fe32e1ded5ad364371b5cef1ef5632f992e6d4d468",
+    "source_artifact_sha256": "d5bf2510106b1e0ccbb310b07bfc994263bf8c6e4af57308a91924290234039e"
   },
   "status": {
     "correctness_verification": "passed",
@@ -254,9 +4900,24 @@
       "shape_match": true,
       "status": "reported"
     },
+    "source_conversion_consistency": "passed",
+    "source_conversion_report": {
+      "comparison": "canonical_fixed_point_integer_codes",
+      "max_abs_float_difference": 0.0,
+      "status": "passed"
+    },
     "stimuli": {
-      "content_sha256": "bd415782aaef805e659125ef3a0dbf92dc16c750aa2e3de7bc9360d3dfe7a7c8",
+      "content_sha256": "ab438f5c802afd0fad8bd7fb260593d3971c930aa8ed561670a8d057364408de",
       "dtype": "float32",
+      "input_numeric_type": {
+        "integer": 5,
+        "kind": "fixed",
+        "rounding": "RND",
+        "saturation": "SAT_SYM",
+        "saturation_bits": 0,
+        "signed": true,
+        "width": 10
+      },
       "kind": "supplied",
       "sample_count": 1000,
       "seed": null,

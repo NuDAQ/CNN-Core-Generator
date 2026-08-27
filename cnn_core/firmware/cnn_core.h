@@ -8,7 +8,7 @@
 #include "defines.h"
 
 void cnn_core(
-    hls::stream<input_layer_x2_t> &input_layer,
+    hls::stream<waveform_x8_t> &waveform,
     hls::stream<result_t> &layer9_out
 );
 

@@ -14,12 +14,12 @@ size_t trace_type_size = sizeof(double);
 } // namespace nnet
 
 template <typename scalar_T>
-void pack_aria_input(scalar_T *logical_input, hls::stream<input_layer_x2_t> &packed_input) {
-    for (unsigned pair = 0; pair < 128; pair++) {
-        input_layer_x2_t word;
-        for (unsigned row = 0; row < 2; row++) {
+void pack_aria_input(scalar_T *logical_input, hls::stream<waveform_x8_t> &packed_input) {
+    for (unsigned word_index = 0; word_index < 32; word_index++) {
+        waveform_x8_t word;
+        for (unsigned row = 0; row < 8; row++) {
             for (unsigned channel = 0; channel < 4; channel++) {
-                word[row * 4 + channel] = logical_input[(pair * 2 + row) * 4 + channel];
+                word[row * 4 + channel] = logical_input[(word_index * 8 + row) * 4 + channel];
             }
         }
         packed_input.write(word);
@@ -62,19 +62,19 @@ void collect_trace_output(struct trace_data *outputs) {
     }
 }
 
-void cnn_core_float(float *input_layer, float *layer9_out) {
-    hls::stream<input_layer_x2_t> input_layer_ap("input_layer");
-    pack_aria_input(input_layer, input_layer_ap);
+void cnn_core_float(float *waveform, float *layer9_out) {
+    hls::stream<waveform_x8_t> waveform_ap("waveform");
+    pack_aria_input(waveform, waveform_ap);
     hls::stream<result_t> layer9_out_ap("layer9_out");
-    cnn_core(input_layer_ap, layer9_out_ap);
+    cnn_core(waveform_ap, layer9_out_ap);
     nnet::convert_data<result_t, float, 1>(layer9_out_ap, layer9_out);
 }
 
-void cnn_core_double(double *input_layer, double *layer9_out) {
-    hls::stream<input_layer_x2_t> input_layer_ap("input_layer");
-    pack_aria_input(input_layer, input_layer_ap);
+void cnn_core_double(double *waveform, double *layer9_out) {
+    hls::stream<waveform_x8_t> waveform_ap("waveform");
+    pack_aria_input(waveform, waveform_ap);
     hls::stream<result_t> layer9_out_ap("layer9_out");
-    cnn_core(input_layer_ap, layer9_out_ap);
+    cnn_core(waveform_ap, layer9_out_ap);
     nnet::convert_data<result_t, double, 1>(layer9_out_ap, layer9_out);
 }
 
