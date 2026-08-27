@@ -14,16 +14,13 @@ ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / "cnn_core"
 
 model = keras.models.load_model(
-    ROOT / "models/hgq_config_beta7_gamma6_p1_cl_lowbop.keras",
+    ROOT / "models/run_mini_es0.keras",
     custom_objects={"QConv2D": QConv2D, "QDense": QDense},
 )
 
-# [N, 4, 256, 1] -> [N, 256, 4]
-x = np.ascontiguousarray(
-    np.load(ROOT / "data/X_test_data.npy")[..., 0].transpose(0, 2, 1),
-    dtype=np.float32,
-)
-labels = np.load(ROOT / "data/y_test_labels.npy").astype(bool)
+with np.load(ROOT / "data/verification_data_mini_es0.npz") as verification:
+    x = np.ascontiguousarray(verification["X"], dtype=np.float32)
+    labels = verification["y"].astype(bool)
 
 hls_config = hls4ml.utils.config_from_keras_model(
     model,
