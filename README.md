@@ -51,10 +51,27 @@ Large reproducible HLS/Vivado databases are ignored.
 
 ## Performance
 
-The checked-in project targets the mini continuous model. RAVEL source and
-transformation verification pass for the supplied test set. Vitis HLS
-synthesis, RTL co-simulation, and Vivado implementation have not been run for
-this generated project, so no latency or resource figures are claimed yet.
+Performance and resource figures are provided for reference only. Refer to the
+latest committed reports for authoritative results.
+
+| Performance | Result |
+|---|---:|
+| Target clock | 200 MHz (5 ns) |
+| Latency | 57 cycles (0.285 us) |
+| Initiation interval | 52 cycles |
+| Theoretical throughput | 3.85 million inferences/s |
+
+| Resource | Used | Available | Utilization (KU5P) |
+|---|---:|---:|---:|
+| CLB LUTs | 6,003 | 216,960 | 2.77% |
+| Flip-flops | 3,964 | 433,920 | 0.91% |
+| DSP48E2 | 67 | 1,824 | 3.67% |
+| BRAM tiles | 1.5 | 480 | 0.31% |
+| URAM | 0 | 64 | 0.00% |
+
+Vitis HLS synthesis and RTL co-simulation passed for 32 test samples. The
+resource figures are from Vivado synthesis and `opt_design`; place and route
+were not run.
 
 ## License
 
