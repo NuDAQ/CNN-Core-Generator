@@ -7,10 +7,6 @@ HLSConfig:
       Precision:
         result: auto
       Trace: false
-    input_layer:
-      Precision:
-        result: auto
-      Trace: false
     max_pooling2d:
       ConvImplementation: LineBuffer
       Precision:
@@ -51,7 +47,11 @@ HLSConfig:
       Precision:
         result: auto
       Trace: false
-    reshape:
+    ravel_repack:
+      Precision:
+        result: auto
+      Trace: false
+    waveform:
       Precision:
         result: auto
       Trace: false
@@ -66,18 +66,18 @@ HLSConfig:
 IOType: io_stream
 InputData: null
 InputShapes:
-  input_layer:
+  waveform:
   - 256
   - 4
 KerasModel: !keras_model 'keras_model.keras'
-OutputDir: /home/work1/Works/CNN-Core-Generator/cnn_core
+OutputDir: .
 OutputPredictions: null
 OutputShapes:
   layer9_out:
   - 1
 Part: xcku5p-ffvb676-2-e
 ProjectName: cnn_core
-Stamp: c9478452
+Stamp: 54fbfb71
 Version: 1.0.0
 WriterConfig:
   Namespace: null

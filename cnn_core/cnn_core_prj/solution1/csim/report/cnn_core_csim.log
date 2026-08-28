@@ -4,6 +4,6 @@ INFO: [SIM 4] CSIM will launch GCC as the compiler.
    Compiling ../../../../firmware/cnn_core.cpp in debug mode
    Generating csim.exe
 INFO: Saved inference results to file: tb_data/csim_results.log
-INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 128
+INFO [HLS SIM]: The maximum depth reached by any hls::stream() instance in the design is 42
 INFO: [SIM 1] CSim done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************

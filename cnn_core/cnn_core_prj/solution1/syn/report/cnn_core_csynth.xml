@@ -18,33 +18,33 @@
 <PipelineType>dataflow</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>3.647</EstimatedClockPeriod>
+<EstimatedClockPeriod>4.289</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>183</Best-caseLatency>
-<Average-caseLatency>183</Average-caseLatency>
-<Worst-caseLatency>183</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.915 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.915 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.915 us</Worst-caseRealTimeLatency>
-<DataflowPipelineThroughput>178</DataflowPipelineThroughput>
-<Interval-min>178</Interval-min>
-<Interval-max>178</Interval-max>
+<Best-caseLatency>57</Best-caseLatency>
+<Average-caseLatency>57</Average-caseLatency>
+<Worst-caseLatency>57</Worst-caseLatency>
+<Best-caseRealTimeLatency>0.285 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>0.285 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>0.285 us</Worst-caseRealTimeLatency>
+<DataflowPipelineThroughput>52</DataflowPipelineThroughput>
+<Interval-min>52</Interval-min>
+<Interval-max>52</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/cnn_core.cpp:12</SourceLocation>
+<SourceLocation>firmware/cnn_core.cpp:14</SourceLocation>
 </SummaryOfViolations>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<DSP>4</DSP>
-<FF>3483</FF>
-<LUT>28922</LUT>
-<BRAM_18K>0</BRAM_18K>
+<BRAM_18K>5</BRAM_18K>
+<DSP>40</DSP>
+<FF>5459</FF>
+<LUT>14105</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
@@ -58,20 +58,20 @@
 
 <InterfaceSummary>
 <RtlPorts>
-<name>input_layer_TDATA</name>
-<Object>input_layer</Object>
+<name>waveform_TDATA</name>
+<Object>waveform</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
 <IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
-<Bits>128</Bits>
+<Bits>512</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>input_layer_TVALID</name>
-<Object>input_layer</Object>
+<name>waveform_TVALID</name>
+<Object>waveform</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -82,8 +82,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>input_layer_TREADY</name>
-<Object>input_layer</Object>
+<name>waveform_TREADY</name>
+<Object>waveform</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>

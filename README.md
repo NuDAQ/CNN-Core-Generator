@@ -57,40 +57,21 @@ latest committed reports for authoritative results.
 | Performance | Result |
 |---|---:|
 | Target clock | 200 MHz (5 ns) |
-| Latency | 183 cycles (0.915 us) |
-| Theoretical throughput | 1.12 million inferences/s |
+| Latency | 57 cycles (0.285 us) |
+| Initiation interval | 52 cycles |
+| Theoretical throughput | 3.85 million inferences/s |
 
 | Resource | Used | Available | Utilization (KU5P) |
 |---|---:|---:|---:|
-| CLB LUTs | 5,857 | 216,960 | 2.70% |
-| Flip-flops | 2,956 | 433,920 | 0.68% |
-| DSP48E2 | 7 | 1,824 | 0.38% |
-| RAMB18E2 | 2 | 960 | 0.21% |
+| CLB LUTs | 6,003 | 216,960 | 2.77% |
+| Flip-flops | 3,964 | 433,920 | 0.91% |
+| DSP48E2 | 67 | 1,824 | 3.67% |
+| BRAM tiles | 1.5 | 480 | 0.31% |
 | URAM | 0 | 64 | 0.00% |
 
-After integration into the five-lane [AI Trigger System
-v3.2](https://github.com/NuDAQ/AI-Trigger-System/tree/v3.2), the system-level
-results are:
-
-| System performance | Result |
-|---|---:|
-| Target ADC input | 8 channels at 1 Gsa/s per channel |
-| Processing capacity (conservative config.) | 8 channels at 1.26 Gsa/s per channel |
-| Aggregate chunk throughput | 3.91 million 256-sample chunks/s |
-| CNN lanes | 5, each at 200 MHz |
-| Latency for each lane | 203.6 CNN cycles (1.018 us) |
-| Routed timing | WNS 1.085 ns; TNS 0 ns; WHS 0.009 ns; THS 0 ns |
-
-| System resource | Used | Available | Utilization (KU5P) |
-|---|---:|---:|---:|
-| CLB LUTs | 28,864 | 216,960 | 13.30% |
-| Flip-flops | 18,847 | 433,920 | 4.34% |
-| DSP48E2 | 20 | 1,824 | 1.10% |
-| BRAM tiles | 26 | 480 | 5.42% |
-| URAM | 6 | 64 | 9.38% |
-
-The routed OOC vectorless power estimate is 1.301 W total (0.844 W dynamic and
-0.458 W static). The DAQ implementation demonstrates low-power, high-throughput, full-bandwidth real-time triggering.
+Vitis HLS synthesis and RTL co-simulation passed for 32 test samples. The
+resource figures are from Vivado synthesis and `opt_design`; place and route
+were not run.
 
 ## License
 

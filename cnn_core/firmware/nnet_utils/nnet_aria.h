@@ -8,6 +8,11 @@
 
 namespace nnet {
 
+template <class BASE_CONFIG_T>
+struct aria_first_conv_mult_config : BASE_CONFIG_T {
+    static const unsigned multiplier_limit = 280;
+};
+
 template <class data_T, class res_T, typename CONFIG_T>
 void first_conv_2row_4lane_temporal_wide_cl(
     hls::stream<data_T> &data,
@@ -95,8 +100,10 @@ ReadPairsWide:
 
                 res_value_t res_out[CONFIG_T::n_filt];
                 #pragma HLS ARRAY_PARTITION variable=res_out complete
-                CONFIG_T::mult_config::template kernel<
-                    data_value_t, res_value_t, typename CONFIG_T::mult_config>::dense(
+                using mult_config = aria_first_conv_mult_config<
+                    typename CONFIG_T::mult_config>;
+                mult_config::template kernel<
+                    data_value_t, res_value_t, mult_config>::dense(
                         kernel_data, res_out, weights, biases);
                 for (unsigned i_f = 0; i_f < CONFIG_T::n_filt; i_f++) {
                     #pragma HLS UNROLL
@@ -106,6 +113,117 @@ ReadPairsWide:
             res.write(res_pack);
         }
         pair_phase = pair_phase == CONFIG_T::stride_height - 1 ? 0 : pair_phase + 1;
+    }
+}
+
+template <class data_T, class res_T, typename CONFIG_T>
+void first_conv_4row_compute_window(
+    typename data_T::value_type rows[8][CONFIG_T::in_width],
+    unsigned offset,
+    res_T &res_pack,
+    typename CONFIG_T::weight_t weights[
+        CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan * CONFIG_T::n_filt],
+    typename CONFIG_T::bias_t biases[CONFIG_T::n_filt]
+) {
+    #pragma HLS INLINE
+    PRAGMA_DATA_PACK(res_pack)
+ComputeOutputWidth:
+    for (unsigned i_iw = 0; i_iw < CONFIG_T::out_width; i_iw++) {
+        #pragma HLS UNROLL
+        typename data_T::value_type kernel_data[CONFIG_T::filt_height];
+        #pragma HLS ARRAY_PARTITION variable=kernel_data complete
+        for (unsigned k = 0; k < CONFIG_T::filt_height; k++) {
+            #pragma HLS UNROLL
+            kernel_data[k] = rows[offset + k][i_iw];
+        }
+        typename res_T::value_type res_out[CONFIG_T::n_filt];
+        #pragma HLS ARRAY_PARTITION variable=res_out complete
+        using mult_config = aria_first_conv_mult_config<
+            typename CONFIG_T::mult_config>;
+        mult_config::template kernel<
+            typename data_T::value_type,
+            typename res_T::value_type,
+            mult_config>::dense(
+                kernel_data, res_out, weights, biases);
+        for (unsigned i_f = 0; i_f < CONFIG_T::n_filt; i_f++) {
+            #pragma HLS UNROLL
+            res_pack[i_iw * CONFIG_T::n_filt + i_f] = res_out[i_f];
+        }
+    }
+}
+
+template <class data_T, class res_T, typename CONFIG_T>
+void first_conv_4row_4lane_temporal_wide_cl(
+    hls::stream<data_T> &data,
+    hls::stream<res_T> &res,
+    typename CONFIG_T::weight_t weights[
+        CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan * CONFIG_T::n_filt],
+    typename CONFIG_T::bias_t biases[CONFIG_T::n_filt]
+) {
+    static_assert(CONFIG_T::n_chan == 1, "Aria first convolution requires one channel");
+    static_assert(CONFIG_T::filt_height == 5 && CONFIG_T::filt_width == 1,
+                  "Aria P4 convolution requires a 5x1 kernel");
+    static_assert(CONFIG_T::stride_height == 3 && CONFIG_T::stride_width == 1,
+                  "Aria P4 convolution requires stride 3x1");
+    static_assert(CONFIG_T::in_width * 4 == data_T::size,
+                  "Aria P4 input word must contain four rows");
+    static_assert(CONFIG_T::n_filt * CONFIG_T::out_width == res_T::size,
+                  "Aria convolution output must contain every width/filter lane");
+    static_assert(CONFIG_T::in_height % 4 == 0,
+                  "Aria P4 input height must be divisible by four");
+
+    typename data_T::value_type previous[4][CONFIG_T::in_width];
+    typename data_T::value_type window_rows[8][CONFIG_T::in_width];
+    #pragma HLS ARRAY_PARTITION variable=previous complete dim=0
+    #pragma HLS ARRAY_PARTITION variable=window_rows complete dim=0
+    bool pending = false;
+    unsigned word = 0;
+    unsigned word_phase = 0;
+
+ReadAndDrainP4:
+    for (unsigned cycle = 0; cycle < CONFIG_T::out_height + 1; cycle++) {
+        #pragma HLS PIPELINE II=1
+        if (pending) {
+            res_T output;
+            first_conv_4row_compute_window<data_T, res_T, CONFIG_T>(
+                window_rows, 3, output, weights, biases);
+            res.write(output);
+            pending = false;
+        } else {
+            data_T input_word = data.read();
+            for (unsigned row = 0; row < 4; row++) {
+                #pragma HLS UNROLL
+                for (unsigned column = 0; column < CONFIG_T::in_width; column++) {
+                    #pragma HLS UNROLL
+                    if (word != 0) {
+                        window_rows[row][column] = previous[row][column];
+                    }
+                    window_rows[row + 4][column] =
+                        input_word[row * CONFIG_T::in_width + column];
+                }
+            }
+
+            if (word != 0) {
+                const unsigned offset = word_phase == 1 ? 0 :
+                                        word_phase == 2 ? 2 : 1;
+                res_T output;
+                first_conv_4row_compute_window<data_T, res_T, CONFIG_T>(
+                    window_rows, offset, output, weights, biases);
+                res.write(output);
+                pending = word_phase == 1;
+            }
+
+            for (unsigned row = 0; row < 4; row++) {
+                #pragma HLS UNROLL
+                for (unsigned column = 0; column < CONFIG_T::in_width; column++) {
+                    #pragma HLS UNROLL
+                    previous[row][column] =
+                        input_word[row * CONFIG_T::in_width + column];
+                }
+            }
+            word++;
+            word_phase = word_phase == 2 ? 0 : word_phase + 1;
+        }
     }
 }
 
@@ -151,46 +269,588 @@ PoolRows:
     }
 }
 
+template <
+    unsigned BUFFER_ROWS,
+    class data_T,
+    class conv_T,
+    class activation_T,
+    class res_T,
+    typename CONV_CONFIG_T>
+void phara_pool_aligned_direct_compute(
+    typename data_T::value_type row_buffer[BUFFER_ROWS][CONV_CONFIG_T::in_width],
+    unsigned supertile_start,
+    res_T &output,
+    typename CONV_CONFIG_T::weight_t weights[
+        CONV_CONFIG_T::filt_height * CONV_CONFIG_T::filt_width *
+        CONV_CONFIG_T::n_chan * CONV_CONFIG_T::n_filt],
+    typename CONV_CONFIG_T::bias_t biases[CONV_CONFIG_T::n_filt]
+) {
+    #pragma HLS INLINE
+    PRAGMA_DATA_PACK(output)
+ComputePooledWidth:
+    for (unsigned column = 0;
+         column < CONV_CONFIG_T::out_width;
+         column++) {
+        #pragma HLS UNROLL
+        typename data_T::value_type first_kernel[CONV_CONFIG_T::filt_height];
+        typename data_T::value_type second_kernel[CONV_CONFIG_T::filt_height];
+        #pragma HLS ARRAY_PARTITION variable=first_kernel complete
+        #pragma HLS ARRAY_PARTITION variable=second_kernel complete
+        for (unsigned kernel_row = 0;
+             kernel_row < CONV_CONFIG_T::filt_height;
+             kernel_row++) {
+            #pragma HLS UNROLL
+            first_kernel[kernel_row] =
+                row_buffer[(supertile_start + kernel_row) % BUFFER_ROWS][column];
+            second_kernel[kernel_row] =
+                row_buffer[(supertile_start +
+                            CONV_CONFIG_T::stride_height +
+                            kernel_row) % BUFFER_ROWS][column];
+        }
+        typename conv_T::value_type first_conv[CONV_CONFIG_T::n_filt];
+        typename conv_T::value_type second_conv[CONV_CONFIG_T::n_filt];
+        #pragma HLS ARRAY_PARTITION variable=first_conv complete
+        #pragma HLS ARRAY_PARTITION variable=second_conv complete
+        using mult_config = aria_first_conv_mult_config<
+            typename CONV_CONFIG_T::mult_config>;
+        mult_config::template kernel<
+            typename data_T::value_type,
+            typename conv_T::value_type,
+            mult_config>::dense(first_kernel, first_conv, weights, biases);
+        mult_config::template kernel<
+            typename data_T::value_type,
+            typename conv_T::value_type,
+            mult_config>::dense(second_kernel, second_conv, weights, biases);
+        for (unsigned filter = 0;
+             filter < CONV_CONFIG_T::n_filt;
+             filter++) {
+            #pragma HLS UNROLL
+            typename activation_T::value_type first_activation =
+                first_conv[filter] > 0
+                    ? (typename activation_T::value_type)first_conv[filter]
+                    : (typename activation_T::value_type)0;
+            typename activation_T::value_type second_activation =
+                second_conv[filter] > 0
+                    ? (typename activation_T::value_type)second_conv[filter]
+                    : (typename activation_T::value_type)0;
+            output[column * CONV_CONFIG_T::n_filt + filter] =
+                first_activation > second_activation
+                    ? first_activation
+                    : second_activation;
+        }
+    }
+}
+
+template <class input_value_T, class conv_value_T>
+void phara_affine_graph(
+    input_value_T inputs[8],
+    conv_value_T outputs[14]
+) {
+    #pragma HLS INLINE
+    typedef ap_int<16> accum_code_t;
+    ap_int<input_value_T::width> phara_x0_input_code;
+    phara_x0_input_code.range(input_value_T::width - 1, 0) =
+        inputs[0].range(input_value_T::width - 1, 0);
+    accum_code_t phara_x0 = phara_x0_input_code;
+    ap_int<input_value_T::width> phara_x1_input_code;
+    phara_x1_input_code.range(input_value_T::width - 1, 0) =
+        inputs[1].range(input_value_T::width - 1, 0);
+    accum_code_t phara_x1 = phara_x1_input_code;
+    ap_int<input_value_T::width> phara_x2_input_code;
+    phara_x2_input_code.range(input_value_T::width - 1, 0) =
+        inputs[2].range(input_value_T::width - 1, 0);
+    accum_code_t phara_x2 = phara_x2_input_code;
+    ap_int<input_value_T::width> phara_x3_input_code;
+    phara_x3_input_code.range(input_value_T::width - 1, 0) =
+        inputs[3].range(input_value_T::width - 1, 0);
+    accum_code_t phara_x3 = phara_x3_input_code;
+    ap_int<input_value_T::width> phara_x4_input_code;
+    phara_x4_input_code.range(input_value_T::width - 1, 0) =
+        inputs[4].range(input_value_T::width - 1, 0);
+    accum_code_t phara_x4 = phara_x4_input_code;
+    ap_int<input_value_T::width> phara_x5_input_code;
+    phara_x5_input_code.range(input_value_T::width - 1, 0) =
+        inputs[5].range(input_value_T::width - 1, 0);
+    accum_code_t phara_x5 = phara_x5_input_code;
+    ap_int<input_value_T::width> phara_x6_input_code;
+    phara_x6_input_code.range(input_value_T::width - 1, 0) =
+        inputs[6].range(input_value_T::width - 1, 0);
+    accum_code_t phara_x6 = phara_x6_input_code;
+    ap_int<input_value_T::width> phara_x7_input_code;
+    phara_x7_input_code.range(input_value_T::width - 1, 0) =
+        inputs[7].range(input_value_T::width - 1, 0);
+    accum_code_t phara_x7 = phara_x7_input_code;
+    accum_code_t phara_x0_5f_shift1 = phara_x0 << 1;
+    accum_code_t phara_x1_5f_shift3 = phara_x1 << 3;
+    accum_code_t phara_x1_5f_c_2d_8_5f_negate = -phara_x1_5f_shift3;
+    accum_code_t phara_x2_5f_shift1 = phara_x2 << 1;
+    accum_code_t phara_x2_5f_shift3 = phara_x2 << 3;
+    accum_code_t phara_x2_5f_c_2d_10_5f_negate = -phara_x2_5f_shift1;
+    accum_code_t phara_x2_5f_c_2d_10_5f_negative1 = phara_x2_5f_c_2d_10_5f_negate - phara_x2_5f_shift3;
+    accum_code_t phara_x3_5f_shift3 = phara_x3 << 3;
+    accum_code_t phara_x3_5f_c_2d_7_5f_negative1 = phara_x3 - phara_x3_5f_shift3;
+    accum_code_t phara_x4_5f_shift1 = phara_x4 << 1;
+    accum_code_t phara_x4_5f_c_2d_2_5f_negate = -phara_x4_5f_shift1;
+    accum_code_t phara_constant0 = -448;
+    accum_code_t phara_x0_5f_c_2d_2_5f_negate = -phara_x0_5f_shift1;
+    accum_code_t phara_x2_5f_shift2 = phara_x2 << 2;
+    accum_code_t phara_constant1 = 320;
+    accum_code_t phara_x0_5f_shift2 = phara_x0 << 2;
+    accum_code_t phara_x0_5f_c_2d_5_5f_negate = -phara_x0;
+    accum_code_t phara_x0_5f_c_2d_5_5f_negative1 = phara_x0_5f_c_2d_5_5f_negate - phara_x0_5f_shift2;
+    accum_code_t phara_x3_5f_c11_5f_dsp = phara_x3 * 11;
+    #pragma HLS BIND_OP variable=phara_x3_5f_c11_5f_dsp op=mul impl=dsp
+    accum_code_t phara_x4_5f_shift3 = phara_x4 << 3;
+    accum_code_t phara_x4_5f_c9_5f_positive1 = phara_x4 + phara_x4_5f_shift3;
+    accum_code_t phara_x0_5f_shift3 = phara_x0 << 3;
+    accum_code_t phara_x0_5f_c_2d_10_5f_negate = -phara_x0_5f_shift1;
+    accum_code_t phara_x0_5f_c_2d_10_5f_negative1 = phara_x0_5f_c_2d_10_5f_negate - phara_x0_5f_shift3;
+    accum_code_t phara_x1_5f_shift1 = phara_x1 << 1;
+    accum_code_t phara_x1_5f_c_2d_10_5f_negate = -phara_x1_5f_shift1;
+    accum_code_t phara_x1_5f_c_2d_10_5f_negative1 = phara_x1_5f_c_2d_10_5f_negate - phara_x1_5f_shift3;
+    accum_code_t phara_x2_5f_c_2d_8_5f_negate = -phara_x2_5f_shift3;
+    accum_code_t phara_x3_5f_c_2d_8_5f_negate = -phara_x3_5f_shift3;
+    accum_code_t phara_x4_5f_shift2 = phara_x4 << 2;
+    accum_code_t phara_x4_5f_c_2d_5_5f_negate = -phara_x4;
+    accum_code_t phara_x4_5f_c_2d_5_5f_negative1 = phara_x4_5f_c_2d_5_5f_negate - phara_x4_5f_shift2;
+    accum_code_t phara_constant2 = -512;
+    accum_code_t phara_x0_5f_c_2d_1_5f_negate = -phara_x0;
+    accum_code_t phara_x1_5f_c_2d_6_5f_negative1 = phara_x1_5f_shift1 - phara_x1_5f_shift3;
+    accum_code_t phara_x2_5f_c_2d_1_5f_negate = -phara_x2;
+    accum_code_t phara_x3_5f_shift2 = phara_x3 << 2;
+    accum_code_t phara_x4_5f_c5_5f_positive1 = phara_x4 + phara_x4_5f_shift2;
+    accum_code_t phara_constant3 = 256;
+    accum_code_t phara_x0_5f_c_2d_3_5f_negative1 = phara_x0 - phara_x0_5f_shift2;
+    accum_code_t phara_x2_5f_c_2d_3_5f_negative1 = phara_x2 - phara_x2_5f_shift2;
+    accum_code_t phara_x3_5f_shift1 = phara_x3 << 1;
+    accum_code_t phara_x3_5f_c6_5f_negative1 = phara_x3_5f_shift3 - phara_x3_5f_shift1;
+    accum_code_t phara_x0_5f_c6_5f_negative1 = phara_x0_5f_shift3 - phara_x0_5f_shift1;
+    accum_code_t phara_x1_5f_c13_5f_dsp = phara_x1 * 13;
+    #pragma HLS BIND_OP variable=phara_x1_5f_c13_5f_dsp op=mul impl=dsp
+    accum_code_t phara_x2_5f_c13_5f_dsp = phara_x2 * 13;
+    #pragma HLS BIND_OP variable=phara_x2_5f_c13_5f_dsp op=mul impl=dsp
+    accum_code_t phara_x3_5f_c9_5f_positive1 = phara_x3 + phara_x3_5f_shift3;
+    accum_code_t phara_x4_5f_c7_5f_negative1 = phara_x4_5f_shift3 - phara_x4;
+    accum_code_t phara_constant4 = -576;
+    accum_code_t phara_x4_5f_c_2d_8_5f_negate = -phara_x4_5f_shift3;
+    accum_code_t phara_x5_5f_shift1 = phara_x5 << 1;
+    accum_code_t phara_x5_5f_shift3 = phara_x5 << 3;
+    accum_code_t phara_x5_5f_c_2d_10_5f_negate = -phara_x5_5f_shift1;
+    accum_code_t phara_x5_5f_c_2d_10_5f_negative1 = phara_x5_5f_c_2d_10_5f_negate - phara_x5_5f_shift3;
+    accum_code_t phara_x6_5f_shift3 = phara_x6 << 3;
+    accum_code_t phara_x6_5f_c_2d_7_5f_negative1 = phara_x6 - phara_x6_5f_shift3;
+    accum_code_t phara_x7_5f_shift1 = phara_x7 << 1;
+    accum_code_t phara_x7_5f_c_2d_2_5f_negate = -phara_x7_5f_shift1;
+    accum_code_t phara_x3_5f_c_2d_2_5f_negate = -phara_x3_5f_shift1;
+    accum_code_t phara_x5_5f_shift2 = phara_x5 << 2;
+    accum_code_t phara_x3_5f_c_2d_5_5f_negate = -phara_x3;
+    accum_code_t phara_x3_5f_c_2d_5_5f_negative1 = phara_x3_5f_c_2d_5_5f_negate - phara_x3_5f_shift2;
+    accum_code_t phara_x6_5f_c11_5f_dsp = phara_x6 * 11;
+    #pragma HLS BIND_OP variable=phara_x6_5f_c11_5f_dsp op=mul impl=dsp
+    accum_code_t phara_x7_5f_shift3 = phara_x7 << 3;
+    accum_code_t phara_x7_5f_c9_5f_positive1 = phara_x7 + phara_x7_5f_shift3;
+    accum_code_t phara_x3_5f_c_2d_10_5f_negate = -phara_x3_5f_shift1;
+    accum_code_t phara_x3_5f_c_2d_10_5f_negative1 = phara_x3_5f_c_2d_10_5f_negate - phara_x3_5f_shift3;
+    accum_code_t phara_x4_5f_c_2d_10_5f_negate = -phara_x4_5f_shift1;
+    accum_code_t phara_x4_5f_c_2d_10_5f_negative1 = phara_x4_5f_c_2d_10_5f_negate - phara_x4_5f_shift3;
+    accum_code_t phara_x5_5f_c_2d_8_5f_negate = -phara_x5_5f_shift3;
+    accum_code_t phara_x6_5f_c_2d_8_5f_negate = -phara_x6_5f_shift3;
+    accum_code_t phara_x7_5f_shift2 = phara_x7 << 2;
+    accum_code_t phara_x7_5f_c_2d_5_5f_negate = -phara_x7;
+    accum_code_t phara_x7_5f_c_2d_5_5f_negative1 = phara_x7_5f_c_2d_5_5f_negate - phara_x7_5f_shift2;
+    accum_code_t phara_x3_5f_c_2d_1_5f_negate = -phara_x3;
+    accum_code_t phara_x4_5f_c_2d_6_5f_negative1 = phara_x4_5f_shift1 - phara_x4_5f_shift3;
+    accum_code_t phara_x5_5f_c_2d_1_5f_negate = -phara_x5;
+    accum_code_t phara_x6_5f_shift2 = phara_x6 << 2;
+    accum_code_t phara_x7_5f_c5_5f_positive1 = phara_x7 + phara_x7_5f_shift2;
+    accum_code_t phara_x3_5f_c_2d_3_5f_negative1 = phara_x3 - phara_x3_5f_shift2;
+    accum_code_t phara_x5_5f_c_2d_3_5f_negative1 = phara_x5 - phara_x5_5f_shift2;
+    accum_code_t phara_x6_5f_shift1 = phara_x6 << 1;
+    accum_code_t phara_x6_5f_c6_5f_negative1 = phara_x6_5f_shift3 - phara_x6_5f_shift1;
+    accum_code_t phara_x4_5f_c13_5f_dsp = phara_x4 * 13;
+    #pragma HLS BIND_OP variable=phara_x4_5f_c13_5f_dsp op=mul impl=dsp
+    accum_code_t phara_x5_5f_c13_5f_dsp = phara_x5 * 13;
+    #pragma HLS BIND_OP variable=phara_x5_5f_c13_5f_dsp op=mul impl=dsp
+    accum_code_t phara_x6_5f_c9_5f_positive1 = phara_x6 + phara_x6_5f_shift3;
+    accum_code_t phara_x7_5f_c7_5f_negative1 = phara_x7_5f_shift3 - phara_x7;
+    accum_code_t phara_cse0 = phara_constant0 + phara_x1_5f_c_2d_8_5f_negate;
+    accum_code_t phara_cse1 = phara_constant0 + phara_x4_5f_c_2d_8_5f_negate;
+    accum_code_t phara_y0_5f_f0_5f_sum1 = phara_x0_5f_shift1 + phara_x2_5f_c_2d_10_5f_negative1;
+    accum_code_t phara_y0_5f_f0_5f_sum2 = phara_x3_5f_c_2d_7_5f_negative1 + phara_y0_5f_f0_5f_sum1;
+    accum_code_t phara_y0_5f_f0_5f_sum3 = phara_x4_5f_c_2d_2_5f_negate + phara_y0_5f_f0_5f_sum2;
+    accum_code_t phara_y0_5f_f0_5f_sum4 = phara_cse0 + phara_y0_5f_f0_5f_sum3;
+    accum_code_t phara_y0_5f_f1_5f_sum1 = phara_x0_5f_c_2d_2_5f_negate + phara_x1;
+    accum_code_t phara_y0_5f_f1_5f_sum2 = phara_x2_5f_shift2 + phara_y0_5f_f1_5f_sum1;
+    accum_code_t phara_y0_5f_f1_5f_sum3 = phara_constant1 + phara_y0_5f_f1_5f_sum2;
+    accum_code_t phara_y0_5f_f2_5f_sum1 = phara_x0_5f_c_2d_5_5f_negative1 + phara_x2_5f_shift1;
+    accum_code_t phara_y0_5f_f2_5f_sum2 = phara_x3_5f_c11_5f_dsp + phara_y0_5f_f2_5f_sum1;
+    accum_code_t phara_y0_5f_f2_5f_sum3 = phara_x4_5f_c9_5f_positive1 + phara_y0_5f_f2_5f_sum2;
+    accum_code_t phara_y0_5f_f2_5f_sum4 = phara_cse0 + phara_y0_5f_f2_5f_sum3;
+    accum_code_t phara_y0_5f_f3_5f_sum1 = phara_x0_5f_c_2d_10_5f_negative1 + phara_x1_5f_c_2d_10_5f_negative1;
+    accum_code_t phara_y0_5f_f3_5f_sum2 = phara_x2_5f_c_2d_8_5f_negate + phara_y0_5f_f3_5f_sum1;
+    accum_code_t phara_y0_5f_f3_5f_sum3 = phara_x3_5f_c_2d_8_5f_negate + phara_y0_5f_f3_5f_sum2;
+    accum_code_t phara_y0_5f_f3_5f_sum4 = phara_x4_5f_c_2d_5_5f_negative1 + phara_y0_5f_f3_5f_sum3;
+    accum_code_t phara_y0_5f_f3_5f_sum5 = phara_constant2 + phara_y0_5f_f3_5f_sum4;
+    accum_code_t phara_y0_5f_f4_5f_sum1 = phara_x0_5f_c_2d_1_5f_negate + phara_x1_5f_c_2d_6_5f_negative1;
+    accum_code_t phara_y0_5f_f4_5f_sum2 = phara_x2_5f_c_2d_1_5f_negate + phara_y0_5f_f4_5f_sum1;
+    accum_code_t phara_y0_5f_f4_5f_sum3 = phara_x3_5f_shift2 + phara_y0_5f_f4_5f_sum2;
+    accum_code_t phara_y0_5f_f4_5f_sum4 = phara_x4_5f_c5_5f_positive1 + phara_y0_5f_f4_5f_sum3;
+    accum_code_t phara_y0_5f_f4_5f_sum5 = phara_constant3 + phara_y0_5f_f4_5f_sum4;
+    accum_code_t phara_y0_5f_f5_5f_sum1 = phara_x0_5f_c_2d_3_5f_negative1 + phara_x1_5f_shift1;
+    accum_code_t phara_y0_5f_f5_5f_sum2 = phara_x2_5f_c_2d_3_5f_negative1 + phara_y0_5f_f5_5f_sum1;
+    accum_code_t phara_y0_5f_f5_5f_sum3 = phara_x3_5f_c6_5f_negative1 + phara_y0_5f_f5_5f_sum2;
+    accum_code_t phara_y0_5f_f5_5f_sum4 = phara_x4_5f_c_2d_2_5f_negate + phara_y0_5f_f5_5f_sum3;
+    accum_code_t phara_y0_5f_f5_5f_sum5 = phara_constant3 + phara_y0_5f_f5_5f_sum4;
+    accum_code_t phara_y0_5f_f6_5f_sum1 = phara_x0_5f_c6_5f_negative1 + phara_x1_5f_c13_5f_dsp;
+    accum_code_t phara_y0_5f_f6_5f_sum2 = phara_x2_5f_c13_5f_dsp + phara_y0_5f_f6_5f_sum1;
+    accum_code_t phara_y0_5f_f6_5f_sum3 = phara_x3_5f_c9_5f_positive1 + phara_y0_5f_f6_5f_sum2;
+    accum_code_t phara_y0_5f_f6_5f_sum4 = phara_x4_5f_c7_5f_negative1 + phara_y0_5f_f6_5f_sum3;
+    accum_code_t phara_y0_5f_f6_5f_sum5 = phara_constant4 + phara_y0_5f_f6_5f_sum4;
+    accum_code_t phara_y1_5f_f0_5f_sum1 = phara_x3_5f_shift1 + phara_x5_5f_c_2d_10_5f_negative1;
+    accum_code_t phara_y1_5f_f0_5f_sum2 = phara_x6_5f_c_2d_7_5f_negative1 + phara_y1_5f_f0_5f_sum1;
+    accum_code_t phara_y1_5f_f0_5f_sum3 = phara_x7_5f_c_2d_2_5f_negate + phara_y1_5f_f0_5f_sum2;
+    accum_code_t phara_y1_5f_f0_5f_sum4 = phara_cse1 + phara_y1_5f_f0_5f_sum3;
+    accum_code_t phara_y1_5f_f1_5f_sum1 = phara_x3_5f_c_2d_2_5f_negate + phara_x4;
+    accum_code_t phara_y1_5f_f1_5f_sum2 = phara_x5_5f_shift2 + phara_y1_5f_f1_5f_sum1;
+    accum_code_t phara_y1_5f_f1_5f_sum3 = phara_constant1 + phara_y1_5f_f1_5f_sum2;
+    accum_code_t phara_y1_5f_f2_5f_sum1 = phara_x3_5f_c_2d_5_5f_negative1 + phara_x5_5f_shift1;
+    accum_code_t phara_y1_5f_f2_5f_sum2 = phara_x6_5f_c11_5f_dsp + phara_y1_5f_f2_5f_sum1;
+    accum_code_t phara_y1_5f_f2_5f_sum3 = phara_x7_5f_c9_5f_positive1 + phara_y1_5f_f2_5f_sum2;
+    accum_code_t phara_y1_5f_f2_5f_sum4 = phara_cse1 + phara_y1_5f_f2_5f_sum3;
+    accum_code_t phara_y1_5f_f3_5f_sum1 = phara_x3_5f_c_2d_10_5f_negative1 + phara_x4_5f_c_2d_10_5f_negative1;
+    accum_code_t phara_y1_5f_f3_5f_sum2 = phara_x5_5f_c_2d_8_5f_negate + phara_y1_5f_f3_5f_sum1;
+    accum_code_t phara_y1_5f_f3_5f_sum3 = phara_x6_5f_c_2d_8_5f_negate + phara_y1_5f_f3_5f_sum2;
+    accum_code_t phara_y1_5f_f3_5f_sum4 = phara_x7_5f_c_2d_5_5f_negative1 + phara_y1_5f_f3_5f_sum3;
+    accum_code_t phara_y1_5f_f3_5f_sum5 = phara_constant2 + phara_y1_5f_f3_5f_sum4;
+    accum_code_t phara_y1_5f_f4_5f_sum1 = phara_x3_5f_c_2d_1_5f_negate + phara_x4_5f_c_2d_6_5f_negative1;
+    accum_code_t phara_y1_5f_f4_5f_sum2 = phara_x5_5f_c_2d_1_5f_negate + phara_y1_5f_f4_5f_sum1;
+    accum_code_t phara_y1_5f_f4_5f_sum3 = phara_x6_5f_shift2 + phara_y1_5f_f4_5f_sum2;
+    accum_code_t phara_y1_5f_f4_5f_sum4 = phara_x7_5f_c5_5f_positive1 + phara_y1_5f_f4_5f_sum3;
+    accum_code_t phara_y1_5f_f4_5f_sum5 = phara_constant3 + phara_y1_5f_f4_5f_sum4;
+    accum_code_t phara_y1_5f_f5_5f_sum1 = phara_x3_5f_c_2d_3_5f_negative1 + phara_x4_5f_shift1;
+    accum_code_t phara_y1_5f_f5_5f_sum2 = phara_x5_5f_c_2d_3_5f_negative1 + phara_y1_5f_f5_5f_sum1;
+    accum_code_t phara_y1_5f_f5_5f_sum3 = phara_x6_5f_c6_5f_negative1 + phara_y1_5f_f5_5f_sum2;
+    accum_code_t phara_y1_5f_f5_5f_sum4 = phara_x7_5f_c_2d_2_5f_negate + phara_y1_5f_f5_5f_sum3;
+    accum_code_t phara_y1_5f_f5_5f_sum5 = phara_constant3 + phara_y1_5f_f5_5f_sum4;
+    accum_code_t phara_y1_5f_f6_5f_sum1 = phara_x3_5f_c6_5f_negative1 + phara_x4_5f_c13_5f_dsp;
+    accum_code_t phara_y1_5f_f6_5f_sum2 = phara_x5_5f_c13_5f_dsp + phara_y1_5f_f6_5f_sum1;
+    accum_code_t phara_y1_5f_f6_5f_sum3 = phara_x6_5f_c9_5f_positive1 + phara_y1_5f_f6_5f_sum2;
+    accum_code_t phara_y1_5f_f6_5f_sum4 = phara_x7_5f_c7_5f_negative1 + phara_y1_5f_f6_5f_sum3;
+    accum_code_t phara_y1_5f_f6_5f_sum5 = phara_constant4 + phara_y1_5f_f6_5f_sum4;
+    outputs[0].range(15, 0) =
+        phara_y0_5f_f0_5f_sum4.range(15, 0);
+    outputs[1].range(15, 0) =
+        phara_y0_5f_f1_5f_sum3.range(15, 0);
+    outputs[2].range(15, 0) =
+        phara_y0_5f_f2_5f_sum4.range(15, 0);
+    outputs[3].range(15, 0) =
+        phara_y0_5f_f3_5f_sum5.range(15, 0);
+    outputs[4].range(15, 0) =
+        phara_y0_5f_f4_5f_sum5.range(15, 0);
+    outputs[5].range(15, 0) =
+        phara_y0_5f_f5_5f_sum5.range(15, 0);
+    outputs[6].range(15, 0) =
+        phara_y0_5f_f6_5f_sum5.range(15, 0);
+    outputs[7].range(15, 0) =
+        phara_y1_5f_f0_5f_sum4.range(15, 0);
+    outputs[8].range(15, 0) =
+        phara_y1_5f_f1_5f_sum3.range(15, 0);
+    outputs[9].range(15, 0) =
+        phara_y1_5f_f2_5f_sum4.range(15, 0);
+    outputs[10].range(15, 0) =
+        phara_y1_5f_f3_5f_sum5.range(15, 0);
+    outputs[11].range(15, 0) =
+        phara_y1_5f_f4_5f_sum5.range(15, 0);
+    outputs[12].range(15, 0) =
+        phara_y1_5f_f5_5f_sum5.range(15, 0);
+    outputs[13].range(15, 0) =
+        phara_y1_5f_f6_5f_sum5.range(15, 0);
+}
+
+template <
+    unsigned BUFFER_ROWS,
+    class data_T,
+    class conv_T,
+    class activation_T,
+    class res_T,
+    typename CONV_CONFIG_T>
+void phara_pool_aligned_hybrid_compute(
+    typename data_T::value_type row_buffer[BUFFER_ROWS][CONV_CONFIG_T::in_width],
+    unsigned supertile_start,
+    res_T &output,
+    typename CONV_CONFIG_T::weight_t weights[
+        CONV_CONFIG_T::filt_height * CONV_CONFIG_T::filt_width *
+        CONV_CONFIG_T::n_chan * CONV_CONFIG_T::n_filt],
+    typename CONV_CONFIG_T::bias_t biases[CONV_CONFIG_T::n_filt]
+) {
+    #pragma HLS INLINE
+    PRAGMA_DATA_PACK(output)
+ComputeAffinePooledWidth:
+    for (unsigned column = 0;
+         column < CONV_CONFIG_T::out_width;
+         column++) {
+        #pragma HLS UNROLL
+        typename data_T::value_type graph_inputs[8];
+        typename conv_T::value_type graph_outputs[14];
+        #pragma HLS ARRAY_PARTITION variable=graph_inputs complete
+        #pragma HLS ARRAY_PARTITION variable=graph_outputs complete
+        for (unsigned row = 0; row < 8; row++) {
+            #pragma HLS UNROLL
+            graph_inputs[row] =
+                row_buffer[(supertile_start + row) % BUFFER_ROWS][column];
+        }
+        phara_affine_graph<
+            typename data_T::value_type,
+            typename conv_T::value_type>(graph_inputs, graph_outputs);
+        for (unsigned filter = 0;
+             filter < CONV_CONFIG_T::n_filt;
+             filter++) {
+            #pragma HLS UNROLL
+            typename activation_T::value_type first_activation =
+                graph_outputs[filter] > 0
+                    ? (typename activation_T::value_type)graph_outputs[filter]
+                    : (typename activation_T::value_type)0;
+            typename activation_T::value_type second_activation =
+                graph_outputs[CONV_CONFIG_T::n_filt + filter] > 0
+                    ? (typename activation_T::value_type)
+                        graph_outputs[CONV_CONFIG_T::n_filt + filter]
+                    : (typename activation_T::value_type)0;
+            output[column * CONV_CONFIG_T::n_filt + filter] =
+                first_activation > second_activation
+                    ? first_activation
+                    : second_activation;
+        }
+    }
+}
+
+
+template <
+    class data_T,
+    class conv_T,
+    class activation_T,
+    class res_T,
+    typename CONV_CONFIG_T,
+    typename POOL_CONFIG_T>
+void phara_pool_aligned_hybrid_p4_cl(
+    hls::stream<data_T> &data,
+    hls::stream<res_T> &res,
+    typename CONV_CONFIG_T::weight_t weights[
+        CONV_CONFIG_T::filt_height * CONV_CONFIG_T::filt_width *
+        CONV_CONFIG_T::n_chan * CONV_CONFIG_T::n_filt],
+    typename CONV_CONFIG_T::bias_t biases[CONV_CONFIG_T::n_filt]
+) {
+    static_assert(CONV_CONFIG_T::n_chan == 1,
+                  "PHARA P4 requires one input channel");
+    static_assert(CONV_CONFIG_T::filt_height == 5 &&
+                  CONV_CONFIG_T::filt_width == 1,
+                  "PHARA P4 requires a 5x1 convolution kernel");
+    static_assert(CONV_CONFIG_T::stride_height == 3 &&
+                  CONV_CONFIG_T::stride_width == 1,
+                  "PHARA P4 requires a 3x1 convolution stride");
+    static_assert(CONV_CONFIG_T::in_width * 4 == data_T::size,
+                  "PHARA P4 input word must contain four rows");
+    static_assert(POOL_CONFIG_T::pool_height == 2 &&
+                  POOL_CONFIG_T::stride_height == 2 &&
+                  POOL_CONFIG_T::pool_width == 1 &&
+                  POOL_CONFIG_T::stride_width == 1,
+                  "PHARA P4 requires non-overlapping 2x1 pooling");
+    static_assert(POOL_CONFIG_T::pool_op == nnet::Max,
+                  "PHARA P4 requires MaxPool");
+    static_assert(res_T::size == CONV_CONFIG_T::out_width *
+                                  CONV_CONFIG_T::n_filt,
+                  "PHARA P4 pooled output packing mismatch");
+
+    constexpr unsigned TEMPORAL_PACK = 4;
+    constexpr unsigned BUFFER_ROWS = 12;
+    constexpr unsigned INPUT_WORDS = CONV_CONFIG_T::in_height / TEMPORAL_PACK;
+    constexpr unsigned OUTPUT_WORDS = POOL_CONFIG_T::out_height;
+    typename data_T::value_type row_buffer[BUFFER_ROWS][CONV_CONFIG_T::in_width];
+    #pragma HLS ARRAY_PARTITION variable=row_buffer complete dim=0
+    unsigned next_pool = 0;
+
+ReadP4Words:
+    for (unsigned word = 0; word < INPUT_WORDS; word++) {
+        #pragma HLS PIPELINE II=1
+        data_T input_word = data.read();
+        for (unsigned row = 0; row < TEMPORAL_PACK; row++) {
+            #pragma HLS UNROLL
+            const unsigned absolute_row = word * TEMPORAL_PACK + row;
+            const unsigned buffer_row = absolute_row % BUFFER_ROWS;
+            for (unsigned column = 0; column < CONV_CONFIG_T::in_width; column++) {
+                #pragma HLS UNROLL
+                row_buffer[buffer_row][column] =
+                    input_word[row * CONV_CONFIG_T::in_width + column];
+            }
+        }
+
+        const unsigned last_row = word * TEMPORAL_PACK + TEMPORAL_PACK - 1;
+        const unsigned required_last_row =
+            next_pool * POOL_CONFIG_T::pool_height *
+                CONV_CONFIG_T::stride_height +
+            (POOL_CONFIG_T::pool_height - 1) *
+                CONV_CONFIG_T::stride_height +
+            CONV_CONFIG_T::filt_height - 1;
+        if (next_pool < OUTPUT_WORDS && required_last_row <= last_row) {
+            res_T output;
+            const unsigned supertile_start =
+                next_pool * POOL_CONFIG_T::pool_height *
+                CONV_CONFIG_T::stride_height;
+            phara_pool_aligned_hybrid_compute<
+                BUFFER_ROWS, data_T, conv_T, activation_T, res_T,
+                CONV_CONFIG_T>(
+                    row_buffer, supertile_start, output, weights, biases);
+            res.write(output);
+            next_pool++;
+        }
+    }
+}
+
+template <
+    class data_T,
+    class conv_T,
+    class activation_T,
+    class res_T,
+    typename CONV_CONFIG_T,
+    typename POOL_CONFIG_T>
+void phara_pool_aligned_hybrid_p8_cl(
+    hls::stream<data_T> &data,
+    hls::stream<res_T> &res,
+    typename CONV_CONFIG_T::weight_t weights[
+        CONV_CONFIG_T::filt_height * CONV_CONFIG_T::filt_width *
+        CONV_CONFIG_T::n_chan * CONV_CONFIG_T::n_filt],
+    typename CONV_CONFIG_T::bias_t biases[CONV_CONFIG_T::n_filt]
+) {
+    static_assert(CONV_CONFIG_T::n_chan == 1,
+                  "PHARA P8 requires one input channel");
+    static_assert(CONV_CONFIG_T::filt_height == 5 &&
+                  CONV_CONFIG_T::filt_width == 1,
+                  "PHARA P8 requires a 5x1 convolution kernel");
+    static_assert(CONV_CONFIG_T::stride_height == 3 &&
+                  CONV_CONFIG_T::stride_width == 1,
+                  "PHARA P8 requires a 3x1 convolution stride");
+    static_assert(CONV_CONFIG_T::in_width * 8 == data_T::size,
+                  "PHARA P8 input word must contain eight rows");
+    static_assert(POOL_CONFIG_T::pool_height == 2 &&
+                  POOL_CONFIG_T::stride_height == 2 &&
+                  POOL_CONFIG_T::pool_width == 1 &&
+                  POOL_CONFIG_T::stride_width == 1,
+                  "PHARA P8 requires non-overlapping 2x1 pooling");
+    static_assert(POOL_CONFIG_T::pool_op == nnet::Max,
+                  "PHARA P8 requires MaxPool");
+    static_assert(res_T::size == CONV_CONFIG_T::out_width *
+                                  CONV_CONFIG_T::n_filt,
+                  "PHARA P8 pooled output packing mismatch");
+
+    constexpr unsigned TEMPORAL_PACK = 8;
+    constexpr unsigned BUFFER_ROWS = 16;
+    constexpr unsigned OUTPUT_WORDS = POOL_CONFIG_T::out_height;
+    typename data_T::value_type row_buffer[BUFFER_ROWS][CONV_CONFIG_T::in_width];
+    #pragma HLS ARRAY_PARTITION variable=row_buffer complete dim=0
+    unsigned input_words = 0;
+
+ProduceP8Words:
+    for (unsigned pool = 0; pool < OUTPUT_WORDS; pool++) {
+        #pragma HLS PIPELINE II=1 rewind=false
+        const unsigned supertile_start =
+            pool * POOL_CONFIG_T::pool_height *
+            CONV_CONFIG_T::stride_height;
+        const unsigned required_last_row =
+            supertile_start +
+            (POOL_CONFIG_T::pool_height - 1) *
+                CONV_CONFIG_T::stride_height +
+            CONV_CONFIG_T::filt_height - 1;
+        const unsigned required_words =
+            required_last_row / TEMPORAL_PACK + 1;
+        if (input_words < required_words) {
+            data_T input_word = data.read();
+            for (unsigned row = 0; row < TEMPORAL_PACK; row++) {
+                #pragma HLS UNROLL
+                const unsigned absolute_row =
+                    input_words * TEMPORAL_PACK + row;
+                const unsigned buffer_row = absolute_row % BUFFER_ROWS;
+                for (unsigned column = 0;
+                     column < CONV_CONFIG_T::in_width;
+                     column++) {
+                    #pragma HLS UNROLL
+                    row_buffer[buffer_row][column] =
+                        input_word[row * CONV_CONFIG_T::in_width + column];
+                }
+            }
+            input_words++;
+        }
+        res_T output;
+        phara_pool_aligned_hybrid_compute<
+            BUFFER_ROWS, data_T, conv_T, activation_T, res_T,
+            CONV_CONFIG_T>(
+                row_buffer, supertile_start, output, weights, biases);
+        res.write(output);
+    }
+}
+
+
 template <class data_T, class res_T, typename CONFIG_T>
 void dense_wide_stream(
     hls::stream<data_T> &data,
     hls::stream<res_T> &res,
-    typename CONFIG_T::weight_t weights[CONFIG_T::n_in * CONFIG_T::n_out],
+
+    const ap_uint<168> packed_weights[42],
+
     typename CONFIG_T::bias_t biases[CONFIG_T::n_out]
 ) {
     static_assert(CONFIG_T::n_out == 1, "Aria dense specialization requires one output");
     static_assert(res_T::size == 1, "Aria dense result must contain one value");
     static_assert(CONFIG_T::n_in % data_T::size == 0, "Aria dense input packing mismatch");
-    static_assert(data_T::size % 7 == 0, "Aria dense expects seven filters per width lane");
-    constexpr unsigned WIDTH_LANES = data_T::size / 7;
-    constexpr unsigned WORDS = CONFIG_T::n_in / data_T::size;
-    #pragma HLS ARRAY_PARTITION variable=weights complete
+    static_assert(data_T::size % 7 == 0,
+                  "Aria dense input must contain complete filter groups");
+
+    constexpr unsigned WEIGHT_BITS = 6;
+    constexpr unsigned MAC_LANES = 28;
+    constexpr unsigned DENSE_STEPS = 42;
+    constexpr unsigned VALID_LAST_LANES = 28;
+    constexpr unsigned GROUPS = data_T::size / MAC_LANES;
+    static_assert(data_T::size % MAC_LANES == 0,
+                  "Aria Dense MAC lanes must divide the input word");
+    static_assert(
+        DENSE_STEPS == (CONFIG_T::n_in + MAC_LANES - 1) / MAC_LANES,
+        "Aria packed Dense depth mismatch");
     #pragma HLS ARRAY_PARTITION variable=biases complete
     typename CONFIG_T::accum_t accumulator = (typename CONFIG_T::accum_t)biases[0];
     data_T input_word;
-    unsigned word = 0;
-    unsigned width = 0;
+    unsigned group = 0;
 DenseValues:
-    for (unsigned i = 0; i < WORDS * WIDTH_LANES; i++) {
+    for (unsigned step = 0; step < DENSE_STEPS; step++) {
         #pragma HLS PIPELINE II=1
-        if (width == 0) {
+        if (group == 0) {
             input_word = data.read();
         }
-        for (unsigned filter = 0; filter < 7; filter++) {
+        const ap_uint<168> packed_weight = packed_weights[step];
+        typename CONFIG_T::accum_t products[MAC_LANES];
+        #pragma HLS ARRAY_PARTITION variable=products complete
+        #pragma HLS BIND_OP variable=products op=mul impl=dsp
+DenseProducts:
+        for (unsigned lane = 0; lane < MAC_LANES; lane++) {
             #pragma HLS UNROLL
-            const unsigned data_index = width * 7 + filter;
-            const unsigned weight_index = word * data_T::size + data_index;
-            accumulator += (typename CONFIG_T::accum_t)CONFIG_T::template product<
-                typename data_T::value_type, typename CONFIG_T::weight_t>::product(
-                    input_word[data_index], weights[weight_index]);
+            typename CONFIG_T::weight_t lane_weight = 0;
+            lane_weight.range(WEIGHT_BITS - 1, 0) =
+                packed_weight.range((lane + 1) * WEIGHT_BITS - 1,
+                                    lane * WEIGHT_BITS);
+            const unsigned data_index = group * MAC_LANES + lane;
+            products[lane] =
+                (typename CONFIG_T::accum_t)CONFIG_T::template product<
+                    typename data_T::value_type,
+                    typename CONFIG_T::weight_t>::product(
+                        input_word[data_index], lane_weight);
         }
-        if (width == WIDTH_LANES - 1) {
-            width = 0;
-            word++;
-        } else {
-            width++;
+DenseAccumulate:
+        for (unsigned lane = 0; lane < MAC_LANES; lane++) {
+            #pragma HLS UNROLL
+            if (step != DENSE_STEPS - 1 || lane < VALID_LAST_LANES) {
+                accumulator += products[lane];
+            }
         }
+        group = group == GROUPS - 1 ? 0 : group + 1;
     }
+
     res_T output;
     PRAGMA_DATA_PACK(output)
     output[0] = cast<typename data_T::value_type, typename res_T::value_type, CONFIG_T>(accumulator);

@@ -1,3 +1,86 @@
-Profile: aria
+Project:
+  Name: cnn_core
+  OutputDir: .
+  ForceReplace: true
+HLS:
+  Backend: Vitis
+  IOType: io_stream
+  Part: xcku5p-ffvb676-2-e
+  ClockPeriod: 5.0
+  Config:
+    Model:
+      Precision:
+        default: fixed<16,6>
+      ReuseFactor: 1
+      Strategy: Latency
+      BramFactor: 1000000000
+      TraceOutput: false
+      BitExact: null
+    LayerName:
+      waveform:
+        Trace: false
+        Precision:
+          result: auto
+      ravel_repack:
+        Trace: false
+        Precision:
+          result: auto
+      q_conv2d_iq:
+        Trace: false
+        Precision:
+          result: auto
+      q_conv2d:
+        Trace: false
+        Precision:
+          result: auto
+          weight: auto
+          bias: auto
+          accum: auto
+        ReuseFactor: 1
+        ParallelizationFactor: 1
+        ConvImplementation: LineBuffer
+      q_conv2d_relu:
+        Trace: false
+        Precision:
+          result: auto
+          table: fixed<18,8,TRN,WRAP,0>
+        ReuseFactor: 1
+        TableSize: 1024
+      max_pooling2d:
+        Trace: false
+        Precision:
+          result: auto
+          accum: auto
+        ReuseFactor: 1
+        ConvImplementation: LineBuffer
+      flatten:
+        Trace: false
+        Precision:
+          result: auto
+      q_dense_iq:
+        Trace: false
+        Precision:
+          result: auto
+      q_dense:
+        Trace: false
+        Precision:
+          result: auto
+          weight: auto
+          bias: auto
+          accum: auto
+        ReuseFactor: 1
+Optimization:
+  TemporalPacking: 8
+  DenseParallelism: 4
 Verification:
   Mode: required
+Vitis:
+  Run: false
+  Stages:
+    Reset: true
+    CSim: false
+    Synth: true
+    CoSim: false
+    Validation: false
+    Export: false
+    VSynth: false

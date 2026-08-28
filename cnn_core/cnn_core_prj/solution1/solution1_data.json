@@ -15,14 +15,14 @@
     "Triple": "fpga64-xilinx-none"
   },
   "Args": {
-    "input_layer": {
+    "waveform": {
       "index": "0",
       "direction": "in",
-      "srcType": "stream<nnet::array<ap_fixed<9, 4, AP_RND, AP_SAT_SYM, 0>, 8>, 0>&",
-      "srcSize": "128",
+      "srcType": "stream<nnet::array<ap_fixed<10, 5, AP_RND, AP_SAT_SYM, 0>, 32>, 0>&",
+      "srcSize": "512",
       "hwRefs": [{
           "type": "interface",
-          "interface": "input_layer",
+          "interface": "waveform",
           "name": "",
           "usage": "data",
           "direction": "in"
@@ -31,7 +31,7 @@
     "layer9_out": {
       "index": "1",
       "direction": "out",
-      "srcType": "stream<nnet::array<ap_fixed<22, 11, AP_TRN, AP_WRAP, 0>, 1>, 0>&",
+      "srcType": "stream<nnet::array<ap_fixed<23, 13, AP_TRN, AP_WRAP, 0>, 1>, 0>&",
       "srcSize": "32",
       "hwRefs": [{
           "type": "interface",
@@ -60,8 +60,8 @@
     "ClockPeriod": "5",
     "Uncertainty": "1.35",
     "IsCombinational": "0",
-    "II": "178",
-    "Latency": "183"
+    "II": "52",
+    "Latency": "57"
   },
   "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 5.000 [get_ports ap_clk]"]},
   "Ipx": {
@@ -83,61 +83,46 @@
     ],
     "Vhdl": [
       "impl\/vhdl\/cnn_core_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues.vhd",
-      "impl\/vhdl\/cnn_core_dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_s.vhd",
-      "impl\/vhdl\/cnn_core_fifo_w252_d4_S.vhd",
-      "impl\/vhdl\/cnn_core_fifo_w420_d4_S.vhd",
-      "impl\/vhdl\/cnn_core_fifo_w448_d4_S.vhd",
-      "impl\/vhdl\/cnn_core_first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config4_s.vhd",
-      "impl\/vhdl\/cnn_core_flow_control_loop_pipe.vhd",
+      "impl\/vhdl\/cnn_core_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues_w9_ravbkb.vhd",
+      "impl\/vhdl\/cnn_core_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_s.vhd",
+      "impl\/vhdl\/cnn_core_fifo_w280_d4_S.vhd",
       "impl\/vhdl\/cnn_core_flow_control_loop_pipe_sequential_init.vhd",
-      "impl\/vhdl\/cnn_core_mac_muladd_9s_7s_16s_16_1_1.vhd",
-      "impl\/vhdl\/cnn_core_mac_muladd_9s_7s_16s_17_1_1.vhd",
-      "impl\/vhdl\/cnn_core_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_s.vhd",
-      "impl\/vhdl\/cnn_core_mul_9s_5ns_13_1_1.vhd",
-      "impl\/vhdl\/cnn_core_mul_9s_5ns_14_1_1.vhd",
-      "impl\/vhdl\/cnn_core_mul_9s_6ns_14_1_1.vhd",
-      "impl\/vhdl\/cnn_core_mul_9s_6ns_15_1_1.vhd",
-      "impl\/vhdl\/cnn_core_mul_9s_6s_15_1_1.vhd",
-      "impl\/vhdl\/cnn_core_mul_9s_7s_16_1_1.vhd",
+      "impl\/vhdl\/cnn_core_mac_muladd_10s_4ns_14s_15_1_1.vhd",
+      "impl\/vhdl\/cnn_core_mac_muladd_10s_4ns_15s_16_1_1.vhd",
+      "impl\/vhdl\/cnn_core_mac_muladd_10s_4ns_16s_16_1_1.vhd",
+      "impl\/vhdl\/cnn_core_mac_muladd_10s_6s_16s_17_1_1.vhd",
+      "impl\/vhdl\/cnn_core_mac_muladd_10s_6s_17s_17_1_1.vhd",
+      "impl\/vhdl\/cnn_core_mul_10s_5ns_15_1_1.vhd",
+      "impl\/vhdl\/cnn_core_mul_10s_6s_16_1_1.vhd",
+      "impl\/vhdl\/cnn_core_phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_s.vhd",
       "impl\/vhdl\/cnn_core_regslice_both.vhd",
-      "impl\/vhdl\/cnn_core_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5_s.vhd",
-      "impl\/vhdl\/cnn_core_sparsemux_9_2_9_1_1.vhd",
-      "impl\/vhdl\/cnn_core_sparsemux_2353_11_7_1_1.vhd",
-      "impl\/vhdl\/cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_U0.vhd",
-      "impl\/vhdl\/cnn_core_start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_U0.vhd",
-      "impl\/vhdl\/cnn_core_start_for_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5bkb.vhd",
+      "impl\/vhdl\/cnn_core_sparsemux_17_3_10_1_1.vhd",
+      "impl\/vhdl\/cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0.vhd",
       "impl\/vhdl\/cnn_core.vhd"
     ],
     "Verilog": [
       "impl\/verilog\/cnn_core_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues.v",
-      "impl\/verilog\/cnn_core_dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_s.v",
-      "impl\/verilog\/cnn_core_fifo_w252_d4_S.v",
-      "impl\/verilog\/cnn_core_fifo_w420_d4_S.v",
-      "impl\/verilog\/cnn_core_fifo_w448_d4_S.v",
-      "impl\/verilog\/cnn_core_first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config4_s.v",
-      "impl\/verilog\/cnn_core_flow_control_loop_pipe.v",
+      "impl\/verilog\/cnn_core_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues_w9_ravbkb.dat",
+      "impl\/verilog\/cnn_core_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues_w9_ravbkb.v",
+      "impl\/verilog\/cnn_core_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_s.v",
+      "impl\/verilog\/cnn_core_fifo_w280_d4_S.v",
       "impl\/verilog\/cnn_core_flow_control_loop_pipe_sequential_init.v",
       "impl\/verilog\/cnn_core_hls_deadlock_detection_unit.v",
       "impl\/verilog\/cnn_core_hls_deadlock_detector.vh",
       "impl\/verilog\/cnn_core_hls_deadlock_idx0_monitor.v",
       "impl\/verilog\/cnn_core_hls_deadlock_kernel_monitor_top.vh",
       "impl\/verilog\/cnn_core_hls_deadlock_report_unit.vh",
-      "impl\/verilog\/cnn_core_mac_muladd_9s_7s_16s_16_1_1.v",
-      "impl\/verilog\/cnn_core_mac_muladd_9s_7s_16s_17_1_1.v",
-      "impl\/verilog\/cnn_core_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_s.v",
-      "impl\/verilog\/cnn_core_mul_9s_5ns_13_1_1.v",
-      "impl\/verilog\/cnn_core_mul_9s_5ns_14_1_1.v",
-      "impl\/verilog\/cnn_core_mul_9s_6ns_14_1_1.v",
-      "impl\/verilog\/cnn_core_mul_9s_6ns_15_1_1.v",
-      "impl\/verilog\/cnn_core_mul_9s_6s_15_1_1.v",
-      "impl\/verilog\/cnn_core_mul_9s_7s_16_1_1.v",
+      "impl\/verilog\/cnn_core_mac_muladd_10s_4ns_14s_15_1_1.v",
+      "impl\/verilog\/cnn_core_mac_muladd_10s_4ns_15s_16_1_1.v",
+      "impl\/verilog\/cnn_core_mac_muladd_10s_4ns_16s_16_1_1.v",
+      "impl\/verilog\/cnn_core_mac_muladd_10s_6s_16s_17_1_1.v",
+      "impl\/verilog\/cnn_core_mac_muladd_10s_6s_17s_17_1_1.v",
+      "impl\/verilog\/cnn_core_mul_10s_5ns_15_1_1.v",
+      "impl\/verilog\/cnn_core_mul_10s_6s_16_1_1.v",
+      "impl\/verilog\/cnn_core_phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_s.v",
       "impl\/verilog\/cnn_core_regslice_both.v",
-      "impl\/verilog\/cnn_core_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5_s.v",
-      "impl\/verilog\/cnn_core_sparsemux_9_2_9_1_1.v",
-      "impl\/verilog\/cnn_core_sparsemux_2353_11_7_1_1.v",
-      "impl\/verilog\/cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_U0.v",
-      "impl\/verilog\/cnn_core_start_for_maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_U0.v",
-      "impl\/verilog\/cnn_core_start_for_relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5bkb.v",
+      "impl\/verilog\/cnn_core_sparsemux_17_3_10_1_1.v",
+      "impl\/verilog\/cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0.v",
       "impl\/verilog\/cnn_core.v"
     ],
     "IpMisc": ["impl\/misc\/logo.png"],
@@ -154,23 +139,23 @@
     "Ip": []
   },
   "Interfaces": {
-    "input_layer": {
+    "waveform": {
       "type": "axi4stream",
       "busTypeName": "axis",
       "mode": "slave",
-      "dataWidth": "128",
-      "portPrefix": "input_layer_",
+      "dataWidth": "512",
+      "portPrefix": "waveform_",
       "ports": [
-        "input_layer_TDATA",
-        "input_layer_TREADY",
-        "input_layer_TVALID"
+        "waveform_TDATA",
+        "waveform_TREADY",
+        "waveform_TVALID"
       ],
       "constraints": [{
           "constraint_type": "pragma interface",
           "mode": "axis",
           "register_option": "0",
           "register_mode": "both",
-          "argName": "input_layer"
+          "argName": "waveform"
         }]
     },
     "layer9_out": {
@@ -197,7 +182,7 @@
       "busTypeName": "clock",
       "mode": "slave",
       "busParams": {
-        "ASSOCIATED_BUSIF": "input_layer:layer9_out",
+        "ASSOCIATED_BUSIF": "waveform:layer9_out",
         "ASSOCIATED_RESET": "ap_rst_n"
       },
       "portMap": {"ap_clk": "CLK"},
@@ -230,15 +215,15 @@
     }
   },
   "RtlPorts": {
-    "input_layer_TDATA": {
+    "waveform_TDATA": {
       "dir": "in",
-      "width": "128"
+      "width": "512"
     },
-    "input_layer_TVALID": {
+    "waveform_TVALID": {
       "dir": "in",
       "width": "1"
     },
-    "input_layer_TREADY": {
+    "waveform_TREADY": {
       "dir": "out",
       "width": "1"
     },
@@ -284,46 +269,24 @@
       "ModuleName": "cnn_core",
       "Instances": [
         {
-          "ModuleName": "first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config4_s",
-          "InstanceName": "first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config4_U0"
+          "ModuleName": "phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_s",
+          "InstanceName": "phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_U0"
         },
         {
-          "ModuleName": "relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5_s",
-          "InstanceName": "relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5_U0"
-        },
-        {
-          "ModuleName": "maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_s",
-          "InstanceName": "maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_U0"
-        },
-        {
-          "ModuleName": "dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_s",
-          "InstanceName": "dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_U0",
+          "ModuleName": "dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_s",
+          "InstanceName": "dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0",
           "Instances": [{
               "ModuleName": "dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues",
-              "InstanceName": "grp_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues_fu_47"
+              "InstanceName": "grp_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues_fu_51"
             }]
         }
       ]
     },
     "Info": {
-      "first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config4_s": {
+      "phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_s": {
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "0",
-        "isPipelined": "1",
-        "isCombinational": "0",
-        "isOneStateSeq": "0"
-      },
-      "relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5_s": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "0",
-        "isPipelined": "1",
-        "isCombinational": "0",
-        "isOneStateSeq": "0"
-      },
-      "maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_s": {
-        "FunctionProtocol": "ap_ctrl_hs",
-        "isTaskLevelControl": "0",
-        "isPipelined": "1",
+        "isPipelined": "0",
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
@@ -334,7 +297,7 @@
         "isCombinational": "0",
         "isOneStateSeq": "0"
       },
-      "dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_s": {
+      "dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_s": {
         "FunctionProtocol": "ap_ctrl_hs",
         "isTaskLevelControl": "0",
         "isPipelined": "0",
@@ -350,118 +313,40 @@
       }
     },
     "Metrics": {
-      "first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_28u_config4_s": {
+      "phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_s": {
         "Latency": {
-          "LatencyBest": "131",
-          "LatencyAvg": "131",
-          "LatencyWorst": "131",
-          "PipelineII": "131",
+          "LatencyBest": "49",
+          "LatencyAvg": "49",
+          "LatencyWorst": "49",
+          "PipelineII": "49",
           "PipelineDepth": "",
           "PipelineType": "no"
         },
         "Timing": {
           "Target": "5.00",
           "Uncertainty": "1.35",
-          "Estimate": "3.647"
+          "Estimate": "4.289"
         },
         "Loops": [{
-            "Name": "ReadPairsWide",
-            "TripCount": "128",
-            "Latency": "129",
+            "Name": "ProduceP8Words",
+            "TripCount": "42",
+            "Latency": "47",
             "PipelineII": "1",
-            "PipelineDepth": "3"
+            "PipelineDepth": "7"
           }],
         "Area": {
-          "DSP": "0",
+          "DSP": "24",
           "AVAIL_DSP": "1824",
-          "UTIL_DSP": "0",
-          "FF": "813",
+          "UTIL_DSP": "1",
+          "FF": "4018",
           "AVAIL_FF": "433920",
           "UTIL_FF": "~0",
-          "LUT": "5815",
+          "LUT": "12725",
           "AVAIL_LUT": "216960",
-          "UTIL_LUT": "2",
+          "UTIL_LUT": "5",
           "BRAM_18K": "0",
           "AVAIL_BRAM": "960",
           "UTIL_BRAM": "0",
-          "URAM": "0",
-          "AVAIL_URAM": "64",
-          "UTIL_URAM": "0"
-        }
-      },
-      "relu_array_ap_fixed_28u_array_ap_ufixed_15_5_5_3_0_28u_relu_config5_s": {
-        "Latency": {
-          "LatencyBest": "87",
-          "LatencyAvg": "87",
-          "LatencyWorst": "87",
-          "PipelineII": "87",
-          "PipelineDepth": "",
-          "PipelineType": "no"
-        },
-        "Timing": {
-          "Target": "5.00",
-          "Uncertainty": "1.35",
-          "Estimate": "3.073"
-        },
-        "Loops": [{
-            "Name": "ReLUActLoop",
-            "TripCount": "84",
-            "Latency": "85",
-            "PipelineII": "1",
-            "PipelineDepth": "3"
-          }],
-        "Area": {
-          "FF": "433",
-          "AVAIL_FF": "433920",
-          "UTIL_FF": "~0",
-          "LUT": "1161",
-          "AVAIL_LUT": "216960",
-          "UTIL_LUT": "~0",
-          "BRAM_18K": "0",
-          "AVAIL_BRAM": "960",
-          "UTIL_BRAM": "0",
-          "DSP": "0",
-          "AVAIL_DSP": "1824",
-          "UTIL_DSP": "0",
-          "URAM": "0",
-          "AVAIL_URAM": "64",
-          "UTIL_URAM": "0"
-        }
-      },
-      "maxpool2d_wide_nonoverlap_cl_array_array_ap_fixed_28u_config6_s": {
-        "Latency": {
-          "LatencyBest": "87",
-          "LatencyAvg": "87",
-          "LatencyWorst": "87",
-          "PipelineII": "87",
-          "PipelineDepth": "",
-          "PipelineType": "no"
-        },
-        "Timing": {
-          "Target": "5.00",
-          "Uncertainty": "1.35",
-          "Estimate": "3.383"
-        },
-        "Loops": [{
-            "Name": "PoolRows",
-            "TripCount": "84",
-            "Latency": "85",
-            "PipelineII": "1",
-            "PipelineDepth": "3"
-          }],
-        "Area": {
-          "FF": "1305",
-          "AVAIL_FF": "433920",
-          "UTIL_FF": "~0",
-          "LUT": "2055",
-          "AVAIL_LUT": "216960",
-          "UTIL_LUT": "~0",
-          "BRAM_18K": "0",
-          "AVAIL_BRAM": "960",
-          "UTIL_BRAM": "0",
-          "DSP": "0",
-          "AVAIL_DSP": "1824",
-          "UTIL_DSP": "0",
           "URAM": "0",
           "AVAIL_URAM": "64",
           "UTIL_URAM": "0"
@@ -469,70 +354,70 @@
       },
       "dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues": {
         "Latency": {
-          "LatencyBest": "174",
-          "LatencyAvg": "174",
-          "LatencyWorst": "174",
-          "PipelineII": "174",
+          "LatencyBest": "48",
+          "LatencyAvg": "48",
+          "LatencyWorst": "48",
+          "PipelineII": "48",
           "PipelineDepth": "",
           "PipelineType": "no"
         },
         "Timing": {
           "Target": "5.00",
           "Uncertainty": "1.35",
-          "Estimate": "3.502"
+          "Estimate": "3.396"
         },
         "Loops": [{
             "Name": "DenseValues",
-            "TripCount": "168",
-            "Latency": "172",
+            "TripCount": "42",
+            "Latency": "46",
             "PipelineII": "1",
             "PipelineDepth": "6"
           }],
         "Area": {
-          "DSP": "4",
+          "BRAM_18K": "5",
+          "AVAIL_BRAM": "960",
+          "UTIL_BRAM": "~0",
+          "DSP": "16",
           "AVAIL_DSP": "1824",
           "UTIL_DSP": "~0",
-          "FF": "629",
+          "FF": "1336",
           "AVAIL_FF": "433920",
           "UTIL_FF": "~0",
-          "LUT": "19631",
+          "LUT": "1254",
           "AVAIL_LUT": "216960",
-          "UTIL_LUT": "9",
-          "BRAM_18K": "0",
-          "AVAIL_BRAM": "960",
-          "UTIL_BRAM": "0",
+          "UTIL_LUT": "~0",
           "URAM": "0",
           "AVAIL_URAM": "64",
           "UTIL_URAM": "0"
         }
       },
-      "dense_wide_stream_array_array_ap_fixed_22_11_5_3_0_1u_config9_s": {
+      "dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_s": {
         "Latency": {
-          "LatencyBest": "177",
-          "LatencyAvg": "177",
-          "LatencyWorst": "177",
-          "PipelineII": "177",
+          "LatencyBest": "51",
+          "LatencyAvg": "51",
+          "LatencyWorst": "51",
+          "PipelineII": "51",
           "PipelineDepth": "",
           "PipelineType": "no"
         },
         "Timing": {
           "Target": "5.00",
           "Uncertainty": "1.35",
-          "Estimate": "3.502"
+          "Estimate": "3.396"
         },
         "Area": {
-          "DSP": "4",
+          "BRAM_18K": "5",
+          "AVAIL_BRAM": "960",
+          "UTIL_BRAM": "~0",
+          "DSP": "16",
           "AVAIL_DSP": "1824",
           "UTIL_DSP": "~0",
-          "FF": "635",
+          "FF": "1342",
           "AVAIL_FF": "433920",
           "UTIL_FF": "~0",
-          "LUT": "19688",
+          "LUT": "1311",
           "AVAIL_LUT": "216960",
-          "UTIL_LUT": "9",
-          "BRAM_18K": "0",
-          "AVAIL_BRAM": "960",
-          "UTIL_BRAM": "0",
+          "UTIL_LUT": "~0",
           "URAM": "0",
           "AVAIL_URAM": "64",
           "UTIL_URAM": "0"
@@ -540,31 +425,31 @@
       },
       "cnn_core": {
         "Latency": {
-          "LatencyBest": "183",
-          "LatencyAvg": "183",
-          "LatencyWorst": "183",
-          "PipelineII": "178",
+          "LatencyBest": "57",
+          "LatencyAvg": "57",
+          "LatencyWorst": "57",
+          "PipelineII": "52",
           "PipelineDepth": "",
           "PipelineType": "dataflow"
         },
         "Timing": {
           "Target": "5.00",
           "Uncertainty": "1.35",
-          "Estimate": "3.647"
+          "Estimate": "4.289"
         },
         "Area": {
-          "DSP": "4",
-          "AVAIL_DSP": "1824",
-          "UTIL_DSP": "~0",
-          "FF": "3483",
-          "AVAIL_FF": "433920",
-          "UTIL_FF": "~0",
-          "LUT": "28922",
-          "AVAIL_LUT": "216960",
-          "UTIL_LUT": "13",
-          "BRAM_18K": "0",
+          "BRAM_18K": "5",
           "AVAIL_BRAM": "960",
-          "UTIL_BRAM": "0",
+          "UTIL_BRAM": "~0",
+          "DSP": "40",
+          "AVAIL_DSP": "1824",
+          "UTIL_DSP": "2",
+          "FF": "5459",
+          "AVAIL_FF": "433920",
+          "UTIL_FF": "1",
+          "LUT": "14105",
+          "AVAIL_LUT": "216960",
+          "UTIL_LUT": "6",
           "URAM": "0",
           "AVAIL_URAM": "64",
           "UTIL_URAM": "0"
@@ -575,7 +460,7 @@
   "GenerateBdFiles": "0",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2026-08-09 17:02:04 PDT",
+    "Time": "2026-08-27 17:26:22 PDT",
     "ToolName": "vitis_hls",
     "ToolVersion": "2023.2"
   }

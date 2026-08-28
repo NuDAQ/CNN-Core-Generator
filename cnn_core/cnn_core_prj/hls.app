@@ -1,4 +1,4 @@
-<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" projectType="C/C++" name="cnn_core_prj" top="cnn_core">
+<AutoPilot:project xmlns:AutoPilot="com.autoesl.autopilot.project" top="cnn_core" name="cnn_core_prj">
     <solutions>
         <solution name="solution1" status=""/>
     </solutions>

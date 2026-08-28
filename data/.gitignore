@@ -1,4 +1,3 @@
 *
 !.gitignore
-!X_test_data.npy
-!y_test_labels.npy
+!verification_data_mini_es0.npz

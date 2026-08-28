@@ -1,5 +1,5 @@
 array set opt {
-    reset      0
+    reset      1
     csim       1
     synth      1
     cosim      1

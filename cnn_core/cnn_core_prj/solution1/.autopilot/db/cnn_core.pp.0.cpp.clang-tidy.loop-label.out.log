@@ -517,67 +517,150 @@
                     ^~~
                     VITIS_LOOP_256_5: 
 /home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:60452:21: note: FIX-IT applied suggested code changes
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61856:2: warning: Added loop label VITIS_LOOP_48_1:   [xilinx-label-all-loops]
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61861:2: warning: Added loop label VITIS_LOOP_53_1:   [xilinx-label-all-loops]
  for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
  ^~~
- VITIS_LOOP_48_1: 
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61856:2: note: FIX-IT applied suggested code changes
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61864:2: warning: Added loop label VITIS_LOOP_56_2:   [xilinx-label-all-loops]
+ VITIS_LOOP_53_1: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61861:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61869:2: warning: Added loop label VITIS_LOOP_61_2:   [xilinx-label-all-loops]
  for (unsigned b = 0; b < CONFIG_T::filt_height; b++) {
  ^~~
- VITIS_LOOP_56_2: 
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61864:2: note: FIX-IT applied suggested code changes
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61866:2: warning: Added loop label VITIS_LOOP_58_3:   [xilinx-label-all-loops]
+ VITIS_LOOP_61_2: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61869:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61871:2: warning: Added loop label VITIS_LOOP_63_3:   [xilinx-label-all-loops]
  for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
  ^~~
- VITIS_LOOP_58_3: 
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61866:2: note: FIX-IT applied suggested code changes
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61871:9: warning: Added loop label VITIS_LOOP_63_4:   [xilinx-label-all-loops]
+ VITIS_LOOP_63_3: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61871:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61876:9: warning: Added loop label VITIS_LOOP_68_4:   [xilinx-label-all-loops]
         for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
         ^~~
-        VITIS_LOOP_63_4: 
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61871:9: note: FIX-IT applied suggested code changes
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61876:9: warning: Added loop label VITIS_LOOP_68_5:   [xilinx-label-all-loops]
+        VITIS_LOOP_68_4: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61876:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61881:9: warning: Added loop label VITIS_LOOP_73_5:   [xilinx-label-all-loops]
         for (unsigned b = 2; b < CONFIG_T::filt_height; b++) {
         ^~~
-        VITIS_LOOP_68_5: 
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61876:9: note: FIX-IT applied suggested code changes
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61878:2: warning: Added loop label VITIS_LOOP_70_6:   [xilinx-label-all-loops]
+        VITIS_LOOP_73_5: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61881:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61883:2: warning: Added loop label VITIS_LOOP_75_6:   [xilinx-label-all-loops]
  for (unsigned c = 0; c < CONFIG_T::in_width; c++) {
  ^~~
- VITIS_LOOP_70_6: 
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61878:2: note: FIX-IT applied suggested code changes
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61895:2: warning: Added loop label VITIS_LOOP_87_7:   [xilinx-label-all-loops]
+ VITIS_LOOP_75_6: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61883:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61900:2: warning: Added loop label VITIS_LOOP_92_7:   [xilinx-label-all-loops]
  for (unsigned k = 0; k < CONFIG_T::filt_height - 2; k++) {
  ^~~
- VITIS_LOOP_87_7: 
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61895:2: note: FIX-IT applied suggested code changes
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61909:17: warning: Added loop label VITIS_LOOP_101_8:   [xilinx-label-all-loops]
+ VITIS_LOOP_92_7: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61900:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61916:17: warning: Added loop label VITIS_LOOP_108_8:   [xilinx-label-all-loops]
                 for (unsigned i_f = 0; i_f < CONFIG_T::n_filt; i_f++) {
                 ^~~
-                VITIS_LOOP_101_8: 
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61909:17: note: FIX-IT applied suggested code changes
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61945:13: warning: Added loop label VITIS_LOOP_137_1:   [xilinx-label-all-loops]
+                VITIS_LOOP_108_8: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61916:17: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61943:2: warning: Added loop label VITIS_LOOP_135_1:   [xilinx-label-all-loops]
+ for (unsigned k = 0; k < CONFIG_T::filt_height; k++) {
+ ^~~
+ VITIS_LOOP_135_1: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61943:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61956:9: warning: Added loop label VITIS_LOOP_148_2:   [xilinx-label-all-loops]
+        for (unsigned i_f = 0; i_f < CONFIG_T::n_filt; i_f++) {
+        ^~~
+        VITIS_LOOP_148_2: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61956:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62002:13: warning: Added loop label VITIS_LOOP_194_1:   [xilinx-label-all-loops]
+            for (unsigned row = 0; row < 4; row++) {
+            ^~~
+            VITIS_LOOP_194_1: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62002:13: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62004:2: warning: Added loop label VITIS_LOOP_196_2:   [xilinx-label-all-loops]
+ for (unsigned column = 0; column < CONFIG_T::in_width; column++) {
+ ^~~
+ VITIS_LOOP_196_2: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62004:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62024:13: warning: Added loop label VITIS_LOOP_216_3:   [xilinx-label-all-loops]
+            for (unsigned row = 0; row < 4; row++) {
+            ^~~
+            VITIS_LOOP_216_3: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62024:13: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62026:2: warning: Added loop label VITIS_LOOP_218_4:   [xilinx-label-all-loops]
+ for (unsigned column = 0; column < CONFIG_T::in_width; column++) {
+ ^~~
+ VITIS_LOOP_218_4: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62026:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62063:13: warning: Added loop label VITIS_LOOP_255_1:   [xilinx-label-all-loops]
             for (unsigned i = 0; i < data_T::size; i++) {
             ^~~
-            VITIS_LOOP_137_1: 
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61945:13: note: FIX-IT applied suggested code changes
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61952:13: warning: Added loop label VITIS_LOOP_144_2:   [xilinx-label-all-loops]
+            VITIS_LOOP_255_1: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62063:13: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62070:13: warning: Added loop label VITIS_LOOP_262_2:   [xilinx-label-all-loops]
             for (unsigned i = 0; i < res_T::size; i++) {
             ^~~
-            VITIS_LOOP_144_2: 
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61952:13: note: FIX-IT applied suggested code changes
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61987:9: warning: Added loop label VITIS_LOOP_179_1:   [xilinx-label-all-loops]
-        for (unsigned filter = 0; filter < 7; filter++) {
+            VITIS_LOOP_262_2: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62070:13: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62107:2: warning: Added loop label VITIS_LOOP_299_1:   [xilinx-label-all-loops]
+ for (unsigned kernel_row = 0;
+ ^~~
+ VITIS_LOOP_299_1: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62107:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62132:9: warning: Added loop label VITIS_LOOP_324_2:   [xilinx-label-all-loops]
+        for (unsigned filter = 0;
         ^~~
-        VITIS_LOOP_179_1: 
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:61987:9: note: FIX-IT applied suggested code changes
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62024:54: error: Invalid Directive: for current device, fifo + srl is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
-#pragma HLS BIND_STORAGE variable=layer4_out_x4 type=fifo impl=srl
-                                                     ^
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62028:54: error: Invalid Directive: for current device, fifo + srl is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
-#pragma HLS BIND_STORAGE variable=layer5_out_x4 type=fifo impl=srl
-                                                     ^
-/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62032:54: error: Invalid Directive: for current device, fifo + srl is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+        VITIS_LOOP_324_2: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62132:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62210:9: error: Invalid Directive: for current device, mul + dsp is invalid combination for bind_op [clang-diagnostic-error]
+#pragma HLS BIND_OP variable=phara_x3_5f_c11_5f_dsp op=mul impl=dsp
+        ^
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62237:9: error: Invalid Directive: for current device, mul + dsp is invalid combination for bind_op [clang-diagnostic-error]
+#pragma HLS BIND_OP variable=phara_x1_5f_c13_5f_dsp op=mul impl=dsp
+        ^
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62239:9: error: Invalid Directive: for current device, mul + dsp is invalid combination for bind_op [clang-diagnostic-error]
+#pragma HLS BIND_OP variable=phara_x2_5f_c13_5f_dsp op=mul impl=dsp
+        ^
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62257:9: error: Invalid Directive: for current device, mul + dsp is invalid combination for bind_op [clang-diagnostic-error]
+#pragma HLS BIND_OP variable=phara_x6_5f_c11_5f_dsp op=mul impl=dsp
+        ^
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62279:9: error: Invalid Directive: for current device, mul + dsp is invalid combination for bind_op [clang-diagnostic-error]
+#pragma HLS BIND_OP variable=phara_x4_5f_c13_5f_dsp op=mul impl=dsp
+        ^
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62281:9: error: Invalid Directive: for current device, mul + dsp is invalid combination for bind_op [clang-diagnostic-error]
+#pragma HLS BIND_OP variable=phara_x5_5f_c13_5f_dsp op=mul impl=dsp
+        ^
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62405:2: warning: Added loop label VITIS_LOOP_597_1:   [xilinx-label-all-loops]
+ for (unsigned row = 0; row < 8; row++) {
+ ^~~
+ VITIS_LOOP_597_1: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62405:2: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62413:9: warning: Added loop label VITIS_LOOP_605_2:   [xilinx-label-all-loops]
+        for (unsigned filter = 0;
+        ^~~
+        VITIS_LOOP_605_2: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62413:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62483:9: warning: Added loop label VITIS_LOOP_675_1:   [xilinx-label-all-loops]
+        for (unsigned row = 0; row < TEMPORAL_PACK; row++) {
+        ^~~
+        VITIS_LOOP_675_1: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62483:9: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62487:13: warning: Added loop label VITIS_LOOP_679_2:   [xilinx-label-all-loops]
+            for (unsigned column = 0; column < CONV_CONFIG_T::in_width; column++) {
+            ^~~
+            VITIS_LOOP_679_2: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62487:13: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62574:13: warning: Added loop label VITIS_LOOP_766_1:   [xilinx-label-all-loops]
+            for (unsigned row = 0; row < TEMPORAL_PACK; row++) {
+            ^~~
+            VITIS_LOOP_766_1: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62574:13: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62579:17: warning: Added loop label VITIS_LOOP_771_2:   [xilinx-label-all-loops]
+                for (unsigned column = 0;
+                ^~~
+                VITIS_LOOP_771_2: 
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62579:17: note: FIX-IT applied suggested code changes
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62637:9: error: Invalid Directive: for current device, mul + dsp is invalid combination for bind_op [clang-diagnostic-error]
+#pragma HLS BIND_OP variable=products op=mul impl=dsp
+        ^
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62737:54: error: Invalid Directive: for current device, fifo + srl is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
 #pragma HLS BIND_STORAGE variable=layer6_out_x4 type=fifo impl=srl
                                                      ^
+/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/.autopilot/db/cnn_core.pp.0.cpp:62740:56: error: Invalid Directive: for current device, rom_1p + bram is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=w9_ravel_packed type=rom_1p impl=bram
+                                                       ^

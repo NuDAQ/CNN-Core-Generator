@@ -18,25 +18,25 @@
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>3.502</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.396</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>174</Best-caseLatency>
-<Average-caseLatency>174</Average-caseLatency>
-<Worst-caseLatency>174</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.870 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.870 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.870 us</Worst-caseRealTimeLatency>
-<Interval-min>174</Interval-min>
-<Interval-max>174</Interval-max>
+<Best-caseLatency>48</Best-caseLatency>
+<Average-caseLatency>48</Average-caseLatency>
+<Worst-caseLatency>48</Worst-caseLatency>
+<Best-caseRealTimeLatency>0.240 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>0.240 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>0.240 us</Worst-caseRealTimeLatency>
+<Interval-min>48</Interval-min>
+<Interval-max>48</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <DenseValues>
 <Slack>3.65</Slack>
-<TripCount>168</TripCount>
-<Latency>172</Latency>
-<AbsoluteTimeLatency>860</AbsoluteTimeLatency>
+<TripCount>42</TripCount>
+<Latency>46</Latency>
+<AbsoluteTimeLatency>230</AbsoluteTimeLatency>
 <PipelineII>1</PipelineII>
 <PipelineDepth>6</PipelineDepth>
 <InstanceList>
@@ -46,13 +46,13 @@
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/nnet_utils/nnet_aria.h:169</SourceLocation>
+<SourceLocation>firmware/nnet_utils/nnet_aria.h:817</SourceLocation>
 <SummaryOfLoopViolations>
 <DenseValues>
 <Name>DenseValues</Name>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/nnet_utils/nnet_aria.h:169</SourceLocation>
+<SourceLocation>firmware/nnet_utils/nnet_aria.h:821</SourceLocation>
 </DenseValues>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
@@ -60,10 +60,10 @@
 
 <AreaEstimates>
 <Resources>
-<DSP>4</DSP>
-<FF>629</FF>
-<LUT>19631</LUT>
-<BRAM_18K>0</BRAM_18K>
+<BRAM_18K>5</BRAM_18K>
+<DSP>16</DSP>
+<FF>1336</FF>
+<LUT>1254</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
@@ -150,7 +150,7 @@
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>252</Bits>
+<Bits>280</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -205,7 +205,7 @@
 <IOProtocol>ap_vld</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>22</Bits>
+<Bits>23</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
