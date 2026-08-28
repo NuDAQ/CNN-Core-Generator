@@ -8,4 +8,4 @@ package:
   authors: ["Albert Zhang <albert.chang@cern.ch>"]
 
 sources:
-  - hls_streaming/cnn_core_streaming_prj/solution1/impl/verilog/*
+  - cnn_core/cnn_core_prj/solution1/impl/verilog/*
