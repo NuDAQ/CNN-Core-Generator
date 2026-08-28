@@ -1,0 +1,229 @@
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2023.2/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_cnn_core_top glbl -Oenable_linking_all_libraries -prj cnn_core.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm -L floating_point_v7_1_16 -L floating_point_v7_0_21 --lib ieee_proposed=./ieee_proposed -s cnn_core -debug all 
+Multi-threading is on. Using 30 slave threads.
+WARNING: [XSIM 43-3431] One or more environment variables have been detected which affect the operation of the C compiler. These are typically not set in standard installations and are not tested by AMD, however they may be appropriate for your system, so the flow will attempt to continue.  If errors occur, try running xelab with the "-mt off -v 1" switches to see more information from the C compiler. The following environment variables have been detected:
+    LIBRARY_PATH
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_cnn_core_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0
+INFO: [VRFC 10-311] analyzing module cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/AESL_deadlock_detection_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detect_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_fifo_w280_d4_S.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_fifo_w280_d4_S
+INFO: [VRFC 10-311] analyzing module cnn_core_fifo_w280_d4_S_ShiftReg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_mac_muladd_10s_4ns_15s_16_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_10s_4ns_15s_16_1_1_DSP48_1
+INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_10s_4ns_15s_16_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_mac_muladd_10s_4ns_14s_15_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_10s_4ns_14s_15_1_1_DSP48_0
+INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_10s_4ns_14s_15_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/AESL_axi_s_waveform.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_s_waveform
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_mac_muladd_10s_6s_16s_17_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_10s_6s_16s_17_1_1_DSP48_2
+INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_10s_6s_16s_17_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_mul_10s_5ns_15_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mul_10s_5ns_15_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues_w9_ravbkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues_w9_ravbkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_mac_muladd_10s_4ns_16s_16_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_10s_4ns_16s_16_1_1_DSP48_3
+INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_10s_4ns_16s_16_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/AESL_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/AESL_deadlock_detector.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_detector
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_sparsemux_17_3_10_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_sparsemux_17_3_10_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_regslice_both.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_regslice_both
+INFO: [VRFC 10-311] analyzing module cnn_core_regslice_both_w1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_mul_10s_6s_16_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mul_10s_6s_16_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/AESL_deadlock_report_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_report_unit
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_mac_muladd_10s_6s_17s_17_1_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_10s_6s_17s_17_1_1_DSP48_4
+INFO: [VRFC 10-311] analyzing module cnn_core_mac_muladd_10s_6s_17s_17_1_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/AESL_deadlock_idx0_monitor.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_idx0_monitor
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/AESL_deadlock_kernel_monitor_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_deadlock_kernel_monitor_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_flow_control_loop_pipe_sequential_init.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_flow_control_loop_pipe_sequential_init
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cnn_core
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/AESL_axi_s_layer9_out.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_s_layer9_out
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/dataflow_monitor.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dataflow_monitor
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'reset' is not connected on this instance [/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_fifo_w280_d4_S.v:49]
+WARNING: [VRFC 10-5021] port 'reset' is not connected on this instance [/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core_start_for_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0.v:46]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package xil_defaultlib.$unit_dataflow_monitor_sv
+Compiling module xil_defaultlib.cnn_core_sparsemux_17_3_10_1_1(d...
+Compiling module xil_defaultlib.cnn_core_mul_10s_5ns_15_1_1(NUM_...
+Compiling module xil_defaultlib.cnn_core_mac_muladd_10s_4ns_14s_...
+Compiling module xil_defaultlib.cnn_core_mac_muladd_10s_4ns_14s_...
+Compiling module xil_defaultlib.cnn_core_mac_muladd_10s_4ns_15s_...
+Compiling module xil_defaultlib.cnn_core_mac_muladd_10s_4ns_15s_...
+Compiling module xil_defaultlib.cnn_core_regslice_both(DataWidth...
+Compiling module xil_defaultlib.cnn_core_phara_pool_aligned_hybr...
+Compiling module xil_defaultlib.cnn_core_dense_wide_stream_array...
+Compiling module xil_defaultlib.cnn_core_mul_10s_6s_16_1_1(NUM_S...
+Compiling module xil_defaultlib.cnn_core_mac_muladd_10s_6s_16s_1...
+Compiling module xil_defaultlib.cnn_core_mac_muladd_10s_6s_16s_1...
+Compiling module xil_defaultlib.cnn_core_mac_muladd_10s_4ns_16s_...
+Compiling module xil_defaultlib.cnn_core_mac_muladd_10s_4ns_16s_...
+Compiling module xil_defaultlib.cnn_core_mac_muladd_10s_6s_17s_1...
+Compiling module xil_defaultlib.cnn_core_mac_muladd_10s_6s_17s_1...
+Compiling module xil_defaultlib.cnn_core_flow_control_loop_pipe_...
+Compiling module xil_defaultlib.cnn_core_dense_wide_stream_array...
+Compiling module xil_defaultlib.cnn_core_regslice_both
+Compiling module xil_defaultlib.cnn_core_dense_wide_stream_array...
+Compiling module xil_defaultlib.cnn_core_fifo_w280_d4_S_ShiftReg
+Compiling module xil_defaultlib.cnn_core_fifo_w280_d4_S
+Compiling module xil_defaultlib.cnn_core_start_for_dense_wide_st...
+Compiling module xil_defaultlib.cnn_core_start_for_dense_wide_st...
+Compiling module xil_defaultlib.cnn_core
+Compiling module xil_defaultlib.fifo(DEPTH=32,WIDTH=512)
+Compiling module xil_defaultlib.AESL_axi_s_waveform
+Compiling module xil_defaultlib.fifo(DEPTH=2,WIDTH=32)
+Compiling module xil_defaultlib.AESL_axi_s_layer9_out
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detect_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_report_unit(PROC_N...
+Compiling module xil_defaultlib.AESL_deadlock_detector_1
+Compiling module xil_defaultlib.AESL_deadlock_idx0_monitor
+Compiling module xil_defaultlib.AESL_deadlock_kernel_monitor_top...
+Compiling module xil_defaultlib.df_fifo_intf
+Compiling module xil_defaultlib.df_process_intf
+Compiling module xil_defaultlib.nodf_module_intf
+Compiling module xil_defaultlib.pp_loop_intf(FSM_WIDTH=3)
+Compiling module xil_defaultlib.upc_loop_intf(FSM_WIDTH=1)
+Compiling module xil_defaultlib.dataflow_monitor_1
+Compiling module xil_defaultlib.apatb_cnn_core_top
+Compiling module work.glbl
+Built simulation snapshot cnn_core
+
+****** xsim v2023.2 (64-bit)
+  **** SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/cnn_core/xsim_script.tcl
+# xsim {cnn_core} -view {{cnn_core_dataflow_ana.wcfg}} -tclbatch {cnn_core.tcl} -protoinst {cnn_core.protoinst}
+INFO: [Wavedata 42-565] Reading protoinst file cnn_core.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_cnn_core_top/AESL_inst_cnn_core//AESL_inst_cnn_core_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_cnn_core_top/AESL_inst_cnn_core/dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0/dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_cnn_core_top/AESL_inst_cnn_core/dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0/grp_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues_fu_51/grp_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues_fu_51_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_cnn_core_top/AESL_inst_cnn_core/phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_U0/phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_U0_activity
+Time resolution is 1 ps
+open_wave_config cnn_core_dataflow_ana.wcfg
+WARNING: Simulation object /apatb_cnn_core_top/AESL_inst_cnn_core/dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0/w9_ravel_packed_address0 was not found in the design.
+WARNING: Simulation object /apatb_cnn_core_top/AESL_inst_cnn_core/dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0/w9_ravel_packed_q0 was not found in the design.
+WARNING: Simulation object /apatb_cnn_core_top/AESL_inst_cnn_core/dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0/w9_ravel_packed_ce0 was not found in the design.
+source cnn_core.tcl
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set coutputgroup [add_wave_group "C Outputs" -into $designtopgroup]
+## set return_group [add_wave_group return(axis) -into $coutputgroup]
+## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/layer9_out_TREADY -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/layer9_out_TVALID -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/layer9_out_TDATA -into $return_group -radix hex
+## set cinputgroup [add_wave_group "C Inputs" -into $designtopgroup]
+## set return_group [add_wave_group return(axis) -into $cinputgroup]
+## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/waveform_TREADY -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/waveform_TVALID -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/waveform_TDATA -into $return_group -radix hex
+## set blocksiggroup [add_wave_group "Block-level IO Handshake" -into $designtopgroup]
+## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/ap_start -into $blocksiggroup
+## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/ap_done -into $blocksiggroup
+## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/ap_ready -into $blocksiggroup
+## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/ap_idle -into $blocksiggroup
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/ap_rst_n -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/ap_clk -into $clockgroup
+## set testbenchgroup [add_wave_group "Test Bench Signals"]
+## set tbinternalsiggroup [add_wave_group "Internal Signals" -into $testbenchgroup]
+## set tb_simstatus_group [add_wave_group "Simulation Status" -into $tbinternalsiggroup]
+## set tb_portdepth_group [add_wave_group "Port Depth" -into $tbinternalsiggroup]
+## add_wave /apatb_cnn_core_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
+## add_wave /apatb_cnn_core_top/ready_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_cnn_core_top/done_cnt -into $tb_simstatus_group -radix hex
+## add_wave /apatb_cnn_core_top/LENGTH_layer9_out -into $tb_portdepth_group -radix hex
+## add_wave /apatb_cnn_core_top/LENGTH_waveform -into $tb_portdepth_group -radix hex
+## set tbcoutputgroup [add_wave_group "C Outputs" -into $testbenchgroup]
+## set tb_return_group [add_wave_group return(axis) -into $tbcoutputgroup]
+## add_wave /apatb_cnn_core_top/layer9_out_TREADY -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_cnn_core_top/layer9_out_TVALID -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_cnn_core_top/layer9_out_TDATA -into $tb_return_group -radix hex
+## set tbcinputgroup [add_wave_group "C Inputs" -into $testbenchgroup]
+## set tb_return_group [add_wave_group return(axis) -into $tbcinputgroup]
+## add_wave /apatb_cnn_core_top/waveform_TREADY -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_cnn_core_top/waveform_TVALID -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_cnn_core_top/waveform_TDATA -into $tb_return_group -radix hex
+## save_wave_config cnn_core.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 32 [0.00%] @ "113000"
+// RTL Simulation : 1 / 32 [8.77%] @ "398000"
+// RTL Simulation : 2 / 32 [8.77%] @ "648000"
+// RTL Simulation : 3 / 32 [8.77%] @ "898000"
+// RTL Simulation : 4 / 32 [8.77%] @ "1148000"
+// RTL Simulation : 5 / 32 [8.77%] @ "1398000"
+// RTL Simulation : 6 / 32 [8.77%] @ "1648000"
+// RTL Simulation : 7 / 32 [8.77%] @ "1898000"
+// RTL Simulation : 8 / 32 [8.77%] @ "2148000"
+// RTL Simulation : 9 / 32 [8.77%] @ "2398000"
+// RTL Simulation : 10 / 32 [8.77%] @ "2648000"
+// RTL Simulation : 11 / 32 [8.77%] @ "2898000"
+// RTL Simulation : 12 / 32 [8.77%] @ "3148000"
+// RTL Simulation : 13 / 32 [8.77%] @ "3398000"
+// RTL Simulation : 14 / 32 [8.77%] @ "3648000"
+// RTL Simulation : 15 / 32 [8.77%] @ "3898000"
+// RTL Simulation : 16 / 32 [8.77%] @ "4148000"
+// RTL Simulation : 17 / 32 [8.77%] @ "4398000"
+// RTL Simulation : 18 / 32 [8.77%] @ "4648000"
+// RTL Simulation : 19 / 32 [8.77%] @ "4898000"
+// RTL Simulation : 20 / 32 [8.77%] @ "5148000"
+// RTL Simulation : 21 / 32 [8.77%] @ "5398000"
+// RTL Simulation : 22 / 32 [8.77%] @ "5648000"
+// RTL Simulation : 23 / 32 [8.77%] @ "5898000"
+// RTL Simulation : 24 / 32 [8.77%] @ "6148000"
+// RTL Simulation : 25 / 32 [8.77%] @ "6398000"
+// RTL Simulation : 26 / 32 [8.77%] @ "6648000"
+// RTL Simulation : 27 / 32 [8.77%] @ "6898000"
+// RTL Simulation : 28 / 32 [8.77%] @ "7148000"
+// RTL Simulation : 29 / 32 [8.77%] @ "7398000"
+// RTL Simulation : 30 / 32 [8.77%] @ "7648000"
+// RTL Simulation : 31 / 32 [8.77%] @ "7898000"
+// RTL Simulation : 32 / 32 [100.00%] @ "8148000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 8177500 ps : File "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core.autotb.v" Line 249
+## quit
+INFO: [Common 17-206] Exiting xsim at Thu Aug 27 17:26:22 2026...
