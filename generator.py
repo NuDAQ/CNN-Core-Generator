@@ -38,6 +38,7 @@ project = convert(
             "Part": "xcku5p-ffvb676-2-e",
             "ClockPeriod": 5.0,
         },
+        # tmp
         "Optimization": {
             "TemporalPacking": 2,
             "DenseParallelism": 2,
