@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / "cnn_core"
 
 model = keras.models.load_model(
-    ROOT / "models/run_mini_es0.keras",
+    ROOT / "models/ab_1cv_nd_fpga/run_ab_1cv_nd_es0.keras",
     custom_objects={"QConv2D": QConv2D, "QDense": QDense},
 )
 
