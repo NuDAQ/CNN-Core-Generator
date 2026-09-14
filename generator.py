@@ -38,6 +38,10 @@ project = convert(
             "Part": "xcku5p-ffvb676-2-e",
             "ClockPeriod": 5.0,
         },
+        "Optimization": {
+            "TemporalPacking": 2,
+            "DenseParallelism": 2,
+        },
         "Verification": {"Mode": "required"},
         "Vitis": {"Run": False},
     },
