@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_80u_config4_s'
 ================================================================
-* Date:           Mon Sep 14 20:26:22 2026
+* Date:           Mon Sep 14 20:31:17 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_prj

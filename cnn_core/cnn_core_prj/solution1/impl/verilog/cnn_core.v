@@ -280,4 +280,16 @@ assign relu_array_ap_fixed_80u_array_ap_ufixed_15_5_5_3_0_80u_relu_config5_U0_ap
 
 assign waveform_TREADY = first_conv_2row_4lane_temporal_wide_cl_array_array_ap_fixed_80u_config4_U0_waveform_TREADY;
 
+
+reg find_df_deadlock = 0;
+// synthesis translate_off
+`include "cnn_core_hls_deadlock_detector.vh"
+// synthesis translate_on
+
+reg find_kernel_block = 0;
+// synthesis translate_off
+`include "cnn_core_hls_deadlock_kernel_monitor_top.vh"
+// synthesis translate_on
+
 endmodule //cnn_core
+

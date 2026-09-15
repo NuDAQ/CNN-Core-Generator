@@ -3,13 +3,13 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Mon Sep 14 20:26:39 2026
-# Process ID: 119844
+# Start of session at: Mon Sep 14 20:31:34 2026
+# Process ID: 121042
 # Current directory: /home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog
 # Command line: xsim -mode tcl -source {xsim.dir/cnn_core/xsim_script.tcl}
 # Log file: /home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/xsim.log
 # Journal file: /home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/xsim.jou
-# Running On: AlbertsUbuntu, OS: Linux, CPU Frequency: 800.713 MHz, CPU Physical cores: 24, Host memory: 16441 MB
+# Running On: AlbertsUbuntu, OS: Linux, CPU Frequency: 3133.561 MHz, CPU Physical cores: 24, Host memory: 16441 MB
 #-----------------------------------------------------------
 source xsim.dir/cnn_core/xsim_script.tcl
 # xsim {cnn_core} -view {{cnn_core_dataflow_ana.wcfg}} -tclbatch {cnn_core.tcl} -protoinst {cnn_core.protoinst}
@@ -109,4 +109,4 @@ source cnn_core.tcl
 ////////////////////////////////////////////////////////////////////////////////////
 $finish called at time : 21632500 ps : File "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core.autotb.v" Line 249
 ## quit
-INFO: [Common 17-206] Exiting xsim at Mon Sep 14 20:26:43 2026...
+INFO: [Common 17-206] Exiting xsim at Mon Sep 14 20:31:38 2026...
