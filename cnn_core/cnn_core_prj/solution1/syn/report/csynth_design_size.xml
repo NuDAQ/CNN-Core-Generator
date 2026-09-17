@@ -1,0 +1,76 @@
+<design_size title="Design Size Report">
+    <item name="Total Instructions per Compilation Phase">
+        <table>
+            <keys size="4">Phase, Step, Instructions, Description</keys>
+            <column name="Compile/Link">, 150111 *, After all functions are compiled and linked into a single design</column>
+            <column name="">, , </column>
+            <column name="Unroll/Inline">, , After user unroll and inline pragmas are applied</column>
+            <column name="">(1) unroll,  38717, user unroll pragmas are applied</column>
+            <column name="">(2) simplification,  24172, simplification of applied user unroll pragmas</column>
+            <column name="">(3) inline,  23164, user inline pragmas are applied</column>
+            <column name="">(4) simplification,  21637, simplification of applied user inline pragmas</column>
+            <column name="">, , </column>
+            <column name="Array/Struct">, , After user array partition and struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(1) array partition,  25003, user array partition pragmas are applied</column>
+            <column name="">(2) simplification,  19365, simplification of applied user array partition &amp; struct aggregate/disaggregate pragmas</column>
+            <column name="">(3) aggregate/disaggregate ,  19373, user struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(4) array reshape,  21865, apply array reshape pragmas</column>
+            <column name="">(5) access patterns,  22176, array access pattern optmizations</column>
+            <column name="">, , </column>
+            <column name="Performance">, , After transformations are applied to meet performance pragma targets</column>
+            <column name="">(1) loop simplification,  21812, loop and instruction simplification</column>
+            <column name="">(2) parallelization,  21812, loops are unrolled or pipelined to meet performance targets</column>
+            <column name="">(3) array partition,  21776, arrays are partitioned to meet performance targets</column>
+            <column name="">(4) simplification,  21560, simplification of design after performance transformations</column>
+            <column name="">, , </column>
+            <column name="HW Transforms">, , After hardware transfomations</column>
+            <column name="">(1) lowering,  22289, initial conversion to HW specific instructions</column>
+            <column name="">(2) optimizations,  22667, high level synthesis optimizations</column>
+        </table>
+    </item>
+    <item name="Instructions per Function for each Compilation Phase">
+        <hiertable>
+            <header size="7" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Array/Struct" col5="Performance" col6="HW Transforms"/>
+            <rows>
+                <row id="0" col0="cnn_core" col1="cnn_core.cpp:8" col2="150111" col2_note="*" col3="21637" col4="22176" col5="21560" col6="22667">
+                    <row id="2" col0="phara_pool_aligned_hybrid_p8_cl&lt;nnet::array&lt;ap_fixed&lt;10, 5, AP_RND, AP_SAT_SYM, 0&gt;, 32&gt;, nnet::array&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, 48&gt;, nnet::array&lt;ap_ufixed&lt;15, 5, AP_TRN, AP_WRAP, 0&gt;, 48&gt;, nnet::array&lt;ap_fixed&lt;10, 5, AP_RND, AP_SAT_SYM, 0&gt;, 48&gt;, config3, config5&gt;" col1="nnet_aria.h:793" col2="30507" col3="6949" col4="6300" col5="5976" col6="6024">
+                        <row id="4" col0="operator[]" col1="nnet_types.h:17" col2="3" col3="" col4="" col5="" col6=""/>
+                        <row id="8" col0="phara_pool_aligned_hybrid_compute&lt;16, nnet::array&lt;ap_fixed&lt;10, 5, AP_RND, AP_SAT_SYM, 0&gt;, 32&gt;, nnet::array&lt;ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt;, 48&gt;, nnet::array&lt;ap_ufixed&lt;15, 5, AP_TRN, AP_WRAP, 0&gt;, 48&gt;, nnet::array&lt;ap_fixed&lt;10, 5, AP_RND, AP_SAT_SYM, 0&gt;, 48&gt;, config3&gt;" col1="nnet_aria.h:655" col2="30420" col3="" col4="" col5="" col6="">
+                            <row id="6" col0="phara_affine_graph&lt;ap_fixed&lt;10, 5, AP_RND, AP_SAT_SYM, 0&gt;, ap_fixed&lt;16, 6, AP_TRN, AP_WRAP, 0&gt; &gt;" col1="nnet_aria.h:340" col2="29777" col3="" col4="" col5="" col6=""/>
+                            <row id="4" col0="operator[]" col1="nnet_types.h:17" col2="3" col3="" col4="" col5="" col6=""/>
+                        </row>
+                    </row>
+                    <row id="13" col0="shared_conv&lt;nnet::array&lt;ap_fixed&lt;10, 5, AP_RND, AP_SAT_SYM, 0&gt;, 48&gt;, nnet::array&lt;ap_fixed&lt;18, 9, AP_TRN, AP_WRAP, 0&gt;, 48&gt;, config7, 4, ravel_matrix_conv2d_1, 2&gt;" col1="ravel_affine.h:1135" col2="118011" col3="10421" col4="11157" col5="10868" col6="10913">
+                        <row id="4" col0="operator[]" col1="nnet_types.h:17" col2="6" col2_disp="     6 (2 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="1" col0="apply&lt;ap_fixed&lt;10, 5, AP_RND, AP_SAT_SYM, 0&gt;, config7_mult&gt;" col1="ravel_affine.h:5" col2="117797" col3="" col4="" col5="" col6=""/>
+                        <row id="3" col0="cast&lt;ap_fixed&lt;10, 5, AP_RND, AP_SAT_SYM, 0&gt;, ap_fixed&lt;18, 9, AP_TRN, AP_WRAP, 0&gt;, config7_mult&gt;" col1="nnet_mult.h:110" col2="3" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="14" col0="relu&lt;nnet::array&lt;ap_fixed&lt;18, 9, AP_TRN, AP_WRAP, 0&gt;, 48&gt;, nnet::array&lt;ap_ufixed&lt;17, 8, AP_TRN, AP_WRAP, 0&gt;, 48&gt;, relu_config8&gt;" col1="nnet_activation_stream.h:39" col2="266" col3="1210" col4="1402" col5="1402" col6="2359">
+                        <row id="4" col0="operator[]" col1="nnet_types.h:17" col2="12" col2_disp="    12 (4 calls)" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="9" col0="scheduled_pool&lt;nnet::array&lt;ap_ufixed&lt;17, 8, AP_TRN, AP_WRAP, 0&gt;, 48&gt;, nnet::array&lt;ap_fixed&lt;10, 5, AP_RND, AP_SAT_SYM, 0&gt;, 48&gt;, config9, 4&gt;" col1="ravel_windows.h:84" col2="501" col3="2279" col4="2272" col5="2272" col6="2317">
+                        <row id="4" col0="operator[]" col1="nnet_types.h:17" col2="6" col2_disp="     6 (2 calls)" col3="" col4="" col5="" col6=""/>
+                    </row>
+                    <row id="10" col0="dense_wide_stream&lt;nnet::array&lt;ap_fixed&lt;10, 5, AP_RND, AP_SAT_SYM, 0&gt;, 48&gt;, nnet::array&lt;ap_fixed&lt;21, 12, AP_TRN, AP_WRAP, 0&gt;, 1&gt;, config12&gt;" col1="nnet_aria.h:870" col2="766" col3="739" col4="1025" col5="1022" col6="1025">
+                        <row id="7" col0="operator=" col1="nnet_types.h:21" col2="28" col3="" col4="" col5="" col6="">
+                            <row id="5" col0="operator[]" col1="nnet_types.h:19" col2="3" col3="" col4="" col5="" col6=""/>
+                        </row>
+                        <row id="4" col0="operator[]" col1="nnet_types.h:17" col2="6" col2_disp="     6 (2 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="11" col0="product" col1="nnet_mult.h:70" col2="141" col3="" col4="" col5="" col6=""/>
+                        <row id="17" col0="cast&lt;ap_fixed&lt;10, 5, AP_RND, AP_SAT_SYM, 0&gt;, ap_fixed&lt;21, 12, AP_TRN, AP_WRAP, 0&gt;, config12&gt;" col1="nnet_mult.h:110" col2="3" col3="" col4="" col5="" col6=""/>
+                    </row>
+                </row>
+            </rows>
+            <notes>
+                <note name="*" desc="Exceeded design size warning message threshold"/>
+            </notes>
+        </hiertable>
+    </item>
+    <item name="Design Size Message Settings">
+        <table>
+            <keys size="3">Message Setting, Value, Description</keys>
+            <column name="config_compile -design_size_maximum_warning">100000, Show a warning when total design instructions exceeds this value</column>
+        </table>
+    </item>
+</design_size>
+
