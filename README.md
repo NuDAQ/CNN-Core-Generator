@@ -75,15 +75,7 @@ cycle counts at the target clock frequency.
 | BRAM tiles |      0 |       480 |              0.00% |
 | URAM       |      0 |        64 |              0.00% |
 
-Vitis HLS synthesis completed successfully. C simulation and
-[RTL co-simulation](cnn_core/cnn_core_prj/solution1/sim/report/cnn_core_cosim.rpt)
-passed for 96 built-in test samples, with identical C and RTL output logs.
-Conversion verification also passed for 1,000 additional supplied samples,
-with zero Keras-to-RAVEL score difference.
-
-The resource figures are from Vivado synthesis and `opt_design`; place and route
-were not run. The 200 MHz target has not been validated by routed timing for
-this generated project.
+The resource figures are from Vivado synthesis and `opt_design`.
 
 ## License
 
