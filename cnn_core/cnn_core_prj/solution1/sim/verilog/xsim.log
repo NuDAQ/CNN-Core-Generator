@@ -3,33 +3,36 @@
 # SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Thu Aug 27 17:26:19 2026
-# Process ID: 1404895
+# Start of session at: Thu Sep 17 02:03:37 2026
+# Process ID: 1041367
 # Current directory: /home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog
 # Command line: xsim -mode tcl -source {xsim.dir/cnn_core/xsim_script.tcl}
 # Log file: /home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/xsim.log
 # Journal file: /home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/xsim.jou
-# Running On: AlbertsUbuntu, OS: Linux, CPU Frequency: 3016.669 MHz, CPU Physical cores: 24, Host memory: 16441 MB
+# Running On: AlbertsUbuntu, OS: Linux, CPU Frequency: 800.175 MHz, CPU Physical cores: 24, Host memory: 16441 MB
 #-----------------------------------------------------------
 source xsim.dir/cnn_core/xsim_script.tcl
 # xsim {cnn_core} -view {{cnn_core_dataflow_ana.wcfg}} -tclbatch {cnn_core.tcl} -protoinst {cnn_core.protoinst}
 INFO: [Wavedata 42-565] Reading protoinst file cnn_core.protoinst
 INFO: [Wavedata 42-564]   Found protocol instance at /apatb_cnn_core_top/AESL_inst_cnn_core//AESL_inst_cnn_core_activity
-INFO: [Wavedata 42-564]   Found protocol instance at /apatb_cnn_core_top/AESL_inst_cnn_core/dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0/dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0_activity
-INFO: [Wavedata 42-564]   Found protocol instance at /apatb_cnn_core_top/AESL_inst_cnn_core/dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0/grp_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues_fu_51/grp_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues_fu_51_activity
-INFO: [Wavedata 42-564]   Found protocol instance at /apatb_cnn_core_top/AESL_inst_cnn_core/phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_U0/phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_U0_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_cnn_core_top/AESL_inst_cnn_core/dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0/dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_cnn_core_top/AESL_inst_cnn_core/dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0/grp_dense_wide_stream_array_array_ap_fixed_1u_config12_Pipeline_DenseValues_fu_41/grp_dense_wide_stream_array_array_ap_fixed_1u_config12_Pipeline_DenseValues_fu_41_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_cnn_core_top/AESL_inst_cnn_core/phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config3_config5_U0/phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config3_config5_U0_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_cnn_core_top/AESL_inst_cnn_core/relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8_U0/relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8_U0_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_cnn_core_top/AESL_inst_cnn_core/scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0/scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_cnn_core_top/AESL_inst_cnn_core/shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2d_1_2u_U0/shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2d_1_2u_U0_activity
 Time resolution is 1 ps
 open_wave_config cnn_core_dataflow_ana.wcfg
-WARNING: Simulation object /apatb_cnn_core_top/AESL_inst_cnn_core/dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0/w9_ravel_packed_address0 was not found in the design.
-WARNING: Simulation object /apatb_cnn_core_top/AESL_inst_cnn_core/dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0/w9_ravel_packed_q0 was not found in the design.
-WARNING: Simulation object /apatb_cnn_core_top/AESL_inst_cnn_core/dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0/w9_ravel_packed_ce0 was not found in the design.
+WARNING: Simulation object /apatb_cnn_core_top/AESL_inst_cnn_core/dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0/w12_ravel_packed_address0 was not found in the design.
+WARNING: Simulation object /apatb_cnn_core_top/AESL_inst_cnn_core/dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0/w12_ravel_packed_q0 was not found in the design.
+WARNING: Simulation object /apatb_cnn_core_top/AESL_inst_cnn_core/dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0/w12_ravel_packed_ce0 was not found in the design.
 source cnn_core.tcl
 ## set designtopgroup [add_wave_group "Design Top Signals"]
 ## set coutputgroup [add_wave_group "C Outputs" -into $designtopgroup]
 ## set return_group [add_wave_group return(axis) -into $coutputgroup]
-## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/layer9_out_TREADY -into $return_group -color #ffff00 -radix hex
-## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/layer9_out_TVALID -into $return_group -color #ffff00 -radix hex
-## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/layer9_out_TDATA -into $return_group -radix hex
+## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/layer12_out_TREADY -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/layer12_out_TVALID -into $return_group -color #ffff00 -radix hex
+## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/layer12_out_TDATA -into $return_group -radix hex
 ## set cinputgroup [add_wave_group "C Inputs" -into $designtopgroup]
 ## set return_group [add_wave_group return(axis) -into $cinputgroup]
 ## add_wave /apatb_cnn_core_top/AESL_inst_cnn_core/waveform_TREADY -into $return_group -color #ffff00 -radix hex
@@ -51,13 +54,13 @@ source cnn_core.tcl
 ## add_wave /apatb_cnn_core_top/AUTOTB_TRANSACTION_NUM -into $tb_simstatus_group -radix hex
 ## add_wave /apatb_cnn_core_top/ready_cnt -into $tb_simstatus_group -radix hex
 ## add_wave /apatb_cnn_core_top/done_cnt -into $tb_simstatus_group -radix hex
-## add_wave /apatb_cnn_core_top/LENGTH_layer9_out -into $tb_portdepth_group -radix hex
+## add_wave /apatb_cnn_core_top/LENGTH_layer12_out -into $tb_portdepth_group -radix hex
 ## add_wave /apatb_cnn_core_top/LENGTH_waveform -into $tb_portdepth_group -radix hex
 ## set tbcoutputgroup [add_wave_group "C Outputs" -into $testbenchgroup]
 ## set tb_return_group [add_wave_group return(axis) -into $tbcoutputgroup]
-## add_wave /apatb_cnn_core_top/layer9_out_TREADY -into $tb_return_group -color #ffff00 -radix hex
-## add_wave /apatb_cnn_core_top/layer9_out_TVALID -into $tb_return_group -color #ffff00 -radix hex
-## add_wave /apatb_cnn_core_top/layer9_out_TDATA -into $tb_return_group -radix hex
+## add_wave /apatb_cnn_core_top/layer12_out_TREADY -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_cnn_core_top/layer12_out_TVALID -into $tb_return_group -color #ffff00 -radix hex
+## add_wave /apatb_cnn_core_top/layer12_out_TDATA -into $tb_return_group -radix hex
 ## set tbcinputgroup [add_wave_group "C Inputs" -into $testbenchgroup]
 ## set tb_return_group [add_wave_group return(axis) -into $tbcinputgroup]
 ## add_wave /apatb_cnn_core_top/waveform_TREADY -into $tb_return_group -color #ffff00 -radix hex
@@ -71,40 +74,104 @@ source cnn_core.tcl
 //
 // RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
 ////////////////////////////////////////////////////////////////////////////////////
-// RTL Simulation : 0 / 32 [0.00%] @ "113000"
-// RTL Simulation : 1 / 32 [8.77%] @ "398000"
-// RTL Simulation : 2 / 32 [8.77%] @ "648000"
-// RTL Simulation : 3 / 32 [8.77%] @ "898000"
-// RTL Simulation : 4 / 32 [8.77%] @ "1148000"
-// RTL Simulation : 5 / 32 [8.77%] @ "1398000"
-// RTL Simulation : 6 / 32 [8.77%] @ "1648000"
-// RTL Simulation : 7 / 32 [8.77%] @ "1898000"
-// RTL Simulation : 8 / 32 [8.77%] @ "2148000"
-// RTL Simulation : 9 / 32 [8.77%] @ "2398000"
-// RTL Simulation : 10 / 32 [8.77%] @ "2648000"
-// RTL Simulation : 11 / 32 [8.77%] @ "2898000"
-// RTL Simulation : 12 / 32 [8.77%] @ "3148000"
-// RTL Simulation : 13 / 32 [8.77%] @ "3398000"
-// RTL Simulation : 14 / 32 [8.77%] @ "3648000"
-// RTL Simulation : 15 / 32 [8.77%] @ "3898000"
-// RTL Simulation : 16 / 32 [8.77%] @ "4148000"
-// RTL Simulation : 17 / 32 [8.77%] @ "4398000"
-// RTL Simulation : 18 / 32 [8.77%] @ "4648000"
-// RTL Simulation : 19 / 32 [8.77%] @ "4898000"
-// RTL Simulation : 20 / 32 [8.77%] @ "5148000"
-// RTL Simulation : 21 / 32 [8.77%] @ "5398000"
-// RTL Simulation : 22 / 32 [8.77%] @ "5648000"
-// RTL Simulation : 23 / 32 [8.77%] @ "5898000"
-// RTL Simulation : 24 / 32 [8.77%] @ "6148000"
-// RTL Simulation : 25 / 32 [8.77%] @ "6398000"
-// RTL Simulation : 26 / 32 [8.77%] @ "6648000"
-// RTL Simulation : 27 / 32 [8.77%] @ "6898000"
-// RTL Simulation : 28 / 32 [8.77%] @ "7148000"
-// RTL Simulation : 29 / 32 [8.77%] @ "7398000"
-// RTL Simulation : 30 / 32 [8.77%] @ "7648000"
-// RTL Simulation : 31 / 32 [8.77%] @ "7898000"
-// RTL Simulation : 32 / 32 [100.00%] @ "8148000"
+// RTL Simulation : 0 / 96 [0.00%] @ "113000"
+// RTL Simulation : 1 / 96 [33.80%] @ "538000"
+// RTL Simulation : 2 / 96 [33.80%] @ "833000"
+// RTL Simulation : 3 / 96 [33.80%] @ "1128000"
+// RTL Simulation : 4 / 96 [33.80%] @ "1423000"
+// RTL Simulation : 5 / 96 [33.80%] @ "1718000"
+// RTL Simulation : 6 / 96 [33.80%] @ "2013000"
+// RTL Simulation : 7 / 96 [33.80%] @ "2308000"
+// RTL Simulation : 8 / 96 [33.80%] @ "2603000"
+// RTL Simulation : 9 / 96 [33.80%] @ "2898000"
+// RTL Simulation : 10 / 96 [33.80%] @ "3193000"
+// RTL Simulation : 11 / 96 [33.80%] @ "3488000"
+// RTL Simulation : 12 / 96 [33.80%] @ "3783000"
+// RTL Simulation : 13 / 96 [33.80%] @ "4078000"
+// RTL Simulation : 14 / 96 [33.80%] @ "4373000"
+// RTL Simulation : 15 / 96 [33.80%] @ "4668000"
+// RTL Simulation : 16 / 96 [33.80%] @ "4963000"
+// RTL Simulation : 17 / 96 [33.80%] @ "5258000"
+// RTL Simulation : 18 / 96 [33.80%] @ "5553000"
+// RTL Simulation : 19 / 96 [33.80%] @ "5848000"
+// RTL Simulation : 20 / 96 [33.80%] @ "6143000"
+// RTL Simulation : 21 / 96 [33.80%] @ "6438000"
+// RTL Simulation : 22 / 96 [33.80%] @ "6733000"
+// RTL Simulation : 23 / 96 [33.80%] @ "7028000"
+// RTL Simulation : 24 / 96 [33.80%] @ "7323000"
+// RTL Simulation : 25 / 96 [33.80%] @ "7618000"
+// RTL Simulation : 26 / 96 [33.80%] @ "7913000"
+// RTL Simulation : 27 / 96 [33.80%] @ "8208000"
+// RTL Simulation : 28 / 96 [33.80%] @ "8503000"
+// RTL Simulation : 29 / 96 [33.80%] @ "8798000"
+// RTL Simulation : 30 / 96 [33.80%] @ "9093000"
+// RTL Simulation : 31 / 96 [33.80%] @ "9388000"
+// RTL Simulation : 32 / 96 [33.80%] @ "9683000"
+// RTL Simulation : 33 / 96 [33.80%] @ "9978000"
+// RTL Simulation : 34 / 96 [33.80%] @ "10273000"
+// RTL Simulation : 35 / 96 [33.80%] @ "10568000"
+// RTL Simulation : 36 / 96 [33.80%] @ "10863000"
+// RTL Simulation : 37 / 96 [33.80%] @ "11158000"
+// RTL Simulation : 38 / 96 [33.80%] @ "11453000"
+// RTL Simulation : 39 / 96 [33.80%] @ "11748000"
+// RTL Simulation : 40 / 96 [33.80%] @ "12043000"
+// RTL Simulation : 41 / 96 [33.80%] @ "12338000"
+// RTL Simulation : 42 / 96 [33.80%] @ "12633000"
+// RTL Simulation : 43 / 96 [33.80%] @ "12928000"
+// RTL Simulation : 44 / 96 [33.80%] @ "13223000"
+// RTL Simulation : 45 / 96 [33.80%] @ "13518000"
+// RTL Simulation : 46 / 96 [33.80%] @ "13813000"
+// RTL Simulation : 47 / 96 [33.80%] @ "14108000"
+// RTL Simulation : 48 / 96 [33.80%] @ "14403000"
+// RTL Simulation : 49 / 96 [33.80%] @ "14698000"
+// RTL Simulation : 50 / 96 [33.80%] @ "14993000"
+// RTL Simulation : 51 / 96 [33.80%] @ "15288000"
+// RTL Simulation : 52 / 96 [33.80%] @ "15583000"
+// RTL Simulation : 53 / 96 [33.80%] @ "15878000"
+// RTL Simulation : 54 / 96 [33.80%] @ "16173000"
+// RTL Simulation : 55 / 96 [33.80%] @ "16468000"
+// RTL Simulation : 56 / 96 [33.80%] @ "16763000"
+// RTL Simulation : 57 / 96 [33.80%] @ "17058000"
+// RTL Simulation : 58 / 96 [33.80%] @ "17353000"
+// RTL Simulation : 59 / 96 [33.80%] @ "17648000"
+// RTL Simulation : 60 / 96 [33.80%] @ "17943000"
+// RTL Simulation : 61 / 96 [33.80%] @ "18238000"
+// RTL Simulation : 62 / 96 [33.80%] @ "18533000"
+// RTL Simulation : 63 / 96 [33.80%] @ "18828000"
+// RTL Simulation : 64 / 96 [33.80%] @ "19123000"
+// RTL Simulation : 65 / 96 [33.80%] @ "19418000"
+// RTL Simulation : 66 / 96 [33.80%] @ "19713000"
+// RTL Simulation : 67 / 96 [33.80%] @ "20008000"
+// RTL Simulation : 68 / 96 [33.80%] @ "20303000"
+// RTL Simulation : 69 / 96 [33.80%] @ "20598000"
+// RTL Simulation : 70 / 96 [33.80%] @ "20893000"
+// RTL Simulation : 71 / 96 [33.80%] @ "21188000"
+// RTL Simulation : 72 / 96 [33.80%] @ "21483000"
+// RTL Simulation : 73 / 96 [33.80%] @ "21778000"
+// RTL Simulation : 74 / 96 [33.80%] @ "22073000"
+// RTL Simulation : 75 / 96 [33.80%] @ "22368000"
+// RTL Simulation : 76 / 96 [33.80%] @ "22663000"
+// RTL Simulation : 77 / 96 [33.80%] @ "22958000"
+// RTL Simulation : 78 / 96 [33.80%] @ "23253000"
+// RTL Simulation : 79 / 96 [33.80%] @ "23548000"
+// RTL Simulation : 80 / 96 [33.80%] @ "23843000"
+// RTL Simulation : 81 / 96 [33.80%] @ "24138000"
+// RTL Simulation : 82 / 96 [33.80%] @ "24433000"
+// RTL Simulation : 83 / 96 [33.80%] @ "24728000"
+// RTL Simulation : 84 / 96 [33.80%] @ "25023000"
+// RTL Simulation : 85 / 96 [33.80%] @ "25318000"
+// RTL Simulation : 86 / 96 [33.80%] @ "25613000"
+// RTL Simulation : 87 / 96 [33.80%] @ "25908000"
+// RTL Simulation : 88 / 96 [33.80%] @ "26203000"
+// RTL Simulation : 89 / 96 [33.80%] @ "26498000"
+// RTL Simulation : 90 / 96 [33.80%] @ "26793000"
+// RTL Simulation : 91 / 96 [33.80%] @ "27088000"
+// RTL Simulation : 92 / 96 [33.80%] @ "27383000"
+// RTL Simulation : 93 / 96 [33.80%] @ "27678000"
+// RTL Simulation : 94 / 96 [33.80%] @ "27973000"
+// RTL Simulation : 95 / 96 [33.80%] @ "28268000"
+// RTL Simulation : 96 / 96 [100.00%] @ "28548000"
 ////////////////////////////////////////////////////////////////////////////////////
-$finish called at time : 8177500 ps : File "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core.autotb.v" Line 249
+$finish called at time : 28577500 ps : File "/home/work1/Works/CNN-Core-Generator/cnn_core/cnn_core_prj/solution1/sim/verilog/cnn_core.autotb.v" Line 249
 ## quit
-INFO: [Common 17-206] Exiting xsim at Thu Aug 27 17:26:22 2026...
+INFO: [Common 17-206] Exiting xsim at Thu Sep 17 02:03:42 2026...

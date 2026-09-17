@@ -22,29 +22,29 @@
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>57</Best-caseLatency>
-<Average-caseLatency>57</Average-caseLatency>
-<Worst-caseLatency>57</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.285 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.285 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.285 us</Worst-caseRealTimeLatency>
-<DataflowPipelineThroughput>52</DataflowPipelineThroughput>
-<Interval-min>52</Interval-min>
-<Interval-max>52</Interval-max>
+<Best-caseLatency>71</Best-caseLatency>
+<Average-caseLatency>71</Average-caseLatency>
+<Worst-caseLatency>71</Worst-caseLatency>
+<Best-caseRealTimeLatency>0.355 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>0.355 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>0.355 us</Worst-caseRealTimeLatency>
+<DataflowPipelineThroughput>63</DataflowPipelineThroughput>
+<Interval-min>63</Interval-min>
+<Interval-max>63</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/cnn_core.cpp:14</SourceLocation>
+<SourceLocation>firmware/cnn_core.cpp:10</SourceLocation>
 </SummaryOfViolations>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>5</BRAM_18K>
-<DSP>40</DSP>
-<FF>5459</FF>
-<LUT>14105</LUT>
+<BRAM_18K>155</BRAM_18K>
+<DSP>48</DSP>
+<FF>24900</FF>
+<LUT>56457</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>
@@ -94,8 +94,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>layer9_out_TDATA</name>
-<Object>layer9_out</Object>
+<name>layer12_out_TDATA</name>
+<Object>layer12_out</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -106,8 +106,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>layer9_out_TVALID</name>
-<Object>layer9_out</Object>
+<name>layer12_out_TVALID</name>
+<Object>layer12_out</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>
@@ -118,8 +118,8 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
-<name>layer9_out_TREADY</name>
-<Object>layer9_out</Object>
+<name>layer12_out_TREADY</name>
+<Object>layer12_out</Object>
 <Type>pointer</Type>
 <Scope></Scope>
 <IOProtocol>axis</IOProtocol>

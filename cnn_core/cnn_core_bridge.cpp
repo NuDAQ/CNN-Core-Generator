@@ -62,20 +62,20 @@ void collect_trace_output(struct trace_data *outputs) {
     }
 }
 
-void cnn_core_float(float *waveform, float *layer9_out) {
+void cnn_core_float(float *waveform, float *layer12_out) {
     hls::stream<waveform_x8_t> waveform_ap("waveform");
     pack_aria_input(waveform, waveform_ap);
-    hls::stream<result_t> layer9_out_ap("layer9_out");
-    cnn_core(waveform_ap, layer9_out_ap);
-    nnet::convert_data<result_t, float, 1>(layer9_out_ap, layer9_out);
+    hls::stream<result_t> layer12_out_ap("layer12_out");
+    cnn_core(waveform_ap, layer12_out_ap);
+    nnet::convert_data<result_t, float, 1>(layer12_out_ap, layer12_out);
 }
 
-void cnn_core_double(double *waveform, double *layer9_out) {
+void cnn_core_double(double *waveform, double *layer12_out) {
     hls::stream<waveform_x8_t> waveform_ap("waveform");
     pack_aria_input(waveform, waveform_ap);
-    hls::stream<result_t> layer9_out_ap("layer9_out");
-    cnn_core(waveform_ap, layer9_out_ap);
-    nnet::convert_data<result_t, double, 1>(layer9_out_ap, layer9_out);
+    hls::stream<result_t> layer12_out_ap("layer12_out");
+    cnn_core(waveform_ap, layer12_out_ap);
+    nnet::convert_data<result_t, double, 1>(layer12_out_ap, layer12_out);
 }
 
 } // extern "C"

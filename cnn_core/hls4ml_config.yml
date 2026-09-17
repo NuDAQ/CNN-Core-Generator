@@ -14,6 +14,13 @@ HLSConfig:
         result: auto
       ReuseFactor: 1
       Trace: false
+    max_pooling2d_1:
+      ConvImplementation: LineBuffer
+      Precision:
+        accum: auto
+        result: auto
+      ReuseFactor: 1
+      Trace: false
     q_conv2d:
       ConvImplementation: LineBuffer
       ParallelizationFactor: 1
@@ -23,6 +30,27 @@ HLSConfig:
         result: auto
         weight: auto
       ReuseFactor: 1
+      Trace: false
+    q_conv2d_1:
+      ConvImplementation: LineBuffer
+      ParallelizationFactor: 1
+      Precision:
+        accum: auto
+        bias: auto
+        result: auto
+        weight: auto
+      ReuseFactor: 1
+      Trace: false
+    q_conv2d_1_iq:
+      Precision:
+        result: auto
+      Trace: false
+    q_conv2d_1_relu:
+      Precision:
+        result: auto
+        table: fixed<18,8,TRN,WRAP,0>
+      ReuseFactor: 1
+      TableSize: 1024
       Trace: false
     q_conv2d_iq:
       Precision:
@@ -47,10 +75,6 @@ HLSConfig:
       Precision:
         result: auto
       Trace: false
-    ravel_repack:
-      Precision:
-        result: auto
-      Trace: false
     waveform:
       Precision:
         result: auto
@@ -69,15 +93,16 @@ InputShapes:
   waveform:
   - 256
   - 4
+  - 1
 KerasModel: !keras_model 'keras_model.keras'
 OutputDir: .
 OutputPredictions: null
 OutputShapes:
-  layer9_out:
+  layer12_out:
   - 1
 Part: xcku5p-ffvb676-2-e
 ProjectName: cnn_core
-Stamp: 54fbfb71
+Stamp: dfdf36dd2398d4ac
 Version: 1.0.0
 WriterConfig:
   Namespace: null

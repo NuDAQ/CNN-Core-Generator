@@ -1,5 +1,5 @@
    
-    parameter PROC_NUM = 2;
+    parameter PROC_NUM = 5;
     parameter ST_IDLE = 3'b000;
     parameter ST_FILTER_FAKE = 3'b001;
     parameter ST_DL_DETECTED = 3'b010;
@@ -185,16 +185,25 @@
     endfunction
 
     // get the proc path based on dl vector
-    function [776:0] proc_path(input [PROC_NUM - 1:0] dl_vec);
+    function [784:0] proc_path(input [PROC_NUM - 1:0] dl_vec);
         integer index;
         begin
             index = proc_index(dl_vec);
             case (index)
                 0 : begin
-                    proc_path = "cnn_core_cnn_core.phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_U0";
+                    proc_path = "cnn_core_cnn_core.phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config3_config5_U0";
                 end
                 1 : begin
-                    proc_path = "cnn_core_cnn_core.dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0";
+                    proc_path = "cnn_core_cnn_core.shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2d_1_2u_U0";
+                end
+                2 : begin
+                    proc_path = "cnn_core_cnn_core.relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8_U0";
+                end
+                3 : begin
+                    proc_path = "cnn_core_cnn_core.scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0";
+                end
+                4 : begin
+                    proc_path = "cnn_core_cnn_core.dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0";
                 end
                 default : begin
                     proc_path = "unknown";
@@ -214,7 +223,7 @@
     endtask
 
     // print the start of a cycle
-    task print_cycle_start(input reg [776:0] proc_path, input integer cycle_id);
+    task print_cycle_start(input reg [784:0] proc_path, input integer cycle_id);
         begin
             $display("/////////////////////////");
             $display("// Dependence cycle %0d:", cycle_id);
@@ -239,7 +248,7 @@
     endtask
 
     // print one proc component in the cycle
-    task print_cycle_proc_comp(input reg [776:0] proc_path, input integer cycle_comp_id);
+    task print_cycle_proc_comp(input reg [784:0] proc_path, input integer cycle_comp_id);
         begin
             $display("// (%0d): Process: %0s", cycle_comp_id, proc_path);
             $fdisplay(fp, "Dependence_Process_ID %0d", cycle_comp_id);
@@ -249,7 +258,7 @@
 
     // print one channel component in the cycle
     task print_cycle_chan_comp(input [PROC_NUM - 1:0] dl_vec1, input [PROC_NUM - 1:0] dl_vec2);
-        reg [792:0] chan_path;
+        reg [840:0] chan_path;
         integer index1;
         integer index2;
         begin
@@ -259,20 +268,20 @@
                 0 : begin
                     case(index2)
                     1: begin
-                        if (~phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_U0.layer6_out_x4_blk_n) begin
-                            if (~layer6_out_x4_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core_cnn_core.layer6_out_x4_U' written by process 'cnn_core_cnn_core.dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer6_out_x4_U");
+                        if (~phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config3_config5_U0.layer5_out_x4_blk_n) begin
+                            if (~layer5_out_x4_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'cnn_core_cnn_core.layer5_out_x4_U' written by process 'cnn_core_cnn_core.shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2d_1_2u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer5_out_x4_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
-                            else if (~layer6_out_x4_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core_cnn_core.layer6_out_x4_U' read by process 'cnn_core_cnn_core.dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer6_out_x4_U");
+                            else if (~layer5_out_x4_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'cnn_core_cnn_core.layer5_out_x4_U' read by process 'cnn_core_cnn_core.shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2d_1_2u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer5_out_x4_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~start_for_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0_U.if_full_n & phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_U0.ap_start & ~phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_U0.real_start & (trans_in_cnt_0 == trans_out_cnt_0) & ~start_for_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0_U.if_read) begin
-                            $display("//      Blocked by full output start propagation FIFO 'cnn_core_cnn_core.start_for_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0_U' read by process 'cnn_core_cnn_core.dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0',");
+                        if (~start_for_shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2dcud_U.if_full_n & phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config3_config5_U0.ap_start & ~phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config3_config5_U0.real_start & (trans_in_cnt_0 == trans_out_cnt_0) & ~start_for_shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2dcud_U.if_read) begin
+                            $display("//      Blocked by full output start propagation FIFO 'cnn_core_cnn_core.start_for_shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2dcud_U' read by process 'cnn_core_cnn_core.shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2d_1_2u_U0',");
                         end
                     end
                     endcase
@@ -280,20 +289,134 @@
                 1 : begin
                     case(index2)
                     0: begin
-                        if (~dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0.grp_dense_wide_stream_array_array_ap_fixed_1u_config9_Pipeline_DenseValues_fu_51.layer6_out_x4_blk_n) begin
-                            if (~layer6_out_x4_U.if_empty_n) begin
-                                $display("//      Blocked by empty input FIFO 'cnn_core_cnn_core.layer6_out_x4_U' written by process 'cnn_core_cnn_core.phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer6_out_x4_U");
+                        if (~shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2d_1_2u_U0.layer5_out_x4_blk_n) begin
+                            if (~layer5_out_x4_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'cnn_core_cnn_core.layer5_out_x4_U' written by process 'cnn_core_cnn_core.phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config3_config5_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer5_out_x4_U");
                                 $fdisplay(fp, "Dependence_Channel_status EMPTY");
                             end
-                            else if (~layer6_out_x4_U.if_full_n) begin
-                                $display("//      Blocked by full output FIFO 'cnn_core_cnn_core.layer6_out_x4_U' read by process 'cnn_core_cnn_core.phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_U0'");
-                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer6_out_x4_U");
+                            else if (~layer5_out_x4_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'cnn_core_cnn_core.layer5_out_x4_U' read by process 'cnn_core_cnn_core.phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config3_config5_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer5_out_x4_U");
                                 $fdisplay(fp, "Dependence_Channel_status FULL");
                             end
                         end
-                        if (~start_for_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0_U.if_empty_n & dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0.ap_idle & ~start_for_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0_U.if_write) begin
-                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core_cnn_core.start_for_dense_wide_stream_array_array_ap_fixed_23_13_5_3_0_1u_config9_U0_U' written by process 'cnn_core_cnn_core.phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config4_config6_U0',");
+                        if (~start_for_shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2dcud_U.if_empty_n & shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2d_1_2u_U0.ap_idle & ~start_for_shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2dcud_U.if_write) begin
+                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core_cnn_core.start_for_shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2dcud_U' written by process 'cnn_core_cnn_core.phara_pool_aligned_hybrid_p8_cl_array_array_array_array_config3_config5_U0',");
+                        end
+                    end
+                    2: begin
+                        if (~shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2d_1_2u_U0.layer7_out_blk_n) begin
+                            if (~layer7_out_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'cnn_core_cnn_core.layer7_out_U' written by process 'cnn_core_cnn_core.relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer7_out_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~layer7_out_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'cnn_core_cnn_core.layer7_out_U' read by process 'cnn_core_cnn_core.relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer7_out_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                        if (~start_for_relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8dEe_U.if_full_n & shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2d_1_2u_U0.ap_start & ~shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2d_1_2u_U0.real_start & (trans_in_cnt_1 == trans_out_cnt_1) & ~start_for_relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8dEe_U.if_read) begin
+                            $display("//      Blocked by full output start propagation FIFO 'cnn_core_cnn_core.start_for_relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8dEe_U' read by process 'cnn_core_cnn_core.relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8_U0',");
+                        end
+                    end
+                    endcase
+                end
+                2 : begin
+                    case(index2)
+                    1: begin
+                        if (~relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8_U0.layer7_out_blk_n) begin
+                            if (~layer7_out_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'cnn_core_cnn_core.layer7_out_U' written by process 'cnn_core_cnn_core.shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2d_1_2u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer7_out_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~layer7_out_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'cnn_core_cnn_core.layer7_out_U' read by process 'cnn_core_cnn_core.shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2d_1_2u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer7_out_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                        if (~start_for_relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8dEe_U.if_empty_n & relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8_U0.ap_idle & ~start_for_relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8dEe_U.if_write) begin
+                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core_cnn_core.start_for_relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8dEe_U' written by process 'cnn_core_cnn_core.shared_conv_array_array_ap_fixed_48u_config7_4u_ravel_matrix_conv2d_1_2u_U0',");
+                        end
+                    end
+                    3: begin
+                        if (~relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8_U0.layer8_out_blk_n) begin
+                            if (~layer8_out_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'cnn_core_cnn_core.layer8_out_U' written by process 'cnn_core_cnn_core.scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer8_out_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~layer8_out_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'cnn_core_cnn_core.layer8_out_U' read by process 'cnn_core_cnn_core.scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer8_out_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                        if (~start_for_scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0_U.if_full_n & relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8_U0.ap_start & ~relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8_U0.real_start & (trans_in_cnt_2 == trans_out_cnt_2) & ~start_for_scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0_U.if_read) begin
+                            $display("//      Blocked by full output start propagation FIFO 'cnn_core_cnn_core.start_for_scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0_U' read by process 'cnn_core_cnn_core.scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0',");
+                        end
+                    end
+                    endcase
+                end
+                3 : begin
+                    case(index2)
+                    2: begin
+                        if (~scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0.layer8_out_blk_n) begin
+                            if (~layer8_out_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'cnn_core_cnn_core.layer8_out_U' written by process 'cnn_core_cnn_core.relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer8_out_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~layer8_out_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'cnn_core_cnn_core.layer8_out_U' read by process 'cnn_core_cnn_core.relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer8_out_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                        if (~start_for_scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0_U.if_empty_n & scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0.ap_idle & ~start_for_scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0_U.if_write) begin
+                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core_cnn_core.start_for_scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0_U' written by process 'cnn_core_cnn_core.relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8_U0',");
+                        end
+                    end
+                    4: begin
+                        if (~scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0.layer9_out_blk_n) begin
+                            if (~layer9_out_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'cnn_core_cnn_core.layer9_out_U' written by process 'cnn_core_cnn_core.dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer9_out_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~layer9_out_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'cnn_core_cnn_core.layer9_out_U' read by process 'cnn_core_cnn_core.dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer9_out_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                        if (~start_for_dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0_U.if_full_n & scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0.ap_start & ~scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0.real_start & (trans_in_cnt_3 == trans_out_cnt_3) & ~start_for_dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0_U.if_read) begin
+                            $display("//      Blocked by full output start propagation FIFO 'cnn_core_cnn_core.start_for_dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0_U' read by process 'cnn_core_cnn_core.dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0',");
+                        end
+                    end
+                    endcase
+                end
+                4 : begin
+                    case(index2)
+                    3: begin
+                        if (~dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0.grp_dense_wide_stream_array_array_ap_fixed_1u_config12_Pipeline_DenseValues_fu_41.layer9_out_blk_n) begin
+                            if (~layer9_out_U.if_empty_n) begin
+                                $display("//      Blocked by empty input FIFO 'cnn_core_cnn_core.layer9_out_U' written by process 'cnn_core_cnn_core.scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer9_out_U");
+                                $fdisplay(fp, "Dependence_Channel_status EMPTY");
+                            end
+                            else if (~layer9_out_U.if_full_n) begin
+                                $display("//      Blocked by full output FIFO 'cnn_core_cnn_core.layer9_out_U' read by process 'cnn_core_cnn_core.scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0'");
+                                $fdisplay(fp, "Dependence_Channel_path cnn_core_cnn_core.layer9_out_U");
+                                $fdisplay(fp, "Dependence_Channel_status FULL");
+                            end
+                        end
+                        if (~start_for_dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0_U.if_empty_n & dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0.ap_idle & ~start_for_dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0_U.if_write) begin
+                            $display("//      Blocked by missing 'ap_start' from start propagation FIFO 'cnn_core_cnn_core.start_for_dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_U0_U' written by process 'cnn_core_cnn_core.scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_U0',");
                         end
                     end
                     endcase

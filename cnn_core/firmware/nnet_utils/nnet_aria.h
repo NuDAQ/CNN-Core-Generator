@@ -10,7 +10,7 @@ namespace nnet {
 
 template <class BASE_CONFIG_T>
 struct aria_first_conv_mult_config : BASE_CONFIG_T {
-    static const unsigned multiplier_limit = 280;
+    static const unsigned multiplier_limit = 480;
 };
 
 template <class data_T, class res_T, typename CONFIG_T>
@@ -35,12 +35,7 @@ void first_conv_2row_4lane_temporal_wide_cl(
     data_value_t row_buf[CONFIG_T::filt_height][CONFIG_T::in_width];
     #pragma HLS ARRAY_PARTITION variable=row_buf complete dim=0
 
-    constexpr unsigned EMIT_ROW0_PHASE =
-        ((CONFIG_T::filt_height - 1) / 2) % CONFIG_T::stride_height;
-    constexpr unsigned EMIT_ROW1_PHASE =
-        ((CONFIG_T::filt_height - 1 + CONFIG_T::stride_height) / 2) % CONFIG_T::stride_height;
-    constexpr unsigned PAIR_WINDOW_START = CONFIG_T::filt_height / 2;
-    unsigned pair_phase = 0;
+    unsigned next_window_end = CONFIG_T::filt_height - 1;
 
 ReadPairsWide:
     for (unsigned i_pair = 0; i_pair < CONFIG_T::in_height / 2; i_pair++) {
@@ -78,9 +73,9 @@ ReadPairsWide:
             }
         }
 
-        const bool have_window = i_pair >= PAIR_WINDOW_START;
-        const bool emit_row0 = have_window && pair_phase == EMIT_ROW0_PHASE;
-        const bool emit_row1 = have_window && pair_phase == EMIT_ROW1_PHASE;
+        const unsigned pair_row0 = i_pair * 2;
+        const bool emit_row0 = next_window_end == pair_row0;
+        const bool emit_row1 = next_window_end == pair_row0 + 1;
         if (emit_row0 || emit_row1) {
             res_T res_pack;
             PRAGMA_DATA_PACK(res_pack)
@@ -111,8 +106,8 @@ ReadPairsWide:
                 }
             }
             res.write(res_pack);
+            next_window_end += CONFIG_T::stride_height;
         }
-        pair_phase = pair_phase == CONFIG_T::stride_height - 1 ? 0 : pair_phase + 1;
     }
 }
 
@@ -344,7 +339,7 @@ ComputePooledWidth:
 template <class input_value_T, class conv_value_T>
 void phara_affine_graph(
     input_value_T inputs[8],
-    conv_value_T outputs[14]
+    conv_value_T outputs[24]
 ) {
     #pragma HLS INLINE
     typedef ap_int<16> accum_code_t;
@@ -380,191 +375,274 @@ void phara_affine_graph(
     phara_x7_input_code.range(input_value_T::width - 1, 0) =
         inputs[7].range(input_value_T::width - 1, 0);
     accum_code_t phara_x7 = phara_x7_input_code;
-    accum_code_t phara_x0_5f_shift1 = phara_x0 << 1;
+    accum_code_t phara_x0_5f_shift2 = phara_x0 << 2;
+    accum_code_t phara_x0_5f_c5_5f_positive1 = phara_x0 + phara_x0_5f_shift2;
     accum_code_t phara_x1_5f_shift3 = phara_x1 << 3;
     accum_code_t phara_x1_5f_c_2d_8_5f_negate = -phara_x1_5f_shift3;
     accum_code_t phara_x2_5f_shift1 = phara_x2 << 1;
     accum_code_t phara_x2_5f_shift3 = phara_x2 << 3;
-    accum_code_t phara_x2_5f_c_2d_10_5f_negate = -phara_x2_5f_shift1;
-    accum_code_t phara_x2_5f_c_2d_10_5f_negative1 = phara_x2_5f_c_2d_10_5f_negate - phara_x2_5f_shift3;
+    accum_code_t phara_x2_5f_c_2d_6_5f_negative1 = phara_x2_5f_shift1 - phara_x2_5f_shift3;
     accum_code_t phara_x3_5f_shift3 = phara_x3 << 3;
-    accum_code_t phara_x3_5f_c_2d_7_5f_negative1 = phara_x3 - phara_x3_5f_shift3;
     accum_code_t phara_x4_5f_shift1 = phara_x4 << 1;
     accum_code_t phara_x4_5f_c_2d_2_5f_negate = -phara_x4_5f_shift1;
-    accum_code_t phara_constant0 = -448;
-    accum_code_t phara_x0_5f_c_2d_2_5f_negate = -phara_x0_5f_shift1;
-    accum_code_t phara_x2_5f_shift2 = phara_x2 << 2;
-    accum_code_t phara_constant1 = 320;
-    accum_code_t phara_x0_5f_shift2 = phara_x0 << 2;
-    accum_code_t phara_x0_5f_c_2d_5_5f_negate = -phara_x0;
-    accum_code_t phara_x0_5f_c_2d_5_5f_negative1 = phara_x0_5f_c_2d_5_5f_negate - phara_x0_5f_shift2;
+    accum_code_t phara_constant0 = -192;
+    accum_code_t phara_x0_5f_c_2d_1_5f_negate = -phara_x0;
+    accum_code_t phara_x1_5f_shift2 = phara_x1 << 2;
+    accum_code_t phara_x1_5f_c_2d_5_5f_negate = -phara_x1;
+    accum_code_t phara_x1_5f_c_2d_5_5f_negative1 = phara_x1_5f_c_2d_5_5f_negate - phara_x1_5f_shift2;
+    accum_code_t phara_x2_5f_c_2d_2_5f_negate = -phara_x2_5f_shift1;
+    accum_code_t phara_x3_5f_c_2d_1_5f_negate = -phara_x3;
+    accum_code_t phara_x4_5f_c_2d_1_5f_negate = -phara_x4;
+    accum_code_t phara_constant1 = 384;
+    accum_code_t phara_x0_5f_shift1 = phara_x0 << 1;
+    accum_code_t phara_x0_5f_shift3 = phara_x0 << 3;
+    accum_code_t phara_x0_5f_c_2d_6_5f_negative1 = phara_x0_5f_shift1 - phara_x0_5f_shift3;
+    accum_code_t phara_x1_5f_c_2d_11_5f_dsp = phara_x1 * -11;
+    #pragma HLS BIND_OP variable=phara_x1_5f_c_2d_11_5f_dsp op=mul impl=dsp
+    accum_code_t phara_x2_5f_c_2d_10_5f_negate = -phara_x2_5f_shift1;
+    accum_code_t phara_x2_5f_c_2d_10_5f_negative1 = phara_x2_5f_c_2d_10_5f_negate - phara_x2_5f_shift3;
+    accum_code_t phara_x3_5f_shift2 = phara_x3 << 2;
+    accum_code_t phara_x3_5f_c_2d_5_5f_negate = -phara_x3;
+    accum_code_t phara_x3_5f_c_2d_5_5f_negative1 = phara_x3_5f_c_2d_5_5f_negate - phara_x3_5f_shift2;
+    accum_code_t phara_constant2 = -320;
+    accum_code_t phara_x0_5f_c_2d_3_5f_negative1 = phara_x0 - phara_x0_5f_shift2;
+    accum_code_t phara_x1_5f_c9_5f_positive1 = phara_x1 + phara_x1_5f_shift3;
+    accum_code_t phara_x2_5f_c10_5f_positive1 = phara_x2_5f_shift1 + phara_x2_5f_shift3;
     accum_code_t phara_x3_5f_c11_5f_dsp = phara_x3 * 11;
     #pragma HLS BIND_OP variable=phara_x3_5f_c11_5f_dsp op=mul impl=dsp
     accum_code_t phara_x4_5f_shift3 = phara_x4 << 3;
-    accum_code_t phara_x4_5f_c9_5f_positive1 = phara_x4 + phara_x4_5f_shift3;
-    accum_code_t phara_x0_5f_shift3 = phara_x0 << 3;
-    accum_code_t phara_x0_5f_c_2d_10_5f_negate = -phara_x0_5f_shift1;
-    accum_code_t phara_x0_5f_c_2d_10_5f_negative1 = phara_x0_5f_c_2d_10_5f_negate - phara_x0_5f_shift3;
-    accum_code_t phara_x1_5f_shift1 = phara_x1 << 1;
-    accum_code_t phara_x1_5f_c_2d_10_5f_negate = -phara_x1_5f_shift1;
-    accum_code_t phara_x1_5f_c_2d_10_5f_negative1 = phara_x1_5f_c_2d_10_5f_negate - phara_x1_5f_shift3;
-    accum_code_t phara_x2_5f_c_2d_8_5f_negate = -phara_x2_5f_shift3;
-    accum_code_t phara_x3_5f_c_2d_8_5f_negate = -phara_x3_5f_shift3;
-    accum_code_t phara_x4_5f_shift2 = phara_x4 << 2;
-    accum_code_t phara_x4_5f_c_2d_5_5f_negate = -phara_x4;
-    accum_code_t phara_x4_5f_c_2d_5_5f_negative1 = phara_x4_5f_c_2d_5_5f_negate - phara_x4_5f_shift2;
-    accum_code_t phara_constant2 = -512;
-    accum_code_t phara_x0_5f_c_2d_1_5f_negate = -phara_x0;
-    accum_code_t phara_x1_5f_c_2d_6_5f_negative1 = phara_x1_5f_shift1 - phara_x1_5f_shift3;
-    accum_code_t phara_x2_5f_c_2d_1_5f_negate = -phara_x2;
-    accum_code_t phara_x3_5f_shift2 = phara_x3 << 2;
-    accum_code_t phara_x4_5f_c5_5f_positive1 = phara_x4 + phara_x4_5f_shift2;
-    accum_code_t phara_constant3 = 256;
-    accum_code_t phara_x0_5f_c_2d_3_5f_negative1 = phara_x0 - phara_x0_5f_shift2;
-    accum_code_t phara_x2_5f_c_2d_3_5f_negative1 = phara_x2 - phara_x2_5f_shift2;
+    accum_code_t phara_x4_5f_c6_5f_negative1 = phara_x4_5f_shift3 - phara_x4_5f_shift1;
+    accum_code_t phara_x1_5f_c3_5f_negative1 = phara_x1_5f_shift2 - phara_x1;
+    accum_code_t phara_x2_5f_c7_5f_negative1 = phara_x2_5f_shift3 - phara_x2;
     accum_code_t phara_x3_5f_shift1 = phara_x3 << 1;
     accum_code_t phara_x3_5f_c6_5f_negative1 = phara_x3_5f_shift3 - phara_x3_5f_shift1;
-    accum_code_t phara_x0_5f_c6_5f_negative1 = phara_x0_5f_shift3 - phara_x0_5f_shift1;
-    accum_code_t phara_x1_5f_c13_5f_dsp = phara_x1 * 13;
-    #pragma HLS BIND_OP variable=phara_x1_5f_c13_5f_dsp op=mul impl=dsp
-    accum_code_t phara_x2_5f_c13_5f_dsp = phara_x2 * 13;
-    #pragma HLS BIND_OP variable=phara_x2_5f_c13_5f_dsp op=mul impl=dsp
-    accum_code_t phara_x3_5f_c9_5f_positive1 = phara_x3 + phara_x3_5f_shift3;
     accum_code_t phara_x4_5f_c7_5f_negative1 = phara_x4_5f_shift3 - phara_x4;
-    accum_code_t phara_constant4 = -576;
+    accum_code_t phara_constant3 = -256;
+    accum_code_t phara_x1_5f_shift1 = phara_x1 << 1;
+    accum_code_t phara_x2_5f_shift2 = phara_x2 << 2;
+    accum_code_t phara_x2_5f_c_2d_3_5f_negative1 = phara_x2 - phara_x2_5f_shift2;
+    accum_code_t phara_x3_5f_c_2d_3_5f_negative1 = phara_x3 - phara_x3_5f_shift2;
+    accum_code_t phara_constant4 = 320;
+    accum_code_t phara_x0_5f_c10_5f_positive1 = phara_x0_5f_shift1 + phara_x0_5f_shift3;
+    accum_code_t phara_x1_5f_c7_5f_negative1 = phara_x1_5f_shift3 - phara_x1;
+    accum_code_t phara_x2_5f_c3_5f_negative1 = phara_x2_5f_shift2 - phara_x2;
+    accum_code_t phara_x3_5f_c3_5f_negative1 = phara_x3_5f_shift2 - phara_x3;
+    accum_code_t phara_x0_5f_c_2d_2_5f_negate = -phara_x0_5f_shift1;
+    accum_code_t phara_x1_5f_c_2d_4_5f_negate = -phara_x1_5f_shift2;
+    accum_code_t phara_x3_5f_c5_5f_positive1 = phara_x3 + phara_x3_5f_shift2;
+    accum_code_t phara_x2_5f_shift4 = phara_x2 << 4;
+    accum_code_t phara_x2_5f_c12_5f_negative1 = phara_x2_5f_shift4 - phara_x2_5f_shift2;
     accum_code_t phara_x4_5f_c_2d_8_5f_negate = -phara_x4_5f_shift3;
+    accum_code_t phara_constant5 = -384;
+    accum_code_t phara_x1_5f_shift4 = phara_x1 << 4;
+    accum_code_t phara_x1_5f_c12_5f_negative1 = phara_x1_5f_shift4 - phara_x1_5f_shift2;
+    accum_code_t phara_x2_5f_c6_5f_negative1 = phara_x2_5f_shift3 - phara_x2_5f_shift1;
+    accum_code_t phara_x4_5f_shift2 = phara_x4 << 2;
+    accum_code_t phara_x0_5f_c_2d_9_5f_negate = -phara_x0;
+    accum_code_t phara_x0_5f_c_2d_9_5f_negative1 = phara_x0_5f_c_2d_9_5f_negate - phara_x0_5f_shift3;
+    accum_code_t phara_x1_5f_c_2d_7_5f_negative1 = phara_x1 - phara_x1_5f_shift3;
     accum_code_t phara_x5_5f_shift1 = phara_x5 << 1;
     accum_code_t phara_x5_5f_shift3 = phara_x5 << 3;
-    accum_code_t phara_x5_5f_c_2d_10_5f_negate = -phara_x5_5f_shift1;
-    accum_code_t phara_x5_5f_c_2d_10_5f_negative1 = phara_x5_5f_c_2d_10_5f_negate - phara_x5_5f_shift3;
+    accum_code_t phara_x5_5f_c_2d_6_5f_negative1 = phara_x5_5f_shift1 - phara_x5_5f_shift3;
     accum_code_t phara_x6_5f_shift3 = phara_x6 << 3;
-    accum_code_t phara_x6_5f_c_2d_7_5f_negative1 = phara_x6 - phara_x6_5f_shift3;
     accum_code_t phara_x7_5f_shift1 = phara_x7 << 1;
     accum_code_t phara_x7_5f_c_2d_2_5f_negate = -phara_x7_5f_shift1;
-    accum_code_t phara_x3_5f_c_2d_2_5f_negate = -phara_x3_5f_shift1;
-    accum_code_t phara_x5_5f_shift2 = phara_x5 << 2;
-    accum_code_t phara_x3_5f_c_2d_5_5f_negate = -phara_x3;
-    accum_code_t phara_x3_5f_c_2d_5_5f_negative1 = phara_x3_5f_c_2d_5_5f_negate - phara_x3_5f_shift2;
+    accum_code_t phara_x4_5f_c_2d_5_5f_negate = -phara_x4;
+    accum_code_t phara_x4_5f_c_2d_5_5f_negative1 = phara_x4_5f_c_2d_5_5f_negate - phara_x4_5f_shift2;
+    accum_code_t phara_x5_5f_c_2d_2_5f_negate = -phara_x5_5f_shift1;
+    accum_code_t phara_x6_5f_c_2d_1_5f_negate = -phara_x6;
+    accum_code_t phara_x7_5f_c_2d_1_5f_negate = -phara_x7;
+    accum_code_t phara_x3_5f_c_2d_6_5f_negative1 = phara_x3_5f_shift1 - phara_x3_5f_shift3;
+    accum_code_t phara_x4_5f_c_2d_11_5f_dsp = phara_x4 * -11;
+    #pragma HLS BIND_OP variable=phara_x4_5f_c_2d_11_5f_dsp op=mul impl=dsp
+    accum_code_t phara_x5_5f_c_2d_10_5f_negate = -phara_x5_5f_shift1;
+    accum_code_t phara_x5_5f_c_2d_10_5f_negative1 = phara_x5_5f_c_2d_10_5f_negate - phara_x5_5f_shift3;
+    accum_code_t phara_x6_5f_shift2 = phara_x6 << 2;
+    accum_code_t phara_x6_5f_c_2d_5_5f_negate = -phara_x6;
+    accum_code_t phara_x6_5f_c_2d_5_5f_negative1 = phara_x6_5f_c_2d_5_5f_negate - phara_x6_5f_shift2;
+    accum_code_t phara_x4_5f_c9_5f_positive1 = phara_x4 + phara_x4_5f_shift3;
+    accum_code_t phara_x5_5f_c10_5f_positive1 = phara_x5_5f_shift1 + phara_x5_5f_shift3;
     accum_code_t phara_x6_5f_c11_5f_dsp = phara_x6 * 11;
     #pragma HLS BIND_OP variable=phara_x6_5f_c11_5f_dsp op=mul impl=dsp
     accum_code_t phara_x7_5f_shift3 = phara_x7 << 3;
-    accum_code_t phara_x7_5f_c9_5f_positive1 = phara_x7 + phara_x7_5f_shift3;
-    accum_code_t phara_x3_5f_c_2d_10_5f_negate = -phara_x3_5f_shift1;
-    accum_code_t phara_x3_5f_c_2d_10_5f_negative1 = phara_x3_5f_c_2d_10_5f_negate - phara_x3_5f_shift3;
-    accum_code_t phara_x4_5f_c_2d_10_5f_negate = -phara_x4_5f_shift1;
-    accum_code_t phara_x4_5f_c_2d_10_5f_negative1 = phara_x4_5f_c_2d_10_5f_negate - phara_x4_5f_shift3;
-    accum_code_t phara_x5_5f_c_2d_8_5f_negate = -phara_x5_5f_shift3;
-    accum_code_t phara_x6_5f_c_2d_8_5f_negate = -phara_x6_5f_shift3;
-    accum_code_t phara_x7_5f_shift2 = phara_x7 << 2;
-    accum_code_t phara_x7_5f_c_2d_5_5f_negate = -phara_x7;
-    accum_code_t phara_x7_5f_c_2d_5_5f_negative1 = phara_x7_5f_c_2d_5_5f_negate - phara_x7_5f_shift2;
-    accum_code_t phara_x3_5f_c_2d_1_5f_negate = -phara_x3;
-    accum_code_t phara_x4_5f_c_2d_6_5f_negative1 = phara_x4_5f_shift1 - phara_x4_5f_shift3;
-    accum_code_t phara_x5_5f_c_2d_1_5f_negate = -phara_x5;
-    accum_code_t phara_x6_5f_shift2 = phara_x6 << 2;
-    accum_code_t phara_x7_5f_c5_5f_positive1 = phara_x7 + phara_x7_5f_shift2;
-    accum_code_t phara_x3_5f_c_2d_3_5f_negative1 = phara_x3 - phara_x3_5f_shift2;
-    accum_code_t phara_x5_5f_c_2d_3_5f_negative1 = phara_x5 - phara_x5_5f_shift2;
+    accum_code_t phara_x7_5f_c6_5f_negative1 = phara_x7_5f_shift3 - phara_x7_5f_shift1;
+    accum_code_t phara_x4_5f_c3_5f_negative1 = phara_x4_5f_shift2 - phara_x4;
+    accum_code_t phara_x5_5f_c7_5f_negative1 = phara_x5_5f_shift3 - phara_x5;
     accum_code_t phara_x6_5f_shift1 = phara_x6 << 1;
     accum_code_t phara_x6_5f_c6_5f_negative1 = phara_x6_5f_shift3 - phara_x6_5f_shift1;
-    accum_code_t phara_x4_5f_c13_5f_dsp = phara_x4 * 13;
-    #pragma HLS BIND_OP variable=phara_x4_5f_c13_5f_dsp op=mul impl=dsp
-    accum_code_t phara_x5_5f_c13_5f_dsp = phara_x5 * 13;
-    #pragma HLS BIND_OP variable=phara_x5_5f_c13_5f_dsp op=mul impl=dsp
-    accum_code_t phara_x6_5f_c9_5f_positive1 = phara_x6 + phara_x6_5f_shift3;
     accum_code_t phara_x7_5f_c7_5f_negative1 = phara_x7_5f_shift3 - phara_x7;
-    accum_code_t phara_cse0 = phara_constant0 + phara_x1_5f_c_2d_8_5f_negate;
-    accum_code_t phara_cse1 = phara_constant0 + phara_x4_5f_c_2d_8_5f_negate;
-    accum_code_t phara_y0_5f_f0_5f_sum1 = phara_x0_5f_shift1 + phara_x2_5f_c_2d_10_5f_negative1;
-    accum_code_t phara_y0_5f_f0_5f_sum2 = phara_x3_5f_c_2d_7_5f_negative1 + phara_y0_5f_f0_5f_sum1;
-    accum_code_t phara_y0_5f_f0_5f_sum3 = phara_x4_5f_c_2d_2_5f_negate + phara_y0_5f_f0_5f_sum2;
-    accum_code_t phara_y0_5f_f0_5f_sum4 = phara_cse0 + phara_y0_5f_f0_5f_sum3;
-    accum_code_t phara_y0_5f_f1_5f_sum1 = phara_x0_5f_c_2d_2_5f_negate + phara_x1;
-    accum_code_t phara_y0_5f_f1_5f_sum2 = phara_x2_5f_shift2 + phara_y0_5f_f1_5f_sum1;
-    accum_code_t phara_y0_5f_f1_5f_sum3 = phara_constant1 + phara_y0_5f_f1_5f_sum2;
-    accum_code_t phara_y0_5f_f2_5f_sum1 = phara_x0_5f_c_2d_5_5f_negative1 + phara_x2_5f_shift1;
-    accum_code_t phara_y0_5f_f2_5f_sum2 = phara_x3_5f_c11_5f_dsp + phara_y0_5f_f2_5f_sum1;
-    accum_code_t phara_y0_5f_f2_5f_sum3 = phara_x4_5f_c9_5f_positive1 + phara_y0_5f_f2_5f_sum2;
-    accum_code_t phara_y0_5f_f2_5f_sum4 = phara_cse0 + phara_y0_5f_f2_5f_sum3;
-    accum_code_t phara_y0_5f_f3_5f_sum1 = phara_x0_5f_c_2d_10_5f_negative1 + phara_x1_5f_c_2d_10_5f_negative1;
-    accum_code_t phara_y0_5f_f3_5f_sum2 = phara_x2_5f_c_2d_8_5f_negate + phara_y0_5f_f3_5f_sum1;
-    accum_code_t phara_y0_5f_f3_5f_sum3 = phara_x3_5f_c_2d_8_5f_negate + phara_y0_5f_f3_5f_sum2;
-    accum_code_t phara_y0_5f_f3_5f_sum4 = phara_x4_5f_c_2d_5_5f_negative1 + phara_y0_5f_f3_5f_sum3;
-    accum_code_t phara_y0_5f_f3_5f_sum5 = phara_constant2 + phara_y0_5f_f3_5f_sum4;
-    accum_code_t phara_y0_5f_f4_5f_sum1 = phara_x0_5f_c_2d_1_5f_negate + phara_x1_5f_c_2d_6_5f_negative1;
-    accum_code_t phara_y0_5f_f4_5f_sum2 = phara_x2_5f_c_2d_1_5f_negate + phara_y0_5f_f4_5f_sum1;
-    accum_code_t phara_y0_5f_f4_5f_sum3 = phara_x3_5f_shift2 + phara_y0_5f_f4_5f_sum2;
-    accum_code_t phara_y0_5f_f4_5f_sum4 = phara_x4_5f_c5_5f_positive1 + phara_y0_5f_f4_5f_sum3;
-    accum_code_t phara_y0_5f_f4_5f_sum5 = phara_constant3 + phara_y0_5f_f4_5f_sum4;
-    accum_code_t phara_y0_5f_f5_5f_sum1 = phara_x0_5f_c_2d_3_5f_negative1 + phara_x1_5f_shift1;
-    accum_code_t phara_y0_5f_f5_5f_sum2 = phara_x2_5f_c_2d_3_5f_negative1 + phara_y0_5f_f5_5f_sum1;
-    accum_code_t phara_y0_5f_f5_5f_sum3 = phara_x3_5f_c6_5f_negative1 + phara_y0_5f_f5_5f_sum2;
-    accum_code_t phara_y0_5f_f5_5f_sum4 = phara_x4_5f_c_2d_2_5f_negate + phara_y0_5f_f5_5f_sum3;
-    accum_code_t phara_y0_5f_f5_5f_sum5 = phara_constant3 + phara_y0_5f_f5_5f_sum4;
-    accum_code_t phara_y0_5f_f6_5f_sum1 = phara_x0_5f_c6_5f_negative1 + phara_x1_5f_c13_5f_dsp;
-    accum_code_t phara_y0_5f_f6_5f_sum2 = phara_x2_5f_c13_5f_dsp + phara_y0_5f_f6_5f_sum1;
-    accum_code_t phara_y0_5f_f6_5f_sum3 = phara_x3_5f_c9_5f_positive1 + phara_y0_5f_f6_5f_sum2;
-    accum_code_t phara_y0_5f_f6_5f_sum4 = phara_x4_5f_c7_5f_negative1 + phara_y0_5f_f6_5f_sum3;
-    accum_code_t phara_y0_5f_f6_5f_sum5 = phara_constant4 + phara_y0_5f_f6_5f_sum4;
-    accum_code_t phara_y1_5f_f0_5f_sum1 = phara_x3_5f_shift1 + phara_x5_5f_c_2d_10_5f_negative1;
-    accum_code_t phara_y1_5f_f0_5f_sum2 = phara_x6_5f_c_2d_7_5f_negative1 + phara_y1_5f_f0_5f_sum1;
-    accum_code_t phara_y1_5f_f0_5f_sum3 = phara_x7_5f_c_2d_2_5f_negate + phara_y1_5f_f0_5f_sum2;
-    accum_code_t phara_y1_5f_f0_5f_sum4 = phara_cse1 + phara_y1_5f_f0_5f_sum3;
-    accum_code_t phara_y1_5f_f1_5f_sum1 = phara_x3_5f_c_2d_2_5f_negate + phara_x4;
-    accum_code_t phara_y1_5f_f1_5f_sum2 = phara_x5_5f_shift2 + phara_y1_5f_f1_5f_sum1;
-    accum_code_t phara_y1_5f_f1_5f_sum3 = phara_constant1 + phara_y1_5f_f1_5f_sum2;
-    accum_code_t phara_y1_5f_f2_5f_sum1 = phara_x3_5f_c_2d_5_5f_negative1 + phara_x5_5f_shift1;
-    accum_code_t phara_y1_5f_f2_5f_sum2 = phara_x6_5f_c11_5f_dsp + phara_y1_5f_f2_5f_sum1;
-    accum_code_t phara_y1_5f_f2_5f_sum3 = phara_x7_5f_c9_5f_positive1 + phara_y1_5f_f2_5f_sum2;
-    accum_code_t phara_y1_5f_f2_5f_sum4 = phara_cse1 + phara_y1_5f_f2_5f_sum3;
-    accum_code_t phara_y1_5f_f3_5f_sum1 = phara_x3_5f_c_2d_10_5f_negative1 + phara_x4_5f_c_2d_10_5f_negative1;
-    accum_code_t phara_y1_5f_f3_5f_sum2 = phara_x5_5f_c_2d_8_5f_negate + phara_y1_5f_f3_5f_sum1;
-    accum_code_t phara_y1_5f_f3_5f_sum3 = phara_x6_5f_c_2d_8_5f_negate + phara_y1_5f_f3_5f_sum2;
-    accum_code_t phara_y1_5f_f3_5f_sum4 = phara_x7_5f_c_2d_5_5f_negative1 + phara_y1_5f_f3_5f_sum3;
-    accum_code_t phara_y1_5f_f3_5f_sum5 = phara_constant2 + phara_y1_5f_f3_5f_sum4;
-    accum_code_t phara_y1_5f_f4_5f_sum1 = phara_x3_5f_c_2d_1_5f_negate + phara_x4_5f_c_2d_6_5f_negative1;
-    accum_code_t phara_y1_5f_f4_5f_sum2 = phara_x5_5f_c_2d_1_5f_negate + phara_y1_5f_f4_5f_sum1;
-    accum_code_t phara_y1_5f_f4_5f_sum3 = phara_x6_5f_shift2 + phara_y1_5f_f4_5f_sum2;
-    accum_code_t phara_y1_5f_f4_5f_sum4 = phara_x7_5f_c5_5f_positive1 + phara_y1_5f_f4_5f_sum3;
-    accum_code_t phara_y1_5f_f4_5f_sum5 = phara_constant3 + phara_y1_5f_f4_5f_sum4;
-    accum_code_t phara_y1_5f_f5_5f_sum1 = phara_x3_5f_c_2d_3_5f_negative1 + phara_x4_5f_shift1;
-    accum_code_t phara_y1_5f_f5_5f_sum2 = phara_x5_5f_c_2d_3_5f_negative1 + phara_y1_5f_f5_5f_sum1;
-    accum_code_t phara_y1_5f_f5_5f_sum3 = phara_x6_5f_c6_5f_negative1 + phara_y1_5f_f5_5f_sum2;
-    accum_code_t phara_y1_5f_f5_5f_sum4 = phara_x7_5f_c_2d_2_5f_negate + phara_y1_5f_f5_5f_sum3;
-    accum_code_t phara_y1_5f_f5_5f_sum5 = phara_constant3 + phara_y1_5f_f5_5f_sum4;
-    accum_code_t phara_y1_5f_f6_5f_sum1 = phara_x3_5f_c6_5f_negative1 + phara_x4_5f_c13_5f_dsp;
-    accum_code_t phara_y1_5f_f6_5f_sum2 = phara_x5_5f_c13_5f_dsp + phara_y1_5f_f6_5f_sum1;
-    accum_code_t phara_y1_5f_f6_5f_sum3 = phara_x6_5f_c9_5f_positive1 + phara_y1_5f_f6_5f_sum2;
-    accum_code_t phara_y1_5f_f6_5f_sum4 = phara_x7_5f_c7_5f_negative1 + phara_y1_5f_f6_5f_sum3;
-    accum_code_t phara_y1_5f_f6_5f_sum5 = phara_constant4 + phara_y1_5f_f6_5f_sum4;
+    accum_code_t phara_x5_5f_shift2 = phara_x5 << 2;
+    accum_code_t phara_x5_5f_c_2d_3_5f_negative1 = phara_x5 - phara_x5_5f_shift2;
+    accum_code_t phara_x6_5f_c_2d_3_5f_negative1 = phara_x6 - phara_x6_5f_shift2;
+    accum_code_t phara_x3_5f_c10_5f_positive1 = phara_x3_5f_shift1 + phara_x3_5f_shift3;
+    accum_code_t phara_x5_5f_c3_5f_negative1 = phara_x5_5f_shift2 - phara_x5;
+    accum_code_t phara_x6_5f_c3_5f_negative1 = phara_x6_5f_shift2 - phara_x6;
+    accum_code_t phara_x3_5f_c_2d_2_5f_negate = -phara_x3_5f_shift1;
+    accum_code_t phara_x4_5f_c_2d_4_5f_negate = -phara_x4_5f_shift2;
+    accum_code_t phara_x6_5f_c5_5f_positive1 = phara_x6 + phara_x6_5f_shift2;
+    accum_code_t phara_x5_5f_shift4 = phara_x5 << 4;
+    accum_code_t phara_x5_5f_c12_5f_negative1 = phara_x5_5f_shift4 - phara_x5_5f_shift2;
+    accum_code_t phara_x7_5f_c_2d_8_5f_negate = -phara_x7_5f_shift3;
+    accum_code_t phara_x4_5f_shift4 = phara_x4 << 4;
+    accum_code_t phara_x4_5f_c12_5f_negative1 = phara_x4_5f_shift4 - phara_x4_5f_shift2;
+    accum_code_t phara_x5_5f_c6_5f_negative1 = phara_x5_5f_shift3 - phara_x5_5f_shift1;
+    accum_code_t phara_x7_5f_shift2 = phara_x7 << 2;
+    accum_code_t phara_x3_5f_c_2d_9_5f_negate = -phara_x3;
+    accum_code_t phara_x3_5f_c_2d_9_5f_negative1 = phara_x3_5f_c_2d_9_5f_negate - phara_x3_5f_shift3;
+    accum_code_t phara_x4_5f_c_2d_7_5f_negative1 = phara_x4 - phara_x4_5f_shift3;
+    accum_code_t phara_cse0 = phara_constant1 + phara_x3_5f_c_2d_1_5f_negate;
+    accum_code_t phara_cse1 = phara_constant2 + phara_x3_5f_c_2d_3_5f_negative1;
+    accum_code_t phara_cse2 = phara_constant3 + phara_x4_5f_c7_5f_negative1;
+    accum_code_t phara_cse3 = phara_constant4 + phara_x1_5f_shift1;
+    accum_code_t phara_cse4 = phara_constant4 + phara_x4_5f_shift1;
+    accum_code_t phara_y0_5f_f0_5f_tree0_5f_0 = phara_x0_5f_c5_5f_positive1 + phara_x1_5f_c_2d_8_5f_negate;
+    accum_code_t phara_y0_5f_f0_5f_tree0_5f_2 = phara_x2_5f_c_2d_6_5f_negative1 + phara_x3_5f_shift3;
+    accum_code_t phara_y0_5f_f0_5f_tree0_5f_4 = phara_constant0 + phara_x4_5f_c_2d_2_5f_negate;
+    accum_code_t phara_y0_5f_f0_5f_tree1_5f_0 = phara_y0_5f_f0_5f_tree0_5f_0 + phara_y0_5f_f0_5f_tree0_5f_2;
+    accum_code_t phara_y0_5f_f0_5f_tree2_5f_0 = phara_y0_5f_f0_5f_tree0_5f_4 + phara_y0_5f_f0_5f_tree1_5f_0;
+    accum_code_t phara_y0_5f_f1_5f_tree0_5f_0 = phara_x0_5f_c_2d_1_5f_negate + phara_x1_5f_c_2d_5_5f_negative1;
+    accum_code_t phara_y0_5f_f1_5f_tree0_5f_2 = phara_x2_5f_c_2d_2_5f_negate + phara_x4_5f_c_2d_1_5f_negate;
+    accum_code_t phara_y0_5f_f1_5f_tree1_5f_0 = phara_y0_5f_f1_5f_tree0_5f_0 + phara_y0_5f_f1_5f_tree0_5f_2;
+    accum_code_t phara_y0_5f_f1_5f_tree2_5f_0 = phara_cse0 + phara_y0_5f_f1_5f_tree1_5f_0;
+    accum_code_t phara_y0_5f_f2_5f_tree0_5f_0 = phara_x0_5f_c_2d_6_5f_negative1 + phara_x1_5f_c_2d_11_5f_dsp;
+    accum_code_t phara_y0_5f_f2_5f_tree0_5f_2 = phara_x2_5f_c_2d_10_5f_negative1 + phara_x3_5f_c_2d_5_5f_negative1;
+    accum_code_t phara_y0_5f_f2_5f_tree0_5f_4 = phara_constant2 + phara_x4_5f_c_2d_2_5f_negate;
+    accum_code_t phara_y0_5f_f2_5f_tree1_5f_0 = phara_y0_5f_f2_5f_tree0_5f_0 + phara_y0_5f_f2_5f_tree0_5f_2;
+    accum_code_t phara_y0_5f_f2_5f_tree2_5f_0 = phara_y0_5f_f2_5f_tree0_5f_4 + phara_y0_5f_f2_5f_tree1_5f_0;
+    accum_code_t phara_y0_5f_f3_5f_tree0_5f_0 = phara_x0_5f_c_2d_3_5f_negative1 + phara_x1_5f_c9_5f_positive1;
+    accum_code_t phara_y0_5f_f3_5f_tree0_5f_2 = phara_x2_5f_c10_5f_positive1 + phara_x3_5f_c11_5f_dsp;
+    accum_code_t phara_y0_5f_f3_5f_tree0_5f_4 = phara_constant2 + phara_x4_5f_c6_5f_negative1;
+    accum_code_t phara_y0_5f_f3_5f_tree1_5f_0 = phara_y0_5f_f3_5f_tree0_5f_0 + phara_y0_5f_f3_5f_tree0_5f_2;
+    accum_code_t phara_y0_5f_f3_5f_tree2_5f_0 = phara_y0_5f_f3_5f_tree0_5f_4 + phara_y0_5f_f3_5f_tree1_5f_0;
+    accum_code_t phara_y0_5f_f4_5f_tree0_5f_0 = phara_x0_5f_shift3 + phara_x1_5f_c3_5f_negative1;
+    accum_code_t phara_y0_5f_f4_5f_tree0_5f_2 = phara_x2_5f_c7_5f_negative1 + phara_x3_5f_c6_5f_negative1;
+    accum_code_t phara_y0_5f_f4_5f_tree1_5f_0 = phara_y0_5f_f4_5f_tree0_5f_0 + phara_y0_5f_f4_5f_tree0_5f_2;
+    accum_code_t phara_y0_5f_f4_5f_tree2_5f_0 = phara_cse2 + phara_y0_5f_f4_5f_tree1_5f_0;
+    accum_code_t phara_y0_5f_f5_5f_tree0_5f_0 = phara_x2_5f_c_2d_3_5f_negative1 + phara_x3_5f_c_2d_3_5f_negative1;
+    accum_code_t phara_y0_5f_f5_5f_tree0_5f_2 = phara_cse3 + phara_x4_5f_c7_5f_negative1;
+    accum_code_t phara_y0_5f_f5_5f_tree1_5f_0 = phara_y0_5f_f5_5f_tree0_5f_0 + phara_y0_5f_f5_5f_tree0_5f_2;
+    accum_code_t phara_y0_5f_f6_5f_tree0_5f_0 = phara_x0_5f_c10_5f_positive1 + phara_x1_5f_c7_5f_negative1;
+    accum_code_t phara_y0_5f_f6_5f_tree0_5f_2 = phara_x2_5f_c_2d_3_5f_negative1 + phara_x4_5f_shift1;
+    accum_code_t phara_y0_5f_f6_5f_tree1_5f_0 = phara_y0_5f_f6_5f_tree0_5f_0 + phara_y0_5f_f6_5f_tree0_5f_2;
+    accum_code_t phara_y0_5f_f6_5f_tree2_5f_0 = phara_constant3 + phara_y0_5f_f6_5f_tree1_5f_0;
+    accum_code_t phara_y0_5f_f7_5f_tree0_5f_0 = phara_x2_5f_c3_5f_negative1 + phara_x3_5f_c3_5f_negative1;
+    accum_code_t phara_y0_5f_f7_5f_tree0_5f_2 = phara_cse3 + phara_x4;
+    accum_code_t phara_y0_5f_f7_5f_tree1_5f_0 = phara_y0_5f_f7_5f_tree0_5f_0 + phara_y0_5f_f7_5f_tree0_5f_2;
+    accum_code_t phara_y0_5f_f8_5f_tree0_5f_0 = phara_x0_5f_c_2d_2_5f_negate + phara_x1_5f_c_2d_4_5f_negate;
+    accum_code_t phara_y0_5f_f8_5f_tree0_5f_2 = phara_x3_5f_c5_5f_positive1 + phara_x4_5f_c_2d_2_5f_negate;
+    accum_code_t phara_y0_5f_f8_5f_tree1_5f_0 = phara_y0_5f_f8_5f_tree0_5f_0 + phara_y0_5f_f8_5f_tree0_5f_2;
+    accum_code_t phara_y0_5f_f8_5f_tree2_5f_0 = phara_constant4 + phara_y0_5f_f8_5f_tree1_5f_0;
+    accum_code_t phara_y0_5f_f9_5f_tree0_5f_0 = phara_x0_5f_shift2 + phara_x1_5f_shift3;
+    accum_code_t phara_y0_5f_f9_5f_tree0_5f_2 = phara_x2_5f_c12_5f_negative1 + phara_x3_5f_shift3;
+    accum_code_t phara_y0_5f_f9_5f_tree0_5f_4 = phara_constant5 + phara_x4_5f_c_2d_8_5f_negate;
+    accum_code_t phara_y0_5f_f9_5f_tree1_5f_0 = phara_y0_5f_f9_5f_tree0_5f_0 + phara_y0_5f_f9_5f_tree0_5f_2;
+    accum_code_t phara_y0_5f_f9_5f_tree2_5f_0 = phara_y0_5f_f9_5f_tree0_5f_4 + phara_y0_5f_f9_5f_tree1_5f_0;
+    accum_code_t phara_y0_5f_f10_5f_tree0_5f_0 = phara_x0 + phara_x1_5f_c12_5f_negative1;
+    accum_code_t phara_y0_5f_f10_5f_tree0_5f_2 = phara_x2_5f_c6_5f_negative1 + phara_x4_5f_shift2;
+    accum_code_t phara_y0_5f_f10_5f_tree1_5f_0 = phara_y0_5f_f10_5f_tree0_5f_0 + phara_y0_5f_f10_5f_tree0_5f_2;
+    accum_code_t phara_y0_5f_f10_5f_tree2_5f_0 = phara_cse1 + phara_y0_5f_f10_5f_tree1_5f_0;
+    accum_code_t phara_y0_5f_f11_5f_tree0_5f_0 = phara_x0_5f_c_2d_9_5f_negative1 + phara_x1_5f_c_2d_7_5f_negative1;
+    accum_code_t phara_y0_5f_f11_5f_tree0_5f_2 = phara_x2_5f_c7_5f_negative1 + phara_x3_5f_shift2;
+    accum_code_t phara_y0_5f_f11_5f_tree1_5f_0 = phara_y0_5f_f11_5f_tree0_5f_0 + phara_y0_5f_f11_5f_tree0_5f_2;
+    accum_code_t phara_y0_5f_f11_5f_tree2_5f_0 = phara_constant2 + phara_y0_5f_f11_5f_tree1_5f_0;
+    accum_code_t phara_y1_5f_f0_5f_tree0_5f_0 = phara_x3_5f_c5_5f_positive1 + phara_x4_5f_c_2d_8_5f_negate;
+    accum_code_t phara_y1_5f_f0_5f_tree0_5f_2 = phara_x5_5f_c_2d_6_5f_negative1 + phara_x6_5f_shift3;
+    accum_code_t phara_y1_5f_f0_5f_tree0_5f_4 = phara_constant0 + phara_x7_5f_c_2d_2_5f_negate;
+    accum_code_t phara_y1_5f_f0_5f_tree1_5f_0 = phara_y1_5f_f0_5f_tree0_5f_0 + phara_y1_5f_f0_5f_tree0_5f_2;
+    accum_code_t phara_y1_5f_f0_5f_tree2_5f_0 = phara_y1_5f_f0_5f_tree0_5f_4 + phara_y1_5f_f0_5f_tree1_5f_0;
+    accum_code_t phara_y1_5f_f1_5f_tree0_5f_0 = phara_x4_5f_c_2d_5_5f_negative1 + phara_x5_5f_c_2d_2_5f_negate;
+    accum_code_t phara_y1_5f_f1_5f_tree0_5f_2 = phara_x6_5f_c_2d_1_5f_negate + phara_x7_5f_c_2d_1_5f_negate;
+    accum_code_t phara_y1_5f_f1_5f_tree1_5f_0 = phara_y1_5f_f1_5f_tree0_5f_0 + phara_y1_5f_f1_5f_tree0_5f_2;
+    accum_code_t phara_y1_5f_f1_5f_tree2_5f_0 = phara_cse0 + phara_y1_5f_f1_5f_tree1_5f_0;
+    accum_code_t phara_y1_5f_f2_5f_tree0_5f_0 = phara_x3_5f_c_2d_6_5f_negative1 + phara_x4_5f_c_2d_11_5f_dsp;
+    accum_code_t phara_y1_5f_f2_5f_tree0_5f_2 = phara_x5_5f_c_2d_10_5f_negative1 + phara_x6_5f_c_2d_5_5f_negative1;
+    accum_code_t phara_y1_5f_f2_5f_tree0_5f_4 = phara_constant2 + phara_x7_5f_c_2d_2_5f_negate;
+    accum_code_t phara_y1_5f_f2_5f_tree1_5f_0 = phara_y1_5f_f2_5f_tree0_5f_0 + phara_y1_5f_f2_5f_tree0_5f_2;
+    accum_code_t phara_y1_5f_f2_5f_tree2_5f_0 = phara_y1_5f_f2_5f_tree0_5f_4 + phara_y1_5f_f2_5f_tree1_5f_0;
+    accum_code_t phara_y1_5f_f3_5f_tree0_5f_0 = phara_x4_5f_c9_5f_positive1 + phara_x5_5f_c10_5f_positive1;
+    accum_code_t phara_y1_5f_f3_5f_tree0_5f_2 = phara_x6_5f_c11_5f_dsp + phara_x7_5f_c6_5f_negative1;
+    accum_code_t phara_y1_5f_f3_5f_tree1_5f_0 = phara_y1_5f_f3_5f_tree0_5f_0 + phara_y1_5f_f3_5f_tree0_5f_2;
+    accum_code_t phara_y1_5f_f3_5f_tree2_5f_0 = phara_cse1 + phara_y1_5f_f3_5f_tree1_5f_0;
+    accum_code_t phara_y1_5f_f4_5f_tree0_5f_0 = phara_x3_5f_shift3 + phara_x4_5f_c3_5f_negative1;
+    accum_code_t phara_y1_5f_f4_5f_tree0_5f_2 = phara_x5_5f_c7_5f_negative1 + phara_x6_5f_c6_5f_negative1;
+    accum_code_t phara_y1_5f_f4_5f_tree0_5f_4 = phara_constant3 + phara_x7_5f_c7_5f_negative1;
+    accum_code_t phara_y1_5f_f4_5f_tree1_5f_0 = phara_y1_5f_f4_5f_tree0_5f_0 + phara_y1_5f_f4_5f_tree0_5f_2;
+    accum_code_t phara_y1_5f_f4_5f_tree2_5f_0 = phara_y1_5f_f4_5f_tree0_5f_4 + phara_y1_5f_f4_5f_tree1_5f_0;
+    accum_code_t phara_y1_5f_f5_5f_tree0_5f_0 = phara_x5_5f_c_2d_3_5f_negative1 + phara_x6_5f_c_2d_3_5f_negative1;
+    accum_code_t phara_y1_5f_f5_5f_tree0_5f_2 = phara_cse4 + phara_x7_5f_c7_5f_negative1;
+    accum_code_t phara_y1_5f_f5_5f_tree1_5f_0 = phara_y1_5f_f5_5f_tree0_5f_0 + phara_y1_5f_f5_5f_tree0_5f_2;
+    accum_code_t phara_y1_5f_f6_5f_tree0_5f_0 = phara_x3_5f_c10_5f_positive1 + phara_x5_5f_c_2d_3_5f_negative1;
+    accum_code_t phara_y1_5f_f6_5f_tree0_5f_2 = phara_cse2 + phara_x7_5f_shift1;
+    accum_code_t phara_y1_5f_f6_5f_tree1_5f_0 = phara_y1_5f_f6_5f_tree0_5f_0 + phara_y1_5f_f6_5f_tree0_5f_2;
+    accum_code_t phara_y1_5f_f7_5f_tree0_5f_0 = phara_x5_5f_c3_5f_negative1 + phara_x6_5f_c3_5f_negative1;
+    accum_code_t phara_y1_5f_f7_5f_tree0_5f_2 = phara_cse4 + phara_x7;
+    accum_code_t phara_y1_5f_f7_5f_tree1_5f_0 = phara_y1_5f_f7_5f_tree0_5f_0 + phara_y1_5f_f7_5f_tree0_5f_2;
+    accum_code_t phara_y1_5f_f8_5f_tree0_5f_0 = phara_x3_5f_c_2d_2_5f_negate + phara_x4_5f_c_2d_4_5f_negate;
+    accum_code_t phara_y1_5f_f8_5f_tree0_5f_2 = phara_x6_5f_c5_5f_positive1 + phara_x7_5f_c_2d_2_5f_negate;
+    accum_code_t phara_y1_5f_f8_5f_tree1_5f_0 = phara_y1_5f_f8_5f_tree0_5f_0 + phara_y1_5f_f8_5f_tree0_5f_2;
+    accum_code_t phara_y1_5f_f8_5f_tree2_5f_0 = phara_constant4 + phara_y1_5f_f8_5f_tree1_5f_0;
+    accum_code_t phara_y1_5f_f9_5f_tree0_5f_0 = phara_x3_5f_shift2 + phara_x4_5f_shift3;
+    accum_code_t phara_y1_5f_f9_5f_tree0_5f_2 = phara_x5_5f_c12_5f_negative1 + phara_x6_5f_shift3;
+    accum_code_t phara_y1_5f_f9_5f_tree0_5f_4 = phara_constant5 + phara_x7_5f_c_2d_8_5f_negate;
+    accum_code_t phara_y1_5f_f9_5f_tree1_5f_0 = phara_y1_5f_f9_5f_tree0_5f_0 + phara_y1_5f_f9_5f_tree0_5f_2;
+    accum_code_t phara_y1_5f_f9_5f_tree2_5f_0 = phara_y1_5f_f9_5f_tree0_5f_4 + phara_y1_5f_f9_5f_tree1_5f_0;
+    accum_code_t phara_y1_5f_f10_5f_tree0_5f_0 = phara_x3 + phara_x4_5f_c12_5f_negative1;
+    accum_code_t phara_y1_5f_f10_5f_tree0_5f_2 = phara_x5_5f_c6_5f_negative1 + phara_x6_5f_c_2d_3_5f_negative1;
+    accum_code_t phara_y1_5f_f10_5f_tree0_5f_4 = phara_constant2 + phara_x7_5f_shift2;
+    accum_code_t phara_y1_5f_f10_5f_tree1_5f_0 = phara_y1_5f_f10_5f_tree0_5f_0 + phara_y1_5f_f10_5f_tree0_5f_2;
+    accum_code_t phara_y1_5f_f10_5f_tree2_5f_0 = phara_y1_5f_f10_5f_tree0_5f_4 + phara_y1_5f_f10_5f_tree1_5f_0;
+    accum_code_t phara_y1_5f_f11_5f_tree0_5f_0 = phara_x3_5f_c_2d_9_5f_negative1 + phara_x4_5f_c_2d_7_5f_negative1;
+    accum_code_t phara_y1_5f_f11_5f_tree0_5f_2 = phara_x5_5f_c7_5f_negative1 + phara_x6_5f_shift2;
+    accum_code_t phara_y1_5f_f11_5f_tree1_5f_0 = phara_y1_5f_f11_5f_tree0_5f_0 + phara_y1_5f_f11_5f_tree0_5f_2;
+    accum_code_t phara_y1_5f_f11_5f_tree2_5f_0 = phara_constant2 + phara_y1_5f_f11_5f_tree1_5f_0;
     outputs[0].range(15, 0) =
-        phara_y0_5f_f0_5f_sum4.range(15, 0);
+        phara_y0_5f_f0_5f_tree2_5f_0.range(15, 0);
     outputs[1].range(15, 0) =
-        phara_y0_5f_f1_5f_sum3.range(15, 0);
+        phara_y0_5f_f1_5f_tree2_5f_0.range(15, 0);
     outputs[2].range(15, 0) =
-        phara_y0_5f_f2_5f_sum4.range(15, 0);
+        phara_y0_5f_f2_5f_tree2_5f_0.range(15, 0);
     outputs[3].range(15, 0) =
-        phara_y0_5f_f3_5f_sum5.range(15, 0);
+        phara_y0_5f_f3_5f_tree2_5f_0.range(15, 0);
     outputs[4].range(15, 0) =
-        phara_y0_5f_f4_5f_sum5.range(15, 0);
+        phara_y0_5f_f4_5f_tree2_5f_0.range(15, 0);
     outputs[5].range(15, 0) =
-        phara_y0_5f_f5_5f_sum5.range(15, 0);
+        phara_y0_5f_f5_5f_tree1_5f_0.range(15, 0);
     outputs[6].range(15, 0) =
-        phara_y0_5f_f6_5f_sum5.range(15, 0);
+        phara_y0_5f_f6_5f_tree2_5f_0.range(15, 0);
     outputs[7].range(15, 0) =
-        phara_y1_5f_f0_5f_sum4.range(15, 0);
+        phara_y0_5f_f7_5f_tree1_5f_0.range(15, 0);
     outputs[8].range(15, 0) =
-        phara_y1_5f_f1_5f_sum3.range(15, 0);
+        phara_y0_5f_f8_5f_tree2_5f_0.range(15, 0);
     outputs[9].range(15, 0) =
-        phara_y1_5f_f2_5f_sum4.range(15, 0);
+        phara_y0_5f_f9_5f_tree2_5f_0.range(15, 0);
     outputs[10].range(15, 0) =
-        phara_y1_5f_f3_5f_sum5.range(15, 0);
+        phara_y0_5f_f10_5f_tree2_5f_0.range(15, 0);
     outputs[11].range(15, 0) =
-        phara_y1_5f_f4_5f_sum5.range(15, 0);
+        phara_y0_5f_f11_5f_tree2_5f_0.range(15, 0);
     outputs[12].range(15, 0) =
-        phara_y1_5f_f5_5f_sum5.range(15, 0);
+        phara_y1_5f_f0_5f_tree2_5f_0.range(15, 0);
     outputs[13].range(15, 0) =
-        phara_y1_5f_f6_5f_sum5.range(15, 0);
+        phara_y1_5f_f1_5f_tree2_5f_0.range(15, 0);
+    outputs[14].range(15, 0) =
+        phara_y1_5f_f2_5f_tree2_5f_0.range(15, 0);
+    outputs[15].range(15, 0) =
+        phara_y1_5f_f3_5f_tree2_5f_0.range(15, 0);
+    outputs[16].range(15, 0) =
+        phara_y1_5f_f4_5f_tree2_5f_0.range(15, 0);
+    outputs[17].range(15, 0) =
+        phara_y1_5f_f5_5f_tree1_5f_0.range(15, 0);
+    outputs[18].range(15, 0) =
+        phara_y1_5f_f6_5f_tree1_5f_0.range(15, 0);
+    outputs[19].range(15, 0) =
+        phara_y1_5f_f7_5f_tree1_5f_0.range(15, 0);
+    outputs[20].range(15, 0) =
+        phara_y1_5f_f8_5f_tree2_5f_0.range(15, 0);
+    outputs[21].range(15, 0) =
+        phara_y1_5f_f9_5f_tree2_5f_0.range(15, 0);
+    outputs[22].range(15, 0) =
+        phara_y1_5f_f10_5f_tree2_5f_0.range(15, 0);
+    outputs[23].range(15, 0) =
+        phara_y1_5f_f11_5f_tree2_5f_0.range(15, 0);
 }
 
 template <
@@ -591,7 +669,7 @@ ComputeAffinePooledWidth:
          column++) {
         #pragma HLS UNROLL
         typename data_T::value_type graph_inputs[8];
-        typename conv_T::value_type graph_outputs[14];
+        typename conv_T::value_type graph_outputs[24];
         #pragma HLS ARRAY_PARTITION variable=graph_inputs complete
         #pragma HLS ARRAY_PARTITION variable=graph_outputs complete
         for (unsigned row = 0; row < 8; row++) {
@@ -793,20 +871,20 @@ void dense_wide_stream(
     hls::stream<data_T> &data,
     hls::stream<res_T> &res,
 
-    const ap_uint<168> packed_weights[42],
+    const ap_uint<240> packed_weights[6],
 
     typename CONFIG_T::bias_t biases[CONFIG_T::n_out]
 ) {
     static_assert(CONFIG_T::n_out == 1, "Aria dense specialization requires one output");
     static_assert(res_T::size == 1, "Aria dense result must contain one value");
     static_assert(CONFIG_T::n_in % data_T::size == 0, "Aria dense input packing mismatch");
-    static_assert(data_T::size % 7 == 0,
+    static_assert(data_T::size % 12 == 0,
                   "Aria dense input must contain complete filter groups");
 
-    constexpr unsigned WEIGHT_BITS = 6;
-    constexpr unsigned MAC_LANES = 28;
-    constexpr unsigned DENSE_STEPS = 42;
-    constexpr unsigned VALID_LAST_LANES = 28;
+    constexpr unsigned WEIGHT_BITS = 5;
+    constexpr unsigned MAC_LANES = 48;
+    constexpr unsigned DENSE_STEPS = 6;
+    constexpr unsigned VALID_LAST_LANES = 48;
     constexpr unsigned GROUPS = data_T::size / MAC_LANES;
     static_assert(data_T::size % MAC_LANES == 0,
                   "Aria Dense MAC lanes must divide the input word");
@@ -823,7 +901,7 @@ DenseValues:
         if (group == 0) {
             input_word = data.read();
         }
-        const ap_uint<168> packed_weight = packed_weights[step];
+        const ap_uint<240> packed_weight = packed_weights[step];
         typename CONFIG_T::accum_t products[MAC_LANES];
         #pragma HLS ARRAY_PARTITION variable=products complete
         #pragma HLS BIND_OP variable=products op=mul impl=dsp

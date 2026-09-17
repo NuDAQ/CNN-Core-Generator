@@ -50,10 +50,10 @@ int main() {
             return 2;
         }
         hls::stream<waveform_x8_t> waveform("waveform");
-        hls::stream<result_t> layer9_out("layer9_out");
+        hls::stream<result_t> layer12_out("layer12_out");
         pack_aria_test_input(input, waveform);
-        cnn_core(waveform, layer9_out);
-        nnet::print_result<result_t, 1>(layer9_out, results);
+        cnn_core(waveform, layer12_out);
+        nnet::print_result<result_t, 1>(layer12_out, results);
         sample++;
     }
 
@@ -69,10 +69,10 @@ int main() {
                 }
             }
             hls::stream<waveform_x8_t> waveform("waveform");
-            hls::stream<result_t> layer9_out("layer9_out");
+            hls::stream<result_t> layer12_out("layer12_out");
             pack_aria_test_input(default_input, waveform);
-            cnn_core(waveform, layer9_out);
-            nnet::print_result<result_t, 1>(layer9_out, results);
+            cnn_core(waveform, layer12_out);
+            nnet::print_result<result_t, 1>(layer12_out, results);
         }
     }
     std::cout << "INFO: Saved inference results to file: " << results_path << std::endl;

@@ -8,6 +8,7 @@
     <flowTarget value="vivado"/>
     <config>
         <config_compile name_max_length="80"/>
+        <config_rtl reset="all"/>
         <config_schedule enable_dsp_full_reg="0"/>
         <config_export format="ip_catalog" version="1.0.0"/>
     </config>

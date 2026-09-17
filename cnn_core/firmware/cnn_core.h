@@ -9,7 +9,7 @@
 
 void cnn_core(
     hls::stream<waveform_x8_t> &waveform,
-    hls::stream<result_t> &layer9_out
+    hls::stream<result_t> &layer12_out
 );
 
 #endif
