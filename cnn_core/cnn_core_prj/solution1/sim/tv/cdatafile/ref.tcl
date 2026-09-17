@@ -1,5 +1,0 @@
-set depth_list {
-  {layer9_out 1}
-  {waveform 128}
-}
-set trans_num 32
