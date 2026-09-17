@@ -51,27 +51,39 @@ Large reproducible HLS/Vivado databases are ignored.
 
 ## Performance
 
-Performance and resource figures are provided for reference only. Refer to the
-latest committed reports for authoritative results.
+The figures below are for the two-convolution F12 model
+(`fpga_2cv_k5s3_f12_es0`), generated with Aria 1.7.2 using P8/D4 and
+`Optimization.TargetII: 85`. Performance and resource figures are provided for
+reference only. Refer to the committed [HLS report](cnn_core/cnn_core_prj/solution1/syn/report/cnn_core_csynth.rpt)
+and [Vivado utilization report](cnn_core/vivado_synth.rpt) for authoritative results.
 
-| Performance | Result |
-|---|---:|
-| Target clock | 200 MHz (5 ns) |
-| Latency | 57 cycles (0.285 us) |
-| Initiation interval | 52 cycles |
-| Theoretical throughput | 3.85 million inferences/s |
+| Performance            |                   Result |
+| ---------------------- | -----------------------: |
+| Target clock           |           200 MHz (5 ns) |
+| Latency                |     71 cycles (0.355 us) |
+| Initiation interval    |                63 cycles |
+| Theoretical throughput | 3.17 million inferences/s |
 
-| Resource | Used | Available | Utilization (KU5P) |
-|---|---:|---:|---:|
-| CLB LUTs | 6,003 | 216,960 | 2.77% |
-| Flip-flops | 3,964 | 433,920 | 0.91% |
-| DSP48E2 | 67 | 1,824 | 3.67% |
-| BRAM tiles | 1.5 | 480 | 0.31% |
-| URAM | 0 | 64 | 0.00% |
+Latency in microseconds and theoretical throughput are calculated from the HLS
+cycle counts at the target clock frequency.
 
-Vitis HLS synthesis and RTL co-simulation passed for 32 test samples. The
-resource figures are from Vivado synthesis and `opt_design`; place and route
-were not run.
+| Resource   |   Used | Available | Utilization (KU5P) |
+| ---------- | -----: | --------: | -----------------: |
+| CLB LUTs   | 28,684 |   216,960 |             13.22% |
+| Flip-flops | 19,261 |   433,920 |              4.44% |
+| DSP48E2    |     64 |     1,824 |              3.51% |
+| BRAM tiles |      0 |       480 |              0.00% |
+| URAM       |      0 |        64 |              0.00% |
+
+Vitis HLS synthesis completed successfully. C simulation and
+[RTL co-simulation](cnn_core/cnn_core_prj/solution1/sim/report/cnn_core_cosim.rpt)
+passed for 96 built-in test samples, with identical C and RTL output logs.
+Conversion verification also passed for 1,000 additional supplied samples,
+with zero Keras-to-RAVEL score difference.
+
+The resource figures are from Vivado synthesis and `opt_design`; place and route
+were not run. The 200 MHz target has not been validated by routed timing for
+this generated project.
 
 ## License
 
