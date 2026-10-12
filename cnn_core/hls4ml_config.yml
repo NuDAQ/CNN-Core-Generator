@@ -102,7 +102,7 @@ OutputShapes:
   - 1
 Part: xcku5p-ffvb676-2-e
 ProjectName: cnn_core
-Stamp: dfdf36dd2398d4ac
+Stamp: b792f9a5199e0bb7
 Version: 1.0.0
 WriterConfig:
   Namespace: null
