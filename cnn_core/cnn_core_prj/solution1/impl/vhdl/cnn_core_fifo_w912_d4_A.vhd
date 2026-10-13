@@ -10,10 +10,10 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 --RAW latency 2 
  
-entity cnn_core_fifo_w816_d4_A is
+entity cnn_core_fifo_w912_d4_A is
     generic (
         MEM_STYLE         : string  := "auto";
-        DATA_WIDTH        : integer := 816;
+        DATA_WIDTH        : integer := 912;
         ADDR_WIDTH        : integer := 2;
         DEPTH             : integer := 3);
     port (
@@ -37,13 +37,13 @@ entity cnn_core_fifo_w816_d4_A is
     );
 end entity;
 
-architecture arch of cnn_core_fifo_w816_d4_A is
+architecture arch of cnn_core_fifo_w912_d4_A is
 
     -- component
-    component cnn_core_fifo_w816_d4_A_ram is
+    component cnn_core_fifo_w912_d4_A_ram is
     generic (
         MEM_STYLE  : string  := "auto";
-        DATA_WIDTH : integer := 816;
+        DATA_WIDTH : integer := 912;
         ADDR_WIDTH : integer := 2;
         DEPTH      : integer := 3);
     port (
@@ -76,7 +76,7 @@ architecture arch of cnn_core_fifo_w816_d4_A is
     signal dout_vld : std_logic := '0';
 begin
 ----------------------- Instantiation -----------------------
-    U_cnn_core_fifo_w816_d4_A_ram : cnn_core_fifo_w816_d4_A_ram
+    U_cnn_core_fifo_w912_d4_A_ram : cnn_core_fifo_w912_d4_A_ram
     generic map (
         MEM_STYLE  => MEM_STYLE,
         DATA_WIDTH => DATA_WIDTH,
@@ -242,10 +242,10 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 
-entity cnn_core_fifo_w816_d4_A_ram is
+entity cnn_core_fifo_w912_d4_A_ram is
     generic (
         MEM_STYLE   : string  := "auto";
-        DATA_WIDTH  : integer := 816;
+        DATA_WIDTH  : integer := 912;
         ADDR_WIDTH  : integer := 2;
         DEPTH       : integer := 3);
     port (
@@ -260,7 +260,7 @@ entity cnn_core_fifo_w816_d4_A_ram is
     );
 end entity;
 
-architecture arch of cnn_core_fifo_w816_d4_A_ram is
+architecture arch of cnn_core_fifo_w912_d4_A_ram is
     type memtype is array (0 to DEPTH - 1) of std_logic_vector(DATA_WIDTH - 1 downto 0);
     signal mem : memtype;
     attribute ram_style: string;

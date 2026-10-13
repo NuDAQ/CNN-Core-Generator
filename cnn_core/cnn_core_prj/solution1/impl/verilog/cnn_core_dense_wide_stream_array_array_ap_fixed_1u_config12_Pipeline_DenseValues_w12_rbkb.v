@@ -8,7 +8,7 @@ module cnn_core_dense_wide_stream_array_array_ap_fixed_1u_config12_Pipeline_Dens
     address0, ce0, q0, 
     reset, clk);
 
-parameter DataWidth = 239;
+parameter DataWidth = 283;
 parameter AddressWidth = 3;
 parameter AddressRange = 6;
  

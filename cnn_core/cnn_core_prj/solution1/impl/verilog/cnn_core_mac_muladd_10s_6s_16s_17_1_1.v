@@ -7,11 +7,11 @@
 // ==============================================================
 `timescale 1 ns / 1 ps
 
-(* use_dsp = "yes" *) module cnn_core_mac_muladd_10s_5s_15s_16_1_1_DSP48_1(
+(* use_dsp = "yes" *) module cnn_core_mac_muladd_10s_6s_16s_17_1_1_DSP48_0(
     input  [10 - 1:0] in0,
-    input  [5 - 1:0] in1,
-    input  [15 - 1:0] in2,
-    output [16 - 1:0]  dout);
+    input  [6 - 1:0] in1,
+    input  [16 - 1:0] in2,
+    output [17 - 1:0]  dout);
 
 wire signed [27 - 1:0]     a;
 wire signed [18 - 1:0]     b;
@@ -30,7 +30,7 @@ assign dout = p;
 
 endmodule
 `timescale 1 ns / 1 ps
-module cnn_core_mac_muladd_10s_5s_15s_16_1_1(
+module cnn_core_mac_muladd_10s_6s_16s_17_1_1(
     din0,
     din1,
     din2,
@@ -49,7 +49,7 @@ output[dout_WIDTH - 1:0] dout;
 
 
 
-cnn_core_mac_muladd_10s_5s_15s_16_1_1_DSP48_1 cnn_core_mac_muladd_10s_5s_15s_16_1_1_DSP48_1_U(
+cnn_core_mac_muladd_10s_6s_16s_17_1_1_DSP48_0 cnn_core_mac_muladd_10s_6s_16s_17_1_1_DSP48_0_U(
     .in0( din0 ),
     .in1( din1 ),
     .in2( din2 ),

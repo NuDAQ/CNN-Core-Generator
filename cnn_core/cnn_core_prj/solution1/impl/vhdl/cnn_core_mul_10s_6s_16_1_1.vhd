@@ -4,7 +4,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
 
-entity cnn_core_mul_10s_5s_15_1_1 is
+entity cnn_core_mul_10s_6s_16_1_1 is
 generic (
     ID : INTEGER := 1;
     NUM_STAGE : INTEGER := 0;
@@ -18,13 +18,10 @@ port (
     dout: out std_logic_vector(dout_WIDTH - 1 downto 0));
 
 
- 
-    attribute use_dsp : string;
-    attribute use_dsp of cnn_core_mul_10s_5s_15_1_1 : entity is "yes";
 
 end entity;
 
-architecture behav of cnn_core_mul_10s_5s_15_1_1 is
+architecture behav of cnn_core_mul_10s_6s_16_1_1 is
     signal tmp_product : std_logic_vector(dout_WIDTH - 1 downto 0);
     signal a_i : std_logic_vector(din0_WIDTH - 1 downto 0);
     signal b_i : std_logic_vector(din1_WIDTH - 1 downto 0);

@@ -11,22 +11,34 @@ from ravel_hls import convert
 
 ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / "cnn_core"
-MODEL_DIR = ROOT / "models/fpga_2cv_k5s3_f12_es0"
+MODEL_DIR = ROOT / "models/amphp_oct_12"
+TRIGGER_THRESHOLD = 4.953  # Preliminary noise-rate threshold, for reporting only.
 
 model = keras.models.load_model(
-    MODEL_DIR / "run_2cv_k5s3_f12_es0.keras",
+    MODEL_DIR / "run_v6_2cv_k5s3_f12_amphp.keras",
     custom_objects={"QConv2D": QConv2D, "QDense": QDense},
 )
 
-with np.load(MODEL_DIR / "verification_data_2cv_k5s3_f12_es0.npz") as verification:
+with np.load(
+    MODEL_DIR / "verification_data_v6_2cv_k5s3_f12_amphp.npz", allow_pickle=False
+) as verification:
     x = np.ascontiguousarray(verification["X"], dtype=np.float32)
     labels = verification["y"].astype(bool)
+    reference_scores = verification["scores"].ravel()
 
 if x.ndim != 4 or x.shape[-1] != 1:
     raise ValueError(
         "verification inputs must have shape [samples, height, width, 1]"
     )
 ravel_x = np.ascontiguousarray(x[..., 0])
+
+# The supplied inputs are already normalized; do not apply ADC gain here.
+keras_scores = model.predict(x, verbose=0).ravel()
+np.testing.assert_array_equal(
+    keras_scores,
+    reference_scores,
+    err_msg="Reloaded Keras model does not match supplied reference scores",
+)
 
 project = convert(
     model,
@@ -54,16 +66,20 @@ project = convert(
 ravel = project.link_hls4ml()
 ravel.compile()
 
-keras_scores = model.predict(x, verbose=0).ravel()
 ravel_scores = ravel.predict(ravel_x).ravel()
 
-keras_classes = keras_scores > 0
-ravel_classes = ravel_scores > 0
+keras_classes = keras_scores > TRIGGER_THRESHOLD
+ravel_classes = ravel_scores > TRIGGER_THRESHOLD
 
 print(
     json.dumps(
         {
+            "model": model.name,
             "output": str(project.path),
+            "trigger_threshold": TRIGGER_THRESHOLD,
+            "max_abs_reference_score_diff": float(
+                np.max(np.abs(keras_scores - reference_scores))
+            ),
             "fingerprint": project.manifest["generation_fingerprint"],
             "status": project.status,
             "verification": {

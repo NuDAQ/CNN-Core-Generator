@@ -8,7 +8,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity cnn_core_dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_s is
+entity cnn_core_dense_wide_stream_array_array_ap_fixed_21_11_5_3_0_1u_config12_s is
 port (
     ap_clk : IN STD_LOGIC;
     ap_rst : IN STD_LOGIC;
@@ -28,7 +28,7 @@ port (
 end;
 
 
-architecture behav of cnn_core_dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_s is 
+architecture behav of cnn_core_dense_wide_stream_array_array_ap_fixed_21_11_5_3_0_1u_config12_s is 
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (3 downto 0) := "0001";

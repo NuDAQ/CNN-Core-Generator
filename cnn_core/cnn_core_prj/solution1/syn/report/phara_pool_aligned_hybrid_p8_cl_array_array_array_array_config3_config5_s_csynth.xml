@@ -22,23 +22,23 @@
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>48</Best-caseLatency>
-<Average-caseLatency>48</Average-caseLatency>
-<Worst-caseLatency>48</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.240 us</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.240 us</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.240 us</Worst-caseRealTimeLatency>
-<Interval-min>48</Interval-min>
-<Interval-max>48</Interval-max>
+<Best-caseLatency>47</Best-caseLatency>
+<Average-caseLatency>47</Average-caseLatency>
+<Worst-caseLatency>47</Worst-caseLatency>
+<Best-caseRealTimeLatency>0.235 us</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>0.235 us</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>0.235 us</Worst-caseRealTimeLatency>
+<Interval-min>47</Interval-min>
+<Interval-max>47</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <ProduceP8Words>
 <Slack>3.65</Slack>
 <TripCount>42</TripCount>
-<Latency>46</Latency>
-<AbsoluteTimeLatency>230</AbsoluteTimeLatency>
+<Latency>45</Latency>
+<AbsoluteTimeLatency>225</AbsoluteTimeLatency>
 <PipelineII>1</PipelineII>
-<PipelineDepth>6</PipelineDepth>
+<PipelineDepth>5</PipelineDepth>
 <InstanceList>
 </InstanceList>
 </ProduceP8Words>
@@ -46,13 +46,13 @@
 <SummaryOfViolations>
 <IssueType>Timing Violation</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/nnet_utils/nnet_aria.h:830</SourceLocation>
+<SourceLocation>firmware/nnet_utils/nnet_aria.h:878</SourceLocation>
 <SummaryOfLoopViolations>
 <ProduceP8Words>
 <Name>ProduceP8Words</Name>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/nnet_utils/nnet_aria.h:830</SourceLocation>
+<SourceLocation>firmware/nnet_utils/nnet_aria.h:878</SourceLocation>
 </ProduceP8Words>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
@@ -60,10 +60,10 @@
 
 <AreaEstimates>
 <Resources>
-<DSP>16</DSP>
-<FF>4633</FF>
-<LUT>20497</LUT>
+<FF>5452</FF>
+<LUT>22809</LUT>
 <BRAM_18K>0</BRAM_18K>
+<DSP>0</DSP>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>

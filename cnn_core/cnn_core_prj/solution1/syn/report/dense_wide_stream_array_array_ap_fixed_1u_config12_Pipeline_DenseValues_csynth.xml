@@ -18,27 +18,27 @@
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>3.386</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.396</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>13</Best-caseLatency>
-<Average-caseLatency>13</Average-caseLatency>
-<Worst-caseLatency>13</Worst-caseLatency>
-<Best-caseRealTimeLatency>65.000 ns</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>65.000 ns</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>65.000 ns</Worst-caseRealTimeLatency>
-<Interval-min>13</Interval-min>
-<Interval-max>13</Interval-max>
+<Best-caseLatency>12</Best-caseLatency>
+<Average-caseLatency>12</Average-caseLatency>
+<Worst-caseLatency>12</Worst-caseLatency>
+<Best-caseRealTimeLatency>60.000 ns</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>60.000 ns</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>60.000 ns</Worst-caseRealTimeLatency>
+<Interval-min>12</Interval-min>
+<Interval-max>12</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
 <DenseValues>
 <Slack>3.65</Slack>
 <TripCount>6</TripCount>
-<Latency>11</Latency>
-<AbsoluteTimeLatency>55</AbsoluteTimeLatency>
+<Latency>10</Latency>
+<AbsoluteTimeLatency>50</AbsoluteTimeLatency>
 <PipelineII>1</PipelineII>
-<PipelineDepth>7</PipelineDepth>
+<PipelineDepth>6</PipelineDepth>
 <InstanceList>
 </InstanceList>
 </DenseValues>
@@ -46,13 +46,13 @@
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/nnet_utils/nnet_aria.h:895</SourceLocation>
+<SourceLocation>firmware/nnet_utils/nnet_aria.h:943</SourceLocation>
 <SummaryOfLoopViolations>
 <DenseValues>
 <Name>DenseValues</Name>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>firmware/nnet_utils/nnet_aria.h:899</SourceLocation>
+<SourceLocation>firmware/nnet_utils/nnet_aria.h:947</SourceLocation>
 </DenseValues>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
@@ -60,10 +60,10 @@
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>7</BRAM_18K>
+<BRAM_18K>8</BRAM_18K>
 <DSP>32</DSP>
-<FF>2659</FF>
-<LUT>2013</LUT>
+<FF>2720</FF>
+<LUT>1970</LUT>
 <URAM>0</URAM>
 </Resources>
 <AvailableResources>

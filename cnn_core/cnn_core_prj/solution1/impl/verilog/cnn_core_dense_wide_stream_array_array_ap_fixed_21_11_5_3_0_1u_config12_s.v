@@ -6,7 +6,7 @@
 
 `timescale 1 ns / 1 ps 
 
-module cnn_core_dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_s (
+module cnn_core_dense_wide_stream_array_array_ap_fixed_21_11_5_3_0_1u_config12_s (
         ap_clk,
         ap_rst,
         ap_start,
@@ -291,4 +291,4 @@ assign layer12_out_TDATA_int_regslice = grp_dense_wide_stream_array_array_ap_fix
 
 assign layer12_out_TVALID = regslice_both_layer12_out_U_vld_out;
 
-endmodule //cnn_core_dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_s
+endmodule //cnn_core_dense_wide_stream_array_array_ap_fixed_21_11_5_3_0_1u_config12_s

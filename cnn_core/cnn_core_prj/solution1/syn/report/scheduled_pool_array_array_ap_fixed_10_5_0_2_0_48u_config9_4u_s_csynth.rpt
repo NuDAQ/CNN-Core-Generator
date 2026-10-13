@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'scheduled_pool_array_array_ap_fixed_10_5_0_2_0_48u_config9_4u_s'
 ================================================================
-* Date:           Thu Sep 17 02:03:15 2026
+* Date:           Mon Oct 12 00:08:32 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_prj
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  5.00 ns|  3.534 ns|     1.35 ns|
+    |ap_clk  |  5.00 ns|  3.564 ns|     1.35 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -54,14 +54,14 @@
 |       Name      | BRAM_18K|  DSP |   FF   |   LUT  | URAM|
 +-----------------+---------+------+--------+--------+-----+
 |DSP              |        -|     -|       -|       -|    -|
-|Expression       |        -|     -|       0|    5074|    -|
+|Expression       |        -|     -|       0|    5170|    -|
 |FIFO             |        -|     -|       -|       -|    -|
 |Instance         |        -|     -|       -|       -|    -|
 |Memory           |        -|     -|       -|       -|    -|
 |Multiplexer      |        -|     -|       -|      63|    -|
-|Register         |        -|     -|    1501|       -|    -|
+|Register         |        -|     -|    1549|       -|    -|
 +-----------------+---------+------+--------+--------+-----+
-|Total            |        0|     0|    1501|    5137|    0|
+|Total            |        0|     0|    1549|    5233|    0|
 +-----------------+---------+------+--------+--------+-----+
 |Available        |      960|  1824|  433920|  216960|   64|
 +-----------------+---------+------+--------+--------+-----+
@@ -232,54 +232,54 @@
     |and_ln105_fu_4651_p2              |       and|   0|  0|   2|           1|           1|
     |ap_block_state3_pp0_stage0_iter2  |       and|   0|  0|   2|           1|           1|
     |ap_condition_605                  |       and|   0|  0|   2|           1|           1|
-    |icmp_ln103_10_fu_1801_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_11_fu_1869_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_12_fu_1937_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_13_fu_2005_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_14_fu_2073_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_15_fu_2141_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_16_fu_2209_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_17_fu_2277_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_18_fu_2345_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_19_fu_2413_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_1_fu_1189_p2           |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_20_fu_2481_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_21_fu_2549_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_22_fu_2617_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_23_fu_2685_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_24_fu_2753_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_25_fu_2821_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_26_fu_2889_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_27_fu_2957_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_28_fu_3025_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_29_fu_3093_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_2_fu_1257_p2           |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_30_fu_3161_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_31_fu_3229_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_32_fu_3297_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_33_fu_3365_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_34_fu_3433_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_35_fu_3501_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_36_fu_3569_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_37_fu_3637_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_38_fu_3705_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_39_fu_3773_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_3_fu_1325_p2           |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_40_fu_3841_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_41_fu_3909_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_42_fu_3977_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_43_fu_4045_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_44_fu_4113_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_45_fu_4181_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_46_fu_4249_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_47_fu_4317_p2          |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_4_fu_1393_p2           |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_5_fu_1461_p2           |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_6_fu_1529_p2           |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_7_fu_1597_p2           |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_8_fu_1665_p2           |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_9_fu_1733_p2           |      icmp|   0|  0|  24|          17|          17|
-    |icmp_ln103_fu_1121_p2             |      icmp|   0|  0|  24|          17|          17|
+    |icmp_ln103_10_fu_1801_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_11_fu_1869_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_12_fu_1937_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_13_fu_2005_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_14_fu_2073_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_15_fu_2141_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_16_fu_2209_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_17_fu_2277_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_18_fu_2345_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_19_fu_2413_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_1_fu_1189_p2           |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_20_fu_2481_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_21_fu_2549_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_22_fu_2617_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_23_fu_2685_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_24_fu_2753_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_25_fu_2821_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_26_fu_2889_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_27_fu_2957_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_28_fu_3025_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_29_fu_3093_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_2_fu_1257_p2           |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_30_fu_3161_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_31_fu_3229_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_32_fu_3297_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_33_fu_3365_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_34_fu_3433_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_35_fu_3501_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_36_fu_3569_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_37_fu_3637_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_38_fu_3705_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_39_fu_3773_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_3_fu_1325_p2           |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_40_fu_3841_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_41_fu_3909_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_42_fu_3977_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_43_fu_4045_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_44_fu_4113_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_45_fu_4181_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_46_fu_4249_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_47_fu_4317_p2          |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_4_fu_1393_p2           |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_5_fu_1461_p2           |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_6_fu_1529_p2           |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_7_fu_1597_p2           |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_8_fu_1665_p2           |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_9_fu_1733_p2           |      icmp|   0|  0|  25|          18|          18|
+    |icmp_ln103_fu_1121_p2             |      icmp|   0|  0|  25|          18|          18|
     |icmp_ln105_10_fu_1517_p2          |      icmp|   0|  0|  10|           3|           2|
     |icmp_ln105_11_fu_1523_p2          |      icmp|   0|  0|  10|           3|           1|
     |icmp_ln105_12_fu_1585_p2          |      icmp|   0|  0|  10|           3|           2|
@@ -522,54 +522,54 @@
     |or_ln105_95_fu_8351_p2            |        or|   0|  0|   2|           1|           1|
     |or_ln105_9_fu_4997_p2             |        or|   0|  0|   2|           1|           1|
     |or_ln105_fu_4661_p2               |        or|   0|  0|   2|           1|           1|
-    |maxima_48_fu_1133_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_49_fu_1201_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_50_fu_1269_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_51_fu_1337_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_52_fu_1405_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_53_fu_1473_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_54_fu_1541_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_55_fu_1609_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_56_fu_1677_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_57_fu_1745_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_58_fu_1813_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_59_fu_1881_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_60_fu_1949_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_61_fu_2017_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_62_fu_2085_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_63_fu_2153_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_64_fu_2221_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_65_fu_2289_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_66_fu_2357_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_67_fu_2425_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_68_fu_2493_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_69_fu_2561_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_70_fu_2629_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_71_fu_2697_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_72_fu_2765_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_73_fu_2833_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_74_fu_2901_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_75_fu_2969_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_76_fu_3037_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_77_fu_3105_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_78_fu_3173_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_79_fu_3241_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_80_fu_3309_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_81_fu_3377_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_82_fu_3445_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_83_fu_3513_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_84_fu_3581_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_85_fu_3649_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_86_fu_3717_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_87_fu_3785_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_88_fu_3853_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_89_fu_3921_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_90_fu_3989_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_91_fu_4057_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_92_fu_4125_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_93_fu_4193_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_94_fu_4261_p3              |    select|   0|  0|  17|           1|          17|
-    |maxima_95_fu_4329_p3              |    select|   0|  0|  17|           1|          17|
+    |maxima_48_fu_1133_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_49_fu_1201_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_50_fu_1269_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_51_fu_1337_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_52_fu_1405_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_53_fu_1473_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_54_fu_1541_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_55_fu_1609_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_56_fu_1677_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_57_fu_1745_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_58_fu_1813_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_59_fu_1881_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_60_fu_1949_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_61_fu_2017_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_62_fu_2085_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_63_fu_2153_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_64_fu_2221_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_65_fu_2289_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_66_fu_2357_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_67_fu_2425_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_68_fu_2493_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_69_fu_2561_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_70_fu_2629_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_71_fu_2697_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_72_fu_2765_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_73_fu_2833_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_74_fu_2901_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_75_fu_2969_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_76_fu_3037_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_77_fu_3105_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_78_fu_3173_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_79_fu_3241_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_80_fu_3309_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_81_fu_3377_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_82_fu_3445_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_83_fu_3513_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_84_fu_3581_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_85_fu_3649_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_86_fu_3717_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_87_fu_3785_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_88_fu_3853_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_89_fu_3921_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_90_fu_3989_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_91_fu_4057_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_92_fu_4125_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_93_fu_4193_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_94_fu_4261_p3              |    select|   0|  0|  18|           1|          18|
+    |maxima_95_fu_4329_p3              |    select|   0|  0|  18|           1|          18|
     |select_ln105_10_fu_5057_p3        |    select|   0|  0|   2|           1|           1|
     |select_ln105_11_fu_5081_p3        |    select|   0|  0|   9|           1|           2|
     |select_ln105_12_fu_5135_p3        |    select|   0|  0|   2|           1|           1|
@@ -813,7 +813,7 @@
     |xor_ln105_9_fu_4879_p2            |       xor|   0|  0|   2|           1|           2|
     |xor_ln105_fu_4645_p2              |       xor|   0|  0|   2|           1|           2|
     +----------------------------------+----------+----+---+----+------------+------------+
-    |Total                             |          |   0|  0|5074|        2173|        2891|
+    |Total                             |          |   0|  0|5170|        2221|        2987|
     +----------------------------------+----------+----+---+----+------------+------------+
 
     * Multiplexer: 
@@ -936,54 +936,54 @@
     |icmp_ln105_95_reg_10021             |   1|   0|    1|          0|
     |icmp_ln105_9_reg_8903               |   1|   0|    1|          0|
     |icmp_ln105_reg_8794                 |   1|   0|    1|          0|
-    |maxima_10_fu_300                    |  17|   0|   17|          0|
-    |maxima_11_fu_304                    |  17|   0|   17|          0|
-    |maxima_12_fu_308                    |  17|   0|   17|          0|
-    |maxima_13_fu_312                    |  17|   0|   17|          0|
-    |maxima_14_fu_316                    |  17|   0|   17|          0|
-    |maxima_15_fu_320                    |  17|   0|   17|          0|
-    |maxima_16_fu_324                    |  17|   0|   17|          0|
-    |maxima_17_fu_328                    |  17|   0|   17|          0|
-    |maxima_18_fu_332                    |  17|   0|   17|          0|
-    |maxima_19_fu_336                    |  17|   0|   17|          0|
-    |maxima_1_fu_264                     |  17|   0|   17|          0|
-    |maxima_20_fu_340                    |  17|   0|   17|          0|
-    |maxima_21_fu_344                    |  17|   0|   17|          0|
-    |maxima_22_fu_348                    |  17|   0|   17|          0|
-    |maxima_23_fu_352                    |  17|   0|   17|          0|
-    |maxima_24_fu_356                    |  17|   0|   17|          0|
-    |maxima_25_fu_360                    |  17|   0|   17|          0|
-    |maxima_26_fu_364                    |  17|   0|   17|          0|
-    |maxima_27_fu_368                    |  17|   0|   17|          0|
-    |maxima_28_fu_372                    |  17|   0|   17|          0|
-    |maxima_29_fu_376                    |  17|   0|   17|          0|
-    |maxima_2_fu_268                     |  17|   0|   17|          0|
-    |maxima_30_fu_380                    |  17|   0|   17|          0|
-    |maxima_31_fu_384                    |  17|   0|   17|          0|
-    |maxima_32_fu_388                    |  17|   0|   17|          0|
-    |maxima_33_fu_392                    |  17|   0|   17|          0|
-    |maxima_34_fu_396                    |  17|   0|   17|          0|
-    |maxima_35_fu_400                    |  17|   0|   17|          0|
-    |maxima_36_fu_404                    |  17|   0|   17|          0|
-    |maxima_37_fu_408                    |  17|   0|   17|          0|
-    |maxima_38_fu_412                    |  17|   0|   17|          0|
-    |maxima_39_fu_416                    |  17|   0|   17|          0|
-    |maxima_3_fu_272                     |  17|   0|   17|          0|
-    |maxima_40_fu_420                    |  17|   0|   17|          0|
-    |maxima_41_fu_424                    |  17|   0|   17|          0|
-    |maxima_42_fu_428                    |  17|   0|   17|          0|
-    |maxima_43_fu_432                    |  17|   0|   17|          0|
-    |maxima_44_fu_436                    |  17|   0|   17|          0|
-    |maxima_45_fu_440                    |  17|   0|   17|          0|
-    |maxima_46_fu_444                    |  17|   0|   17|          0|
-    |maxima_47_fu_448                    |  17|   0|   17|          0|
-    |maxima_4_fu_276                     |  17|   0|   17|          0|
-    |maxima_5_fu_280                     |  17|   0|   17|          0|
-    |maxima_6_fu_284                     |  17|   0|   17|          0|
-    |maxima_7_fu_288                     |  17|   0|   17|          0|
-    |maxima_8_fu_292                     |  17|   0|   17|          0|
-    |maxima_9_fu_296                     |  17|   0|   17|          0|
-    |maxima_fu_260                       |  17|   0|   17|          0|
+    |maxima_10_fu_300                    |  18|   0|   18|          0|
+    |maxima_11_fu_304                    |  18|   0|   18|          0|
+    |maxima_12_fu_308                    |  18|   0|   18|          0|
+    |maxima_13_fu_312                    |  18|   0|   18|          0|
+    |maxima_14_fu_316                    |  18|   0|   18|          0|
+    |maxima_15_fu_320                    |  18|   0|   18|          0|
+    |maxima_16_fu_324                    |  18|   0|   18|          0|
+    |maxima_17_fu_328                    |  18|   0|   18|          0|
+    |maxima_18_fu_332                    |  18|   0|   18|          0|
+    |maxima_19_fu_336                    |  18|   0|   18|          0|
+    |maxima_1_fu_264                     |  18|   0|   18|          0|
+    |maxima_20_fu_340                    |  18|   0|   18|          0|
+    |maxima_21_fu_344                    |  18|   0|   18|          0|
+    |maxima_22_fu_348                    |  18|   0|   18|          0|
+    |maxima_23_fu_352                    |  18|   0|   18|          0|
+    |maxima_24_fu_356                    |  18|   0|   18|          0|
+    |maxima_25_fu_360                    |  18|   0|   18|          0|
+    |maxima_26_fu_364                    |  18|   0|   18|          0|
+    |maxima_27_fu_368                    |  18|   0|   18|          0|
+    |maxima_28_fu_372                    |  18|   0|   18|          0|
+    |maxima_29_fu_376                    |  18|   0|   18|          0|
+    |maxima_2_fu_268                     |  18|   0|   18|          0|
+    |maxima_30_fu_380                    |  18|   0|   18|          0|
+    |maxima_31_fu_384                    |  18|   0|   18|          0|
+    |maxima_32_fu_388                    |  18|   0|   18|          0|
+    |maxima_33_fu_392                    |  18|   0|   18|          0|
+    |maxima_34_fu_396                    |  18|   0|   18|          0|
+    |maxima_35_fu_400                    |  18|   0|   18|          0|
+    |maxima_36_fu_404                    |  18|   0|   18|          0|
+    |maxima_37_fu_408                    |  18|   0|   18|          0|
+    |maxima_38_fu_412                    |  18|   0|   18|          0|
+    |maxima_39_fu_416                    |  18|   0|   18|          0|
+    |maxima_3_fu_272                     |  18|   0|   18|          0|
+    |maxima_40_fu_420                    |  18|   0|   18|          0|
+    |maxima_41_fu_424                    |  18|   0|   18|          0|
+    |maxima_42_fu_428                    |  18|   0|   18|          0|
+    |maxima_43_fu_432                    |  18|   0|   18|          0|
+    |maxima_44_fu_436                    |  18|   0|   18|          0|
+    |maxima_45_fu_440                    |  18|   0|   18|          0|
+    |maxima_46_fu_444                    |  18|   0|   18|          0|
+    |maxima_47_fu_448                    |  18|   0|   18|          0|
+    |maxima_4_fu_276                     |  18|   0|   18|          0|
+    |maxima_5_fu_280                     |  18|   0|   18|          0|
+    |maxima_6_fu_284                     |  18|   0|   18|          0|
+    |maxima_7_fu_288                     |  18|   0|   18|          0|
+    |maxima_8_fu_292                     |  18|   0|   18|          0|
+    |maxima_9_fu_296                     |  18|   0|   18|          0|
+    |maxima_fu_260                       |  18|   0|   18|          0|
     |start_once_reg                      |   1|   0|    1|          0|
     |tmp_102_reg_9459                    |   1|   0|    1|          0|
     |tmp_103_reg_9465                    |   1|   0|    1|          0|
@@ -1134,7 +1134,7 @@
     |trunc_ln90_reg_8769                 |   1|   0|    1|          0|
     |word_fu_256                         |   4|   0|    4|          0|
     +------------------------------------+----+----+-----+-----------+
-    |Total                               |1501|   0| 1501|          0|
+    |Total                               |1549|   0| 1549|          0|
     +------------------------------------+----+----+-----+-----------+
 
 
@@ -1156,7 +1156,7 @@
 |ap_ready                   |  out|    1|  ap_ctrl_hs|  scheduled_pool<array,array<ap_fixed<10,5,0,2,0>,48u>,config9,4u>|  return value|
 |start_out                  |  out|    1|  ap_ctrl_hs|  scheduled_pool<array,array<ap_fixed<10,5,0,2,0>,48u>,config9,4u>|  return value|
 |start_write                |  out|    1|  ap_ctrl_hs|  scheduled_pool<array,array<ap_fixed<10,5,0,2,0>,48u>,config9,4u>|  return value|
-|layer8_out_dout            |   in|  816|     ap_fifo|                                                        layer8_out|       pointer|
+|layer8_out_dout            |   in|  864|     ap_fifo|                                                        layer8_out|       pointer|
 |layer8_out_num_data_valid  |   in|    3|     ap_fifo|                                                        layer8_out|       pointer|
 |layer8_out_fifo_cap        |   in|    3|     ap_fifo|                                                        layer8_out|       pointer|
 |layer8_out_empty_n         |   in|    1|     ap_fifo|                                                        layer8_out|       pointer|

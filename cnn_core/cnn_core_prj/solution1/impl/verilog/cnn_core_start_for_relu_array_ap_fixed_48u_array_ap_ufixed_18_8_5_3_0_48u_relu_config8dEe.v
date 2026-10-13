@@ -8,7 +8,7 @@
 `timescale 1ns/1ps
 //RAW latency 1 
 
-module cnn_core_start_for_relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8dEe
+module cnn_core_start_for_relu_array_ap_fixed_48u_array_ap_ufixed_18_8_5_3_0_48u_relu_config8dEe
 #(parameter
     MEM_STYLE    = "shiftReg",
     DATA_WIDTH   = 1,
@@ -43,11 +43,11 @@ module cnn_core_start_for_relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u
     reg                   full_n = 1'b1; 
     // has num_data_valid?  no 
 //------------------------Instantiation------------------
-    cnn_core_start_for_relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8dEe_ShiftReg 
+    cnn_core_start_for_relu_array_ap_fixed_48u_array_ap_ufixed_18_8_5_3_0_48u_relu_config8dEe_ShiftReg 
     #(  .DATA_WIDTH (DATA_WIDTH),
         .ADDR_WIDTH (ADDR_WIDTH),
         .DEPTH      (DEPTH))
-    U_cnn_core_start_for_relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8dEe_ShiftReg (
+    U_cnn_core_start_for_relu_array_ap_fixed_48u_array_ap_ufixed_18_8_5_3_0_48u_relu_config8dEe_ShiftReg (
         .clk        (clk),
         .we         (push),
         .addr       (addr),
@@ -114,7 +114,7 @@ module cnn_core_start_for_relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u
 endmodule  
 
 
-module cnn_core_start_for_relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8dEe_ShiftReg
+module cnn_core_start_for_relu_array_ap_fixed_48u_array_ap_ufixed_18_8_5_3_0_48u_relu_config8dEe_ShiftReg
 #(parameter
     DATA_WIDTH  = 1,
     ADDR_WIDTH  = 1,

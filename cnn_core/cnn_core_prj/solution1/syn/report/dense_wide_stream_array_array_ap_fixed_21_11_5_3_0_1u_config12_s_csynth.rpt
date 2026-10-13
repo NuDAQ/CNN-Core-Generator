@@ -1,9 +1,9 @@
 
 
 ================================================================
-== Vitis HLS Report for 'dense_wide_stream_array_array_ap_fixed_21_12_5_3_0_1u_config12_s'
+== Vitis HLS Report for 'dense_wide_stream_array_array_ap_fixed_21_11_5_3_0_1u_config12_s'
 ================================================================
-* Date:           Thu Sep 17 02:03:16 2026
+* Date:           Mon Oct 12 00:08:32 2026
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        cnn_core_prj
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  5.00 ns|  3.386 ns|     1.35 ns|
+    |ap_clk  |  5.00 ns|  3.396 ns|     1.35 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -29,7 +29,7 @@
     |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
     |   min   |   max   |    min    |    max    | min | max |   Type  |
     +---------+---------+-----------+-----------+-----+-----+---------+
-    |       16|       16|  80.000 ns|  80.000 ns|   16|   16|       no|
+    |       15|       15|  75.000 ns|  75.000 ns|   15|   15|       no|
     +---------+---------+-----------+-----------+-----+-----+---------+
 
     + Detail: 
@@ -38,7 +38,7 @@
         |                                                                                   |                                                                         |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
         |                                      Instance                                     |                                  Module                                 |   min   |   max   |    min    |    max    | min | max |   Type  |
         +-----------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
-        |grp_dense_wide_stream_array_array_ap_fixed_1u_config12_Pipeline_DenseValues_fu_41  |dense_wide_stream_array_array_ap_fixed_1u_config12_Pipeline_DenseValues  |       13|       13|  65.000 ns|  65.000 ns|   13|   13|       no|
+        |grp_dense_wide_stream_array_array_ap_fixed_1u_config12_Pipeline_DenseValues_fu_41  |dense_wide_stream_array_array_ap_fixed_1u_config12_Pipeline_DenseValues  |       12|       12|  60.000 ns|  60.000 ns|   12|   12|       no|
         +-----------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+---------+-----------+-----------+-----+-----+---------+
 
         * Loop: 
@@ -56,12 +56,12 @@
 |DSP              |        -|     -|       -|       -|    -|
 |Expression       |        -|     -|       0|       4|    -|
 |FIFO             |        -|     -|       -|       -|    -|
-|Instance         |        7|    32|    2659|    2013|    -|
+|Instance         |        8|    32|    2720|    1970|    -|
 |Memory           |        -|     -|       -|       -|    -|
 |Multiplexer      |        -|     -|       -|      53|    -|
 |Register         |        -|     -|       6|       -|    -|
 +-----------------+---------+------+--------+--------+-----+
-|Total            |        7|    32|    2665|    2070|    0|
+|Total            |        8|    32|    2726|    2027|    0|
 +-----------------+---------+------+--------+--------+-----+
 |Available        |      960|  1824|  433920|  216960|   64|
 +-----------------+---------+------+--------+--------+-----+
@@ -73,9 +73,9 @@
     +-----------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+----+------+------+-----+
     |                                      Instance                                     |                                  Module                                 | BRAM_18K| DSP|  FF  |  LUT | URAM|
     +-----------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+----+------+------+-----+
-    |grp_dense_wide_stream_array_array_ap_fixed_1u_config12_Pipeline_DenseValues_fu_41  |dense_wide_stream_array_array_ap_fixed_1u_config12_Pipeline_DenseValues  |        7|  32|  2659|  2013|    0|
+    |grp_dense_wide_stream_array_array_ap_fixed_1u_config12_Pipeline_DenseValues_fu_41  |dense_wide_stream_array_array_ap_fixed_1u_config12_Pipeline_DenseValues  |        8|  32|  2720|  1970|    0|
     +-----------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+----+------+------+-----+
-    |Total                                                                              |                                                                         |        7|  32|  2659|  2013|    0|
+    |Total                                                                              |                                                                         |        8|  32|  2720|  1970|    0|
     +-----------------------------------------------------------------------------------+-------------------------------------------------------------------------+---------+----+------+------+-----+
 
     * DSP: 
@@ -129,13 +129,13 @@
 +---------------------------+-----+-----+------------+-------------------------------------------------------------------+--------------+
 |         RTL Ports         | Dir | Bits|  Protocol  |                           Source Object                           |    C Type    |
 +---------------------------+-----+-----+------------+-------------------------------------------------------------------+--------------+
-|ap_clk                     |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<21,12,5,3,0>,1u>,config12>|  return value|
-|ap_rst                     |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<21,12,5,3,0>,1u>,config12>|  return value|
-|ap_start                   |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<21,12,5,3,0>,1u>,config12>|  return value|
-|ap_done                    |  out|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<21,12,5,3,0>,1u>,config12>|  return value|
-|ap_continue                |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<21,12,5,3,0>,1u>,config12>|  return value|
-|ap_idle                    |  out|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<21,12,5,3,0>,1u>,config12>|  return value|
-|ap_ready                   |  out|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<21,12,5,3,0>,1u>,config12>|  return value|
+|ap_clk                     |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<21,11,5,3,0>,1u>,config12>|  return value|
+|ap_rst                     |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<21,11,5,3,0>,1u>,config12>|  return value|
+|ap_start                   |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<21,11,5,3,0>,1u>,config12>|  return value|
+|ap_done                    |  out|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<21,11,5,3,0>,1u>,config12>|  return value|
+|ap_continue                |   in|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<21,11,5,3,0>,1u>,config12>|  return value|
+|ap_idle                    |  out|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<21,11,5,3,0>,1u>,config12>|  return value|
+|ap_ready                   |  out|    1|  ap_ctrl_hs|  dense_wide_stream<array,array<ap_fixed<21,11,5,3,0>,1u>,config12>|  return value|
 |layer9_out_dout            |   in|  480|     ap_fifo|                                                         layer9_out|       pointer|
 |layer9_out_num_data_valid  |   in|    3|     ap_fifo|                                                         layer9_out|       pointer|
 |layer9_out_fifo_cap        |   in|    3|     ap_fifo|                                                         layer9_out|       pointer|

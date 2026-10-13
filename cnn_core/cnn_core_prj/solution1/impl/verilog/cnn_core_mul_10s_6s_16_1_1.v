@@ -2,7 +2,7 @@
 
 `timescale 1 ns / 1 ps
 
-  (* use_dsp = "yes" *)  module cnn_core_mul_10s_5s_15_1_1(din0, din1, dout);
+  module cnn_core_mul_10s_6s_16_1_1(din0, din1, dout);
 parameter ID = 1;
 parameter NUM_STAGE = 0;
 parameter din0_WIDTH = 14;

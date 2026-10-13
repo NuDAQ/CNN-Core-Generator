@@ -9,19 +9,19 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity cnn_core_mac_muladd_10s_5s_16s_16_1_1_DSP48_3 is
+entity cnn_core_mac_muladd_10s_6s_11s_16_1_1_DSP48_1 is
 port (
     in0:  in  std_logic_vector(10 - 1 downto 0);
-    in1:  in  std_logic_vector(5 - 1 downto 0);
-    in2:  in  std_logic_vector(16 - 1 downto 0);
+    in1:  in  std_logic_vector(6 - 1 downto 0);
+    in2:  in  std_logic_vector(11 - 1 downto 0);
     dout: out std_logic_vector(16 - 1 downto 0));
 
     attribute use_dsp : string;
-    attribute use_dsp of cnn_core_mac_muladd_10s_5s_16s_16_1_1_DSP48_3 : entity is "yes";
+    attribute use_dsp of cnn_core_mac_muladd_10s_6s_11s_16_1_1_DSP48_1 : entity is "yes";
 
 end entity;
 
-architecture behav of cnn_core_mac_muladd_10s_5s_16s_16_1_1_DSP48_3 is
+architecture behav of cnn_core_mac_muladd_10s_6s_11s_16_1_1_DSP48_1 is
     signal a       : signed(27-1 downto 0);
     signal b       : signed(18-1 downto 0);
     signal c       : signed(48-1 downto 0);
@@ -41,7 +41,7 @@ end architecture;
 Library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity cnn_core_mac_muladd_10s_5s_16s_16_1_1 is
+entity cnn_core_mac_muladd_10s_6s_11s_16_1_1 is
     generic (
         ID : INTEGER;
         NUM_STAGE : INTEGER;
@@ -56,8 +56,8 @@ entity cnn_core_mac_muladd_10s_5s_16s_16_1_1 is
         dout : OUT STD_LOGIC_VECTOR(dout_WIDTH - 1 DOWNTO 0));
 end entity;
 
-architecture arch of cnn_core_mac_muladd_10s_5s_16s_16_1_1 is
-    component cnn_core_mac_muladd_10s_5s_16s_16_1_1_DSP48_3 is
+architecture arch of cnn_core_mac_muladd_10s_6s_11s_16_1_1 is
+    component cnn_core_mac_muladd_10s_6s_11s_16_1_1_DSP48_1 is
         port (
             in0 : IN STD_LOGIC_VECTOR;
             in1 : IN STD_LOGIC_VECTOR;
@@ -68,7 +68,7 @@ architecture arch of cnn_core_mac_muladd_10s_5s_16s_16_1_1 is
 
 
 begin
-    cnn_core_mac_muladd_10s_5s_16s_16_1_1_DSP48_3_U :  component cnn_core_mac_muladd_10s_5s_16s_16_1_1_DSP48_3
+    cnn_core_mac_muladd_10s_6s_11s_16_1_1_DSP48_1_U :  component cnn_core_mac_muladd_10s_6s_11s_16_1_1_DSP48_1
     port map (
         in0 => din0,
         in1 => din1,

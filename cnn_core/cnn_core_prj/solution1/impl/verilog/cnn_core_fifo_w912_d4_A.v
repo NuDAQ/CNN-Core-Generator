@@ -8,10 +8,10 @@
 `timescale 1ns/1ps
 //RAW latency 2 
 
-module cnn_core_fifo_w816_d4_A
+module cnn_core_fifo_w912_d4_A
 #(parameter
     MEM_STYLE    = "auto",
-    DATA_WIDTH   = 816,
+    DATA_WIDTH   = 912,
     ADDR_WIDTH   = 2,
     DEPTH        = 3)
 (
@@ -55,12 +55,12 @@ module cnn_core_fifo_w816_d4_A
     reg                   dout_vld = 1'b0;
 
 //------------------------Instantiation------------------
-    cnn_core_fifo_w816_d4_A_ram 
+    cnn_core_fifo_w912_d4_A_ram 
     #(  .MEM_STYLE  (MEM_STYLE),
         .DATA_WIDTH (DATA_WIDTH),
         .ADDR_WIDTH (ADDR_WIDTH),
         .DEPTH      (DEPTH)
-    ) U_cnn_core_fifo_w816_d4_A_ram (
+    ) U_cnn_core_fifo_w912_d4_A_ram (
         .clk        (clk),
         .reset      (reset),
         .we         (push),
@@ -185,10 +185,10 @@ module cnn_core_fifo_w816_d4_A
 endmodule
 
 
-module cnn_core_fifo_w816_d4_A_ram
+module cnn_core_fifo_w912_d4_A_ram
 #(parameter
     MEM_STYLE   = "auto",
-    DATA_WIDTH  = 816,
+    DATA_WIDTH  = 912,
     ADDR_WIDTH  = 2,
     DEPTH       = 3)
 (

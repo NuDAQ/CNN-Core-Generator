@@ -1,8 +1,8 @@
 {
   "corpus": "built_in",
   "files": {
-    "rtl_expected_words.hex": "fdeafb17a6024fa2ce0718c509a2f3a0dccb6106a096e98a0c9fdb674ebccab7",
-    "rtl_input_words.hex": "4da6e1324a92844fcd434381177f4716b7794a3bc29100bef25b381b116167c5"
+    "rtl_expected_words.hex": "f9507949e65c16fe0547d0beb2c029e4f401f2174367dd9c57084d4f179917b6",
+    "rtl_input_words.hex": "5817e1b960e576751f9309079959055945966d1949570e7809fce467761380ae"
   },
   "input_tdata_bits": 512,
   "input_words_per_inference": 32,

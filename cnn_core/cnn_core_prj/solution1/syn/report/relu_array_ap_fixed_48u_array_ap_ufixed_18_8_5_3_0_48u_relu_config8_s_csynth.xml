@@ -8,7 +8,7 @@
 <unit>ns</unit>
 <ProductFamily>kintexuplus</ProductFamily>
 <Part>xcku5p-ffvb676-2-e</Part>
-<TopModelName>relu_array_ap_fixed_48u_array_ap_ufixed_17_8_5_3_0_48u_relu_config8_s</TopModelName>
+<TopModelName>relu_array_ap_fixed_48u_array_ap_ufixed_18_8_5_3_0_48u_relu_config8_s</TopModelName>
 <TargetClockPeriod>5.00</TargetClockPeriod>
 <ClockUncertainty>1.35</ClockUncertainty>
 <FlowTarget>vivado</FlowTarget>
@@ -18,7 +18,7 @@
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>2.896</EstimatedClockPeriod>
+<EstimatedClockPeriod>2.907</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -60,8 +60,8 @@
 
 <AreaEstimates>
 <Resources>
-<FF>826</FF>
-<LUT>2157</LUT>
+<FF>874</FF>
+<LUT>2205</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP>0</DSP>
 <URAM>0</URAM>
@@ -78,7 +78,7 @@
 <InterfaceSummary>
 <RtlPorts>
 <name>ap_clk</name>
-<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;17,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
+<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;18,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -89,7 +89,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_rst</name>
-<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;17,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
+<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;18,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -100,7 +100,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_start</name>
-<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;17,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
+<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;18,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -111,7 +111,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>start_full_n</name>
-<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;17,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
+<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;18,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -122,7 +122,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_done</name>
-<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;17,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
+<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;18,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -133,7 +133,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_continue</name>
-<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;17,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
+<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;18,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -144,7 +144,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_idle</name>
-<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;17,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
+<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;18,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -155,7 +155,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_ready</name>
-<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;17,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
+<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;18,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -166,7 +166,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>start_out</name>
-<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;17,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
+<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;18,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -177,7 +177,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>start_write</name>
-<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;17,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
+<Object>relu&lt;array&lt;ap_fixed,48u&gt;,array&lt;ap_ufixed&lt;18,8,5,3,0&gt;,48u&gt;,relu_config8&gt;</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -194,7 +194,7 @@
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>864</Bits>
+<Bits>912</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
@@ -249,7 +249,7 @@
 <IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
-<Bits>816</Bits>
+<Bits>864</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
